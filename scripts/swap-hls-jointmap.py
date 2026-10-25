@@ -7,7 +7,8 @@
 舵机已按新映射改号完毕。本脚本对部署副本（默认板上
 ~/hls_servo_debugger/hls_debugger/provision.py）做左右 ID 组交换：
 left_* 行的 ID 20-24 → 10-14，right_* 行的 ID 10-14 → 20-24；
-关节名、home 角、部位名、头颈 30-34 全部保持不动。
+关节名、home 角、部位名、头颈 30-34 全部保持不动（30/31 头颈名称另由
+swap-hls-headneck.py 在 2026-10-22 交换）。
 幂等：已交换过的文件再跑会换回去——脚本会先检测并报警。
 
 用法（板上）：python3 swap-hls-jointmap.py [provision.py 路径]

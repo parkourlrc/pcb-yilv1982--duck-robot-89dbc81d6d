@@ -49,3 +49,9 @@
 - 本机记录：[eMMC 线刷记录](../emmc-flash-radxa-zero3w-20261013/research.md)「DAPLink 连接排障」条目、`PROGRESS.md` 2026-10-13 条目（假在线、线×口教训）。
 - 本机原始数据：`../emmc-flash-radxa-zero3w-20261013/serial-logs/serial-20261013-222523.log`（22:25–00:07 会话，无结束行）、`serial-20261013-233423/233544/233653.log`（三个只有头的重试会话）。
 - 2026-10-14 实时查询：pyserial `list_ports`、PowerShell `Get-PnpDevice`（本机执行，见上节）。
+
+## 2026-10-25 状态抽检（本机实测）
+
+DAPLink 克隆当前插在本机，`tools/scan-usb.ps1` 枚举正常：CDC = **COM3**（`VID_C251&PID_F001&MI_00`）、CMSIS-DAP HID 在位（`MI_02`）、iSerial `LU_2022_8888` 与本档案一致，设备状态全 OK、无异常设备。仅确认枚举，未做串口收发或 OpenOCD 握手测试。
+
+**同日 SWD 探测（用户把双口 IMU（imu_to_dxl v0.3）接在 DAPLink 后）**：CMSIS-DAP 通道工作正常（`Interface Initialised`、FW 1.0），但 **SWD 目标无应答**——`Error connecting DP: cannot read IDR`，100/200 kHz 设速均同（该克隆 FW 实际恒报 clock speed 2000 kHz，忽略设速值；本档案 2026-10-14 亦记录过 SWD 复活后 OpenOCD 握手可全过，故此次无应答指向目标侧而非调试器侧）。待查（按序）：①v0.3 板 J1/J3 是否已给 5V 供电（J2-1 对 GND 应 ~3.3V；VBATT 红线只允许 5V，见 flash/README 事故记录）；②J2 线序 J2-2→SWCLK / J2-3→SWDIO / J2-4→GND / J2-1→VTref，CLK/DIO 是否接反；③无效再接 J2-7(RST)→NRST。探测只做了 init/targets，未烧录。

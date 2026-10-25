@@ -59,4 +59,21 @@
 
 - 现象：用户报告 `ssh radxa` 连不上。实测排查：ping 192.168.1.35 通（6ms）、TCP 22 有 sshd 应答——**板子 WiFi 正常、IP 未变、sshd 存活**；根因在电脑侧：`~/.ssh/config`（radxa 别名）与私钥文件均不存在（目录只剩 known_hosts），2026-10-14 配置的免密整套丢失，原因不明（本机未再查）。
 - 修复（2026-10-10-16 当轮完成）：`ssh-keygen` 重新生成 ed25519 密钥（注释 duck-robot-win）→ 重建 `~/.ssh/config`（radxa → 192.168.1.35 / User radxa）→ paramiko 密码登录（radxa/radxa）将公钥追加进板端 `~/.ssh/authorized_keys` → 实测 `ssh radxa` 免密连通（SSH_OK，板名 radxa-zero3，feetech-ping.py 在位）。plink 管道方式在 Git Bash 下无输出挂死，弃用。
-- 遗留风险：**config 写死 192.168.1.35，而板子是 DHCP**——IP 一变 ssh radxa 又会断。建议路由器给板子 MAC 绑静态租约，或板上 NetworkManager 固定 IP（待做）。本次上电 uptime 16 分钟，中途重启过一次（用户接舵机前后，怀疑供电波动，见 PROGRESS 同日志）。
+- 遗留风险：**config 写死 192.168.1.35，而板子是 DHCP**——IP 一变 ssh radxa 又会断。建议路由器给板子 MAC 绑静态租约，或板上 NetworkManager 固定 IP（待做；**2026-10-25 已在板上完成并经重启验证，见下方 2026-10-25 补充**）。本次上电 uptime 16 分钟，中途重启过一次（用户接舵机前后，怀疑供电波动，见 PROGRESS 同日志）。
+
+## 2026-10-25 补充：DHCP 漂移遗留风险关闭——板上固定静态 IP（本机实测）
+
+- 现象与过程：用户重启 radxa 后，DHCP 把板子租到 192.168.1.34，与本机（Windows，亦为 192.168.1.34）冲突——SSH 到 .34 端口 22 被拒，实为连到本机自己（无 sshd）。再重启一次后用户确认 **WiFi 未关联**：全 /24 TCP 22 异步扫描仅 192.168.1.9（Linksys EA6700 路由器，dropbear，SSH 可登录但非本板）应答，.34/.35 各端口（22/8080/8765/8766）全关。断电重新上电后板子自动回到 192.168.1.35（本机后台扫描器捕获），board uptime 8 分钟。
+- 操作（本机经 `ssh radxa` 执行，本机实测）：radxa 用户直接 `nmcli con mod` 报 `Insufficient privileges`（polkit），须 sudo（密码 radxa）：
+
+  ```bash
+  sudo nmcli con mod 'CU_M9pw_5G' ipv4.method manual \
+       ipv4.addresses 192.168.1.35/24 \
+       ipv4.gateway 192.168.1.1 \
+       ipv4.dns '192.168.1.1'
+  sudo nmcli dev reapply wlan0   # 不断链，SSH 会话存活
+  ```
+
+- 验证（本机实测）：`nmcli -g ipv4.method,ipv4.addresses,ipv4.gateway,ipv4.dns` 回读 `manual / 192.168.1.35/24 / 192.168.1.1 / 192.168.1.1`；`ip addr` 不再带 dynamic 标记，默认路由 `proto static`（原 `proto dhcp`）；下发 `systemctl reboot` 后板子自动回 .35，**uptime 0 分钟时上述配置全部保持**。
+- 影响：本机 `~/.ssh/config` 的 radxa→192.168.1.35 别名、各文档中 `http://192.168.1.35:8080/8765/8766` 地址从此稳定；此前"IP 为 DHCP 每次重启会变、用前须 `tools/scan-lan.ps1` 重扫"的要求作废。
+- 残余风险与未决：①路由器 DHCP 池若含 .35，仍可能把 .35 租给其他设备引起冲突（根因级做法是路由器给板子 MAC 绑保留地址，本机无路由器管理权，未做）；②本日一次"重启后 WiFi 未关联"以断电重上电恢复，原因未查（同日存在总线风暴/疑似供电波动背景，见 [bus-storm-power-20261025](../bus-storm-power-20261025/research.md)），再现再查；③扫描时注意网内 192.168.1.9 另有一台 Linksys EA6700 开着 SSH（dropbear），勿认作 radxa（认板先 `hostname` 应为 radxa-zero3）。

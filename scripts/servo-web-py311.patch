@@ -1,0 +1,12 @@
+--- a/feetech.py (upstream 0.15.2, unchanged)	2026-10-11 23:59:23.795734900 +0800
++++ b/feetech.py (board deploy copy, py3.11)	2026-10-22 07:27:32.122255400 +0800
+@@ -140,7 +140,8 @@
+             raise BusError(f"等 id {expect_id} 的应答，来的是 id {sid}（ff ff {hexs(rest + body)}）")
+         self.stats["rx_ok"] += 1
+         if self.trace and self._last[1] not in self.trace_skip:
+-            self.trace(f"← #{sid} 状态0x{err:02X} {hexs(b'\xff\xff' + rest + body)}"
++            head = b'\xff\xff'
++            self.trace(f"← #{sid} 状态0x{err:02X} {hexs(head + rest + body)}"
+                        + (f"  数据 {list(params)}" if params else ""))
+         return sid, err, bytes(params)
+ 

@@ -1,0 +1,122 @@
+--- a/ (upstream, unchanged)app.js	2026-10-11 23:59:23.428400900 +0800
++++ b/ (board deploy copy)app.js	2026-10-23 08:22:31.872105500 +0800
+@@ -122,6 +122,7 @@
+         button.classList.add("active");
+         const panel = $("tab-" + button.dataset.tab);
+         if (panel) panel.classList.add("active");
++        if (button.dataset.tab === "provision") refreshProvTorqueButton();
+       });
+     });
+   }
+@@ -190,6 +191,7 @@
+     if (data) {
+       await refreshStatus();
+       await refreshLogs();
++      refreshProvTorqueButton();
+     }
+   }
+ 
+@@ -963,6 +965,7 @@
+         renderProvProgress();
+         renderProvStep();
+         updateProvButtons();
++        refreshProvTorqueButton();
+         showResult("provResult", "已切换到 " + joint.name + "（ID " + joint.id + "）。点击“检测总线”开始。");
+       });
+       wrap.appendChild(item);
+@@ -1047,6 +1050,7 @@
+   function setProvBusy(busy) {
+     S.prov.busy = !!busy;
+     updateProvButtons();
++    if (!busy) refreshProvTorqueButton();
+   }
+ 
+   // 用一次"完整点名"（15 个关节逐个 PING）的结果刷新黄色状态。
+@@ -1301,13 +1305,49 @@
+     return on.length ? on.join("+") : "全关";
+   }
+ 
+-  async function provisionTorqueOff() {
++  // 读取当前选中舵机的 40 号（扭矩开关），让按钮按实际状态显示反向操作：
++  // 扭矩关着 →「打开扭矩」；开着 →「关闭扭矩（卸力）」。
++  // 读不到（串口未连 / 舵机不在线 / 正在忙）就退回默认「关闭扭矩（卸力）」，行为同旧版。
++  async function refreshProvTorqueButton() {
++    const btn = $("btnProvTorqueOff");
++    const joint = provSelected();
++    if (!btn) return;
++    if (!joint) {
++      btn.textContent = "关闭扭矩（卸力）";
++      delete btn.dataset.on;
++      return;
++    }
++    if (S.prov.busy) return;
++    const jointId = joint.id;
++    try {
++      const data = await api("/api/read", "POST", { id: jointId, addr: 40, length: 1, timeout_ms: getTimeoutMs(200) });
++      if (S.prov.busy || !provSelected() || provSelected().id !== jointId) return;
++      const on = ((data.data || [])[0] || 0) !== 0;
++      btn.textContent = on ? "关闭扭矩（卸力）" : "打开扭矩";
++      btn.dataset.on = on ? "1" : "0";
++    } catch (err) {
++      btn.textContent = "关闭扭矩（卸力）";
++      delete btn.dataset.on;
++    }
++  }
++
++  async function provisionTorqueToggle() {
+     const joint = provSelected();
+     if (!joint) return;
+     setProvBusy(true);
+-    const data = await safe(api("/api/torque", "POST", { id: joint.id, enable: 0 }), "已发送关闭扭矩");
++    // 点击时现读 40 号再决定写 0 还是 1；读不到就默认写 0（关闭，与旧版一致）。
++    let enable = 0;
++    try {
++      const data = await api("/api/read", "POST", { id: joint.id, addr: 40, length: 1, timeout_ms: getTimeoutMs(200) });
++      if (((data.data || [])[0] || 0) !== 0) enable = 0;
++      else enable = 1;
++    } catch (err) {
++      enable = 0;
++    }
++    const label = enable ? "打开扭矩" : "关闭扭矩";
++    const data = await safe(api("/api/torque", "POST", { id: joint.id, enable }), "已发送" + label);
+     setProvBusy(false);
+-    if (data) showResult("provResult", "已对 ID " + joint.id + " 写 40 号 = 0（关闭扭矩）。");
++    if (data) showResult("provResult", "已对 ID " + joint.id + " 写 40 号 = " + enable + "（" + label + "）。");
+   }
+ 
+   function provisionNext() {
+@@ -1326,6 +1366,7 @@
+     renderProvProgress();
+     renderProvStep();
+     updateProvButtons();
++    refreshProvTorqueButton();
+     const now = provSelected();
+     showResult("provResult", "请断电，换上 " + now.name + "（ID " + now.id +
+       "）的新舵机（出厂 ID " + S.prov.factoryId + "），然后点“检测总线”。");
+@@ -1340,6 +1381,7 @@
+     renderProvProgress();
+     renderProvStep();
+     updateProvButtons();
++    refreshProvTorqueButton();
+     renderProvSnapshot(null);
+     $("provCensus").innerHTML = "";
+     showResult("provResult", "进度已重置。");
+@@ -1482,7 +1524,7 @@
+     $("btnProvRun").addEventListener("click", provisionRun);
+     $("btnProvNext").addEventListener("click", provisionNext);
+     $("btnProvCensus").addEventListener("click", provisionCensus);
+-    $("btnProvTorqueOff").addEventListener("click", provisionTorqueOff);
++    $("btnProvTorqueOff").addEventListener("click", provisionTorqueToggle);
+     $("btnProvReset").addEventListener("click", provisionReset);
+     $("provCalibrate").addEventListener("change", updateProvCalibrate);
+     $("provReference").addEventListener("change", updateProvButtons);
+--- a/ (upstream, unchanged)index.html	2026-10-11 23:59:23.429398200 +0800
++++ b/ (board deploy copy)index.html	2026-10-23 08:22:37.239947700 +0800
+@@ -603,6 +603,6 @@
+ </div>
+ 
+ <div id="toast" class="toast"></div>
+-<script src="/static/app.js"></script>
++<script src="/static/app.js?v=20261023"></script>
+ </body>
+ </html>

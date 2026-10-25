@@ -21,12 +21,12 @@ from pathlib import Path
 import mujoco
 import mujoco.viewer
 
-# 模型 joint 名 -> 舵机 ID（本机映射：10-14 左腿 / 20-24 右腿）
+# 模型 joint 名 -> 舵机 ID（2026-10-24 起对齐上游 microduck_feetech：20-24 左腿 / 10-14 右腿；30=neck_pitch、31=head_pitch）
 JOINTS = [
-    ("left_hip_yaw", 10), ("left_hip_roll", 11), ("left_hip_pitch", 12),
-    ("left_knee", 13), ("left_ankle", 14),
-    ("right_hip_yaw", 20), ("right_hip_roll", 21), ("right_hip_pitch", 22),
-    ("right_knee", 23), ("right_ankle", 24),
+    ("left_hip_yaw", 20), ("left_hip_roll", 21), ("left_hip_pitch", 22),
+    ("left_knee", 23), ("left_ankle", 24),
+    ("right_hip_yaw", 10), ("right_hip_roll", 11), ("right_hip_pitch", 12),
+    ("right_knee", 13), ("right_ankle", 14),
     ("neck_pitch", 30), ("head_pitch", 31), ("head_yaw", 32),
     ("head_roll", 33),
 ]
@@ -34,6 +34,9 @@ SIGNS = {name: -1.0 for name, _ in JOINTS}
 
 COUNTS_PER_TURN = 4096.0
 CENTER = 2048
+# 软件零位表保持空：旧 {22:1198} 是 2026-10-23 #22（当时右髋 pitch）的临时零位，
+# 22 号当日已重校，且 2026-10-24 改号后 ID 语义变化，硬编码会错挂到左髋 pitch。
+ZERO_COUNTS = {}
 
 
 def read_pos(url, sid):
@@ -67,7 +70,7 @@ def main():
             for name, sid in JOINTS:
                 try:
                     counts = read_pos(a.url, sid)
-                    rad = SIGNS[name] * (counts - CENTER) * 2 * 3.14159265 \
+                    rad = SIGNS[name] * (counts - ZERO_COUNTS.get(sid, CENTER)) * 2 * 3.14159265 \
                         / COUNTS_PER_TURN
                     data.joint(name).qpos[0] = rad
                 except Exception:

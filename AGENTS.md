@@ -22,6 +22,7 @@
 | [`docs/photos/`](docs/photos/README.md) | 用户硬件原始照片、硬件标注图及索引。 |
 | [`docs/schematics/`](docs/schematics/README.md) | 原理图、设计源文件、网表及来源/版本说明；图纸与实物对应关系必须写明。 |
 | [`docs/video-notes/`](docs/video-notes/) | 视频笔记、时间戳与核验材料，不能将讲解当作本机实测。 |
+| [`docs/specs/`](docs/specs/README.md) | 功能/修改任务的 spec 存档；每任务一个 `YYYYMMDD-主题/` 目录，流程见[简单 Spec 开发流程](docs/spec-process.md)。 |
 | [`hardware/banana_pcb/`](hardware/banana_pcb/README.md) | 本项目取电板工作副本、KiCad 工程和生产文件；来源见 `SOURCE.md` 与 `source-manifest.json`。 |
 | [`flash/`](flash/README.md) | 本项目 IMU 固件、烧录脚本、HEX 校验及验收工具。 |
 | [`training/`](training/README.md) | 本项目 real2sim2real 学习工程：物理参数表、自建物理 MJCF/任务/PPO 入口与 MuJoCo 回放；显示层允许按来源许可复用精细网格，训练物理与任务不整包替换；产物仅仿真学习，不驱动实物。 |
@@ -45,6 +46,8 @@
 | [README.md](README.md) | 项目总览、当前路线及参考库关系。 |
 | [PROGRESS.md](PROGRESS.md) | 本机进展、已到货/在途、未解决事项与后续步骤。 |
 | [BOM.md](BOM.md) | C 线物料、数量、状态及采购缺口。 |
+| [real2sim2real 工具链计划](docs/real2sim2real-toolchain-plan.md) | 自建工具链总体规划：real2sim 参数管线、训练管线、sim2real 部署与回灌闭环、分阶段计划（2026-10-22 立项，计划非完成记录）。 |
+| [简单 Spec 开发流程](docs/spec-process.md) | 功能开发五阶段（需求确认 → 文档确认 → 修改方案 → 编码 → 提交）与 spec 落盘模板（2026-10-23 立项）。 |
 | [供电架构 v2](docs/power-architecture-v2.md) | 当前供电架构讨论基线，**不代表 HAT V1.2 或整机带载已验证**；须结合下面的复核记录。 |
 | [供电与 HAT 实物复核](docs/references/power-review-20261010/research.md) | 电流预算、分支前提、两口/八焊盘识别、LDO 标注及尚未验证的风险。 |
 | [堵转是否会烧 HAT：风险核查](docs/references/stall-hat-risk-20261010/research.md) | 区分电流路径、短时/持续堵转、保护默认关闭与实际耐受；先核验，不将配电改造预设为结论。 |
@@ -137,6 +140,12 @@
 - 上电相关的检查从密，纯软件验证能省则省，效率优先。
 - **2026-10-16 强化：非必要测试一律不做，先跑通，有问题再排查。** 硬件链现行只保留 HAT 空板 5V 电压轨一道实测门与插接线极性/针序目视核对；端点电压、电平核验、静置观察、IMU 分步台架验收等降级为排查项（舵机保护位回读延至带载动作前）。精简范围见 [HAT 测试单·最短路径](docs/hat-v1.2-test.md)。
 - 用户当轮明确指示优先于本文件其他规则。
+
+### 8. 简单 Spec 开发流程（2026-10-23 用户指示）
+
+- 功能开发与修改类任务按五阶段执行：**需求确认 → 文档确认 → 修改方案 → 编码 → 提交**；前一阶段未获用户确认不进入下一阶段。纯调研、问答、照片归档、硬件核对排障与上电操作不套用本流程，仍按对应规则执行。
+- 需求确认须复述需求、负面范围与验收标准，有歧义先问清不猜；文档确认须核对现行入口、证据等级与待确认项；修改方案经用户批准后方可编码，编码不得擅自扩大范围，必须偏离时回到方案阶段重新确认；提交阶段遵循第 4 条——默认保留工作区，用户明确要求时才 commit/push。
+- 阶段结论落盘到 `docs/specs/<YYYYMMDD-主题>/spec.md`（模板与细则见 [简单 Spec 开发流程](docs/spec-process.md)），关键决定不留只在聊天里。
 
 ## 五、Windows 与安全边界
 

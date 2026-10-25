@@ -21,7 +21,7 @@
 | [imu-ldo-location.png](./imu-ldo-location.png) | IMU 板 U3 定位及放大图 | 2026-10-10（制作） | 本会话生成，源图为下行的用户实物标注原件；去掉错误的 5.5V 上限说明，按设计识别 AP2210K-3.3 | [供电复核](../references/power-review-20261010/research.md) |
 | [IMU 旧实物标注原件](../schematics/imu-to-dxl-scrapmeta-v0.3/实物板元件标注.jpg) | IMU 板历史总览 | 2026-10-09（原登记） | 原件已在原理图专题保存；**电压说明过期，不用于接线**，仅保留来源追溯 | U3 位置说明使用上行新版 |
 | [hat-v1.2-port-review.png](./hat-v1.2-port-review.png) | HAT V1.2 接口复核 | 2026-10-10（制作） | 本会话生成；源图为本表正反面原图，标出两个 3Pin 口、两组 4Pin 空位及圆柱电容；背面旋转 90° | [供电复核](../references/power-review-20261010/research.md)，入口仍待电气核验 |
-| [hat-v1.2-wiring-plan.png](./hat-v1.2-wiring-plan.png) | HAT 单链供电意向图 | 2026-10-10（制作） | 本轮用户指定本表 `hat-v1.2-port-review.png` 为底图（已有原件，不重复拷贝）；裁出正背面面板，加 A/B/C 和功能箭头。脚本 `scripts/annotate-hat-wiring.py`；**不标照片上下针极性，非上电放行** | [验证单](../hat-v1.2-test.md)、[供电记录](../references/power-review-20261010/research.md) |
+| [hat-v1.2-wiring-plan.png](./hat-v1.2-wiring-plan.png) | HAT 单链供电历史意向图（非当前实物接线图） | 2026-10-10（制作） | 本轮用户指定本表 `hat-v1.2-port-review.png` 为底图（已有原件，不重复拷贝）；裁出正背面面板，加 A/B/C 和功能箭头。脚本 `scripts/annotate-hat-wiring.py`；**不标照片上下针极性，不代表 10-24 的外部分叉或 10-25 单口 IMU 改接第二口，也非上电放行** | [当前接线记录](../references/power-distribution-comparison-20261010/research.md#hat-port2-20261025)、[验证单](../hat-v1.2-test.md) |
 | [hat-v1.2-servos-closeup-user-20261010.png](./hat-v1.2-servos-closeup-user-20261010.png) | 用户提供的 HAT SERVOS 局部图 | 2026-10-10（收到） | 从本轮剪贴板临时附件原样归档，保留 A/B 框选；对应疑似 EH 3Pin 板端座，照片不独立证明实物额定/品牌 | [接口与配电比较](../references/power-distribution-comparison-20261010/research.md) |
 | [dxl-hub-power-distribution-explained.png](./dxl-hub-power-distribution-explained.png) | 社区 dxl_hub 配电解释图 | 2026-10-10（制作） | 来源为只读社区库 `hardware/dxl_hub/docs/1.jpg`；脚本 `scripts/annotate-dxl-hub-power.py`，框示 J3 输入与分支；**是另一块板的设计图，不是本机 HAT 接线图** | [配电比较及证据](../references/power-distribution-comparison-20261010/research.md) |
 | [hat-v1.2-a1-pinout.jpg](./hat-v1.2-a1-pinout.jpg) | HAT A1 量点标注 | 2026-10-11 | 舵机口 pin1 ↔ 排母 pin6 定位方法（脚本 `scripts/annotate-hat-a1.py`） | HAT A 段核对 |
@@ -124,7 +124,7 @@
 | 小信号芯片区 | SOT-23-5/6 多颗（LDO/74LVC/LM5050 等，待 V1.2 图对照） |
 | 焊盘 ×8 | 对应正面两组 4Pin 空接口，不是已确认的独立电池输入 |
 
-**接口结论**：照片中只明确看到两个已焊接 SERVOS 3Pin 口，未识别出标注 BAT/VIN 的独立电池入口。现将用户提出的流程画为[接线意向图](./hat-v1.2-wiring-plan.png)：A 两线进电、B 接单条舵机链与末端 IMU、C 对插主控。这与“两口各接一条舵机链”不同；实物针序/路径/载流未核准，不能凭图上电。详见[复核记录](../references/power-review-20261010/research.md)。
+**接口结论（2026-10-10 照片复核及旧意向）**：照片中只明确看到两个已焊接 SERVOS 3Pin 口，未识别出标注 BAT/VIN 的独立电池入口；A 两线进电、B 单链加末端 IMU、C 对插主控仅历史意向。10-24 用户曾描述单口外部分叉到两腿和 IMU；**10-25 晚已将同一块单口 IMU 移至 HAT 第二个 3P 口**。该更新仅文字口述，本轮没有新照片附件，本索引仍无当前全机接线图；不把“第二口”映射成旧图 A/B。详见[当前接线记录](../references/power-distribution-comparison-20261010/research.md#hat-port2-20261025)。
 
 **行动项**：接线/上电前向板卡来源索取 **V1.2 原理图或改动说明**（重点：MCU 功能与固件、+BATT 入口形式、舵机口供电路径是否与 V1.0 一致）。供电架构分析（[power-architecture-v2.md](../power-architecture-v2.md)）基于 V1.0 图，舵机口 +BATT 直通等结论需按 V1.2 实物复核。
 
@@ -184,6 +184,8 @@
 | 板面丝印 | 正面有日期类标记（约 2026/9/7x）及字样；背面仅板厂标记 94V-0 / E469747 / HQPCB-2，无版本号 |
 
 **与之前调研的差异（待确认）**：2026-10-09 调研记录称 jyg9 版"板上带 CH340 调试口"，本板照片上**未见 USB 座或 CH340**，调试/升级通道待核对（可能走总线在线升级 `upgrade.py`，或有未识别的排针焊盘）。
+
+**2026-10-25 指示灯复核**：该单口板照片未见电源/状态 LED，对应社区 `hardware/imu_to_dxl/imu_to_dxl.kicad_sch` 也未列 LED；D1/D2 是保护器件。固件 `board.h:77` 的 PB5 灯明确只属于开发板，不用于要求该成品板必须亮灯。用户本轮口头“板一”指这块单口板（历史文档板②），烧损的是双口板；后续按接口数量区分。详见[换口与 LED 记录](../references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)。
 
 **含义**：出厂即 DXL 2.0 + 飞特双协议自动识别，ID 200，**不需要刷固件**；供电 6~24V，可直接挂 8.4V 舵机总线末端（接线前仍须核对 3P 座针序：对照 [三板舵机座对比](./board-servo-socket-pinout.png)，JST EH 脚序 1=GND 2=V+ 3=DATA）。
 

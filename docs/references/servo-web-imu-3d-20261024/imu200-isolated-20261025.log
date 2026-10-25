@@ -1,0 +1,28 @@
+ping 200: 无应答
+模式 A 独立 sync_read([200])（5s @10Hz）:
+  A: 28/39 成功（71.8%），200 应答延迟 中位 0.47 ms / p95 0.60 ms / max 0.91 ms
+模式 B 混帧 [200]+15 舵机（5s @10Hz）:
+  B: 2/5 成功（40.0%），200 应答延迟 中位 0.27 ms / p95 0.28 ms / max 0.28 ms
+模式 C 先舵机后 sync_read([200])（5s @10Hz）:
+  C: 3/6 成功（50.0%），200 应答延迟 中位 0.26 ms / p95 0.31 ms / max 0.31 ms
+TIMING_EXIT=True
+ping: 在线
+
+契约块 56..70（8 帧，间隔 0.3s）：
+  #0 gyro=(-4,24,10)raw quat=(+0.0109,+0.0272,+0.5581) cnt=33 flags=0x81 rsv=0
+      flags 释义（kit 语义）：bit0 四元数有效(SFLP_VALID) | bit7 融合运行中(FUSION_OK)
+  #1 gyro=(-4,24,10)raw quat=(+0.0109,+0.0272,+0.5581) cnt=33 flags=0x81 rsv=0
+  #2 gyro=(-2,26,10)raw quat=(+0.0109,+0.0272,+0.5581) cnt=34 flags=0x81 rsv=0
+  #3 gyro=(-3,25,12)raw quat=(+0.0109,+0.0272,+0.5581) cnt=35 flags=0x81 rsv=0
+  #4 gyro=(1,22,9)raw quat=(+0.0109,+0.0272,+0.5581) cnt=37 flags=0x81 rsv=0
+  #5 gyro=(-1,23,11)raw quat=(+0.0109,+0.0272,+0.5581) cnt=38 flags=0x81 rsv=0
+  #6 gyro=(3,24,10)raw quat=(+0.0109,+0.0272,+0.5581) cnt=39 flags=0x81 rsv=0
+  #7 gyro=(-1,24,8)raw quat=(+0.0109,+0.0272,+0.5581) cnt=40 flags=0x81 rsv=0
+
+完整块 128..147（3 帧）：
+  #0 gyro=(-1,24,8)raw quat=(+0.0109,+0.0272,+0.5581) accel=(-265,389,8147)raw cnt=40 flags=0x81
+  #1 gyro=(-2,27,11)raw quat=(+0.0109,+0.0272,+0.5581) accel=(-268,397,8146)raw cnt=41 flags=0x81
+  #2 gyro=(-3,24,12)raw quat=(+0.0109,+0.0272,+0.5581) accel=(-270,394,8147)raw cnt=43 flags=0x81
+
+厂商窗 160..179：magic=0x4D49(正确) cmd=0 sim_mode=1 report_frame=0 proto_lock=0 mirror_baud=0 dbg=2 status=0x00 last_err=0x10
+DIAG_EXIT=True

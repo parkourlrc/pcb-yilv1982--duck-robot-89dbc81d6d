@@ -1,0 +1,23 @@
+# imu_to_dxl v0.3（ScrapMeta 双口版，32×22mm 双层板）下单参数
+# 板框/器件/来源见 docs/schematics/imu-to-dxl-scrapmeta-v0.3/README.md
+# 用法: python -m jlc_order pcb quote -p examples/imu_to_dxl_v03.toml
+#
+# ⚠️ 前置缺口（2026-10-25 核实）：
+#   1. 尚无 Gerber——上游只发布 eprj2 工程源。需在嘉立创EDA专业版打开
+#      imu_to_dxl_ref_2026-08-30_18-59-47.eprj2，选板页 **imu_to_dxl_1**
+#      （J1+J3 双口，实物板对应页；勿选 imu_to_dxl_2——那是单 J1 变体）
+#      导出 Gerber 打包 zip。
+#   2. 本机 jlc-order.toml 密钥缺失，需用户提供 appid/access_key/secret_key。
+#   3. API 无上传接口：Gerber zip 需托管公网 URL（百度网盘分享链接）。
+
+[board]
+length = 32            # 板长 mm（板框 32×22，README 记录）
+width = 22             # 板宽 mm
+layers = 2             # 双层板
+quantity = 5           # 经济打样 5 片
+thickness = 1.6        # 板厚 mm——原板未实测，待确认（可选 0.8/1.0/1.2/1.6）
+color = "绿色"          # 阻焊颜色（实物板为绿色）
+surface_finish = "无铅喷锡"  # TSSOP-20 0.65mm 脚距，喷锡可覆盖
+copper_thickness = 1.0 # oz
+test = "全部测试"       # 小批量打样，飞针全测
+plate_type = 1         # FR-4

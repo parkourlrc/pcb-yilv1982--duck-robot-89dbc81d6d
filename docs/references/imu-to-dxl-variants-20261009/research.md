@@ -67,9 +67,11 @@
 用户提供第二块板（**单个 3P 座**）正反面照片（存 `docs/photos/imu-board-b-20261014-a.jpg` / `-b.jpg`），照片判别：
 
 - 主控 **LQFP48 + GigaDevice GD32F303 丝印** ⇒ jyg9 / community-kit 血统（排除 STM32G031 的 ScrapMeta/replica 血统）。
-- 正面有电感 + 二极管 + SOIC-8 降压前端，与社区库 `hardware/imu_to_dxl/README.md` 标称**供电 6~24V、效率 >90%** 一致 ⇒ **可直接挂 8.4V 舵机总线**。注：ScrapMeta 板"只能 5V"的旧要求已在供电复核中撤回（AP2210K-3.3 上限按设计 13.2V，实物料号待核，见 `../power-review-20261010/research.md`），两板在整机中都可直挂总线；`flash/README.md` 的 5V 红线仅针对**刷机/台架调试阶段**。
+- 正面有电感 + 二极管 + SOIC-8 降压前端，与社区库 `hardware/imu_to_dxl/README.md` 标称**供电 6~24V、效率 >90%** 一致；该输入规格仅属于板②，使用前仍核实实物针序。**2026-10-25 清除旧指导**：“两板都可直挂总线”缺少板①实物器件和工作额定闭环，不再有效；板①按 [flash/README](../../../flash/README.md) 的供电红线执行，不能把板②的 6~24V 或旧 13.2V 说法套给板①。
 - 出厂双协议自动识别（DXL 2.0 @124 + 飞特 @56），**不需要刷固件**；升级走总线 `upgrade.py`。
 - ⚠️ 差异待确认：本板照片**未见 CH340/USB 调试座**（上文表格称 jyg9 版带 CH340），调试口形式以实物/卖家资料为准。
 - 接线前仍需核对 3P 座针序（照片推断为 JST EH，1=GND 2=V+ 3=DATA，见 `docs/photos/board-servo-socket-pinout.png`），未核针序不上电。
 
-**至此两块 IMU 板身份全部落定**：双 3P 口 = ScrapMeta v0.3（刷 replica 飞特固件 + 5V 供电，见 `flash/README.md`）；单 3P 口 = jyg9 GD32 社区成品版（免刷、6~24V）。两块都能用于 C 线总线末端 IMU，任选其一，另一块作备件。
+**两块 IMU 板身份记录**：双口板 = ScrapMeta v0.3 / STM32G031（历史板①，2026-10-25 测量短接致损，不再列可用备件，见 [PROGRESS](../../../PROGRESS.md)；匹配固件和供电限制按 `flash/README.md`）；单口板 = jyg9 GD32 社区成品版（历史板②，当前使用，ID 200）。**用户 10-25 晚口头“板一”指单口板，确认此前出问题的也是它，烧损的是另一块双口板；本次没有换 IMU，后续按单口/双口区分。** 17:47 回读镜像 **1.5.1 / CRC32 0xD9CA0DEF / 槽 A**；18:18 旧接法已捕获请求 CRC 错误，具体环节未隔离。10-25 晚单口板刚移至 HAT 第二个 3P 口，用户测该口三针电压无问题，完整交错复测仍仅 2/360 成功。现行接法见[配电记录 §10](../power-distribution-comparison-20261010/research.md#hat-port2-20261025)，数据见[换口记录](../servo-web-imu-3d-20261024/research.md#hat-port2-20261025)。单口成品板照片/对应设计未见 LED，源码 PB5 指示灯只适用于开发板，勿要求它必须亮灯。
+
+**2026-10-25 公开包核验补充**：已从 GitHub 官方 release 取得 1.5.1 槽 A 包，payload CRC32 为 `0x84C0963A`，与本机自报 `0xD9CA0DEF` 不同；仅说明构建来源未匹配，不能据此判定 Flash 损坏，也不能保证公开源码与本机二进制逐行一致。包、SHA256、官方 URL、源码比对及失败重试均见[二进制/源码证据](../servo-web-imu-3d-20261024/upstream-binary-source-check-20261025.json)。本轮没有刷写；上游 1.6.0 明确为 FT6 特殊协议、与 1.5.x 不兼容，不能作为直接升级。

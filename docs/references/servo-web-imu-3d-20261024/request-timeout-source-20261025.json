@@ -1,0 +1,129 @@
+{
+  "utc": "2026-10-25T19:25:26.063137+08:00",
+  "read_only": true,
+  "files": {
+    "feetech.py": {
+      "sha256": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+      "functions": [
+        {
+          "name": "__init__",
+          "line": 73,
+          "source": "    def __init__(self, port, baud=1_000_000, timeout=0.02, ser=None):\n        # ser 给模拟器用（sim_bus.SimSerial），真机走串口\n        self.ser = ser if ser is not None else serial.Serial(port, baud, timeout=timeout, write_timeout=0.1)\n        # 串口互斥锁。别叫 self.lock：会盖住下面的 lock(sid)「加 EEPROM 锁」方法（2026-09-20 真机踩到）\n        self._io = threading.Lock()\n        # 原始收发记录：设一个 trace(文本) 回调就开始记。飞特不支持的操作照样回\"成功\"，\n        # 只有对着十六进制才分得清「真做了」和「装作做了」。10 Hz 的状态轮询不记，不然日志全是它\n        self.trace = None\n        self.trace_skip = {SYNC_READ, SYNC_WRITE}\n        self._last = (None, None)\n        self.stats = {\"tx\": 0, \"rx_ok\": 0, \"timeout\": 0, \"bad_checksum\": 0, \"bad_id\": 0}"
+        },
+        {
+          "name": "_send",
+          "line": 95,
+          "source": "    def _send(self, sid, instr, params=b\"\"):\n        self.ser.reset_input_buffer()\n        pkt = self._packet(sid, instr, params)\n        self.ser.write(pkt)\n        self.stats[\"tx\"] += 1\n        self._last = (sid, instr)\n        if self.trace and instr not in self.trace_skip:\n            note = \"\"\n            if instr in (READ, WRITE) and params:\n                reg = REGISTERS.get(params[0])\n                note = f\"  地址{params[0]}\" + (f\"「{reg[0]}」\" if reg else \"\") + (\n                    f\" 写 {list(params[1:])}\" if instr == WRITE else f\" 读 {params[1]} 字节\")\n            self.trace(f\"→ #{sid} {INSTR_NAMES.get(instr, hex(instr))} {hexs(pkt)}{note}\")"
+        },
+        {
+          "name": "_read_status",
+          "line": 109,
+          "source": "    def _read_status(self, expect_id=None):\n        \"\"\"读一个应答帧，返回 (id, error, params)。\"\"\"\n        # 找 FF FF\n        hdr = b\"\"\n        deadline = time.monotonic() + self.ser.timeout * 3\n        while time.monotonic() < deadline:\n            b = self.ser.read(1)\n            if not b:\n                break\n            hdr = (hdr + b)[-2:]\n            if hdr == b\"\\xff\\xff\":\n                break\n        who = f\"id {expect_id}\" if expect_id is not None else \"舵机\"\n        if hdr != b\"\\xff\\xff\":\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 没应答（{self.ser.timeout * 3 * 1000:.0f} ms 内没收到帧头）\")\n        rest = self.ser.read(2)\n        if len(rest) < 2:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答断在 ID/长度（收到 ff ff {hexs(rest)}）\")\n        sid, length = rest[0], rest[1]\n        body = self.ser.read(length)\n        if len(body) < length:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答不完整：长度 {length} 只收到 {len(body)}（ff ff {hexs(rest + body)}）\")\n        err, params, chk = body[0], body[1:-1], body[-1]\n        if ((~(sid + length + err + sum(params))) & 0xFF) != chk:\n            self.stats[\"bad_checksum\"] += 1\n            raise BusError(f\"{who} 校验和不对（ff ff {hexs(rest + body)}）\")\n        if expect_id is not None and sid != expect_id:\n            self.stats[\"bad_id\"] += 1\n            raise BusError(f\"等 id {expect_id} 的应答，来的是 id {sid}（ff ff {hexs(rest + body)}）\")\n        self.stats[\"rx_ok\"] += 1\n        if self.trace and self._last[1] not in self.trace_skip:\n            head = b'\\xff\\xff'\n            self.trace(f\"← #{sid} 状态0x{err:02X} {hexs(head + rest + body)}\"\n                       + (f\"  数据 {list(params)}\" if params else \"\"))\n        return sid, err, bytes(params)"
+        },
+        {
+          "name": "ping",
+          "line": 149,
+          "source": "    def ping(self, sid):\n        with self._io:\n            self._send(sid, PING)\n            try:\n                _, err, _ = self._read_status(sid)\n                return err\n            except BusError:\n                return None"
+        },
+        {
+          "name": "read",
+          "line": 158,
+          "source": "    def read(self, sid, addr, n):\n        with self._io:\n            self._send(sid, READ, bytes([addr, n]))\n            _, err, params = self._read_status(sid)\n            if len(params) != n:\n                raise BusError(f\"id {sid} 读地址 {addr} 起 {n} 字节，只回了 {len(params)} 字节\")\n            return err, params"
+        },
+        {
+          "name": "write",
+          "line": 166,
+          "source": "    def write(self, sid, addr, data, wait=True):\n        with self._io:\n            self._send(sid, WRITE, bytes([addr]) + bytes(data))\n            if not wait or sid == BROADCAST:\n                return None\n            try:\n                _, err, _ = self._read_status(sid)\n                return err\n            except BusTimeout:\n                # 应答级别 0 时写指令不回包，不算错；调用方拿到 None 自己判断\n                return None"
+        },
+        {
+          "name": "sync_write",
+          "line": 190,
+          "source": "    def sync_write(self, addr, length, id_values):\n        \"\"\"id_values: [(id, bytes), ...]，每个 bytes 长度 = length。\"\"\"\n        params = bytes([addr, length])\n        for sid, data in id_values:\n            assert len(data) == length\n            params += bytes([sid]) + bytes(data)\n        with self._io:\n            self._send(BROADCAST, SYNC_WRITE, params)"
+        },
+        {
+          "name": "sync_read",
+          "line": 199,
+          "source": "    def sync_read(self, ids, addr, n):\n        \"\"\"返回 {id: (err, params) 或 None}，顺序按 ids。任何一颗超时不影响后面的。\"\"\"\n        out = {}\n        with self._io:\n            self._send(BROADCAST, SYNC_READ, bytes([addr, n]) + bytes(ids))\n            for sid in ids:\n                try:\n                    _, err, params = self._read_status(sid)\n                    out[sid] = (err, params) if len(params) == n else None\n                except BusError:\n                    out[sid] = None\n        return out"
+        }
+      ],
+      "lock_declarations": [
+        {
+          "line": 77,
+          "text": "        self._io = threading.Lock()"
+        }
+      ]
+    },
+    "server.py": {
+      "sha256": "67e91b7abb495adf2bfcc5ea38df163e137f92418d3a91dc43ce7e963f115c31",
+      "functions": [
+        {
+          "name": "read_states_with_imu",
+          "line": 1436,
+          "source": "def read_states_with_imu(ids, service):\n    \"\"\"--imu-bus：跟主控每 tick 同一条 sync_read（地址 56、长度 15、200 排第一），\n    舵机状态照旧解，200 的块喂给 service。200 连续不应答时 service 会让它暂时出列。\"\"\"\n    import imu_bus\n    servo_ids = [i for i in ids if i != imu_bus.IMU_ID]\n    with_imu = service.include_in_sync()\n    if not with_imu and service.due_probe():\n        if service.probe_result(BUS.ping(imu_bus.IMU_ID) is not None):\n            log(\"ID 200 的 PING 有应答了，重新跟舵机一起读\", \"IMU\")\n    if isinstance(BUS, FakeBus):\n        # 虚拟小板：启动参数 --fake --imu-bus 时 fallback_fake 挂上，或者页面「模拟」里接上\n        st = BUS.states(servo_ids)\n        got = BUS.sync_read([imu_bus.IMU_ID], imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN) if with_imu else {}\n    else:\n        # 2026-10-24 本机补丁：200 不再与舵机同一条 sync_read——实测它偶发缺答会把\n        # 整条混合帧拖掉（应答槽耦合，kit imu_to_dxl 协议 §4.2-4.3），15 颗舵机全部\n        # 显示无应答（13:45 启动实录各丢 7 帧，200 出列后自愈）。调试台优先舵机读数\n        # 稳定：舵机单独 sync_read；200 用独立 READ，缺答只影响 IMU 面板\n        # （仍走 imu_bus 的 miss 计数/降级/2 秒 PING 重试，语义不变）。\n        got = dict(BUS.sync_read(servo_ids, imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN) or {}) if servo_ids else {}\n        st = {sid: (feetech.FeetechBus._decode_state(*got[sid]) if got.get(sid) else None) for sid in servo_ids}\n        if with_imu:\n            # 2026-10-24 复盘：普通 READ 单读 200 时该板常 >60ms 晚答甚至不答\n            # （timeout/bad_id 大涨），而 sync_read 槽 0 应答实测 100% 及时——\n            # 改用只含 200 的独立 sync_read：既走它的快路径，又与舵机帧隔离。\n            got.update(BUS.sync_read([imu_bus.IMU_ID], imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN) or {})\n    v = got.get(imu_bus.IMU_ID)\n    if with_imu or v is not None:\n        service.feed(v[1] if v else None)\n    return st"
+        },
+        {
+          "name": "stream_should_poll",
+          "line": 1468,
+          "source": "def stream_should_poll():\n    \"\"\"这一拍要不要读总线。--imu-bus 时没扫到舵机也要读：台架上可能只接了小板（ID 200 不在扫描范围里）。\"\"\"\n    return bool(CLIENTS) and (bool(PRESENT) or imu_backend(IMU_SERVICE) == \"bus\") \\\n        and not CALIB_LOCK.locked()"
+        },
+        {
+          "name": "stream",
+          "line": 1474,
+          "source": "async def stream():\n    \"\"\"按 STREAM_HZ 广播全部舵机状态和新日志。读不到的舵机攒 3 秒报一次，同一个错误 5 秒内只记一次。\"\"\"\n    sent_n = LOG_N\n    miss, miss_t0 = {}, time.monotonic()\n    err_last, err_t = \"\", 0.0\n    while True:\n        t0 = time.monotonic()\n        if stream_should_poll():\n            # 校准期间不抢总线：一次 sync_read 遇上掉包能占几百毫秒，\n            # 正好卡在关扭矩的窗口里，关节就垂下去了\n            try:\n                if imu_backend(IMU_SERVICE) == \"bus\":\n                    st = await asyncio.to_thread(read_states_with_imu, PRESENT, IMU_SERVICE)\n                else:\n                    st = await asyncio.to_thread(BUS.states, PRESENT)\n                for i, v in st.items():\n                    if v is None:\n                        miss[i] = miss.get(i, 0) + 1\n                MON[\"last\"] = {\"t\": time.time(), \"st\": st}\n                await broadcast(json.dumps({\"type\": \"state\", \"t\": time.time(), \"states\": st, \"stats\": BUS.stats,\n                                            \"host\": host_stats(),\n                                            \"mon\": {\"rows\": MON[\"rows\"], \"events\": MON[\"events\"],\n                                                    \"csv\": os.path.basename(MON[\"csv\"] or \"\"),\n                                                    \"miss\": dict(sorted(MON[\"miss\"].items(), key=lambda x: -x[1])[:6]),\n                                                    \"uart\": MON[\"uart\"]}}))\n            except Exception as e:\n                text = f\"{type(e).__name__}: {e}\"\n                if text != err_last or t0 - err_t > 5:\n                    log(f\"刷新状态出错：{text}\", \"总线\", \"error\", exc=True)\n                    err_last, err_t = text, t0\n        if t0 - miss_t0 >= 3:\n            if miss:\n                log(\"3 秒内读不到：\" + \" \".join(f\"#{i}×{n}\" for i, n in sorted(miss.items()))\n                    + f\"（每秒读 {STREAM_HZ} 次；累计超时 {BUS.stats.get('timeout')}、校验错 {BUS.stats.get('bad_checksum')}）\", \"总线\", \"warn\")\n            miss, miss_t0 = {}, t0\n        if CLIENTS and LOG_N > sent_n:\n            items = [e for e in LOG if e[\"n\"] > sent_n]\n            if items:\n                sent_n = items[-1][\"n\"]\n                await broadcast(json.dumps({\"type\": \"logs\", \"items\": items}))\n        hz = FAKE_STREAM_HZ if is_fake() else STREAM_HZ\n        await asyncio.sleep(max(0.0, 1.0 / hz - (time.monotonic() - t0)))"
+        }
+      ],
+      "lock_declarations": [
+        {
+          "line": 249,
+          "text": "_log_io = threading.Lock()"
+        },
+        {
+          "line": 501,
+          "text": "CALIB_LOCK = threading.Lock()   # 校准期间不让状态轮询抢总线：一次 sync_read 卡住能占几百毫秒，"
+        },
+        {
+          "line": 558,
+          "text": "        BUS.lock(i)"
+        },
+        {
+          "line": 701,
+          "text": "            BUS.lock(i)"
+        },
+        {
+          "line": 919,
+          "text": "                BUS.lock(i)"
+        },
+        {
+          "line": 1204,
+          "text": "SIM_IMU_LOCK = threading.Lock()   # 两个标签页同时点、或者跟「连接串口」撞上，别各改一半"
+        },
+        {
+          "line": 1367,
+          "text": "                BUS.lock(sid)"
+        }
+      ]
+    }
+  },
+  "call_sites": [
+    {
+      "file": "server.py",
+      "line": 302,
+      "text": "        bus = feetech.FeetechBus(port, baud)"
+    },
+    {
+      "file": "feetech.py",
+      "line": 73,
+      "text": "    def __init__(self, port, baud=1_000_000, timeout=0.02, ser=None):"
+    },
+    {
+      "file": "feetech.py",
+      "line": 75,
+      "text": "        self.ser = ser if ser is not None else serial.Serial(port, baud, timeout=timeout, write_timeout=0.1)"
+    },
+    {
+      "file": "feetech.py",
+      "line": 280,
+      "text": "        self.write(old, 5, [new & 0xFF], wait=False)"
+    }
+  ]
+}

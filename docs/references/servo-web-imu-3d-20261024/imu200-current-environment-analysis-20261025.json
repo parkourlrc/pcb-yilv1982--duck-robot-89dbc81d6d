@@ -1,0 +1,150 @@
+{
+  "analysis_utc": "2026-10-25T10:32:11.553711+00:00",
+  "method": "Recount local raw records; DXL CRC16 bitwise polynomial 0x8005; intentional negative control separate.",
+  "files": {
+    "imu200-paired-20261025T101307Z.jsonl": {
+      "lines": 368,
+      "bytes": 748156,
+      "sha256": "7480761701fa0705332e58ad33ce0a97902cf1c0a4a13fd40ee9dd115156cb91",
+      "groups": {
+        "left5": {
+          "n": 60,
+          "ok": 50
+        },
+        "right5": {
+          "n": 60,
+          "ok": 50
+        },
+        "solo": {
+          "n": 60,
+          "ok": 47
+        },
+        "all15": {
+          "n": 60,
+          "ok": 53
+        },
+        "silent15": {
+          "n": 60,
+          "ok": 48
+        },
+        "head5": {
+          "n": 60,
+          "ok": 47
+        }
+      },
+      "counter_check": {
+        "successful_samples": 295,
+        "elapsed_s": 36.500315,
+        "sum_modulo_256_deltas": 3650,
+        "estimated_hz": 99.999,
+        "assumption": "No unseen full 256-tick wrap between adjacent successful samples."
+      }
+    },
+    "imu200-buffer-20261025T101439Z.jsonl": {
+      "lines": 368,
+      "bytes": 164781,
+      "sha256": "57657378f58879c007ad592428f11a6444a64eefa1e698f0c64b0e211a7513ca",
+      "groups": {
+        "clear_wait5ms": {
+          "n": 60,
+          "ok": 47,
+          "status_0": 47
+        },
+        "no_clear_drain": {
+          "n": 60,
+          "ok": 48,
+          "status_0": 48
+        },
+        "clear_drain": {
+          "n": 60,
+          "ok": 43,
+          "status_0": 43
+        },
+        "clear_wait1ms": {
+          "n": 60,
+          "ok": 46,
+          "status_0": 46
+        },
+        "clear_no_drain": {
+          "n": 60,
+          "ok": 47,
+          "status_0": 47
+        },
+        "no_clear_no_drain": {
+          "n": 60,
+          "ok": 45,
+          "status_0": 45
+        }
+      },
+      "counter_check": {
+        "successful_samples": 276,
+        "elapsed_s": 36.784256,
+        "sum_modulo_256_deltas": 3679,
+        "estimated_hz": 100.016,
+        "assumption": "No unseen full 256-tick wrap between adjacent successful samples."
+      }
+    },
+    "imu200-protocol-20261025.jsonl": {
+      "lines": 262,
+      "bytes": 84328,
+      "sha256": "e6d5f17c17342fa0c48694a273f9b635b87b9380d2c7246e5c7e2098c9ddacf4",
+      "groups": {
+        "fee_ping": {
+          "n": 50,
+          "ok": 45,
+          "status_0": 45
+        },
+        "dxl_ping": {
+          "n": 50,
+          "ok": 36,
+          "status_0": 36,
+          "status_32": 4
+        },
+        "fee_read20": {
+          "n": 50,
+          "ok": 35,
+          "status_0": 35
+        },
+        "dxl_read20": {
+          "n": 50,
+          "ok": 39,
+          "status_0": 39,
+          "status_32": 5
+        },
+        "fee_ping_return": {
+          "n": 50,
+          "ok": 44,
+          "status_0": 44
+        }
+      }
+    },
+    "imu200-intentional-crc-control-20261025.jsonl": {
+      "lines": 50,
+      "bytes": 13600,
+      "sha256": "48f63437fecfee87d7d0f8ae0c316c2af454a1cbc80e05dcd12449b8a8dfd8b9",
+      "groups": {
+        "dxl_valid_before": {
+          "n": 10,
+          "ok": 7,
+          "status_32": 1,
+          "status_0": 7
+        },
+        "dxl_intentional_bad_crc": {
+          "n": 10,
+          "ok": 8,
+          "status_32": 8
+        },
+        "dxl_valid_after": {
+          "n": 10,
+          "ok": 7,
+          "status_0": 7
+        },
+        "fee_return": {
+          "n": 10,
+          "ok": 8,
+          "status_0": 8
+        }
+      }
+    }
+  }
+}

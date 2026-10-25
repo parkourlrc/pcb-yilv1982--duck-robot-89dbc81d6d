@@ -1,14 +1,14 @@
-# 台架/装机工具索引（2026-10-20 更新）
+# 台架/装机工具索引（2026-10-22 更新）
 
 按用户指示整理的现行工具清单：**能复用参考工程现成工具的不再自研**。来源分三类：本项目自研、社区 kit（`references/microduck-community-kit/`，只读，部署=拷贝不改源）、replica（只读参考）。
 
-## 一、改号与装配校准（ID 与中位校准均已完成，2026-10-20）
+## 一、改号与装配校准（ID 与中位校准 2026-10-20 完成；ID 已于 2026-10-24 对齐上游）
 
 ### hls_servo_debugger（社区 kit，**主力复用**）
 
 - 位置：`references/microduck-community-kit/software/hls_servo_debugger/`
 - 形态：**浏览器交互式调试器**（Flask + pyserial，前端免构建）。上游记录使用 **HD-1910-C001（固件 3.46）×16 台**；本机 15 颗已用它完成 ID 初始化，但不能由此认定本机固件版本和全部参数行为都已核验。
-- **本机现行映射**：`10–14=左腿、20–24=右腿、30–34=头颈、200=IMU`，14 号为左踝，与上游左右分组相反。并发执行记录记载用户已完成改号，板上部署副本关节表经 `scripts/swap-hls-jointmap.py` 交换并重启生效；参考库未改，本轮未重新读取设备或运行脚本。完整部署契约见[本机 ID 映射表](servo-id-mapping.md)。
+- **本机现行映射（2026-10-24 对齐上游）**：`20–24=左腿、10–14=右腿、30–34=头颈（30=neck_pitch、31=head_pitch）、200=IMU`，14 号为右踝，**与上游 microduck_feetech `model.rs` 完全一致，可按上游关节表直接使用**。舵机 EEPROM 已于 2026-10-24 改号对齐（[scripts/servo-id-align-upstream.py](../scripts/servo-id-align-upstream.py)，记录见 [servo-id-align-20261024](references/servo-id-align-20261024/research.md)）；部署副本关节表已回上游原表（[scripts/swap-hls-jointmap.py](../scripts/swap-hls-jointmap.py) 再跑 + [scripts/hls-headneck-revert-upstream.py](../scripts/hls-headneck-revert-upstream.py)，备份 `provision.py.bak-20261024-132405`）；参考库未改。2026-10-17/10-22 的本机相反映射已作废。完整部署契约见[本机 ID 映射表](servo-id-mapping.md)。
 - 能力（README 全表）：
   - **整机 15 台初始化**：出厂 ID 1 → 按关节表编号 **10~14 / 20~24 / 30~34**，本机左右分组以上述映射为准；提供可选初始位置校准、回读校验、写锁保护（解锁 55 号 → 改 ID → 上锁，自动流程）；本机 2026-10-17 选择“不校准只改 ID”，中位 CAL 已于 2026-10-20 装机后全部完成（15/15，见 PROGRESS 当日条目）；
   - PING/扫描、实时反馈（56~70 共 15 字节：位置/速度/负载/电压/温度/电流 + 趋势图）、位置/速度/电流/PWM 控制、全内存表参数界面（0~86）、同步读写、原始十六进制帧调试；
@@ -22,6 +22,7 @@
   # 电脑浏览器访问 http://192.168.1.35:8765（实际端口 8765，非 Flask 默认 5000）
   ```
 - 安全特性：初始化带回读校验；`hw_test.py` 是真机只读连通测试（PING/READ，不产生动作）。
+- **2026-10-23 本机补丁：初始化页扭矩按钮改为随动开关**（用户需求）。选中舵机后前端自动现读 40 号（0 关 / 1 开 / 2 阻尼输出）：关着显示「打开扭矩」、开着显示「关闭扭矩（卸力）」，点击按当前状态反向写入；串口未连/读不到时退回旧版「关闭扭矩（卸力）」行为。触发点：关节表加载、切换关节（点选/下一个/重置）、流程结束、串口连接成功、切到初始化页签。补丁存档 [`scripts/hls-prov-torque-toggle.patch`](../scripts/hls-prov-torque-toggle.patch)（改 `static/app.js`，`index.html` 仅加 `?v=` 防缓存；参考库未动，板上部署副本已应用并重启生效）。写路径沿用原 `/api/torque`；C 线开扭矩**不自动对齐目标**，装配态开扭矩前仍须先人工对齐（见上文 CAL 复核）。实测：ID 10/20 关扭矩状态正确显示「打开扭矩」，切换关节即触发对应 40 号读取（服务端日志留痕）。
 - 关键寄存器参考：**ID=5、波特率=6（0=1Mbps）、应答级别=8、卸载条件=19（BIT3 过流）、写锁=55（0=解锁/1=上锁）**。以厂商适用版本资料为依据、工具实现作对照；本机保护位仍需在带载动作前回读。2048 对应关节角 0 以正确机械零姿态已校准为前提，方向 −1 是上游记录，不能当成本机逐关节验收。
 
 ### 装盘、CAL 与恢复扭矩（2026-10-20 复核）
@@ -30,6 +31,23 @@
 - **“转到中位”会实际运动**：社区 `provision.py:881–898` 先使能，再写限速/2048 目标，已装机构不能盲点。CAL 则是重定义当前位置；`protocol.py:629–646` 关扭矩 → 解锁 → `0x0B` → 上锁，不写目标 42，也不重新使能。
 - **CAL 成功提示不能替代结果确认**：校后先确认当前位置约为 2048（本机容差未定），恢复扭矩前须以当前坐标对齐目标并回读。C 线 `/api/torque` 直接使能，没有自动对齐；B 线 servo-web 的“先对齐再使能”实现不能算作 C 工具已有功能。未确认前保持关扭矩。
 - 正确零姿态不是带非零角度的 home/站姿；孔位能装上也不等于零位正确。单圈目标限制不保证反馈永远在 `0…4095` 内，异常/超窗时再排查，不自动切多圈、改相位或重启。完整厂商证据、上游反例与源码定位见[装配与 CAL 调研](references/assembly-check-20261017/research.md)。
+
+### servo-web（B 线整机 3D 网页调试台，2026-10-22 板载真机部署）
+
+- 位置/来源：源码自 B 线参考库 `references/microduck-replica/tools/servo-web/`（v0.15.2）**只读拷贝**至板 `~/servo-web`（约 3.3M）；参考库未改。默认轮询 ID 集合 `20-24,30-34,10-14` 与本机相同，无需 `--ids`。**映射现状（2026-10-24）：舵机 EEPROM 改号对齐上游后，板上副本已回退为上游原生映射（20–24=左腿、10–14=右腿、30=neck_pitch、31=head_pitch），`/api/info` 已验证、15/15 在线**；2026-10-22 的本机映射补丁（[scripts/servo-web-local-idmap.py](../scripts/servo-web-local-idmap.py)）已由反向补丁 [scripts/servo-web-upstream-idmap.py](../scripts/servo-web-upstream-idmap.py) 撤销（备份 `~/servo-web/.upstream-idmap-backup-20261024-131954/`），其后叠加的模型缓存/方向广播/单颗 CAL/状态同步/CAL 修复补丁全部保留；3D 模型 fetch 版本号已跳 `?v=20261024`，浏览器 Ctrl+F5 后生效。上游 `poses/站`、`缩` 仍在 `poses/upstream-2026-09-20/` 归档，不是本机姿态，勿发送；`directions.json` 15 颗全 −1 为本机 2026-10-22 逐颗核对结果，改号只换 ID 不换舵机，方向数值不变。映射核查历史见 [servo-web 数据来源与关节映射](references/servo-web-mapping-20261022/research.md) 与 [servo-id-align-20261024](references/servo-id-align-20261024/research.md)。另用 [scripts/servo-web-model-cache.py](../scripts/servo-web-model-cache.py) 给 `/model/*` 加 no-store、fetch 加版本参数，HUD 显示 30/31 实际映射，避免“数据面板更新、3D 仍用旧模型”。每颗操作行后面有 `CAL` 按钮（[scripts/servo-web-row-cal.py](../scripts/servo-web-row-cal.py)），按“一键校准”区当前基准单颗校准，完成后 300/800 ms 刷新 3D。22 号曾加软件零位 `ZERO_COUNTS={22:1198}`（[scripts/servo-web-zero-offset.py](../scripts/servo-web-zero-offset.py)），后为 CAL 测试清空；CAL 成功后也会自动清（**仅当前页面会话**，刷新按 index.html 常量复位；当前空表无实害）。注意 22 的 CAL 仍走硬件 2048（2026-10-24 已同步：viewer 硬编码 `{22:1198}` 已清空——22 号 2026-10-23 已重校、且改号后 ID 22 语义变为左髋 pitch，旧零位不再成立）。刷新/重连的状态同步：`hello` 会读一次 40 号扭矩并回传，第一帧状态到达时把滑块对齐实际读数（[scripts/servo-web-state-sync.py](../scripts/servo-web-state-sync.py)）。**CAL 修复（[scripts/servo-web-cal-fix.py](../scripts/servo-web-cal-fix.py)，2026-10-23 01:05 部署）**：根因是旧版"下垂补偿"符号错（OFFSET_SIGN 默认 +1、实际 −1）把偏移多挪一倍反向量，CAL 后读数恒为 2×pre−2048（0x0B 固件本身无辜，2026-10-23 01:16–01:20 九次无补偿校准全部一次到位证实）；修复后 0x0B 回读位置、未到目标改走写偏移兜底（两符号都试、回读验证），成功路径不再做下垂补偿——CAL 语义=**当前物理位置读数 2048，点 CAL 那一刻摆得多准零点就多准**（失电等待期间关节会垂，摆好立即校或托住；2026-10-23 01:20 左腿隔 3 分钟连校即把 12–30° 摆位误差固化进零点，导致站姿 3D/实物不一致，见调研）。部署后**尚未真机验证**；00:53–54 五次坏校准待按备份逆序撤销（21→22→21→20→22），撤销前不要点 CAL。证据与复核见 [servo-web CAL 调研](references/servo-web-cal-droop-20261023/research.md)。**用户 2026-10-22 确认 3D 与实物的方向和位置全部对上；15 颗回中位（2048）后机器人站立，方向表 15 颗全 −1**；带载前仍先小角度、托住试，官方姿势/一键校准按需使用，不要把静态对齐当成动态站立验收。
+- 板上启动（**2026-10-25 起改用 systemd 用户服务，标准方式**）：
+  ```bash
+  systemctl --user start|stop|restart|status duck-servo-web   # 崩溃自动重启(Restart=always)
+  ```
+  单元 [scripts/duck-servo-web.service](../scripts/duck-servo-web.service)（`--imu-bus` 常开，IMU 未接时自动降级），已 `enable`。**开机自启还需一次 `sudo loginctl enable-linger radxa`**（未执行前，重启后须 SSH 登录一次服务才起）。手动应急启动仍可用 `( setsid nohup python3 server.py … & )`（注意先停服务防抢串口）。
+  ⚠️ 后台作业务必用 `( … & )` 双层脱开：`ssh 'cmd & …'` 形式下本地连接被杀会经 sshd→bash 作业表把 HUP 传给服务、误杀服务（2026-10-24 实测踩过）。
+  电脑/手机浏览器开 `http://192.168.1.35:8080`。停止：`pkill -f "[s]erver.py"`（方括号防 pkill 自匹配，2026-10-22 实测踩过）。
+- **常驻监控（2026-10-25 部署，随服务自动开启、每秒实时落盘）**：`~/servo-web/logs/monitor-YYYYMMDD.csv` 记主机 SoC/GPU/频率/负载、每颗电压/温度/电流汇总（v_min/v_avg/t_max/i_sum）、总线统计、分 ID 丢帧 TOP、UART 驱动错误（TIOCICOUNTER）；事件行 STORM_START/STORM_END/ALL_OFFLINE/ID_SET_CHANGE 自动写入并上页面日志。顶栏显示「SoC/CPU/最低电压/监控✓行数·事件N」（悬停见丢帧 TOP 与 UART 错误）。补丁 [scripts/servo-web-full-monitor.py](../scripts/servo-web-full-monitor.py)（叠加于 [servo-web-host-monitor.py](../scripts/servo-web-host-monitor.py)）。首次部署即捕获 04:36 全掉线风暴（当时 SoC 60°C——该次非热因）与 32 号扫描缺失。
+- **IMU 状态位勘误补丁 + IMU 读数隔离补丁（2026-10-24 已部署）**：①板②固件状态位为社区 kit v1 语义（bit0=四元数有效、bit1=计数回绕、bit3=传感器错误、bit7=融合运行中），与 `imu_bus.py` 沿用的 duck-control 旧语义相反——曾致有效帧全被判"融合没出数"，已用 [scripts/servo-web-imu-kitbits.py](../scripts/servo-web-imu-kitbits.py) 改判位（备份 `~/servo-web/imu_bus.py.bak-20261024-141102`）。②板②在串口重开窗口/偶发时段缺答晚答，混帧下一次缺答拖死整条 sync_read（15 颗全部"无应答"），已用 [scripts/servo-web-imu-separate-read.py](../scripts/servo-web-imu-separate-read.py) 把 200 拆成独立单 ID sync_read、舵机单独读（备份 `~/servo-web/server.py.bak-20261024-150443`；不能用普通 READ 单读——该板对 READ 常 >60ms 晚答）。只读诊断 [scripts/imu200-diag.py](../scripts/imu200-diag.py)、丢帧监测 [servo-web-bus-monitor.py](../scripts/servo-web-bus-monitor.py)、三读法时序实验 [imu200-timing-test.py](../scripts/imu200-timing-test.py)（后两者/诊断均须停服独占总线，servo-web 运行时另开进程读 200 会抢应答帧出假象）。核查证据见 [servo-web IMU 调研](references/servo-web-imu-3d-20261024/research.md)。
+- **2026-10-22 真机实测**：15/15 在线、刷新 9.8 Hz、总线电压 7.1 V、超时/校验错 0；3D 整机模型与逐颗电压/温度/电流回读正常。启动/连接只做扫描+读相位（寄存器 18），不自动放开速度/加速度限制（0.15.2 行为）；页面滑块/姿态/校准按钮会实际发指令，**开扭矩前先「滑块对齐当前位置」**，流程见其 README。
+- 板 Python 3.11 与上游 3.12 f-string 语法不兼容（`feetech.py` 一处），部署副本已打 `scripts/servo-web-py311.patch`（参考库保持原样）；依赖 `starlette`/`uvicorn`/`websockets` 已 `pip3 install --user --break-system-packages` 装在 radxa 用户目录（pyserial 3.5 系统自带）。漏装 websockets（即未按 requirements 的 `uvicorn[standard]` 装）表现为页面 WebSocket「断开，3 秒后重连」。
+- **与 hls_servo_debugger 互斥占用 /dev/ttyS2**：servo-web 运行期间 :8765 无服务，`servo-mujoco-viewer.py`、`servo-trace.py` 无数据源；反之亦然。切换顺序：先 `pkill` 现占用者，再按各自部署命令启动另一个。板上重启后 hls/imu-viewer 均为用户态进程需手动拉起（systemd 单元仍待用户 `sudo systemctl enable --now`）。
+- 2026-10-22 凌晨曾在参考目录内以 `--fake` 本机试跑（无串口、纯演示），运行残留（`logs/`、`__pycache__/`）已于 2026-10-22 清理，参考库恢复原样；正式使用一律走板上部署副本。
 
 ## 二、行程检查与实时可视化（2026-10-20 新增）
 
@@ -48,6 +66,8 @@
 ## 三、IMU 测试
 
 ### imu-viewer.py（本项目自研，**姿态实时可视化**）
+
+- **2026-10-25 19:59 运行状态**：用户要求关闭 servo-web 并打开 IMU 工具，已停 `duck-servo-web.service`，启动板上既有查看器 :8766；当时 SSE 为“IMU 无应答”。当前单口 IMU 接 HAT 第二个 3P 口，页面旧“链末”提示不作改线要求。查看器未校验应答 checksum，适合看姿态，不替代原始帧完整性验证；详见[切换记录](references/servo-web-imu-3d-20261024/research.md#imu-viewer-20261025)。
 
 - 位置：`scripts/imu-viewer.py`（2026-10-17 建；已部署板上 `~/imu-viewer.py`，运行于 **http://192.168.1.35:8766**）
 - **浏览器打开即用：3D 立方体实时跟随 IMU 姿态**（晃动板子立方体跟着转），并显示四元数/陀螺 dps/采样计数/状态/读取率。

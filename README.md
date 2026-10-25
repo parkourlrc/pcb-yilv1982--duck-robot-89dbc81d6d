@@ -9,12 +9,12 @@ Microduck 小型双足机器人的个人复刻项目。**当前主线为方案 C
 ## 当前主线：方案 C（飞特路线）
 
 - **执行机构**：飞特 HD-1910-C001 ×15（总线型，官方 robotd 有飞特补丁）
-- **装配与零位校准**：[归中装盘与 CAL 调研](./docs/references/assembly-check-20261017/research.md)（2026-10-20）：未装盘时推荐先到 2048、选近齿位，再按机械零姿态 CAL；这不是 CAL 协议前提。15 颗 ID 已完成，[本机映射](./docs/servo-id-mapping.md)为 10–14 左腿、20–24 右腿；零位仍待校准，校后恢复扭矩前须确认读数并对齐目标。
-- **主控/总线**：microduck HAT（Radxa Zero 3W，板载 74LVC 半双工驱动接 UART2）+ imu_to_dxl v0.3 作总线从站（ID 200，双协议）
-- **供电路线 v2（用户确认推进）**：电池原压经取电及已核实的过流保护进入 HAT 一口，另一口接舵机链+末端 IMU，40P 对插主控并供 5V；正常整机不装微雪板和独立稳压板，暂不增加配电板。独立主保险是否需要由电池内置保护资料决定，不预设必买；先按[基础检查清单](./docs/hat-v1.2-test.md)逐步验证，发现实际问题再调整；**路线确认不等于实物已经验收**。见[接线图](./docs/photos/hat-v1.2-wiring-plan.png)与[架构说明](./docs/power-architecture-v2.md)
+- **装配与零位校准**：[归中装盘与 CAL 调研](./docs/references/assembly-check-20261017/research.md)（2026-10-20）：未装盘时推荐先到 2048、选近齿位，再按机械零姿态 CAL；这不是 CAL 协议前提。15 颗 ID 已完成并于 **2026-10-24 改号对齐上游**（[本机映射](./docs/servo-id-mapping.md)：20–24 左腿、10–14 右腿、30=neck_pitch、31=head_pitch）；零位仍待校准，校后恢复扭矩前须确认读数并对齐目标。
+- **主控/总线**：microduck HAT（Radxa Zero 3W，板载 74LVC 半双工驱动接 UART2）+ 当前使用单口 IMU：jyg9 / community-kit GD32F303 单 3P 成品版（ID 200，历史文档板②）；ScrapMeta v0.3 双口板（历史板①）于 2026-10-25 测量短接致损，不再列可用备件。用户本轮口头“板一”指单口板，后续按接口数量区分。板型见[版本记录](./docs/references/imu-to-dxl-variants-20261009/research.md)，通信见[IMU 调研](./docs/references/servo-web-imu-3d-20261024/research.md)。
+- **供电与总线现状（2026-10-25 晚）**：同一块单口 IMU 已由用户移至 HAT 第二个 3P 口，用户测量该口三针电压无问题；换口后 IMU 仍严重缺答，舵机 15/15 在线。两腿原外部焊接分叉、电源入口及头部支路是否同时改变未完整描述，当前不以旧图代替实物。旧[单链接线图](./docs/photos/hat-v1.2-wiring-plan.png)仅历史意向；当前口述、复测与限制见[配电对照研究 §10](./docs/references/power-distribution-comparison-20261010/research.md#hat-port2-20261025)。**路线决定不等于实物接法完成载流验收**。
 - **采购清单**：[BOM.md](./BOM.md)（已重写为 C 线；A 版存档于 [docs/bom-route-a-20260928.md](./docs/bom-route-a-20260928.md)）
 - **PCB 打样**：[tools/jlc-order](./tools/jlc-order/README.md) —— 嘉立创开放平台全自动下单（计价→建单→审核→进度跟踪），2026-10-09 已实测下单并审核通过
-- **IMU 刷机**：[flash/README.md](./flash/README.md)（DAPLink 接 J2 焊盘）
+- **IMU 备件刷机入口**：[flash/README.md](./flash/README.md)（仅板① ScrapMeta 备件需按对应飞特固件处理；当前板②无需刷机即可使用）
 - **软件与动作训练**：[自建仿真学习步骤与参数借鉴边界](./docs/references/c-motion-training-20261015/research.md)记录 2026-10-15 起的自建路线：公开物理参数 → 自建物理模型/环境/奖励 → 通用算法训练 → 回放/调参/导出；不复制上游训练任务或整套替换本项目物理模型。2026-10-21 起显示层可按来源许可复用精细网格，现行边界见 [training/](./training/README.md)。实物对齐与机载 runtime 暂缓；[物理参数表](./docs/references/c-motion-training-20261015/physical-params.md)保留数值溯源。
 - **MuJoCo 查看工具（已跑通）**：在仓库根目录运行 `powershell.exe -File .\training\play-mujoco.ps1`，打开程序打印的本地地址（默认 [127.0.0.1:8080](http://127.0.0.1:8080)）。已有精细整机外观、播放/单步/重置、倍率/速度、四视角/跟随与纯碰撞视图；20 s 本机回放实测约 **0.999× 实时率、59.90 Hz 后端场景提交**，浏览器 FPS 未测。用法见 [training](./training/README.md)，截图、性能数据和边界见[实施记录](./docs/references/mujoco-viewer-optimization-20261021/research.md)；显示外观并非本机 C 线精确 CAD。
 - 当前工作序列以 [PROGRESS](./PROGRESS.md) 待办与最新记录为准；软件离线准备可与既定硬件步骤并行，不改变硬件安全决定。路线定稿理由与 C 线已知缺口见 PROGRESS「方案方向（2026-10-09）」。

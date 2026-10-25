@@ -1,0 +1,143 @@
+Sun Oct 25 09:49:56 AM UTC 2026
+ 09:49:56 up 5 min,  0 user,  load average: 0.34, 0.22, 0.10
+MainPID=814
+ActiveState=active
+SubState=running
+   814f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d  /home/radxa/servo-web/feetech.py
+67e91b7abb495adf2bfcc5ea38df163e137f92418d3a91dc43ce7e963f115c31  /home/radxa/servo-web/server.py
+a94e8c61e377709d7c0cd7681a9706c5dd5a720ff0e830faf4450a39e6303390  /home/radxa/servo-web/imu_bus.py
+                note = f"  地址{params[0]}" + (f"「{reg[0]}」" if reg else "") + (
+                    f" 写 {list(params[1:])}" if instr == WRITE else f" 读 {params[1]} 字节")
+            self.trace(f"→ #{sid} {INSTR_NAMES.get(instr, hex(instr))} {hexs(pkt)}{note}")
+
+    def _read_status(self, expect_id=None):
+        """读一个应答帧，返回 (id, error, params)。"""
+        # 找 FF FF
+        hdr = b""
+        deadline = time.monotonic() + self.ser.timeout * 3
+        while time.monotonic() < deadline:
+            b = self.ser.read(1)
+            if not b:
+                break
+            hdr = (hdr + b)[-2:]
+            if hdr == b"\xff\xff":
+                break
+        who = f"id {expect_id}" if expect_id is not None else "舵机"
+        if hdr != b"\xff\xff":
+            self.stats["timeout"] += 1
+            raise BusTimeout(f"{who} 没应答（{self.ser.timeout * 3 * 1000:.0f} ms 内没收到帧头）")
+        rest = self.ser.read(2)
+        if len(rest) < 2:
+            self.stats["timeout"] += 1
+            raise BusTimeout(f"{who} 应答断在 ID/长度（收到 ff ff {hexs(rest)}）")
+        sid, length = rest[0], rest[1]
+        body = self.ser.read(length)
+        if len(body) < length:
+            self.stats["timeout"] += 1
+            raise BusTimeout(f"{who} 应答不完整：长度 {length} 只收到 {len(body)}（ff ff {hexs(rest + body)}）")
+        err, params, chk = body[0], body[1:-1], body[-1]
+        if ((~(sid + length + err + sum(params))) & 0xFF) != chk:
+            self.stats["bad_checksum"] += 1
+            raise BusError(f"{who} 校验和不对（ff ff {hexs(rest + body)}）")
+        if expect_id is not None and sid != expect_id:
+            self.stats["bad_id"] += 1
+            raise BusError(f"等 id {expect_id} 的应答，来的是 id {sid}（ff ff {hexs(rest + body)}）")
+        self.stats["rx_ok"] += 1
+        if self.trace and self._last[1] not in self.trace_skip:
+            head = b'\xff\xff'
+            self.trace(f"← #{sid} 状态0x{err:02X} {hexs(head + rest + body)}"
+                       + (f"  数据 {list(params)}" if params else ""))
+        return sid, err, bytes(params)
+
+    # ---- 指令 ----
+    def ping(self, sid):
+        with self._io:
+            self._send(sid, PING)
+            try:
+                _, err, _ = self._read_status(sid)
+                return err
+            except BusError:
+            return False
+        now = time.monotonic() if now is None else now
+        if self.last_probe is None or now - self.last_probe >= RETRY_S:
+            self.last_probe = now
+            return True
+        return False
+
+    def probe_result(self, answered):
+        """单独 PING 的结果：应答了就放回 sync_read。返回是否放回。"""
+        if answered and self.excluded_since is not None:
+            self.excluded_since = None
+            self.misses = 0
+            self._publish(self._frame("disconnected", "ID 200 的 PING 有应答了，下一帧重新带上它。"))
+            return True
+        return False
+
+    def feed(self, block, now=None):
+        """block = 200 的 15 字节；None = 这一帧它没应答（或没带它）。返回生成的帧。"""
+        now = time.monotonic() if now is None else now
+        if block is None:
+            self.misses += 1
+            self.total_misses += 1
+            if self.misses >= MISS_DEGRADE and self.excluded_since is None:
+                self.excluded_since = now
+            frame = self._frame("disconnected",
+                                f"ID 200 连续 {self.misses} 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）"
+                                f"和固件是不是飞特协议版；舵机已改为单独读，每 {RETRY_S:.0f} 秒单独 PING 一次 200。",
+                                misses=self.total_misses)
+            self._publish(frame)
+            return frame
+        self.misses = 0
+        self.excluded_since = None
+        d = decode_block(block)
+        extra = {"connected": True, "sample_count": d["counter"], "raw_gyro": d["gyro_raw"],
+2026-10-25 09:49:48,59.4,58.3,816,0.4,15,6.9,6.95,60,-1268,467,3626,5,0,0,,,,,
+2026-10-25 09:49:49,60.0,58.3,408,0.37,15,6.8,6.94,60,-1346,486,3777,5,0,0,,,,,
+2026-10-25 09:49:50,60.0,57.8,816,0.37,15,6.9,6.95,60,-1326,506,3939,5,0,0,,,,,
+2026-10-25 09:49:51,60.0,58.3,816,0.37,15,6.8,6.94,60,-1346,526,4095,5,0,0,,,,,
+2026-10-25 09:49:52,60.0,58.3,408,0.37,15,6.9,6.95,60,-1287,546,4255,5,0,0,,,,,
+2026-10-25 09:49:53,59.4,58.3,408,0.37,15,6.9,6.95,60,-1306,566,4414,5,0,0,,,,,
+2026-10-25 09:49:54,60.6,58.3,1800,0.34,15,6.8,6.93,60,-1326,587,4586,5,0,0,,,,,
+2026-10-25 09:49:55,60.6,58.9,1800,0.34,15,6.8,6.94,60,-1268,606,4735,5,0,0,,,,,
+09:49:25 [总线][调试] → #12 PING ff ff 0c 02 01 f0
+09:49:25 [总线][调试] ← #12 状态0x00 ff ff 0c 02 00 f1
+09:49:25 [总线][调试] → #13 PING ff ff 0d 02 01 ef
+09:49:25 [总线][调试] ← #13 状态0x00 ff ff 0d 02 00 f0
+09:49:25 [总线][调试] → #14 PING ff ff 0e 02 01 ee
+09:49:25 [总线][调试] ← #14 状态0x00 ff ff 0e 02 00 ef
+09:49:25 [总线] 扫描 20..14：在线 15 颗 [20, 21, 22, 23, 24, 30, 31, 32, 33, 34, 10, 11, 12, 13, 14]
+09:49:25 [总线][调试] → #20 READ ff ff 14 04 02 12 01 d2  地址18「相位」 读 1 字节
+09:49:25 [总线][调试] ← #20 状态0x00 ff ff 14 03 00 34 b4  数据 [52]
+09:49:25 [系统] 相位 18 = 52（BIT2=1 → 速度单位 1 步/秒；BIT3=0 速度0=停 → 不限速写 3000）
+09:49:25 [IMU] 总线 IMU 已启用：ID 200 跟舵机在同一条 sync_read 里读（有网页连着才轮询）
+09:49:25 [IMU][警告] 状态 live/disconnected：等待第一条带 ID 200 的 sync_read。
+09:49:25 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:32 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:32 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:37 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:37 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:39 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:39 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:42 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:42 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:43 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:43 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:49:55 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:49:56 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+Sun Oct 25 09:54:53 AM UTC 2026
+MainPID=883
+ActiveState=active
+SubState=running
+f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d  /home/radxa/servo-web/feetech.py
+67e91b7abb495adf2bfcc5ea38df163e137f92418d3a91dc43ce7e963f115c31  /home/radxa/servo-web/server.py
+a94e8c61e377709d7c0cd7681a9706c5dd5a720ff0e830faf4450a39e6303390  /home/radxa/servo-web/imu_bus.py
+2026-10-25 09:54:48,61.1,59.4,816,0.51,15,6.9,6.95,68,-1164,4171,33253,10,0,0,,,,,
+2026-10-25 09:54:49,61.7,59.4,408,0.47,15,6.9,6.95,68,-1209,4191,33413,10,0,0,,,,,
+2026-10-25 09:54:50,61.1,59.4,816,0.47,15,6.8,6.95,68,-1196,4211,33573,10,0,0,,,,,
+2026-10-25 09:54:51,61.1,59.4,408,0.47,15,6.9,6.95,68,-1235,4231,33733,10,0,0,,,,,
+2026-10-25 09:54:52,61.1,59.4,816,0.47,15,6.8,6.94,68,-1183,4251,33893,10,0,0,,,,,
+09:54:28 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:54:40 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:54:40 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。
+09:54:42 [IMU][警告] 状态 live/disconnected：ID 200 连续 1 帧没应答：检查小板供电、总线接线（J1/J2 的 DATA）和固件是不是飞特协议版；舵机已改为单独读，每 2 秒单独 PING 一次 200。
+09:54:42 [IMU] 状态 live/live：正在从舵机总线读 ID 200（跟主控同一条 sync_read）。

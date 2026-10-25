@@ -1,0 +1,34 @@
+IMU ID 200 read-only instruction comparison
+Date: 2026-10-25 (UTC+8)
+Port: /dev/ttyS2, 1,000,000 baud
+Procedure: temporarily stop duck-servo-web.service; run the diagnostic exclusively; restore service via EXIT trap.
+The board clock/log is UTC. Service status was active again after the tests.
+
+Direct diagnostic (8 telemetry reads, 3 extended reads; read helper may retry twice):
+ping: 在线
+
+契约块 56..70（8 帧，间隔 0.3s）：
+  #0 gyro=(-3,22,11)raw quat=(+0.0069,+0.0271,+0.5703) cnt=66 flags=0x81 rsv=0
+  #1 gyro=(-2,26,11)raw quat=(+0.0069,+0.0271,+0.5703) cnt=68 flags=0x81 rsv=0
+  #2 gyro=(-1,26,13)raw quat=(+0.0069,+0.0271,+0.5703) cnt=69 flags=0x81 rsv=0
+  #3 gyro=(-1,26,9)raw quat=(+0.0069,+0.0271,+0.5703) cnt=70 flags=0x81 rsv=0
+  #4 gyro=(-4,24,11)raw quat=(+0.0069,+0.0271,+0.5703) cnt=71 flags=0x81 rsv=0
+  #5 gyro=(0,21,10)raw quat=(+0.0069,+0.0271,+0.5703) cnt=72 flags=0x81 rsv=0
+  #6 gyro=(2,26,7)raw quat=(+0.0069,+0.0271,+0.5703) cnt=83 flags=0x81 rsv=0
+  #7 gyro=(-1,21,8)raw quat=(+0.0069,+0.0271,+0.5703) cnt=93 flags=0x81 rsv=0
+
+完整块 128..147（3 帧）：
+  #0 gyro=(-3,23,14)raw quat=(+0.0069,+0.0271,+0.5703) accel=(-299,345,8142)raw cnt=94 flags=0x81
+  #1 gyro=(-1,22,9)raw quat=(+0.0069,+0.0271,+0.5703) accel=(-294,341,8144)raw cnt=96 flags=0x81
+  #2 gyro=(-4,25,11)raw quat=(+0.0069,+0.0271,+0.5703) accel=(-305,343,8143)raw cnt=97 flags=0x81
+
+厂商窗 160..179：magic=0x4D49(正确) cmd=0 sim_mode=1 report_frame=0 proto_lock=0 mirror_baud=0 dbg=2 status=0x00 last_err=0x10
+
+Rate comparison (scripts/imu200-instruction-compare.py; 30 s per instruction, 10 requests/s):
+PING: 261/301 (86.7%), rate=10.0 req/s, p50=1.95ms p95=2.30ms max=2.46ms, timeout=+40, bad_checksum=+0, bad_id=+0
+READ(56,15): 256/301 (85.0%), rate=10.0 req/s, p50=2.11ms p95=2.36ms max=3.28ms, timeout=+45, bad_checksum=+0, bad_id=+0
+SYNC_READ([200],56,15): 245/301 (81.4%), rate=10.0 req/s, p50=2.18ms p95=2.42ms max=2.88ms, timeout=+56, bad_checksum=+0, bad_id=+0
+
+Post-test monitor snapshot after service restart: 15/15 servos, v_min=7.0V, v_avg=7.06V, max servo temp=53C, bad_checksum=0, bad_id=0. This is servo-side telemetry, not a direct measurement at the IMU power pins.
+
+Limitations: no oscilloscope/logic-analyzer capture; no direct IMU supply measurement; posture/load mode was not instrumented during the serial test. Correction on 2026-10-25 at 17:46 UTC+8: although the host error text says 60 ms, _read_status can exit on the first empty serial.read(1), approximately 20 ms with this configuration. These timeout counts do not establish a full 60 ms receive window. A later response may have been discarded by the next transaction. The successful diagnostic READ helper retries, so it is not a raw single-attempt success-rate measurement. No registers were written and no firmware or wiring was changed.

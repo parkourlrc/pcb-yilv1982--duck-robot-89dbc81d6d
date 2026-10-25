@@ -243,3 +243,9 @@ reset、新回合、摔倒暂停和状态中断必须切断旧快照，禁止从
 实施时第一步：在用户实际打开工具的那台机器上确认启动入口/运行版本与 checkpoint，补一个单环境可复现回放入口和最小计时显示；取得 10–20 s 数据后决定是修自写循环、复用 mjlab 调度，还是处理图形后端。该信息尚缺，不影响先确定上述 UI、外观和数据契约。
 
 方案阶段仅交付本方案及 [training 导航](../../../training/README.md)、[进度记录](../../../PROGRESS.md)，当时未修改实现、未运行仿真/训练/新评估、未操作实物；采样尚未被证明是卡顿根因。该阶段落盘检查限于 Markdown 链接存在与 `git diff --check`；后续实施已转入本文顶部的现行记录。
+
+## mjlab 平台边界问答（2026-10-22，用户提问"mjlab 必须在 WSL 下跑么"）
+
+**结论：训练——实际绑定 Linux/WSL；纯 MuJoCo 查看——Windows 原生即可。** 依据：① mjlab 物理后端 MuJoCo Warp 官方主平台 Linux，Windows 不在 GPU 训练官方支持范围（github.com/google-deepmind/mujoco_warp）；② 本项目锁定组合（mjlab 1.3.0 + mujoco 3.10.0 + mujoco-warp 3.8.1 + warp-lang 1.12.0，另有 scipy 手动补）仅在 WSL `.venv-wsl` 验证，且有已知版本雷（mujoco-warp 3.9.1 `ls_parallel` 删除崩溃）；③ 标准 `pip install mujoco`（CPU）Windows 原生支持，本机 Python 3.13 + MuJoCo 3.16 已在用（servo-mujoco-viewer），且 duck_visual.xml Windows 3.16 物理一致性 0 误差已验证（见上文 visual-validation）。**工作台远程用法**：工作台为 viser 网页（127.0.0.1:8080），在训练机启动后经 `ssh -L 8080:localhost:8080` 端口转发即可在装配机浏览器使用完整工作台，无需迁移环境。装配机（本机）当前未装 WSL（2026-10-22 复核 `wsl -l -v` 明确未安装）。
+
+**2026-10-22 追记：装配机已按用户授权装 WSL2+Ubuntu-24.04 并重建 `training/.venv-wsl`（torch 2.13.0+cu129 替代 cu130，因驱动 577.05 仅暴露 CUDA 12.9；checkpoint 自 git 历史恢复），工作台在本机跑通（49.9 Hz 与训练机一致）——上文"装配机未装 WSL"的状态已过时，详见 PROGRESS 当日条目。**
