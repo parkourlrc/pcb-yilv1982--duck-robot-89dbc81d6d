@@ -14,6 +14,10 @@
 | `imu_to_dxl_ref_2026-08-30_18-59-47.eprj2` | **真源工程**，嘉立创EDA专业版可打开（免费）改图/导出；内含上述两页图页 |
 | `hardware-netlist.md` | 仓库 `docs/hardware.md` 副本：v0.3 vs v0.2 差异、连接器脚位、MCU 脚位网络表、电源/保护拓扑 |
 | `hardware-repo-README.md` | 仓库 `hardware/README.md` 副本 |
+| **`production/imu_to_dxl_v03_gerber.zip`** | **生产文件**：2026-10-25 用户经嘉立创EDA从 `imu_to_dxl_1` 导出的 Gerber 全套（双层+钻孔+飞针 JSON），本机解析验证 33×22mm、4×φ2.2@30×19、J1/J3 双 EH（6×φ1.0）；嘉立创订单 85849959 用其打样，[下单调研](../../references/imu-v03-jlc-order-20261025/research.md) |
+| **`production/imu_to_dxl_v03_bom_20261025.xlsx`** | **SMT 物料表**：EDA 导出原件，15 行全带立创 C 号（作者工程内已配好）；19 个贴片位号对应 |
+| **`production/imu_to_dxl_v03_cpl_raw_20261025.xlsx`** | **坐标文件原件**：EDA 导出，24 行（含 3 个 DNP：C7/C8/Y1；2 个插件：J1/J3） |
+| **`production/imu_to_dxl_v03_cpl_jlc_20261025.csv`** | **JLC 贴片用清理版 CPL**：19 贴片件（Designator/Mid X/Mid Y/Layer/Rotation），与 BOM 一致，供 PCB+SMT 一体单上传 |
 
 两页图页共同确认的要点：标题栏写明 `DXL 2.0 · ID 200 · sync_read @124`（原设计是 Dynamixel 版，上飞特总线需刷 replica 0.2.0 固件，见 `flash/`）；VBATT → U3 AP2210K-3.3 直连（**5V 供电上限**）；LSE 32.768kHz 晶振为可选件（Y1）。
 

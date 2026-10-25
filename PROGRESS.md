@@ -2,6 +2,12 @@
 
 事实性的进度流水：什么时候到了什么、做了什么。核对结论与安全边界见 [README](./README.md) 与 [BOM](./BOM.md)。
 
+## imu_to_dxl v0.3（双口）补板下单：裸板单已取消，转 PCB+SMT 一体单（2026-10-25 晚）
+
+- 板①烧损后备板：从 eprj2 真源出 Gerber。**Gerber 获取通路（新）**：eprj2 离线转换三条路全否（SQLite 文档加密、KiCad/epro2kicad 仍需 GUI 导 .epro、oshwhub 上是 avanx 的另一块 AT32 单口板）；改用 **CDP 驱动桌面 lceda-pro**（`--remote-debugging-port=9222` + 命令行开工程 + `Input.dispatchMouseEvent` 真实坐标点击，合成 DOM 事件无效）自动走到导出对话框，BOM/CPL/Gerber 三样均经此通路导出（用户各点一次保存）。
+- **Gerber 实测验证通过**：33×22mm 双层、4×φ2.2@30×19、J1+J3 双 EH 共 6×φ1.0（双口决定性证据）；文档旧记 32×22/29×19 系 X 向 1mm 旧误差，以 Gerber 为准。**BOM 15 行全带立创 C 号**（作者已在工程配好，上游 README 留有其立创 BOM 单号 BOM260909006316）；CPL 原始 24 行含 3 个 DNP（C7/C8/Y1）与 2 个插件（J1/J3），已清理为 **19 贴片件 JLC 版 CSV**。
+- **订单走向**：裸板单 85849959（¥50.11，未支付）**用户已取消**；改走 **PCB+SMT 一体单**（EDA「PCB/SMT 一键下单」/JLC 网页，贴 19 件含 J2 调试座，J1/J3 到货自焊）。jlc-order API 仅开通 PCB 业务线（工具内 grep 无 SMT 接口），SMT 单走网页不下 API。三件套入库 `docs/schematics/imu-to-dxl-scrapmeta-v0.3/production/`。详见 [IMU v0.3 下单调研](./docs/references/imu-v03-jlc-order-20261025/research.md)。
+
 ## 已切换到 IMU 查看器，servo-web 关闭（2026-10-25 19:59）
 
 - 按用户要求停止 `duck-servo-web.service`，确认 inactive/dead、串口释放；启动已有 `~/imu-viewer.py --port /dev/ttyS2 --baud 1000000 --http 8766`（PID 829）。HTTP/SSE 正常，启动窗口页面状态为“IMU 无应答”，不代表硬件已恢复。
