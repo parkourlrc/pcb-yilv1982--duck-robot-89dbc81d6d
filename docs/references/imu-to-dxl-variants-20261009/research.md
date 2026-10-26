@@ -73,3 +73,11 @@
 - 接线前仍需核对 3P 座针序（照片推断为 JST EH，1=GND 2=V+ 3=DATA，见 `docs/photos/board-servo-socket-pinout.png`），未核针序不上电。
 
 **至此两块 IMU 板身份全部落定**：双 3P 口 = ScrapMeta v0.3（刷 replica 飞特固件 + 5V 供电，见 `flash/README.md`）；单 3P 口 = jyg9 GD32 社区成品版（免刷、6~24V）。两块都能用于 C 线总线末端 IMU，任选其一，另一块作备件。
+
+## 2026-10-26 勘误与补强：jyg9 板官方 BOM/原理图已析
+
+后续专题 [jyg9 电源分析（2026-10-26）](../imu-jyg9-power-5v-20261026/research.md) 直接解析了社区库内 jyg9 官方 KiCad 工程，修正/精确化本页两处：
+
+1. **"带 CH340"说法与官方图纸不符**：0.2 版 BOM 无 CH340；USB 调试走 GD32 原生 USB（PA11/PA12）引到 H3 排针。上文 2026-10-14 记录的"照片未见 CH340 出入"由此关闭。
+2. **"6~24V"下限的机理**：Buck = ETA2845S2G（芯片本体 5~38V），但板级 EN 分压（R3 100K/R4 30K → 0.231×VBATT，EN 阈值 1.5V）设定 **冷启动 ≈6.5V、维持 ≈5.93V——5V 供电必不启动**（不损坏）。EH 座针序 1=GND 2=V+ 3=DATA 获图纸级确认。
+3. **"带 CH340"误读彻底闭环 + 固件路径修正**（同日追加）：v1 固件 README"调试口是 CH340 的 ttyUSB*"指**台架外接 CH340 适配器**，板上从无 CH340。且 `firmware/v1` 为完整开源复刻固件（build.sh + bootloader + A/B slot，真机验证过），与 0.2_10p 硬件引脚级吻合——自产板可烧 v1，见[电源分析专题追加 3](../imu-jyg9-power-5v-20261026/research.md)。
