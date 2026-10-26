@@ -765,6 +765,10 @@ UART `TIOCICOUNTER` 本次可读：前后 `frame=0、parity=0、buf_overrun=0、
 - **部署后验证**（仅 IMU 状态，WS 触发 8 秒轮询）：`logs/bus-2026-10-26.log` 生成 24KB；样本 `17:07:37.463 → #254 SYNC_READ ff ff fe 05 82 38 0f c8 6b` → `17:07:37.466 ← #200 … 数据 [253,…,129,0]`——**请求→应答 3ms、10Hz 节奏、逐帧 hex + 15 字节数据块**（sample_count 253→254→255 流动、状态字节 129=0x81 可直接从数据列读出）。[总线][调试] 行自本补丁起从 servo-web-日期.log 迁至 bus-日期.log；探针 PING、SYNC_WRITE 同样全量入册。
 - **登记**：[bench-tools](../../../../docs/bench-tools.md) 新增补丁条目；`sources-board/server.py` 已同步部署后版本（SHA256 `e84309ea…75684`，含 ids_sent 原始混读 + _bus_log_writer 异步日志双标记）。
 
+### 2026-10-27 深夜续 6：工程可部署副本 tools/servo-web/ 建立（用户指示）
+
+用户指示：servo-web 后续会频繁修改，上游参考工程保持原样，在本工程 `tools/` 下放最新可部署副本。已从主控 `~/servo-web` 打包拉取（排除 `logs/`、`__pycache__`、`*.bak-*`、`.idmap-backup-*` 历史快照，板上均保留）：**60 个文件**含全部源码/测试、index.html、model（2.8MB）、poses、calib 的 28 份 EEPROM 快照；MD5 清单 `tools/servo-web/source-manifest-md5.txt`，来源与相对上游差异说明见 [tools/servo-web/SOURCE.md](../../../../tools/servo-web/SOURCE.md)。[AGENTS.md](../../../../AGENTS.md) 目录表与 [bench-tools](../../../../docs/bench-tools.md) 部署段已加入口；`sources-board/` 角色定为 10-27 取证快照（不再维护），"最新副本"职责由 `tools/servo-web/` 接替。本轮未提交。
+
 **纯表现层（按用户指示不管）**：miss 文案+60s 滑窗统计、readyflag、HTTP no-store 缓存头、dirs 广播、host 遥测/MON 常驻监控（TIOCICOUNTER 只读计数）、/api/host 路由、模型缓存、行内 CAL 按钮、状态同步、关节 ID 映射表（配置数据）。
 
 审计过程备注：首次 diff 曾误报 `read_states_with_imu` 残余差异——系本地 `sources-board/server.py` 为回滚前拉取的过期副本，重新拉取现行版后该段确认一致。

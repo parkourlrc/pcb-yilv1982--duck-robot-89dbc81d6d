@@ -39,7 +39,7 @@
   ```bash
   systemctl --user start|stop|restart|status duck-servo-web   # 崩溃自动重启(Restart=always)
   ```
-  单元 [scripts/duck-servo-web.service](../scripts/duck-servo-web.service)（`--imu-bus` 常开，IMU 未接时自动降级），已 `enable`。**开机自启还需一次 `sudo loginctl enable-linger radxa`**（未执行前，重启后须 SSH 登录一次服务才起）。手动应急启动仍可用 `( setsid nohup python3 server.py … & )`（注意先停服务防抢串口）。
+  单元 [scripts/duck-servo-web.service](../scripts/duck-servo-web.service)（`--imu-bus` 常开，IMU 未接时自动降级），已 `enable`。**工程可部署副本：[tools/servo-web/](../tools/servo-web/SOURCE.md)（2026-10-27 起，主控 `~/servo-web` 的同步版+来源差异说明；上游参考库只读不改）**。**开机自启还需一次 `sudo loginctl enable-linger radxa`**（未执行前，重启后须 SSH 登录一次服务才起）。手动应急启动仍可用 `( setsid nohup python3 server.py … & )`（注意先停服务防抢串口）。
   ⚠️ 后台作业务必用 `( … & )` 双层脱开：`ssh 'cmd & …'` 形式下本地连接被杀会经 sshd→bash 作业表把 HUP 传给服务、误杀服务（2026-10-24 实测踩过）。
   电脑/手机浏览器开 `http://192.168.1.35:8080`。停止：`pkill -f "[s]erver.py"`（方括号防 pkill 自匹配，2026-10-22 实测踩过）。
 - **常驻监控（2026-10-25 部署，随服务自动开启、每秒实时落盘）**：`~/servo-web/logs/monitor-YYYYMMDD.csv` 记主机 SoC/GPU/频率/负载、每颗电压/温度/电流汇总（v_min/v_avg/t_max/i_sum）、总线统计、分 ID 丢帧 TOP、UART 驱动错误（TIOCICOUNTER）；事件行 STORM_START/STORM_END/ALL_OFFLINE/ID_SET_CHANGE 自动写入并上页面日志。顶栏显示「SoC/CPU/最低电压/监控✓行数·事件N」（悬停见丢帧 TOP 与 UART 错误）。补丁 [scripts/servo-web-full-monitor.py](../scripts/servo-web-full-monitor.py)（叠加于 [servo-web-host-monitor.py](../scripts/servo-web-host-monitor.py)）。首次部署即捕获 04:36 全掉线风暴（当时 SoC 60°C——该次非热因）与 32 号扫描缺失。

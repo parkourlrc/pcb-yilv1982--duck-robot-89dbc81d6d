@@ -28,6 +28,7 @@
 | [`training/`](training/README.md) | 本项目 real2sim2real 学习工程：物理参数表、自建物理 MJCF/任务/PPO 入口与 MuJoCo 回放；显示层允许按来源许可复用精细网格，训练物理与任务不整包替换；产物仅仿真学习，不驱动实物。 |
 | [`scripts/`](scripts/) | 本项目辅助脚本：图片标注、历史训练启动等；复用前核对路径和环境。 |
 | [`tools/jlc-order/`](tools/jlc-order/README.md) | 嘉立创 API 下单/查询工具、测试与示例配置；真实配置和调用台账不提交。 |
+| [`tools/servo-web/`](tools/servo-web/SOURCE.md) | 本项目 servo-web **可部署工作副本**（主控 Radxa `~/servo-web` 的工程同步版，含来源与差异说明，2026-10-27 建）；servo-web 修改在本副本/板侧进行后同步回此，上游 `references/microduck-replica/tools/servo-web/` 保持只读。 |
 | [`references/microduck-community-kit/`](references/microduck-community-kit/README.md) | **C 线主参考，只读**：取电/配电/IMU 板、固件、飞特补丁、舵机调试器。 |
 | [`references/microduck-replica/`](references/microduck-replica/README.md) | **B 线参考，只读**：机械、电控、舵机资料、部署及训练研究。各子目录许可不同。 |
 | [`references/microduck-build-tutorial/`](references/microduck-build-tutorial/README.md) | **A 线参考，只读**：Pi Zero 2 W / OpenRB / XL330 教程；不是当前 C 线施工依据。 |
