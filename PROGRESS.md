@@ -2,6 +2,14 @@
 
 事实性的进度流水：什么时候到了什么、做了什么。核对结论与安全边界见 [README](./README.md) 与 [BOM](./BOM.md)。
 
+## 真机 IMU 读取丢包：诊断分析完成，待实机验证（2026-10-26；无实物操作）
+
+- **现象（用户实测）**：真机环境 robotd 读 IMU（ID 200）**100 次超时约 30 次**，节奏断断续续不成簇；15 颗舵机全部正常零缺失。轻载台架（10-17 ping 200）此前正常，带载真机出现。
+- **已排除**：主机侧补丁已知缺陷（BURST_IDLE=2ms / flush 残留——丢后缀必伤尾部舵机，与本现象矛盾）；电压塌陷关断（会成簇 1.5~2s 连续丢，与断续孤立矛盾）；主机解析路径（超时是没收字节，非解析）。
+- **当前首选假说**：出厂固件"周期性总线盲区与 50Hz 请求拍频对撞"（100Hz 传感器任务的关中断/主循环应答阻塞 → 盲区中到达的指令丢字节 → 该 tick 不应答；10ms vs 20ms 节拍相位滑动 → 断续对撞；只伤 200 因盲区仅存在于 IMU 板自身接收路径）。次选：echo 窗口边界概率缺陷。
+- **验证工作单与判定分支**已落盘 [IMU 固件代码分析专题·验证工作单](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)：V1 日志重看（TELEM_CNT 连续性，零成本）→ V2 间隔扫描（5~200ms 六档，拍频特征判定）→ V3 拆板单测 → V4 换 v1 固件 A/B 对照（烧前先 OpenOCD dump 原厂固件备份，经 H2 SWD 排针，DAPLink 已到货）。**盲区模型若坐实，烧 v1（中断+DMA 应答架构）即治愈**。
+- 同轮副产品：v1 固件构建链本机 dry-run 通过（cmake+ninja+xpack-gcc 编出全部镜像，工具链留存 `~/imu-fw-tools/`）；改板设计变更单定稿（5V 档跳线+删 CN2+加 CN3+穿板铜，见 [电源分析专题](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。
+
 ## imu_to_dxl v0.3（双口）补板下单：裸板单已取消，转 PCB+SMT 一体单（2026-10-25 晚）
 
 - 板①烧损后备板：从 eprj2 真源出 Gerber。**Gerber 获取通路（新）**：eprj2 离线转换三条路全否（SQLite 文档加密、KiCad/epro2kicad 仍需 GUI 导 .epro、oshwhub 上是 avanx 的另一块 AT32 单口板）；改用 **CDP 驱动桌面 lceda-pro**（`--remote-debugging-port=9222` + 命令行开工程 + `Input.dispatchMouseEvent` 真实坐标点击，合成 DOM 事件无效）自动走到导出对话框，BOM/CPL/Gerber 三样均经此通路导出（用户各点一次保存）。
@@ -510,7 +518,7 @@
 |---|---|---|
 | 微雪 Waveshare Bus Servo Adapter (A) | 1 | 半双工总线转接板，即 replica《电控采购清单》的「半双工总线转接板」待买项；此前台架一直用 FE-URT-2 顶替。整机走它还是飞线，待测。2026-10-10 照片归档+元件标注（[docs/photos/](./docs/photos/README.md)）：实物 v1.1，输入**直通舵机口不稳压**（HD-1910 台架喂 2S，严禁 12V），跳线 A=UART/B=USB（CH343） |
 | 黑色降压模块（XT60 端子） | 1 | 2026-10-10 照片细读（[存档](./docs/photos/README.md)）+ **空载实测**（[操作单](./docs/buck-module-test.md)）：板名 **BUS SERVO POWER SUPPLY V1.3**（By 造物の乐趣，社区自研件，公开无资料，二维码待扫）；丝印 PWR IN 7.2-18V / OUT PWR 5V or 7.4V MAX 6A。**实测**：VCC（3P）12V→6.00V、6.6V→6.00V、6.3V→5.99V——选压桥 **6V 档**、稳压下限 **≈6.3V**（跌落跟随非关机，远好于丝印 7.2V），**2S 最差工况可用**；PWR OUT（2P）全程跟随输入 = **电池直通口**（舵机总线，对上 HD-1910 直挂 7.8-8.1V 用法）。接口分工闭环（~~DC 母座~~系照片误判，实物无此件）。当前方案不使用 VCC 稳压口、无需为 IMU 改焊 5V；模块不再是整机必需件，载流未验证 |
-| 绿色 IMU 板 ×2 | 2 | **板①（双 3P 口）= ScrapMeta microduck-diy imu_to_dxl v0.3**（STM32G031，板 32×22mm）。三版来源对比与刷机兼容性查证见 [docs/references/imu-to-dxl-variants-20261009](./docs/references/imu-to-dxl-variants-20261009/research.md)；**飞特固件刷写包已备好**（[flash/](./flash/README.md)：校验过的 0.2.0 HEX + OpenOCD + 一键脚本 + imu200 验收工具），按归档设计拟从总线 VBATT 取电、U3 自降 3.3V；实物料号、输入规格及温升待验证，旧“只能 5V”要求撤回。**板②（单 3P 口）= jyg9 社区成品版**（2026-10-14 照片判别：GD32F303 LQFP48 + 降压前端，[照片存档](./docs/photos/README.md)）：出厂 DXL 2.0 + 飞特双协议免刷、供电 6~24V 可直挂总线；调试口形式（照片未见 CH340/USB）待核对。整机用其一即可，另一块备件 |
+| 绿色 IMU 板 ×2 | 2 | **板①（双 3P 口）= ScrapMeta microduck-diy imu_to_dxl v0.3**（STM32G031，板 32×22mm）。三版来源对比与刷机兼容性查证见 [docs/references/imu-to-dxl-variants-20261009](./docs/references/imu-to-dxl-variants-20261009/research.md)；**飞特固件刷写包已备好**（[flash/](./flash/README.md)：校验过的 0.2.0 HEX + OpenOCD + 一键脚本 + imu200 验收工具），按归档设计拟从总线 VBATT 取电、U3 自降 3.3V，实物料号、输入规格及温升待验证——**2026-10-25 勘误：“两板都可直挂总线”旧指导因缺板①实物器件闭环而清除，供电按 [flash/README](./flash/README.md) 红线执行；当晚测量表笔短接致损，不再列可用备件**，若仅 LDO 损坏可换 AP2210K-3.3 修复，补板走 PCB+SMT 一体单（见 [BOM](./BOM.md)）。**板②（单 3P 口）= jyg9 社区成品版**（2026-10-14 照片判别：GD32F303 LQFP48 + 降压前端，[照片存档](./docs/photos/README.md)）：出厂 DXL 2.0 + 飞特双协议免刷、可直接挂总线。**2026-10-26 官方 0.2 BOM/原理图析毕**（[电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）：Buck=ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压设定），5V 必不启动、不损坏**；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；官方即无 CH340（USB 走 GD32 原生引排针），旧出入关闭；电源正极无保险、反接必烧，断电核针序保留。板②当前使用（整机优先），间歇缺答根因未隔离；板①烧损后备件缺口保留 |
 | 白色鸭图案 HAT（**实物丝印 V1.2**，2026-10-10 照片更正，此前误记 V1.1） | 1 | **原理图已归档查证**（2026-10-09，[docs/references/microduck-hat-20261006](./docs/references/microduck-hat-20261006/research.md)）：官方 RPI Robot HAT 的嘉立创 EDA 派生版，Radxa Zero 3W（舵机总线 UART2=ttyS2）兼容 Pi Zero 2W，比官方多一颗 BNO085。**2026-10-10 正反面照片归档+元件标注**（[docs/photos/](./docs/photos/README.md)）：实物 V1.2 与存档原理图 V1.0 差异大——**背面多一颗 MCU 类器件（完整型号/功能待核）；正面圆柱电容标记 10 / 50V，不再按超级电容处理**；RS485 座未焊。接线/上电前须索取 V1.2 原理图 |
 | 全部舵机 | 待清点 | 型号/数量/出厂 ID 状态待登记。飞特方案按官方关节表应为 HD-1910-C001 ×15（含嘴） |
 | 打印件 | 待清点 | 版本/材料/数量待登记；打印模型以上游独立仓库 microduck-replica-cad 为准 |
