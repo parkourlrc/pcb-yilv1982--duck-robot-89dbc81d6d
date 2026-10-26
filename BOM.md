@@ -12,11 +12,11 @@
 | :---: | :--- | :---: | :--- | :--- |
 | [x] | 飞特舵机 HD-1910-C001 | 15（含嘴） | 关节 | 2026-10-17 已逐颗完成 ID 初始化（10–14 / 20–24 / 30–34）；机械零位尚未校准，见[装配与 CAL 调研](./docs/references/assembly-check-20261017/research.md)。另有一颗“嫌疑坏”舵机隔离，不计入装机批 |
 | [x] | 白色鸭图案 HAT | 1 | 主控适配 + 总线物理层（74LVC 半双工 + UART2/ttyS2） | 实物丝印 **V1.2**（10-10 照片确认）；存档原理图为 V1.0，图物有差异（背面多 MCU 类器件；圆柱电容不再认作超级电容），**V1.2 图纸待向板卡来源索取**；电气功能按 [docs/hat-v1.2-test.md](./docs/hat-v1.2-test.md) 操作单验证 |
-| [x] | IMU 板② imu_to_dxl（jyg9 GD32 单 3P 成品版，**整机优先**，当前使用） | 1 | 姿态总线从站（ID 200，双协议免刷） | 2026-10-14 照片判别 + 2026-10-26 官方 0.2 BOM/原理图析毕：GD32F303 + ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压），5V 必不启动（不损坏）**，7.4~8.4V 正常直挂链末；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；电源正极无保险，反接必烧（见 [电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。2026-10-25 晚移至 HAT 第二个 3P 口后短测 0/60、完整交错 2/360 仍严重缺答，根因未隔离（10-26 丢包诊断与验证工作单见 [imu-fw-v1-code-analysis-20261026](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)）；此前回读镜像 **1.5.1 / CRC32 0xD9CA0DEF**，与官方包构建指纹未匹配，不等于 Flash 损坏。见[换口记录](./docs/references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)与[版本研究](./docs/references/imu-to-dxl-variants-20261009/research.md)。备件缺口保留，是否补购另行决定，不把换板作为已验证修复 |
+| [x] | IMU 板② imu_to_dxl（jyg9 GD32 单 3P 成品版，**整机优先**，当前使用） | 1 | 姿态总线从站（ID 200，双协议免刷） | 2026-10-14 照片判别 + 2026-10-26 官方 0.2 BOM/原理图析毕：GD32F303 + ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压），5V 必不启动（不损坏）**，7.4~8.4V 正常直挂链末；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；电源正极无保险，反接必烧（见 [电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。2026-10-25 晚移至 HAT 第二个 3P 口后短测 0/60、完整交错 2/360 仍严重缺答；**2026-10-26 用户确认已回到 HAT 另一个口，00:11 servo-web active，缺答待定位**，下一步 FT232H 读 H1 日志，见[调试计划](./docs/references/servo-web-imu-3d-20261024/debug-plan-20261026.md)；此前微雪台架连独立舵机也无字节，不能据此判 IMU 坏，HAT 旧接法有自然请求 CRC 错误；远端真机丢包诊断与验证工作单另见 [imu-fw-v1-code-analysis-20261026](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)。此前回读镜像 **1.5.1 / CRC32 0xD9CA0DEF**，与官方包构建指纹未匹配，不等于 Flash 损坏。见[换口记录](./docs/references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)与[版本研究](./docs/references/imu-to-dxl-variants-20261009/research.md)。备件缺口保留，是否补购另行决定，不把换板作为已验证修复 |
 | [x] | ~~IMU 板① imu_to_dxl v0.3（备件）~~ **2026-10-25 测量短接致损** | 1 | ~~备用姿态总线从站~~ | ScrapMeta microduck-diy / STM32G031 双 3P 版；**2026-10-25 在 7.4V 分支上测电压时表笔短接烧损（用户确认；"过压烧毁"未证实，5V 供电红线继续按上游设计执行）**，若仅 LDO 损坏可换 AP2210K-3.3 修复；修复后再按 J2 焊接 → DAPLink 刷机 → imu200 验收（[flash/README](./flash/README.md) 固件包已备），实物料号/输入规格待核。flash/ 固件与刷机资料保留 |
 | [~] | imu_to_dxl v0.3 板（PCB+SMT 一体） | 5 | 板①补板/备件 | 裸板单 85849959 用户已取消（未支付）；改走 **PCB+SMT 一体单**（2026-10-25 定向，EDA 一键下单/JLC 网页，金额以订单页为准）：贴 19 个贴片件（含 J2 调试座），J1/J3 EH 插件到货自焊，Y1/C7/C8 维持 DNP。Gerber/BOM/CPL 三件套见[生产文件](./docs/schematics/imu-to-dxl-scrapmeta-v0.3/production/)，下单调研见 [imu-v03-jlc-order-20261025](./docs/references/imu-v03-jlc-order-20261025/research.md)。到货刷机按 [flash/README](./flash/README.md) |
 | [x] | BUS SERVO POWER SUPPLY V1.3 降压板 | 1 | **可选**转接件：XT60 ↔ 螺丝端子 | 空载实测完成（6V 档/下限 ≈6.3V/直通可用）。架构 v2 后**降为可选**：VCC 稳压口闲置不动，拿掉它则自制线直连 HAT |
-| [x] | 微雪 Bus Servo Adapter (A) | 1 | 半双工总线转接（台架调试） | HAT 电源/通信验证通过后无需装入整机；保留作台架调试/改 ID，替代方案另行设计 |
+| [x] | 微雪 Bus Servo Adapter (A) | 1 | 半双工总线转接（台架调试） | 2026-10-25 COM4、B 模式、外部 7.4V 下同口独立舵机 PING 仍全无字节，未证明正常；2026-10-26 主排障回到 HAT，微雪留独立支线，不重复扫描。USB 只供逻辑、3P V 取外部 DC。见[接入舵机记录](./docs/references/servo-web-imu-3d-20261024/research.md#waveshare-servo-ping-20261025)。无需因此加入整机 |
 | [~] | banana_pcb ×5 | 5 | 电池触点取电转接 | 订单 85078132，2026-10-12 到货；装配：焊 U6068（已到）→ locker 打印 → 核极性 → 主控支路验证 |
 | [x] | DAPLink SWD 调试器 | 1 | IMU 刷机链路 | 2026-10-12 到货（用户确认）；解锁 IMU 刷机链路（J2 焊接 → 烧录 → imu200 验收） |
 | [x] | U6068 香蕉头插针（2.5mm PCB 插针） | 2 | banana_pcb 电池触点 | 2026-10-12 到货（用户确认：所称「香蕉插头」「电池座」均指此件） |
@@ -47,6 +47,8 @@
 
 万用表（10-09 到货）、直流电源、电烙铁——照片与用法存档见 [docs/photos/](./docs/photos/README.md)。
 
+2026-10-26 用户再次确认有 **FT232H 与 DAPLink**：FT232H 优先用于单口 IMU H1 UART 日志，DAPLink 留作 H2 SWD 后备。00:25 FT232H 已枚举 **COM5**，驱动状态正常；H1 接线与日志采集尚未完成，不增加采购；接线/模式边界见[调试计划](./docs/references/servo-web-imu-3d-20261024/debug-plan-20261026.md)。
+
 ## 结构件
 
 - [ ] 打印件清点：版本/材料/缺件登记。
@@ -55,7 +57,7 @@
 
 ## 安全边界速记（C 线，按架构 v2）
 
-- **当前实物描述（2026-10-25 晚，未作本轮验载）**：单口 IMU 已移至 HAT 第二个 3P 口；两腿原外部焊接分叉、动力入口和头部接法是否同时调整未完整描述，不能继续把 IMU 写在旧分叉上。旧[接线图](./docs/photos/hat-v1.2-wiring-plan.png)为历史单链意向，当前口述及复测见[配电记录 §10](./docs/references/power-distribution-comparison-20261010/research.md#hat-port2-20261025)。线径、接头、焊接质量及载流未由本轮验证。
+- **当前实物描述（2026-10-26，未作本轮验载）**：用户确认单口 IMU 已回 HAT 的另一个口，servo-web 运行。两腿分叉、动力入口、头部接法与当前供电数值未完整重核，不回填微雪 7.4V 为当前端点实测。旧[接线图](./docs/photos/hat-v1.2-wiring-plan.png)为历史意向，现行条件见[排障记录](./docs/references/servo-web-imu-3d-20261024/research.md#hat-debug-plan-20261026)。线径、接头、焊接质量及载流未由本轮验证。
 - **可省去的是独立模块；电池保护须闭环，但不预设要额外装保险**：HAT 电源/通信通过后微雪板与独立稳压板无需进入整机；取电板、适配线和匹配充电器仍需。电池内置保护足够时可不加外置主保险；依据尚未核实前，不使用电池进行整机供电。
 - **EH 座待核**：当前资料约 3A，社区常态 3–5A 不是本机波形，不能据此断言瞬时堵转会烧 HAT。先核实实际额定、电流及持续时间；确有不满足再改配电，不能靠 5A 保险或简单两口并接解决。
 - **电压分工**：舵机/当前 IMU 板②按总线电源工作，主控由 HAT 提供 5V；板②有自身降压前端。板①的 U3/AP2210K 仅属于 ScrapMeta 设计，不能写成当前板②器件。禁止电池原压接 DATA、J2 的 3V3 或 40P 的 5V。

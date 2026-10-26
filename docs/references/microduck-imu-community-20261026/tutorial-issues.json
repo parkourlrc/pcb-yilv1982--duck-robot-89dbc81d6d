@@ -1,0 +1,177 @@
+{
+  "fetched_at": "2026-10-25T16:33:16.807401+00:00",
+  "url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues?state=all&per_page=100",
+  "data": {
+    "total_count": 14,
+    "items": [
+      {
+        "number": 14,
+        "title": "MJCF(19 关节) 与控制器/策略(14 舵机) 命名不一致：sim_main.py 启动即 ValueError",
+        "body": "## 摘要\n\n`src/model/mjcf/{scene,robot}.xml` 是 **19 个关节/执行器**，而控制器与策略是 **14 个舵机**，名字集合不一致 ⇒ `src/sim/sim_main.py` 在 `MuJoCoController.__init__` 处**直接抛 `ValueError`**，仿真入口无法启动。\n\n## 复现（macOS / python3.11 / mujoco 3.17.0）\n\n```python\nimport mujoco\nm = mujoco.MjModel.from_xml_path(\"microduck/src/model/mjcf/scene.xml\")\nprint(m.nq, m.nv, m.nu)                                  # 26 25 19\nfor n in (\"right_ankle\", \"left_ankle\", \"neck_pitch\", \"head_pitch\", \"head\"):\n    print(n,\n          mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, n),\n          mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, n))\n```\n\n实测输出：\n\n```\nright_ankle   -1  -1\nleft_ankle    -1  -1\nneck_pitch    -1  -1\nhead_pitch    -1  -1\nhead           0   1\n```\n\n`src/sim/mujoco_controller.py` 第 66–70 行按名字查 actuator/joint，查不到就 `raise ValueError`：\n\n```\nActuator 'right_ankle' not found in MJCF model 'src/model/mjcf/scene.xml'\n```\n\n## 两套自由度（实测对照）\n\n| | 模型 `robot.xml`（19） | 控制器/策略（14） |\n|---|---|---|\n| 腿 | 每腿 6：`hip_yaw/roll/pitch`＋`knee`＋**`ankle_pitch`＋`ankle_roll`** | 每腿 5：`hip_yaw/roll/pitch`＋`knee`＋**`ankle`** |\n| 臂 | 6（`shoulder_pitch/roll`＋`elbow`，3/侧） | **0** |\n| 头颈 | **1**（`head`） | **4**（`neck_pitch`／`head_pitch`／`head_yaw`／`head_roll`） |\n\n14 个名字在 `MOTOR_TO_ID`、`OBSERVATION_DOF_ORDER`、`walk.onnx` 的 `joint_names` 元数据里**三方一致**，所以应是模型侧对齐控制器（而不是反过来）。\n\n## 另外：sim 依赖无法安装\n\n`pyproject.toml` 的 `[dependency-groups] sim` 依赖 `better-actuator-models`，但：\n\n```\n$ pip install better-actuator-models\nERROR: No matching distribution found for better-actuator-models\n```\n\n⇒ 第三方**无法复现出厂的 sim 路径**（即使修好命名）。\n\n## 建议\n\n1. 提供与 14 舵机一致的 MJCF（或 `MujocoController` 里做名映射）：\n   - `*_ankle_pitch` → `*_ankle`；\n   - 去掉 `*_ankle_roll` 与 6 个臂关节；\n   - 补 `neck_pitch`／`head_pitch`／`head_yaw`／`head_roll`（现在只有一个 `head`）。\n2. 在 README 的 `目录结构`／`第一次运行模型` 里注明\"模型 19 关节、实机 14 舵机\"的对应关系。\n3. `better-actuator-models` 若是私有包，可否在 README 给出安装方式（或提供等价的公开替代）。\n\n我这边已按上述方式派生出一个 14 舵机口径的 MJCF（`nq=17`／`nu=10`，质量守恒 0.819 kg）跑通了站立相；如需要我可以提 PR。\n\n/* 说明：本 issue 由第三方复刻者提交，仅陈述实测，不评价设计。 */\n",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/14",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/14/comments",
+        "created_at": "2026-10-25T15:29:10Z",
+        "updated_at": "2026-10-25T15:29:10Z",
+        "pull_request": null
+      },
+      {
+        "number": 13,
+        "title": "复刻咨询：想用这台鸭子做具身后训练/RSI 验证",
+        "body": "我在梅赛德斯-奔驰中国研发总裁办公室做战略。\n\n我们团队正在做一个具身智能后训练/RSI 评测项目，需要一台真实机器人验证 RSI 能否提升动作成功率和恢复率。你的复刻教程是我找到的最全的一套（BOM、3D 打印、接线、预制镜像、训练环境都有），想用它做验证平台，请教几个问题：\n\n1. 在国内复刻一台，物料大概多少钱、多长时间？XL330 和 Pi Zero 2W 好买吗？\n2. 从零到跑起来，有哪些容易踩的坑？\n3. mjlab_microduck 训练环境和这台硬件匹配得怎么样？\n\n能否加微信约个简短交流？我的邮箱：ctao7271@gmail.com\n",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/13",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/13/comments",
+        "created_at": "2026-10-25T08:10:01Z",
+        "updated_at": "2026-10-25T08:10:01Z",
+        "pull_request": null
+      },
+      {
+        "number": 12,
+        "title": "电池具体用哪款",
+        "body": "纯小白，想与作者保持一致",
+        "state": "closed",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/12",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/12/comments",
+        "created_at": "2026-10-07T04:17:00Z",
+        "updated_at": "2026-10-07T04:25:26Z",
+        "pull_request": null
+      },
+      {
+        "number": 11,
+        "title": "请问有机器人具身的交流群吗，微信群，拉一个感谢",
+        "body": null,
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/11",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/11/comments",
+        "created_at": "2026-09-27T08:11:20Z",
+        "updated_at": "2026-10-25T02:30:02Z",
+        "pull_request": null
+      },
+      {
+        "number": 10,
+        "title": "在线养鸭，更直观查看所有装配结构，包括Pin位走线",
+        "body": "<img width=\"1920\" height=\"992\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/d539f519-a014-4eb0-9736-ff43d64d1806\" />\n\n[Nowpop](https://nowpop.art/cad/v/Pop3D-ZVP4B.g3d)\n\n底部工具栏：炸开中支持生成接线\n\n*点击模拟器可以在线使用官方策略仿真模拟鸭子交互",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/10",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/10/comments",
+        "created_at": "2026-09-10T11:30:00Z",
+        "updated_at": "2026-09-10T11:31:10Z",
+        "pull_request": null
+      },
+      {
+        "number": 9,
+        "title": "microduck.step 问题",
+        "body": "[microduck.step](https://github.com/AI-FanGe/Microduck-build-tutorial/blob/main/microduck/cad/microduck.step) 是什么机器人，看起来不是 Microduck",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/9",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/9/comments",
+        "created_at": "2026-09-10T05:28:09Z",
+        "updated_at": "2026-09-10T05:58:21Z",
+        "pull_request": null
+      },
+      {
+        "number": 8,
+        "title": "it would be nice if you also state where to purchase the parts",
+        "body": "it would be nice if you also state where to purchase the parts. linked to taobao etc",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/8",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/8/comments",
+        "created_at": "2026-09-09T20:55:03Z",
+        "updated_at": "2026-09-09T20:55:03Z",
+        "pull_request": null
+      },
+      {
+        "number": 7,
+        "title": "包含视觉吗？",
+        "body": "包含视觉吗？",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/7",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/7/comments",
+        "created_at": "2026-09-09T07:05:56Z",
+        "updated_at": "2026-09-20T11:37:22Z",
+        "pull_request": null
+      },
+      {
+        "number": 6,
+        "title": "打印文件是不是缺零件？",
+        "body": "<img width=\"1072\" height=\"651\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/f4488f54-5a87-4d34-a42b-66966660ac45\" />",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/6",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/6/comments",
+        "created_at": "2026-09-09T06:39:54Z",
+        "updated_at": "2026-09-09T06:39:54Z",
+        "pull_request": null
+      },
+      {
+        "number": 5,
+        "title": "3d打印是用根目录下的3mf文件还是cad目录中的文件",
+        "body": "3d打印是用根目录下的3mf文件还是cad目录中的文件？",
+        "state": "closed",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/5",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/5/comments",
+        "created_at": "2026-09-09T04:56:25Z",
+        "updated_at": "2026-09-09T09:12:54Z",
+        "pull_request": null
+      },
+      {
+        "number": 4,
+        "title": "有实体化数据模型吗",
+        "body": "博主，有实体化的数据模型吗",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/4",
+        "comments": 0,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/4/comments",
+        "created_at": "2026-09-08T16:01:31Z",
+        "updated_at": "2026-09-08T16:01:31Z",
+        "pull_request": null
+      },
+      {
+        "number": 3,
+        "title": "关于训练环境和固件代码",
+        "body": "请问播主训练出 walk.onnx 的训练环境是用官方的训练环境么，但是你的结构cad文件已经和官方不一致了，并且你用zero 代替了rk3566 ,   那应该用不了官方的固件的代码， 很好奇播主是怎么实现自己的训练环境和运行在zero pi上的代码的？",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/3",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/3/comments",
+        "created_at": "2026-09-08T14:04:53Z",
+        "updated_at": "2026-09-20T11:36:30Z",
+        "pull_request": null
+      },
+      {
+        "number": 2,
+        "title": "How to run the RL model in Raspberry Pi Zero 2 W and how about the efficiency.",
+        "body": "Fantastic work!\n\nI am trying to reproduce the Microduck. But I find that the official one is equipped with an RK3566 as the SOC to run the RL model. However, in this project, the SOC is Raspberry Pi Zero 2 W, and I wonder whether it can run a  RL model in real-time in the chip?",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/2",
+        "comments": 3,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/2/comments",
+        "created_at": "2026-09-08T08:06:11Z",
+        "updated_at": "2026-09-11T12:38:00Z",
+        "pull_request": null
+      },
+      {
+        "number": 1,
+        "title": "请问制作成本大概多少钱？",
+        "body": "作者您好，非常感谢您，请问这个整套的成本大概是多少呢？",
+        "state": "open",
+        "html_url": "https://github.com/AI-FanGe/Microduck-build-tutorial/issues/1",
+        "comments": 2,
+        "comments_url": "https://api.github.com/repos/AI-FanGe/Microduck-build-tutorial/issues/1/comments",
+        "created_at": "2026-09-08T07:56:36Z",
+        "updated_at": "2026-09-08T08:37:53Z",
+        "pull_request": null
+      }
+    ]
+  }
+}

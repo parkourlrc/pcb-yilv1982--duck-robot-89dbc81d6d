@@ -1,0 +1,672 @@
+{
+  "date": "2026-10-26",
+  "source": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb",
+  "sha256": "182efae4083ae14193eb7a5bc8ace51cbd62a833c4d7e8b63452029ae092fc82",
+  "scope": "local PCB 0.2; board connector/net attributes, not physical pin orientation or firmware USB validation",
+  "parts": [
+    {
+      "ref": "U2",
+      "value": "GD32F303CCT6",
+      "footprint": "microduck:LQFP-48_L7.0-W7.0-P0.50-LS9.0-BL",
+      "at": [
+        [
+          "at",
+          "120.73",
+          "140.43",
+          "90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "+3.3V",
+          "pinfunction": "VBAT"
+        },
+        {
+          "pad": "2",
+          "net": "unconnected-(U2-PC13-TAMPER-RTC-Pad2)",
+          "pinfunction": "PC13-TAMPER-RTC"
+        },
+        {
+          "pad": "3",
+          "net": "unconnected-(U2-PC14-OSC32IN-Pad3)",
+          "pinfunction": "PC14-OSC32IN"
+        },
+        {
+          "pad": "4",
+          "net": "unconnected-(U2-PC15-OSC32OUT-Pad4)",
+          "pinfunction": "PC15-OSC32OUT"
+        },
+        {
+          "pad": "5",
+          "net": "/GD_OSCIN",
+          "pinfunction": "PD0-OSCIN"
+        },
+        {
+          "pad": "6",
+          "net": "/GD_OSCOUT",
+          "pinfunction": "PD1-OSCOUT"
+        },
+        {
+          "pad": "7",
+          "net": "/GD_RST",
+          "pinfunction": "NRST"
+        },
+        {
+          "pad": "8",
+          "net": "GND",
+          "pinfunction": "VSSA"
+        },
+        {
+          "pad": "9",
+          "net": "Net-(U2-VDDA)",
+          "pinfunction": "VDDA"
+        },
+        {
+          "pad": "10",
+          "net": "unconnected-(U2-PA0-WKUP-Pad10)",
+          "pinfunction": "PA0-WKUP"
+        },
+        {
+          "pad": "11",
+          "net": "unconnected-(U2-PA1-Pad11)",
+          "pinfunction": "PA1"
+        },
+        {
+          "pad": "12",
+          "net": "/PA2_USART1_TX",
+          "pinfunction": "PA2"
+        },
+        {
+          "pad": "13",
+          "net": "/PA3_USART1_RX",
+          "pinfunction": "PA3"
+        },
+        {
+          "pad": "14",
+          "net": "/PA4_SPI0_NSS",
+          "pinfunction": "PA4"
+        },
+        {
+          "pad": "15",
+          "net": "/PA5_SPI0_SCK",
+          "pinfunction": "PA5"
+        },
+        {
+          "pad": "16",
+          "net": "/PA6_SPI0_MISO",
+          "pinfunction": "PA6"
+        },
+        {
+          "pad": "17",
+          "net": "/PA7_SPI0_MOSI",
+          "pinfunction": "PA7"
+        },
+        {
+          "pad": "18",
+          "net": "/PB0",
+          "pinfunction": "PB0"
+        },
+        {
+          "pad": "19",
+          "net": "/PB1",
+          "pinfunction": "PB1"
+        },
+        {
+          "pad": "20",
+          "net": "unconnected-(U2-PB2-Pad20)",
+          "pinfunction": "PB2"
+        },
+        {
+          "pad": "21",
+          "net": "unconnected-(U2-PB10-Pad21)",
+          "pinfunction": "PB10"
+        },
+        {
+          "pad": "22",
+          "net": "unconnected-(U2-PB11-Pad22)",
+          "pinfunction": "PB11"
+        },
+        {
+          "pad": "23",
+          "net": "GND",
+          "pinfunction": "VSS_1"
+        },
+        {
+          "pad": "24",
+          "net": "+3.3V",
+          "pinfunction": "VDD_1"
+        },
+        {
+          "pad": "25",
+          "net": "unconnected-(U2-PB12-Pad25)",
+          "pinfunction": "PB12"
+        },
+        {
+          "pad": "26",
+          "net": "unconnected-(U2-PB13-Pad26)",
+          "pinfunction": "PB13"
+        },
+        {
+          "pad": "27",
+          "net": "unconnected-(U2-PB14-Pad27)",
+          "pinfunction": "PB14"
+        },
+        {
+          "pad": "28",
+          "net": "unconnected-(U2-PB15-Pad28)",
+          "pinfunction": "PB15"
+        },
+        {
+          "pad": "29",
+          "net": "unconnected-(U2-PA8-Pad29)",
+          "pinfunction": "PA8"
+        },
+        {
+          "pad": "30",
+          "net": "unconnected-(U2-PA9-Pad30)",
+          "pinfunction": "PA9"
+        },
+        {
+          "pad": "31",
+          "net": "unconnected-(U2-PA10-Pad31)",
+          "pinfunction": "PA10"
+        },
+        {
+          "pad": "32",
+          "net": "Net-(U2-PA11)",
+          "pinfunction": "PA11"
+        },
+        {
+          "pad": "33",
+          "net": "Net-(U2-PA12)",
+          "pinfunction": "PA12"
+        },
+        {
+          "pad": "34",
+          "net": "/GD_SWDIO",
+          "pinfunction": "PA13"
+        },
+        {
+          "pad": "35",
+          "net": "GND",
+          "pinfunction": "VSS_2"
+        },
+        {
+          "pad": "36",
+          "net": "+3.3V",
+          "pinfunction": "VDD_2"
+        },
+        {
+          "pad": "37",
+          "net": "/GD_SWDCLK",
+          "pinfunction": "PA14"
+        },
+        {
+          "pad": "38",
+          "net": "unconnected-(U2-PA15-Pad38)",
+          "pinfunction": "PA15"
+        },
+        {
+          "pad": "39",
+          "net": "unconnected-(U2-PB3-Pad39)",
+          "pinfunction": "PB3"
+        },
+        {
+          "pad": "40",
+          "net": "unconnected-(U2-PB4-Pad40)",
+          "pinfunction": "PB4"
+        },
+        {
+          "pad": "41",
+          "net": "unconnected-(U2-PB5-Pad41)",
+          "pinfunction": "PB5"
+        },
+        {
+          "pad": "42",
+          "net": "/DEBUG_TX",
+          "pinfunction": "PB6"
+        },
+        {
+          "pad": "43",
+          "net": "/DEBUG_RX",
+          "pinfunction": "PB7"
+        },
+        {
+          "pad": "44",
+          "net": "Net-(U2-BOOT0)",
+          "pinfunction": "BOOT0"
+        },
+        {
+          "pad": "45",
+          "net": "unconnected-(U2-PB8-Pad45)",
+          "pinfunction": "PB8"
+        },
+        {
+          "pad": "46",
+          "net": "unconnected-(U2-PB9-Pad46)",
+          "pinfunction": "PB9"
+        },
+        {
+          "pad": "47",
+          "net": "GND",
+          "pinfunction": "VSS_3"
+        },
+        {
+          "pad": "48",
+          "net": "+3.3V",
+          "pinfunction": "VDD_3"
+        }
+      ]
+    },
+    {
+      "ref": "R14",
+      "value": "1K",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "129.3872",
+          "138.19"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/GD_RST",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(H2-Pad1)",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R18",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "113.32",
+          "141",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "Net-(U2-PA12)",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "/USB_DP",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "H1",
+      "value": "LAIL-PZ2.54-4P-L",
+      "footprint": "microduck:pad-4",
+      "at": [
+        [
+          "at",
+          "131.8",
+          "148.415",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "+3.3V",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "GND",
+          "pinfunction": "2"
+        },
+        {
+          "pad": "3",
+          "net": "Net-(H1-Pad3)",
+          "pinfunction": "3"
+        },
+        {
+          "pad": "4",
+          "net": "Net-(H1-Pad4)",
+          "pinfunction": "4"
+        }
+      ]
+    },
+    {
+      "ref": "H3",
+      "value": "LAIL-PZ2.54-4P-L",
+      "footprint": "microduck:pad-4",
+      "at": [
+        [
+          "at",
+          "111.215",
+          "145.01",
+          "90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "GND",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "/USB_DP",
+          "pinfunction": "2"
+        },
+        {
+          "pad": "3",
+          "net": "/USB_DM",
+          "pinfunction": "3"
+        },
+        {
+          "pad": "4",
+          "net": "+BATT",
+          "pinfunction": "4"
+        }
+      ]
+    },
+    {
+      "ref": "R10",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "129.2",
+          "147.1",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/DEBUG_RX",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(H1-Pad3)",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R33",
+      "value": "0R",
+      "footprint": "microduck:R0402_Jumper",
+      "at": [
+        [
+          "at",
+          "122.6",
+          "146.75",
+          "-90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "Net-(U2-BOOT0)",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "+3.3V",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R11",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "127.2",
+          "147.1",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/DEBUG_TX",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(H1-Pad4)",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "H2",
+      "value": "PZ254V-11-05P",
+      "footprint": "microduck:pad-5",
+      "at": [
+        [
+          "at",
+          "123.71",
+          "148.41",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "Net-(H2-Pad1)",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "+3.3V",
+          "pinfunction": "2"
+        },
+        {
+          "pad": "3",
+          "net": "GND",
+          "pinfunction": "3"
+        },
+        {
+          "pad": "4",
+          "net": "Net-(H2-Pad4)",
+          "pinfunction": "4"
+        },
+        {
+          "pad": "5",
+          "net": "Net-(H2-Pad5)",
+          "pinfunction": "5"
+        }
+      ]
+    },
+    {
+      "ref": "R7",
+      "value": "10K",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "131.1328",
+          "147.1",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "+3.3V",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "/DEBUG_RX",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R15",
+      "value": "10K",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "115.7",
+          "146.7372",
+          "-90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/GD_SWDCLK",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "+3.3V",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R16",
+      "value": "10K",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "118.98",
+          "146.7",
+          "-90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/GD_SWDIO",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "+3.3V",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R17",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "113.32",
+          "139.6",
+          "180"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "Net-(U2-PA11)",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "/USB_DM",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R13",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "117.9",
+          "146.7",
+          "-90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/GD_SWDIO",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(H2-Pad4)",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R12",
+      "value": "51R",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "116.8",
+          "146.7",
+          "-90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "/GD_SWDCLK",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(H2-Pad5)",
+          "pinfunction": "2"
+        }
+      ]
+    },
+    {
+      "ref": "R19",
+      "value": "10K",
+      "footprint": "microduck:R0402",
+      "at": [
+        [
+          "at",
+          "123.7",
+          "146.75",
+          "90"
+        ]
+      ],
+      "pads": [
+        {
+          "pad": "1",
+          "net": "GND",
+          "pinfunction": "1"
+        },
+        {
+          "pad": "2",
+          "net": "Net-(U2-BOOT0)",
+          "pinfunction": "2"
+        }
+      ]
+    }
+  ]
+}

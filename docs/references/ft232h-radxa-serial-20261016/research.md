@@ -18,8 +18,8 @@
 - Adafruit FT232H Breakout 兼容板：USB-C、两排孔 D0–D7（ADBUS）/ C0–C9（ACBUS）+ 3V/5V/Gnd。
 - UART 模式引脚：**D0 = TX（板发出）、D1 = RX（板接收）**；D2/D3 = RTS/CTS（console 不用，不接）。丝印 TX/RX 相对转接板自己。
 - 电平：3.3V 逻辑（VCCIO 由板载 LDO 供，Adafruit 原版明确 3.3V/5V 信号均可安全对接 3.3V 目标；兼容板按同设计推断，照片未见电平跳线）→ 与 Radxa GPIO 3.3V 匹配。
-- **照片上排针未焊（只有通孔焊盘）→ 接线前先焊排针**，至少下排相邻三脚 Gnd / D0 / D1。
-- I2C 拨码开关只影响专用 I2C 座的上拉，UART 场景不用管（任意位置/保持默认）。
+- **10-16 照片上排针未焊（只有通孔焊盘）**，不代表当前仍未焊；接线前保证 Gnd / D1（需要发数据才加 D0）有可靠连接。
+- **2026-10-26 勘误：UART 前应确认 I2C OFF、D1 与 D2 不被开关短接。** 官方 USB-C 原版的开关连通 D1/D2，UART 模式下分别为 RX/RTS，并非仅控制专用座上拉；撤回“任意位置”的旧指导。兼容板实际开关方向/连线仍须核对。来源见下节。
 
 ## 接线速查（沿用 emmc 专题锚定法）
 
@@ -49,7 +49,14 @@
 - 本页接线关系未上机验证；执行后回填：实际 COM 号、是否需补焊排针、1.5M 全程输出是否干净、VID/PID。
 - 若 FT232H 通道验证通过：DAPLink 退役为纯 SWD 烧录器角色（IMU 板），串口第一通道改由 FT232H 承担——此变更确认后同步 PROGRESS.md 与相关入口。
 
-## 关联
+## 2026-10-26：用于单口 GD32 IMU 日志的计划与勘误
+
+- 用户确认现有 FT232H 和 DAPLink；本次首选 FT232H 接 **IMU H1 DEBUG_TX → D1/RX、GND → Gnd**，115200 8N1 无流控，其他脚不接。此处不沿用上文 Radxa 的 1.5 Mbps / 40P 针位；实物 H1 与电平匹配后才接线。
+- 00:17:43 [未枚举到设备](../servo-web-imu-3d-20261024/debug-adapters-present-20261026.json)已成为历史。用户插入 FT232H 后，00:25 枚举 **COM5**、`0403:6014`，FTDI 驱动 2.12.36.20、ProblemCode 0；插入初期临时 Error/无 COM 后转正常，未手动安装或修改驱动，见[新快照](../servo-web-imu-3d-20261024/ft232h-usb-enumeration-20261026.json)。未打开串口或实际采集，不能将枚举正常写成 UART 收发已验证。
+- 官方 [Overview](https://learn.adafruit.com/adafruit-ft232h-breakout/overview) 的 USB-C 修订段明确 I2C 开关连接 D1/D2；[Serial UART](https://learn.adafruit.com/adafruit-ft232h-breakout/serial-uart) 列 D1=RX、D2=RTS，且 UART/MPSSE 不能同时使用。由此修正上面的开关指导及照片索引。本机兼容板未逐网验证，未声称这就是此前 HAT 上 IMU 间歇的原因。
+- 本轮网页工具无正文，urllib 成功读取上述官方页面；Markdown 地址 403、尝试的 pinouts 地址 404 均记录在[抓取记录](../servo-web-imu-3d-20261024/ft232h-official-check-20261026.json)。完整[排障计划](../servo-web-imu-3d-20261024/debug-plan-20261026.md)。
+
+## 关联文档
 
 - [FT232H 与 FT232RL 区别调研（含 JTAG/SWD 概念速记与勘误）](../ft232h-ft232rl-20261014/research.md)
 - [Radxa 接线速查卡与供电参数（emmc 专题）](../emmc-flash-radxa-zero3w-20261013/research.md)

@@ -1,0 +1,591 @@
+{
+  "date": "2026-10-26",
+  "scope": "单口 GD32 IMU 设计文件存在性与来源核对，不做实物逐网验收",
+  "files": [
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pro",
+      "bytes": 20771,
+      "sha256": "967b9e177760836cda153ce1cb25b7d4ff10671333f9611eee8be0a9e3a0730d",
+      "git_blob_sha_after_lf_normalization": "b9d404726fb08e9d36d8518b95e3b79b8540a602",
+      "matches_remote_after_lf_normalization": false
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_sch",
+      "bytes": 349289,
+      "sha256": "ed2f993441df7ce9de414957a59e7147e1f3d053b0d31410c31099aa5a6c52f6",
+      "git_blob_sha_after_lf_normalization": "c42e66a19b865359d9dc5f7170eb4ba3ea6c0859",
+      "matches_remote_after_lf_normalization": false
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb",
+      "bytes": 1253113,
+      "sha256": "182efae4083ae14193eb7a5bc8ace51cbd62a833c4d7e8b63452029ae092fc82",
+      "git_blob_sha_after_lf_normalization": "e236752b4f579fe2d83aed40dd6de8ed4cfb010e",
+      "matches_remote_after_lf_normalization": false
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl_10p.kicad_pcb",
+      "bytes": 10657349,
+      "sha256": "8ae09d750c93c1f5e25f799c081fef00c80de775351cc19f53e459ce04f5311d",
+      "git_blob_sha_after_lf_normalization": "b6eb2cab3d50ca211b7f4a4ea9bc25852175a265",
+      "matches_remote_after_lf_normalization": false
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl_10p.kicad_pro",
+      "bytes": 8653,
+      "sha256": "29b07ffc4f0873b4cb5b2bec558da242d15c7eb6a853dc8689522aee9294fc31"
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/production/imu_to_dxl_0.2_10p_gerber.zip",
+      "bytes": 904379,
+      "sha256": "fdcbcbf20aafeec5a857da9852651393e07f8dfdfa4b6354a1a5bb81473ea73a"
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/production/bom.csv",
+      "bytes": 1273,
+      "sha256": "92fadeee8f78c3a6c98e3935506a50d6f8956e9aeb1282cbcc6221b9801042d6"
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/production/positions.csv",
+      "bytes": 18453,
+      "sha256": "89161a9f25f9f6af3bbb31123830f17f3e9cf911f8b0f46ecf68e6637cd5aaaf"
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/production/netlist.ipc",
+      "bytes": 273576,
+      "sha256": "4e13881b9ad0f88eba0a958f165025aa8c4891d84a548d1c60a3c0880d29316a"
+    },
+    {
+      "path": "references/microduck-community-kit/hardware/imu_to_dxl/LICENCE.txt",
+      "bytes": 9051,
+      "sha256": "998bbda42e05647f92645d2cb0f230e74a857251d45a00b872ba46c273236a7e",
+      "git_blob_sha_after_lf_normalization": "4fe041e077a8179e50d8d068fb5803cf1f80abba",
+      "matches_remote_after_lf_normalization": true
+    }
+  ],
+  "imu_to_dxl.kicad_pcb": {
+    "footprint_count": 74,
+    "key_footprints": [
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ]
+    ],
+    "silkscreen": [
+      "imu2dxl 0.2\\n2026/9/27"
+    ]
+  },
+  "imu_to_dxl_10p.kicad_pcb": {
+    "footprint_count": 897,
+    "key_footprints": [
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "U2",
+        "GD32F303CCT6"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J3",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J2",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ],
+      [
+        "U5",
+        "SN74LVC1G125DBV"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U1",
+        "ETA2845S2G_C22362741"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U6",
+        "ME6211C18M5G-N"
+      ],
+      [
+        "J4",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U4",
+        "SN74LVC1G126DBVR"
+      ],
+      [
+        "J1",
+        "1.8mm螺丝孔"
+      ],
+      [
+        "U3",
+        "LSM6DSV16XTR"
+      ]
+    ],
+    "silkscreen": [
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27",
+      "imu2dxl 0.2\\n2026/9/27"
+    ]
+  },
+  "remote_listing": {
+    "url": "https://api.github.com/repos/jyg9/microduck-community-kit/contents/hardware/imu_to_dxl",
+    "ok": true,
+    "files": [
+      {
+        "name": "LICENCE.txt",
+        "git_blob_sha": "4fe041e077a8179e50d8d068fb5803cf1f80abba",
+        "size": 8852,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/LICENCE.txt"
+      },
+      {
+        "name": "README.md",
+        "git_blob_sha": "b7fcb35485dd0baad38c9cac40590ebbb3d635c5",
+        "size": 393,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/README.md"
+      },
+      {
+        "name": "docs",
+        "git_blob_sha": "5432cdae5f7f441277f52eb44eb0bcf0d674311e",
+        "size": 0,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/tree/main/hardware/imu_to_dxl/docs"
+      },
+      {
+        "name": "imu_to_dxl.kicad_pcb",
+        "git_blob_sha": "cbc7a6ed1cfaf1eb7445a8ae9d770b82e14e8f54",
+        "size": 1228744,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb"
+      },
+      {
+        "name": "imu_to_dxl.kicad_pro",
+        "git_blob_sha": "28d0487bbed5d2dd0bc24b42e94175af73df9063",
+        "size": 20167,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/imu_to_dxl.kicad_pro"
+      },
+      {
+        "name": "imu_to_dxl.kicad_sch",
+        "git_blob_sha": "af4ca950624089accb9194de27842f088b49d3da",
+        "size": 339409,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/imu_to_dxl.kicad_sch"
+      },
+      {
+        "name": "imu_to_dxl_10p.kicad_pcb",
+        "git_blob_sha": "0c46144892709c04cad888b7e4f1be7a70e6d3b6",
+        "size": 10464524,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/blob/main/hardware/imu_to_dxl/imu_to_dxl_10p.kicad_pcb"
+      },
+      {
+        "name": "production",
+        "git_blob_sha": "db362d39ec650bb01e1bb709a371e430d810bb2b",
+        "size": 0,
+        "html_url": "https://github.com/jyg9/microduck-community-kit/tree/main/hardware/imu_to_dxl/production"
+      }
+    ]
+  },
+  "local_git_context": "Local files are tracked by duck-robot; local log e44859a is repository migration, not upstream hardware revision.",
+  "limitations": [
+    "本地文件为 duck-robot 快照，未把迁移提交当上游版本号。",
+    "未运行 KiCad GUI/DRC/ERC，未逐网比对用户实物；不作生产或接线放行。",
+    "10p 文件仅确认为拼板布局；未验证有效生产拼板数量。"
+  ]
+}

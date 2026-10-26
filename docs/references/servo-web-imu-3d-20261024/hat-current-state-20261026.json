@@ -1,0 +1,137 @@
+{
+  "local_utc": "2026-10-25T16:11:43.331560+00:00",
+  "returncode": 0,
+  "stderr": "close - IO is still pending on closed socket. read:1, write:1, io:00000161C6EE9F90\n",
+  "remote": {
+    "date": {
+      "code": 0,
+      "stdout": "2026-10-25T16:11:41+00:00\n",
+      "stderr": ""
+    },
+    "uptime": {
+      "code": 0,
+      "stdout": " 16:11:41 up 11 min,  0 user,  load average: 0.27, 0.35, 0.22\n",
+      "stderr": ""
+    },
+    "service": {
+      "code": 0,
+      "stdout": "active\n",
+      "stderr": ""
+    },
+    "serial_owner": {
+      "code": 0,
+      "stdout": "   605",
+      "stderr": "/dev/ttyS2:         \n"
+    },
+    "journal": {
+      "code": 0,
+      "stdout": "Oct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #11 WRITE ff ff 0b 05 03 2a 31 08 89  地址42「目标位置」 写 [49, 8]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #11 状态0x00 ff ff 0b 02 00 f2\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #11 READ ff ff 0b 04 02 2a 02 c2  地址42「目标位置」 读 2 字节\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #11 状态0x00 ff ff 0b 04 00 31 08 b7  数据 [49, 8]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #12 WRITE ff ff 0c 05 03 2a 22 08 97  地址42「目标位置」 写 [34, 8]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #12 状态0x00 ff ff 0c 02 00 f1\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #12 READ ff ff 0c 04 02 2a 02 c1  地址42「目标位置」 读 2 字节\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #12 状态0x00 ff ff 0c 04 00 22 08 c5  数据 [34, 8]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #13 WRITE ff ff 0d 05 03 2a 16 09 a1  地址42「目标位置」 写 [22, 9]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #13 状态0x00 ff ff 0d 02 00 f0\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #13 READ ff ff 0d 04 02 2a 02 c0  地址42「目标位置」 读 2 字节\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #13 状态0x00 ff ff 0d 04 00 16 09 cf  数据 [22, 9]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #14 WRITE ff ff 0e 05 03 2a b1 09 05  地址42「目标位置」 写 [177, 9]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #14 状态0x00 ff ff 0e 02 00 ef\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #14 READ ff ff 0e 04 02 2a 02 bf  地址42「目标位置」 读 2 字节\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] ← #14 状态0x00 ff ff 0e 04 00 b1 09 33  数据 [177, 9]\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [运动] 扭矩开 → [21, 20, 22, 23, 24, 30, 31, 32, 33, 34, 10, 11, 12, 13, 14]；开之前目标对准当前位置：#20→1904 #22→2255 #23→2366 #24→2036 #30→1631 #31→1491 #32→1781 #33→2248 #34→2049 #10→2029 #11→2097 #12→2082 #13→2326 #14→2481\nOct 25 16:11:27 radxa-zero3 python3[605]: 16:11:27 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:29 radxa-zero3 python3[605]: 16:11:29 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:31 radxa-zero3 python3[605]: 16:11:31 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:33 radxa-zero3 python3[605]: 16:11:33 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:35 radxa-zero3 python3[605]: 16:11:35 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:37 radxa-zero3 python3[605]: 16:11:37 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:39 radxa-zero3 python3[605]: 16:11:39 [总线][调试] → #200 PING ff ff c8 02 01 34\nOct 25 16:11:41 radxa-zero3 python3[605]: 16:11:41 [总线][调试] → #200 PING ff ff c8 02 01 34\n",
+      "stderr": ""
+    },
+    "processes": [
+      {
+        "pid": "605",
+        "cmd": "/usr/bin/python3 /home/radxa/servo-web/server.py --port /dev/ttyS2 --host 0.0.0.0 --http-port 8080 --imu-bus "
+      }
+    ],
+    "sources": {
+      "imu-viewer.py": {
+        "sha256": "2ea7c09e055543e5383c1468b310376e0fc888873e0aa9c8f1feea717d56c499",
+        "lines": 199,
+        "snippets": [
+          {
+            "line": 41,
+            "text": "def read_frame(port, timeout=0.05) -> bytes:"
+          },
+          {
+            "line": 42,
+            "text": "    deadline = time.monotonic() + timeout"
+          },
+          {
+            "line": 45,
+            "text": "        n = port.in_waiting"
+          },
+          {
+            "line": 47,
+            "text": "            buf += port.read(n)"
+          },
+          {
+            "line": 53,
+            "text": "            time.sleep(0.001)"
+          },
+          {
+            "line": 70,
+            "text": "def reader_real(port_name: str, baud: int):"
+          },
+          {
+            "line": 74,
+            "text": "        port = serial.Serial(port_name, baud, timeout=0.05)"
+          },
+          {
+            "line": 83,
+            "text": "        port.write(pkt)"
+          },
+          {
+            "line": 101,
+            "text": "        time.sleep(0.02)"
+          },
+          {
+            "line": 115,
+            "text": "        time.sleep(0.02)"
+          },
+          {
+            "line": 124,
+            "text": "            time.sleep(0.03)"
+          },
+          {
+            "line": 189,
+            "text": "    ap.add_argument(\"--baud\", type=int, default=1_000_000)"
+          },
+          {
+            "line": 193,
+            "text": "    threading.Thread(target=reader_sim if args.sim else"
+          },
+          {
+            "line": 194,
+            "text": "                     lambda: reader_real(args.port, args.baud), daemon=True).start()"
+          }
+        ]
+      },
+      "servo-web/feetech.py": {
+        "sha256": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+        "lines": 283,
+        "snippets": []
+      },
+      "servo-web/server.py": {
+        "sha256": "67e91b7abb495adf2bfcc5ea38df163e137f92418d3a91dc43ce7e963f115c31",
+        "lines": 1813,
+        "snippets": []
+      },
+      "servo-web/imu_bus.py": {
+        "sha256": "a94e8c61e377709d7c0cd7681a9706c5dd5a720ff0e830faf4450a39e6303390",
+        "lines": 199,
+        "snippets": []
+      }
+    },
+    "viewer_logs": [
+      {
+        "path": "/home/radxa/imu-viewer-20261025T115931.log",
+        "mtime": 1792929575.518859,
+        "tail": [
+          " * Serving Flask app 'imu-viewer'",
+          " * Debug mode: off",
+          "WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.",
+          " * Running on all addresses (0.0.0.0)",
+          " * Running on http://127.0.0.1:8766",
+          " * Running on http://192.168.1.35:8766",
+          "Press CTRL+C to quit",
+          "127.0.0.1 - - [25/Oct/2026 11:59:33] \"GET / HTTP/1.1\" 200 -",
+          "127.0.0.1 - - [25/Oct/2026 11:59:33] \"GET /stream HTTP/1.1\" 200 -",
+          "192.168.1.34 - - [25/Oct/2026 11:59:35] \"GET / HTTP/1.1\" 200 -",
+          "192.168.1.34 - - [25/Oct/2026 11:59:35] \"GET /stream HTTP/1.1\" 200 -",
+          "192.168.1.34 - - [25/Oct/2026 11:59:35] \"GET /favicon.ico HTTP/1.1\" 404 -"
+        ]
+      }
+    ]
+  }
+}

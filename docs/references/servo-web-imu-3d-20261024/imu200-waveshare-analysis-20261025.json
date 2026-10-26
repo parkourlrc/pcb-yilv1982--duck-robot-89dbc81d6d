@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-25",
+  "timezone": "Asia/Shanghai",
+  "supply_correction": "First baseline USB only (latest user clarification supersedes earlier 7.4V answer); second baseline and dual protocol externally powered at 7.4V, user confirmed. IMU-end voltage not independently measured.",
+  "runs": [
+    {
+      "path": "imu200-waveshare-baseline-20261025.jsonl",
+      "supply": "USB only, no external DC",
+      "sha256": "e7ec069f5e5c34a411983dd3e528225b105b44cb8cf0830bcdabf62598337414",
+      "rows": 188,
+      "start": "2026-10-25T14:31:51.627155+00:00",
+      "end": "2026-10-25T14:32:11.704694+00:00",
+      "counts": {
+        "passive_before": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        },
+        "ping": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "sync15": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "read15": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "identity": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        },
+        "passive_after": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        }
+      },
+      "serial_closed": true
+    },
+    {
+      "path": "imu200-waveshare-7v4-20261025.jsonl",
+      "supply": "USB + external 7.4V, user confirmed",
+      "sha256": "4f013ed1f95c8eac27e1e8ac6f58a18669d3df991cc838a5c842d00bfd3e9ce9",
+      "rows": 188,
+      "start": "2026-10-25T14:37:47.199405+00:00",
+      "end": "2026-10-25T14:38:07.283538+00:00",
+      "counts": {
+        "passive_before": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        },
+        "ping": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "sync15": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "read15": {
+          "total": 60,
+          "ok": 0,
+          "empty": 60
+        },
+        "identity": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        },
+        "passive_after": {
+          "total": 1,
+          "ok": 0,
+          "empty": 1
+        }
+      },
+      "serial_closed": true
+    },
+    {
+      "path": "imu200-waveshare-7v4-dual-protocol-20261025.jsonl",
+      "supply": "USB + external 7.4V, user confirmed",
+      "sha256": "f50b5774e08e7f2a401a54d31f6c1e03dc50aaf315905ea25d8b8fad7f99afa4",
+      "rows": 53,
+      "start": "2026-10-25T14:39:06.006192+00:00",
+      "end": "2026-10-25T14:39:11.427509+00:00",
+      "counts": {
+        "fee_ping": {
+          "total": 8,
+          "ok": 0,
+          "empty": 8
+        },
+        "dxl_ping": {
+          "total": 8,
+          "ok": 0,
+          "empty": 8
+        },
+        "fee_read20": {
+          "total": 8,
+          "ok": 0,
+          "empty": 8
+        },
+        "dxl_read20": {
+          "total": 8,
+          "ok": 0,
+          "empty": 8
+        },
+        "fee_ping_return": {
+          "total": 8,
+          "ok": 0,
+          "empty": 8
+        }
+      },
+      "serial_closed": true
+    }
+  ]
+}

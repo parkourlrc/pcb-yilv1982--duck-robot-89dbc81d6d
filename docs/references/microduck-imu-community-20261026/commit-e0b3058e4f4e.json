@@ -1,0 +1,18 @@
+{
+  "url": "https://api.github.com/repos/jyg9/microduck-community-kit/commits/e0b3058e4f4e3a5c829e2c1e5a35defa36fe490f",
+  "fetched_at": "2026-10-25T16:34:35.730761+00:00",
+  "data": {
+    "sha": "e0b3058e4f4e3a5c829e2c1e5a35defa36fe490f",
+    "html_url": "https://github.com/jyg9/microduck-community-kit/commit/e0b3058e4f4e3a5c829e2c1e5a35defa36fe490f",
+    "date": "2026-09-30T15:07:42Z",
+    "message": "host: 0x8A 自检把\"主机侧丢帧\"与\"节点不应答\"分开\n\n--repeat 循环原来一遇到没回复就抛 TimeoutError 栈并判失败。实测（同一次 50 发）：\n主机侧丢 1 条回复，而节点自己的计数是 frames/answered 各 +50、tx +1200 = 50×24，\n即 50 条全部应答——就是协议文档 §12 第 8 项记录的 USB 适配器整块丢回复，与节点无关。\n\n现在统计丢帧率、最多容忍 5%（至少 1 条），并在失败信息里提示先去对节点的\n`answered` 计数再下结论。",
+    "files": [
+      {
+        "filename": "firmware/v1/host/tools/fast_sync_read_check.py",
+        "status": "modified",
+        "patch": "@@ -33,6 +33,7 @@\n import argparse\n import os\n import sys\n+import time\n \n HERE = os.path.dirname(os.path.abspath(__file__))\n HOST = os.path.dirname(HERE)\n@@ -228,16 +229,31 @@ def run_hardware(args: argparse.Namespace) -> int:\n             check_mid_list(link)\n             check_not_listed(link)\n         check_plain_read_agrees(link)\n-        for i in range(args.repeat):\n-            ids = [link.imu_id] + JOINT_IDS\n-            frame = link.fast_sync_read(ids, READ_ADDR, READ_LEN, want=8 + READ_LEN + 4)\n-            if frame[8] != 0 or frame[9] != link.imu_id:\n-                report(f\"repeat {i + 1}: a clean block every time\", False,\n-                       f\"err={frame[8]:#04x} id={frame[9]}\")\n-                break\n-        else:\n-            if args.repeat:\n-                report(f\"{args.repeat} back-to-back reads, no losses\", True)\n+        if args.repeat:\n+            # A reply that never arrives is not necessarily the node's doing: this\n+            # bench's USB adapter drops roughly one reply in a long burst, the same\n+            # host-side truncation `docs/imu_to_dxl_protocol.md` §12 item 8 records\n+            # for 0x82, and the node's own counters (`answered` on the debug\n+            # console) are what tell the two apart - measured 50/50 answered with\n+            # one reply lost in the adapter.  So tolerate a small rate and say what\n+            # was seen, rather than failing the node for the host's loss.\n+            bad = 0\n+            for _ in range(args.repeat):\n+                ids = [link.imu_id] + JOINT_IDS\n+                try:\n+                    frame = link.fast_sync_read(ids, READ_ADDR, READ_LEN,\n+                                                want=8 + READ_LEN + 4)\n+                    clean = frame[8] == 0 and frame[9] == link.imu_id\n+                except TimeoutError:\n+                    clean = False\n+                if not clean:\n+                    bad += 1\n+                time.sleep(0.01)\n+            allowed = max(1, args.repeat // 20)\n+            report(f\"{args.repeat} back-to-back reads, at most a few host-side drops\",\n+                   bad <= allowed,\n+                   f\"{bad}/{args.repeat} missed (allowed {allowed}; check the node's \"\n+                   f\"`answered` counter before blaming it)\")\n     print(\"\\n  host-side wall time is dominated by the USB adapter (~1 ms); the\\n\"\n           \"  node's own T_resp needs a scope (docs/bus_timing_borrow_plan.md §8).\")\n     return 1 if FAILURES else 0",
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/e0b3058e4f4e3a5c829e2c1e5a35defa36fe490f/firmware%2Fv1%2Fhost%2Ftools%2Ffast_sync_read_check.py"
+      }
+    ]
+  }
+}

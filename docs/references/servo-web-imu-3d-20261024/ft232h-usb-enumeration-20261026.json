@@ -1,0 +1,131 @@
+{
+  "utc": "2026-10-25T16:25:00.660063+00:00",
+  "user_confirmation": "FT232H plugged into PC",
+  "earlier_observation": {
+    "utc": "2026-10-25T16:24:17+00:00",
+    "name": "Single RS232-HS",
+    "status": "Error",
+    "comports": [],
+    "note": "ProblemCode not captured in this initial transient snapshot; no manual driver install performed"
+  },
+  "checks": {
+    "pnp": {
+      "returncode": 0,
+      "data": [
+        {
+          "FriendlyName": "USB Serial Converter",
+          "Class": "USB",
+          "Status": "OK",
+          "InstanceId": "USB\\VID_0403&PID_6014\\6&28CEDD2C&0&2"
+        },
+        {
+          "FriendlyName": "USB Serial Port (COM5)",
+          "Class": "Ports",
+          "Status": "OK",
+          "InstanceId": "FTDIBUS\\VID_0403+PID_6014+6&28CEDD2C&0&2\\0000"
+        }
+      ],
+      "stderr": ""
+    },
+    "properties": {
+      "returncode": 0,
+      "data": [
+        {
+          "InstanceId": "USB\\VID_0403&PID_6014\\6&28CEDD2C&0&2",
+          "Properties": [
+            {
+              "KeyName": "DEVPKEY_Device_ProblemCode",
+              "Data": 0
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverInfPath",
+              "Data": "oem57.inf"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverProvider",
+              "Data": "FTDI"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverVersion",
+              "Data": "2.12.36.20"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_Service",
+              "Data": "FTDIBUS"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_Children",
+              "Data": [
+                "FTDIBUS\\VID_0403+PID_6014+6&28cedd2c&0&2\\0000"
+              ]
+            }
+          ]
+        },
+        {
+          "InstanceId": "FTDIBUS\\VID_0403+PID_6014+6&28CEDD2C&0&2\\0000",
+          "Properties": [
+            {
+              "KeyName": "DEVPKEY_Device_ProblemCode",
+              "Data": 0
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverInfPath",
+              "Data": "oem58.inf"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverProvider",
+              "Data": "FTDI"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_DriverVersion",
+              "Data": "2.12.36.20"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_Service",
+              "Data": "FTSER2K"
+            },
+            {
+              "KeyName": "DEVPKEY_Device_Children",
+              "Data": null
+            }
+          ]
+        }
+      ],
+      "stderr": ""
+    },
+    "parameters": {
+      "returncode": 0,
+      "data": {
+        "ConfigData": 22,
+        "PortName": null,
+        "LatencyTimer": null,
+        "LoadVCP": null
+      },
+      "stderr": ""
+    },
+    "dll": {
+      "returncode": 0,
+      "data": [
+        {
+          "FullName": "C:\\Windows\\System32\\ftd2xx.dll",
+          "Length": 808568,
+          "Version": "3.2.21.1"
+        },
+        {
+          "FullName": "C:\\Windows\\SysWOW64\\ftd2xx.dll",
+          "Length": 454264,
+          "Version": "3.2.21.1"
+        }
+      ],
+      "stderr": ""
+    }
+  },
+  "comports": [
+    {
+      "device": "COM5",
+      "description": "USB Serial Port (COM5)",
+      "hwid": "USB VID:PID=0403:6014 SER=6"
+    }
+  ],
+  "actions": "Read-only OS enumeration and driver/registry inspection; no serial open, driver/registry/EEPROM changes or SWD"
+}

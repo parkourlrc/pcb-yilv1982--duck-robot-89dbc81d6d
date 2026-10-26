@@ -1,0 +1,24 @@
+{
+  "url": "https://api.github.com/repos/jyg9/microduck-community-kit/commits/0456a83e863db7d8faf50c1a593397f719d3ab49",
+  "fetched_at": "2026-10-25T16:34:36.652478+00:00",
+  "data": {
+    "sha": "0456a83e863db7d8faf50c1a593397f719d3ab49",
+    "html_url": "https://github.com/jyg9/microduck-community-kit/commit/0456a83e863db7d8faf50c1a593397f719d3ab49",
+    "date": "2026-10-02T08:55:00Z",
+    "message": "fix(firmware): 让 DBG_ENABLE=0 真的能编译，并关掉调试控制台\n\nDBG_ENABLE=0 从来没有编译过：dbg.h 的 #else 分支定义了\n`#define dbg_hex(...) ((void)0)`，而 dbg.c:67 又真的定义了同名函数\n（它自己已经有 #if DBG_ENABLE 的函数体保护），于是函数式宏把它自己的\n定义改写成 `void ((void)0)`：\n\n    src/dbg.c:67: error: expected identifier or '(' before 'void'\n\n而这个宏没有任何调用点（grep 不到 dbg_hex 的调用），真正的接口是\nDBG_ERROR / DBG_INFO / DBG_TRACE 三个可变参数宏。删掉它即可——\n\"把代码去掉\"由函数体的 #if 保护负责。\n\n同时版本号 1.5.0 → 1.5.1，并关掉控制台。关它是为了修\nimu.stale_blocks 的根因：stats_print() 每 2.000 s 打 8 行 DBG_INFO，\n走 115200 baud 的 USART0，而 uart_port_write() 是阻塞式逐字节轮询\n（while (TBE) {}）——约 600 字节 ≈ 53 ms 主循环完全停住。停住期间\nimu_tick() 不被调用，IMU 一个样本都不发布；恢复时 imu_tick() 的\ncatch-up 一次补 5 步。50 Hz 的读者在这 53 ms 里连读两次拿到同一个\n块，就是实测的 stale_blocks ≈ 2.1%。\n\n顺带：dbg_log 的静音护栏查的是控制台端口（USART0）的 RX，而主总线是\nUSART1，所以主机在总线上狂问时护栏永不触发、日志每 2 秒照打。两个口\n在 BUS_MIRROR_ENABLE=1 的台架构建里是同一个，因此这个只在默认发货\n配置下才显形。\n\n真机验证（升级前 → 后，同一块板、同一批探针）：\n  2.000 s 周期的 53 ms 冻结      3 次 / 6 s  ->  0 次\n  相邻发布间隔最大值             53.2 ms     ->  11.3 ms\n  counter 重复（节点真没发布）   1.72 %      ->  0.00 %  (0/7394)\n  robotd imu.stale_blocks        2.1 %       ->  0.273 %\n\n镜像 25956 -> 18764 字节；stats 打印的格式串 4 个 -> 0 个。",
+    "files": [
+      {
+        "filename": "firmware/v1/CMakeLists.txt",
+        "status": "modified",
+        "patch": "@@ -68,8 +68,8 @@ endif()\n set(APP_SLOT \"0\" CACHE STRING \"0 = plain image, 1 = slot A, 2 = slot B\")\n set_property(CACHE APP_SLOT PROPERTY STRINGS 0 1 2)\n set(BOOT_ENABLE \"1\" CACHE STRING \"also build the bootloader and the two slot images\")\n-set(APP_VERSION_STR \"1.5.0\" CACHE STRING \"image version stamped into the slot header\")\n-set(DBG_ENABLE \"1\" CACHE STRING \"debug console on USART0\")\n+set(APP_VERSION_STR \"1.5.1\" CACHE STRING \"image version stamped into the slot header\")\n+set(DBG_ENABLE \"0\" CACHE STRING \"debug console on USART0\")\n set(BUS_MIRROR_ENABLE \"0\" CACHE STRING \"USART0 doubles as a bus port (bench only)\")\n set(STATUS_LED_ENABLE \"1\" CACHE STRING \"PB5 heartbeat LED\")\n set(CFG_FLASH_ENABLE \"1\" CACHE STRING \"persist configuration in the last flash page\")",
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/0456a83e863db7d8faf50c1a593397f719d3ab49/firmware%2Fv1%2FCMakeLists.txt"
+      },
+      {
+        "filename": "firmware/v1/src/dbg.h",
+        "status": "modified",
+        "patch": "@@ -40,7 +40,12 @@ void dbg_hex(uint8_t level, const char *tag, const uint8_t *data, uint16_t len);\n #define DBG_ERROR(...)  ((void)0)\n #define DBG_INFO(...)   ((void)0)\n #define DBG_TRACE(...)  ((void)0)\n-#define dbg_hex(...)    ((void)0)\n+/* No `dbg_hex` macro here. It is a real function with its own `#if DBG_ENABLE`\n+   body in dbg.c, so a function-like macro of the same name rewrites that very\n+   definition and `DBG_ENABLE=0` does not compile:\n+       src/dbg.c:67: error: expected identifier or '(' before 'void'\n+   The body guard already removes the code, and there are no call sites — the\n+   three variadic macros above are the interface. */\n #endif\n \n #endif /* DBG_H */",
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/0456a83e863db7d8faf50c1a593397f719d3ab49/firmware%2Fv1%2Fsrc%2Fdbg.h"
+      }
+    ]
+  }
+}

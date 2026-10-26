@@ -1,0 +1,57 @@
+{
+  "fetched_at": "2026-10-25T16:37:43.884336+00:00",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/jyg9/microduck-community-kit/firmware-1.5.1/firmware/v1/src/uart_port.c",
+      "local": "sources/jyg9-tag-1.5.1--src--uart_port.c.txt",
+      "sha256": "a6daf882162b3d055f7daf385dd1ce6bb57182c51ca0f04d66ac91cad384bab3",
+      "checks": {
+        "echo_until_us": true,
+        "echo_skip": false,
+        "us_time_tick": false,
+        "s_ms_latch_cyc": false,
+        "s_crc16_dxl_table": false,
+        "set(DBG_ENABLE \"0\"": false
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jyg9/microduck-community-kit/firmware-1.5.1/firmware/v1/src/us_time.c",
+      "local": "sources/jyg9-tag-1.5.1--src--us_time.c.txt",
+      "sha256": "555261ce805daf4f569392a30d198da862d58011f93b20a4aed0902df03a573a",
+      "checks": {
+        "echo_until_us": false,
+        "echo_skip": false,
+        "us_time_tick": true,
+        "s_ms_latch_cyc": false,
+        "s_crc16_dxl_table": false,
+        "set(DBG_ENABLE \"0\"": false
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jyg9/microduck-community-kit/firmware-1.5.1/firmware/v1/src/crc16.c",
+      "local": "sources/jyg9-tag-1.5.1--src--crc16.c.txt",
+      "sha256": "09f02081cac22861c38d16f3e0eb4e2000575a5b57ad9d189a7239fbcf85dca5",
+      "checks": {
+        "echo_until_us": false,
+        "echo_skip": false,
+        "us_time_tick": false,
+        "s_ms_latch_cyc": false,
+        "s_crc16_dxl_table": true,
+        "set(DBG_ENABLE \"0\"": false
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jyg9/microduck-community-kit/firmware-1.5.1/firmware/v1/CMakeLists.txt",
+      "local": "sources/jyg9-tag-1.5.1--CMakeLists.txt.txt",
+      "sha256": "039894e01da43de0584acfa67813c93aee76d764174251fb9d90453236736a28",
+      "checks": {
+        "echo_until_us": false,
+        "echo_skip": false,
+        "us_time_tick": false,
+        "s_ms_latch_cyc": false,
+        "s_crc16_dxl_table": false,
+        "set(DBG_ENABLE \"0\"": true
+      }
+    }
+  ]
+}

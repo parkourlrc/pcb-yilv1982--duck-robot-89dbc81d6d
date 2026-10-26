@@ -1,0 +1,33 @@
+{
+  "fetched_at": "2026-10-25T16:33:15.705140+00:00",
+  "url": "https://api.github.com/repos/jyg9/microduck-community-kit/issues?state=all&per_page=100",
+  "data": {
+    "total_count": 2,
+    "items": [
+      {
+        "number": 2,
+        "title": "XL330原版路线：已实测的IMU固件、robotd版本与总线配置（关联 #1）",
+        "body": "你好，感谢开源。正在评估个人复刻的原版 `15 × XL330-M288-T + Radxa ZERO 3W + Robot HAT C1` 路线，目前尚未购买或测试硬件，想先确认可用的固件/主机组合。\n\n我读了已关闭的 #1、`firmware/v1/README.md` 和 `firmware/v1/docs/imu_to_dxl_protocol.md` §15.5。看到1.5.x已支持Dynamixel 2.0和 `FAST_SYNC_READ (0x8A)`，同时文档仍保留“IMU + 15台真实XL330的完整16设备高速读取未验证”的说明。`1.6.0` 发布说明又提示它面向另一套主机协议，与1.5.x不兼容。\n\n想确认：\n\n1. 截至目前，是否已有用户完成**本板 + 15台真实XL330 + 官方robotd**的同总线实测？如有，能否给出板卡/IMU固件、XL330固件、官方robotd版本及测试记录链接？如暂未验证，确认现状即可。\n2. 对原版Dynamixel路线，应该锁定 `firmware-1.5.1` 还是其他tag/commit？成品板出厂固件如何确认，是否需要避开1.6.0的FT6配置？\n3. 如果暂不启用0x8A，官方 `bus.fast_sync_read = false` 的普通0x82路径是否已有真实XL330验证，以及能否达到稳定50Hz整组读取？我理解飞特15舵机的实测不能直接算作XL330的实测。\n\n参考主机：[官方bus.rs](https://github.com/pollen-robotics/microduck/blob/648bf228207f1fdedb652516d90d97ec3c50fffa/duck-control/src/bus.rs)、[IMU解码](https://github.com/pollen-robotics/microduck/blob/648bf228207f1fdedb652516d90d97ec3c50fffa/duck-control/src/imu.rs)。本问题关注已有验证和配套版本，不把源码测试等同于实机验证。谢谢！\n",
+        "state": "closed",
+        "html_url": "https://github.com/jyg9/microduck-community-kit/issues/2",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/jyg9/microduck-community-kit/issues/2/comments",
+        "created_at": "2026-10-15T08:36:19Z",
+        "updated_at": "2026-10-16T05:13:21Z",
+        "pull_request": null
+      },
+      {
+        "number": 1,
+        "title": "支持 Dynamixel 2.0 FAST_SYNC_READ (0x8A)",
+        "body": "你好，感谢开源这个项目。\n想提一个和当前 Pollen 官方 microduck 主线兼容性有关的功能请求：为 imu_to_dxl 固件增加 Dynamixel Protocol 2.0 的 FAST_SYNC_READ (0x8A) 支持。\n背景：\n- 当前官方 microduck 的总线实现默认启用 Fast Sync Read，普通 sync_read 会走 0x8A：\n  - [https://github.com/pollen-robotics/microduck/blob/main/duck-control/src/bus.rs](https://github.com/pollen-robotics/microduck/blob/main/duck-control/src/bus.rs?utm_source=chatgpt.com)\n  - [https://github.com/pollen-robotics/microduck/blob/main/docs/design/robotd-design.md](https://github.com/pollen-robotics/microduck/blob/main/docs/design/robotd-design.md?utm_source=chatgpt.com)\n- 官方默认配置里 bus.fast_sync_read 为 true；若某个设备不支持 0x8A，整组读取会超时。\n- 本项目当前已经实现普通 SYNC_READ (0x82)，并且 ID=200 / addr=124 / len=12 的 DXL 数据布局与官方要求是对齐的，但目前 board.h / dxl2.c 中还没有看到 0x8A 的处理。\n希望可以考虑：\n1. 增加 DXL_INST_FAST_SYNC_READ = 0x8A。\n2. 按 Dynamixel 2.0 Fast Sync Read 规范处理 ID 列表、设备顺序和聚合响应。\n3. 保持现有 IMU 数据映射：ID 200、地址 124、长度 12。\n4. 如果方便，增加一个和当前官方 robotd / rustypot 对拍的测试，最好能验证 IMU 与 XL330 同总线时的 0x8A 读取。\n这项支持对 XL330 原版路线会很有价值，可以避免为了兼容 IMU 而在 robotd.toml 中关闭 fast_sync_read。\n",
+        "state": "closed",
+        "html_url": "https://github.com/jyg9/microduck-community-kit/issues/1",
+        "comments": 1,
+        "comments_url": "https://api.github.com/repos/jyg9/microduck-community-kit/issues/1/comments",
+        "created_at": "2026-09-30T13:57:33Z",
+        "updated_at": "2026-10-02T01:22:30Z",
+        "pull_request": null
+      }
+    ]
+  }
+}

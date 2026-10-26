@@ -69,6 +69,11 @@
 - **贴片范围定案**：19 件全贴（含 J2 BM07 调试座——约 ¥1，免 J2 焊线，现役两块板均未装座的历史痛点）；J1/J3 EH 插件到货自焊（6 焊点）；Y1/C7/C8 维持不装。SMT 工程费/钢网/物料以 JLC 网页计价为准。
 - 三件套归档：`imu_to_dxl_v03_gerber.zip` / `imu_to_dxl_v03_bom_20261025.xlsx` / `imu_to_dxl_v03_cpl_raw_20261025.xlsx` / `imu_to_dxl_v03_cpl_jlc_20261025.csv`（[production/](../../../schematics/imu-to-dxl-scrapmeta-v0.3/production/)）。
 
+## 2026-10-25 深夜：单口板下单请求——查证为不可制造的 v0.2 草稿，停止
+
+- 用户要求把单口 IMU 板也下单。经 CDP 打开工程内 `imu_to_dxl_2 → PCB1` 页核实：**板上丝印 `imu-to-dxl v0.2 huodianyan 260905`**——是 v0.2 时代的未布线草稿（元件大半在板框外、满屏飞线、EDA 估算 22×15mm），导出时 EDA 亦告警"存在未连接的网络(飞线)"。存档 README"单 J1 变体——仅参考，不是实物板"定性准确，**不可制造，已取消其导出与下单**。另补口径：该页此前归档为"介于 v0.2 与 v0.3 的变体"，实为 **v0.2 草稿**。
+- **单口需求的正确覆盖**：双口 v0.3 本就可作单口叶子节点用——`hardware-netlist.md` 明写"叶节点可只插 J1，J3 空着"；上游 avanx 单口板同思路。要更多备板时把双口单数量改大即可，无需单口版。
+
 ## 来源
 
 - 上游：https://github.com/ScrapMeta/microduck-diy/tree/main/imu_to_dxl（README 在线核查，2026-10-25）

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-26",
+  "scope": "调试计划依据；本地源码不是本机镜像已匹配构建",
+  "sources": {
+    "src/main.c": {
+      "sha256": "32aa3ba9831401cc0e56ce0be4825db429ef5c77029ed633904ed06ba15c17e3",
+      "snippets": [
+        {
+          "first_line": 128,
+          "last_line": 177,
+          "text": "    const imu_sample_t *s = imu_latest();\n    const dev_cfg_t *cfg = dev_cfg();\n    bus_stats_t m;\n    bus_stats_t d;\n\n    if (0U == next_ms) {\n        next_ms = now_ms + STATS_PERIOD_MS;\n    }\n    if ((int32_t)(now_ms - next_ms) < 0) {\n        return;\n    }\n    next_ms = now_ms + STATS_PERIOD_MS;\n\n    bus_get_stats(BUS_PORT_MIRROR, &d);\n    bus_get_stats(BUS_PORT_MAIN, &m);\n    DBG_INFO(\"t=%u temp=%uC sensor=%s samples=%u qvalid=%u\",\n             (unsigned)(now_ms / 1000U), (unsigned)dev_temp_celsius(),\n             imu_is_simulated() ? \"sim\" : \"spi\", (unsigned)imu_samples(),\n             (unsigned)((s->flags & TELEM_FLAG_SFLP_VALID) != 0U));\n#if IMU_USE_SPI\n    DBG_INFO(\"  lsm6dsv16x who=0x%02X present=%u sflp_words=%u ovr=%u badtag=%u probe_fail=%u\",\n             (unsigned)imu_spi_whoami(), (unsigned)imu_spi_present(),\n             (unsigned)imu_spi_sflp_words(), (unsigned)imu_spi_fifo_overruns(),\n             (unsigned)imu_spi_bad_tags(), (unsigned)imu_spi_probe_fails());\n#else\n    DBG_INFO(\"  sim mode=%s amp=%u freq=%u\",\n             sim_name(cfg->sim_mode), (unsigned)cfg->sim_amp,\n             (unsigned)cfg->sim_freq);\n#endif\n    DBG_INFO(\"  cfg id(dxl=%u fee=%u) baud(dxl=%u fee=%u console=%u) frame=%s lock=%s dirty=0x%02X\",\n             (unsigned)cfg->dxl_id, (unsigned)cfg->fee_id,\n             (unsigned)uart_port_get_baud(bus_uart(BUS_PORT_MAIN)),\n             (unsigned)dev_fee_baud(),\n             (unsigned)uart_port_get_baud(bus_uart(BUS_PORT_MIRROR)),\n             (cfg->report_frame ? \"trunk\" : \"chip\"), proto_name(cfg->proto_lock),\n             (unsigned)dev_image(PROTO_DXL)[DXL_VENDOR_ADDR + V_STATUS]);\n    DBG_INFO(\"  uart0 rx=%u tx=%u dropped=%u err=%u echo=%u frames=%u answered=%u proto=%s\",\n             (unsigned)d.rx_bytes, (unsigned)d.tx_bytes, (unsigned)d.rx_dropped,\n             (unsigned)d.rx_errors, (unsigned)d.echoed, (unsigned)d.frames,\n             (unsigned)d.answered, proto_name(d.last_proto));\n    DBG_INFO(\"  uart1 rx=%u tx=%u dropped=%u err=%u echo=%u frames=%u answered=%u proto=%s\",\n             (unsigned)m.rx_bytes, (unsigned)m.tx_bytes, (unsigned)m.rx_dropped,\n             (unsigned)m.rx_errors, (unsigned)m.echoed, (unsigned)m.frames,\n             (unsigned)m.answered, proto_name(m.last_proto));\n    DBG_INFO(\"  bus held=%u/%u lost=%u gaps=%u ignored=%u loop_max=%uus\",\n             (unsigned)d.deferred, (unsigned)m.deferred,\n             (unsigned)(d.tx_lost + m.tx_lost), (unsigned)(d.gaps + m.gaps),\n             (unsigned)(d.ignored + m.ignored), (unsigned)s_loop_max_us);\n    s_loop_max_us = 0U;\n    {"
+        }
+      ]
+    },
+    "src/bus.c": {
+      "sha256": "820f7bc942906cdcf30e81b4fd8a6b56517b6d2649f984729709a6aaf50570d4",
+      "snippets": [
+        {
+          "first_line": 280,
+          "last_line": 309,
+          "text": "        }\n    }\n}\n\n/* ── accessors ──────────────────────────────────────────────────────────── */\n\nvoid bus_get_stats(uint8_t index, bus_stats_t *out)\n{\n    bus_port_t *bp;\n\n    if (index >= BUS_PORT_COUNT) {\n        memset(out, 0, sizeof(*out));\n        return;\n    }\n    bp = &s_ports[index];\n    out->rx_bytes   = bp->port.rx_bytes;\n    out->tx_bytes   = bp->port.tx_bytes;\n    out->rx_dropped = bp->port.rx_dropped;\n    out->rx_errors  = bp->port.rx_errors;\n    out->echoed     = bp->port.echoed;\n    out->frames     = bp->dxl.frames + bp->fee.frames;\n    out->answered   = bp->dxl.answered + bp->fee.answered;\n    out->responses  = bp->dxl.responses + bp->fee.responses;\n    out->bad_crc    = bp->dxl.bad_crc;\n    out->bad_len    = bp->dxl.bad_len + bp->fee.bad_len + bp->fee.bad_sum;\n    out->ignored    = bp->dxl.ignored + bp->fee.ignored;\n    out->deferred   = bp->deferred;\n    out->tx_lost    = bp->tx_lost;\n    out->gaps       = bp->gaps;\n    out->last_proto = bp->last_proto;"
+        }
+      ]
+    },
+    "src/uart_port.c": {
+      "sha256": "334e7f804d08b429c8bc7fb80d91568f9bf3be4f056bc61881d9781ad293303a",
+      "snippets": [
+        {
+          "first_line": 143,
+          "last_line": 186,
+          "text": "/* ── rx ─────────────────────────────────────────────────────────────────── */\n\nvoid uart_port_isr(uint32_t periph)\n{\n    uart_port_t *p = port_of(periph);\n    uint32_t guard = 0U;\n\n    if (NULL == p) {\n        (void)usart_data_receive(periph);\n        return;\n    }\n\n    while ((RESET != usart_flag_get(periph, USART_FLAG_RBNE)) && (guard++ < 64U)) {\n        uint8_t b = (uint8_t)usart_data_receive(periph);\n\n        p->rx_bytes++;\n        p->last_rx_ms = systick_get_ms();\n\n        if (0U != p->echo) {\n            /* Our own reply may be on the wire: either it is still being sent\n               (tx_busy), or it has just finished and the receiver is still\n               seeing the tail of the last byte through the direction buffer.\n               Both are bounded in *time*: a fixed byte count is not, because\n               whether the reply comes back at all depends on the transceiver -\n               see UART_ECHO_WINDOW_BYTES. */\n            if ((0U != p->tx_busy)\n                || ((int32_t)(p->echo_until_us - us_now()) > 0)) {\n                p->echoed++;\n                continue;\n            }\n        }\n\n        if (NULL != p->on_byte) {\n            p->on_byte(p->index, b);\n        } else {\n            p->rx_dropped++;\n        }\n    }\n\n    if (RESET != usart_flag_get(periph, USART_FLAG_ORERR)) {\n        usart_flag_clear(periph, USART_FLAG_ORERR);\n        (void)usart_data_receive(periph);\n        p->rx_errors++;\n    }"
+        }
+      ]
+    },
+    "src/board.h": {
+      "sha256": "44a933cacafb804237d1b55b51d4bcceb8a05a1a83a43556b9df1e5bd97504a9",
+      "snippets": [
+        {
+          "first_line": 56,
+          "last_line": 77,
+          "text": "/* ── build-time options (all overridable from CMake) ─────────────────────── */\n\n/* Debug console on USART0.  0 compiles the whole dbg layer out. */\n#ifndef DBG_ENABLE\n#define DBG_ENABLE              1\n#endif\n\n/* USART0 (PB6/PB7) is the *debug console* and nothing else: it prints DBG_*\n   lines so a problem can be found.  Every bus transaction - the register\n   protocol and the field upgrade - belongs to USART1 (PA2/PA3), the single\n   wire motor bus this node shares with the servos (`docs/upgrade.md` §1,\n   `docs/imu_to_dxl_protocol.md` §2).\n\n   1 -> bench only.  USART0 also answers protocol frames, so a development\n        board with no motor bus wired yet can be driven over /dev/ttyUSB0.\n        A host must then still point the upgrade tool at the bus it means to\n        use: everything the protocol can do, this port can do too. */\n#ifndef BUS_MIRROR_ENABLE\n#define BUS_MIRROR_ENABLE       0\n#endif\n\n/* PB5 status LED, active high.  Only the development board has it. */"
+        },
+        {
+          "first_line": 308,
+          "last_line": 314,
+          "text": "/* 1 Mbps on both buses, matching microduck's BAUD_RATE. */\n#define BUS_BAUD_DEFAULT        1000000U\n#define BUS_MIRROR_BAUD_DEFAULT 1000000U\n#define DBG_BAUD_DEFAULT        115200U\n\n/* Dynamixel baud-rate register code for 1 Mbps (XL330 table: 0=9600 ...\n   3=1 Mbps). */"
+        },
+        {
+          "first_line": 352,
+          "last_line": 361,
+          "text": "#define BUS_USART               USART1\n#define BUS_GPIO                GPIOA\n#define BUS_TX_PIN              GPIO_PIN_2\n#define BUS_RX_PIN              GPIO_PIN_3\n\n#define DBG_USART               USART0\n#define DBG_GPIO                GPIOB\n#define DBG_TX_PIN              GPIO_PIN_6\n#define DBG_RX_PIN              GPIO_PIN_7\n"
+        }
+      ]
+    },
+    "src/bus.h": {
+      "sha256": "d8c4f13579b2155b733a9ac0b156a364a02dd13a0521dfd755acc58cbc4255ca",
+      "snippets": [
+        {
+          "first_line": 45,
+          "last_line": 83,
+          "text": "   protocols is not ignored for a second.  Measured need: the bench smoke test\n   switches protocols back to back. */\n#define BUS_PROTO_STICKY_MS 100U\n\n/* One reply slot lives in board.h (BUS_SLOT_US): the slot rule is part of the\n   wire contract, and src/bus_arb.c - which is deliberately free of any bus or\n   hardware dependency - needs it too.\n\n   A frame whose bytes are further apart than this is not one frame: drop the\n   partial frame and re-sync on the next FF FF.  Well above the ~300 us slot of\n   a live burst, far below the ~20 ms between host transactions. */\n#define BUS_GAP_US          500U\n/* The echo guard is not a byte count and does not live here: it is a *time*\n   window after our own transmission completes (`UART_ECHO_WINDOW_BYTES` in\n   src/uart_port.h), because whether our reply comes back at all depends on the\n   transceiver.  A fixed byte count sat here once and silently ate the next\n   request's `FF FF` on the real PCBA - see docs/bus_timing_borrow_plan.md §4.6.1. */\n\ntypedef struct {\n    uint32_t rx_bytes;\n    uint32_t tx_bytes;\n    uint32_t rx_dropped;\n    uint32_t rx_errors;\n    uint32_t echoed;\n    uint32_t frames;\n    uint32_t answered;\n    uint32_t responses;\n    uint32_t bad_crc;\n    uint32_t bad_len;\n    uint32_t ignored;\n    uint32_t deferred;      /* sync_read replies held for their slot  */\n    uint32_t tx_lost;       /* replies dropped because TX was still busy */\n    uint32_t gaps;          /* partial frames dropped by the gap rule */\n    uint8_t  last_proto;\n    uint8_t  enabled;\n} bus_stats_t;\n\nvoid bus_init(void);\n"
+        }
+      ]
+    },
+    "README.md": {
+      "sha256": "ba638c64772f6fd8753f1c34da1d20cf2248bc44afc5545f84e6c061bfde293a",
+      "snippets": [
+        {
+          "first_line": 186,
+          "last_line": 200,
+          "text": "如果摘要里是 1，用 `./build.sh clean`（或 `-DBUS_MIRROR_ENABLE=0`）重新配置。\n\n**调试口的物理引脚**（这块 PCBA 上是一个 4 pin 排针 **H1**；网表见 `hardware/imu_to_dxl`）：\n\n| H1 引脚 | 信号 | 说明 |\n|---|---|---|\n| 1 | `+3.3V` | |\n| 2 | `GND` | |\n| 3 | `DEBUG_RX` | **PB7**，经串阻 R10，R7 上拉到 3.3V |\n| 4 | `DEBUG_TX` | **PB6**，经串阻 R11 |\n\n**PC 侧适配器的 TX 必须接到 H1-3**。只接 GND + TX 的\"两根线\"接法能读到日志（TX 一路是通的），\n但节点收不到任何字节——日志里 `uart0 rx=0` 就是它的表现，`BUS_MIRROR_ENABLE=1` 的台架镜像模式\n也就无从谈起（这一点在真板上实测确认过）。\n"
+        }
+      ]
+    }
+  }
+}

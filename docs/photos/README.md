@@ -39,6 +39,7 @@
 | [_crop-buck2.png](./_crop-buck2.png) | 降压模块局部放大第 2 张（照片推断，对象待确认） | 2026-10-11（制作） | 同上，晚间生成，具体框选对象未记录 | 降压模块核对 |
 | [imu-board-b-20261014-a.jpg](./imu-board-b-20261014-a.jpg) | 第二块 IMU 板背面 | 2026-10-14 | 仅板厂标记（94V-0 / E469747 / HQPCB-2），无版本丝印 | IMU 版本判别 |
 | [imu-board-b-20261014-b.jpg](./imu-board-b-20261014-b.jpg) | 第二块 IMU 板正面 | 2026-10-14 | **LQFP48 主控（GigaDevice GD32F303）+ 单 3P 白座 + 降压前端（电感 L1/二极管）**；识别为 jyg9 社区成品版 imu_to_dxl；针序与供电边界已获 0.2 图纸确认（2026-10-26） | 挂 8.4V 总线前目视核对 |
+| [imu-single-port-h1-location-20261026.png](./imu-single-port-h1-location-20261026.png) | 单口 GD32 IMU H1 位置标注与局部放大 | 2026-10-26（制作） | 来源为上行 10-14 用户原图；脚本 `scripts/annotate-imu-h1-location.py`。元件面、白色 3P 朝右；红框标出左下 H1 四焊盘，标 H2/H3 供区别。仅位置识别，不标上下针序；已打开检查，原图保留 | [COM5 与 H1 定位记录](../references/servo-web-imu-3d-20261024/research.md#ft232h-com5-20261026) |
 | [sch/page1–5.png](./sch/) | HAT V1.0 原理图 PDF 逐页导出图 | 2026-10-11（制作） | 源自 `docs/schematics/microduck-hat-v1.0-sch/` 的 5 页 SCH PDF，供屏幕对照放大查看；**图纸版本 V1.0，实物 V1.2，图物差异见 HAT 小节** | HAT A 段图物对照 |
 | [ft232h-breakout-20261016.jpg](./ft232h-breakout-20261016.jpg) | FT232H 转接板 | 2026-10-16 | 紫色 Adafruit FT232H Breakout 兼容板（USB-C，D0–D7/C0–C9 两排孔，**照片上排针未焊**） | Radxa 1.5M console 接线（见下方小节） |
 
@@ -71,7 +72,11 @@
 
 ## 微雪总线转接板 — Bus Servo Adapter (A) v1.1 — 2026-10-10 照片识别
 
-板子身份（左缘竖排丝印）：**Bus Servo Adapter (A) v1.1**，Waveshare，板 42×33mm、安装孔 φ2.5×4（孔距 37×28mm）。成品模块无公开原理图；规格以[微雪官方 wiki](https://www.waveshare.com/wiki/Bus_Servo_Adapter_(A)) 为准。**照片识别、实物未复测**；板载降压 IC 与 USB 串口芯片型号丝印照片上不可辨（USB 串口按微雪资料为 CH343）。
+板子身份（左缘竖排丝印）：**Bus Servo Adapter (A) v1.1**，Waveshare，板 42×33mm、安装孔 φ2.5×4（孔距 37×28mm）。**2026-10-25 更正**：已取得[微雪官方 wiki](https://www.waveshare.com/wiki/Bus_Servo_Adapter_(A)) 链接的含 USB 原理图，图纸未标修订号，实物版本对应仍待逐件核对；见[原理图登记](../schematics/README.md)。照片上芯片丝印不可辨；当晚电脑识别为 CH343/COM4，不能等同总线数据通路已验证。
+
+| 派生资料 | 来源、日期及用途 |
+|---|---|
+| [官方图第 1 页渲染](../references/servo-web-imu-3d-20261024/waveshare-bus-servo-adapter-a-schematic-page1-20261025.png) | 2026-10-25，用 pypdfium2 将[官方 PDF](../references/servo-web-imu-3d-20261024/waveshare-bus-servo-adapter-a-schematic-20261025.pdf)第 1 页按 2.5 倍渲染，无裁剪/标注；已打开检查。用途为 USB/DC_IN0 电源网络核对，不是实物接线图；来源与 SHA256 见[研究](../references/servo-web-imu-3d-20261024/research.md#waveshare-usb-20261025)。 |
 
 **正面元件（对应标注图 [waveshare-bus-servo-adapter-a-annotated.jpg](./waveshare-bus-servo-adapter-a-annotated.jpg)）：**
 
@@ -81,12 +86,12 @@
 | UART 排针 TX/RX/GND | A 模式接 MCU；微雪 wiki 提醒 **RX-RX、TX-TX 直连**（丝印已按对端标注，勿交叉） |
 | 模式跳线帽 ×2（黄色） | **A = UART 控制 / B = USB 控制**，对照板面 A/B 表格丝印 |
 | USB-C 座 | B 模式接电脑（CH343 串口，微雪总线工具/LeRobot 可用） |
-| DC 母座 5.5/2.1 ∥ DC+/DC- 螺丝端子（绿 2P） | 电源输入，两路并联；丝印 DC 9-12.6V |
-| 板载降压（SOIC-8 + 47µH 电感） | 仅供板内逻辑；**不给舵机稳压** |
+| DC 母座 5.5/2.1、DC+/DC- 螺丝端子（绿 2P） | 外部电源入口；官方图 DC1 接 DC_IN0，绿端子 H1 经 MOS 管 M1 接入，不粗略视为无器件的直接并联；丝印 DC 9-12.6V |
+| 板载降压区 | 供板内逻辑，不给舵机稳压；旧照片“47µH”未独立读清，官方候选图 L1 为 4.7µH，图物对应待核 |
 | PWR 电源指示灯 | 右下角 |
 | 半双工转换与阻容区 | UART↔单线总线收发切换电路（芯片丝印未读清） |
 
-**关键事实（官方资料 + 第三方实测一致）**：**输入电压直通舵机口 V 脚，板上不给舵机稳压**——输入必须等于舵机额定电压。丝印 9-12.6V 是针对 ST 系 12V 舵机的标称；微雪 wiki 注明 5-8.4V 亦可输入。
+**供电事实（2026-10-25 官方图核对，非端点实测）**：H3/H5 的 V 接外部 DC_IN0，USB 经 D4/U2 供逻辑，USB 不给 3P 的 V 提供正常电源。设备输入电压应匹配其规格；微雪本身不把外部输入稳压为舵机电压。Wiki 说明丝印 9–12.6V 针对 ST 系列、也接受 SC 匹配供电，本次正文未列具体 5–8.4V 数字，撤回旧精确引文。单口 IMU 规格 6–24V，本项目台架使用 7.4V 经微雪取电，不能仅插 USB；详见[供电/实测记录](../references/servo-web-imu-3d-20261024/research.md#waveshare-usb-20261025)。
 
 **本项目用法**：HD-1910 是 7.4V 舵机 → 台架喂 **2S（6.6-8.4V）正确，严禁 12V**。角色 = 台架总线调试（舵机改 ID/零位、imu200 验收、对比飞线/FE-URT-2 方案），**不进整机供电链**（整机架构见 [power-architecture-v2.md](../power-architecture-v2.md)）。
 
@@ -124,7 +129,7 @@
 | 小信号芯片区 | SOT-23-5/6 多颗（LDO/74LVC/LM5050 等，待 V1.2 图对照） |
 | 焊盘 ×8 | 对应正面两组 4Pin 空接口，不是已确认的独立电池输入 |
 
-**接口结论（2026-10-10 照片复核及旧意向）**：照片中只明确看到两个已焊接 SERVOS 3Pin 口，未识别出标注 BAT/VIN 的独立电池入口；A 两线进电、B 单链加末端 IMU、C 对插主控仅历史意向。10-24 用户曾描述单口外部分叉到两腿和 IMU；**10-25 晚已将同一块单口 IMU 移至 HAT 第二个 3P 口**。该更新仅文字口述，本轮没有新照片附件，本索引仍无当前全机接线图；不把“第二口”映射成旧图 A/B。详见[当前接线记录](../references/power-distribution-comparison-20261010/research.md#hat-port2-20261025)。
+**接口结论（2026-10-10 照片复核及旧意向）**：照片中只明确看到两个已焊接 SERVOS 3Pin 口，未识别出标注 BAT/VIN 的独立电池入口；A 两线进电、B 单链加末端 IMU、C 对插主控仅历史意向。**2026-10-26 用户确认单口 IMU 已从微雪台架接回 HAT“另一个口”**，00:11 快照显示 servo-web 运行。更新为文字口述，没有新接线照片；不把“另一个口”映射成旧图 A/B。见[当前记录](../references/servo-web-imu-3d-20261024/research.md#hat-debug-plan-20261026)。
 
 **行动项**：接线/上电前向板卡来源索取 **V1.2 原理图或改动说明**（重点：MCU 功能与固件、+BATT 入口形式、舵机口供电路径是否与 V1.0 一致）。供电架构分析（[power-architecture-v2.md](../power-architecture-v2.md)）基于 V1.0 图，舵机口 +BATT 直通等结论需按 V1.2 实物复核。
 
@@ -185,6 +190,10 @@
 
 **与之前调研的差异（2026-10-26 关闭）**：2026-10-09 调研记录称 jyg9 版"板上带 CH340 调试口"，本板照片未见——经核官方 0.2 版 BOM/原理图，**官方设计即无 CH340**，USB 调试走 GD32 原生 USB 引到排针，出入关闭（[jyg9 电源分析](../references/imu-jyg9-power-5v-20261026/research.md)）。另：当时照片判读"SOIC-8 降压电路"，官方 BOM 实为 SOT23-6 封装的 ETA2845S2G。
 
+**2026-10-26 调试口核对**：照片上未见 USB 插座或 CH340；设计源文件却明确预留 **H1 UART 日志、H2 SWD、H3 USB 下载焊盘**，不能把“没有 USB 座”理解为“没有调试引出”。三组焊盘与手上实物的位置/版本尚待对照，未制作已确认针序图；来源与 H3 +BATT 供电边界见[接口研究](../references/imu-to-dxl-variants-20261009/research.md#usb-debug-20261026)。
+
+**同日调试进展**：FT232H 已枚举 COM5；因用户不确定 H1 位置，已用原图生成[定位标注与放大](./imu-single-port-h1-location-20261026.png)，红框为 H1 四焊盘。当前焊接/线序仍未现场核实，没有收到新照片；本图不将设计逻辑 pad 号当照片上下针序。下一步补此处近照确认，再接两根日志线，详见[计划](../references/servo-web-imu-3d-20261024/debug-plan-20261026.md)。
+
 **2026-10-25 指示灯复核**：该单口板照片未见电源/状态 LED，对应社区 `hardware/imu_to_dxl/imu_to_dxl.kicad_sch` 也未列 LED；D1/D2 是保护器件。固件 `board.h:77` 的 PB5 灯明确只属于开发板，不用于要求该成品板必须亮灯。用户本轮口头“板一”指这块单口板（历史文档板②），烧损的是双口板；后续按接口数量区分。详见[换口与 LED 记录](../references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)。
 
 **含义**：出厂即 DXL 2.0 + 飞特双协议自动识别，ID 200，**不需要刷固件**；供电按 0.2 图纸 **≥6.5V 冷启动 / ≈5.93V 维持（EN 分压设定），5V 必不启动、7.4~8.4V 正常**，可直接挂 8.4V 舵机总线末端（EH 座针序 1=GND 2=V+ 3=DATA 已获官方图纸确认，对照 [三板舵机座对比](./board-servo-socket-pinout.png)；接线前目视核对仍保留）。
@@ -199,11 +208,11 @@
 | USB 口 | USB-C |
 | 主控 | SSOP 封装 FTDI 芯片（具体后缀照片看不清），旁有小封装芯片（疑 3.3V LDO） |
 | 引脚 | 两排通孔：上排 Gnd + C0–C9（ACBUS）；下排 3V / 5V / Gnd + D0–D7（ADBUS） |
-| 其他 | I2C 拨码开关 + 4P I2C 专用座（只控制该口上拉，UART 用不到）；晶振、去耦电容若干 |
+| 其他 | I2C 拨码开关 + 4P I2C 专用座；官方 USB-C 原版开关连通 D1/D2，UART 前须确认 OFF/断开，兼容板实际方向待核（2026-10-26 撤回“只控制上拉”旧判断）；晶振、去耦电容若干 |
 
 - 布局与 [Adafruit FT232H Breakout](https://learn.adafruit.com/adafruit-ft232h-breakout) 一致 → UART 模式 **D0=TX、D1=RX**，3.3V 逻辑（兼容板按同设计推断，照片未见电平跳线）。
-- **照片上未见已焊排针（只有通孔焊盘）**：接线前需先焊排针，至少下排相邻的 Gnd / D0 / D1 三脚。
-- 用途：接 Radxa Zero 3W 调试串口（1500000 8N1），替代克隆 DAPLink 的串口通道。接线速查见 [ft232h-radxa-serial-20261016](../references/ft232h-radxa-serial-20261016/research.md)。
+- **10-16 照片上未见已焊排针（只有通孔焊盘）**，不代表当前仍未焊。只收 IMU 日志需 Gnd / D1 两处可靠连接，不要求焊接并连接 D0。
+- 用途：此前计划用于 Radxa console（1500000 8N1）；2026-10-26 用于单口 IMU H1 日志的计划为 **115200 8N1 无流控**，两者不能混用。接线与开关勘误见 [ft232h-radxa-serial-20261016](../references/ft232h-radxa-serial-20261016/research.md)，[本轮计划](../references/servo-web-imu-3d-20261024/debug-plan-20261026.md)。
 - 待核对：枚举 VID/PID 应为 0403:6014（兼防克隆芯片问题）；丝印细节以实物为准。
 
 ## 新增照片规则

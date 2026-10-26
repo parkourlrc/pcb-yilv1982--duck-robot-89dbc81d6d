@@ -1,0 +1,42 @@
+{
+  "url": "https://api.github.com/repos/jyg9/microduck-community-kit/commits/3bacbb7a7ceedc2ca1686ca049953e12b82120f8",
+  "fetched_at": "2026-10-25T16:34:36.226232+00:00",
+  "data": {
+    "sha": "3bacbb7a7ceedc2ca1686ca049953e12b82120f8",
+    "html_url": "https://github.com/jyg9/microduck-community-kit/commit/3bacbb7a7ceedc2ca1686ca049953e12b82120f8",
+    "date": "2026-10-11T14:00:55Z",
+    "message": "修改IMU工作电压到5V；拼板文件优化",
+    "files": [
+      {
+        "filename": "hardware/imu_to_dxl/imu_to_dxl.kicad_sch",
+        "status": "modified",
+        "patch": "@@ -4973,16 +4973,6 @@\n \t\t\t(embedded_fonts no)\n \t\t)\n \t)\n-\t(text \"UVLO=3V\"\n-\t\t(exclude_from_sim no)\n-\t\t(at 217.17 44.704 0)\n-\t\t(effects\n-\t\t\t(font\n-\t\t\t\t(size 1.27 1.27)\n-\t\t\t)\n-\t\t)\n-\t\t(uuid \"2138b0ea-12fe-4021-bf9b-0e613eee0b5b\")\n-\t)\n \t(text \"Debug\"\n \t\t(exclude_from_sim no)\n \t\t(at 63.5 184.658 0)\n@@ -18237,9 +18227,9 @@\n \t\t(at 223.52 58.42 0)\n \t\t(unit 1)\n \t\t(exclude_from_sim no)\n-\t\t(in_bom yes)\n+\t\t(in_bom no)\n \t\t(on_board yes)\n-\t\t(dnp no)\n+\t\t(dnp yes)\n \t\t(fields_autoplaced yes)\n \t\t(uuid \"dc14964e-e98e-4ecb-a58c-81e7f3e222ff\")\n \t\t(property \"Reference\" \"R4\"",
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/3bacbb7a7ceedc2ca1686ca049953e12b82120f8/hardware%2Fimu_to_dxl%2Fimu_to_dxl.kicad_sch"
+      },
+      {
+        "filename": "hardware/imu_to_dxl/imu_to_dxl_10p.kicad_pcb",
+        "status": "modified",
+        "patch": null,
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/3bacbb7a7ceedc2ca1686ca049953e12b82120f8/hardware%2Fimu_to_dxl%2Fimu_to_dxl_10p.kicad_pcb"
+      },
+      {
+        "filename": "hardware/imu_to_dxl/production/bom.csv",
+        "status": "modified",
+        "patch": "@@ -1,4 +1,4 @@\n-﻿Designator,Footprint,Quantity,Value,LCSC Part #\r\n+Designator,Footprint,Quantity,Value,LCSC Part #\r\n C1,C0402,1,100p,C106200\r\n \"C10, C11, C17\",C0402,3,27pF/50V,C107002\r\n \"C12, C13, C14, C15, C16, C18, C19, C2, C7, C8, C9\",C0402,11,100nF/16V,C1525\r\n@@ -18,7 +18,6 @@ R14,R0402,1,1K,C11702\n R29,R0402,1,20k,C25765\r\n \"R3, R31\",R0402,2,100K,C25741\r\n \"R32, R9\",R0402,2,0R,C60485\r\n-R4,R0402,1,30K,C25776\r\n R5,R0603,1,51R,C2907181\r\n R6,R0402,1,24K,C138026\r\n U1,SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR,1,ETA2845S2G_C22362741,C22362741\r",
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/3bacbb7a7ceedc2ca1686ca049953e12b82120f8/hardware%2Fimu_to_dxl%2Fproduction%2Fbom.csv"
+      },
+      {
+        "filename": "hardware/imu_to_dxl/production/imu_to_dxl_0.2_10p_gerber.zip",
+        "status": "removed",
+        "patch": null,
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/6934a05ad4369e4dfdcbba56fd95e79531a498af/hardware%2Fimu_to_dxl%2Fproduction%2Fimu_to_dxl_0.2_10p_gerber.zip"
+      },
+      {
+        "filename": "hardware/imu_to_dxl/production/imu_to_dxl_v0.2.1_10p_gerber.zip",
+        "status": "added",
+        "patch": null,
+        "raw_url": "https://github.com/jyg9/microduck-community-kit/raw/3bacbb7a7ceedc2ca1686ca049953e12b82120f8/hardware%2Fimu_to_dxl%2Fproduction%2Fimu_to_dxl_v0.2.1_10p_gerber.zip"
+      }
+    ]
+  }
+}

@@ -10,6 +10,43 @@
 - **验证工作单与判定分支**已落盘 [IMU 固件代码分析专题·验证工作单](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)：V1 日志重看（TELEM_CNT 连续性，零成本）→ V2 间隔扫描（5~200ms 六档，拍频特征判定）→ V3 拆板单测 → V4 换 v1 固件 A/B 对照（烧前先 OpenOCD dump 原厂固件备份，经 H2 SWD 排针，DAPLink 已到货）。**盲区模型若坐实，烧 v1（中断+DMA 应答架构）即治愈**。
 - 同轮副产品：v1 固件构建链本机 dry-run 通过（cmake+ninja+xpack-gcc 编出全部镜像，工具链留存 `~/imu-fw-tools/`）；改板设计变更单定稿（5V 档跳线+删 CN2+加 CN3+穿板铜，见 [电源分析专题](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。
 
+## 网上 IMU 同类故障：找到同源修复，H1 日志计划补前提（2026-10-26）
+
+- 核查 jyg9、kissqy、ScrapMeta、fanhao375 等复刻项目的公开提交、issues/评论与文档。同源 GD32 曾修复回声过滤吞帧头、计时器回绕后静默、CRC 运算过慢丢字节；9-30 硬件提交另调整 R31/R5 以处理偶发丢包。其他 STM32 复刻也有零回包的固件修复和作者台架结果，不能直接刷用于本机。
+- 直接核对官方 `firmware-1.5.1` 标签，前三项软件修复已存在；本机同名版本的 CRC32 指纹仍未匹配，根因未定。官方 1.5.1 发布明确关闭调试打印，默认 `DBG_ENABLE=0`，因此现行下一步改为先确认构建/日志开关，启用时才走 H1 日志；已知关闭则跳过，无输出不判 MCU 坏。
+- [完整研究与来源快照](docs/references/microduck-imu-community-20261026/research.md)已落盘，并修订[调试计划](docs/references/servo-web-imu-3d-20261024/debug-plan-20261026.md)、IMU 主记录及相关入口。未找到与本机同批次/同构建/同接法完全一致的已验证修复；未操作设备、换阻、刷机或采购，记录未提交/推送。
+
+## FT232H 已识别 COM5，H1 位置已标图（2026-10-26 00:25）
+
+- 用户插入 FT232H 后，电脑识别 `0403:6014`、`USB Serial Port (COM5)`，FTDI 驱动和设备状态正常；初次暂时 Error/无 COM 已自动转为正常，未手动装驱动。仅枚举，未打开串口或读取 IMU。
+- 用户不确定 H1 位置，已用已有实物原图制作并查看[H1 定位图](docs/photos/imu-single-port-h1-location-20261026.png)，指向左下四焊盘组；未发布未经核对的上下针序。下一步补 H1 局部近照确认当前焊接/TX/GND，再断电接日志线。证据见[研究](docs/references/servo-web-imu-3d-20261024/research.md#ft232h-com5-20261026)。未操作 HAT 服务、未刷机，记录未提交。
+
+## 单口 IMU 回到 HAT，下一步用 FT232H 读取 H1 日志（2026-10-26）
+
+- 用户确认单口 IMU 已接 HAT 的“另一个口”、正在运行，有 FT232H 和 DAPLink。00:11 只读快照显示 servo-web active、PID 605 独占 ttyS2；imu-viewer 未运行。近期所取窗口有舵机回包和 IMU PING，未见 IMU 应答；不是新的完整成功率测试。旧微雪台架/服务关闭记录保留为历史。
+- 复盘显示单独读也曾缺答，正确请求曾收到 IMU CRC 错误，尚不能定线坏或板坏；微雪独立舵机对照同样失败，不构成已知正常主机。已制定[分阶段计划](docs/references/servo-web-imu-3d-20261024/debug-plan-20261026.md)：FT232H 只收 H1 日志 → 必要时少量独占 PING 对应内部计数 → 按复位/接收/组帧/发送分支定位。
+- Adafruit 官方资料核实 FT232H D1=RX，USB-C 原版 I2C 开关会连通 D1/D2，已撤回旧“任意位置”说明；UART 前须确认 I2C OFF。兼容板开关方向、H1 实物映射与日志启用仍待核。00:17 枚举没有相关在位 USB/COM，不判工具故障；DAPLink 留作 SWD 后备。
+- [证据与限制](docs/references/servo-web-imu-3d-20261024/research.md#hat-debug-plan-20261026)已落盘。没有停服、主动总线读写、接日志、改驱动、SWD 连接或刷机；未修复、未提交/推送。
+
+## 单口 GD32 IMU 设计工程已定位（2026-10-26）
+
+- 当前单口板同源的 jyg9/community-kit 目录已有 KiCad 9 `.kicad_pro`、`.kicad_sch`、`.kicad_pcb`，另有拼板布局、Gerber、BOM 和坐标文件；本地 PCB 标 `imu2dxl 0.2 / 2026/9/27`，主芯片为 GD32F303CCT6 与 LSM6DSV16XTR。
+- 进一步核对设计：没有 USB 插座或 CH340，但有 **H3 USB 下载焊盘、H1 UART 日志焊盘、H2 SWD 焊盘**；H1 日志是绕过当前总线数据通路的排查候选，实物映射/本机镜像日志开关未验。H3 电源脚接 +BATT，不能直接并接 USB 5V 与电池。见[调试接口](docs/references/imu-to-dxl-variants-20261009/research.md#usb-debug-20261026)，撤回台架单“只能从总线侧判断”的旧指引。
+- 上游 API 已核对文件存在；设计文件 blob 与本地快照不同，未覆盖更新。实物逐网/修订匹配、DRC/ERC 和生产导出均未进行，不改变硬件故障待定位结论。入口见[工程核对](docs/references/imu-to-dxl-variants-20261009/research.md#single-port-pcb-20261026)、[原理图索引](docs/schematics/README.md)。只读参考库未修改；记录未提交。
+
+## 微雪接入舵机后的 PING 扫描仍无回包（2026-10-25 22:51）
+
+- 用户已明确“**已拔下 IMU，同口换接舵机**”，本次为独立舵机对照；是否换线及舵机具体 ID 未独立核验。外部 7.4V/B 模式沿用前次确认，本轮未重新测量。
+- COM4、1 Mbps，仅单播 PING；先扫已知 ID，再扫全部常规 ID 0–253（排除保留 IMU ID 200）。253 条请求全部收到 0 字节，未发现舵机，未执行发现后的重复验证。串口已关闭；无参数/扭矩/动作写入，servo-web 保持关闭。
+- 独立舵机仍无应答，故本次失败不依赖 IMU 在场；微雪仍未证明正常，不能据此归因 IMU 损坏，也不排除原 HAT 环境下的另一个故障。优先查共用供电/跳线/接头/收发路径，下一步查看当前接线照片，不重复扫描。证据和限制见[舵机对照记录](docs/references/servo-web-imu-3d-20261024/research.md#waveshare-servo-ping-20261025)。未提交。
+
+## 微雪 COM4 台架：USB-only 条件更正，补 7.4V 后仍无应答（2026-10-25 22:39）
+
+- 用户最新澄清覆盖此前选项回复：单口 IMU 已脱离 HAT，微雪 B 模式、D/V/G 已核对，但**只有 USB，没有外部 7.4V**。22:31:51–22:32:11 的 PING/READ/SYNC 各 0/60、身份窗无字节，是此条件下的原始记录，不能用来判板坏。
+- 官方原理图第 1 页显示：USB 经 D4/U2 供 3.3V 逻辑，两个 3P 的 V 脚接外部 DC_IN0，USB 不给该电源轨供电。单口 IMU 规格 6–24V，台架用外部 7.4V 经微雪 3P 供电。随后用户确认接好 7.4V，22:37–22:38 重测仍 **0/180**，22:39 双协议补充 **0/40**；全部无字节，不能归因于单一读取指令，也不能认定板坏。
+- 22:39 时 IMU 接微雪，数据通路、转接线与 IMU 端未隔离，端点电压未独立测得。用户当时暂时无法换接舵机；后续已接入，现行状态以上方 22:51 记录为准。
+- servo-web 按要求保持关闭；Radxa 8766 查看器不显示 COM4 数据。HAT 原有间歇故障尚未归因；源码/固件未刷改。证据、供电通路与原始数据见[微雪台架记录](docs/references/servo-web-imu-3d-20261024/research.md#waveshare-usb-20261025)。本轮研究与诊断脚本保留工作区，未提交。
+
 ## imu_to_dxl v0.3（双口）补板下单：裸板单已取消，转 PCB+SMT 一体单（2026-10-25 晚）
 
 - 板①烧损后备板：从 eprj2 真源出 Gerber。**Gerber 获取通路（新）**：eprj2 离线转换三条路全否（SQLite 文档加密、KiCad/epro2kicad 仍需 GUI 导 .epro、oshwhub 上是 avanx 的另一块 AT32 单口板）；改用 **CDP 驱动桌面 lceda-pro**（`--remote-debugging-port=9222` + 命令行开工程 + `Input.dispatchMouseEvent` 真实坐标点击，合成 DOM 事件无效）自动走到导出对话框，BOM/CPL/Gerber 三样均经此通路导出（用户各点一次保存）。

@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-25T16:17:43.351039+00:00",
+  "method": "Present-only PnP + serial enumeration; no serial open, driver change or SWD attach",
+  "comports": [],
+  "pnp_returncode": 0,
+  "pnp": [],
+  "pnp_stderr": "",
+  "previous_query": {
+    "utc": "2026-10-25T16:15:38.743460+00:00",
+    "method": "serial enumeration and Windows present PnP only; no serial open, no driver change, no SWD attach",
+    "comports": [],
+    "pnp_returncode": 0,
+    "pnp": [
+      {
+        "FriendlyName": "Hyper-V Virtual Switch Extension Adapter",
+        "Class": "Net",
+        "Status": "OK",
+        "InstanceId": "ROOT\\VMS_VSMP\\0000"
+      },
+      {
+        "FriendlyName": "Microsoft Kernel Debug Network Adapter",
+        "Class": "Net",
+        "Status": "OK",
+        "InstanceId": "ROOT\\KDNIC\\0000"
+      },
+      {
+        "FriendlyName": "MediaTek Bluetooth Adapter",
+        "Class": "Bluetooth",
+        "Status": "OK",
+        "InstanceId": "USB\\VID_0489&PID_E14F&MI_00\\7&9278AFE&1&0000"
+      }
+    ],
+    "pnp_stderr": ""
+  },
+  "correction": "Previous regex DAP also matched generic Adapter names. Those entries are not DAPLink evidence. Current filter matches relevant USB VID or explicit product strings only."
+}
