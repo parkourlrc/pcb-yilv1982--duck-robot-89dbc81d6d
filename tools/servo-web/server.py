@@ -34,7 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 # 调试台版本。改了前端或后端就加一：index.html 里的 PAGE_VERSION 要跟这里一样，
 # 页面连上后会比对，不一样就提示"页面是旧的，Ctrl+F5"。改动记在 README 的「版本」一节。
-VERSION = "0.15.2"
+VERSION = "0.15.3"   # 2026-10-27 本机补丁：日志栏「总线帧」开关（文件+页面）
 DEFAULT_IDS = "20-24,30-34,10-14"
 JOINT_NAMES = {
     20: "left_hip_yaw", 21: "left_hip_roll", 22: "left_hip_pitch", 23: "left_knee", 24: "left_ankle",
@@ -293,12 +293,30 @@ import queue as _queue
 
 _bus_q = _queue.Queue(maxsize=20000)
 _bus_q_dropped = [0]
+BUS_LOG_ON = False   # 页面「日志·总线帧」开关：关=不记录不显示（上游默认行为），开=文件+页面日志栏
+
+
+def set_bus_log(on):
+    """2026-10-27 本机补丁：页面开关控制总线帧记录。开=trace_skip 放开 SYNC_READ/SYNC_WRITE；
+    关=恢复上游默认跳过。换串口实例（open_bus/reconnect）后需重应用。"""
+    global BUS_LOG_ON
+    BUS_LOG_ON = bool(on)
+    if BUS is not None and hasattr(BUS, "trace_skip"):
+        if BUS_LOG_ON:
+            BUS.trace_skip.discard(feetech.SYNC_READ)
+            BUS.trace_skip.discard(feetech.SYNC_WRITE)
+        else:
+            BUS.trace_skip.add(feetech.SYNC_READ)
+            BUS.trace_skip.add(feetech.SYNC_WRITE)
+    log(f"总线帧记录已{'开启' if BUS_LOG_ON else '关闭'}（logs/bus-日期.log + 页面日志栏）", "系统")
 
 
 def bus_trace(line):
-    """串口收发的原始字节，异步写 logs/bus-日期.log（页面不显示，不然刷屏）。
-    2026-10-27 起改为入队：原实现同步走 log()（每行 open/write/close + print(flush)
-    都在串口锁内，全量记录时 eMMC 延迟尾部会插进收发间隙、人为制造丢帧）。"""
+    """串口收发的原始字节：开关开启时异步写 logs/bus-日期.log 并推入页面日志栏
+    （2026-10-27 本机补丁；上游原为同步 log() 只进文件，全量记录时锁内文件 IO 会
+    插进收发间隙、人为制造丢帧，故改入队 + writer 线程）。"""
+    if not BUS_LOG_ON:
+        return
     try:
         _bus_q.put_nowait((time.time(), line))
     except _queue.Full:
@@ -306,6 +324,7 @@ def bus_trace(line):
 
 
 def _bus_log_writer():
+    global LOG_N
     day, f = None, None
     while True:
         try:
@@ -332,7 +351,14 @@ def _bus_log_writer():
                 _bus_q_dropped[0] = 0
             for t, line in batch:
                 ms = int(t * 1000) % 1000
-                print(f"{time.strftime('%H:%M:%S', time.localtime(t))}.{ms:03d} {line}", file=f)
+                stamp = f"{time.strftime('%H:%M:%S', time.localtime(t))}.{ms:03d}"
+                print(f"{stamp} {line}", file=f)
+                # 同步进页面日志栏（writer 线程做，总线线程零负担；stream 会增量推送）
+                with _log_io:
+                    LOG_N += 1
+                    LOG.append({"n": LOG_N, "t": time.strftime("%H:%M:%S", time.localtime(t)),
+                                "cat": "总线", "level": "info", "msg": f"{stamp} {line}"})
+                    del LOG[:-400]
         except Exception as e:
             try:
                 print(f"bus-log writer 异常：{type(e).__name__}: {e}", flush=True)
@@ -355,13 +381,9 @@ def open_bus(port, baud=None):
         log(msg, "总线", "error")
         return {"ok": False, "msg": msg}
     bus.trace = bus_trace
-    # 2026-10-27 本机补丁：全量记录同步读/写帧（上游 trace_skip 默认排除它们）；
-    # 写盘走 bus_trace 的异步 writer。FakeBus 无 trace_skip 时跳过。
-    if hasattr(bus, "trace_skip"):
-        bus.trace_skip.discard(feetech.SYNC_READ)
-        bus.trace_skip.discard(feetech.SYNC_WRITE)
     old = BUS
     BUS, PORT, BAUD = bus, port, baud
+    set_bus_log(BUS_LOG_ON)   # 2026-10-27 本机补丁：换串口实例后重应用总线帧记录开关
     if old is not None and not isinstance(old, FakeBus):
         try:
             old.close()
@@ -1446,6 +1468,11 @@ def handle(cmd):
         ids = [int(i) for i in cmd.get("ids") or []] or list(PRESENT or IDS)
         return {**calib_plan([i for i in ids if i in (PRESENT or IDS)], cmd.get("ref") or None),
                 "for": cmd.get("for"), "id": cmd.get("id")}
+    elif op == "buslog":
+        # 2026-10-27 本机补丁：页面「日志·总线帧」开关；带 on 为设置，不带为查询
+        if "on" in cmd:
+            set_bus_log(bool(cmd.get("on")))
+        return {"type": "buslog", "on": BUS_LOG_ON}
     elif op == "ports":
         return {"type": "ports", "ports": list_ports(), "port": PORT, "fake": is_fake()}
     elif op == "reconnect":
@@ -1589,6 +1616,7 @@ async def ws_endpoint(ws):
     await ws.send_text(json.dumps({"type": "hello", "ids": IDS, "present": PRESENT, "names": JOINT_NAMES,
                                    "fake": is_fake(), "logs": LOG[-150:], "cats": LOG_CATS, "dirs": load_dirs(),
                                    "torque": read_torques(PRESENT or IDS),
+                                   "buslog": BUS_LOG_ON,
                                    "port": PORT, "ports": list_ports(),
                                    "regs": [[a, *feetech.REGISTERS[a]] for a in sorted(feetech.REGISTERS)],
                                    "version": VERSION, "imu_enabled": IMU_SERVICE is not None,
@@ -1607,8 +1635,8 @@ async def ws_endpoint(ws):
                 log(msg, OP_CAT.get(op, "系统"), "error", exc=True)
                 reply = {"type": "error", "msg": msg}
             if reply:
-                if reply.get("type") == "dirs":
-                    # 方向表是全局状态：广播给所有标签页，避免别的页面还拿旧值
+                if reply.get("type") in ("dirs", "buslog"):
+                    # 全局状态（方向表/总线帧开关）：广播给所有标签页，避免别的页面还拿旧值
                     await broadcast(json.dumps(reply))
                 else:
                     await ws.send_text(json.dumps(reply))

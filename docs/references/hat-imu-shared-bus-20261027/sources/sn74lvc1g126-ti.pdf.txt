@@ -1,0 +1,102 @@
+PAGE 5
+5.3 Recommended Operating Conditions
+over operating free-air temperature range (unless otherwise noted)(1)
+MIN MAX UNIT
+VCC Supply voltage
+Operating 1.65 5.5
+V
+Data retention only 1.5
+VIH High-level input voltage
+VCC = 1.65V to 1.95V 0.65 × VCC
+V
+VCC = 2.3V to 2.7V 1.7
+VCC = 3V to 3.6V 2
+VCC = 4.5V to 5.5V 0.7 × VCC
+VIL Low-level input voltage
+VCC = 1.65V to 1.95V 0.35 × VCC
+V
+VCC = 2.3V to 2.7V 0.7
+VCC = 3V to 3.6V 0.8
+VCC = 4.5V to 5.5V 0.3 × VCC
+VI Input voltage 0 5.5 V
+VO Output voltage 0 VCC V
+IOH High-level output current
+VCC = 1.65V –4
+mA
+VCC = 2.3V –8
+VCC = 3V
+–16
+–24
+VCC = 4.5V –32
+IOL Low-level output current
+VCC = 1.65V 4
+mA
+VCC = 2.3V 8
+VCC = 3V
+16
+24
+VCC = 4.5V 32
+Δt/Δv Input transition rise or fall rate
+VCC = 1.8V ± 0.15V, 2.5V ± 0.2V 20
+ns/VVCC = 3.3V ± 0.3V 10
+VCC = 5V ± 0.5V 5
+TA Operating free-air temperature –40 125 °C
+(1) All unused inputs of the device must be held at VCC or GND to ensure proper device operation. Refer to the TI application note, 
+Implications of Slow or Floating CMOS Inputs.
+5.4 Thermal Information
+PACKAGE PINS
+THERMAL METRIC(1)
+UNIT
+RθJA RθJC(top) RθJB ΨJT ΨJB RθJC(bot)
+DBV (SOT-23) 5 357.1 263.7 264.4 195.6 262.2 - °C/W
+DCK (SOT-SC70) 5 371 297.5 258.6 195.6 256.2 - °C/W
+DRL (SOT-5X3) 5 364.1 280.6 261.5 195.6 259.2 - °C/W
+DRY (SON) 6 234 - - - - - °C/W
+YZP (DSBGA) 5 132 - - - - - °C/W
+(1) For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application 
+note.
+www.ti.com
+SN74LVC1G126
+SCES224S – APRIL 1999 – REVISED AUGUST 2026
+Copyright © 2026 Texas Instruments Incorporated Submit Document Feedback 5
+Product Folder Links: SN74LVC1G126
+
+PAGE 11
+results in excessive power consumption and can cause oscillations. See more details in Implications of Slow or 
+Floating CMOS Inputs.
+Do not leave standard CMOS inputs floating at any time during operation. Terminate unused inputs at V CC or 
+GND. If a system does not always drive an input, consider adding a pull-up or pull-down resistor to provide a 
+valid input voltage. The resistor value depends on multiple factors; a 10k Ω resistor, however, is recommended 
+and typically meets all requirements.
+7.3.4 Clamp Diode Structure
+Figure 7-2 shows the inputs and outputs to this device have negative clamping diodes only.
+CAUTION
+Voltages beyond the values specified in the Absolute Maximum Ratings  table can cause damage 
+to the device. The input and output voltage ratings may be exceeded if the input and output clamp-
+current ratings are observed.
+Figure 7-2. Electrical Placement of Clamping Diodes for Each Input and Output
+7.3.5 Over-Voltage Tolerant Inputs
+The SN74LVC1G126 includes over-voltage tolerant inputs. The input pins support high-state input voltages 
+larger than the supply voltage by utilizing an input protection circuit that does not include a standard positive 
+clamp diode. See Recommended Operating Conditions for the recommended input voltage.
+CAUTION
+Do not exceed the maximum input voltage range provided in Absolute Maximum Ratings. Exceeding 
+the maximum input voltage range rating can cause immediate and permanent damage to the device.
+7.4 Device Functional Modes
+Function Table lists the functional modes for SN74LVC1G126.
+Table 7-1. Function Table
+INPUTS(1)
+OUTPUT
+Y(2)
+A OE
+H H H
+L H L
+X L Z
+(1) H = High Voltage Level, L = 
+Low Voltage Level, X = Don’t 
+Care
+www.ti.com
+SN74LVC1G126
+SCES224S – APRIL 1999 – REVISED AUGUST 2026
+Copyright © 2026 Texas Instruments Incorporated Submit Document Feedback 11
+Product Folder Links: SN74LVC1G126

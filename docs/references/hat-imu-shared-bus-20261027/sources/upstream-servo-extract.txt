@@ -1,0 +1,97 @@
+PAGE 4
+1 2 3 4 5 6
+1 2 3 4 5 6
+A
+BC
+D
+E
+FG
+H
+A
+BC
+D
+E
+FG
+H Date: 2026-05-06 KiCad E.D.A. 9.0.9 Size: A3 Rev: B1
+Id: 4/6 Title: elec RPI Robot HAT
+File: dynamixel.kicad_sch Sheet: /Schematic/Dynamixel/ Pollen Robotics / Hugging Face
+1
+2
+3
+J13 Dynamixel-3
+1
+2
+3
+J14 R31
+10k 2 VCC
+5 GND
+3
+1
+4 U6 SN74LVC1G125DBV D4
+5V1 R33
+150R
++3V3 +3V3 +3V3 +BATT R32
+10k +3V3 C17
+100n +3V3
+1
+2 VCC
+5 GND
+3
+4 U5
+74LVC1G08 C16 +3V3
+1
+3 2 Q1 MMBT3906
+RO 1 ~{RE} 2 DE 3 DI 4 VCC
+8 GND
+5 A
+6 B
+7 U8 GM3088ENA
+1
+2
+3
+4 J3
+C18 +BATT
+1
+2
+3
+4 J11 Dynamixel-4 +3V3 C15 100n +BATT
+TH1
+100R thermistor 2 VCC
+5 GND
+3
+1
+4 U7 SN74LVC1G126DBVR
++3V3R40 0R
+R41 DNP-0R
+R27
+10k R26
+10k +3V3R28
+20k
+R29
+10k
+{GPIO}
+IO_15
+IO_14
+Dynamixel_dir
+Dynamixel_dir
+IO_14
+Dynamixel See: https://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/ as a reference.
+DynUART_Tx
+DynUART_Tx
+DynUART_Rx 3A max
+U6 SN74LVC1G125DBV
+2 VCC
+5 GND
+3
+1
+4 R31
+10k
+J11 Dynamixel-4
+1
+2
+3
+4 U8 +BATT GM3088ENA RO 1 ~{RE} 2 DE 3 DI 4 VCC
+8 GND
+5 A
+6 B
+7

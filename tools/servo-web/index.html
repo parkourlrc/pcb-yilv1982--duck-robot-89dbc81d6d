@@ -211,6 +211,7 @@
       <div class="row">
         分类 <select id="logCat" onchange="renderLog()"><option value="">全部</option></select>
         <label class="muted"><input type="checkbox" id="logBad" onchange="renderLog()"> 只看警告 / 错误</label>
+        <label class="muted" title="勾选后记录全部总线收发帧（所有设备，含 sync_read/sync_write 轮询流量，约 170 行/秒）：写服务端 logs/bus-日期.log 并显示在下方日志栏；不勾选时不记录。会话开关，服务重启后默认关"><input type="checkbox" id="buslogToggle" onchange="send({op:'buslog', on:this.checked})"> 总线帧</label>
         <button onclick="copyLog()" title="复制当前筛选出来的日志，发给别人看">复制</button>
         <button onclick="clearLog()" title="只清这个框，不影响日志文件">清屏</button>
         <a href="/api/logfile" target="_blank" class="muted" style="font-size:12px" title="服务端 logs/servo-web-日期.log：每条都在，出错带 traceback">今天的日志文件</a>
@@ -227,7 +228,7 @@
 
 <script>
 // 跟 server.py 的 VERSION 一起改。连上后比对，不一致说明浏览器拿的是旧页面
-const PAGE_VERSION = "0.15.2";
+const PAGE_VERSION = "0.15.3";
 const $ = id => document.getElementById(id);
 const v = id => Number($(id).value);
 let ws, names = {}, present = [], ids = [], lastDump = null, sendTimer = {}, lastSent = {};
@@ -255,9 +256,10 @@ function connect() {
       $('ver').style.color = same ? '' : 'var(--bad)';
       $('ver').title = same ? '页面和服务版本一致' : '浏览器里是旧页面或服务没重启：先重启 server.py，再 Ctrl+F5';
       if (!same) hint(`页面 v${PAGE_VERSION} 跟服务 v${sv} 不一致：重启 server.py 后按 Ctrl+F5`);
-      dirs = {}; for (const [k, v] of Object.entries(m.dirs || {})) dirs[k] = v; names = m.names; ids = m.ids; present = m.present;  REGS = (m.regs || []).filter(r => r[3] === 'EEPROM' || r[3] === 'SRAM'); showPorts(m); fillLogCats(m.cats || []); build(); applyTorque(m.torque); stateSynced = false; fillRegSelect(); (m.logs || []).forEach(pushLog); send({ op: 'poses' }); }
+      dirs = {}; for (const [k, v] of Object.entries(m.dirs || {})) dirs[k] = v; names = m.names; ids = m.ids; present = m.present;  REGS = (m.regs || []).filter(r => r[3] === 'EEPROM' || r[3] === 'SRAM'); showPorts(m); fillLogCats(m.cats || []); build(); applyTorque(m.torque); stateSynced = false; fillRegSelect(); (m.logs || []).forEach(pushLog); $('buslogToggle').checked = m.buslog === true; send({ op: 'poses' }); }
     else if (m.type === 'imu') { if (imuFeed.enabled) { imuFeed.packet=m; announceImu(); } }
     else if (m.type === 'imu_config') { imuFeed.enabled = m.enabled === true; imuFeed.packet = null; announceImu(); showSimImu(m.sim_imu); }
+    else if (m.type === 'buslog') { const cb = $('buslogToggle'); if (cb && cb.checked !== (m.on === true)) cb.checked = m.on === true; }   // 其他标签页切的开关也同步显示
     else if (m.type === 'ports') showPorts(m);
     else if (m.type === 'reconnect') {
       showPorts(m);
