@@ -1,0 +1,23 @@
+AP64350 convergence probe with realistic body-diode parasitics
+.include "C:/Users/yilv/AppData/Local/duck-robot-tools/models/diodes/AP64350/ap64350_fixed.lib"
+VIN  vin 0 DC 8.4
+CIN  vin 0 20u
+XU1  bst vin en rt fb comp 0 sw AP64350
+L1   sw vout 5.5u
+RESR vout cx 5m
+COUT cx 0 44u
+CBST sw bst 0.1u
+RTOP vout fb 52.3k
+RBOT fb 0 10k
+RC   comp cc 14k
+CC   cc 0 3.3n
+REN1 vin en 100k
+REN2 en 0 200k
+ILOAD vout 0 PWL(0 0.5 1.4m 0.5 1.45m 3.5 2.4m 3.5)
+.options rshunt=1e9 cmin=1e-12
+.tran 0.5u 2.5m
+.meas tran vout_avg AVG V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_min MIN V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_max MAX V(vout) FROM=2.2m TO=2.4m
+.end
+

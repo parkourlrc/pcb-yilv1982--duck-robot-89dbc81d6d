@@ -1,0 +1,24 @@
+AP64350 convergence probe - all diode models given parasitics, VIN ramped
+.include "C:/Users/yilv/AppData/Local/duck-robot-tools/models/diodes/AP64350/ap64350_fixed2.lib"
+VIN  vin 0 PWL(0 0 200u 8.4 4m 8.4)
+CIN  vin 0 20u
+XU1  bst vin en rt fb comp 0 sw AP64350
+L1   sw vout 5.5u
+RESR vout cx 5m
+COUT cx 0 44u
+CBST sw bst 0.1u
+RTOP vout fb 52.3k
+RBOT fb 0 10k
+RC   comp cc 14k
+CC   cc 0 3.3n
+REN1 vin en 100k
+REN2 en 0 200k
+ILOAD vout 0 PWL(0 0.5 2.4m 0.5 2.45m 3.5 3.4m 3.5)
+.options rshunt=1e9 gmin=1e-8 reltol=5e-2 abstol=1e-7 vntol=1e-3 itl4=1000 method=gear maxord=2
+.tran 0.5u 3.5m
+.meas tran vout_avg AVG V(vout) FROM=3.2m TO=3.4m
+.meas tran vout_min MIN V(vout) FROM=3.2m TO=3.4m
+.meas tran vout_max MAX V(vout) FROM=3.2m TO=3.4m
+.meas tran vout_dip MIN V(vout) FROM=2.4m TO=2.9m
+.end
+

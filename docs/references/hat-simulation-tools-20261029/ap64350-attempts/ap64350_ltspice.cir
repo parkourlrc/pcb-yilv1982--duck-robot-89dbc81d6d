@@ -1,0 +1,34 @@
+* AP64350 vendor PSpice model - run in LTspice batch mode
+* Purpose: get the official Diodes model to run and regulate 8.4 V -> 5 V.
+* Model: ap64350.lib (vendor), only the subcircuit-name typo corrected
+* (AP64352_Top_Top_Level_S3 -> AP64350_Top_Top_Level_S3) by
+* patch_ap64350_model.py. No electrical parameters changed.
+.include "C:\Users\yilv\AppData\Local\duck-robot-tools\models\diodes\AP64350\ap64350_patched.lib"
+
+VIN  vin 0 8.4
+CIN  vin 0 20u
+
+XU1  bst vin en rt fb comp 0 sw AP64350
+
+L1   sw vout 5.5u
+RESR vout cx 5m
+COUT cx 0 44u
+CBST sw bst 0.1u
+
+RTOP vout fb 52.3k
+RBOT fb 0 10k
+
+RC   comp cc 14k
+CC   cc 0 3.3n
+
+REN1 vin en 100k
+REN2 en 0 200k
+
+ILOAD vout 0 PWL(0 0.5 1.4m 0.5 1.45m 3.5 2.4m 3.5)
+
+.tran 0 2.5m 0 0.5u
+.meas tran vout_avg AVG V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_min MIN V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_max MAX V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_dip MIN V(vout) FROM=1.45m TO=2.0m
+.end

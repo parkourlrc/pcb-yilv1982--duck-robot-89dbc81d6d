@@ -1,0 +1,310 @@
+{
+  "status": "design_blocked",
+  "production_ready": false,
+  "source_hashes": {
+    "audio.kicad_sch": "16e31699ad02098219ca678e2fc6d5566f3c47c08a45c05b1ef96f7cf758f0d2",
+    "custom_hat_rev_a.kicad_dru": "3c6173b363da278f3f3dfefae4cd38102e8a8806495f597c52be70764ca03f49",
+    "custom_hat_rev_a.kicad_pcb": "d6ae5782164a3b442b1f00db9ab3a9d5f941a70bed85fb3844c39afd53eac99e",
+    "custom_hat_rev_a.kicad_pro": "5e5d578b95dbd63c3f7a456a5a22b0623af912b9bea5c759a2afac833ee13b33",
+    "custom_hat_rev_a.kicad_sch": "798b63ba1192c4a86d9c7f70e29fd1d0b0e9796c994c33a6e59f9f200d9b4508",
+    "duck.kicad_sym": "05e02088ff1339a496e2c9f07c802a1b901bf425bc737523e3f2a8f489038fd5",
+    "duck.pretty/DEPRECATED_Bosch_LGA-16_3x4.5mm_P0.5mm.kicad_mod": "2a6187566807c85f2f2df0e87a8a92902701c45a6e37eb4ce5204c257e5c2b64",
+    "duck.pretty/SO-8EP_AP64350.kicad_mod": "d305d4aea97ebc667033591885bb8a875b35b6dae7022c95000a1ba7633a3147",
+    "fp-lib-table": "2208a33efa7872e9cddf95fda59d1e6d8784cafd110364b5a6c3970f48535bbe",
+    "imu_tof.kicad_sch": "82967dd80b191803cbe2fadb1775b7a1e12f65de87c45f2c5bcf9f22f4b0b8dc",
+    "net-contract.json": "c90a6e3f920b869c4dcbaf3bef2ff3db2f0bedf0bfbc26f64a8c992e505921f8",
+    "power.kicad_sch": "0dbe329a12fc28a54e5b9b6c5e29a1a48a69275145e28a34ef0fef9b541d590d",
+    "radxa_40p.kicad_sch": "b2227ce16736829310e4a0c23dc531a046a26714028b98ce903b42aaac5a22d5",
+    "servo_ttl.kicad_sch": "b870333c3ec59b316a5eaa056609d18a6733771071b5e87e8b2d801e40ee4c09",
+    "source-manifest.json": "5a4eec9c1bc8aef273fc6fe370635c942c97f2626ae5807f968f8b7e938ab567",
+    "sym-lib-table": "ccc3950c79c308bf22293891cb600afcb9b057635171e4043c8d554cff91b4cd",
+    "testpoints.kicad_sch": "641cabb3cc6450cc5decc0a4325482245d4e555fdf1ae02b738c538a04e37a81"
+  },
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "--version"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "netlist",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "sch",
+        "export",
+        "netlist",
+        "--format",
+        "kicadxml",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\reports\\abbf131a70d2\\netlist.xml",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\work\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "erc",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "sch",
+        "erc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\reports\\abbf131a70d2\\erc.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\work\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "drc",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--schematic-parity",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\reports\\abbf131a70d2\\drc.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T101652Z-39c21a8a\\work\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    }
+  ],
+  "kicad_version": "10.0.7",
+  "drc": {
+    "violations": {
+      "count": 11,
+      "types": {
+        "via_dangling": 2,
+        "silk_overlap": 1,
+        "silk_over_copper": 8
+      },
+      "severities": {
+        "warning": 11
+      }
+    },
+    "unconnected_items": {
+      "count": 1,
+      "types": {
+        "unconnected_items": 1
+      },
+      "severities": {
+        "error": 1
+      }
+    },
+    "schematic_parity": {
+      "count": 101,
+      "types": {
+        "footprint_symbol_mismatch": 60,
+        "net_conflict": 32,
+        "missing_footprint": 4,
+        "footprint_symbol_field_mismatch": 1,
+        "extra_footprint": 4
+      },
+      "severities": {
+        "warning": 101
+      }
+    }
+  },
+  "erc": {
+    "count": 0,
+    "types": {},
+    "severities": {}
+  },
+  "netlist_check": {
+    "mismatches": [],
+    "nc_empty": [
+      {
+        "reference": "J101",
+        "pin": "3",
+        "schematic_net": "unconnected-(J101-Pin_3-Pad3)"
+      },
+      {
+        "reference": "J101",
+        "pin": "5",
+        "schematic_net": "unconnected-(J101-Pin_5-Pad5)"
+      },
+      {
+        "reference": "J101",
+        "pin": "7",
+        "schematic_net": "unconnected-(J101-Pin_7-Pad7)"
+      },
+      {
+        "reference": "J101",
+        "pin": "15",
+        "schematic_net": "unconnected-(J101-Pin_15-Pad15)"
+      },
+      {
+        "reference": "J101",
+        "pin": "16",
+        "schematic_net": "unconnected-(J101-Pin_16-Pad16)"
+      },
+      {
+        "reference": "J101",
+        "pin": "18",
+        "schematic_net": "unconnected-(J101-Pin_18-Pad18)"
+      },
+      {
+        "reference": "J101",
+        "pin": "19",
+        "schematic_net": "unconnected-(J101-Pin_19-Pad19)"
+      },
+      {
+        "reference": "J101",
+        "pin": "21",
+        "schematic_net": "unconnected-(J101-Pin_21-Pad21)"
+      },
+      {
+        "reference": "J101",
+        "pin": "22",
+        "schematic_net": "unconnected-(J101-Pin_22-Pad22)"
+      },
+      {
+        "reference": "J101",
+        "pin": "23",
+        "schematic_net": "unconnected-(J101-Pin_23-Pad23)"
+      },
+      {
+        "reference": "J101",
+        "pin": "24",
+        "schematic_net": "unconnected-(J101-Pin_24-Pad24)"
+      },
+      {
+        "reference": "J101",
+        "pin": "26",
+        "schematic_net": "unconnected-(J101-Pin_26-Pad26)"
+      },
+      {
+        "reference": "J101",
+        "pin": "27",
+        "schematic_net": "unconnected-(J101-Pin_27-Pad27)"
+      },
+      {
+        "reference": "J101",
+        "pin": "28",
+        "schematic_net": "unconnected-(J101-Pin_28-Pad28)"
+      },
+      {
+        "reference": "J101",
+        "pin": "32",
+        "schematic_net": "unconnected-(J101-Pin_32-Pad32)"
+      },
+      {
+        "reference": "J101",
+        "pin": "33",
+        "schematic_net": "unconnected-(J101-Pin_33-Pad33)"
+      },
+      {
+        "reference": "J101",
+        "pin": "36",
+        "schematic_net": "unconnected-(J101-Pin_36-Pad36)"
+      },
+      {
+        "reference": "J101",
+        "pin": "37",
+        "schematic_net": "unconnected-(J101-Pin_37-Pad37)"
+      },
+      {
+        "reference": "J301",
+        "pin": "5",
+        "schematic_net": "unconnected-(J301-Pin_5-Pad5)"
+      },
+      {
+        "reference": "U501",
+        "pin": "1",
+        "schematic_net": "unconnected-(U501-Pin_1-Pad1)"
+      },
+      {
+        "reference": "U501",
+        "pin": "5",
+        "schematic_net": "unconnected-(U501-Pin_5-Pad5)"
+      },
+      {
+        "reference": "U501",
+        "pin": "13",
+        "schematic_net": "unconnected-(U501-Pin_13-Pad13)"
+      },
+      {
+        "reference": "U701",
+        "pin": "20",
+        "schematic_net": "unconnected-(U701-HPLCOM-Pad20)"
+      },
+      {
+        "reference": "U701",
+        "pin": "22",
+        "schematic_net": "unconnected-(U701-HPRCOM-Pad22)"
+      },
+      {
+        "reference": "U701",
+        "pin": "28",
+        "schematic_net": "unconnected-(U701-LEFT_LOM-Pad28)"
+      },
+      {
+        "reference": "U701",
+        "pin": "13",
+        "schematic_net": "unconnected-(U701-MIC1RM/LINE1RM-Pad13)"
+      },
+      {
+        "reference": "U701",
+        "pin": "12",
+        "schematic_net": "unconnected-(U701-MIC1RP/LINE1RP-Pad12)"
+      },
+      {
+        "reference": "U701",
+        "pin": "14",
+        "schematic_net": "unconnected-(U701-MIC2L/LINE2L/MICDET-Pad14)"
+      },
+      {
+        "reference": "U701",
+        "pin": "16",
+        "schematic_net": "unconnected-(U701-MIC2R/LINE2R-Pad16)"
+      },
+      {
+        "reference": "U701",
+        "pin": "30",
+        "schematic_net": "unconnected-(U701-RIGHT_LOM-Pad30)"
+      },
+      {
+        "reference": "U701",
+        "pin": "29",
+        "schematic_net": "unconnected-(U701-RIGHT_LOP-Pad29)"
+      },
+      {
+        "reference": "U803",
+        "pin": "2",
+        "schematic_net": "unconnected-(U803-NC-Pad2)"
+      }
+    ],
+    "contract_differences": [],
+    "footprints": 60,
+    "segments": 615,
+    "vias": 93,
+    "zones": [
+      {
+        "layer": "F.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "B.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In2.Cu",
+        "net": "+3V3"
+      }
+    ]
+  },
+  "workspace_unchanged": true,
+  "source_unchanged": true
+}

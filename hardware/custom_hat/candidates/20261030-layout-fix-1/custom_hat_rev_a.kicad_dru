@@ -1,0 +1,13 @@
+(version 1)
+# prototype fabrication: 0.2/0.4 via-in-pad is required to reach the inner
+# 3V3 plane from 0.5 mm pitch parts, so allow the smaller annular ring
+(rule "prototype fine geometry"
+  (constraint annular_width (min 0.09))
+  (constraint hole_clearance (min 0.15))
+)
+(rule "BMI088 fine pitch"
+  (condition "A.insideCourtyard('U501')")
+  (constraint clearance (min 0.12))
+  (constraint annular_width (min 0.09))
+  (constraint hole_clearance (min 0.15))
+)

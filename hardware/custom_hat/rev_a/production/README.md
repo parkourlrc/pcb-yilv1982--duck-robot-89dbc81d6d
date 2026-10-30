@@ -1,0 +1,9 @@
+# Rev A 历史生产样例（失效，不可下单）
+
+2026-10-29 续接审计确认本目录与现行原理图/PCB 不同步。F.Cu Gerber 标注导出时间为当日 17:49:41 +08:00；BOM 29 行/32 件，缺少后来增加的 codec 外围和 J504，测试点数量/网络也已变化。
+
+**Gerber、ZIP、钻孔、BOM 和 CPL 全部保留作历史格式样例，不用于投板、贴片或当前元件定位。** 本轮没有重新导出或上传。
+
+修复电源封装、TTL、音频、BMI088 及布局后，须从同一源版本一次性导出全套文件，附源文件摘要、完整 BOM/DNP 和装配方向检查。门槛见 [下单条件](../../../../docs/specs/20261028-custom-hat/order-checklist.md)，证据见 [审计](../../../../docs/references/hat-simulation-tools-20261029/audit-20261029/review.md)。
+
+旧“只补 5 个地过孔即可下单”说明已撤销；原说明见 [历史存档](../../../../docs/references/hat-simulation-tools-20261029/audit-20261029/superseded-guidance.md)。

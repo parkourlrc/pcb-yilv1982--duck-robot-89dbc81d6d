@@ -1,0 +1,521 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T21:34:36",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "r308-move-147-109.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.6900 mm",
+                    "pos": {
+                        "x": 147.51,
+                        "y": 109.0
+                    },
+                    "uuid": "9f66dde5-fb6f-40e6-a662-b8c66e9c6e08"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.46,
+                        "y": 110.06
+                    },
+                    "uuid": "12880710-bab6-4e39-98e5-9f5aaef16253"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 4.3500 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 109.0
+                    },
+                    "uuid": "ec838b03-e371-4187-b623-9597132e68c6"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (In2.Cu), 长度: 1.2926 mm",
+                    "pos": {
+                        "x": 148.8722,
+                        "y": 118.1986
+                    },
+                    "uuid": "5c4691fa-32e8-4a3b-a042-4bfb8c407ec8"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 4.3500 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 109.0
+                    },
+                    "uuid": "ec838b03-e371-4187-b623-9597132e68c6"
+                },
+                {
+                    "description": "走线 [AUDIO_R] (B.Cu), 长度: 0.9021 mm",
+                    "pos": {
+                        "x": 145.0221,
+                        "y": 112.7121
+                    },
+                    "uuid": "f8e4648a-4694-4e2a-aa53-56cc15af0ccc"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 0.9900 mm",
+                    "pos": {
+                        "x": 146.49,
+                        "y": 109.0
+                    },
+                    "uuid": "1e6d5ddf-3207-4aa7-9bb7-9902792bcd11"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 7.2125 mm",
+                    "pos": {
+                        "x": 147.55,
+                        "y": 110.35
+                    },
+                    "uuid": "fe6250bd-4e38-4a2d-a8cc-8e27fe86a05d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 1.7400 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 113.35
+                    },
+                    "uuid": "4ecc9d7c-b15d-4783-9736-e26fb365a31b"
+                },
+                {
+                    "description": "走线 [AUDIO_R] (B.Cu), 长度: 0.9021 mm",
+                    "pos": {
+                        "x": 145.0221,
+                        "y": 112.7121
+                    },
+                    "uuid": "f8e4648a-4694-4e2a-aa53-56cc15af0ccc"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_L] (B.Cu), 长度: 1.1074 mm",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "cf7db657-5a79-4926-beaf-ef0f9593af85"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 4.3500 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 109.0
+                    },
+                    "uuid": "ec838b03-e371-4187-b623-9597132e68c6"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 AUDIO_HP_L 和 CODEC_RST)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 4.3500 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 109.0
+                    },
+                    "uuid": "ec838b03-e371-4187-b623-9597132e68c6"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 +3V3)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 111.25
+                    },
+                    "uuid": "10ae63f1-45a3-4521-bfae-6a7c0e1458f3"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0292 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 0.0707 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 111.3
+                    },
+                    "uuid": "32bcce4f-0c46-4431-ba9c-597ff40bef9a"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 CODEC_RST 和 I2S_BCLK)",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 1 [CODEC_RST]",
+                    "pos": {
+                        "x": 146.49,
+                        "y": 109.0
+                    },
+                    "uuid": "27b40687-0574-4f80-8341-9661fe83da5a"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 7.2125 mm",
+                    "pos": {
+                        "x": 147.55,
+                        "y": 110.35
+                    },
+                    "uuid": "fe6250bd-4e38-4a2d-a8cc-8e27fe86a05d"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2C5_SCL 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (B.Cu), 长度: 2.2886 mm",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "5ad54a15-7efc-4bc8-903e-b68115dd64f0"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0471 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (B.Cu), 长度: 0.3980 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 111.202
+                    },
+                    "uuid": "4c3169ee-ed94-45ec-a287-d62c2d71b812"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0886 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0292 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 4.3500 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 109.0
+                    },
+                    "uuid": "ec838b03-e371-4187-b623-9597132e68c6"
+                },
+                {
+                    "description": "B.Cu 上 C318 的焊盘 2 [AUDIO_R]",
+                    "pos": {
+                        "x": 145.66,
+                        "y": 113.35
+                    },
+                    "uuid": "450739e5-3796-4677-af97-472692ca53ab"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 1.7400 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 113.35
+                    },
+                    "uuid": "4ecc9d7c-b15d-4783-9736-e26fb365a31b"
+                },
+                {
+                    "description": "B.Cu 上 C318 的焊盘 2 [AUDIO_R]",
+                    "pos": {
+                        "x": 145.66,
+                        "y": 113.35
+                    },
+                    "uuid": "450739e5-3796-4677-af97-472692ca53ab"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 7.2125 mm",
+                    "pos": {
+                        "x": 147.55,
+                        "y": 110.35
+                    },
+                    "uuid": "fe6250bd-4e38-4a2d-a8cc-8e27fe86a05d"
+                },
+                {
+                    "description": "B.Cu 上 R308 的焊盘 1 [CODEC_RST]",
+                    "pos": {
+                        "x": 146.49,
+                        "y": 109.0
+                    },
+                    "uuid": "27b40687-0574-4f80-8341-9661fe83da5a"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 2.5033 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 110.0
+                    },
+                    "uuid": "b95519e3-52b5-4c47-8404-48b6393a4a5a"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 8 [I2C5_SCL]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 111.6
+                    },
+                    "uuid": "eed164cb-6306-4652-892d-b7c524886765"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.1500 mm",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "636c1d81-0bd0-44ea-b8da-f33f0eed9a2e"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (In2.Cu), 长度: 1.2926 mm",
+                    "pos": {
+                        "x": 148.8722,
+                        "y": 118.1986
+                    },
+                    "uuid": "5c4691fa-32e8-4a3b-a042-4bfb8c407ec8"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

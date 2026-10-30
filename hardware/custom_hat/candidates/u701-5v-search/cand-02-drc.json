@@ -1,0 +1,4520 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T22:08:35",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "cand-02.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1575 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.2,
+                        "y": 111.7
+                    },
+                    "uuid": "97bcc5c4-49db-478a-b7ef-c22d3c37cda7"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1479 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 143.1,
+                        "y": 111.675
+                    },
+                    "uuid": "0730463b-dc36-4bc8-81c7-5e619f0eaa7a"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1883 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (In1.Cu), 长度: 0.9197 mm",
+                    "pos": {
+                        "x": 120.6133,
+                        "y": 120.8633
+                    },
+                    "uuid": "5147090b-6801-489c-a72b-fb19ca2b25f5"
+                },
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1716 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 1.7584 mm",
+                    "pos": {
+                        "x": 147.7309,
+                        "y": 118.7911
+                    },
+                    "uuid": "80c4f793-4e3d-45e2-b509-a11d6df5e2a8"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 5.6745 mm",
+                    "pos": {
+                        "x": 147.8216,
+                        "y": 118.1042
+                    },
+                    "uuid": "e808dcd5-a96c-4b66-a0da-77053ea7e0e6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1566 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.1109 mm",
+                    "pos": {
+                        "x": 130.2039,
+                        "y": 124.1245
+                    },
+                    "uuid": "744c354f-c327-4f96-b1f1-3c7f5b535cdf"
+                },
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.4301 mm",
+                    "pos": {
+                        "x": 130.3649,
+                        "y": 124.5316
+                    },
+                    "uuid": "f6c0e819-919f-432a-9874-fa5b43841350"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1976 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.8460 mm",
+                    "pos": {
+                        "x": 127.8951,
+                        "y": 119.5864
+                    },
+                    "uuid": "24127451-43d5-4c71-9469-bebe8378427f"
+                },
+                {
+                    "description": "过孔 [+5V_FB] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.5639,
+                        "y": 119.3747
+                    },
+                    "uuid": "2cb4dd88-1f13-4b14-8574-f889b310ba3a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.6500 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "472f2619-b569-4134-89e8-bcf336865248"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1986 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 4.8581 mm",
+                    "pos": {
+                        "x": 116.8652,
+                        "y": 123.8848
+                    },
+                    "uuid": "a8230db5-2ed7-4390-802c-4e0d29fba49a"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.7235 mm",
+                    "pos": {
+                        "x": 117.2341,
+                        "y": 124.8738
+                    },
+                    "uuid": "d937cca1-f28f-4dec-a64d-1fa9f6f11e11"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.1500 mm",
+                    "pos": {
+                        "x": 149.95,
+                        "y": 112.5
+                    },
+                    "uuid": "c79b1d7d-05b9-44c3-af25-efd8dec534f6"
+                },
+                {
+                    "description": "过孔 [I2S_SDO] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "f1d6fcd1-f8d6-4abc-870e-838590222a6e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U801 的焊盘 2 [UART2_TX]",
+                    "pos": {
+                        "x": 132.6125,
+                        "y": 126.05
+                    },
+                    "uuid": "310b447b-4d23-4bbe-9efe-7e96051003e9"
+                },
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.7111 mm",
+                    "pos": {
+                        "x": 133.6978,
+                        "y": 126.6258
+                    },
+                    "uuid": "5a83367d-49d6-4b0f-91fc-8bd437b3e16d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1462 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0750 mm",
+                    "pos": {
+                        "x": 146.025,
+                        "y": 111.55
+                    },
+                    "uuid": "089972fc-866a-43b2-93ed-9cd981d83518"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 AUDIO_MIC_REF)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "472f2619-b569-4134-89e8-bcf336865248"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_REF] (In1.Cu), 长度: 9.9875 mm",
+                    "pos": {
+                        "x": 152.7753,
+                        "y": 110.9056
+                    },
+                    "uuid": "dacbb142-3819-4a99-a0fc-8961d2ede018"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1743 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.4950 mm",
+                    "pos": {
+                        "x": 146.6,
+                        "y": 112.025
+                    },
+                    "uuid": "3ec3a79e-924e-4983-86b8-08af36b09932"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1600 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 3.5000 mm",
+                    "pos": {
+                        "x": 145.925,
+                        "y": 111.525
+                    },
+                    "uuid": "7e020ca2-c4cb-4cc0-b1f2-61df50224032"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1993 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                },
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 117.3031,
+                        "y": 124.9428
+                    },
+                    "uuid": "a05995b6-6ce3-4e37-8046-6c99b1344199"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1649 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 32 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 151.05,
+                        "y": 115.7875
+                    },
+                    "uuid": "529d0dcc-54e9-4b5d-b96a-54c8d0bdd373"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 2.0851 mm",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 116.2233
+                    },
+                    "uuid": "b59c327b-477e-4477-9143-478e40711b8a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1566 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.3597 mm",
+                    "pos": {
+                        "x": 131.7246,
+                        "y": 124.5316
+                    },
+                    "uuid": "5a7443b4-f512-4f18-9cba-051d44dcc5f7"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.1109 mm",
+                    "pos": {
+                        "x": 130.2039,
+                        "y": 124.1245
+                    },
+                    "uuid": "744c354f-c327-4f96-b1f1-3c7f5b535cdf"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.0215 mm",
+                    "pos": {
+                        "x": 132.4469,
+                        "y": 125.2539
+                    },
+                    "uuid": "57cd2d0d-f4d6-44a2-a31d-2d62348bae34"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.2366 mm",
+                    "pos": {
+                        "x": 132.0529,
+                        "y": 124.2918
+                    },
+                    "uuid": "794d9bf6-86cc-43a3-a439-656fe074f6b1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 12.5800 mm",
+                    "pos": {
+                        "x": 129.3537,
+                        "y": 125.5428
+                    },
+                    "uuid": "13a6a281-51da-4ea4-a56d-49979b18c85e"
+                },
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 117.3031,
+                        "y": 124.9428
+                    },
+                    "uuid": "a05995b6-6ce3-4e37-8046-6c99b1344199"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1946 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C317 的焊盘 1 [AUDIO_HP_L]",
+                    "pos": {
+                        "x": 143.43,
+                        "y": 110.81
+                    },
+                    "uuid": "5009ad52-7cd4-445a-a943-8580c251e126"
+                },
+                {
+                    "description": "走线 [AUDIO_L] (B.Cu), 长度: 2.2811 mm",
+                    "pos": {
+                        "x": 142.777,
+                        "y": 109.197
+                    },
+                    "uuid": "88fdaba0-5b51-46d0-a6b4-18d5fec50867"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1993 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                },
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 117.3031,
+                        "y": 124.9428
+                    },
+                    "uuid": "a05995b6-6ce3-4e37-8046-6c99b1344199"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1746 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_EN] (B.Cu), 长度: 9.6116 mm",
+                    "pos": {
+                        "x": 123.3713,
+                        "y": 121.1586
+                    },
+                    "uuid": "53f06b25-d441-491b-8a33-ecefc2680121"
+                },
+                {
+                    "description": "B.Cu 上 U702 的焊盘 1 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 126.17,
+                        "y": 121.98
+                    },
+                    "uuid": "59980267-358e-472d-bba2-6ba1ff18b2dd"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1946 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C318 的焊盘 1 [AUDIO_HP_R]",
+                    "pos": {
+                        "x": 144.7,
+                        "y": 113.35
+                    },
+                    "uuid": "f1310707-6651-47af-b8cf-f496832df559"
+                },
+                {
+                    "description": "走线 [AUDIO_R] (B.Cu), 长度: 0.9021 mm",
+                    "pos": {
+                        "x": 145.0221,
+                        "y": 112.7121
+                    },
+                    "uuid": "f8e4648a-4694-4e2a-aa53-56cc15af0ccc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1993 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                },
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 117.3031,
+                        "y": 124.9428
+                    },
+                    "uuid": "a05995b6-6ce3-4e37-8046-6c99b1344199"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1743 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_EN] (B.Cu), 长度: 4.2556 mm",
+                    "pos": {
+                        "x": 123.3713,
+                        "y": 116.903
+                    },
+                    "uuid": "a8f9c369-051b-4721-ac6f-48429444c23b"
+                },
+                {
+                    "description": "过孔 [BUCK_BST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.772,
+                        "y": 117.7452
+                    },
+                    "uuid": "ac4ac4a5-2a77-45c6-95cc-3c56b4d2f842"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_INP] (B.Cu), 长度: 1.1825 mm",
+                    "pos": {
+                        "x": 143.3683,
+                        "y": 124.7208
+                    },
+                    "uuid": "c682ade2-a4ad-4080-a2c0-4d50bee1354f"
+                },
+                {
+                    "description": "B.Cu 上 U803 的焊盘 4 [AUDIO_AMP_INN]",
+                    "pos": {
+                        "x": 145.245,
+                        "y": 124.145
+                    },
+                    "uuid": "f91e2249-7253-4638-8c63-b01bd85902d8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1479 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.075,
+                        "y": 111.65
+                    },
+                    "uuid": "e7e4cce3-a96c-437f-a79e-63676065f1b2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1608 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.5053 mm",
+                    "pos": {
+                        "x": 116.1296,
+                        "y": 125.2548
+                    },
+                    "uuid": "a1feb9a2-2654-47ed-a175-24180ef53d53"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1532 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.2469,
+                        "y": 116.0482
+                    },
+                    "uuid": "274f2509-c255-4f0c-8027-e381f82caa88"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (In2.Cu), 长度: 3.4510 mm",
+                    "pos": {
+                        "x": 147.5796,
+                        "y": 118.1986
+                    },
+                    "uuid": "8a63b25f-47c0-40f4-b1fb-b59cd15df131"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_INP] (B.Cu), 长度: 0.9817 mm",
+                    "pos": {
+                        "x": 144.5508,
+                        "y": 124.7208
+                    },
+                    "uuid": "7b58f63d-affe-432e-80f5-ffda5bcda633"
+                },
+                {
+                    "description": "B.Cu 上 U803 的焊盘 4 [AUDIO_AMP_INN]",
+                    "pos": {
+                        "x": 145.245,
+                        "y": 124.145
+                    },
+                    "uuid": "f91e2249-7253-4638-8c63-b01bd85902d8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1986 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.5053 mm",
+                    "pos": {
+                        "x": 116.1296,
+                        "y": 125.2548
+                    },
+                    "uuid": "a1feb9a2-2654-47ed-a175-24180ef53d53"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 4.8581 mm",
+                    "pos": {
+                        "x": 116.8652,
+                        "y": 123.8848
+                    },
+                    "uuid": "a8230db5-2ed7-4390-802c-4e0d29fba49a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1841 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.5440 mm",
+                    "pos": {
+                        "x": 116.1296,
+                        "y": 125.7601
+                    },
+                    "uuid": "4aa0a40e-07c4-41ad-ac76-87e8eca91d4b"
+                },
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1824 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 6 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 113.43,
+                        "y": 127.32
+                    },
+                    "uuid": "6244419b-1b23-49f8-b2e2-261e00a03c4f"
+                },
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 0.5474 mm",
+                    "pos": {
+                        "x": 114.0226,
+                        "y": 126.1948
+                    },
+                    "uuid": "7b28fcfd-0ea7-4d65-b1b9-c0f109ee3fc5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1824 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 0.1711 mm",
+                    "pos": {
+                        "x": 113.4752,
+                        "y": 126.1948
+                    },
+                    "uuid": "03a7e5a8-788b-4934-80d2-37305c5cfffd"
+                },
+                {
+                    "description": "J301 的PTH 焊盘 6 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 113.43,
+                        "y": 127.32
+                    },
+                    "uuid": "6244419b-1b23-49f8-b2e2-261e00a03c4f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1946 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C321 的焊盘 2 [AUDIO_AMP_INP]",
+                    "pos": {
+                        "x": 132.96,
+                        "y": 114.62
+                    },
+                    "uuid": "bacc2b6d-1dc5-4823-ab7a-43ff902452db"
+                },
+                {
+                    "description": "走线 [AUDIO_LINE_L] (B.Cu), 长度: 1.5972 mm",
+                    "pos": {
+                        "x": 132.0,
+                        "y": 114.62
+                    },
+                    "uuid": "f25923e7-b423-4600-8c62-d83b96792f56"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1516 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_R] (In2.Cu), 长度: 0.3954 mm",
+                    "pos": {
+                        "x": 148.2893,
+                        "y": 114.93
+                    },
+                    "uuid": "361b82bf-182c-4bee-bcb1-65a44a01e161"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_R] (In2.Cu), 长度: 10.1199 mm",
+                    "pos": {
+                        "x": 148.5689,
+                        "y": 114.6504
+                    },
+                    "uuid": "0ac255c5-e6ff-49c9-b2ed-79024a726b2b"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1880 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_BIAS] (In1.Cu), 长度: 16.0287 mm",
+                    "pos": {
+                        "x": 155.153,
+                        "y": 109.7495
+                    },
+                    "uuid": "1e9c26ca-47b5-4b67-8b8c-cfbd1d28e4f2"
+                },
+                {
+                    "description": "J401 的PTH 焊盘 3 [DXL_DATA]",
+                    "pos": {
+                        "x": 153.99,
+                        "y": 119.7
+                    },
+                    "uuid": "d67a630e-3339-4bc6-bdb8-d12a159054d6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1975 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_BIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.7648,
+                        "y": 106.8255
+                    },
+                    "uuid": "4b514da0-0099-4a8e-92f3-11aa3b9a6e94"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 3.8891 mm",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 109.85
+                    },
+                    "uuid": "8c265cda-50a4-44f7-a3dd-613124f83a90"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1963 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 4.5931 mm",
+                    "pos": {
+                        "x": 143.8091,
+                        "y": 122.919
+                    },
+                    "uuid": "b74a1cc6-6708-410c-bb9c-93364e234bb9"
+                },
+                {
+                    "description": "过孔 [AUDIO_AMP_INP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 143.2323,
+                        "y": 122.6171
+                    },
+                    "uuid": "fe8f567b-538b-4629-9b39-fb23a56b81c4"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1753 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.9087,
+                        "y": 108.3631
+                    },
+                    "uuid": "165a6f2d-dc08-45e7-83a8-3cabc46c10f9"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 153.1,
+                        "y": 108.95
+                    },
+                    "uuid": "2495906a-eaa8-4a0b-9c9b-4af9f2a791a6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1518 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 0.8023 mm",
+                    "pos": {
+                        "x": 143.8091,
+                        "y": 122.1167
+                    },
+                    "uuid": "b3102bb6-aea7-4bfa-bf0c-bc75460b683b"
+                },
+                {
+                    "description": "过孔 [AUDIO_AMP_INP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 143.2323,
+                        "y": 122.6171
+                    },
+                    "uuid": "fe8f567b-538b-4629-9b39-fb23a56b81c4"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1911 mm)",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 146.225,
+                        "y": 113.4
+                    },
+                    "uuid": "7967ee63-e090-4395-ac9f-723b7bf625b7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1562 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 5.9393 mm",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 112.8354
+                    },
+                    "uuid": "5493e1bd-5195-4093-961f-532bf10a7188"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1716 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 1.0691 mm",
+                    "pos": {
+                        "x": 147.8216,
+                        "y": 117.0351
+                    },
+                    "uuid": "407c3d9c-70b0-41ca-aefd-f6a5aac32a6c"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 1.7584 mm",
+                    "pos": {
+                        "x": 147.7309,
+                        "y": 118.7911
+                    },
+                    "uuid": "80c4f793-4e3d-45e2-b509-a11d6df5e2a8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1754 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.9087,
+                        "y": 108.3631
+                    },
+                    "uuid": "165a6f2d-dc08-45e7-83a8-3cabc46c10f9"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_BIAS] (B.Cu), 长度: 2.5877 mm",
+                    "pos": {
+                        "x": 154.05,
+                        "y": 108.6553
+                    },
+                    "uuid": "ec9af5cc-d859-4a1c-99d4-d5d85ae8a866"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1898 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_BIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.7648,
+                        "y": 106.8255
+                    },
+                    "uuid": "4b514da0-0099-4a8e-92f3-11aa3b9a6e94"
+                },
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 6.8500 mm",
+                    "pos": {
+                        "x": 151.2,
+                        "y": 112.05
+                    },
+                    "uuid": "85c7e9f3-ff61-47de-98a9-26417da51910"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1854 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC] (In1.Cu), 长度: 2.9532 mm",
+                    "pos": {
+                        "x": 138.7955,
+                        "y": 124.7852
+                    },
+                    "uuid": "9b74e77c-10a1-41b3-8e3b-6563d7aaa1b7"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1840 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC] (In1.Cu), 长度: 5.6817 mm",
+                    "pos": {
+                        "x": 138.7955,
+                        "y": 121.832
+                    },
+                    "uuid": "c395bf31-f74d-4dfa-927e-bc8311f2fb4c"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC] (In1.Cu), 长度: 3.3704 mm",
+                    "pos": {
+                        "x": 134.7779,
+                        "y": 117.8144
+                    },
+                    "uuid": "448d9e32-4abd-448f-91ad-b86e1c5958e0"
+                },
+                {
+                    "description": "过孔 [AUDIO_LINE_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 135.3546,
+                        "y": 115.7494
+                    },
+                    "uuid": "5ca45513-027c-490b-9874-9aaaf94f6fe5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1816 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.9087,
+                        "y": 108.3631
+                    },
+                    "uuid": "165a6f2d-dc08-45e7-83a8-3cabc46c10f9"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_BIAS] (In1.Cu), 长度: 4.1352 mm",
+                    "pos": {
+                        "x": 152.229,
+                        "y": 106.8255
+                    },
+                    "uuid": "f2e31018-cee4-4f35-a41d-1da01bf4d55b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1664 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C321 的焊盘 1 [AUDIO_LINE_L]",
+                    "pos": {
+                        "x": 132.0,
+                        "y": 114.62
+                    },
+                    "uuid": "677cfdd0-2bb9-4ac4-86b2-9ee95b11b512"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC] (B.Cu), 长度: 3.8347 mm",
+                    "pos": {
+                        "x": 134.8861,
+                        "y": 114.0186
+                    },
+                    "uuid": "aa69ce32-5b5b-4f7e-99e8-7dbae4eb5d76"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1809 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 J505 的焊盘 MP [<no net>]",
+                    "pos": {
+                        "x": 117.17,
+                        "y": 111.55
+                    },
+                    "uuid": "3637813d-8fe3-45c7-9e5f-a37d1c1a4668"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC] (B.Cu), 长度: 1.4424 mm",
+                    "pos": {
+                        "x": 117.0137,
+                        "y": 112.4559
+                    },
+                    "uuid": "6cdd97bc-f0d5-417a-aba7-1e529808eea2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1809 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 J505 的焊盘 MP [<no net>]",
+                    "pos": {
+                        "x": 117.17,
+                        "y": 111.55
+                    },
+                    "uuid": "3637813d-8fe3-45c7-9e5f-a37d1c1a4668"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC] (B.Cu), 长度: 2.7556 mm",
+                    "pos": {
+                        "x": 119.7693,
+                        "y": 112.4559
+                    },
+                    "uuid": "3bd8ae00-602e-41aa-90d5-5d23d0b2f50f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1902 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.9087,
+                        "y": 108.3631
+                    },
+                    "uuid": "165a6f2d-dc08-45e7-83a8-3cabc46c10f9"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (In2.Cu), 长度: 6.0140 mm",
+                    "pos": {
+                        "x": 150.58,
+                        "y": 107.7479
+                    },
+                    "uuid": "6e2450a4-7ba7-4231-869f-19cee75873fb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1946 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C317 的焊盘 2 [AUDIO_L]",
+                    "pos": {
+                        "x": 144.39,
+                        "y": 110.81
+                    },
+                    "uuid": "04a7b4f7-63fd-4486-9449-5463883462fb"
+                },
+                {
+                    "description": "走线 [AUDIO_HP_L] (B.Cu), 长度: 1.8385 mm",
+                    "pos": {
+                        "x": 144.73,
+                        "y": 112.11
+                    },
+                    "uuid": "985ea3cf-2935-4de6-9107-8347fe465266"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1662 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.8500 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.1000 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 114.0
+                    },
+                    "uuid": "3604d17b-6f86-4f35-b10b-3e724543045e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1682 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 149.9,
+                        "y": 113.6
+                    },
+                    "uuid": "0576fed2-2183-4678-a0b1-7d1c01dc1524"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 149.85,
+                        "y": 113.1
+                    },
+                    "uuid": "a38ba9d2-6fa7-4b1e-ae9e-408a287d1ab0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1662 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 149.25,
+                        "y": 112.95
+                    },
+                    "uuid": "67dc2bda-3626-4533-a4c4-6b3aff806a81"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.9
+                    },
+                    "uuid": "bf40979c-c264-4555-ba02-d5d260addeb5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                },
+                {
+                    "description": "过孔 [I2S_SDO] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "f1d6fcd1-f8d6-4abc-870e-838590222a6e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1650 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 37 [<no net>]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 104.59
+                    },
+                    "uuid": "1f0fcf4c-0af8-4b82-9e3d-91202070e73b"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.9000 mm",
+                    "pos": {
+                        "x": 152.95,
+                        "y": 106.45
+                    },
+                    "uuid": "d8bf0ab8-969b-4c2e-b9c2-c2f4590c4329"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1850 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.6500 mm",
+                    "pos": {
+                        "x": 142.45,
+                        "y": 105.25
+                    },
+                    "uuid": "41465a97-beec-4056-9c8d-89a9bab4d31e"
+                },
+                {
+                    "description": "J101 的PTH 焊盘 27 [<no net>]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 104.59
+                    },
+                    "uuid": "9d768c70-9e79-41a3-a67d-a32a9ba22ce5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U801 的焊盘 2 [UART2_TX]",
+                    "pos": {
+                        "x": 132.6125,
+                        "y": 126.05
+                    },
+                    "uuid": "310b447b-4d23-4bbe-9efe-7e96051003e9"
+                },
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.5292 mm",
+                    "pos": {
+                        "x": 132.9867,
+                        "y": 126.6258
+                    },
+                    "uuid": "ffc58242-ec4d-4a13-8001-3b101f407c14"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1796 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (In1.Cu), 长度: 2.6447 mm",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.1839
+                    },
+                    "uuid": "69d7e803-bd41-45d6-a302-0c5a6e5ead20"
+                },
+                {
+                    "description": "过孔 [DXL_DATA] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 136.9258,
+                        "y": 122.5882
+                    },
+                    "uuid": "e15b713e-992d-4d2d-a978-98ff28afbeea"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1725 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                },
+                {
+                    "description": "走线 [AUDIO_HP_R] (In2.Cu), 长度: 0.9242 mm",
+                    "pos": {
+                        "x": 147.3651,
+                        "y": 114.93
+                    },
+                    "uuid": "f9a56111-7bd6-4265-8094-280e2c4d7e9f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1662 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.1000 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 114.0
+                    },
+                    "uuid": "3604d17b-6f86-4f35-b10b-3e724543045e"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 149.25,
+                        "y": 112.95
+                    },
+                    "uuid": "67dc2bda-3626-4533-a4c4-6b3aff806a81"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1719 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.2669 mm",
+                    "pos": {
+                        "x": 128.7848,
+                        "y": 121.0738
+                    },
+                    "uuid": "2fcf8315-e84a-4ee6-a36c-c83cc046ed43"
+                },
+                {
+                    "description": "过孔 [BUCK_COMP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.2682,
+                        "y": 120.7747
+                    },
+                    "uuid": "8658c93c-7f1d-486d-926e-c31346e76a03"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1878 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.5689 mm",
+                    "pos": {
+                        "x": 131.8856,
+                        "y": 124.1245
+                    },
+                    "uuid": "4dc06a06-77f9-481d-b892-94f0f0b68241"
+                },
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.0215 mm",
+                    "pos": {
+                        "x": 132.4469,
+                        "y": 125.2539
+                    },
+                    "uuid": "57cd2d0d-f4d6-44a2-a31d-2d62348bae34"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1615 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.8324 mm",
+                    "pos": {
+                        "x": 159.55,
+                        "y": 114.6586
+                    },
+                    "uuid": "67990c7b-d255-4b3e-bccc-c0aac9daae10"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.7088,
+                        "y": 114.6704
+                    },
+                    "uuid": "e632f935-8855-4e2f-8dcd-412eebce052e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1566 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 1.6887 mm",
+                    "pos": {
+                        "x": 130.1255,
+                        "y": 124.2029
+                    },
+                    "uuid": "d9b4a8b8-bdfe-4452-acfe-509f215dda43"
+                },
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.4301 mm",
+                    "pos": {
+                        "x": 130.3649,
+                        "y": 124.5316
+                    },
+                    "uuid": "f6c0e819-919f-432a-9874-fa5b43841350"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1878 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.1084 mm",
+                    "pos": {
+                        "x": 130.2039,
+                        "y": 124.0161
+                    },
+                    "uuid": "155c8c16-f1a5-45d6-bbdb-dcdf1ad0bf34"
+                },
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.3597 mm",
+                    "pos": {
+                        "x": 131.7246,
+                        "y": 124.5316
+                    },
+                    "uuid": "5a7443b4-f512-4f18-9cba-051d44dcc5f7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 3.0131 mm",
+                    "pos": {
+                        "x": 135.066,
+                        "y": 124.2918
+                    },
+                    "uuid": "19d8c8c5-156a-48ca-8ccc-6f7e2e1468d6"
+                },
+                {
+                    "description": "走线 [SPK_P] (In2.Cu), 长度: 1.0215 mm",
+                    "pos": {
+                        "x": 132.4469,
+                        "y": 125.2539
+                    },
+                    "uuid": "57cd2d0d-f4d6-44a2-a31d-2d62348bae34"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1518 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 7.7486 mm",
+                    "pos": {
+                        "x": 158.9614,
+                        "y": 115.2472
+                    },
+                    "uuid": "08fbfa9b-7e85-4df7-b424-33a8d0b4b1a7"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.7088,
+                        "y": 114.6704
+                    },
+                    "uuid": "e632f935-8855-4e2f-8dcd-412eebce052e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1716 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 0.3382 mm",
+                    "pos": {
+                        "x": 147.7309,
+                        "y": 119.1293
+                    },
+                    "uuid": "1c01bbcf-be8b-4f36-b2d5-9450351b28ae"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 5.6745 mm",
+                    "pos": {
+                        "x": 147.8216,
+                        "y": 118.1042
+                    },
+                    "uuid": "e808dcd5-a96c-4b66-a0da-77053ea7e0e6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1811 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.9743,
+                        "y": 117.4857
+                    },
+                    "uuid": "02430f16-a08a-4b41-8a16-2d9066e6d035"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.7261,
+                        "y": 117.6977
+                    },
+                    "uuid": "3cb824af-60b5-4c23-8cff-315edb604ae5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V_FB] (F.Cu), 长度: 1.9445 mm",
+                    "pos": {
+                        "x": 138.9125,
+                        "y": 121.9947
+                    },
+                    "uuid": "dfc7abe2-5cce-41c7-93b0-a72ca416d204"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1811 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.9743,
+                        "y": 117.4857
+                    },
+                    "uuid": "02430f16-a08a-4b41-8a16-2d9066e6d035"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.7261,
+                        "y": 117.6977
+                    },
+                    "uuid": "3cb824af-60b5-4c23-8cff-315edb604ae5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 0.5296 mm",
+                    "pos": {
+                        "x": 118.9337,
+                        "y": 116.9296
+                    },
+                    "uuid": "68b409e0-1aec-4351-abeb-2f0c5f426b3f"
+                },
+                {
+                    "description": "走线 [UART2_RX] (In1.Cu), 长度: 6.7525 mm",
+                    "pos": {
+                        "x": 118.1575,
+                        "y": 116.8075
+                    },
+                    "uuid": "e1925aa3-8f7a-4419-b086-a69be9a398c2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1805 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 0.7843 mm",
+                    "pos": {
+                        "x": 120.3718,
+                        "y": 115.7061
+                    },
+                    "uuid": "684cc521-394b-4e82-81e8-ec8628ebc431"
+                },
+                {
+                    "description": "J403 的PTH 焊盘 1 [UART2_TX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 117.16
+                    },
+                    "uuid": "ba8dd221-2473-40fd-b29c-b1e816cf6884"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 1.1905 mm",
+                    "pos": {
+                        "x": 118.5592,
+                        "y": 116.5551
+                    },
+                    "uuid": "0cff9826-99cc-4e15-a667-aa6a4ffec3dd"
+                },
+                {
+                    "description": "走线 [UART2_RX] (In1.Cu), 长度: 6.7525 mm",
+                    "pos": {
+                        "x": 118.1575,
+                        "y": 116.8075
+                    },
+                    "uuid": "e1925aa3-8f7a-4419-b086-a69be9a398c2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1841 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 0.6281 mm",
+                    "pos": {
+                        "x": 119.8172,
+                        "y": 116.4855
+                    },
+                    "uuid": "0bc8b846-5780-470a-965f-c12380954802"
+                },
+                {
+                    "description": "过孔 [BUCK_EN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 119.1375,
+                        "y": 116.3038
+                    },
+                    "uuid": "136740a1-172e-453d-9221-a7a234bee48b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1927 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 135.9215,
+                        "y": 123.4363
+                    },
+                    "uuid": "8c428ffb-1cfc-4493-8dbd-a0189eba285f"
+                },
+                {
+                    "description": "走线 [DXL_DIR] (In1.Cu), 长度: 1.5188 mm",
+                    "pos": {
+                        "x": 136.315,
+                        "y": 124.054
+                    },
+                    "uuid": "ca5f8738-a011-434c-9c4c-edf5ac74ec00"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1811 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.9743,
+                        "y": 117.4857
+                    },
+                    "uuid": "02430f16-a08a-4b41-8a16-2d9066e6d035"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.7261,
+                        "y": 117.6977
+                    },
+                    "uuid": "3cb824af-60b5-4c23-8cff-315edb604ae5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1811 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.9743,
+                        "y": 117.4857
+                    },
+                    "uuid": "02430f16-a08a-4b41-8a16-2d9066e6d035"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.7261,
+                        "y": 117.6977
+                    },
+                    "uuid": "3cb824af-60b5-4c23-8cff-315edb604ae5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1734 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_BST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 121.6103,
+                        "y": 112.3135
+                    },
+                    "uuid": "80ec1d00-e103-4329-a95d-c3bb5d928c77"
+                },
+                {
+                    "description": "走线 [BUCK_EN] (In1.Cu), 长度: 1.3065 mm",
+                    "pos": {
+                        "x": 122.2087,
+                        "y": 111.9261
+                    },
+                    "uuid": "8c904f57-c5ae-4161-a7b4-f527da253ffc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1544 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_COMP] (In2.Cu), 长度: 4.2960 mm",
+                    "pos": {
+                        "x": 137.915,
+                        "y": 122.6623
+                    },
+                    "uuid": "582f3fc5-a220-4a5f-be0c-5106332ee19b"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1757 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_COMP] (In2.Cu), 长度: 1.0038 mm",
+                    "pos": {
+                        "x": 137.2052,
+                        "y": 121.9525
+                    },
+                    "uuid": "06b65759-7a02-427a-a0b5-fbde98abfa99"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1616 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_EN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 119.1375,
+                        "y": 116.3038
+                    },
+                    "uuid": "136740a1-172e-453d-9221-a7a234bee48b"
+                },
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 0.5296 mm",
+                    "pos": {
+                        "x": 118.9337,
+                        "y": 116.9296
+                    },
+                    "uuid": "68b409e0-1aec-4351-abeb-2f0c5f426b3f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_RX] (In1.Cu), 长度: 6.7525 mm",
+                    "pos": {
+                        "x": 118.1575,
+                        "y": 116.8075
+                    },
+                    "uuid": "e1925aa3-8f7a-4419-b086-a69be9a398c2"
+                },
+                {
+                    "description": "走线 [BUCK_BST] (In1.Cu), 长度: 4.3149 mm",
+                    "pos": {
+                        "x": 118.5592,
+                        "y": 115.3646
+                    },
+                    "uuid": "ea84f2bd-f859-4174-b5e5-141d2e2c383c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1891 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (In1.Cu), 长度: 1.7161 mm",
+                    "pos": {
+                        "x": 121.533,
+                        "y": 120.8633
+                    },
+                    "uuid": "76ad39b5-199e-478f-a3de-bc1de5adaee2"
+                },
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1703 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (In1.Cu), 长度: 1.9200 mm",
+                    "pos": {
+                        "x": 122.1767,
+                        "y": 119.08
+                    },
+                    "uuid": "a7550813-854e-4188-a1e9-a6496f0ade40"
+                },
+                {
+                    "description": "过孔 [BUCK_BST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.772,
+                        "y": 117.7452
+                    },
+                    "uuid": "ac4ac4a5-2a77-45c6-95cc-3c56b4d2f842"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1564 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                },
+                {
+                    "description": "走线 [UART2_TX] (In1.Cu), 长度: 4.8629 mm",
+                    "pos": {
+                        "x": 117.1747,
+                        "y": 117.4247
+                    },
+                    "uuid": "e8766856-8323-48f5-a701-424a9e6e936e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1816 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_COMP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 144.5153,
+                        "y": 122.8752
+                    },
+                    "uuid": "15cff77b-dbcb-4272-bf9e-853654fed249"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 8.1562 mm",
+                    "pos": {
+                        "x": 146.784,
+                        "y": 121.4644
+                    },
+                    "uuid": "9ab1788b-8f95-4a3b-8895-5fa6c8d34629"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1690 mm)",
+            "items": [
+                {
+                    "description": "过孔 [UART2_TX] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 129.2256,
+                        "y": 123.586
+                    },
+                    "uuid": "ac26908d-6e0e-455e-ad85-44fa9887a140"
+                },
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 2.7679 mm",
+                    "pos": {
+                        "x": 129.533,
+                        "y": 123.0777
+                    },
+                    "uuid": "d9905ef6-e648-4b74-b5ba-79090d2642dd"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1856 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 37 [<no net>]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 104.59
+                    },
+                    "uuid": "1f0fcf4c-0af8-4b82-9e3d-91202070e73b"
+                },
+                {
+                    "description": "走线 [I2C5_SDA] (In1.Cu), 长度: 9.3782 mm",
+                    "pos": {
+                        "x": 159.4014,
+                        "y": 111.5927
+                    },
+                    "uuid": "fa10c10e-b465-4914-b32a-77188f9749c1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1530 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SDA] (In1.Cu), 长度: 1.2058 mm",
+                    "pos": {
+                        "x": 152.77,
+                        "y": 104.2647
+                    },
+                    "uuid": "172a553f-d492-418b-aa4c-dd4f664c7781"
+                },
+                {
+                    "description": "J101 的PTH 焊盘 35 [I2S_LRCK]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 104.59
+                    },
+                    "uuid": "bb52529a-2747-44c6-99d5-545753b5f57e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1919 mm)",
+            "items": [
+                {
+                    "description": "过孔 [UART2_TX] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 129.2256,
+                        "y": 123.586
+                    },
+                    "uuid": "ac26908d-6e0e-455e-ad85-44fa9887a140"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 1.6887 mm",
+                    "pos": {
+                        "x": 130.1255,
+                        "y": 124.2029
+                    },
+                    "uuid": "d9b4a8b8-bdfe-4452-acfe-509f215dda43"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1901 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (In2.Cu), 长度: 6.0140 mm",
+                    "pos": {
+                        "x": 150.58,
+                        "y": 107.7479
+                    },
+                    "uuid": "6e2450a4-7ba7-4231-869f-19cee75873fb"
+                },
+                {
+                    "description": "过孔 [AUDIO_MIC_AC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 108.363
+                    },
+                    "uuid": "ca94166d-7b98-4fd3-9acd-dae72adc8125"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1608 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (In2.Cu), 长度: 7.0211 mm",
+                    "pos": {
+                        "x": 120.6784,
+                        "y": 120.9347
+                    },
+                    "uuid": "22e3274e-1014-4e59-955b-41712bcf64da"
+                },
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 0.2984 mm",
+                    "pos": {
+                        "x": 138.2447,
+                        "y": 121.5062
+                    },
+                    "uuid": "c9204e58-f388-47fa-9ae9-c84f8552a0a9"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U802 的焊盘 1 [DXL_DIR]",
+                    "pos": {
+                        "x": 140.2325,
+                        "y": 120.65
+                    },
+                    "uuid": "14a6d941-3f7d-44df-b730-b53b41f7c319"
+                },
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 1.0722 mm",
+                    "pos": {
+                        "x": 138.7861,
+                        "y": 120.0742
+                    },
+                    "uuid": "d33ddc0f-3e31-434f-ae40-d2535042055c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1516 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 1.4432 mm",
+                    "pos": {
+                        "x": 137.9463,
+                        "y": 121.5062
+                    },
+                    "uuid": "97a7e06c-5c3c-4fc3-9290-3ddad2e9203a"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1517 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 2.6197 mm",
+                    "pos": {
+                        "x": 136.9258,
+                        "y": 123.2476
+                    },
+                    "uuid": "6fda0dd4-7671-42b7-993e-718292107be3"
+                },
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 135.9215,
+                        "y": 123.4363
+                    },
+                    "uuid": "8c428ffb-1cfc-4493-8dbd-a0189eba285f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1821 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U802 的焊盘 1 [DXL_DIR]",
+                    "pos": {
+                        "x": 140.2325,
+                        "y": 120.65
+                    },
+                    "uuid": "14a6d941-3f7d-44df-b730-b53b41f7c319"
+                },
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 0.5292 mm",
+                    "pos": {
+                        "x": 139.8583,
+                        "y": 120.0742
+                    },
+                    "uuid": "777a7448-e780-4bd5-a575-e66c14870998"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1548 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 0.7657 mm",
+                    "pos": {
+                        "x": 138.7861,
+                        "y": 120.9648
+                    },
+                    "uuid": "2eb3f839-7b7d-4b12-a22d-d5d8784e1883"
+                },
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1977 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 148.275,
+                        "y": 112.05
+                    },
+                    "uuid": "5c2db276-9224-4740-9dab-ba70ee330e23"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1582 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 146.6,
+                        "y": 113.5
+                    },
+                    "uuid": "20e14e94-7bbb-4e31-bb6c-9e62b6603c80"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1501 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 113.45
+                    },
+                    "uuid": "03488b9d-963b-430d-9b83-7dacc43c06e6"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1971 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 146.2,
+                        "y": 113.375
+                    },
+                    "uuid": "05427334-2e97-4c64-a29d-d2a65899f0ba"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1615 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.8132 mm",
+                    "pos": {
+                        "x": 143.25,
+                        "y": 111.725
+                    },
+                    "uuid": "38d7f57e-7922-4e68-a183-48622f8f9e7e"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1410 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.5250 mm",
+                    "pos": {
+                        "x": 142.55,
+                        "y": 111.65
+                    },
+                    "uuid": "424d3724-45af-42bc-8170-5330e9e2b3d2"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1543 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 143.175,
+                        "y": 111.7
+                    },
+                    "uuid": "ae1b11de-ea2e-4679-98a7-0e06f230fc15"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1462 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 145.95,
+                        "y": 111.55
+                    },
+                    "uuid": "224bbfb8-5213-46d4-a331-b09af4f453f4"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1507 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 146.05,
+                        "y": 111.575
+                    },
+                    "uuid": "09169feb-82e4-4c2c-ad51-27ee22f508d5"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1576 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.1061 mm",
+                    "pos": {
+                        "x": 146.225,
+                        "y": 111.675
+                    },
+                    "uuid": "8a519ced-975f-49ff-b657-84df1cbf3588"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1605 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 146.15,
+                        "y": 111.6
+                    },
+                    "uuid": "64d1e995-b149-42c4-a902-313fb0cfd4fa"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1576 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 146.25,
+                        "y": 111.675
+                    },
+                    "uuid": "7dc07855-698e-43ba-b681-cbb6efe54213"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1605 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 146.125,
+                        "y": 111.6
+                    },
+                    "uuid": "07a90fc4-51aa-4cff-9495-feed181575db"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 ( 间距 0.2000 mm; 实际 0.1507 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 146.1,
+                        "y": 111.575
+                    },
+                    "uuid": "6afa9a37-a229-4c48-99a9-aeba79e6ed5b"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0000 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                },
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "472f2619-b569-4134-89e8-bcf336865248"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3744 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 100.0
+                    },
+                    "uuid": "e30a9e5c-ac24-4d3f-a94e-2a82070d8dd8"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 164.5319,
+                        "y": 107.5387
+                    },
+                    "uuid": "095658c5-6a2c-4283-9899-366ff770810f"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3744 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 100.0
+                    },
+                    "uuid": "e30a9e5c-ac24-4d3f-a94e-2a82070d8dd8"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.1729 mm",
+                    "pos": {
+                        "x": 164.5319,
+                        "y": 107.8218
+                    },
+                    "uuid": "57d82a8f-6c76-4679-ad0b-dd79ecbda4ca"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3431 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 100.0
+                    },
+                    "uuid": "e30a9e5c-ac24-4d3f-a94e-2a82070d8dd8"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 0.4482 mm",
+                    "pos": {
+                        "x": 164.215,
+                        "y": 107.2218
+                    },
+                    "uuid": "e6c88222-3ad5-49aa-a612-f2c99377ebcc"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.4850 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 100.0
+                    },
+                    "uuid": "e30a9e5c-ac24-4d3f-a94e-2a82070d8dd8"
+                },
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 164.215,
+                        "y": 106.612
+                    },
+                    "uuid": "187d8f95-f467-464d-9e2b-799123d77ce9"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3744 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 130.0
+                    },
+                    "uuid": "2c2501ff-6f71-4ec2-a804-454560972bef"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 18.6551 mm",
+                    "pos": {
+                        "x": 131.7858,
+                        "y": 129.5319
+                    },
+                    "uuid": "2b70877b-bd55-47ba-9a3b-e4f6bed82d53"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3431 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 130.0
+                    },
+                    "uuid": "2c2501ff-6f71-4ec2-a804-454560972bef"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 10.2138 mm",
+                    "pos": {
+                        "x": 121.572,
+                        "y": 129.5319
+                    },
+                    "uuid": "36bb751f-8de5-44a4-bc7c-89aab23d5d24"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3744 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 130.0
+                    },
+                    "uuid": "2c2501ff-6f71-4ec2-a804-454560972bef"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.8269 mm",
+                    "pos": {
+                        "x": 150.4409,
+                        "y": 129.5319
+                    },
+                    "uuid": "3d4908b4-d829-4981-8505-4dd9a186f192"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.5000 mm; 实际 0.3431 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 165.0,
+                        "y": 130.0
+                    },
+                    "uuid": "2c2501ff-6f71-4ec2-a804-454560972bef"
+                },
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 2.4822 mm",
+                    "pos": {
+                        "x": 119.8168,
+                        "y": 127.7767
+                    },
+                    "uuid": "58ec8f48-e4cf-4cea-905a-6e889c9eee0e"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 0.5292 mm",
+                    "pos": {
+                        "x": 139.8583,
+                        "y": 120.0742
+                    },
+                    "uuid": "777a7448-e780-4bd5-a575-e66c14870998"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DATA] (B.Cu), 长度: 1.0722 mm",
+                    "pos": {
+                        "x": 138.7861,
+                        "y": 120.0742
+                    },
+                    "uuid": "d33ddc0f-3e31-434f-ae40-d2535042055c"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 164.5319,
+                        "y": 107.5387
+                    },
+                    "uuid": "095658c5-6a2c-4283-9899-366ff770810f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.1729 mm",
+                    "pos": {
+                        "x": 164.5319,
+                        "y": 107.8218
+                    },
+                    "uuid": "57d82a8f-6c76-4679-ad0b-dd79ecbda4ca"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (B.Cu), 长度: 0.1173 mm",
+                    "pos": {
+                        "x": 159.252,
+                        "y": 109.6542
+                    },
+                    "uuid": "42d4a964-1002-47d4-992b-1f394acb90e8"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (B.Cu), 长度: 0.1172 mm",
+                    "pos": {
+                        "x": 159.1691,
+                        "y": 109.5713
+                    },
+                    "uuid": "51df9d2b-42c4-4bf1-86ca-812e38af50de"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (In1.Cu), 长度: 2.6627 mm",
+                    "pos": {
+                        "x": 162.3322,
+                        "y": 108.4948
+                    },
+                    "uuid": "22e95cbf-463b-46dd-b6c4-5962faa5c693"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (In1.Cu), 长度: 0.6215 mm",
+                    "pos": {
+                        "x": 161.7107,
+                        "y": 108.4948
+                    },
+                    "uuid": "55a8540f-e162-4aa3-b95a-f526b6fe6e2c"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SDA] (B.Cu), 长度: 0.1180 mm",
+                    "pos": {
+                        "x": 162.038,
+                        "y": 110.755
+                    },
+                    "uuid": "ca60cb97-1170-4a86-b7ff-f5e58d1a4dfd"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SDA] (B.Cu), 长度: 1.4834 mm",
+                    "pos": {
+                        "x": 163.0869,
+                        "y": 111.8039
+                    },
+                    "uuid": "e720df20-19e7-415a-bcba-6ff81996ffc3"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (B.Cu), 长度: 1.9661 mm",
+                    "pos": {
+                        "x": 131.1928,
+                        "y": 124.5911
+                    },
+                    "uuid": "17b1e5f2-acc7-451d-80c2-36e2c647f4e5"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (B.Cu), 长度: 0.4543 mm",
+                    "pos": {
+                        "x": 132.6125,
+                        "y": 126.05
+                    },
+                    "uuid": "7df6d635-b2ce-4c07-874d-7ca2a85526de"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (B.Cu), 长度: 0.8720 mm",
+                    "pos": {
+                        "x": 132.1582,
+                        "y": 126.05
+                    },
+                    "uuid": "960b2342-d17a-4937-af17-8affcb14d22a"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (B.Cu), 长度: 0.4935 mm",
+                    "pos": {
+                        "x": 131.5416,
+                        "y": 125.4334
+                    },
+                    "uuid": "9d5a8bc4-0bed-45c0-90b5-e10951ac69c4"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [UART2_TX] (B.Cu), 长度: 0.4933 mm",
+                    "pos": {
+                        "x": 131.5416,
+                        "y": 124.9399
+                    },
+                    "uuid": "ac6017f1-dfac-4071-ab94-cb138bec35c3"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_COMP] (F.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 127.7806,
+                        "y": 119.4235
+                    },
+                    "uuid": "d5d4cc82-5fed-432b-a06a-9433a6f1dfe1"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [BUCK_COMP] (F.Cu), 长度: 0.2150 mm",
+                    "pos": {
+                        "x": 127.7806,
+                        "y": 119.1404
+                    },
+                    "uuid": "d76a3a47-b695-4e8d-b9c1-621f3d11a053"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 1.1913 mm",
+                    "pos": {
+                        "x": 135.0182,
+                        "y": 127.2317
+                    },
+                    "uuid": "23561879-2cea-436d-b36e-1bec265cf299"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 0.9958 mm",
+                    "pos": {
+                        "x": 134.1758,
+                        "y": 126.3893
+                    },
+                    "uuid": "42923ad3-9469-4188-bd0c-effd5720fd4e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 1.3391 mm",
+                    "pos": {
+                        "x": 147.7309,
+                        "y": 119.4124
+                    },
+                    "uuid": "5c6639dd-4619-42f0-a924-795ef46e21da"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In1.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 147.7309,
+                        "y": 119.1293
+                    },
+                    "uuid": "ac68938f-6043-4812-ba43-9a7068450020"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.7111 mm",
+                    "pos": {
+                        "x": 133.6978,
+                        "y": 126.6258
+                    },
+                    "uuid": "5a83367d-49d6-4b0f-91fc-8bd437b3e16d"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.2143 mm",
+                    "pos": {
+                        "x": 129.3815,
+                        "y": 122.9262
+                    },
+                    "uuid": "8d16036d-efe7-454a-a9ff-b6b460117292"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.1555 mm",
+                    "pos": {
+                        "x": 126.436,
+                        "y": 115.5157
+                    },
+                    "uuid": "a0d3ec90-42c4-4cbb-83b8-73df1b99c7ba"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 1.6133 mm",
+                    "pos": {
+                        "x": 124.6652,
+                        "y": 111.2338
+                    },
+                    "uuid": "c22cc8bf-cc3f-46d3-bc3a-87b36361f2e0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 129.2815,
+                        "y": 122.9262
+                    },
+                    "uuid": "c9bce305-1eeb-4f94-9f80-c847fea4843d"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 1.4723 mm",
+                    "pos": {
+                        "x": 128.2404,
+                        "y": 121.8851
+                    },
+                    "uuid": "d2805488-3cb0-4dad-8253-7213c641d991"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.1553 mm",
+                    "pos": {
+                        "x": 128.8946,
+                        "y": 120.964
+                    },
+                    "uuid": "de251004-5494-4c22-bfd0-b2bd638fc4e8"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 128.8946,
+                        "y": 120.6809
+                    },
+                    "uuid": "e7f80efd-af34-404b-98e4-6078d0ea7007"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 4.2499 mm",
+                    "pos": {
+                        "x": 124.6652,
+                        "y": 106.9839
+                    },
+                    "uuid": "f03c3d07-aa4d-436d-8a04-fb9a80ea524a"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.4327 mm",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 115.2097
+                    },
+                    "uuid": "fefa4068-d3bf-45bb-9684-f3b8db364ec9"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [DXL_DIR] (B.Cu), 长度: 0.5292 mm",
+                    "pos": {
+                        "x": 132.9867,
+                        "y": 126.6258
+                    },
+                    "uuid": "ffc58242-ec4d-4a13-8001-3b101f407c14"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.1000 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 114.0
+                    },
+                    "uuid": "3604d17b-6f86-4f35-b10b-3e724543045e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.6263 mm",
+                    "pos": {
+                        "x": 122.55,
+                        "y": 103.2
+                    },
+                    "uuid": "3ae48de4-b8ff-4e21-aa6d-0e956689228c"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.6500 mm",
+                    "pos": {
+                        "x": 142.45,
+                        "y": 105.25
+                    },
+                    "uuid": "41465a97-beec-4056-9c8d-89a9bab4d31e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.7071 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.4
+                    },
+                    "uuid": "51e46c3b-8c08-4ed3-bf77-b3cfbb565b18"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.3500 mm",
+                    "pos": {
+                        "x": 147.9,
+                        "y": 111.65
+                    },
+                    "uuid": "59c23ed5-d9ef-4c83-b0bc-97cf738c02a0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.3000 mm",
+                    "pos": {
+                        "x": 147.55,
+                        "y": 111.65
+                    },
+                    "uuid": "76bfdc6e-2e0a-4beb-8a4b-6e95db5560e0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.3800 mm",
+                    "pos": {
+                        "x": 121.4,
+                        "y": 102.05
+                    },
+                    "uuid": "7ca043ea-e8b2-4cee-a37e-3240d29afbf8"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 19.5000 mm",
+                    "pos": {
+                        "x": 142.05,
+                        "y": 103.2
+                    },
+                    "uuid": "8555914d-97ce-4b22-9edc-3f6f49538e41"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1414 mm",
+                    "pos": {
+                        "x": 142.45,
+                        "y": 103.6
+                    },
+                    "uuid": "98de499b-26e6-427a-b317-2b41f71e0f14"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.2500 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.75
+                    },
+                    "uuid": "9cbc4e8d-82ba-4b6e-ad4a-2e2d74b842c9"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 148.15,
+                        "y": 111.9
+                    },
+                    "uuid": "a64c9ca1-28c9-4b31-ae6d-16f35ba208a5"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.9625 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 114.6
+                    },
+                    "uuid": "aa265c24-e2e4-43a0-9a8b-e5bad9d4c0ba"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.4243 mm",
+                    "pos": {
+                        "x": 142.35,
+                        "y": 103.5
+                    },
+                    "uuid": "ae1d65d9-fa7a-44f9-a311-c98a5d701d18"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.9
+                    },
+                    "uuid": "bf40979c-c264-4555-ba02-d5d260addeb5"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.5
+                    },
+                    "uuid": "caee3cb2-8aed-41b2-9c19-6574a5ecd0b5"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.8485 mm",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 114.6
+                    },
+                    "uuid": "d363d608-5643-4089-be31-6de20d953bd2"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 7.2125 mm",
+                    "pos": {
+                        "x": 147.55,
+                        "y": 110.35
+                    },
+                    "uuid": "fe6250bd-4e38-4a2d-a8cc-8e27fe86a05d"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_MCLK] (In1.Cu), 长度: 0.3028 mm",
+                    "pos": {
+                        "x": 148.7925,
+                        "y": 114.3714
+                    },
+                    "uuid": "0a8c2a0a-fa0b-470b-868a-98e02243fee3"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_MCLK] (In1.Cu), 长度: 0.0723 mm",
+                    "pos": {
+                        "x": 148.8436,
+                        "y": 114.4225
+                    },
+                    "uuid": "0ff3d55b-1349-4645-a0e9-94f86f495ccc"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (B.Cu), 长度: 0.7125 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 114.1
+                    },
+                    "uuid": "35af8dce-163d-48b2-ac0c-614826774f07"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 149.65,
+                        "y": 114.1
+                    },
+                    "uuid": "38b72832-63b1-4487-9d0e-7c3ef469af1f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 6.8500 mm",
+                    "pos": {
+                        "x": 151.2,
+                        "y": 112.05
+                    },
+                    "uuid": "85c7e9f3-ff61-47de-98a9-26417da51910"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 0.3100 mm",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 104.9
+                    },
+                    "uuid": "ca9afb7e-d495-497e-84b4-f0591ed67274"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 2.5456 mm",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "d5417c61-a63e-4296-a14a-a3c67418f29e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 0.4243 mm",
+                    "pos": {
+                        "x": 151.2,
+                        "y": 105.2
+                    },
+                    "uuid": "d97eb49e-a55d-4127-b442-6b9588c2c7c3"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 152.3,
+                        "y": 107.1
+                    },
+                    "uuid": "5c73e3fa-7b76-4e25-b8bf-6dfbbc5ef895"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 3.8891 mm",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 109.85
+                    },
+                    "uuid": "8c265cda-50a4-44f7-a3dd-613124f83a90"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.5415 mm",
+                    "pos": {
+                        "x": 152.95,
+                        "y": 103.55
+                    },
+                    "uuid": "c067ed62-a3d7-4b47-946c-670d837d7935"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.9000 mm",
+                    "pos": {
+                        "x": 152.95,
+                        "y": 106.45
+                    },
+                    "uuid": "d8bf0ab8-969b-4c2e-b9c2-c2f4590c4329"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 0.4100 mm",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 102.46
+                    },
+                    "uuid": "fd9dcf28-840c-4d07-b82f-0080e292227b"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.4000 mm",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 111.25
+                    },
+                    "uuid": "fff083ab-41be-4a01-a647-23c2126eec58"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 0.0707 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 111.3
+                    },
+                    "uuid": "32bcce4f-0c46-4431-ba9c-597ff40bef9a"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 149.85,
+                        "y": 113.1
+                    },
+                    "uuid": "a38ba9d2-6fa7-4b1e-ae9e-408a287d1ab0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 0.5125 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 113.1
+                    },
+                    "uuid": "e52a2ff9-5693-4118-9e2b-2851c63a964f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 152.6,
+                        "y": 108.95
+                    },
+                    "uuid": "14619a61-1ba7-41c7-9100-f6ae79e96b9f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 153.1,
+                        "y": 108.95
+                    },
+                    "uuid": "2495906a-eaa8-4a0b-9c9b-4af9f2a791a6"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 1.6688 mm",
+                    "pos": {
+                        "x": 155.4,
+                        "y": 103.65
+                    },
+                    "uuid": "7407306b-a6a5-44f9-9318-97c391fd1b65"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.4200 mm",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 102.47
+                    },
+                    "uuid": "84627bad-30f8-4b20-aa99-c26cd66bc38d"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 3.0000 mm",
+                    "pos": {
+                        "x": 155.4,
+                        "y": 106.65
+                    },
+                    "uuid": "b2528f66-0aeb-4dcd-a611-f69980c6e837"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 4.2426 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 111.95
+                    },
+                    "uuid": "bc4a4abb-3a0b-4955-bfec-fd1ec20e7243"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "c5d4af8b-f46e-441b-a03e-d844543e0c80"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 2.3335 mm",
+                    "pos": {
+                        "x": 153.75,
+                        "y": 108.3
+                    },
+                    "uuid": "e9247ed6-7eb2-4408-a76d-a9350530bd82"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 149.9,
+                        "y": 113.6
+                    },
+                    "uuid": "0576fed2-2183-4678-a0b1-7d1c01dc1524"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.8500 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 149.25,
+                        "y": 112.95
+                    },
+                    "uuid": "67dc2bda-3626-4533-a4c4-6b3aff806a81"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.4625 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 113.6
+                    },
+                    "uuid": "d475c2ea-a754-43da-a500-0efe14644317"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_L] (B.Cu), 长度: 1.0483 mm",
+                    "pos": {
+                        "x": 156.3354,
+                        "y": 112.5504
+                    },
+                    "uuid": "5fdc62a8-0985-4536-b747-8edcf7723c70"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_L] (B.Cu), 长度: 0.0701 mm",
+                    "pos": {
+                        "x": 155.2871,
+                        "y": 112.5504
+                    },
+                    "uuid": "a5b7272a-88dd-4c0f-9ea5-fd6a12c905cc"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_L] (In2.Cu), 长度: 2.5248 mm",
+                    "pos": {
+                        "x": 150.7614,
+                        "y": 109.2688
+                    },
+                    "uuid": "0150f4f0-acc5-4503-983a-393647e624c1"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC] (B.Cu), 长度: 0.9746 mm",
+                    "pos": {
+                        "x": 115.9938,
+                        "y": 113.4758
+                    },
+                    "uuid": "a69ea97d-e0d0-4b40-a456-170c5a579b90"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC] (B.Cu), 长度: 0.5292 mm",
+                    "pos": {
+                        "x": 115.0192,
+                        "y": 113.4758
+                    },
+                    "uuid": "d031acc8-607e-4bc6-9f12-02edab1253c7"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_R] (B.Cu), 长度: 0.0701 mm",
+                    "pos": {
+                        "x": 155.2871,
+                        "y": 114.6496
+                    },
+                    "uuid": "1c3e5313-1c8a-4983-b84b-e72491c8c817"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_HP_R] (B.Cu), 长度: 3.4217 mm",
+                    "pos": {
+                        "x": 158.7088,
+                        "y": 114.6496
+                    },
+                    "uuid": "589bd91b-aa9c-4895-9ed4-a6b19f1ba66e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (In2.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 149.2726,
+                        "y": 118.3159
+                    },
+                    "uuid": "88935fd0-f582-4854-a8c7-1bc0ba8aa71e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (In2.Cu), 长度: 0.1659 mm",
+                    "pos": {
+                        "x": 148.9895,
+                        "y": 118.3159
+                    },
+                    "uuid": "88f62d95-091b-4475-935a-e3805a95be27"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 0.1711 mm",
+                    "pos": {
+                        "x": 113.4752,
+                        "y": 126.1948
+                    },
+                    "uuid": "03a7e5a8-788b-4934-80d2-37305c5cfffd"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 0.5474 mm",
+                    "pos": {
+                        "x": 114.0226,
+                        "y": 126.1948
+                    },
+                    "uuid": "7b28fcfd-0ea7-4d65-b1b9-c0f109ee3fc5"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 2.7029 mm",
+                    "pos": {
+                        "x": 146.8479,
+                        "y": 124.7892
+                    },
+                    "uuid": "86dc937d-5144-4be4-a0b6-8e4adf428dd9"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_P] (B.Cu), 长度: 0.9110 mm",
+                    "pos": {
+                        "x": 149.5508,
+                        "y": 124.7892
+                    },
+                    "uuid": "99214cfa-ca3e-4f55-ac61-bb6fa57edc7b"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 18.6551 mm",
+                    "pos": {
+                        "x": 131.7858,
+                        "y": 129.5319
+                    },
+                    "uuid": "2b70877b-bd55-47ba-9a3b-e4f6bed82d53"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.8269 mm",
+                    "pos": {
+                        "x": 150.4409,
+                        "y": 129.5319
+                    },
+                    "uuid": "3d4908b4-d829-4981-8505-4dd9a186f192"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.4882 mm",
+                    "pos": {
+                        "x": 118.9968,
+                        "y": 126.1448
+                    },
+                    "uuid": "9a97cbb3-c2d0-4241-9730-0223ad8880ab"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 1.6434 mm",
+                    "pos": {
+                        "x": 116.8701,
+                        "y": 126.1448
+                    },
+                    "uuid": "b1c13069-758a-4151-a900-da0b9ea33d35"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.2831 mm",
+                    "pos": {
+                        "x": 118.7966,
+                        "y": 125.9446
+                    },
+                    "uuid": "c43b96e5-45a8-4183-aa91-9eb1c7293784"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [SPK_N] (In2.Cu), 长度: 0.1416 mm",
+                    "pos": {
+                        "x": 118.5135,
+                        "y": 126.1448
+                    },
+                    "uuid": "e08e0916-3327-4cbe-8c1a-a9c1a0077f50"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_INP] (B.Cu), 长度: 0.9817 mm",
+                    "pos": {
+                        "x": 144.5508,
+                        "y": 124.7208
+                    },
+                    "uuid": "7b58f63d-affe-432e-80f5-ffda5bcda633"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.2000 mm; 实际 0.1874 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_AMP_INP] (B.Cu), 长度: 1.1825 mm",
+                    "pos": {
+                        "x": 143.3683,
+                        "y": 124.7208
+                    },
+                    "uuid": "c682ade2-a4ad-4080-a2c0-4d50bee1354f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "472f2619-b569-4134-89e8-bcf336865248"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.7753 mm",
+                    "pos": {
+                        "x": 153.9605,
+                        "y": 111.1493
+                    },
+                    "uuid": "98dc1f4b-9f49-4368-80bb-67cbd9c3a4ca"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

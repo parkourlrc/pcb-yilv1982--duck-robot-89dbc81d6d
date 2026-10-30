@@ -1,0 +1,211 @@
+--- PDF PAGE 1 ---
+Radxa Computer
+Radxa ZERO 3W Product Brief
+A Light, Compact and Tiny SBC
+Revision 1.12
+2026-09-20
+--- PDF PAGE 2 ---
+Radxa ZERO 3W Product Brief
+Contents
+1 Revision Control T able 2
+2 Introduction 3
+3 Features 3
+3.1 Hardware . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+3.2 Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+3.3 Software . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+4 Mechanical Specification 5
+5 Electrical Specification 5
+5.1 Power Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+6 Peripherals 6
+6.1 GPIO Interface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+6.1.1 GPIO Alternate Functions . . . . . . . . . . . . . . . . . . . . . . . . . 6
+6.2 USB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+6.3 Camera Interfaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+6.4 HDMI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+6.5 T emperature Range and Thermals . . . . . . . . . . . . . . . . . . . . . . . . 7
+7 Models and SKU 7
+8 Availability 8
+9 Support 8
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 1
+--- PDF PAGE 3 ---
+Radxa ZERO 3W Product Brief
+1 Revision Control T able
+Version Date Changes from previous version
+1.0 2022‑03‑14 First version
+1.1 2023‑07‑14 Update Images
+1.2 2023‑08‑01 Update Information
+1.3 2023‑08‑22 Improve readability
+1.4 2023‑08‑24 Add SKU models
+1.5 2023‑10‑13 Update Images and Info
+1.6 2023‑11‑15 Update Images, Info and SKU
+1.7 2024‑06‑27 Modified info
+1.8 2024‑09‑11 Modified info on Power adapter
+1.9 2025‑04‑25 Change PDF fonts to avoid CJK characters
+1.10 2026‑06‑26 Update availability information
+1.11 2026‑09‑14 Update product image and interface description
+1.12 2026‑09‑20 Update product image
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 2
+--- PDF PAGE 4 ---
+Radxa ZERO 3W Product Brief
+2 Introduction
+The Radxa ZERO 3W is a high‑performance Single Board Computer (SBC) engineered in
+a compact form factor, designed to deliver unparalleled computational capabilities while
+maintaining exceptional mechanical compatibility. T ailored for a diverse user base, includ‑
+ing makers, Io T developers, hobbyists, and PC DIY enthusiasts, the Radxa Zero 3W serves
+as a robust and versatile platform. It is optimized for the development, prototyping, and
+deployment of various applications, thereby providing a reliable foundation for translating
+innovative ideas into functional realities.
+Note꞉
+The images presented depict a particular configuration of the Radxa ZERO 3W . Please note that the ac‑
+tual component layout and specifications may differ based on the selected Stock Keeping Unit (SKU).
+3 Features
+3.1 Hardware
+• Rockchip RK3566 SoC
+• Quad‑core Arm® Cortex®‑A55 (ARMv8) 64‑bit @ 1.6GHz
+• Arm Mali™‑G52‑2EE, OpenGL® ES1.1/2.0/3.2, Vulkan® 1.1, OpenCL™ 2.0
+• 1GB / 2GB / 4GB / 8GB LPDDR4 RAM
+• Optional Onboard eMMC Module 8GB / 16GB / 32GB / 64GB
+• Display via Micro HDMI
+• H.264/H.265 decoder up to 4K@60fps
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 3
+--- PDF PAGE 5 ---
+Radxa ZERO 3W Product Brief
+• H.264/H.265 encoder up to 1080P@60fps
+3.2 Interfaces
+• IEEE 802.11 a/b/g/n/ac/ax (WiFi 6) and BT 5.4 with BLE
+• Onboard or External Antenna Configured by Software
+• 1x TF Card Slot
+• 1x Micro HDMI ports supporting displays up to 1080P@60fps resolution
+• 1× USB‑C 1꞉ USB 2.0 OTG and 5V power input
+• 1× USB‑C 2꞉ USB 3.2 Gen 1 Host, up to 5Gbps
+• 1x MIPI CSI
+• 40x user GPIO supporting various interface options꞉
+– up to 5 x UART
+– 1 x SPI bus
+– up to 2 x I2C bus
+– 1 x PCM/I2S
+– up to 6 x PWM
+– up to 28 x GPIO
+– 2 x 5V DC power in
+– 2 x 3.3V power pin
+3.3 Software
+• ARMv8 Instruction Set
+• Debian/Ubuntu Linux support
+• Hardware access/control library for Linux
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 4
+--- PDF PAGE 6 ---
+Radxa ZERO 3W Product Brief
+4 Mechanical Specification
+5 Electrical Specification
+5.1 Power Requirements
+The Radxa ZERO 3W support DC +5V voltage꞉
+• Power adapter with 5V/2A on the USB‑C 1 port
+• 5V Power from the GPIO PIN 2 & 4
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 5
+--- PDF PAGE 7 ---
+Radxa ZERO 3W Product Brief
+6 Peripherals
+6.1 GPIO Interface
+Radxa ZERO 3W offers 40P GPIO expansion which is compatible with many accessories
+on the market.
+6.1.1 GPIO Alternate Functions
+Function5 Function4 Function3 Function2 Function1 Pin# Pin# Function1 Function2 Function3 Function4 Function5
++3.3V 1 2 +5.0V
+I2C3_SDA_M0 UART3_RX_M0GPIO1_A0 3 4 +5.0V
+I2C3_SCL_M0 UART3_TX_M0GPIO1_A1 5 6 GND
+PWM14_M0 GPIO3_C4 7 8 GPIO0_D1 UART2_TX_M0
+GND 9 10 GPIO0_D0 UART2_RX_M0
+GPIO3_A1 11 12 GPIO3_A3 I2S3_SCLK_M0
+I2S3_MCLK_M0 GPIO3_A2 13 14 GND
+GPIO3_B0 15 16 GPIO3_B1 UART4_RX_M1 PWM8_M0
++3.3V 17 18 GPIO3_B2 UART4_TX_M1 PWM9_M0
+PWM15_IR_M1 I2S3_SCLK_M1 SPI3_MOSI_M1GPIO4_C3 19 20 GND
+UART9_TX_M1 PWM12_M1 I2S3_SDO_M1 SPI3_MISO_M1 GPIO4_C5 21 22 GPIO3_C1 I2S1_SDO2_M2
+PWM14_M1 I2S3_MCLK_M1 SPI3_CLK_M1 GPIO4_C2 23 24 GPIO4_C6 SPI3_CS0_M1 PWM13_M1 UART9_RX_M1 I2S3_SDI_M1
+GND 25 26 GPIO4_D1 SPI3_CS1_M1
+I2C4_SDA_M0 I2S2_SDI_M1 GPIO4_B2 27 28 GPIO4_B3 I2C4_SCL_M0I2S2_SDO_M1
+GPIO3_B3 29 30 GND
+GPIO3_B4 31 32 GPIO3_C2 UART5_TX_M1 I2S1_SDO3_M2
+UART5_RX_M1 I2S1_SCLK_RX_M2 GPIO3_C3 33 34 GND
+I2S3_LRCK_M0 GPIO3_A4 35 36 GPIO3_A7
+I2S1_SCLK_RX_M0 GPIO1_A4 37 38 GPIO3_A6 I2S3_SDI_M0
+GND 39 40 GPIO3_A5 I2S3_SDO_M0
+6.2 USB
+The Radxa ZERO 3W is outfitted with a USB 3.0 Host Type‑C interface, constrained to a
+maximum electrical current of 500mA in accordance with USB 3.0 specifications.
+Additionally, the unit incorporates a USB 2.0 OTG (On‑The‑Go) Type‑C port, compatible
+with a 5V power supply adapter as well as standard USB ports on computing devices such
+as laptops and desktops. This OTG port serves a dual function꞉ it acts as a programming
+interface compliant with standard flashing protocols for software updates, and facilitates
+data access for read/write operations. Its multi‑purpose design renders it suitable for a
+range of applications, including but not limited to, experimental data transfers, debugging,
+and other specialized tasks.
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 6
+--- PDF PAGE 8 ---
+Radxa ZERO 3W Product Brief
+6.3 Camera Interfaces
+The Radxa ZERO 3W is equipped with a 1x4‑lane MIPI CSI (Mobile Industry Processor
+Interface Camera Serial Interface) connector for camera integration. This interface is de‑
+signed to be backward‑compatible with standard industrial camera peripherals, ensuring
+seamless integration and operational flexibility.
+6.4 HDMI
+The Radxa ZERO 3W features a single Micro HDMI port, engineered to support Consumer
+Electronics Control (CEC) and HDMI 2.0 standards. This port is capable of outputting
+video resolutions up to 1080p at 60 frames per second (1080p60).
+6.5 T emperature Range and Thermals
+The specified ambient operating temperature for optimal performance of the Radxa ZERO
+3W ranges from 0°C to 50°C, in accordance with industry standards.
+T o optimize thermal efficiency, the Radxa ZERO 3W employs dynamic voltage and fre‑
+quency scaling (DVFS). During idle or low‑load conditions, the CPU clock frequency and
+core voltage are dynamically reduced to minimize thermal dissipation. Conversely, under
+high‑load scenarios, both the clock frequency and core voltage are elevated, resulting in
+increased thermal output. An internal thermal management governor is in place to regu‑
+late these parameters, ensuring that the CPU temperature does not exceed a threshold
+of 85°C.
+Engineered for burst performance, the Radxa ZERO 3W is capable of operating effectively
+without additional cooling solutions. It is designed to handle light‑to‑moderate workloads
+on average, while having the capability to ramp up CPU performance for more demanding
+tasks, such as webpage loading. For users intending to subject the system to sustained
+high‑load conditions or operate it in elevated ambient temperatures at full performance,
+supplementary cooling mechanisms may be advisable.
+7 Models and SKU
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 7
+--- PDF PAGE 9 ---
+Radxa ZERO 3W Product Brief
+DRAM eMMC GPIO Header SKU
+1GB
+N/A
+Pre‑soldered RS107‑D1E0H1W15
+Empty RS107‑D1E0H0W15
+8GB
+Pre‑soldered RS107‑D1E8H1W15
+Empty RS107‑D1E8H0W15
+2GB
+N/A
+Pre‑soldered RS107‑D2E0H1W15
+Empty RS107‑D2E0H0W15
+16GB
+Pre‑soldered RS107‑D2E16H1W15
+Empty RS107‑D2E16H0W15
+4GB
+N/A
+Pre‑soldered RS107‑D4E0H1W15
+Empty RS107‑D4E0H0W15
+32GB
+Pre‑soldered RS107‑D4E32H1W15
+Empty RS107‑D4E32H0W15
+8GB
+N/A
+Pre‑soldered RS107‑D8E0H1W15
+Empty RS107‑D8E0H0W15
+64GB
+Pre‑soldered RS107‑D8E64H1W15
+Empty RS107‑D8E64H0W15
+8 Availability
+Radxa commits to ensuring the availability of the Radxa ZERO 3W model until a minimum
+date of September 2030, thereby providing long‑term support and supply assurance.
+9 Support
+For technical support and inquiries, kindly refer to the Hardware Documentation section
+on the Radxa Documentation website. For further assistance and community discussions,
+please direct your questions to the Radxa Forum.
+RAD-DOC-0084 Radxa Computer (Shenzhen) Co., Ltd. 8

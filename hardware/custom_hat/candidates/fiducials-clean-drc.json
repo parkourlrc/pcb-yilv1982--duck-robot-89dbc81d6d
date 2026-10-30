@@ -1,0 +1,338 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:53:22",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "fiducials-clean.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 7 [+3V3]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "0df48d77-c71c-453d-8ff9-e195b6cfc0ea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 FID1 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "41aeb6c9-a2eb-4595-9aaf-8ca0f034155c"
+                },
+                {
+                    "description": "FID1 的 圆形 [<no net>], 位于 F.Cu",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "e4227e3e-7ce2-4e7c-9baa-b0741dbfcc1a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "FID6 的 圆形 [<no net>], 位于 B.Cu",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "5468daad-5fa5-4ac0-a9b3-51b99ab2e6fc"
+                },
+                {
+                    "description": "B.Cu 上 FID6 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "5f805b8d-cf5c-4d43-835e-b0a342783905"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "FID4 的 圆形 [<no net>], 位于 B.Cu",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "0a24f067-10cf-47da-bd22-96a7b8fda37f"
+                },
+                {
+                    "description": "B.Cu 上 FID4 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "35bb2042-a0de-46d6-9760-cd22ff73df9f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 FID5 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "73cf9e51-2d3d-464a-940f-741cd41827c4"
+                },
+                {
+                    "description": "FID5 的 圆形 [<no net>], 位于 B.Cu",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "b3d2f187-878d-4b37-96c5-9fe9ffc366f2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 FID2 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "22da2169-7dca-40f0-976b-2d340e7bb0f5"
+                },
+                {
+                    "description": "FID2 的 圆形 [<no net>], 位于 F.Cu",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "493b992f-007f-4ee4-8496-59eb9715b4f7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "FID3 的 圆形 [<no net>], 位于 F.Cu",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "39b1b68e-4542-48f1-bbb7-e8abfb7a9a7f"
+                },
+                {
+                    "description": "F.Cu 上 FID3 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "3a6dc185-d4ae-4c8e-be72-71529a4f67bf"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID1 的参考字段",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "adfca38a-45fe-4dee-bf66-689bfd810fcc"
+                },
+                {
+                    "description": "F.Cu 上 FID1 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "41aeb6c9-a2eb-4595-9aaf-8ca0f034155c"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID2 的参考字段",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "458a49a4-942e-4040-95e0-282a1fe48f9f"
+                },
+                {
+                    "description": "F.Cu 上 FID2 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "22da2169-7dca-40f0-976b-2d340e7bb0f5"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID3 的参考字段",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "0a867fa4-6751-45d0-bffb-debb8df3b7f6"
+                },
+                {
+                    "description": "F.Cu 上 FID3 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "3a6dc185-d4ae-4c8e-be72-71529a4f67bf"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID4 的参考字段",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "a68e3931-727e-4d06-9367-9be2221f1c80"
+                },
+                {
+                    "description": "B.Cu 上 FID4 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 101.5
+                    },
+                    "uuid": "35bb2042-a0de-46d6-9760-cd22ff73df9f"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID5 的参考字段",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "d1ad5279-b82b-4c46-9879-1b3a6b5d1f35"
+                },
+                {
+                    "description": "B.Cu 上 FID5 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 159.0,
+                        "y": 101.5
+                    },
+                    "uuid": "73cf9e51-2d3d-464a-940f-741cd41827c4"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "FID6 的参考字段",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "cc5110bf-bddb-4b03-ba67-f858e5478e17"
+                },
+                {
+                    "description": "B.Cu 上 FID6 的焊盘 [<no net>]",
+                    "pos": {
+                        "x": 106.0,
+                        "y": 128.5
+                    },
+                    "uuid": "5f805b8d-cf5c-4d43-835e-b0a342783905"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

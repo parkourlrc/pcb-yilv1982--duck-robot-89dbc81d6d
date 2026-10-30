@@ -1,0 +1,71 @@
+{
+  "kicad_version": "10.0.7",
+  "source_sha256": "e4266914e29cc9263c55b80ca5610fae030af9d400fa173742ef8bc3602bbc55",
+  "server": {
+    "name": "kicad-mcp-server",
+    "title": null,
+    "version": "3.4.11",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "tools": [
+    "generate_device_tree",
+    "extract_gpio_config",
+    "extract_i2c_devices",
+    "extract_spi_devices",
+    "extract_power_domains",
+    "validate_pin_configuration",
+    "trace_hierarchical_connection",
+    "analyze_hierarchical_nets",
+    "generate_netlist",
+    "trace_netlist_connection",
+    "get_netlist_nets",
+    "get_netlist_components",
+    "search_parts_registry",
+    "get_registry_part",
+    "download_registry_part",
+    "list_pcb_footprints",
+    "get_pcb_statistics",
+    "analyze_pcb_nets",
+    "find_tracks_by_net",
+    "analyze_pcb_signal_integrity",
+    "analyze_pcb_power_integrity",
+    "setup_pcb_layout",
+    "export_gerber",
+    "analyze_pin_functions",
+    "detect_pin_conflicts",
+    "extract_pinmux_config",
+    "create_kicad_project",
+    "list_schematic_components",
+    "get_symbol_details",
+    "search_symbols",
+    "list_schematic_nets",
+    "get_schematic_info",
+    "add_hierarchical_label",
+    "add_global_label",
+    "add_component_from_library",
+    "add_wire",
+    "add_label",
+    "search_components_by_type",
+    "run_erc",
+    "run_drc",
+    "get_erc_violations",
+    "get_drc_violations",
+    "export_erc_report",
+    "export_drc_report",
+    "render_pcb",
+    "export_pcb_3d",
+    "export_schematic_svg"
+  ],
+  "calls": {
+    "get_pcb_statistics": {
+      "is_error": false,
+      "text": "# PCB Statistics: C:\\Users\\yilv\\AppData\\Local\\Temp\\kicad-mcp-check-tdm9k255\\rev_a\\custom_hat_rev_a.kicad_pcb\n\n## Board Information\n**Dimensions:** 65.10 x 30.10 mm\n**Copper Layers:** 4\n**Board Thickness:** 1.600 mm\n\n## Elements\n**Footprints:** 60\n**Track Segments:** 538\n**Vias:** 74\n**Copper Zones:** 4\n**Nets:** 42\n\n## Design Rules\n**Smallest Clearance:** 0.1500 mm\n**Default Track Width:** 0.2500 mm\n**Default Via Size/Drill:** 0.6000 / 0.3000 mm\n**Diff Pair Width/Gap:** 0.2500 / 0.1500 mm"
+    },
+    "list_schematic_components": {
+      "is_error": false,
+      "text": "# Components in C:\\Users\\yilv\\AppData\\Local\\Temp\\kicad-mcp-check-tdm9k255\\rev_a\\power.kicad_sch\nTotal: 23 component(s)\n\n| Reference | Value | Footprint | Library | DNP | In BOM |\n|-----------|-------|-----------|---------|-----|--------|\n| J301 | POWER_AND_RAILS | Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical | Conn_01x08 |  |  |\n| U301 | AP64350 | duck:SO-8EP_AP64350 | AP64350 |  |  |\n| D301 | SMBJ12A (fitted) | Diode_SMD:D_SMB | D_TVS |  |  |\n| R303 | 200k | Resistor_SMD:R_0805_2012Metric | R |  |  |\n| R305 | 100k | Resistor_SMD:R_0805_2012Metric | R |  |  |\n| C303 | 10uF | Capacitor_SMD:C_1206_3216Metric | C |  |  |\n| C304 | 10uF | Capacitor_SMD:C_1206_3216Metric | C |  |  |\n| L301 | 5.5uH | Inductor_SMD:L_12x12mm_H8mm | L |  |  |\n| C302 | 100nF | Capacitor_SMD:C_0805_2012Metric | C |  |  |\n| C305 | 22uF | Capacitor_SMD:C_1206_3216Metric | C |  |  |\n| C306 | 22uF | Capacitor_SMD:C_1206_3216Metric | C |  |  |\n| C307 | 22uF reserve | Capacitor_SMD:C_1206_3216Metric | C | Yes |  |\n| R301 | 52.3k | Resistor_SMD:R_0805_2012Metric | R |  |  |\n| R302 | 10k | Resistor_SMD:R_0805_2012Metric | R |  |  |\n| R304 | 14k | Resistor_SMD:R_0805_2012Metric | R |  |  |\n| C301 | 3.3nF | Capacitor_SMD:C_0805_2012Metric | C |  |  |\n| FLG1 | +5V | - | PWR_FLAG |  |  |\n| FLG2 | +3V3 | - | PWR_FLAG |  |  |\n| FLG3 | VBATT_2S_IN | - | PWR_FLAG |  |  |\n| FLG4 | POWER_GND | - | PWR_FLAG |  |  |\n| U702 | LP38693DT-1.8 codec 1V8 | Package_TO_SOT_SMD:TO-252-3_TabPin2 | LP38693DT-1.8 |  |  |\n| C308 | 1uF | Capacitor_SMD:C_0805_2012Metric | C |  |  |\n| C309 | 1uF | Capacitor_SMD:C_0805_2012Metric | C |  |  |"
+    }
+  },
+  "source_unchanged": true
+}

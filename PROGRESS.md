@@ -2,6 +2,26 @@
 
 事实性的进度流水：什么时候到了什么、做了什么。核对结论与安全边界见 [README](./README.md) 与 [BOM](./BOM.md)。
 
+## KiCad MCP 安装（2026-10-30）
+
+- **[本机工具检查，非硬件实测]** 已安装 Seeed KiCad MCP 并注册 Codex `kicad`，使用本机 KiCad 10.0.7 的独立 Python 环境；stdio 握手、47 个工具枚举及 HAT 副本 PCB/原理图读取完成，源 PCB 校验值未变。
+- 退出时有 Windows asyncio 警告，持续运行稳定性与 Codex 当前聊天热加载尚未验收；未进行 PCB 写操作或完整 ERC/DRC，不改变 HAT 制造放行状态。安装路径、原始验证数据与失败记录见 [KiCad MCP 专题](docs/references/kicad-agent-skills-20261030/research.md)。未提交或推送。
+
+## 自设计 HAT：问题真实性复核与流程改进（2026-10-30）
+
+- **[文件/工具核对]** 供电/地检查点主板为65×30 mm、4层、60封装、615走线段、93过孔、4铜区。此前计数为历史版本；65.1×30.1为含线宽包围盒，不改变65×30板框。
+- **[已澄清/已修]** AP64350/BMI088旧封装、CSB2、TTL/动力分支、I2S方向、麦克风/功放、1.8V来源、TP802原点及内层铜区删除问题均有后续修复。pin1已有设计依据，不要求重复手量；屏幕/CSI已取消；“无空间/必须六层”的旧判断证据不足。
+- **[本机工具检查]** U501删除两段错误顶层短线及一个禁布过孔后，完整工程重铺铜由29降至24违规，未连接23、一致性101不变；193个有网络焊盘原连接均保留，无新增违规。源摘要核对后已更新主PCB，见[检查点与原始证据](docs/references/hat-simulation-tools-20261029/u501-repair-20261030/research.md)。213仅来自缺规则对照组；32项net_conflict为NC表示差异。
+- **[J301/J506局部修复]** J506保持型号/针序/朝向移动至(113.0,122.3)，两条喇叭线重接；前一斜线路径碰固定焊盘的候选已拒绝，折线路径通过后回写主板。普通DRC从24降至16项warning（原7个普通error消除），未连接23和一致性101不变；193个有网焊盘原连接保留。见[当前检查点](docs/references/hat-simulation-tools-20261029/j506-repair-20261030/research.md)。
+- **[I2S局部修复]** 已连接U701.4→J101.40，并联动重布SDI/LRCK/BCLK扇出；没有改变引脚/器件/其他网络或规则。重铺铜普通警告16→15、未连接23→22、parity101不变；193个有网焊盘原连接保留，审阅后已回写主板。见[现行检查点](docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030/research.md)。未验证实际音频功能。
+- **[供电/地修复]** 接受25个局部步骤：修4段旧电容短线、补供电扇出及地岛连接，必要时局部绕开时钟/+1V8短段。未连接22→1（剩U701.7 +3V3）、普通warning15→11、parity101不变；地焊盘连通组3→1，+3V3组21→2，193个有网焊盘原连接保留。最后codec引脚的失败方案未采用；已验证部分回写主板。见[当前检查点](docs/references/hat-simulation-tools-20261029/power-repair-20261030/research.md)。
+- **[未解决设计问题]** 仅 `U701.7 +3V3` 仍是 KiCad 未连接项；悬空孔和 U301 丝印问题已关闭。当前仍有 MPN、工艺环宽、热过孔、via-in-pad、I2C 上拉、+3V3 平面回流和硬件实测门，旧生产包仍不能下单。
+- **[最终清理与 kicad-happy 审查]** 当前完整副本复现：普通 DRC 0、未连接 1（U701.7）、ERC 0、网表 mismatch 0、parity 107；双面 fiducial 与 3 个板边地缝合过孔已加入并通过 DRC。MPN、环宽、热过孔、via-in-pad、I2C 上拉和 +3V3 平面回流仍未闭合。
+- **[kicad-happy 当前审查]** 已重新运行 schematic/PCB full/cross/thermal/Gerber/EMC/fab gate，并保留 raw netlist/PCB spot-check；报告见 [当前 review](docs/references/hat-simulation-tools-20261029/kicad-happy-review-20261030/review.md)。结论仍不可投板：唯一 DRC 未连接为 `R308.2 ↔ U701.7`，BOM MPN 为 0/52；fiducial 缺失项已关闭。
+- **[流程实施]** 新pipeline只复制完整工程并输出独立报告/源摘要；自动路由只生成候选、验证本次输出；停止旧双来源生成器和DSN改写器直接执行，取消默认补孔及规则放宽。U501候选通过后由主会话审阅精确差异再更新主PCB；没有自动回写或改规则。
+- [逐项复核与证据](docs/references/hat-simulation-tools-20261029/audit-20261030/review.md) · [修复计划](docs/specs/20261028-custom-hat/recovery-plan.md) · [流程用法](hardware/custom_hat/scripts/README.md)。本轮未提交、未推送、未下单、未操作实物。历史过程仅供追溯。
+- 当前 HAT 问题矩阵见 [issue-matrix-20261030](docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md)；主板已加入 fiducial 与板边地缝合，但 `R308.2 ↔ U701.7`、MPN、工艺/热/上拉确认和硬件实测仍未闭合。
+
 ## HAT 双口原理图复核：共用 DATA 串阻存在设计差异，实物 V1.2 待核（2026-10-27）
 
 - **DATA 电压反馈 [用户报告实测]**：用户用万用表测 IMU DATA 一直约 3.1V；本次具体探点/档位及通信状态未给出。该读数不能判断微秒低脉冲是否拉低充分，不撤销 HAT R31 排查线索，也不确认为根因。万用表与波形的区别、示意计算及门限边界见[测量解释](./docs/references/hat-imu-shared-bus-20261027/research.md#data-dmm-3v1-20261027)。

@@ -1,0 +1,8 @@
+RC installation smoke test - not a HAT validation
+Vstep input 0 PULSE(0 1 0 1n 1n 10m 20m)
+R1 input output 1k
+C1 output 0 1u
+.tran 10u 5m
+.meas tran voltage_at_tau FIND v(output) AT=1m
+.meas tran voltage_at_5tau FIND v(output) AT=5m
+.end

@@ -1,0 +1,452 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T22:10:07",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "cand-06.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 1.0607 mm",
+                    "pos": {
+                        "x": 150.375,
+                        "y": 114.0
+                    },
+                    "uuid": "8018ea6e-7883-4e6c-9d74-99db319e19d0"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.0301 mm",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "0cfc6944-6477-4492-b128-c4b4ca2a2cee"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1575 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.225,
+                        "y": 111.725
+                    },
+                    "uuid": "9fcb8944-4098-41c0-a950-c8377de4d07f"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1479 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 143.1,
+                        "y": 111.675
+                    },
+                    "uuid": "5e5fd334-5707-4905-8f87-a01d46fcf46f"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1479 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                },
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.075,
+                        "y": 111.65
+                    },
+                    "uuid": "f2981dcc-7018-4cd7-aafa-dfcc6143aa31"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1615 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 2.1567 mm",
+                    "pos": {
+                        "x": 144.775,
+                        "y": 113.25
+                    },
+                    "uuid": "ca51d511-c318-437a-af4c-04351bea1caf"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1971 mm)",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                },
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 146.2,
+                        "y": 113.375
+                    },
+                    "uuid": "9b973480-bd9f-42e8-b70b-c4d198f79288"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1543 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.175,
+                        "y": 111.7
+                    },
+                    "uuid": "483f939c-00be-4d29-b66b-45080019efb0"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1479 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 143.15,
+                        "y": 111.675
+                    },
+                    "uuid": "67878130-1b48-4b31-a208-0025b7e7b7de"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1501 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 146.525,
+                        "y": 113.475
+                    },
+                    "uuid": "062f5499-fde4-491b-91df-4de1e296161c"
+                },
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1410 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.5250 mm",
+                    "pos": {
+                        "x": 143.075,
+                        "y": 111.65
+                    },
+                    "uuid": "6c49d8a4-f8cd-4662-bb81-00d213fb9922"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1575 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 143.25,
+                        "y": 111.725
+                    },
+                    "uuid": "03f6eaf2-8425-4005-93e2-3247d7be132d"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1543 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 143.2,
+                        "y": 111.7
+                    },
+                    "uuid": "55a4d4b8-44b3-4db1-831e-0f7f60726bf1"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1543 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 143.15,
+                        "y": 111.675
+                    },
+                    "uuid": "57783b76-2688-4538-8b4d-c5803c17c035"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1410 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.5250 mm",
+                    "pos": {
+                        "x": 142.55,
+                        "y": 111.65
+                    },
+                    "uuid": "30fe297b-2f4f-4b3e-99e7-967d46832aa9"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1575 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 143.225,
+                        "y": 111.725
+                    },
+                    "uuid": "8c0c66ce-794b-44ed-9f6f-fd9241b375e6"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1543 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 0.0250 mm",
+                    "pos": {
+                        "x": 143.175,
+                        "y": 111.7
+                    },
+                    "uuid": "b1620f05-c3c5-4ec0-afa8-75553f6b6213"
+                },
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [POWER_GND]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "3d7a64e5-d64a-48f4-b0df-ca4455cec497"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 1.0607 mm",
+                    "pos": {
+                        "x": 150.375,
+                        "y": 114.0
+                    },
+                    "uuid": "8018ea6e-7883-4e6c-9d74-99db319e19d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.7753 mm",
+                    "pos": {
+                        "x": 153.9605,
+                        "y": 111.1493
+                    },
+                    "uuid": "98dc1f4b-9f49-4368-80bb-67cbd9c3a4ca"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

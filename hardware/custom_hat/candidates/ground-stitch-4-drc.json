@@ -1,0 +1,108 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T21:18:07",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "ground-stitch-4.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 7 [+3V3]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "0df48d77-c71c-453d-8ff9-e195b6cfc0ea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1398 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 160.0,
+                        "y": 115.0
+                    },
+                    "uuid": "7b987814-d5fc-43d0-a594-e2bb2b9f6412"
+                },
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 5.9986 mm",
+                    "pos": {
+                        "x": 159.55,
+                        "y": 108.66
+                    },
+                    "uuid": "98a4239b-b3e3-44f1-a5a5-f94984229421"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1398 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (In2.Cu), 长度: 0.8324 mm",
+                    "pos": {
+                        "x": 159.55,
+                        "y": 114.6586
+                    },
+                    "uuid": "67990c7b-d255-4b3e-bccc-c0aac9daae10"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 160.0,
+                        "y": 115.0
+                    },
+                    "uuid": "7b987814-d5fc-43d0-a594-e2bb2b9f6412"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}

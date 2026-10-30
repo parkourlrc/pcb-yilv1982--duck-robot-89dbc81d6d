@@ -1,0 +1,499 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:20:18",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "i2s-blind-fanout.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 7 [+3V3]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "0df48d77-c71c-453d-8ff9-e195b6cfc0ea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 1.0500 mm",
+                    "pos": {
+                        "x": 148.9,
+                        "y": 113.0
+                    },
+                    "uuid": "755b4467-b762-4881-9007-52a880f43fcc"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "edafcec4-76d7-4892-9dbc-a0452a23c152"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 I2S_SDI)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.6708 mm",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "59fcc39a-850d-453e-8600-21c197c6b35f"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "edafcec4-76d7-4892-9dbc-a0452a23c152"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0602 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.6500 mm",
+                    "pos": {
+                        "x": 148.4,
+                        "y": 112.5
+                    },
+                    "uuid": "6d7a8436-a266-4357-9d78-1483984cac98"
+                },
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_LRCK 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "走线 [I2S_LRCK] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 149.65,
+                        "y": 114.1
+                    },
+                    "uuid": "38b72832-63b1-4487-9d0e-7c3ef469af1f"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_LRCK 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.6708 mm",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "59fcc39a-850d-453e-8600-21c197c6b35f"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 I2S_LRCK)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                },
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 2.5456 mm",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "d5417c61-a63e-4296-a14a-a3c67418f29e"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +5V)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_LRCK 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 +5V)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.1000 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 114.0
+                    },
+                    "uuid": "3604d17b-6f86-4f35-b10b-3e724543045e"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_LRCK 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_LRCK 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2C5_SCL 和 I2S_SDI)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.1500 mm",
+                    "pos": {
+                        "x": 148.4,
+                        "y": 109.85
+                    },
+                    "uuid": "9ba3431d-80b8-4e4e-9491-4651026e2ec6"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0241 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.6500 mm",
+                    "pos": {
+                        "x": 148.4,
+                        "y": 112.5
+                    },
+                    "uuid": "6d7a8436-a266-4357-9d78-1483984cac98"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "钻孔太靠近其他孔 (电路板配置约束 最小 0.2500 mm; 实际 0.0202 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "warning",
+            "type": "hole_to_hole"
+        },
+        {
+            "description": "钻孔太靠近其他孔 (电路板配置约束 最小 0.2500 mm; 实际 0.2000 mm)",
+            "items": [
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDI]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.1
+                    },
+                    "uuid": "87e1bcfc-912e-48e5-9338-19d190aac4eb"
+                },
+                {
+                    "description": "F.Cu - B.Cu 上的盲孔 [I2S_SDO]",
+                    "pos": {
+                        "x": 149.2,
+                        "y": 113.6
+                    },
+                    "uuid": "aca1868d-f8a9-447c-8a01-dcec88207e40"
+                }
+            ],
+            "severity": "warning",
+            "type": "hole_to_hole"
+        }
+    ]
+}

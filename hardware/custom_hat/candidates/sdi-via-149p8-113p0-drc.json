@@ -1,0 +1,315 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:14:29",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "sdi-via-149p8-113p0.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 7 [+3V3]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "0df48d77-c71c-453d-8ff9-e195b6cfc0ea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0286 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 149.9,
+                        "y": 113.6
+                    },
+                    "uuid": "0576fed2-2183-4678-a0b1-7d1c01dc1524"
+                },
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 I2S_SDI)",
+            "items": [
+                {
+                    "description": "F.Cu 上 C305 的焊盘 2 [POWER_GND]",
+                    "pos": {
+                        "x": 150.475,
+                        "y": 114.0
+                    },
+                    "uuid": "0a2007e9-a130-4478-b56b-1fa0f89586f2"
+                },
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0500 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.0000 mm",
+                    "pos": {
+                        "x": 148.9,
+                        "y": 112.0
+                    },
+                    "uuid": "7b7157df-3d48-4f0e-b458-b47ef15f67f2"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "c5d4af8b-f46e-441b-a03e-d844543e0c80"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0321 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 1.3454 mm",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "467b3ec0-bb91-453e-b75a-83ec49326ecd"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "c5d4af8b-f46e-441b-a03e-d844543e0c80"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0736 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.6
+                    },
+                    "uuid": "d179f059-ae65-48e4-b55c-8c8872484377"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 I2S_LRCK)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                },
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 2.5456 mm",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "d5417c61-a63e-4296-a14a-a3c67418f29e"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDI 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Default' 间距 0.1500 mm; 实际 0.0695 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 2.0000 mm",
+                    "pos": {
+                        "x": 148.9,
+                        "y": 112.0
+                    },
+                    "uuid": "7b7157df-3d48-4f0e-b458-b47ef15f67f2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0950 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 C305 的焊盘 2 [POWER_GND]",
+                    "pos": {
+                        "x": 150.475,
+                        "y": 114.0
+                    },
+                    "uuid": "0a2007e9-a130-4478-b56b-1fa0f89586f2"
+                },
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.1736 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.6
+                    },
+                    "uuid": "d179f059-ae65-48e4-b55c-8c8872484377"
+                },
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 113.0
+                    },
+                    "uuid": "ccd0b1f5-946d-49cd-b2a5-dd1f4050e720"
+                },
+                {
+                    "description": "F.Cu 上 C305 的焊盘 2 [POWER_GND]",
+                    "pos": {
+                        "x": 150.475,
+                        "y": 114.0
+                    },
+                    "uuid": "0a2007e9-a130-4478-b56b-1fa0f89586f2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

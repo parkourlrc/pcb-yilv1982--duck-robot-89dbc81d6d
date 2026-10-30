@@ -1,0 +1,8 @@
+B source function probe
+V1 a 0 PWL(0 0 1u 1)
+B1 b1 0 V = if(V(a) > 0.5, 1, 0)
+B2 b2 0 V = u(V(a) - 0.5)
+B3 b3 0 V = min(max(V(a),0),0.8)
+.tran 0.1u 1u
+.print tran V(a) V(b1) V(b2) V(b3)
+.end

@@ -1,0 +1,131 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:52:19",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "149.8_112.2.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.0301 mm",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "0cfc6944-6477-4492-b128-c4b4ca2a2cee"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.1012 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.21
+                    },
+                    "uuid": "24aad115-f096-468c-810a-de762524bf12"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 I2S_SDI)",
+            "items": [
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 112.2
+                    },
+                    "uuid": "73c8a6cb-0381-4753-b9f0-27d072c2e2fe"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0250 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.5713 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "1834326e-91e2-48fc-9f1f-61470c5a9320"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.1736 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.6
+                    },
+                    "uuid": "d179f059-ae65-48e4-b55c-8c8872484377"
+                },
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 149.8,
+                        "y": 112.2
+                    },
+                    "uuid": "73c8a6cb-0381-4753-b9f0-27d072c2e2fe"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        }
+    ]
+}

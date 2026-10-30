@@ -1,0 +1,361 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:08:08",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-right-up-route.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.6375 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "ab84e131-2d3c-4ca2-a7e2-ba4a0f3f7aba"
+                },
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_REF] (B.Cu), 长度: 1.6907 mm",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 110.9125
+                    },
+                    "uuid": "2c2fc236-91e4-449d-bce5-9bb990d55add"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 110.0
+                    },
+                    "uuid": "45247d42-81cc-4ca8-b55e-72203505575c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.6375 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "ab84e131-2d3c-4ca2-a7e2-ba4a0f3f7aba"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.8000 mm",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 112.1
+                    },
+                    "uuid": "3dea0935-31fd-492e-b57e-a036e4749e93"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 AUDIO_MIC_AC)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.3000 mm",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 111.3
+                    },
+                    "uuid": "49c1b692-f458-4494-a9a0-6d58597bbebb"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (B.Cu), 长度: 2.0782 mm",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 108.8343
+                    },
+                    "uuid": "9da79103-c05a-4eca-91e8-ca74b5786315"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1657 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 111.3
+                    },
+                    "uuid": "001befd2-dff5-4ca7-9647-9be8d1fcedcd"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (B.Cu), 长度: 2.0782 mm",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 108.8343
+                    },
+                    "uuid": "9da79103-c05a-4eca-91e8-ca74b5786315"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 110.0
+                    },
+                    "uuid": "45247d42-81cc-4ca8-b55e-72203505575c"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 4.2426 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 111.95
+                    },
+                    "uuid": "bc4a4abb-3a0b-4955-bfec-fd1ec20e7243"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 AUDIO_MIC_AC)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 110.0
+                    },
+                    "uuid": "45247d42-81cc-4ca8-b55e-72203505575c"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (B.Cu), 长度: 2.0782 mm",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 108.8343
+                    },
+                    "uuid": "9da79103-c05a-4eca-91e8-ca74b5786315"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 I2S_LRCK)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 110.0
+                    },
+                    "uuid": "45247d42-81cc-4ca8-b55e-72203505575c"
+                },
+                {
+                    "description": "走线 [I2S_LRCK] (In1.Cu), 长度: 6.8500 mm",
+                    "pos": {
+                        "x": 151.2,
+                        "y": 112.05
+                    },
+                    "uuid": "85c7e9f3-ff61-47de-98a9-26417da51910"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 110.0
+                    },
+                    "uuid": "45247d42-81cc-4ca8-b55e-72203505575c"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.8000 mm",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 112.1
+                    },
+                    "uuid": "3dea0935-31fd-492e-b57e-a036e4749e93"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 9 [I2C5_SDA]",
+                    "pos": {
+                        "x": 151.05,
+                        "y": 110.9125
+                    },
+                    "uuid": "b41b070b-00e3-41d3-b0f9-1ee0a283553e"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.3000 mm",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 111.3
+                    },
+                    "uuid": "49c1b692-f458-4494-a9a0-6d58597bbebb"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 10 [AUDIO_MIC_AC]",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 110.9125
+                    },
+                    "uuid": "343b500c-6e62-4bb0-bcd2-1b94a75fd31d"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 111.3
+                    },
+                    "uuid": "001befd2-dff5-4ca7-9647-9be8d1fcedcd"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 9 [I2C5_SDA]",
+                    "pos": {
+                        "x": 151.05,
+                        "y": 110.9125
+                    },
+                    "uuid": "b41b070b-00e3-41d3-b0f9-1ee0a283553e"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 111.3
+                    },
+                    "uuid": "001befd2-dff5-4ca7-9647-9be8d1fcedcd"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 10 [AUDIO_MIC_AC]",
+                    "pos": {
+                        "x": 151.55,
+                        "y": 110.9125
+                    },
+                    "uuid": "343b500c-6e62-4bb0-bcd2-1b94a75fd31d"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

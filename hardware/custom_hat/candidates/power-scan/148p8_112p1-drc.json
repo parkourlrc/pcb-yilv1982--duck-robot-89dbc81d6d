@@ -1,0 +1,153 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T19:58:45",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "148p8_112p1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.1
+                    },
+                    "uuid": "df8d5c71-4287-4ee3-91df-d85c7b8ff0f3"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0104 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.5
+                    },
+                    "uuid": "caee3cb2-8aed-41b2-9c19-6574a5ecd0b5"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.1
+                    },
+                    "uuid": "df8d5c71-4287-4ee3-91df-d85c7b8ff0f3"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1022 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.2500 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.75
+                    },
+                    "uuid": "9cbc4e8d-82ba-4b6e-ad4a-2e2d74b842c9"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.1
+                    },
+                    "uuid": "df8d5c71-4287-4ee3-91df-d85c7b8ff0f3"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_BCLK 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.7071 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.4
+                    },
+                    "uuid": "51e46c3b-8c08-4ed3-bf77-b3cfbb565b18"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 112.1
+                    },
+                    "uuid": "df8d5c71-4287-4ee3-91df-d85c7b8ff0f3"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1604 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.5625 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "c860da59-7e53-4944-bddd-58d6b1b13f42"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.5
+                    },
+                    "uuid": "caee3cb2-8aed-41b2-9c19-6574a5ecd0b5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}

@@ -1,0 +1,222 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:11:30",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-5v-reroute-power.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.5622 mm",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 108.5
+                    },
+                    "uuid": "1b31a60e-66ef-4b10-8a57-54d1067b2dfa"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 4.2426 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 111.95
+                    },
+                    "uuid": "bc4a4abb-3a0b-4955-bfec-fd1ec20e7243"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 AUDIO_HP_L)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 4.5277 mm",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 113.0
+                    },
+                    "uuid": "88f2f1c5-df39-46f2-8baf-922dc77385a9"
+                },
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 6.0000 mm",
+                    "pos": {
+                        "x": 146.0,
+                        "y": 108.5
+                    },
+                    "uuid": "1c6998a8-712e-49da-91d0-f276d9e7547b"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (F.Cu), 长度: 3.8891 mm",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 109.85
+                    },
+                    "uuid": "8c265cda-50a4-44f7-a3dd-613124f83a90"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.6745 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "c0526cd9-aa48-45de-a55e-a1fa72cabdfe"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +5V)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (F.Cu), 长度: 0.5000 mm",
+                    "pos": {
+                        "x": 152.6,
+                        "y": 108.95
+                    },
+                    "uuid": "14619a61-1ba7-41c7-9100-f6ae79e96b9f"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.5622 mm",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 108.5
+                    },
+                    "uuid": "1b31a60e-66ef-4b10-8a57-54d1067b2dfa"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.6745 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "c0526cd9-aa48-45de-a55e-a1fa72cabdfe"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.46,
+                        "y": 110.06
+                    },
+                    "uuid": "12880710-bab6-4e39-98e5-9f5aaef16253"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 4.5277 mm",
+                    "pos": {
+                        "x": 146.5,
+                        "y": 113.0
+                    },
+                    "uuid": "88f2f1c5-df39-46f2-8baf-922dc77385a9"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7,
+                        "y": 111.9
+                    },
+                    "uuid": "1c827304-9ee3-4645-8fb4-4ad38e64dd04"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        }
+    ]
+}
