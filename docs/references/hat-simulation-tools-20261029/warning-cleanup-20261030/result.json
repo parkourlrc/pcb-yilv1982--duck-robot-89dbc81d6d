@@ -1,0 +1,45 @@
+{
+  "removed_vias": {
+    "ee78dcee-878c-4afc-8028-e77cc9fc0fac": "AUDIO_L",
+    "f09e92f2-c04a-4859-9ba2-5efa8700e229": "AUDIO_AMP_EN"
+  },
+  "moved_u301_silk_to_fab": true,
+  "candidate_hash": "dfb094272b6c7e2420281b60e1f3e87a40adfe083df47b051b5ec491651d9251",
+  "promoted": true,
+  "before_ordinary_warnings": 11,
+  "after_ordinary_warnings": 0,
+  "before_unconnected": 1,
+  "after_unconnected": 1,
+  "parity_warnings": 101,
+  "drc": {
+    "violations": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    },
+    "unconnected_items": {
+      "count": 1,
+      "types": {
+        "unconnected_items": 1
+      },
+      "severities": {
+        "error": 1
+      }
+    },
+    "schematic_parity": {
+      "count": 101,
+      "types": {
+        "footprint_symbol_mismatch": 60,
+        "net_conflict": 32,
+        "missing_footprint": 4,
+        "footprint_symbol_field_mismatch": 1,
+        "extra_footprint": 4
+      },
+      "severities": {
+        "warning": 101
+      }
+    }
+  },
+  "primary_source_hash": "dfb094272b6c7e2420281b60e1f3e87a40adfe083df47b051b5ec491651d9251",
+  "note": "Manual exact patch matched the validated cleanup candidate; complete pipeline recheck passed."
+}

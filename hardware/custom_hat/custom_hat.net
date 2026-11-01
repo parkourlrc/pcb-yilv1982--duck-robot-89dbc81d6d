@@ -1,0 +1,291 @@
+(export
+	(version "E")
+	(design
+		(source "E:\\Projects\\duck-robot\\hardware\\custom_hat\\custom_hat.kicad_sch")
+		(date "2026-10-28T16:18:58")
+		(tool "Eeschema 10.0.7")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "custom_hat.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "J1")
+			(value "~")
+			(footprint "microduck:banana_pin")
+			(fields
+				(field
+					(name "Footprint") "microduck:banana_pin")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "microduck")
+				(part "banana_1p")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "custom_hat")
+			)
+			(property
+				(name "Sheetfile")
+				(value "custom_hat.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f953bce4-d592-4809-9c3c-2b55e770cdc5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J2")
+			(value "~")
+			(footprint "microduck:banana_pin")
+			(fields
+				(field
+					(name "Footprint") "microduck:banana_pin")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "microduck")
+				(part "banana_1p")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "custom_hat")
+			)
+			(property
+				(name "Sheetfile")
+				(value "custom_hat.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "e2b05e65-b56d-4ff0-8583-6c634730b4fa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J3")
+			(value "~")
+			(footprint "microduck:pad-2(surf)")
+			(fields
+				(field
+					(name "Footprint") "microduck:pad-2(surf)")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "microduck")
+				(part "pad-2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "custom_hat")
+			)
+			(property
+				(name "Sheetfile")
+				(value "custom_hat.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "227a7e6e-d3e4-476b-b456-9d70ce17d689")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "microduck")
+			(part "banana_1p")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint") "microduck:banana_pin")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "unspecified")
+				)
+			)
+		)
+		(libpart
+			(lib "microduck")
+			(part "pad-2")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint") "microduck:pad-2(thru)")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "unspecified")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "unspecified")
+				)
+			)
+		)
+	)
+	(libraries)
+	(nets
+		(net
+			(code "1")
+			(name "Net-(J1-Pad1)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "J3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "2")
+			(name "Net-(J2-Pad1)")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "J3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "unspecified")
+			)
+		)
+	)
+)

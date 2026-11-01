@@ -1,0 +1,3298 @@
+{
+  "kicad": "10.0.7",
+  "source_hashes": {
+    "audio.kicad_sch": "16e31699ad02098219ca678e2fc6d5566f3c47c08a45c05b1ef96f7cf758f0d2",
+    "base-clean.kicad_pcb": "0c35e7f6d0aac5cf892cafa25f8a69f3ca224e0c7a57c85bc7ae6ab3e745acfd",
+    "best.kicad_pcb": "e4266914e29cc9263c55b80ca5610fae030af9d400fa173742ef8bc3602bbc55",
+    "custom_hat_rev_a.kicad_dru": "3c6173b363da278f3f3dfefae4cd38102e8a8806495f597c52be70764ca03f49",
+    "custom_hat_rev_a.kicad_pcb": "e4266914e29cc9263c55b80ca5610fae030af9d400fa173742ef8bc3602bbc55",
+    "custom_hat_rev_a.kicad_pro": "5e5d578b95dbd63c3f7a456a5a22b0623af912b9bea5c759a2afac833ee13b33",
+    "custom_hat_rev_a.kicad_sch": "798b63ba1192c4a86d9c7f70e29fd1d0b0e9796c994c33a6e59f9f200d9b4508",
+    "custom_hat_rev_a.net": "8b68446367e4fa29273ef551d93d10a5ed41f84448c658aca6c7fbcac094129f",
+    "drc-fanout.rpt": "c2653e84874267d9e2cd91a50df6712f57fccfe316ae9a1cfc12ebca116f5546",
+    "drc-ring.rpt": "8c75f54a7d3421b8d6c2acfd2f6145973d16bf56fc09da128991339658f2c687",
+    "drc-stitch.rpt": "fc4014e388dc03a8915631d92c5144e8982d4e1865eabd9e45c82dd53a55587a",
+    "drc-sweep.rpt": "f7ee9a3f530bc8c0381d28ceac57d830b52e339f1862fffc984fd39cc80f7e80",
+    "drc.rpt": "c0af5896026bebd5e9a0c90adbeded38ccc45d48d73d115407f9a8cd1a569692",
+    "duck.kicad_sym": "05e02088ff1339a496e2c9f07c802a1b901bf425bc737523e3f2a8f489038fd5",
+    "erc-all.rpt": "bd2a38bdc61b257e3aa7b52262ea057fa159334342de4c830ccacc5477dcba1b",
+    "erc.rpt": "74372e223172732a0eeea8ed38444c0d5863335266368645a476672ece21d211",
+    "fanout-check.kicad_pcb": "f59d2ddd72a96092746fafe3d7e539a0dd78363d2c11594bec52b19ce1a6305a",
+    "fanout-check.kicad_pro": "9ac543922fc643b0d7f9221dd00f55a51ecaf82e2af88320fab0d381b8bf8bd3",
+    "fanout-check.rpt": "68debb09919295bd8b3b06b2679040568501d0b213d713370c551edca3a80811",
+    "fp-lib-table": "2208a33efa7872e9cddf95fda59d1e6d8784cafd110364b5a6c3970f48535bbe",
+    "imu_tof.kicad_sch": "82967dd80b191803cbe2fadb1775b7a1e12f65de87c45f2c5bcf9f22f4b0b8dc",
+    "net-contract.json": "c90a6e3f920b869c4dcbaf3bef2ff3db2f0bedf0bfbc26f64a8c992e505921f8",
+    "power.kicad_sch": "0dbe329a12fc28a54e5b9b6c5e29a1a48a69275145e28a34ef0fef9b541d590d",
+    "radxa_40p.kicad_sch": "b2227ce16736829310e4a0c23dc531a046a26714028b98ce903b42aaac5a22d5",
+    "README.md": "dd41f25cf97f2fc87d2dabc5f3b4f9f24601393ac08d3ed1c20661a1571a5ab4",
+    "rev_a-erc.txt": "ca364297ab1b5f6232ebd75ec5407a0d20803c3ff6211f5794d80cae280196ef",
+    "rev_a.net": "d02cd6c552943e4dd527f0ba4afb7230e019aad229d9a1d03ae4b17f4c3df11d",
+    "rev_a.pdf": "7d6ba18a60b4102e85fe7860ec2efef8cba490cee344232cc5e51b9e92648fc1",
+    "rev_a_pcb.pdf": "96216a24138a9f81d15b261ceac3028101aa2c5a60e587e2b616c3f1b3f17c54",
+    "servo_ttl.kicad_sch": "b870333c3ec59b316a5eaa056609d18a6733771071b5e87e8b2d801e40ee4c09",
+    "source-manifest.json": "5a4eec9c1bc8aef273fc6fe370635c942c97f2626ae5807f968f8b7e938ab567",
+    "sym-lib-table": "ccc3950c79c308bf22293891cb600afcb9b057635171e4043c8d554cff91b4cd",
+    "testpoints.kicad_sch": "641cabb3cc6450cc5decc0a4325482245d4e555fdf1ae02b738c538a04e37a81",
+    "via-work.kicad_pcb": "2c90dd018dee10aa5e930daade434f11d112edce9ea8a4fa8f4b4e30ef5e52fc",
+    "via-work.kicad_pro": "3c7a4923cf2e5d7ca554842ddd131e8e1ee4a5e6814d30850bfbd4ca7439920d",
+    "via-work.rpt": "3c7b46d37db4225215e3f0621915b3818b98fc0e7e732655e923c49c24f43a85",
+    "duck.pretty\\DEPRECATED_Bosch_LGA-16_3x4.5mm_P0.5mm.kicad_mod": "2a6187566807c85f2f2df0e87a8a92902701c45a6e37eb4ce5204c257e5c2b64",
+    "duck.pretty\\SO-8EP_AP64350.kicad_mod": "d305d4aea97ebc667033591885bb8a875b35b6dae7022c95000a1ba7633a3147",
+    "production\\custom_hat_rev_a-bom.csv": "cc6d8ac26ba2a8c409afe6e1f12a537f40d98b4ea05af47c4dc3c15fbb637ba6",
+    "production\\custom_hat_rev_a-B_Cu.gbl": "a643131533737b73e8bc58ecd9bc5c1eb96e67733d9163d395f63608d90efabc",
+    "production\\custom_hat_rev_a-B_Mask.gbs": "f5527e2ad370ebcd8730aa1c4f264a588612db1599c4bc7c45e4350ff9e46d37",
+    "production\\custom_hat_rev_a-B_Silkscreen.gbo": "02ab65120c3b931b6d3baf30a0957e0d78b1759f3e0ed3b4518ff77d3703147c",
+    "production\\custom_hat_rev_a-cpl.csv": "c2177487f2d7495cafb2357e7ee6255c2f142da614eedd8ab5846fdeb5de36c5",
+    "production\\custom_hat_rev_a-Edge_Cuts.gm1": "1f0a64c82f0af11d3f46f0678ecb4fdcba6ac070cb744698e0ba22cfbeadf9e4",
+    "production\\custom_hat_rev_a-F_Cu.gtl": "4d9b4469486784929c174858c371b618fa2f77818cfea5ac819312ec15bc386a",
+    "production\\custom_hat_rev_a-F_Mask.gts": "01c6ebf4262db6fd911ab66262c02ab8fcbdf488a37a76580e69ac4bea3ee79a",
+    "production\\custom_hat_rev_a-F_Silkscreen.gto": "c264cc06840e5f9d91070c5462de8a179626cf8bc02db352cdc486639967edcd",
+    "production\\custom_hat_rev_a-gerber.zip": "aa1bb832a060e9b8259878de2a52f8b62ad03a83094e48b028b5042b2e8560a8",
+    "production\\custom_hat_rev_a-In1_Cu.g1": "04bba34d0e83128e16217098e4b2ead024d95133beeec0671df9a1b6b28d9dae",
+    "production\\custom_hat_rev_a-In2_Cu.g2": "a79f0088948ec6ec169218378b0106e44cabe4b817a8fcee811a79f2ef993aa6",
+    "production\\custom_hat_rev_a-job.gbrjob": "a9a66ebd1d3e5ed2fa04c485c162cd09ec32e703d56bc045ee19ef9507bab4e4",
+    "production\\custom_hat_rev_a.drl": "d50142f6fbe892b4bd55ab765c6f09df116fe3c6e8870d4d70e4e87d484bf9cd",
+    "production\\README.md": "9b038f534e2253bc99b8fd2b81e146203233134b0745b5566ea92da05d167b47",
+    "route\\custom_hat_rev_a.dsn": "0c9e0b0829e37c2a0b7e4eb4821380ea6024557ae291bbcd7b4f6e2c097faaf2",
+    "route\\custom_hat_rev_a.ses": "9a7f90c253cfcc98a7781fa7c16ea199d0168fa80bcc6c2bc8201b1caa627687",
+    "simulation\\README.md": "81365d79a11658f57698357d5f2af264897acacb4bd600ad3866192cdb1102ca",
+    "simulation\\run_simulations.py": "a2c7e4ca5084193ff31faa8bc84f43201095fd61a325f09fc20ac643651bca56",
+    "simulation\\simulation_report.json": "8f8bd3536e72a477afc94460211d587522f67922ed2bd22ad661c456ac4cc867",
+    "simulation\\simulation_report.md": "2f15ae32699262834f27226b1f7d1153bcc365433feca3e94f913b6086dc98b1"
+  },
+  "commands": [
+    {
+      "name": "drc-cached",
+      "args": [
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\drc-cached.json",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\complete\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "drc-refilled",
+      "args": [
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\drc-refilled.json",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\complete\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "drc-parity",
+      "args": [
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--schematic-parity",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\drc-parity.json",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\complete\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "erc",
+      "args": [
+        "sch",
+        "erc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\erc.json",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\complete\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "netlist",
+      "args": [
+        "sch",
+        "export",
+        "netlist",
+        "--format",
+        "kicadxml",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\netlist.xml",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\complete\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "drc-missing-project-control",
+      "args": [
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--output",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\audit-20261030\\drc-missing-project-control.json",
+        "C:\\Users\\yilv\\AppData\\Local\\Temp\\hat-audit-w3n1z37z\\pcb-only\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    }
+  ],
+  "board": {
+    "footprints": 60,
+    "segments": 538,
+    "vias": 74,
+    "zones": [
+      {
+        "layer": "F.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "B.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In2.Cu",
+        "net": "+3V3"
+      }
+    ],
+    "outline_vertices_mm": [
+      [
+        100.0,
+        100.0
+      ],
+      [
+        100.0,
+        130.0
+      ],
+      [
+        165.0,
+        100.0
+      ],
+      [
+        165.0,
+        130.0
+      ]
+    ],
+    "parts": {
+      "C307": {
+        "value": "22uF reserve",
+        "footprint": "C_1206_3216Metric",
+        "position_mm": [
+          159.0,
+          114.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "D301": {
+        "value": "SMBJ12A (fitted)",
+        "footprint": "D_SMB",
+        "position_mm": [
+          115.5,
+          111.5
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "J402": {
+        "value": "DYNAMIXEL_TTL_2",
+        "footprint": "JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical",
+        "position_mm": [
+          108.35,
+          120.97
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "2",
+            "net": "SERVO_VBAT"
+          },
+          {
+            "number": "3",
+            "net": "DXL_DATA"
+          }
+        ]
+      },
+      "C303": {
+        "value": "10uF",
+        "footprint": "C_1206_3216Metric",
+        "position_mm": [
+          115.5,
+          120.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C305": {
+        "value": "22uF",
+        "footprint": "C_1206_3216Metric",
+        "position_mm": [
+          149.0,
+          114.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "U501": {
+        "value": "BMI088",
+        "footprint": "Bosch_LGA-16_4.5x3mm_P0.5mm_LayoutBorder7x1y_ClockwisePinNumbering",
+        "position_mm": [
+          161.69,
+          109.54
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": ""
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "3",
+            "net": "+3V3"
+          },
+          {
+            "number": "4",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "5",
+            "net": ""
+          },
+          {
+            "number": "6",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "7",
+            "net": "+3V3"
+          },
+          {
+            "number": "8",
+            "net": "I2C5_SCL"
+          },
+          {
+            "number": "9",
+            "net": "I2C5_SDA"
+          },
+          {
+            "number": "10",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "11",
+            "net": "+3V3"
+          },
+          {
+            "number": "12",
+            "net": "BMI_INT3_TP"
+          },
+          {
+            "number": "13",
+            "net": ""
+          },
+          {
+            "number": "14",
+            "net": "+3V3"
+          },
+          {
+            "number": "15",
+            "net": "+3V3"
+          },
+          {
+            "number": "16",
+            "net": "BMI_INT1_TP"
+          }
+        ]
+      },
+      "H1": {
+        "value": "MountingHole_2.7mm_M2.5",
+        "footprint": "MountingHole_2.7mm_M2.5",
+        "position_mm": [
+          103.6,
+          103.6
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          }
+        ]
+      },
+      "H3": {
+        "value": "MountingHole_2.7mm_M2.5",
+        "footprint": "MountingHole_2.7mm_M2.5",
+        "position_mm": [
+          103.6,
+          126.4
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          }
+        ]
+      },
+      "TP801": {
+        "value": "VBATT_2S_IN",
+        "footprint": "TestPoint_Pad_D1.5mm",
+        "position_mm": [
+          121.05,
+          110.81
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          }
+        ]
+      },
+      "J403": {
+        "value": "HOST_UART2",
+        "footprint": "PinHeader_1x03_P2.54mm_Vertical",
+        "position_mm": [
+          121.05,
+          117.16
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "UART2_TX"
+          },
+          {
+            "number": "2",
+            "net": "UART2_RX"
+          },
+          {
+            "number": "3",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C301": {
+        "value": "3.3nF",
+        "footprint": "C_0805_2012Metric",
+        "position_mm": [
+          153.0,
+          124.2
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "COMP_RC"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C306": {
+        "value": "22uF",
+        "footprint": "C_1206_3216Metric",
+        "position_mm": [
+          154.0,
+          114.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R304": {
+        "value": "14k",
+        "footprint": "R_0805_2012Metric",
+        "position_mm": [
+          148.0,
+          124.2
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BUCK_COMP"
+          },
+          {
+            "number": "2",
+            "net": "COMP_RC"
+          }
+        ]
+      },
+      "R303": {
+        "value": "200k",
+        "footprint": "R_0805_2012Metric",
+        "position_mm": [
+          126.0,
+          122.5
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BUCK_RT"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C304": {
+        "value": "10uF",
+        "footprint": "C_1206_3216Metric",
+        "position_mm": [
+          115.5,
+          123.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R305": {
+        "value": "100k",
+        "footprint": "R_0805_2012Metric",
+        "position_mm": [
+          115.5,
+          116.5
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "BUCK_EN"
+          }
+        ]
+      },
+      "J401": {
+        "value": "DYNAMIXEL_TTL_1",
+        "footprint": "JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical",
+        "position_mm": [
+          148.99,
+          119.7
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "2",
+            "net": "SERVO_VBAT"
+          },
+          {
+            "number": "3",
+            "net": "DXL_DATA"
+          }
+        ]
+      },
+      "U301": {
+        "value": "AP64350",
+        "footprint": "SO-8EP_AP64350",
+        "position_mm": [
+          126.0,
+          114.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BUCK_BST"
+          },
+          {
+            "number": "2",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "3",
+            "net": "BUCK_EN"
+          },
+          {
+            "number": "4",
+            "net": "BUCK_RT"
+          },
+          {
+            "number": "5",
+            "net": "+5V_FB"
+          },
+          {
+            "number": "6",
+            "net": "BUCK_COMP"
+          },
+          {
+            "number": "7",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "8",
+            "net": "BUCK_SW"
+          },
+          {
+            "number": "9",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R302": {
+        "value": "10k",
+        "footprint": "R_0805_2012Metric",
+        "position_mm": [
+          143.0,
+          124.2
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V_FB"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R301": {
+        "value": "52.3k",
+        "footprint": "R_0805_2012Metric",
+        "position_mm": [
+          138.0,
+          124.2
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          },
+          {
+            "number": "2",
+            "net": "+5V_FB"
+          }
+        ]
+      },
+      "J802": {
+        "value": "IMU_INT_TP",
+        "footprint": "PinHeader_1x02_P2.54mm_Vertical",
+        "position_mm": [
+          160.42,
+          120.97
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BMI_INT1_TP"
+          },
+          {
+            "number": "2",
+            "net": "BMI_INT3_TP"
+          }
+        ]
+      },
+      "J301": {
+        "value": "POWER_AND_RAILS",
+        "footprint": "PinHeader_1x08_P2.54mm_Vertical",
+        "position_mm": [
+          126.13,
+          127.32
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "3",
+            "net": "+5V"
+          },
+          {
+            "number": "4",
+            "net": "+3V3"
+          },
+          {
+            "number": "5",
+            "net": ""
+          },
+          {
+            "number": "6",
+            "net": "+1V8_CODEC"
+          },
+          {
+            "number": "7",
+            "net": "SERVO_VBAT"
+          },
+          {
+            "number": "8",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "H2": {
+        "value": "MountingHole_2.7mm_M2.5",
+        "footprint": "MountingHole_2.7mm_M2.5",
+        "position_mm": [
+          161.4,
+          103.6
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          }
+        ]
+      },
+      "TP803": {
+        "value": "+3V3",
+        "footprint": "TestPoint_Pad_D1.5mm",
+        "position_mm": [
+          132.48,
+          124.78
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "C302": {
+        "value": "100nF",
+        "footprint": "C_0805_2012Metric",
+        "position_mm": [
+          126.0,
+          119.0
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BUCK_BST"
+          },
+          {
+            "number": "2",
+            "net": "BUCK_SW"
+          }
+        ]
+      },
+      "L301": {
+        "value": "5.5uH",
+        "footprint": "L_12x12mm_H8mm",
+        "position_mm": [
+          138.0,
+          115.9
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "BUCK_SW"
+          },
+          {
+            "number": "2",
+            "net": "+5V"
+          }
+        ]
+      },
+      "J101": {
+        "value": "RADXA_ZERO_3W_40P",
+        "footprint": "PinSocket_2x20_P2.54mm_Vertical",
+        "position_mm": [
+          108.32,
+          104.59
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "+5V"
+          },
+          {
+            "number": "3",
+            "net": ""
+          },
+          {
+            "number": "4",
+            "net": "+5V"
+          },
+          {
+            "number": "5",
+            "net": ""
+          },
+          {
+            "number": "6",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "7",
+            "net": ""
+          },
+          {
+            "number": "8",
+            "net": "UART2_TX"
+          },
+          {
+            "number": "9",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "10",
+            "net": "UART2_RX"
+          },
+          {
+            "number": "11",
+            "net": "DXL_DIR"
+          },
+          {
+            "number": "12",
+            "net": "I2S_BCLK"
+          },
+          {
+            "number": "13",
+            "net": "I2S_MCLK"
+          },
+          {
+            "number": "14",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "15",
+            "net": ""
+          },
+          {
+            "number": "16",
+            "net": ""
+          },
+          {
+            "number": "17",
+            "net": "+3V3"
+          },
+          {
+            "number": "18",
+            "net": ""
+          },
+          {
+            "number": "19",
+            "net": ""
+          },
+          {
+            "number": "20",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "21",
+            "net": ""
+          },
+          {
+            "number": "22",
+            "net": ""
+          },
+          {
+            "number": "23",
+            "net": ""
+          },
+          {
+            "number": "24",
+            "net": ""
+          },
+          {
+            "number": "25",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "26",
+            "net": ""
+          },
+          {
+            "number": "27",
+            "net": ""
+          },
+          {
+            "number": "28",
+            "net": ""
+          },
+          {
+            "number": "29",
+            "net": "I2C5_SCL"
+          },
+          {
+            "number": "30",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "31",
+            "net": "I2C5_SDA"
+          },
+          {
+            "number": "32",
+            "net": ""
+          },
+          {
+            "number": "33",
+            "net": ""
+          },
+          {
+            "number": "34",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "35",
+            "net": "I2S_LRCK"
+          },
+          {
+            "number": "36",
+            "net": ""
+          },
+          {
+            "number": "37",
+            "net": ""
+          },
+          {
+            "number": "38",
+            "net": "I2S_SDI"
+          },
+          {
+            "number": "39",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "40",
+            "net": "I2S_SDO"
+          }
+        ]
+      },
+      "H4": {
+        "value": "MountingHole_2.7mm_M2.5",
+        "footprint": "MountingHole_2.7mm_M2.5",
+        "position_mm": [
+          161.4,
+          126.4
+        ],
+        "layer": "F.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          }
+        ]
+      },
+      "C317": {
+        "value": "10uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          143.91,
+          110.81
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_HP_L"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_L"
+          }
+        ]
+      },
+      "C319": {
+        "value": "100nF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          143.91,
+          115.89
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "J502": {
+        "value": "TOF_I2C5",
+        "footprint": "JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical",
+        "position_mm": [
+          160.42,
+          112.08
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "3",
+            "net": "I2C5_SCL"
+          },
+          {
+            "number": "4",
+            "net": "I2C5_SDA"
+          },
+          {
+            "number": "MP",
+            "net": ""
+          },
+          {
+            "number": "MP",
+            "net": ""
+          }
+        ]
+      },
+      "C325": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          138.83,
+          123.51
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_MIC"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_MIC_AC"
+          }
+        ]
+      },
+      "C308": {
+        "value": "1uF",
+        "footprint": "C_0805_2012Metric",
+        "position_mm": [
+          126.13,
+          114.62
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "U701": {
+        "value": "TLV320AIC3104",
+        "footprint": "VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm",
+        "position_mm": [
+          152.8,
+          113.35
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "1",
+            "net": "I2S_MCLK"
+          },
+          {
+            "number": "2",
+            "net": "I2S_BCLK"
+          },
+          {
+            "number": "3",
+            "net": "I2S_LRCK"
+          },
+          {
+            "number": "4",
+            "net": "I2S_SDO"
+          },
+          {
+            "number": "5",
+            "net": "I2S_SDI"
+          },
+          {
+            "number": "6",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "7",
+            "net": "+3V3"
+          },
+          {
+            "number": "8",
+            "net": "I2C5_SCL"
+          },
+          {
+            "number": "9",
+            "net": "I2C5_SDA"
+          },
+          {
+            "number": "10",
+            "net": "AUDIO_MIC_AC"
+          },
+          {
+            "number": "11",
+            "net": "AUDIO_MIC_REF"
+          },
+          {
+            "number": "12",
+            "net": ""
+          },
+          {
+            "number": "13",
+            "net": ""
+          },
+          {
+            "number": "14",
+            "net": ""
+          },
+          {
+            "number": "15",
+            "net": "AUDIO_MIC_BIAS"
+          },
+          {
+            "number": "16",
+            "net": ""
+          },
+          {
+            "number": "17",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "18",
+            "net": "+3V3"
+          },
+          {
+            "number": "19",
+            "net": "AUDIO_HP_L"
+          },
+          {
+            "number": "20",
+            "net": ""
+          },
+          {
+            "number": "21",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "22",
+            "net": ""
+          },
+          {
+            "number": "23",
+            "net": "AUDIO_HP_R"
+          },
+          {
+            "number": "24",
+            "net": "+3V3"
+          },
+          {
+            "number": "25",
+            "net": "+3V3"
+          },
+          {
+            "number": "26",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "27",
+            "net": "AUDIO_LINE_L"
+          },
+          {
+            "number": "28",
+            "net": ""
+          },
+          {
+            "number": "29",
+            "net": ""
+          },
+          {
+            "number": "30",
+            "net": ""
+          },
+          {
+            "number": "31",
+            "net": "CODEC_RST"
+          },
+          {
+            "number": "32",
+            "net": "+1V8_CODEC"
+          },
+          {
+            "number": "33",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R308": {
+        "value": "10k",
+        "footprint": "R_0402_1005Metric",
+        "position_mm": [
+          146.45,
+          110.81
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "CODEC_RST"
+          },
+          {
+            "number": "2",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "C320": {
+        "value": "100nF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          141.37,
+          115.89
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C310": {
+        "value": "100nF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          147.72,
+          113.35
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "CODEC_RST"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "J506": {
+        "value": "SPEAKER",
+        "footprint": "JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical",
+        "position_mm": [
+          113.43,
+          126.05
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "SPK_P"
+          },
+          {
+            "number": "2",
+            "net": "SPK_N"
+          },
+          {
+            "number": "MP",
+            "net": ""
+          },
+          {
+            "number": "MP",
+            "net": ""
+          }
+        ]
+      },
+      "C321": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          132.48,
+          114.62
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_LINE_L"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_AMP_INP"
+          }
+        ]
+      },
+      "C323": {
+        "value": "10uF",
+        "footprint": "C_0805_2012Metric",
+        "position_mm": [
+          132.48,
+          112.08
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C322": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          137.56,
+          115.89
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_AMP_INN"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "R310": {
+        "value": "100k",
+        "footprint": "R_0402_1005Metric",
+        "position_mm": [
+          141.37,
+          123.51
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "DXL_DIR"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "TP802": {
+        "value": "+5V",
+        "footprint": "TestPoint_Pad_D1.5mm",
+        "position_mm": [
+          123.59,
+          110.81
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+5V"
+          }
+        ]
+      },
+      "C327": {
+        "value": "100nF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          152.8,
+          126.05
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_MIC_BIAS"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C313": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          147.72,
+          115.89
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "U803": {
+        "value": "PAM8302A",
+        "footprint": "SOIC-8_3.9x4.9mm_P1.27mm",
+        "position_mm": [
+          147.72,
+          126.05
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_AMP_EN"
+          },
+          {
+            "number": "2",
+            "net": ""
+          },
+          {
+            "number": "3",
+            "net": "AUDIO_AMP_INP"
+          },
+          {
+            "number": "4",
+            "net": "AUDIO_AMP_INN"
+          },
+          {
+            "number": "5",
+            "net": "SPK_P"
+          },
+          {
+            "number": "6",
+            "net": "+5V"
+          },
+          {
+            "number": "7",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "8",
+            "net": "SPK_N"
+          }
+        ]
+      },
+      "C318": {
+        "value": "10uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          145.18,
+          113.35
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_HP_R"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_R"
+          }
+        ]
+      },
+      "R311": {
+        "value": "100k",
+        "footprint": "R_0402_1005Metric",
+        "position_mm": [
+          122.32,
+          113.35
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_AMP_EN"
+          },
+          {
+            "number": "2",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "R309": {
+        "value": "0R",
+        "footprint": "R_1206_3216Metric",
+        "position_mm": [
+          117.24,
+          119.7
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "VBATT_2S_IN"
+          },
+          {
+            "number": "2",
+            "net": "SERVO_VBAT"
+          }
+        ]
+      },
+      "C315": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          156.61,
+          123.51
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "C326": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          154.07,
+          123.51
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_MIC_REF"
+          }
+        ]
+      },
+      "U702": {
+        "value": "LP38693DT-1.8 codec 1V8",
+        "footprint": "TO-252-3_TabPin2",
+        "position_mm": [
+          131.21,
+          119.7
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "",
+            "net": ""
+          },
+          {
+            "number": "1",
+            "net": "+1V8_CODEC"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "3",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "J504": {
+        "value": "AUDIO_OUT_SH",
+        "footprint": "JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical",
+        "position_mm": [
+          138.83,
+          112.08
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_L"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_R"
+          },
+          {
+            "number": "3",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "MP",
+            "net": ""
+          },
+          {
+            "number": "MP",
+            "net": ""
+          }
+        ]
+      },
+      "R312": {
+        "value": "2.2k",
+        "footprint": "R_0402_1005Metric",
+        "position_mm": [
+          129.94,
+          114.62
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_MIC_BIAS"
+          },
+          {
+            "number": "2",
+            "net": "AUDIO_MIC"
+          }
+        ]
+      },
+      "C312": {
+        "value": "100nF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          162.96,
+          108.27
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+3V3"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "U802": {
+        "value": "SN74LVC1G125",
+        "footprint": "SOT-23-5",
+        "position_mm": [
+          141.37,
+          119.7
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "DXL_DIR"
+          },
+          {
+            "number": "2",
+            "net": "DXL_DATA"
+          },
+          {
+            "number": "3",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "4",
+            "net": "UART2_RX"
+          },
+          {
+            "number": "5",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "C309": {
+        "value": "1uF",
+        "footprint": "C_0805_2012Metric",
+        "position_mm": [
+          137.56,
+          119.7
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+1V8_CODEC"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "U801": {
+        "value": "SN74LVC1G126",
+        "footprint": "SOT-23-5",
+        "position_mm": [
+          133.75,
+          126.05
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "DXL_DIR"
+          },
+          {
+            "number": "2",
+            "net": "UART2_TX"
+          },
+          {
+            "number": "3",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "4",
+            "net": "DXL_DATA"
+          },
+          {
+            "number": "5",
+            "net": "+3V3"
+          }
+        ]
+      },
+      "C311": {
+        "value": "1uF",
+        "footprint": "C_0402_1005Metric",
+        "position_mm": [
+          160.42,
+          108.27
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "+1V8_CODEC"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          }
+        ]
+      },
+      "J505": {
+        "value": "MIC_IN",
+        "footprint": "JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical",
+        "position_mm": [
+          115.97,
+          113.35
+        ],
+        "layer": "B.Cu",
+        "pads": [
+          {
+            "number": "1",
+            "net": "AUDIO_MIC"
+          },
+          {
+            "number": "2",
+            "net": "POWER_GND"
+          },
+          {
+            "number": "MP",
+            "net": ""
+          },
+          {
+            "number": "MP",
+            "net": ""
+          }
+        ]
+      }
+    }
+  },
+  "schematic_nets": {
+    "+1V8_CODEC": [
+      {
+        "ref": "C309",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C311",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J301",
+        "pin": "6",
+        "pinfunction": "Pin_6_6",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "32",
+        "pinfunction": "DVDD_32",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U702",
+        "pin": "1",
+        "pinfunction": "OUT_1",
+        "pintype": "power_out"
+      }
+    ],
+    "+3V3": [
+      {
+        "ref": "C308",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C312",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C313",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C315",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C319",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C320",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "FLG2",
+        "pin": "1",
+        "pintype": "power_out"
+      },
+      {
+        "ref": "J101",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "17",
+        "pinfunction": "Pin_17_17",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J301",
+        "pin": "4",
+        "pinfunction": "Pin_4_4",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J502",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R308",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R311",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "TP803",
+        "pin": "1",
+        "pinfunction": "1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "11",
+        "pinfunction": "Pin_11_11",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "14",
+        "pinfunction": "Pin_14_14",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "15",
+        "pinfunction": "Pin_15_15",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "7",
+        "pinfunction": "Pin_7_7",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "18",
+        "pinfunction": "DRVDD_18",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "24",
+        "pinfunction": "DRVDD_24",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "25",
+        "pinfunction": "AVDD_25",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "7",
+        "pinfunction": "IOVDD_7",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U702",
+        "pin": "3",
+        "pinfunction": "IN_3",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U801",
+        "pin": "5",
+        "pinfunction": "VCC_5",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U802",
+        "pin": "5",
+        "pinfunction": "VCC_5",
+        "pintype": "power_in"
+      }
+    ],
+    "+5V": [
+      {
+        "ref": "C305",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C306",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C307",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C323",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "FLG1",
+        "pin": "1",
+        "pintype": "power_out"
+      },
+      {
+        "ref": "J101",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "4",
+        "pinfunction": "Pin_4_4",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J301",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "L301",
+        "pin": "2",
+        "pinfunction": "2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R301",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "TP802",
+        "pin": "1",
+        "pinfunction": "1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "6",
+        "pinfunction": "VDD_6",
+        "pintype": "power_in"
+      }
+    ],
+    "+5V_FB": [
+      {
+        "ref": "R301",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R302",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "5",
+        "pinfunction": "FB_5",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_AMP_EN": [
+      {
+        "ref": "R311",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "1",
+        "pinfunction": "~{SD}_1",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_AMP_INN": [
+      {
+        "ref": "C322",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "4",
+        "pinfunction": "IN-_4",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_AMP_INP": [
+      {
+        "ref": "C321",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "3",
+        "pinfunction": "IN+_3",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_HP_L": [
+      {
+        "ref": "C317",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "19",
+        "pinfunction": "HPLOUT_19",
+        "pintype": "output"
+      }
+    ],
+    "AUDIO_HP_R": [
+      {
+        "ref": "C318",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "23",
+        "pinfunction": "HPROUT_23",
+        "pintype": "output"
+      }
+    ],
+    "AUDIO_L": [
+      {
+        "ref": "C317",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J504",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      }
+    ],
+    "AUDIO_LINE_L": [
+      {
+        "ref": "C321",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "27",
+        "pinfunction": "LEFT_LOP_27",
+        "pintype": "output"
+      }
+    ],
+    "AUDIO_MIC": [
+      {
+        "ref": "C325",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J505",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R312",
+        "pin": "2",
+        "pintype": "passive"
+      }
+    ],
+    "AUDIO_MIC_AC": [
+      {
+        "ref": "C325",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "10",
+        "pinfunction": "MIC1LP/LINE1LP_10",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_MIC_BIAS": [
+      {
+        "ref": "C327",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R312",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "15",
+        "pinfunction": "MICBIAS_15",
+        "pintype": "output"
+      }
+    ],
+    "AUDIO_MIC_REF": [
+      {
+        "ref": "C326",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "11",
+        "pinfunction": "MIC1LM/LINE1LM_11",
+        "pintype": "input"
+      }
+    ],
+    "AUDIO_R": [
+      {
+        "ref": "C318",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J504",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      }
+    ],
+    "BMI_INT1_TP": [
+      {
+        "ref": "J802",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "16",
+        "pinfunction": "Pin_16_16",
+        "pintype": "passive"
+      }
+    ],
+    "BMI_INT3_TP": [
+      {
+        "ref": "J802",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "12",
+        "pinfunction": "Pin_12_12",
+        "pintype": "passive"
+      }
+    ],
+    "BUCK_BST": [
+      {
+        "ref": "C302",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "1",
+        "pinfunction": "BST_1",
+        "pintype": "input"
+      }
+    ],
+    "BUCK_COMP": [
+      {
+        "ref": "R304",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "6",
+        "pinfunction": "COMP_6",
+        "pintype": "output"
+      }
+    ],
+    "BUCK_EN": [
+      {
+        "ref": "R305",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "3",
+        "pinfunction": "EN_3",
+        "pintype": "input"
+      }
+    ],
+    "BUCK_RT": [
+      {
+        "ref": "R303",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "4",
+        "pinfunction": "RT/CLK_4",
+        "pintype": "input"
+      }
+    ],
+    "BUCK_SW": [
+      {
+        "ref": "C302",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "L301",
+        "pin": "1",
+        "pinfunction": "1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "8",
+        "pinfunction": "SW_8",
+        "pintype": "output"
+      }
+    ],
+    "CODEC_RST": [
+      {
+        "ref": "C310",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R308",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "31",
+        "pinfunction": "~{RESET}_31",
+        "pintype": "input"
+      }
+    ],
+    "COMP_RC": [
+      {
+        "ref": "C301",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R304",
+        "pin": "2",
+        "pintype": "passive"
+      }
+    ],
+    "DXL_DATA": [
+      {
+        "ref": "J401",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J402",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U801",
+        "pin": "4",
+        "pintype": "tri_state"
+      },
+      {
+        "ref": "U802",
+        "pin": "2",
+        "pintype": "input"
+      }
+    ],
+    "DXL_DIR": [
+      {
+        "ref": "J101",
+        "pin": "11",
+        "pinfunction": "Pin_11_11",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R310",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U801",
+        "pin": "1",
+        "pintype": "input"
+      },
+      {
+        "ref": "U802",
+        "pin": "1",
+        "pintype": "input"
+      }
+    ],
+    "I2C5_SCL": [
+      {
+        "ref": "J101",
+        "pin": "29",
+        "pinfunction": "Pin_29_29",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J502",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "8",
+        "pinfunction": "Pin_8_8",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "8",
+        "pinfunction": "SCL_8",
+        "pintype": "bidirectional"
+      }
+    ],
+    "I2C5_SDA": [
+      {
+        "ref": "J101",
+        "pin": "31",
+        "pinfunction": "Pin_31_31",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J502",
+        "pin": "4",
+        "pinfunction": "Pin_4_4",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "9",
+        "pinfunction": "Pin_9_9",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "9",
+        "pinfunction": "SDA_9",
+        "pintype": "bidirectional"
+      }
+    ],
+    "I2S_BCLK": [
+      {
+        "ref": "J101",
+        "pin": "12",
+        "pinfunction": "Pin_12_12",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "2",
+        "pinfunction": "BCLK_2",
+        "pintype": "input"
+      }
+    ],
+    "I2S_LRCK": [
+      {
+        "ref": "J101",
+        "pin": "35",
+        "pinfunction": "Pin_35_35",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "3",
+        "pinfunction": "WCLK_3",
+        "pintype": "input"
+      }
+    ],
+    "I2S_MCLK": [
+      {
+        "ref": "J101",
+        "pin": "13",
+        "pinfunction": "Pin_13_13",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "1",
+        "pinfunction": "MCLK_1",
+        "pintype": "input"
+      }
+    ],
+    "I2S_SDI": [
+      {
+        "ref": "J101",
+        "pin": "38",
+        "pinfunction": "Pin_38_38",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "5",
+        "pinfunction": "DOUT_5",
+        "pintype": "output"
+      }
+    ],
+    "I2S_SDO": [
+      {
+        "ref": "J101",
+        "pin": "40",
+        "pinfunction": "Pin_40_40",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "4",
+        "pinfunction": "DIN_4",
+        "pintype": "input"
+      }
+    ],
+    "POWER_GND": [
+      {
+        "ref": "C301",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C303",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C304",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C305",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C306",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C307",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C308",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C309",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C310",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C311",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C312",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C313",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C315",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C319",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C320",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C322",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C323",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C326",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C327",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "D301",
+        "pin": "2",
+        "pinfunction": "A2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "FLG4",
+        "pin": "1",
+        "pintype": "power_out"
+      },
+      {
+        "ref": "J101",
+        "pin": "14",
+        "pinfunction": "Pin_14_14",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "20",
+        "pinfunction": "Pin_20_20",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "25",
+        "pinfunction": "Pin_25_25",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "30",
+        "pinfunction": "Pin_30_30",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "34",
+        "pinfunction": "Pin_34_34",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "39",
+        "pinfunction": "Pin_39_39",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "6",
+        "pinfunction": "Pin_6_6",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J101",
+        "pin": "9",
+        "pinfunction": "Pin_9_9",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J301",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J301",
+        "pin": "8",
+        "pinfunction": "Pin_8_8",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J401",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J402",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J403",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J502",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J504",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J505",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R302",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R303",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R310",
+        "pin": "2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "7",
+        "pinfunction": "GND_7",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U301",
+        "pin": "9",
+        "pinfunction": "EP_9",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U501",
+        "pin": "10",
+        "pinfunction": "Pin_10_10",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "4",
+        "pinfunction": "Pin_4_4",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U501",
+        "pin": "6",
+        "pinfunction": "Pin_6_6",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U701",
+        "pin": "17",
+        "pinfunction": "AVSS1_17",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "21",
+        "pinfunction": "DRVSS_21",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "26",
+        "pinfunction": "AVSS2_26",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "33",
+        "pinfunction": "EP_33",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U701",
+        "pin": "6",
+        "pinfunction": "DVSS_6",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U702",
+        "pin": "2",
+        "pinfunction": "GND_2",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U801",
+        "pin": "3",
+        "pinfunction": "GND_3",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U802",
+        "pin": "3",
+        "pinfunction": "GND_3",
+        "pintype": "power_in"
+      },
+      {
+        "ref": "U803",
+        "pin": "7",
+        "pinfunction": "GND_7",
+        "pintype": "power_in"
+      }
+    ],
+    "SERVO_VBAT": [
+      {
+        "ref": "J301",
+        "pin": "7",
+        "pinfunction": "Pin_7_7",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J401",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J402",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R309",
+        "pin": "2",
+        "pintype": "passive"
+      }
+    ],
+    "SPK_N": [
+      {
+        "ref": "J506",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "8",
+        "pinfunction": "OUT-_8",
+        "pintype": "output"
+      }
+    ],
+    "SPK_P": [
+      {
+        "ref": "J506",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U803",
+        "pin": "5",
+        "pinfunction": "OUT+_5",
+        "pintype": "output"
+      }
+    ],
+    "UART2_RX": [
+      {
+        "ref": "J101",
+        "pin": "10",
+        "pinfunction": "Pin_10_10",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J403",
+        "pin": "2",
+        "pinfunction": "Pin_2_2",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U802",
+        "pin": "4",
+        "pintype": "tri_state"
+      }
+    ],
+    "UART2_TX": [
+      {
+        "ref": "J101",
+        "pin": "8",
+        "pinfunction": "Pin_8_8",
+        "pintype": "passive"
+      },
+      {
+        "ref": "J403",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U801",
+        "pin": "2",
+        "pintype": "input"
+      }
+    ],
+    "VBATT_2S_IN": [
+      {
+        "ref": "C303",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "C304",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "D301",
+        "pin": "1",
+        "pinfunction": "A1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "FLG3",
+        "pin": "1",
+        "pintype": "power_out"
+      },
+      {
+        "ref": "J301",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R305",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "R309",
+        "pin": "1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "TP801",
+        "pin": "1",
+        "pinfunction": "1_1",
+        "pintype": "passive"
+      },
+      {
+        "ref": "U301",
+        "pin": "2",
+        "pinfunction": "VIN_2",
+        "pintype": "power_in"
+      }
+    ],
+    "unconnected-(J101-Pin_3-Pad3)": [
+      {
+        "ref": "J101",
+        "pin": "3",
+        "pinfunction": "Pin_3_3",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_5-Pad5)": [
+      {
+        "ref": "J101",
+        "pin": "5",
+        "pinfunction": "Pin_5_5",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_7-Pad7)": [
+      {
+        "ref": "J101",
+        "pin": "7",
+        "pinfunction": "Pin_7_7",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_15-Pad15)": [
+      {
+        "ref": "J101",
+        "pin": "15",
+        "pinfunction": "Pin_15_15",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_16-Pad16)": [
+      {
+        "ref": "J101",
+        "pin": "16",
+        "pinfunction": "Pin_16_16",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_18-Pad18)": [
+      {
+        "ref": "J101",
+        "pin": "18",
+        "pinfunction": "Pin_18_18",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_19-Pad19)": [
+      {
+        "ref": "J101",
+        "pin": "19",
+        "pinfunction": "Pin_19_19",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_21-Pad21)": [
+      {
+        "ref": "J101",
+        "pin": "21",
+        "pinfunction": "Pin_21_21",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_22-Pad22)": [
+      {
+        "ref": "J101",
+        "pin": "22",
+        "pinfunction": "Pin_22_22",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_23-Pad23)": [
+      {
+        "ref": "J101",
+        "pin": "23",
+        "pinfunction": "Pin_23_23",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_24-Pad24)": [
+      {
+        "ref": "J101",
+        "pin": "24",
+        "pinfunction": "Pin_24_24",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_26-Pad26)": [
+      {
+        "ref": "J101",
+        "pin": "26",
+        "pinfunction": "Pin_26_26",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_27-Pad27)": [
+      {
+        "ref": "J101",
+        "pin": "27",
+        "pinfunction": "Pin_27_27",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_28-Pad28)": [
+      {
+        "ref": "J101",
+        "pin": "28",
+        "pinfunction": "Pin_28_28",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_32-Pad32)": [
+      {
+        "ref": "J101",
+        "pin": "32",
+        "pinfunction": "Pin_32_32",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_33-Pad33)": [
+      {
+        "ref": "J101",
+        "pin": "33",
+        "pinfunction": "Pin_33_33",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_36-Pad36)": [
+      {
+        "ref": "J101",
+        "pin": "36",
+        "pinfunction": "Pin_36_36",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J101-Pin_37-Pad37)": [
+      {
+        "ref": "J101",
+        "pin": "37",
+        "pinfunction": "Pin_37_37",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(J301-Pin_5-Pad5)": [
+      {
+        "ref": "J301",
+        "pin": "5",
+        "pinfunction": "Pin_5_5",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(U501-Pin_1-Pad1)": [
+      {
+        "ref": "U501",
+        "pin": "1",
+        "pinfunction": "Pin_1_1",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(U501-Pin_5-Pad5)": [
+      {
+        "ref": "U501",
+        "pin": "5",
+        "pinfunction": "Pin_5_5",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(U501-Pin_13-Pad13)": [
+      {
+        "ref": "U501",
+        "pin": "13",
+        "pinfunction": "Pin_13_13",
+        "pintype": "passive+no_connect"
+      }
+    ],
+    "unconnected-(U701-HPLCOM-Pad20)": [
+      {
+        "ref": "U701",
+        "pin": "20",
+        "pinfunction": "HPLCOM_20",
+        "pintype": "output+no_connect"
+      }
+    ],
+    "unconnected-(U701-HPRCOM-Pad22)": [
+      {
+        "ref": "U701",
+        "pin": "22",
+        "pinfunction": "HPRCOM_22",
+        "pintype": "output+no_connect"
+      }
+    ],
+    "unconnected-(U701-LEFT_LOM-Pad28)": [
+      {
+        "ref": "U701",
+        "pin": "28",
+        "pinfunction": "LEFT_LOM_28",
+        "pintype": "output+no_connect"
+      }
+    ],
+    "unconnected-(U701-MIC1RM/LINE1RM-Pad13)": [
+      {
+        "ref": "U701",
+        "pin": "13",
+        "pinfunction": "MIC1RM/LINE1RM_13",
+        "pintype": "input+no_connect"
+      }
+    ],
+    "unconnected-(U701-MIC1RP/LINE1RP-Pad12)": [
+      {
+        "ref": "U701",
+        "pin": "12",
+        "pinfunction": "MIC1RP/LINE1RP_12",
+        "pintype": "input+no_connect"
+      }
+    ],
+    "unconnected-(U701-MIC2L/LINE2L/MICDET-Pad14)": [
+      {
+        "ref": "U701",
+        "pin": "14",
+        "pinfunction": "MIC2L/LINE2L/MICDET_14",
+        "pintype": "input+no_connect"
+      }
+    ],
+    "unconnected-(U701-MIC2R/LINE2R-Pad16)": [
+      {
+        "ref": "U701",
+        "pin": "16",
+        "pinfunction": "MIC2R/LINE2R_16",
+        "pintype": "input+no_connect"
+      }
+    ],
+    "unconnected-(U701-RIGHT_LOM-Pad30)": [
+      {
+        "ref": "U701",
+        "pin": "30",
+        "pinfunction": "RIGHT_LOM_30",
+        "pintype": "output+no_connect"
+      }
+    ],
+    "unconnected-(U701-RIGHT_LOP-Pad29)": [
+      {
+        "ref": "U701",
+        "pin": "29",
+        "pinfunction": "RIGHT_LOP_29",
+        "pintype": "output+no_connect"
+      }
+    ],
+    "unconnected-(U803-NC-Pad2)": [
+      {
+        "ref": "U803",
+        "pin": "2",
+        "pinfunction": "NC_2",
+        "pintype": "no_connect"
+      }
+    ]
+  },
+  "summary": {
+    "drc-cached": {
+      "violations": 29,
+      "unconnected_items": 23,
+      "schematic_parity": 0
+    },
+    "drc-missing-project-control": {
+      "violations": 213,
+      "unconnected_items": 23,
+      "schematic_parity": 0
+    },
+    "drc-parity": {
+      "violations": 29,
+      "unconnected_items": 23,
+      "schematic_parity": 101
+    },
+    "drc-refilled": {
+      "violations": 29,
+      "unconnected_items": 23,
+      "schematic_parity": 0
+    }
+  },
+  "source_unchanged": true
+}

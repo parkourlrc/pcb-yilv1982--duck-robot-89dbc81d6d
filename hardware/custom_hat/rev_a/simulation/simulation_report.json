@@ -1,0 +1,269 @@
+{
+  "tool": "run_simulations.py",
+  "power": {
+    "model": "buck_feedback_and_budget_behavior_model",
+    "status": "UNVALIDATED",
+    "assumed_criteria_met": true,
+    "assumptions": {
+      "regulator_vref_V": 0.8,
+      "regulator_vref_tolerance": 0.02,
+      "resistor_tolerance": 0.01,
+      "efficiency": 0.85,
+      "input_voltage_min_V": 6.0,
+      "input_current_limit_A": 2.0,
+      "loads_A": {
+        "+5V_screen": 0.35,
+        "+5V_misc": 0.15,
+        "+3V3_hat": 0.45,
+        "+1V8_codec": 0.12
+      },
+      "note": "Replace with selected regulator datasheet limits and measured load currents."
+    },
+    "feedback": {
+      "Rtop_ohm": 52300.0,
+      "Rbottom_ohm": 10000.0,
+      "Vout_nominal_V": 4.984,
+      "Vout_min_corner_V": 4.8031,
+      "Vout_max_corner_V": 5.1699,
+      "target_window_V": [
+        4.75,
+        5.25
+      ]
+    },
+    "budget": {
+      "total_output_current_A": 1.07,
+      "estimated_input_power_W": 6.2941,
+      "estimated_input_current_A": 1.049,
+      "input_limit_A": 2.0
+    }
+  },
+  "ttl": {
+    "model": "ttl_half_duplex_rc_behavior_model",
+    "status": "UNVALIDATED",
+    "assumed_criteria_met": true,
+    "assumptions": {
+      "logic_supply_V": 3.3,
+      "driver_output_resistance_ohm": 10.0,
+      "receiver_leakage_ohm": 1000000.0,
+      "max_rise_fall_ns": 250.0,
+      "min_steady_high_V": 2.31,
+      "note": "No transceiver IBIS/SPICE model, cable impedance, overshoot, or contention is modeled."
+    },
+    "sweep": [
+      {
+        "series_resistor_ohm": 0.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 0.44,
+        "steady_high_V": 3.3,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 0.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 1.1,
+        "steady_high_V": 3.3,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 0.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 2.2,
+        "steady_high_V": 3.3,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 0.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 4.4,
+        "steady_high_V": 3.3,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 0.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 8.8,
+        "steady_high_V": 3.3,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 22.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 1.408,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 22.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 3.52,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 22.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 7.04,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 22.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 14.08,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 22.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 28.16,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 33.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 1.892,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 33.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 4.73,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 33.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 9.46,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 33.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 18.92,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 33.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 37.84,
+        "steady_high_V": 3.2999,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 47.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 2.508,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 47.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 6.27,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 47.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 12.54,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 47.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 25.08,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 47.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 50.16,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 68.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 3.432,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 68.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 8.58,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 68.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 17.16,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 68.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 34.32,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 68.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 68.64,
+        "steady_high_V": 3.2998,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 100.0,
+        "load_capacitance_pF": 20.0,
+        "rise_fall_10_90_ns": 4.84,
+        "steady_high_V": 3.2997,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 100.0,
+        "load_capacitance_pF": 50.0,
+        "rise_fall_10_90_ns": 12.1,
+        "steady_high_V": 3.2997,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 100.0,
+        "load_capacitance_pF": 100.0,
+        "rise_fall_10_90_ns": 24.2,
+        "steady_high_V": 3.2997,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 100.0,
+        "load_capacitance_pF": 200.0,
+        "rise_fall_10_90_ns": 48.4,
+        "steady_high_V": 3.2997,
+        "pass": true
+      },
+      {
+        "series_resistor_ohm": 100.0,
+        "load_capacitance_pF": 400.0,
+        "rise_fall_10_90_ns": 96.8,
+        "steady_high_V": 3.2997,
+        "pass": true
+      }
+    ],
+    "summary": {
+      "cases": 30,
+      "passing_cases": 30
+    }
+  }
+}

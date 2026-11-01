@@ -1,0 +1,154 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T20:18:05",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-blind-correct.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.3625 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "5b5db8a3-fff7-4664-b451-044df6b7f5a9"
+                },
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1250 mm)",
+            "items": [
+                {
+                    "description": "In1.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 112.1
+                    },
+                    "uuid": "47f26e42-cf55-44fc-bea3-d7205f9cfe1e"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 8 [I2C5_SCL]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 111.6
+                    },
+                    "uuid": "eed164cb-6306-4652-892d-b7c524886765"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 +5V)",
+            "items": [
+                {
+                    "description": "In1.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 112.1
+                    },
+                    "uuid": "47f26e42-cf55-44fc-bea3-d7205f9cfe1e"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.2250 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.6
+                    },
+                    "uuid": "d179f059-ae65-48e4-b55c-8c8872484377"
+                },
+                {
+                    "description": "In1.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 112.1
+                    },
+                    "uuid": "47f26e42-cf55-44fc-bea3-d7205f9cfe1e"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.2250 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 8 [I2C5_SCL]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 111.6
+                    },
+                    "uuid": "eed164cb-6306-4652-892d-b7c524886765"
+                },
+                {
+                    "description": "In1.Cu - B.Cu 上的盲孔 [+3V3]",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 112.1
+                    },
+                    "uuid": "47f26e42-cf55-44fc-bea3-d7205f9cfe1e"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        }
+    ]
+}

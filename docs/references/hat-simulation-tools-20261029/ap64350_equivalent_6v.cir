@@ -1,0 +1,73 @@
+AP64350 equivalent switching model (behavioural, NOT the vendor model)
+* Vendor model status: ap64350.lib cannot run in ngspice 47 (see research.md).
+* This deck reproduces datasheet-level behaviour with ideal switches so the
+* 5 V rail can still be simulated. Parameters from DS41976 Rev.5-2 and the
+* AP64350SP-EVM BOM: 500 kHz (RT=200k), 5.5 uH, 44 uF + 5 mOhm, 75/45 mOhm
+* FETs, 3.5 A peak limit, 0.8 V reference, 52.3k/10k divider.
+* Control here is a behavioural voltage-mode PI, NOT the AP64350 current-mode
+* loop; use it for rail integrity (startup, droop, ripple), not loop stability.
+.param FSW=500k
+.param VREF=0.8
+.param ILIM=5.0
+.param KP=0.5
+.param KI=1m
+.param CINT=100n
+
+* --- input ---
+VIN  vin 0 DC 6.0
+CIN  vin 0 20u
+
+* --- soft-start reference: 0 -> 0.8 V in 1 ms ---
+BREF ref 0 V = {VREF}*min(time/1m,1)
+
+* --- behavioural PI controller ---
+BINT 0 ci I = {KI}*(V(ref)-V(fb))
+RBLEED ci 0 1Meg
+CINT ci 0 {CINT}
+BDUTY duty 0 V = min(max({KP}*(V(ref)-V(fb)) + V(ci),0),0.95)
+
+* --- 500 kHz ramp, comparator and cycle-by-cycle current limit ---
+VRAMP ramp 0 PULSE(0 1 0 {0.98/FSW} 0 1n {1/FSW})
+VSENSE swl swl2 0
+BPWM  pwmid 0 V = u(V(duty) - V(ramp)) * u({ILIM} - I(VSENSE))
+RPWM  pwmid pwm 100
+CPWM  pwm 0 100p
+BPWM2 pwmid2 0 V = 1 - V(pwmid)
+RPWM2 pwmid2 pwm2 100
+CPWM2 pwm2 0 100p
+
+* --- power stage ---
+S1   vin sw  pwm  0 SWHS
+S2   sw  0   pwm2 0 SWLS
+.model SWHS SW(Ron=0.075 Roff=1Meg Vt=0.55)
+.model SWLS SW(Ron=0.045 Roff=1Meg Vt=0.45)
+
+Rdcr sw swl 10.3m
+L1   swl2 vout 5.5u
+RESR vout cx 5m
+COUT cx 0 44u
+
+* body diodes + switch-node capacitance (freewheel path during dead time)
+DBODY1 0  sw DBODY
+DBODY2 sw vin DBODY
+CSW    sw 0 200p
+.model DBODY D(IS=1E-14 RS=0.05 CJO=200p TT=10n)
+
+* --- feedback divider: 52.3k / 10k -> 4.98 V ---
+RTOP vout fb 52.3k
+RBOT fb  0  10k
+
+* --- load: 0.5 A, step to 3.5 A at 1.5 ms ---
+ILOAD vout 0 PWL(0 0.5 1.49m 0.5 1.5m 3.5 2.6m 3.5)
+
+.options rshunt=1e9
+.tran 20n 2.6m uic
+.meas tran vout_avg AVG V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_min MIN V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_max MAX V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_dip MIN V(vout) FROM=1.5m TO=1.9m
+.meas tran il_max MAX I(VSENSE) FROM=1.5m TO=1.9m
+.meas tran vout_start FIND V(vout) AT=1m
+.end
+
+

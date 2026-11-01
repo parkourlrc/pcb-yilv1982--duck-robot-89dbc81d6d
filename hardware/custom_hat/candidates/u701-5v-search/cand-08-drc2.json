@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T22:10:12",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "cand-08.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.7778 mm",
+                    "pos": {
+                        "x": 150.325,
+                        "y": 114.0
+                    },
+                    "uuid": "8420ae73-66e2-4d6b-81d9-85acfdf2861f"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.0301 mm",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "0cfc6944-6477-4492-b128-c4b4ca2a2cee"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1565 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.1768 mm",
+                    "pos": {
+                        "x": 149.75,
+                        "y": 113.45
+                    },
+                    "uuid": "8d3b41dd-569a-431f-b4b6-6d5fe81acc05"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [POWER_GND]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "12411e22-ddeb-4c7b-bf73-51447643f2d2"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.7778 mm",
+                    "pos": {
+                        "x": 150.325,
+                        "y": 114.0
+                    },
+                    "uuid": "8420ae73-66e2-4d6b-81d9-85acfdf2861f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.7753 mm",
+                    "pos": {
+                        "x": 153.9605,
+                        "y": 111.1493
+                    },
+                    "uuid": "98dc1f4b-9f49-4368-80bb-67cbd9c3a4ca"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

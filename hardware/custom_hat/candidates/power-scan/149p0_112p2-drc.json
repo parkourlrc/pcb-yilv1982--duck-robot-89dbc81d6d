@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T19:59:19",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "149p0_112p2.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.3662 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "45637b1c-6b89-42c3-b019-1e1e04140eb8"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.3662 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "45637b1c-6b89-42c3-b019-1e1e04140eb8"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +3V3 和 I2S_SDO)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 112.2
+                    },
+                    "uuid": "04eb87af-077d-4a02-af74-d67c6f992de9"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1138 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 112.2
+                    },
+                    "uuid": "04eb87af-077d-4a02-af74-d67c6f992de9"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 5.9606 mm",
+                    "pos": {
+                        "x": 148.03,
+                        "y": 114.1088
+                    },
+                    "uuid": "fba9e347-6ea4-4033-94e0-b7850e29fde2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}

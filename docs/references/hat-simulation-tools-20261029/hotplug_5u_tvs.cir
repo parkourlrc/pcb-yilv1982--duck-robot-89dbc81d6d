@@ -1,0 +1,26 @@
+AP64350 input hot-plug transient - does the SMBJ12A TVS help?
+* Behavioural check only: cable inductance rings against the input capacitor when
+* the 2S pack is plugged in. TVS is modelled as a zener (BV 13.3 V, SMBJ12A
+* breakdown range 13.3-14.7 V); this is not a surge-standard qualification.
+.param LCABLE=5u
+.param RCABLE=50m
+.param CIN=20u
+.param VPK=8.4
+
+* --- source: pack connected at 10 us ---
+V1  src 0 PWL(0 0 10u 0 10.05u {VPK} 200u {VPK})
+LC  src vin {LCABLE}
+RC  vin vc {RCABLE}
+CIN vc 0 {CIN}
+
+* --- optional TVS: set USE_TVS=1 to include it ---
+.param USE_TVS=1
+DTVS 0 vc DTVS
+.model DTVS D(BV=13.3 IBV=1m RS=0.2 CJO=1n)
+
+.tran 0.05u 200u
+.meas tran vin_max MAX V(vc) FROM=10u TO=120u
+.meas tran vin_min MIN V(vc) FROM=10u TO=120u
+.meas tran vin_settled AVG V(vc) FROM=150u TO=190u
+.end
+

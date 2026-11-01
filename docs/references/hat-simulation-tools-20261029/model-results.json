@@ -1,0 +1,79 @@
+{
+  "engine": "C:\\Users\\yilv\\AppData\\Local\\duck-robot-tools\\ngspice-47\\Spice64\\bin\\ngspice_con.exe",
+  "mode": "PSpice compatibility (-D ngbehavior=ps)",
+  "downloads": [
+    {
+      "file": "SCEJ253.zip",
+      "sha256": "9f1e6634db1aac76f427112029c8bfeae8af3eab5ba3bb41bdd8fd8df3a8e6b0",
+      "bytes": 89773
+    },
+    {
+      "file": "SCEM270.ibs",
+      "sha256": "df9472f8b47574b4bc3a512f8b3c07ea1393f17d5fa2519ec874ed9ec2dcb5d2",
+      "bytes": 299593
+    },
+    {
+      "file": "SCEM579.zip",
+      "sha256": "b6bde07c652de17a683710d24cd2155b0b4058c83a065842629cecd2024dba41",
+      "bytes": 20740
+    },
+    {
+      "file": "SCEM639.zip",
+      "sha256": "99065c3bec73a50f868eba7e707cadeab40795349ec42e68ea90b4deb9448d4b",
+      "bytes": 7931
+    },
+    {
+      "file": "SLIM118.zip",
+      "sha256": "5156808abee032cf4e90d09e0373751e3c6d2743c4f516e5a8f6746db0316d43",
+      "bytes": 85002
+    },
+    {
+      "file": "SLOM159.zip",
+      "sha256": "0f2386cd95acb751090f01f407c429aae17e976c69a8fd550ecc85c897a16237",
+      "bytes": 23071
+    },
+    {
+      "file": "SLOM162.zip",
+      "sha256": "00287b1fbcff623f2458159e092c9520f76ddad5aa48e66d30a9af125df1e7a4",
+      "bytes": 6324
+    },
+    {
+      "file": "SLOM414.zip",
+      "sha256": "63c66491ca473c0ed5c3b560c724f564ceab31ae384964ed8268350a5695f925",
+      "bytes": 24617
+    },
+    {
+      "file": "SLVMC88.zip",
+      "sha256": "30f07097201e08956c23a62dcdf54e7fd6518aad0f9aeb058e9df0046b90abf1",
+      "bytes": 60570
+    }
+  ],
+  "results": [
+    {
+      "model": "SCEM639",
+      "model_sha256": "05ad65a396a1e59415d9879399e6b547acf071c554493b668fa069f27bbb53b9",
+      "subcircuit_pin_order": "output input enable vcc 0",
+      "exit_code": 0,
+      "measurements_V": {
+        "enabled_high": 3.3,
+        "enabled_low": 1.17609e-19,
+        "disabled_pulldown": 6.30358e-13
+      },
+      "compatibility_smoke_pass": true,
+      "scope": "3.3V typical, 10k pulldown, 15pF load; no HAT signoff"
+    },
+    {
+      "model": "SCEM579",
+      "model_sha256": "99d934d422660afc0026f953f08f8f677766ad5d66dc087468e44eed8ba664e6",
+      "subcircuit_pin_order": "enable input 0 output vcc",
+      "exit_code": 0,
+      "measurements_V": {
+        "enabled_high": 3.28163,
+        "enabled_low": 5.9005e-26,
+        "disabled_pulldown": 1.52225e-09
+      },
+      "compatibility_smoke_pass": true,
+      "scope": "3.3V typical, 10k pulldown, 15pF load; no HAT signoff"
+    }
+  ]
+}

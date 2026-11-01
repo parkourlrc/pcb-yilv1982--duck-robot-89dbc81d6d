@@ -1,0 +1,40 @@
+AP64350 official PSpice transient model - ngspice compatibility check only
+* Purpose: does the vendor model run in ngspice 47 and regulate 8.4 V -> 5 V?
+* This is NOT the HAT Rev A design and NOT a validation of AP64501/PAM8406.
+* Vendor file: Diodes AP64350_SO-8EP.zip, ap64350_patched.lib, Model Version 1.0,
+* 2021-10-14, datasheet DS41976 Rev.5-2, built in PSpice 17.2 (Allegro).
+* Subcircuit pin order: BST VIN EN RT_CLK FB COMP GND SW (not package pins).
+.include "C:/Users/yilv/AppData/Local/duck-robot-tools/models/diodes/AP64350/ap64350_patched.lib"
+
+VIN  vin 0 DC 8.4
+CIN  vin 0 10u
+
+XU1  bst vin en rt fb comp 0 sw AP64350
+
+L1   sw vout 4.7u
+RESR vout cx 5m
+COUT cx 0 47u
+CBST sw bst 0.1u
+
+RTOP vout fb 52.3k
+RBOT fb 0 10k
+
+RC   comp cc 10k
+CC   cc 0 4.7n
+CP   comp 0 100p
+
+REN  vin en 100k
+RT   rt 0 100k
+
+* Load: 0.5 A, step to 3.5 A at 1.45 ms
+ILOAD vout 0 PWL(0 0.5 1.4m 0.5 1.45m 3.5 2.4m 3.5)
+
+.options rshunt=1e9
+.tran 0.5u 2.5m
+.meas tran vout_avg AVG V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_min MIN V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_max MAX V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_dip MIN V(vout) FROM=1.4m TO=1.9m
+.end
+
+

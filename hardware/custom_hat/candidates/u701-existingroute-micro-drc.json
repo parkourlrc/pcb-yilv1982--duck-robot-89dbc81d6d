@@ -1,0 +1,138 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T22:27:17",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-existingroute-micro.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.0301 mm",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "0cfc6944-6477-4492-b128-c4b4ca2a2cee"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 149.3,
+                        "y": 113.3
+                    },
+                    "uuid": "56fa2b87-611d-494f-8a74-19fb5df10c8c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1784 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                },
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 149.225,
+                        "y": 113.325
+                    },
+                    "uuid": "3fe2cba9-3cdf-425e-a279-dacadead1bcf"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [+5V]",
+                    "pos": {
+                        "x": 152.7052,
+                        "y": 109.894
+                    },
+                    "uuid": "db1ebf23-86f9-4d8c-8233-f03a6aa5cce5"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In2.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 149.3,
+                        "y": 113.3
+                    },
+                    "uuid": "56fa2b87-611d-494f-8a74-19fb5df10c8c"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Drilled holes co-located",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.7052,
+                        "y": 109.894
+                    },
+                    "uuid": "5b781eb8-be39-45fd-95f5-dad94d418ba4"
+                },
+                {
+                    "description": "In2.Cu - B.Cu 上的盲孔 [+5V]",
+                    "pos": {
+                        "x": 152.7052,
+                        "y": 109.894
+                    },
+                    "uuid": "db1ebf23-86f9-4d8c-8233-f03a6aa5cce5"
+                }
+            ],
+            "severity": "warning",
+            "type": "holes_co_located"
+        }
+    ]
+}

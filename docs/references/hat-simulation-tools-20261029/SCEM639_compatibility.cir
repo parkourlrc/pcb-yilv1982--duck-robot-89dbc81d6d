@@ -1,0 +1,13 @@
+TI model compatibility check only - not HAT validation
+.include "C:/Users/yilv/AppData/Local/duck-robot-tools/models/ti/SCEM639/SN74LVC1G125.cir"
+Vcc vcc 0 3.3
+Vin input 0 PULSE(0 3.3 50n 1n 1n 100n 400n)
+Ven enable 0 PULSE(0 3.3 1u 1n 1n 5u 10u)
+Xbuf output input enable vcc 0 SN74LVC1G125
+Rload output 0 10k
+Cload output 0 15p
+.tran 0.2n 2u
+.meas tran enabled_high FIND v(output) AT=100n
+.meas tran enabled_low FIND v(output) AT=300n
+.meas tran disabled_pulldown FIND v(output) AT=1.9u
+.end

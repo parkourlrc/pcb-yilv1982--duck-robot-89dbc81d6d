@@ -1,0 +1,237 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T22:01:22",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-microvia-5v-detour.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1833 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 114.65
+                    },
+                    "uuid": "1a78cf55-3655-40e1-a55b-32feadc34cb7"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.6500 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "073588e2-19fc-4cb9-8bfc-e4e916c60db6"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1951 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.5657 mm",
+                    "pos": {
+                        "x": 149.7,
+                        "y": 115.25
+                    },
+                    "uuid": "0f9fa8b9-8924-4b8f-a31c-6be77e64428e"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1951 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 149.3,
+                        "y": 114.85
+                    },
+                    "uuid": "8b5e5468-a013-4e84-afd8-1a66c2362aa9"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 AUDIO_MIC_REF)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "073588e2-19fc-4cb9-8bfc-e4e916c60db6"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_REF] (In1.Cu), 长度: 9.9875 mm",
+                    "pos": {
+                        "x": 152.7753,
+                        "y": 110.9056
+                    },
+                    "uuid": "dacbb142-3819-4a99-a0fc-8961d2ede018"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1833 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 0.0707 mm",
+                    "pos": {
+                        "x": 149.0,
+                        "y": 114.65
+                    },
+                    "uuid": "1350f914-602d-4081-b770-0a9c0e60ed8b"
+                },
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0000 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                },
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "073588e2-19fc-4cb9-8bfc-e4e916c60db6"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "073588e2-19fc-4cb9-8bfc-e4e916c60db6"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 33 [POWER_GND]",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "c98410e8-6460-49b1-b6f3-ccbad75e53dc"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.7052,
+                        "y": 109.894
+                    },
+                    "uuid": "5b781eb8-be39-45fd-95f5-dad94d418ba4"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

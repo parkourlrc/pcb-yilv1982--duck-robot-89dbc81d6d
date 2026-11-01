@@ -1,0 +1,15 @@
+debug power stage fixed duty
+VIN vin 0 8.4
+VPWM pwm 0 PULSE(0 1 0 1n 1n 1.2u 2u)
+BPWM2 pwm2 0 V = 1 - V(pwm)
+S1 vin sw pwm 0 SWHS
+S2 sw 0 pwm2 0 SWLS
+.model SWHS SW(Ron=0.075 Roff=1Meg Vt=0.55)
+.model SWLS SW(Ron=0.045 Roff=1Meg Vt=0.45)
+L1 sw vout 5.5u
+RESR vout cx 5m
+COUT cx 0 44u
+RLOAD vout 0 2.5
+.tran 5n 200u
+.meas tran vout_avg AVG V(vout) FROM=150u TO=200u
+.end

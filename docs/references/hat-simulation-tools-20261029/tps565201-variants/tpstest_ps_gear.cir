@@ -1,0 +1,39 @@
+TPS565201 unencrypted PSpice transient model - ngspice compatibility check only
+* Purpose: confirm the vendor model runs in ngspice 47 and produces a plausible
+* 8.4 V -> 5 V regulation. This is NOT the HAT Rev A power design and NOT a
+* validation of AP64501, which has no published model.
+* Vendor file: TI SLVMC88, TPS565201_TRANS.LIB, Final 1.10, 2017-06-22.
+* Subcircuit pin order: GND SW VIN VFB EN VBST (not package pin numbers).
+.include "C:/Users/yilv/AppData/Local/duck-robot-tools/models/ti/SLVMC88/slvmc88/TPS565201_TRANS.LIB"
+
+VIN  vin 0 DC 8.4
+CIN  vin 0 10u
+RIN  vin vcc 50m
+
+XU1  0 sw vcc vfb en vbst TPS565201_TRANS
+
+L1   sw vout 4.7u
+RESR vout cx 5m
+COUT cx 0 47u
+CBST sw vbst 0.1u
+
+RTOP vout vfb 54.9k
+RBOT vfb 0 10k
+CFF  vout vfb 100p
+
+REN  vcc en 100k
+
+* Load: 0.5 A, step to 5 A at 1.45 ms
+ILOAD vout 0 PWL(0 0.5 1.4m 0.5 1.45m 5 2.4m 5)
+
+.ic V(vout)=5 V(vfb)=0.765 V(vbst)=13.4
+.options method=gear
+.tran 0.5u 2.5m uic
+.meas tran vout_avg AVG V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_min MIN V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_max MAX V(vout) FROM=2.2m TO=2.4m
+.meas tran vout_dip MIN V(vout) FROM=1.4m TO=1.9m
+.meas tran vin_avg AVG V(vcc) FROM=2.2m TO=2.4m
+.end
+
+

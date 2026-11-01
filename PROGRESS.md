@@ -119,7 +119,29 @@
 - **误判勘误**：板子一度全无应答，曾据"uart=0 不涨 + SWD 全活"推断板内收发硬件损伤——**错误**，用户确认 DATA/GND 未改，中间电源线改为 7.4V 后恢复；DAPLink 5V 缺自身 GND，pin4 则是主控无法启动，两个窗口需分别解释，详见顶部补充。uart=0 只记录请求期间固件未计到 UART 接收，仍需分辨数据路径与软件条件。
 - 详见[主记录 10-31 节](./docs/references/servo-web-imu-3d-20261024/research.md)。换回板②时需恢复混读形态（代码注释有说明）。
 
+## KiCad MCP 安装（2026-10-30）
+
+- **[本机工具检查，非硬件实测]** 已安装 Seeed KiCad MCP 并注册 Codex `kicad`，使用本机 KiCad 10.0.7 的独立 Python 环境；stdio 握手、47 个工具枚举及 HAT 副本 PCB/原理图读取完成，源 PCB 校验值未变。
+- 退出时有 Windows asyncio 警告，持续运行稳定性与 Codex 当前聊天热加载尚未验收；未进行 PCB 写操作或完整 ERC/DRC，不改变 HAT 制造放行状态。安装路径、原始验证数据与失败记录见 [KiCad MCP 专题](docs/references/kicad-agent-skills-20261030/research.md)。未提交或推送。
+
+## 自设计 HAT：问题真实性复核与流程改进（2026-10-30）
+
+- **[文件/工具核对]** 供电/地检查点主板为65×30 mm、4层、60封装、615走线段、93过孔、4铜区。此前计数为历史版本；65.1×30.1为含线宽包围盒，不改变65×30板框。
+- **[已澄清/已修]** AP64350/BMI088旧封装、CSB2、TTL/动力分支、I2S方向、麦克风/功放、1.8V来源、TP802原点及内层铜区删除问题均有后续修复。pin1已有设计依据，不要求重复手量；屏幕/CSI已取消；“无空间/必须六层”的旧判断证据不足。
+- **[本机工具检查]** U501删除两段错误顶层短线及一个禁布过孔后，完整工程重铺铜由29降至24违规，未连接23、一致性101不变；193个有网络焊盘原连接均保留，无新增违规。源摘要核对后已更新主PCB，见[检查点与原始证据](docs/references/hat-simulation-tools-20261029/u501-repair-20261030/research.md)。213仅来自缺规则对照组；32项net_conflict为NC表示差异。
+- **[J301/J506局部修复]** J506保持型号/针序/朝向移动至(113.0,122.3)，两条喇叭线重接；前一斜线路径碰固定焊盘的候选已拒绝，折线路径通过后回写主板。普通DRC从24降至16项warning（原7个普通error消除），未连接23和一致性101不变；193个有网焊盘原连接保留。见[当前检查点](docs/references/hat-simulation-tools-20261029/j506-repair-20261030/research.md)。
+- **[I2S局部修复]** 已连接U701.4→J101.40，并联动重布SDI/LRCK/BCLK扇出；没有改变引脚/器件/其他网络或规则。重铺铜普通警告16→15、未连接23→22、parity101不变；193个有网焊盘原连接保留，审阅后已回写主板。见[现行检查点](docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030/research.md)。未验证实际音频功能。
+- **[供电/地修复]** 接受25个局部步骤：修4段旧电容短线、补供电扇出及地岛连接，必要时局部绕开时钟/+1V8短段。未连接22→1（剩U701.7 +3V3）、普通warning15→11、parity101不变；地焊盘连通组3→1，+3V3组21→2，193个有网焊盘原连接保留。最后codec引脚的失败方案未采用；已验证部分回写主板。见[当前检查点](docs/references/hat-simulation-tools-20261029/power-repair-20261030/research.md)。
+- **[未解决设计问题]** 仅 `U701.7 +3V3` 仍是 KiCad 未连接项；悬空孔和 U301 丝印问题已关闭。当前仍有 MPN、工艺环宽、热过孔、via-in-pad、I2C 上拉、+3V3 平面回流和硬件实测门，旧生产包仍不能下单。
+- **[最终清理与 kicad-happy 审查]** 当前完整副本复现：普通 DRC 0、未连接 1（U701.7）、ERC 0、网表 mismatch 0、parity 107；双面 fiducial 与 3 个板边地缝合过孔已加入并通过 DRC。MPN、环宽、热过孔、via-in-pad、I2C 上拉和 +3V3 平面回流仍未闭合。
+- **[kicad-happy 当前审查]** 已重新运行 schematic/PCB full/cross/thermal/Gerber/EMC/fab gate，并保留 raw netlist/PCB spot-check；报告见 [审查清单（原报告未入库）](docs/references/hat-simulation-tools-20261029/kicad-happy-review-20261030/manifest.json)。结论仍不可投板：唯一 DRC 未连接为 `R308.2 ↔ U701.7`，BOM MPN 为 0/52；fiducial 缺失项已关闭。
+- **[流程实施]** 新pipeline只复制完整工程并输出独立报告/源摘要；自动路由只生成候选、验证本次输出；停止旧双来源生成器和DSN改写器直接执行，取消默认补孔及规则放宽。U501候选通过后由主会话审阅精确差异再更新主PCB；没有自动回写或改规则。
+- [逐项复核与证据](docs/references/hat-simulation-tools-20261029/audit-20261030/review.md) · [修复计划](docs/specs/20261028-custom-hat/recovery-plan.md) · [流程用法](hardware/custom_hat/scripts/README.md)。本轮未提交、未推送、未下单、未操作实物。历史过程仅供追溯。
+- 当前 HAT 问题矩阵见 [issue-matrix-20261030](docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md)；主板已加入 fiducial 与板边地缝合，但 `R308.2 ↔ U701.7`、MPN、工艺/热/上拉确认和硬件实测仍未闭合。
+
 ## HAT 双口原理图复核：共用 DATA 串阻存在设计差异，实物 V1.2 待核（2026-10-27）
+
+以下为 10-27 旧板排障历史；后续硬件完成、换板和真机运行状态见本页顶部。早期建议不作为当前待执行项。
 
 - **kissqy工程旁路点已核（用户指定）**：10-07/10-15两版PCB中 **R32 pad2 ↔ TH1 pad1** 可跨过DATA串阻R33，保留TH1；两版R33已标0Ω，R31实际为RX上拉。已核封装脚号、网名、铜线连续性和坐标，生成并查看[标注图与证据](./docs/references/pcb-pad-repair-20261027/research.md#kissqy-bypass-points-20261027)。该工程布局与白色V1.2旧照不对应，本机受损处的实际替代焊点仍待确认；未焊接/上电。
 - **HAT R31拆除、两侧焊盘脱落（用户确认）**：用户为短接R31先拆下电阻，反复尝试锡桥后两个焊盘脱落；不是IMU R31/H1，尚无成功短接/修复证据。当前HAT保持断电，先看受损近照和周边网络，评估从两侧完整同网节点飞线并恢复原值电阻或补焊盘；走线/过孔损伤范围与替代焊点待核。此板恢复和检查前不继续上电抓总线波形。新损伤与此前多节点缺答分开记录，不能把0Ω永久短接当已验证修复；见[维修分支与原理图边界](./docs/references/pcb-pad-repair-20261027/research.md)。
@@ -133,6 +155,9 @@
 - **先前无示波器阶段的判断（现已到货，主线见上）**：**[推断]** 优先检查 IMU 通信前端可行，但不能由“舵机正常、IMU 缺答”排除 HAT。三器件已完成定位和在板测阻（100kΩ/51Ω/25Ω），旧版阻值解释降权，不再单列 HAT 测阻为下一步；用户补测供电均 >7.1V（按上下文暂记 IMU 入口），入口持续欠压降为低优先级，不重复入口测压；板内 3.3V/瞬态未核。有可用正常板时做同条件替换。H1 日志须先确认构建开启，现有 FT232H/DAPLink 不自动触发刷机。详见[无示波器推进顺序](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-first-no-scope-20261027)；本轮未操作硬件。
 - **DATA 测量补充 [用户实测口述]**：持续读取 IMU 时，万用表直流档对 IMU GND，10 颗舵机为 **3.19V**，15 颗为 **3.14～3.16V**，差 0.03～0.05V。这是通信期间直流读数，不能等同位级高/低电平或 IMU 3.3V 电源轨；低位抬高/边沿假设既未排除也未确认，不据此改阻。见[原始读数与解释](./docs/references/hat-imu-shared-bus-20261027/research.md#data-dc-voltage-20261027)。
 - **用户补充／现行解释（同日）**：IMU 在第二口、中段分叉、左脚掌及左脚踝舵机处均有多节点缺答；用户概括超过 12 颗开始失败、更多时加重。台供确认 **7.4V CV、限流设 3A、输出约 0.6～0.7A**。**[推断]** 不是第二口特有问题，换位未解决；先前窗口成功率不同，不能扩大为任何位置/拓扑都无影响。**[假设]** DATA 并联上拉与串阻/低位驱动、边沿余量优先；0.6～0.7A 是供电总读数，不是 DATA 电流，持续限流解释降权但局部电压/地未排。详见[证据、替代解释与最短区分步骤](./docs/references/hat-imu-shared-bus-20261027/research.md#node-count-current-20261027)，不再重复建议换口。
+- **DATA 电压反馈 [用户报告实测]**：用户用万用表测 IMU DATA 一直约 3.1V；本次具体探点/档位及通信状态未给出。该读数不能判断微秒低脉冲是否拉低充分，不撤销 HAT R31 排查线索，也不确认为根因。万用表与波形的区别、示意计算及门限边界见[测量解释](./docs/references/hat-imu-shared-bus-20261027/research.md#data-dmm-3v1-20261027)。
+- **kissqy 飞特版补充 [上游文档／未本机验证]**：用户补充该仓库后，进一步核到作者 IMU 时间线记载“修复与舵机共线时序”、3000/3000 及 15 舵机 7 万多轮无新增错误；其 FT6 说明要求 ID200 首位、TC 完成后释放总线、RX 先恢复。配套为 STM32G031 RevA，非当时装机的 GD32；不能直接互刷或替换 kitbits，也未记载超过 12 颗的同一故障。与 HAT R33=0Ω 分开作为参考，见[来源与边界](./docs/references/hat-imu-shared-bus-20261027/research.md#kissqy-feetech-followup-20261027)。
+- **作者建议补充 [用户转述／待验证]**：用户确认联系者为 ScrapMeta，转述其称 HAT 存在影响飞特舵机的问题，并指向[橙圈原图](./docs/photos/hat-resistor-user-circle-20261027.png)提示“检查这个电阻是0r的，不是的话换下或者把它短路”。已查其固定版本文档、15 条 issues/PR 与 31 条评论，未找到这一改法或超过 12 颗的公开说明；Issue #4 是 XL330 测试 ID/波特率与 CRC 脚本问题，不能套用。另版 kissqy HAT 有 R33=0Ω 记录，仅作不同版本旁证。**用户已确认圈选件为 HAT R31；此建议早于下述拆除损伤记录，未取得成功修复验收**；见[完整来源与范围](./docs/references/hat-imu-shared-bus-20261027/research.md#author-bug-search-20261027)。
 - **PCB 来源补充 [原始设计文件／待核]**：沿用户提供的 ScrapMeta 卖家地址，取得其文档锁定的官方 C1 `88d51fa` KiCad PCB/工程/原理图、Gerber、BOM/POS，另存 D1 及 kissqy 不同设计参考。**白色鸭图案 V1.2 专用 PCB 仍未找到**；官方 C1 的 R33=150Ω 不直接映射到本机。见[图纸入口](./docs/schematics/pollen-hat-pcb-reference/README.md)与[检索范围、原图和缺口](./docs/references/hat-imu-shared-bus-20261027/research.md#pcb-source-search-20261027)。
 - **照片定位补充**：已在原 HAT V1.2 背面照圈出接口附近待核范围并放大；现有像素不足以辨认单颗 R31，不能按该图拆焊。见[标注与限制](./docs/references/hat-imu-shared-bus-20261027/research.md#photo-location-20261027)，仍需清晰近照/版本走线依据。
 - 用户再次确认双 3P 分别接 IMU/舵机时 IMU 无应答，拔舵机恢复；本轮仅复核既有数据、原理图与照片，未操作设备。

@@ -1,0 +1,798 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T21:29:56",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "thermal-vias-all.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "B.Cu 上 R308 的焊盘 2 [+3V3]",
+                    "pos": {
+                        "x": 146.96,
+                        "y": 110.81
+                    },
+                    "uuid": "0ea4786f-5e5e-434a-b7cc-7c0ea07126f0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 7 [+3V3]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "0df48d77-c71c-453d-8ff9-e195b6cfc0ea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "52c9b31c-a65c-4b82-8273-a83055fa253f"
+                },
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 +3V3)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.2,
+                        "y": 114.0
+                    },
+                    "uuid": "72c3bb96-82b4-4ec2-9877-9a5ad561612f"
+                },
+                {
+                    "description": "B.Cu 上 C308 的焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 125.18,
+                        "y": 114.62
+                    },
+                    "uuid": "7fdfc15b-fed2-40a4-aac4-711ecf86f03a"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 153.55,
+                        "y": 112.6
+                    },
+                    "uuid": "7be0d9dc-26b5-420b-a900-438160efab0d"
+                },
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 1.4152 mm",
+                    "pos": {
+                        "x": 153.9605,
+                        "y": 112.5645
+                    },
+                    "uuid": "c0ca2a80-d7e4-4d1f-b8b7-528bd5cda6fc"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 BUCK_SW)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 132.8,
+                        "y": 118.8
+                    },
+                    "uuid": "07773029-9e47-44e7-aa10-a9a2c56a22a7"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0382 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 114.0
+                    },
+                    "uuid": "3d514cfc-943f-4a3d-92e4-df479f3e04e1"
+                },
+                {
+                    "description": "B.Cu 上 C308 的焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 125.18,
+                        "y": 114.62
+                    },
+                    "uuid": "7fdfc15b-fed2-40a4-aac4-711ecf86f03a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 AUDIO_MIC_REF)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "52c9b31c-a65c-4b82-8273-a83055fa253f"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_REF] (In1.Cu), 长度: 9.9875 mm",
+                    "pos": {
+                        "x": 152.7753,
+                        "y": 110.9056
+                    },
+                    "uuid": "dacbb142-3819-4a99-a0fc-8961d2ede018"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 AUDIO_MIC_AC)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 112.6
+                    },
+                    "uuid": "a030b570-4dec-4608-a579-d8b637a31504"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 4.4724 mm",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 108.363
+                    },
+                    "uuid": "ab1f47f0-3149-4b9a-b7e3-ab8bd9be0b5a"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1497 mm)",
+            "items": [
+                {
+                    "description": "走线 [+5V_FB] (In2.Cu), 长度: 6.4686 mm",
+                    "pos": {
+                        "x": 128.5639,
+                        "y": 119.3747
+                    },
+                    "uuid": "8458f8fd-bb5e-44ec-b041-21acfc672802"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 133.8,
+                        "y": 118.8
+                    },
+                    "uuid": "cd8b94b0-8935-4db8-8e99-855cb1a8732b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1497 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 132.8,
+                        "y": 118.8
+                    },
+                    "uuid": "07773029-9e47-44e7-aa10-a9a2c56a22a7"
+                },
+                {
+                    "description": "走线 [+5V_FB] (In2.Cu), 长度: 6.4686 mm",
+                    "pos": {
+                        "x": 128.5639,
+                        "y": 119.3747
+                    },
+                    "uuid": "8458f8fd-bb5e-44ec-b041-21acfc672802"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 BUCK_SW)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 131.8,
+                        "y": 118.8
+                    },
+                    "uuid": "55861009-4151-4a7a-88d3-f19ab94ee857"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 AUDIO_MIC_REF)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 112.6
+                    },
+                    "uuid": "98ad3323-8d87-4fd5-b0ac-694d0a42c246"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_REF] (In1.Cu), 长度: 9.9875 mm",
+                    "pos": {
+                        "x": 152.7753,
+                        "y": 110.9056
+                    },
+                    "uuid": "dacbb142-3819-4a99-a0fc-8961d2ede018"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1497 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 131.8,
+                        "y": 118.8
+                    },
+                    "uuid": "55861009-4151-4a7a-88d3-f19ab94ee857"
+                },
+                {
+                    "description": "走线 [+5V_FB] (In2.Cu), 长度: 6.4686 mm",
+                    "pos": {
+                        "x": 128.5639,
+                        "y": 119.3747
+                    },
+                    "uuid": "8458f8fd-bb5e-44ec-b041-21acfc672802"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 AUDIO_MIC_AC 和 POWER_GND)",
+            "items": [
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 5.9393 mm",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 112.8354
+                    },
+                    "uuid": "5493e1bd-5195-4093-961f-532bf10a7188"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 112.6
+                    },
+                    "uuid": "a030b570-4dec-4608-a579-d8b637a31504"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 BUCK_SW)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 133.8,
+                        "y": 118.8
+                    },
+                    "uuid": "cd8b94b0-8935-4db8-8e99-855cb1a8732b"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 +5V)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 113.35
+                    },
+                    "uuid": "200949b2-640a-48f8-9c9c-78415dade408"
+                },
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 POWER_GND 和 AUDIO_MIC_AC)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 113.35
+                    },
+                    "uuid": "200949b2-640a-48f8-9c9c-78415dade408"
+                },
+                {
+                    "description": "走线 [AUDIO_MIC_AC] (In1.Cu), 长度: 5.9393 mm",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 112.8354
+                    },
+                    "uuid": "5493e1bd-5195-4093-961f-532bf10a7188"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 POWER_GND)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (In1.Cu), 长度: 12.7628 mm",
+                    "pos": {
+                        "x": 133.605,
+                        "y": 124.9345
+                    },
+                    "uuid": "271660fd-a107-4dbc-94f2-0ccac1c2c228"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 133.8,
+                        "y": 118.8
+                    },
+                    "uuid": "cd8b94b0-8935-4db8-8e99-855cb1a8732b"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 POWER_GND)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.0301 mm",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "0cfc6944-6477-4492-b128-c4b4ca2a2cee"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "52c9b31c-a65c-4b82-8273-a83055fa253f"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 +5V 和 POWER_GND)",
+            "items": [
+                {
+                    "description": "走线 [+5V] (F.Cu), 长度: 2.1290 mm",
+                    "pos": {
+                        "x": 153.9605,
+                        "y": 112.5645
+                    },
+                    "uuid": "5e368c49-06ae-4cb1-9f34-3f42934b704b"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 153.55,
+                        "y": 112.6
+                    },
+                    "uuid": "7be0d9dc-26b5-420b-a900-438160efab0d"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0000 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C308 的焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 125.18,
+                        "y": 114.62
+                    },
+                    "uuid": "7fdfc15b-fed2-40a4-aac4-711ecf86f03a"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.2,
+                        "y": 114.0
+                    },
+                    "uuid": "72c3bb96-82b4-4ec2-9877-9a5ad561612f"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.1882 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 C308 的焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 125.18,
+                        "y": 114.62
+                    },
+                    "uuid": "7fdfc15b-fed2-40a4-aac4-711ecf86f03a"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 114.0
+                    },
+                    "uuid": "3d514cfc-943f-4a3d-92e4-df479f3e04e1"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0500 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 132.8,
+                        "y": 118.8
+                    },
+                    "uuid": "07773029-9e47-44e7-aa10-a9a2c56a22a7"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0500 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 133.8,
+                        "y": 118.8
+                    },
+                    "uuid": "cd8b94b0-8935-4db8-8e99-855cb1a8732b"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0500 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 131.8,
+                        "y": 118.8
+                    },
+                    "uuid": "55861009-4151-4a7a-88d3-f19ab94ee857"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0000 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "52c9b31c-a65c-4b82-8273-a83055fa253f"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (<电路板配置> 中的 \"孔\" 约束 间距 0.2500 mm; 实际 0.0000 mm)",
+            "items": [
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                },
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 113.35
+                    },
+                    "uuid": "200949b2-640a-48f8-9c9c-78415dade408"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "底层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.2,
+                        "y": 114.0
+                    },
+                    "uuid": "72c3bb96-82b4-4ec2-9877-9a5ad561612f"
+                },
+                {
+                    "description": "B.Cu 上 C308 的焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 125.18,
+                        "y": 114.62
+                    },
+                    "uuid": "7fdfc15b-fed2-40a4-aac4-711ecf86f03a"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.05,
+                        "y": 113.35
+                    },
+                    "uuid": "200949b2-640a-48f8-9c9c-78415dade408"
+                },
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "52c9b31c-a65c-4b82-8273-a83055fa253f"
+                },
+                {
+                    "description": "F.Cu 上 C306 的焊盘 1 [+5V]",
+                    "pos": {
+                        "x": 152.525,
+                        "y": 114.0
+                    },
+                    "uuid": "cb7593d7-3d82-459e-bc92-6c1613107a50"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 131.8,
+                        "y": 118.8
+                    },
+                    "uuid": "55861009-4151-4a7a-88d3-f19ab94ee857"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 132.8,
+                        "y": 118.8
+                    },
+                    "uuid": "07773029-9e47-44e7-aa10-a9a2c56a22a7"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "顶层阻焊开窗区域与不同网络的项目相连",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 133.8,
+                        "y": 118.8
+                    },
+                    "uuid": "cd8b94b0-8935-4db8-8e99-855cb1a8732b"
+                },
+                {
+                    "description": "F.Cu 上 L301 的焊盘 1 [BUCK_SW]",
+                    "pos": {
+                        "x": 133.05,
+                        "y": 115.9
+                    },
+                    "uuid": "e816fdaa-2b8a-458d-bad5-f27e3b45b512"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+Note: gnd in a subcircuit is not set to 0 automatically
+
+Note: Compatibility modes selected: ps
+
+
+Circuit: ti model compatibility check only - not hat validation
+
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vcc                                        3.3
+input                                        0
+enable                                       0
+xbuf.x_u1.thresh                          1.65
+xbuf.x_u1.ethresh_int1                    1.65
+xbuf.x_u1.no                                 0
+xbuf.x_u1.eo_int1                            0
+xbuf.y_int1                                  0
+xbuf.x_u1.go_int1                            0
+xbuf.n07928                                0.8
+output                                       0
+b.xbuf.x_u1.bgo#branch                       0
+b.xbuf.x_u1.beo#branch                       0
+b.xbuf.x_u1.bethresh#branch                  0
+e.xbuf.x_u1.eo#branch                        0
+e.xbuf.x_u1.ethresh#branch                   0
+v.xbuf.v_v1#branch                  -8.008e-10
+ven#branch                         6.68008e-08
+vin#branch                                   0
+vcc#branch                           -7.26e-07
+
+
+No. of Data Rows : 10160
+
+  Measurements for Transient Analysis
+
+enabled_high        =  3.28163e+00
+enabled_low         =  5.90050e-26
+disabled_pulldown   =  1.52225e-09
+
+
+Total analysis time (seconds) = 0.0277106
+
+Total elapsed time (seconds) = 0.031 
+
+Total DRAM available = 65349.203 MB.
+DRAM currently available = 17290.629 MB.
+Maximum ngspice program size =   10.285 MB.
+Current ngspice program size =   10.285 MB.
+

@@ -30,6 +30,8 @@ Microduck 小型双足机器人的个人复刻项目。**当前主线为方案 C
 
 进度流水、硬件到位记录与当前待办见 [PROGRESS.md](./PROGRESS.md)。
 
+**HAT 自主设计（2026-10-30）**：局部修复和生产审查已完成；普通DRC为0，仍有U701.7的+3V3未连接、101项一致性提示及MPN/fiducial/工艺/热/回流缺口，仍不可投板。最终审查见[审查清单（原报告未入库）](./docs/references/hat-simulation-tools-20261029/kicad-happy-review-20261030/manifest.json)，生产审查包见[production-20261030-review](./hardware/custom_hat/rev_a/production-20261030-review/README.md)。
+
 **项目规则与目录导航：[AGENTS.md](./AGENTS.md)**。协作前先读；调研/图片归档、中文沟通、过期信息清理及自动提交推送按此执行。
 
 ## 当前主线：方案 C（飞特路线）
@@ -37,9 +39,10 @@ Microduck 小型双足机器人的个人复刻项目。**当前主线为方案 C
 **2026-10-27 HAT 损伤历史记录**：用户为短接 HAT R31 已拆下电阻，反复操作后两侧焊盘脱落；当时要求断电维修。2026-10-31 用户已确认硬件部分完成，本次不继续把旧损伤列为当前阻断；具体维修/替换经过未补齐，原始记录仍见[维修专题](docs/references/pcb-pad-repair-20261027/research.md)。
 
 - **执行机构**：飞特 HD-1910-C001 ×15（总线型，官方 robotd 有飞特补丁）
-- **装配与零位校准**：[归中装盘与 CAL 调研](./docs/references/assembly-check-20261017/research.md)记录历史方法。15 颗 ID 已于 **2026-10-24 对齐上游**（[本机映射](./docs/servo-id-mapping.md)：20–24 左腿、10–14 右腿、30=neck_pitch、31=head_pitch）；2026-10-31 用户确认硬件完成。用户随后要求按参考项目数据接入：已导入 `duck-10e4` 的参考标定数值，本机验证标志保持关闭；参考数值与本机装配是否匹配尚未实测，原 EEPROM CAL 不变。
+- **装配与零位校准**：[归中装盘与 CAL 调研](./docs/references/assembly-check-20261017/research.md)记录历史方法。15 颗 ID 已于 2026-10-24 对齐上游；2026-11-01 用户完成本机正式标定，15 个 `zero_raw=2048`、`calibrated=true`，IMU 已验证，详见[标定和模型接入记录](docs/references/b-feetech-policy-deployment-20261024/webpad-models-check-20261101.md)。此前导入的参考机零位已经替换。
 - **主控/总线**：microduck HAT（Radxa Zero 3W，UART2）＋**2026-11-01 用户确认已换上的新单 3P 口 IMU**。软件身份为 `06 00 00 00 f2`（原生识别 ft6/legacy），新板厂商/批次未独立核准；servo-web 混合 SYNC_READ 已通过只读验收。新制 v0.3 双口板搁置，旧单口板和更早 v0.3 损伤分别存档。见[版本记录](docs/references/imu-to-dxl-variants-20261009/research.md)及[当前验收](docs/references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。
 - **旧单口板供电与总线记录（2026-10-27，现已下线）**：用户已尝试 IMU 接 HAT 第二口、中段分叉、左脚掌/左脚踝舵机处，均未消除多节点缺答；已记录梯度在 12→13 颗附近出现变化，更多节点时失败加重。用户确认台供 **7.4V CV、限流 3A、输出约 0.6～0.7A**。**[假设]** 优先核 DATA 上拉与串阻/驱动及边沿余量；用户补测供电均 >7.1V（暂按 IMU 入口理解），持续限流/入口欠压解释降权；板内 3.3V、瞬态和收发方向未隔离。存档 HAT V1.0 R31=1kΩ、官方对应 R33=150Ω，本机 V1.2 实装待核；换位未解决不等于各种拓扑错误率完全相等。见[本轮联合判断](./docs/references/hat-imu-shared-bus-20261027/research.md#node-count-current-20261027)与[实验记录](./docs/references/servo-web-imu-3d-20261024/research.md)。当时用户已下单示波器（2026-11-01 已确认 SDS814X HD 到货并接入 USB，驱动待安装），已断电并断开全部外接线在板测得 R31=100kΩ、R5=51Ω、F1=25Ω；前两项与修订值一致，暂不改这三颗，撤回继续孤立测阻的建议；现按用户决定[先用示波器区分请求、IMU内部响应与回包](./docs/references/hat-imu-shared-bus-20261027/oscilloscope-plan-20261027.md)，尚不能排除 IMU/HAT 的动态通信问题。本轮未操作设备，未决定换阻或改供电。
+- **10-27 作者改阻建议（历史）**：[ScrapMeta 建议、圈选件 R31 和公开来源](docs/references/hat-imu-shared-bus-20261027/research.md#author-bug-search-20261027)已保留；该建议早于后续拆除损伤和换板，不作为当前待执行项，未取得改阻成功验收。
 - **采购清单**：[BOM.md](./BOM.md)（已重写为 C 线；A 版存档于 [docs/bom-route-a-20260928.md](./docs/bom-route-a-20260928.md)）
 - **PCB 打样**：[tools/jlc-order](./tools/jlc-order/README.md) —— 嘉立创开放平台全自动下单（计价→建单→审核→进度跟踪），2026-10-09 已实测下单并审核通过
 - **IMU 固件资料**：[flash/README.md](flash/README.md)（当前新单口板使用原出厂固件，未刷写；该目录 v0.3 固件不能用于新板。双口板已搁置，旧单口板损伤保留历史记录。）

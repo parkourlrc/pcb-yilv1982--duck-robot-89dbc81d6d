@@ -1,0 +1,406 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-30T19:57:01",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "u701-dogleg.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0248 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.6041 mm",
+                    "pos": {
+                        "x": 149.85,
+                        "y": 112.1
+                    },
+                    "uuid": "5a79659b-09c2-4ee5-944f-83715f3dd07f"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.6
+                    },
+                    "uuid": "d179f059-ae65-48e4-b55c-8c8872484377"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_BCLK 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.7071 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.4
+                    },
+                    "uuid": "51e46c3b-8c08-4ed3-bf77-b3cfbb565b18"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.9192 mm",
+                    "pos": {
+                        "x": 149.9,
+                        "y": 113.6
+                    },
+                    "uuid": "0576fed2-2183-4678-a0b1-7d1c01dc1524"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.1314 mm",
+                    "pos": {
+                        "x": 149.3,
+                        "y": 112.9
+                    },
+                    "uuid": "1caf0386-9264-41ba-899f-229833fe5911"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 I2S_SDO 和 +3V3)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 0.2121 mm",
+                    "pos": {
+                        "x": 149.25,
+                        "y": 112.95
+                    },
+                    "uuid": "67dc2bda-3626-4533-a4c4-6b3aff806a81"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.4200 mm",
+                    "pos": {
+                        "x": 149.72,
+                        "y": 112.9
+                    },
+                    "uuid": "685ea847-da67-457c-a057-d64e8d72dff0"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0486 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6492 mm",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 112.8
+                    },
+                    "uuid": "2a881d9d-5f8c-48c5-a258-c55298ef4351"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.4200 mm",
+                    "pos": {
+                        "x": 149.72,
+                        "y": 112.9
+                    },
+                    "uuid": "685ea847-da67-457c-a057-d64e8d72dff0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0781 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 148.15,
+                        "y": 111.9
+                    },
+                    "uuid": "a64c9ca1-28c9-4b31-ae6d-16f35ba208a5"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1022 mm)",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.2500 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.75
+                    },
+                    "uuid": "9cbc4e8d-82ba-4b6e-ad4a-2e2d74b842c9"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1383 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.4200 mm",
+                    "pos": {
+                        "x": 149.72,
+                        "y": 112.9
+                    },
+                    "uuid": "685ea847-da67-457c-a057-d64e8d72dff0"
+                },
+                {
+                    "description": "B.Cu 上 U701 的焊盘 5 [I2S_SDI]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 113.1
+                    },
+                    "uuid": "75712477-d3e4-4688-89aa-5f90ba3dfbd0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0750 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.5125 mm",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "95136eb4-9d81-4131-96ab-e2d81416d173"
+                },
+                {
+                    "description": "走线 [I2S_SDI] (B.Cu), 长度: 1.5500 mm",
+                    "pos": {
+                        "x": 149.6,
+                        "y": 112.85
+                    },
+                    "uuid": "e0b332c8-0fe0-4b98-ad36-a21defb7767a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1383 mm)",
+            "items": [
+                {
+                    "description": "B.Cu 上 U701 的焊盘 5 [I2S_SDI]",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 113.1
+                    },
+                    "uuid": "75712477-d3e4-4688-89aa-5f90ba3dfbd0"
+                },
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 0.2088 mm",
+                    "pos": {
+                        "x": 149.78,
+                        "y": 112.7
+                    },
+                    "uuid": "8e7102a9-489b-414f-ab2d-abb6f4b77c99"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1786 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (B.Cu), 长度: 1.1314 mm",
+                    "pos": {
+                        "x": 149.3,
+                        "y": 112.9
+                    },
+                    "uuid": "1caf0386-9264-41ba-899f-229833fe5911"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 1.1000 mm",
+                    "pos": {
+                        "x": 148.8,
+                        "y": 114.0
+                    },
+                    "uuid": "3604d17b-6f86-4f35-b10b-3e724543045e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.0104 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 148.65,
+                        "y": 112.5
+                    },
+                    "uuid": "caee3cb2-8aed-41b2-9c19-6574a5ecd0b5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1624 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1624 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1624 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1624 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0655,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                },
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.5,
+                        "y": 112.1
+                    },
+                    "uuid": "b1366c90-68d6-4d14-954a-6e4f9d8b1bd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}
