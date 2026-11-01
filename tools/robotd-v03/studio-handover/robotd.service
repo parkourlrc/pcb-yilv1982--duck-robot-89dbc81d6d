@@ -1,0 +1,19 @@
+[Unit]
+Description=Microduck robotd (Studio calibration handover)
+After=local-fs.target
+
+[Service]
+Type=exec
+User=root
+Group=radxa
+ExecStart=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock
+Environment=ORT_DYLIB_PATH=/opt/robot/onnxruntime/1.28.0/libonnxruntime.so.1.28.0
+Environment=RUST_LOG=info
+RuntimeDirectory=robotd
+Restart=no
+NoNewPrivileges=yes
+ProtectKernelTunables=yes
+RestrictSUIDSGID=yes
+
+[Install]
+WantedBy=multi-user.target

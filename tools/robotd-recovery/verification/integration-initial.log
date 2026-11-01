@@ -1,0 +1,57 @@
+   Compiling robotd v0.15.1 (/root/duck-robot-recovery-20261101/robotd)
+warning: value assigned to `snapshot` is never read
+    --> robotd/src/main.rs:2610:17
+     |
+2610 |                 snapshot.enabled = false;
+     |                 ^^^^^^^^^^^^^^^^^^^^^^^^
+...
+2638 |             abort_walk_recovery!("电源或HOME请求取消恢复，已请求卸力");
+     |             ---------------------------------------------------------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `abort_walk_recovery` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `robotd` (bin "robotd" test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.91s
+     Running unittests src/main.rs (target/debug/deps/robotd-841120f08aa4bf66)
+
+running 4 tests
+test feetech_recovery_tests::joint_walk_recovery_holds_neutral_until_explicit_walk_handoff ... ok
+test feetech_recovery_tests::joint_walk_recovery_home_cancels_without_a_second_torque_on ... FAILED
+test feetech_recovery_tests::joint_walk_recovery_post_torque_read_failure_never_writes_a_model_target ... FAILED
+test feetech_recovery_tests::joint_walk_recovery_uses_walk_math_reads_after_torque_and_lease_expires ... FAILED
+
+failures:
+
+---- feetech_recovery_tests::joint_walk_recovery_home_cancels_without_a_second_torque_on stdout ----
+
+thread 'feetech_recovery_tests::joint_walk_recovery_home_cancels_without_a_second_torque_on' (667) panicked at robotd/src/feetech_recovery_tests.rs:1107:5:
+assertion `left == right` failed: {"accepted":false,"reason":"模型部署配置不可用，采集继续；动作未接受：deployment Home already initialized"}
+  left: Bool(false)
+ right: true
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- feetech_recovery_tests::joint_walk_recovery_post_torque_read_failure_never_writes_a_model_target stdout ----
+
+thread 'feetech_recovery_tests::joint_walk_recovery_post_torque_read_failure_never_writes_a_model_target' (668) panicked at robotd/src/feetech_recovery_tests.rs:1107:5:
+assertion `left == right` failed: {"accepted":false,"reason":"模型部署配置不可用，采集继续；动作未接受：deployment Home already initialized"}
+  left: Bool(false)
+ right: true
+
+---- feetech_recovery_tests::joint_walk_recovery_uses_walk_math_reads_after_torque_and_lease_expires stdout ----
+
+thread 'feetech_recovery_tests::joint_walk_recovery_uses_walk_math_reads_after_torque_and_lease_expires' (669) panicked at robotd/src/feetech_recovery_tests.rs:1107:5:
+assertion `left == right` failed: {"accepted":false,"reason":"模型部署配置不可用，采集继续；动作未接受：deployment Home already initialized"}
+  left: Bool(false)
+ right: true
+
+
+failures:
+    feetech_recovery_tests::joint_walk_recovery_home_cancels_without_a_second_torque_on
+    feetech_recovery_tests::joint_walk_recovery_post_torque_read_failure_never_writes_a_model_target
+    feetech_recovery_tests::joint_walk_recovery_uses_walk_math_reads_after_torque_and_lease_expires
+
+test result: FAILED. 1 passed; 3 failed; 0 ignored; 0 measured; 328 filtered out; finished in 3.03s
+
+error: test failed, to rerun pass `-p robotd --bin robotd`

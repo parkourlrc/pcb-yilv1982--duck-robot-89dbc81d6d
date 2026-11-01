@@ -1,0 +1,322 @@
+--- a/studio/pad.py
++++ b/studio/pad.py
+@@ -472,6 +472,8 @@
+         """页面的指令（在线程里跑）。返回给页面的 dict；不能做就抛 Refused（原因给页面看）。
+         by：「电脑 192.168.1.5」这种给人看的；conn：哪一个页面连接（同一台电脑开两个标签页也分得开）。"""
+         op = args.get("op")
++        if op == "recover_cancel":
++            return self._recovery_op(op, args, conn, by)
+         if conn is not None and conn in self._gone and op not in ("watch", "stop", "action_stop", "drive"):
+             raise Refused("这个页面已经断开了")      # 线程池里晚到的指令（审查二 S1）
+         if op == 'mapping':
+@@ -507,6 +509,10 @@
+                 raise Refused("连接不到语音服务，请检查 duck-echo") from None
+         if self.motion_studio.before(args, conn, by) is False:
+             return {"dropped": "动作会话已经改变，旧请求已丢弃"}
++        if op in ("recover", "recover_keepalive", "recover_cancel"):
++            return self._recovery_op(op, args, conn, by)
++        if self._recovery_active() and op in ("move", "sticks", "keys", "mode", "sit", "stand", "skill", "key", "action_start", "motion", "drive_mode"):
++            raise Refused("躺姿恢复期间只能续期、开始走或停止卸力")
+         if op == "watch":
+             self._watch()
+             return {}
+--- a/studio/pad_drive.py
++++ b/studio/pad_drive.py
+@@ -104,7 +104,7 @@
+ PADD_DROPIN_DIR = "/etc/systemd/system/padd.service.d"
+ PADD_INPUT_ACK = "/run/padd/input-settings.json"      # padd 用上幅度设置以后写的回执（fork padd/src/input_settings.rs:63-74）
+ # 走单独的小线程池（4 条：三 V13），不跟配对、蓝牙、一次性请求这些慢调用挤
+-FAST_OPS = ("move", "stop", "sticks", "keys", "mode", "action_hold", "action_stop", "drive", "watch")
++FAST_OPS = ("recover_keepalive", "recover_cancel", "move", "stop", "sticks", "keys", "mode", "action_hold", "action_stop", "drive", "watch")
+ FAST_WORKERS = 4
+ GONE_KEEP = 500           # 记住多少个断开 / 关掉的连接
+ INF = float("inf")
+@@ -290,11 +290,15 @@
+     pass
+ 
+ 
+-class DriveMixin:
++from .pad_recovery import RecoveryMixin
++
++
++class DriveMixin(RecoveryMixin):
+     # ================= 初始化 =================
+ 
+     def _drive_init(self, state_dir):
+         self.state_dir = state_dir
++        self._recovery_owner = None
+         self._send_lk = threading.Lock()      # 发给 robotd 的「检查 + 发送」在这把锁里：顺序就是落地的顺序（先拿它、再拿 _lk）
+         self._seqs = {}                       # 连接 → {"hi", "stop", "life", "mode", "latest":{通道}, "sent":{通道}}：换方向盘也不清
+         self._gone = {}                       # 断开的连接（mark_gone）→ True；永远拿不回方向盘
+@@ -1657,10 +1661,15 @@
+         if self._last_action is not None and now - self._last_action["at"] < 15:
+             last_action = {k: v for k, v in self._last_action.items() if k != "at"}
+         buttons = {"stand": stand, "walk": walk, "sit": sit}
++        recovery = self._recovery_buttons(now, buttons, skills, actions, combos)
++        if recovery["active"]:
++            start = dict(buttons["walk"])
++            need_drive = "躺姿恢复期间摇杆和技能已锁定"
+         return {"posture": pose, "posture_cn": POSTURE_CN.get(pose, pose), "block": block, "sitting": sitting,
+                 "buttons": buttons, "start": start, "reboot": reboot, "drive_mode": drive_mode,
+                 "keys": self._key_rows(buttons, sitting, skills, skills_why, known, need_drive, pol),
+-                "triggers": triggers, "driving": pose in DRIVING,
++                "triggers": triggers, "driving": pose in DRIVING and not recovery["active"],
++                "recovery": recovery,
+                 "skills": skills, "skills_why": skills_why,
+                 "sounds": sounds, "actions": actions, "combos": combos, "running": running, "last": last,
+                 "last_action": last_action, "busy": self._cmd_busy}
+--- /dev/null
++++ b/studio/pad_recovery.py
+@@ -0,0 +1,119 @@
++"""网页恢复会话。只有仍在页面的所有者能续期，后台线程不代发心跳。"""
++from .pad_combo import Refused
++
++ACTIVE = {"starting", "recovering", "recovered_hold", "stopping"}
++
++
++class RecoveryMixin:
++    def _recovery_status(self):
++        bus = (self._robot or {}).get("bus") or {}
++        status = bus.get("walk_recovery")
++        return status if isinstance(status, dict) else {}
++
++    def _recovery_active(self):
++        owner = self._recovery_owner
++        pending = owner is not None and owner.get("request_id") is None
++        return pending or self._recovery_status().get("phase") in ACTIVE
++
++    def _recovery_view(self, now):
++        status = self._recovery_status()
++        bus = (self._robot or {}).get("bus") or {}
++        why = self._base_block(now) or self._relax_block(now)
++        if why is None and not status:
++            why = "主程序尚未安装躺姿恢复功能"
++        model = (bus.get("loaded_models") or {}).get("walk") or {}
++        if why is None and model.get("sha256") != "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f":
++            why = "本次使用的联合行走模型尚未加载"
++        if why is None and self._recovery_active():
++            why = "本次恢复尚未结束"
++        if why is None and bus.get("policy_enabled") is not False:
++            why = "先关闭普通策略，再从躺姿启动恢复"
++        if why is None and self._pad_attached(now)[0] is not False:
++            why = "请先断开实体手柄，确认由网页控制"
++        if why is None and (self._action or self.motion_studio.session or self._job_alive()):
++            why = "先结束其他动作或手柄配对任务"
++        return {**status, "available": bool(status), "active": self._recovery_active(),
++                "ok": why is None, "why": why}
++
++    def _recovery_op(self, op, args, conn, by):
++        if op == "recover_cancel":
++            # Anyone may stop; this also covers an owner whose browser lost its lease.
++            request_id = args.get("request_id")
++            if request_id is not None:
++                self._call_rpc("取消本次躺姿恢复", "robot.recover",
++                               {"action": "cancel", "request_id": request_id}, by)
++            else:
++                self._call_rpc("停止躺姿恢复", "robot.relax", {}, by)
++            with self._lk:
++                if request_id is None or (self._recovery_owner or {}).get("request_id") == request_id:
++                    self._recovery_owner = None
++            return {"accepted": True}
++
++        with self._send_lk:
++            with self._lk:
++                now = self.clock()
++                if conn is None or conn in self._gone or conn in self._closed:
++                    raise Refused("页面已经离开或断开，恢复请求已丢弃")
++                if not self.motion_studio.request_current():
++                    raise Refused("动作会话已改变，恢复请求已丢弃")
++                if op == "recover_keepalive":
++                    owner = self._recovery_owner
++                    sequence = args.get("sequence")
++                    if (owner is None or owner["conn"] != conn
++                            or owner.get("request_id") != args.get("request_id")
++                            or type(sequence) is not int or sequence <= owner["sequence"]
++                            or self._relax_at >= owner["started"]
++                            or not self._driver or self._driver["conn"] != conn
++                            or self._base_block(now)):
++                        raise Refused("恢复会话失效或心跳不是当前所有者发出")
++                    owner["sequence"] = sequence
++                    self._touch_lease(conn, now)
++                    params = {"action": "keepalive", "request_id": owner["request_id"], "sequence": sequence}
++                else:
++                    view = self._recovery_view(now)
++                    if not view["ok"]:
++                        raise Refused(view["why"])
++                    if self._cmd_busy:
++                        raise Refused("上一个命令还没完成")
++                    self._take_lease(conn, by, now)
++                    owner = {"conn": conn, "request_id": None, "sequence": 0, "started": now}
++                    self._recovery_owner = owner
++                    self._cmd_busy = True
++                    params = {}
++            try:
++                result = self._call_rpc("躺姿起身" if op == "recover" else "恢复心跳", "robot.recover", params, by)
++                if op == "recover":
++                    request_id = result.get("request_id")
++                    if type(request_id) is not int or request_id <= 0:
++                        raise Refused("主程序没有返回本次恢复编号；不发送续期")
++                    with self._lk:
++                        valid = (self._recovery_owner is owner and conn not in self._gone
++                                 and conn not in self._closed and self._relax_at < owner["started"]
++                                 and self.motion_studio.request_current())
++                        if valid:
++                            owner["request_id"] = request_id
++                    if not valid:
++                        self._call_rpc("取消已过期恢复", "robot.recover",
++                                       {"action": "cancel", "request_id": request_id}, by)
++                        raise Refused("等待回执时页面已离开或会话已取消")
++                return result
++            except Exception:
++                with self._lk:
++                    if self._recovery_owner is owner:
++                        self._recovery_owner = None
++                raise
++            finally:
++                if op == "recover":
++                    with self._lk:
++                        self._cmd_busy = False
++
++    def _recovery_buttons(self, now, buttons, skills, actions, combos):
++        view = self._recovery_view(now)
++        if view["active"]:
++            for row in [*buttons.values(), *skills, *actions, *combos]:
++                row.update(ok=False, why="躺姿恢复中，其他动作暂不可用")
++            buttons["walk"] = {"op": "walk" if view.get("phase") == "recovered_hold" else "recover_cancel",
++                               "label": "开始走" if view.get("phase") == "recovered_hold" else "停止并卸力",
++                               "call": "robot.enable" if view.get("phase") == "recovered_hold" else "robot.relax",
++                               "ok": True, "why": None}
++        return view
+--- a/studio/updates.py
++++ b/studio/updates.py
+@@ -13,7 +13,7 @@
+ def safe_during_update(name,args):
+     if name in {'relax','servo.ports'}:return True
+     if name!='pad.op' or not isinstance(args,dict):return False
+-    if args.get('op') in {'stop','action_stop','walk_stop'}:return True
++    if args.get('op') in {'stop','action_stop','walk_stop','recover_cancel'}:return True
+     if args.get('op')=='motion' and args.get('action') in {'stop','idle_stop','record_finish'}:return True
+     if args.get('op')=='audio':
+         switches={key:value for key,value in args.items() if key!='op'}
+@@ -26,6 +26,7 @@
+ def neutral_robot_command(method,params):
+     """Only emergency/neutral output may cross a newly persisted update guard."""
+     if method in {'robot.stop','robot.relax'}:return True
++    if method=='robot.recover':return params.get('action')=='cancel'
+     if method=='robot.enable':return params.get('on') is False and params.get('toggle',False) is False
+     if method in {'robot.move','robot.head'}:
+         keys={'vx','vy','vyaw'} if method=='robot.move' else {'neck_pitch','head_pitch','head_yaw','head_roll'}
+--- a/web/pad.js
++++ b/web/pad.js
+@@ -619,7 +619,7 @@
+   const mirror = !!v.mirror;
+   const d = v.driver;
+   const locked = !!(d && !d.mine);
+-  const usable = !!pad?.motion && !mirror && !locked;
++  const usable = !!pad?.motion && !mirror && !locked && !m.recovery?.active;
+   const [axes, setAxes] = useState(ZERO);
+   const [pressedView, setPressedView] = useState(() => new Set());
+   const [heldView, setHeldView] = useState(() => new Set());
+@@ -636,7 +636,7 @@
+ 
+   const say = (text, bad = true) => setMsg(text ? { text, bad, at: performance.now() } : null);
+   const cmd = (args, t = 2000) => link.cmd('pad.op', args, t);
+-  const whyNot = () => (S.mirror ? MIRROR_WHY : S.locked ? `${S.d?.by || '另一个页面'}正在遥控：等它松手，或者点下面的「接管」`
++  const whyNot = () => (S.pad?.motion?.recovery?.active ? '躺姿恢复期间摇杆已锁定，可按停止或卸力' : S.mirror ? MIRROR_WHY : S.locked ? `${S.d?.by || '另一个页面'}正在遥控：等它松手，或者点下面的「接管」`
+     : '还没收到鸭子的状态');
+   const press = (role) => { S.pressed.add(role); setPressedView(new Set(S.pressed)); };
+   const unpress = (role) => { if (S.pressed.delete(role)) setPressedView(new Set(S.pressed)); };
+@@ -1053,7 +1053,75 @@
+     <span class="pd-kbhint">${vp.kbOn ? '键盘已接上' : '点一下图才接键盘'}</span>
+     ${vp.msg ? html`<span class=${cx('pd-vmsg', vp.msg.bad && 'pd-bad-t')} role=${vp.msg.bad ? 'alert' : 'status'}>${vp.msg.text}</span>` : null}
+   </div>
+-  <p class="pd-small-p pd-vbar-hint">键盘：点一下手柄图，W / S 前后、A / D 平移、Q / E 转弯（头 / 身体模式下键盘不管用）；空格 = 卸力（急停，整页都管用）· Esc = 全部松开（停下但不卸力）。满杆 ${(lim.v ?? 0.3).toFixed(2)} 米/秒、${(lim.w ?? 1.5).toFixed(1)} 弧度/秒（${lim.src || '官方默认'}），头满杆 ${(v.inputs?.head ?? 2.5).toFixed(1)} rad（${v.inputs?.src || '官方默认'}）。鸭子还没「准备好走」时摇杆不动：先点「站起来」、再点「开始走」（或者按图上的 Start）。</p>`;
++  <p class="pd-small-p pd-vbar-hint">键盘：点一下手柄图，W / S 前后、A / D 平移、Q / E 转弯（头 / 身体模式下键盘不管用）；空格 = 卸力（急停，整页都管用）· Esc = 全部松开（普通遥控不卸力；躺姿恢复时停止并卸力）。满杆 ${(lim.v ?? 0.3).toFixed(2)} 米/秒、${(lim.w ?? 1.5).toFixed(1)} 弧度/秒（${lim.src || '官方默认'}），头满杆 ${(v.inputs?.head ?? 2.5).toFixed(1)} rad（${v.inputs?.src || '官方默认'}）。鸭子还没「准备好走」时摇杆不动：先点「站起来」、再点「开始走」（或者按图上的 Start）。</p>`;
++}
++
++function RecoveryCard({ recovery, link }) {
++  const lease = useRef(null), mounted = useRef(true), starting = useRef(false);
++  const [error, setError] = useState(null);
++  const status = useRef(recovery); status.current = recovery;
++  useEffect(() => {
++    mounted.current = true;
++    let pending = false;
++    const cancel = () => {
++      const r = lease.current; lease.current = null;
++      if (r) link.cmd('pad.op', { op: 'recover_cancel', request_id: r.id }, 2000);
++    };
++    const tick = async () => {
++      const r = lease.current;
++      if (!r || pending) return;
++      if (!ACT.active || document.visibilityState !== 'visible') { cancel(); return; }
++      const st = status.current;
++      if (st?.request_id === r.id && !st.active) { lease.current = null; return; }
++      pending = true;
++      try {
++        const result = await link.cmd('pad.op', { op: 'recover_keepalive', request_id: r.id, sequence: ++r.seq }, 500);
++        if (!result.ok && lease.current === r) lease.current = null;
++      } catch {
++        if (lease.current === r) lease.current = null;
++      } finally { pending = false; }
++    };
++    const timer = setInterval(tick, SEND_MS);
++    const off = padActivity.subscribe(({ active }) => { if (!active) cancel(); });
++    const blur = () => cancel();
++    const key = (e) => {
++      if (e.code === 'Escape' || e.code === 'Space') {
++        if (status.current?.active) link.cmd('pad.op', { op: 'recover_cancel' }, 2000);
++        lease.current = null;
++      }
++    };
++    window.addEventListener('blur', blur);
++    window.addEventListener('keydown', key, true);
++    return () => {
++      mounted.current = false; clearInterval(timer); off();
++      window.removeEventListener('blur', blur); cancel();
++      window.removeEventListener('keydown', key, true);
++    };
++  }, []);
++  const start = async () => {
++    if (starting.current || lease.current || !ACT.active) return;
++    starting.current = true; setError(null);
++    try {
++      const r = await link.cmd('pad.op', { op: 'recover' }, 3000);
++      const id = r.data?.request_id;
++      if (r.ok && Number.isSafeInteger(id)) {
++        if (mounted.current && ACT.active && document.visibilityState === 'visible') lease.current = { id, seq: 0 };
++        else link.cmd('pad.op', { op: 'recover_cancel', request_id: id }, 2000);
++      } else if (mounted.current) setError(r.reason || '主程序没有接受恢复请求');
++    } catch {
++      if (mounted.current) setError('连接中断，恢复不会继续续期');
++    } finally { starting.current = false; }
++  };
++  const stop = () => { lease.current = null; link.cmd('pad.op', { op: 'recover_cancel' }, 2000); };
++  return html`<div class="pd-sec">
++    <div class="pd-sec-h">躺姿起身</div>
++    <p class="pd-small-p">最长尝试8秒，恢复后零速度保持。停止、Esc、断连或失败会卸力；起身前请留出活动空间。</p>
++    <div class="pd-bigs">
++      <button class="pd-big" disabled=${!recovery?.ok || recovery?.active} onClick=${start}><b>躺姿起身</b><small>${recovery?.why || '使用已装联合模型'}</small></button>
++      ${recovery?.active ? html`<button class="pd-big pd-stopbtn" onClick=${stop}><b>停止并卸力</b></button>` : null}
++    </div>
++    <p class="pd-small-p" role="status">${error || recovery?.reason || '主程序尚未安装躺姿恢复功能'}</p>
++  </div>`;
+ }
+ 
+ function Remote({ st, pad, link, vp }) {
+@@ -1098,7 +1166,7 @@
+     if (!b) return null;
+     const lit = mirror && ((b.op === 'stand' || b.op === 'walk' || b.op === 'walk_stop') ? lb.start : b.op === 'sit' ? (bindOf('dpad_down') === 'sit_toggle' && lb.dd) : false);
+     // 「停下（站好）」谁都能点、不排队（审查二 I1）；别的按钮在别人推摇杆时、上一个还没回话时先灰
+-    const off = !b.ok || (b.op !== 'walk_stop' && (locked || busy));
++    const off = !b.ok || (!['walk_stop', 'recover_cancel'].includes(b.op) && (locked || busy));
+     return html`<button class=${cx('pd-big', extra, lit && 'pd-lit')} disabled=${off} onClick=${() => press(b)}
+       title=${b.ok ? (b.call ? `发给主程序：${b.call}` : '') : b.why}>
+       <b>${b.label}</b><small>${busy ? '等它回话…' : b.ok ? (b.note || (b.op === 'walk_stop' ? '停下来站好（不坐）' : '')) : b.why}</small></button>`;
+@@ -1136,6 +1204,7 @@
+       ${last ? html`<p class=${cx('pd-small-p', !last.ok && 'pd-bad-t')}>${last.ok ? '✓' : '×'} ${last.what}${last.by ? `（${last.by}）` : ''}：${last.ok ? (last.reason || '主程序收到了') : last.reason}</p>` : null}
+     </div>
+ 
++    <${RecoveryCard} recovery=${m.recovery} link=${link} />
+     <${AudioInteraction} pad=${pad} link=${link} activity=${padActivity} />
+     <${MotionStudio} pad=${pad} link=${link} activity=${padActivity} />
+ 

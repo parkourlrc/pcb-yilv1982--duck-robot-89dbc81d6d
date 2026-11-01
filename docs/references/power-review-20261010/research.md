@@ -19,7 +19,7 @@
 
 - VBATT 为电池电源网络名，不是固定的 5V/3.3V。按[IMU 网表](../../schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md)，J1/J3 pin2 接 VBATT，再经 U3 AP2210K-3.3 生成 3.3V，供本板 MCU、IMU 与总线芯片。
 - U3 位于绿色板下部、竖排 IMU2DXL 丝印左侧，五脚封装；不是中间的 U2 MCU 或 U1 传感器。型号依据归档设计，不是照片读出了芯片完整丝印。
-- 旧标注中“输入上限 5.5V、只能 5V”的要求已被 v2 撤销。v2 引用 13.2V，本次尝试访问厂家 `https://www.diodes.com/assets/Datasheets/AP2210.pdf` 返回 HTTP 403，未重新取得原厂手册，不能宣称本轮独立复核过全部电气极限；实物料号、3.3V 和温升仍待确认。
+- 旧标注中“输入上限 5.5V、只能 5V”的要求已被 v2 撤销。v2 引用 13.2V，本次尝试访问厂家 `https://www.diodes.com/assets/Datasheets/AP2210.pdf` 返回 HTTP 403，未重新取得原厂手册，不能宣称本轮独立复核过全部电气极限；实物料号、3.3V 和温升仍待确认。**2026-10-31 更新**：现已成功取得原厂 PDF 并查看 p4/p11/p12，确认推荐上限 13.2V、绝对最大 15V；后来重现的“5.5V 上限”错误已清除，见[本轮复核](../imu-v03-input-voltage-20261031/research.md)。
 - [U3 位置图](../../photos/imu-ldo-location.png)基于[旧实物标注原件](../../schematics/imu-to-dxl-scrapmeta-v0.3/实物板元件标注.jpg)重新圈示并去掉错误电压说明。旧图只供来源追溯，不再作为电压接线依据。
 
 ### 舵机链、分支与实际接入口

@@ -1,0 +1,158 @@
+{
+  "schema": "microduck-software-provenance/1",
+  "version": "2026.10.3101",
+  "revision_meaning": "2026-10-31 revision01; formal three-part version compatible with original27 catalog",
+  "source_repository": "https://github.com/fanhao375/microduck-replica",
+  "source_commit": "3952471a8394c8b720817d2160ffd95ce5a54456",
+  "source_archive_sha256": "f3ddb1d3c2e2383ebb18459f7728c08f16fbcb6424299f0370096ea959c2e2f1",
+  "software_package": {
+    "name": "2026.10.3101.software-update.tar",
+    "size": 9287680,
+    "sha256": "0502c452e7062aa29286f6a82c046ed4ceaaf8beecaa6d98958341a80c95ea77",
+    "public_key_sha256": "0878853a92b10c9196c5b63e02087664923c576e6bc2e064d3bbdcc1be056bf5",
+    "original_arm_engine_verified_signatures": true,
+    "runtime_files": 366,
+    "source_files_exactly_match_frozen_lf_git_archive": 362,
+    "fixed_native_injections": 4,
+    "personal_audio_images_api_keys_or_private_keys_included": false
+  },
+  "changed_source_runtime_paths_from_31": [
+    "studio/web/duck3d.js",
+    "studio/web/labels.js",
+    "studio/web/model-worker.js",
+    "studio/web/model/model.json"
+  ],
+  "generated_metadata_changes": "suite-version.json source/version and native manifest version fields are regenerated for the new software version; native binary bytes are unchanged",
+  "controller_inputs": {
+    "repository": "https://github.com/fanhao375/Microduck-kissqy",
+    "robotd": {
+      "source_commit": "931ce978f2efb27c157b7a583ee402793131a0d2",
+      "size": 5606976,
+      "sha256": "725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00",
+      "build": "0791fcd-feetech-qinmo-control.47",
+      "api": 42,
+      "model": 2
+    },
+    "padd": {
+      "source_commit": "665613ac628fdc9b1b71f324809f0c16ce2795f2",
+      "source_archive_sha256": "19d477da39233009377f6653dff317ba16457534e9e2436545adf40385b02f38",
+      "size": 3522648,
+      "sha256": "dc1c7043a108964583fc09a11e3d6f87a25e259c346f7ce9154e77500a0881ec",
+      "embedded_build_time": "2026-10-30T23:17:10+09:00",
+      "target": "aarch64-unknown-linux-gnu.2.31",
+      "maximum_glibc_symbol_version": "2.30",
+      "independent_builds_byte_identical": true,
+      "mapping_protocol": 1,
+      "linux_padd_tests_executed_passed": 113,
+      "actual_arm_process_and_status_under_qemu": true,
+      "hardware_acceptance": false
+    },
+    "public_source_export": {
+      "commit": "27d7921dbcb280bd7d6ba3e9937624f1e2e61d23",
+      "url": "https://github.com/fanhao375/Microduck-kissqy/tree/27d7921dbcb280bd7d6ba3e9937624f1e2e61d23",
+      "sole_parent_public_baseline": "e376346723e1670a649b2a00e4dcec0f3d2a46cd",
+      "historical_embedded_build_source": "665613ac628fdc9b1b71f324809f0c16ce2795f2",
+      "historical_build_commit_public_reachability_claimed": false,
+      "program_and_build_inputs_equal_historical_frozen_source": true,
+      "program_input_file_count": 1331,
+      "protected_console_changes_and_local_history_excluded": true,
+      "public_source_recipe_syntax_checked": true,
+      "public_source_rebuild_executed": false,
+      "frozen_binary_changed": false
+    }
+  },
+  "native_binaries_changed_or_recompiled": false,
+  "inherited_controller_verification": {
+    "version": "2026.10.31",
+    "provenance_url": "https://github.com/fanhao375/microduck-replica/releases/download/microduck-software-v2026.10.31/runtime-provenance.json",
+    "note": "Native113 tests, A/B builds, genuine-systemd fixture and Linux controller checks are prior unchanged-controller evidence, not rerun for this UI-only revision."
+  },
+  "verification": {
+    "cad_three_and_cache_regressions": {
+      "executed_passed": 23,
+      "skipped": 0,
+      "seconds": 7.868,
+      "old_geometry_regression_expected_failures": 6,
+      "old_cache_policy_expected_failures": 2,
+      "old_http_and_indexeddb_cache_regression": true
+    },
+    "related_python_servo_regressions": {
+      "executed_passed": 32,
+      "skipped": 0,
+      "seconds": 10.912
+    },
+    "updater_windows": {
+      "run": 32,
+      "executed_passed": 28,
+      "skipped": 4,
+      "seconds": 1.626
+    },
+    "actual_browser": {
+      "actualBrowser": true,
+      "realWebGLModel": true,
+      "syntheticDeviceOnly": true,
+      "errors": [],
+      "results": [
+        {
+          "id": "32",
+          "name": "头部偏航",
+          "selectedJoint": "head_yaw",
+          "bodyJoint": "head_yaw",
+          "localPosition": [
+            0,
+            0,
+            0.0145
+          ],
+          "workerCache": false
+        },
+        {
+          "id": "34",
+          "name": "嘴巴",
+          "selectedJoint": "mouth",
+          "bodyJoint": "head_roll",
+          "localPosition": [
+            0.003,
+            0.0255,
+            -0.018
+          ],
+          "workerCache": false
+        }
+      ]
+    },
+    "original27_arm_engine": {
+      "sha256": "d5f9086bae5c2ec10ba75fc2d41c27578236a12d9a6364bffa8d9315fda97fa6",
+      "baseline_versions": [
+        "2026.10.27",
+        "2026.10.31"
+      ],
+      "baseline_package_sha256": [
+        "b6543c9f3a2ad6477106410dbed9753be9fa37c61b79ea0350767a18229d0e55",
+        "5f6a597abe27d9c4af8e137841c9dcab4b6c4b378f44c8f88f4c7b4f6ae09204"
+      ],
+      "new_package_sha256": "0502c452e7062aa29286f6a82c046ed4ceaaf8beecaa6d98958341a80c95ea77",
+      "dry_run_install_rollback_signature_hash_health_failure_and_crash_recovery_passed": true,
+      "robotd_and_padd_not_replaced_in_software_stage": true,
+      "execution": "actual original ARM engine under QEMU; isolated roots; recording service shims",
+      "harness_note": "Startup now waits for an accepting UNIX socket, replacing the original socket-file-only readiness check."
+    },
+    "limitations": [
+      "No physical device installation in this task.",
+      "Controller hardware acceptance remains the separately documented31 limitation.",
+      "Bootstrap inputs are verified, not a new physical bootstrap install acceptance."
+    ]
+  },
+  "community_qr": {
+    "repository_path": "assets/wechat-group-14.png",
+    "group": "鸭子复刻群14",
+    "valid_before": "2026-11-07",
+    "sha256": "c0b5e764b1eda46180da3a059a4d830928a203fad77344b154f3e32506ffed3b",
+    "included_in_runtime_package": false
+  },
+  "upgrade": {
+    "stage1": "existing signed software updater installs Studio and voice runtime",
+    "stage2": "explicit stopped/unloaded confirmation installs matched native binaries and fixed owned service drop-ins",
+    "stage2_requires_known_installed_component_hashes": true,
+    "rollback": "restore matching native components and owned service settings before returning to incompatible legacy voice software",
+    "image_reflash_required_for_existing_27_update_entry": false
+  }
+}

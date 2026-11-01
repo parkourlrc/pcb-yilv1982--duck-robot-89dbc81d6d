@@ -1,0 +1,403 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "scope": "当前工作区含 Git 忽略的训练日志；排除虚拟环境、依赖、Git 数据；不扫描项目以外旧磁盘/WSL主目录，不连接真机",
+  "hardware_status": "用户确认：现在硬件部分已完成。未据此生成额外实测或逐项标定结论。",
+  "package_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17",
+  "package_build": "1fa8438-feetech-ft6-control.43",
+  "package_console_version": "1.0.167",
+  "package_archive_sha256": "bcfd5c183c697b9c4e0fdbd563d995eda6a48331a7c49b9e76d20bd156c65cce",
+  "ordinary_foot_models": 6,
+  "roller_models": 4,
+  "models": [
+    {
+      "label": "起坐",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1c94934c6421ec72ed48079cea749668/policy.onnx",
+      "size_bytes": 793860,
+      "sha256": "1c94934c6421ec72ed48079cea74966868a7a59f7d732e0207d0f7bdaeed3c50",
+      "manifest_sha256": "1c94934c6421ec72ed48079cea74966868a7a59f7d732e0207d0f7bdaeed3c50",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1c94934c6421ec72ed48079cea749668/manifest.json",
+      "manifest_file_sha256": "24428f211159adcf19c9a474487489b1f532e7d7900d7b3549bfefbc927b243a",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1c94934c6421ec72ed48079cea749668/deployment-contract.json",
+      "contract_file_sha256": "fcd3b944a0bd6314daa4f27a050817e3e189e36fc30687cc1623ed7a6700aaef",
+      "task": "Mjlab-SitStand-Flat-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/hd1910/software/training/logs/rsl_rl/microduck_sitstand/2026-10-01_23-51-57_console_20261001_235147_771504/model_10000.pt",
+      "source_iteration": null,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": null,
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "行走、零速度保持与倒地恢复联合策略",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/policy.onnx",
+      "size_bytes": 795454,
+      "sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+      "manifest_sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/manifest.json",
+      "manifest_file_sha256": "d61b0ce5745f82fc8553dc6718dfc9b4cd11dc8fc24ad2e40e7323cfb80fe4d5",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/deployment-contract.json",
+      "contract_file_sha256": "0e645c9298997e2266538bfef68a8fcb3c70d6a4a4a62d64dc5a5c9d52651067",
+      "task": "Mjlab-VelStand-Rough-Backlash-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/velstand/2026-10-07_00-14-46_console_20261007_001438_ac58f8/model_9599.pt",
+      "source_iteration": 9599,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "前滚翻",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/59e15d7b04d0c40e9b11b8a70bdecae6/policy.onnx",
+      "size_bytes": 795451,
+      "sha256": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac",
+      "manifest_sha256": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/59e15d7b04d0c40e9b11b8a70bdecae6/manifest.json",
+      "manifest_file_sha256": "f097326d4331fdd298e2d4ad4e7ade8aec8d8148195b0db2e0b30b968dce15b5",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/59e15d7b04d0c40e9b11b8a70bdecae6/deployment-contract.json",
+      "contract_file_sha256": "2e40493605eac00978db51bcc0e127d6681fb78b170694f979c703bcd8dff330",
+      "task": "Mjlab-Roulade-Flat-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/microduck_roulade/2026-10-07_23-21-43_console_20261007_232135_76625d/model_9999.pt",
+      "source_iteration": 9999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "右脚踢球",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/67ad09d82f4865d222a7ae06f250cf9f/policy.onnx",
+      "size_bytes": 795427,
+      "sha256": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd",
+      "manifest_sha256": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/67ad09d82f4865d222a7ae06f250cf9f/manifest.json",
+      "manifest_file_sha256": "ba1fbae9b89f19f8c9e8ce2233e75ca5639b6380365ea19aed1160aac76ee3cb",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/67ad09d82f4865d222a7ae06f250cf9f/deployment-contract.json",
+      "contract_file_sha256": "48ba1c5217705b5af6ef7279e85413346e46de9ab146dc5f8864b95b5514f4ae",
+      "task": "Mjlab-BallKick-Flat-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/ball_kick_right/2026-10-08_22-19-07_console_20261008_221854_51f3bf/model_9999.pt",
+      "source_iteration": 9999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "地面捡取",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/b14e3a8b56ddbb8d2d831e727774a168/policy.onnx",
+      "size_bytes": 795476,
+      "sha256": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69",
+      "manifest_sha256": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/b14e3a8b56ddbb8d2d831e727774a168/manifest.json",
+      "manifest_file_sha256": "12d6870830a48bdc00f9c1dd961e09263919c535cb2604d31659e080ff497b83",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/b14e3a8b56ddbb8d2d831e727774a168/deployment-contract.json",
+      "contract_file_sha256": "2d2e807aadb1f98df7b64e5f3378041db6fd939e5e286a9958f1b1540ab21fee",
+      "task": "Mjlab-GroundPick-Flat-Backlash-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/ground_pick/2026-10-08_04-17-47_console_20261008_041738_4eb094/model_9999.pt",
+      "source_iteration": 9999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "左脚踢球",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/ee0376c927044cdece056ba1d3e6eac7/policy.onnx",
+      "size_bytes": 795426,
+      "sha256": "ee0376c927044cdece056ba1d3e6eac77b3e02ee3f701f1feb437c183ed39a6d",
+      "manifest_sha256": "ee0376c927044cdece056ba1d3e6eac77b3e02ee3f701f1feb437c183ed39a6d",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/ee0376c927044cdece056ba1d3e6eac7/manifest.json",
+      "manifest_file_sha256": "b02df1889d690219b900c7a7d41e57ac901c14791f7e27c681fa84eadc17db57",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/ee0376c927044cdece056ba1d3e6eac7/deployment-contract.json",
+      "contract_file_sha256": "0b3b2183ae873ca0fd289d82fd98f1aec046cd33abf038815eaf1aca14a10005",
+      "task": "Mjlab-BallKickLeft-Flat-Backlash-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/ball_kick_left/2026-10-09_08-09-59_console_20261009_080949_c9d918/model_9999.pt",
+      "source_iteration": 9999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": false,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "滑轮蹲下",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/crouch/policy.onnx",
+      "size_bytes": 795485,
+      "sha256": "82be20b115d925ab5adfd20c12188364dd841a2c533eba3bfd64fb9212fe4aa4",
+      "manifest_sha256": "82be20b115d925ab5adfd20c12188364dd841a2c533eba3bfd64fb9212fe4aa4",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/crouch/manifest.json",
+      "manifest_file_sha256": "c43d3c9ad0eed2603064123e40765640894f967614464a02aaa3bbeddf3bae4e",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/crouch/deployment-contract.json",
+      "contract_file_sha256": "1b8a22cac01ec433ab0bf79e726d7c7ad78b9106dd087f513b1769bba403956e",
+      "task": "Mjlab-RollerCrouch-Flat-Backlash-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/roller_crouch/2026-10-10_03-37-47_console_20261010_033738_496ba4/model_7999.pt",
+      "source_iteration": 7999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": true,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "滑轮原地转",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/spin/policy.onnx",
+      "size_bytes": 795476,
+      "sha256": "621fe9f3ae3463089033c76354f8290e23457898af7e3e78de008af4a7180569",
+      "manifest_sha256": "621fe9f3ae3463089033c76354f8290e23457898af7e3e78de008af4a7180569",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/spin/manifest.json",
+      "manifest_file_sha256": "a3339660d84721e98436566bfaf76b019a20da05a14d2ec6a6c096a58ba99002",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/spin/deployment-contract.json",
+      "contract_file_sha256": "d67e72bded6a8e891de1c789ffae08e58a53ceed63bf33fbe91156b9f15b298b",
+      "task": "Mjlab-Spin-Flat-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/spin/2026-10-10_18-02-36_console_20261010_180222_d2cf38/model_7999.pt",
+      "source_iteration": 7999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": true,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "滑轮倒地起身",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/standup/policy.onnx",
+      "size_bytes": 795427,
+      "sha256": "2575b5894bcd8e3fdbe005b1a7b90d9491085726df32000c26cf5b92b7a10ebb",
+      "manifest_sha256": "2575b5894bcd8e3fdbe005b1a7b90d9491085726df32000c26cf5b92b7a10ebb",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/standup/manifest.json",
+      "manifest_file_sha256": "53a07090f6bfa9beb376da31fe671988f75001aeaf7450e6de438840295eec6d",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/standup/deployment-contract.json",
+      "contract_file_sha256": "576e89573cb36962f29f9d6fbb4eb46ebc073c14029b0cbec7f97cdc6512d567",
+      "task": "Mjlab-RollerStandUp-Flat-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/roller_standup/2026-10-11_04-07-45_console_20261011_040735_fe8252/model_11000.pt",
+      "source_iteration": 11000,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": true,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    },
+    {
+      "label": "滑轮对称滑行",
+      "policy_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/swizzle/policy.onnx",
+      "size_bytes": 795459,
+      "sha256": "14195135fcaa60cc45c36181d31542e76f07d873261ecae41dca72c0b795fcc8",
+      "manifest_sha256": "14195135fcaa60cc45c36181d31542e76f07d873261ecae41dca72c0b795fcc8",
+      "hash_matches": true,
+      "manifest_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/swizzle/manifest.json",
+      "manifest_file_sha256": "931e1cc97624c8ec42bbe4dbf1e58f774a971eb199ec813c34c82d5c642f446a",
+      "contract_path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/roller/swizzle/deployment-contract.json",
+      "contract_file_sha256": "a660219b1e665b3407c4520401601b8600e89c7e2a15fbfa11ac4ab28cc6d02b",
+      "task": "Mjlab-Velocity-Swizzle-Backlash-MicroDuck",
+      "checkpoint_source": "/home/radxa/microduck-training-studio/engines/official_0151/logs/rsl_rl/velocity_swizzle/2026-10-10_08-43-34_console_20261010_084324_3fc56f/model_9999.pt",
+      "source_iteration": 9999,
+      "input_dim": 61,
+      "output_dim": 14,
+      "deployment_verified": false,
+      "roller_hardware_required": true,
+      "declared_robot": {
+        "model": "microduck",
+        "hw_rev": 1,
+        "servos": "hd1910",
+        "control_hz": 50
+      },
+      "classification": "本地文件静态核验；动作能力为上游模型声明；本机未做策略运行"
+    }
+  ],
+  "other_loose_model_files": [
+    {
+      "path": "training/logs/b-feetech-walk-20261024/policy.onnx",
+      "size_bytes": 795454,
+      "sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f"
+    },
+    {
+      "path": "training/logs/rsl_rl/duck_walk/2026-10-19_15-02-25/model_9999.pt",
+      "size_bytes": 592885,
+      "sha256": "bc6d168c8cf6a4a4e3d6613f25e478bc5ee90368374a281754b8596292a59b23"
+    },
+    {
+      "path": "references/microduck-build-tutorial/microduck/src/agents/walk.onnx",
+      "size_bytes": 773115,
+      "sha256": "5707c06da8346ecd4c2ff15dcd74ffabc575e0f14bcbb18076501324f9bbe279"
+    },
+    {
+      "path": "references/microduck-build-tutorial/mjlab_microduck/src/mjlab_microduck/agents/velocity.pt",
+      "size_bytes": 4887111,
+      "sha256": "7d06922fd61e25fda88d09c88a2b7ffdae5a05fa9c8ab0c347ca5cb98f9c832a"
+    }
+  ],
+  "export_archives": [
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1c94934c6421ec72ed48079cea749668/export-data.zip",
+      "entries": [
+        "deployment-contract.json",
+        "manifest.json",
+        "training-request.json",
+        "upstream-params/env.yaml",
+        "upstream-params/agent.yaml"
+      ],
+      "embedded_weights": []
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/export-data.zip",
+      "entries": [
+        "deployment-contract.json",
+        "manifest.json",
+        "training-request.json",
+        "upstream-params/env.yaml",
+        "upstream-params/agent.yaml",
+        "training-config.json",
+        "deployment-profile.toml",
+        "使用说明.md"
+      ],
+      "embedded_weights": []
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/59e15d7b04d0c40e9b11b8a70bdecae6/export-data.zip",
+      "entries": [
+        "policy.onnx",
+        "deployment-contract.json",
+        "training-request.json",
+        "manifest.json",
+        "deployment-profile.toml",
+        "使用说明.md",
+        "training-config.json",
+        "upstream-params/agent.yaml",
+        "upstream-params/env.yaml"
+      ],
+      "embedded_weights": [
+        {
+          "entry": "policy.onnx",
+          "size_bytes": 795451,
+          "sha256": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/67ad09d82f4865d222a7ae06f250cf9f/export-data.zip",
+      "entries": [
+        "policy.onnx",
+        "checkpoint.pt",
+        "deployment-contract.json",
+        "training-request.json",
+        "manifest.json",
+        "deployment-profile.toml",
+        "使用说明.md",
+        "training-config.json",
+        "upstream-params/agent.yaml",
+        "upstream-params/env.yaml"
+      ],
+      "embedded_weights": [
+        {
+          "entry": "policy.onnx",
+          "size_bytes": 795427,
+          "sha256": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd"
+        },
+        {
+          "entry": "checkpoint.pt",
+          "size_bytes": 4868405,
+          "sha256": "26a07f6982d2aa0d8ba7229ad3df7664d677fc9ee185a861ea781843a01cb35f"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/b14e3a8b56ddbb8d2d831e727774a168/export-data.zip",
+      "entries": [
+        "policy.onnx",
+        "deployment-contract.json",
+        "training-request.json",
+        "manifest.json",
+        "deployment-profile.toml",
+        "使用说明.md",
+        "training-config.json",
+        "upstream-params/agent.yaml",
+        "upstream-params/env.yaml"
+      ],
+      "embedded_weights": [
+        {
+          "entry": "policy.onnx",
+          "size_bytes": 795476,
+          "sha256": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69"
+        }
+      ]
+    }
+  ],
+  "absent_paths": [
+    "training/checkpoints/",
+    "references/microduck-replica/software/training 中未发现权重"
+  ],
+  "failed_or_incomplete": [
+    "网页工具两次请求源仓目录和固定提交 manifest 均未返回可用正文；本轮只据本地快照，不宣称已复核上游最新版本。",
+    "起坐包没有 model-info.json/deployment-profile.toml，属于较旧合同格式；维度从 deployment-contract.json input_dim/output_dim 补读。",
+    "历史23个SB3 final.zip不在当前工作区，未推断已删除，也未扫描外部历史环境。"
+  ],
+  "not_performed": [
+    "模型前向推理",
+    "仿真回放或训练",
+    "SSH/板上服务复查",
+    "部署、使能扭矩或动作",
+    "修改只读参考库"
+  ]
+}

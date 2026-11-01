@@ -1,0 +1,459 @@
+{
+  "checked_utc": "2026-11-01T03:19:27.395307+00:00",
+  "user_power": {
+    "source": "bench supply",
+    "voltage_set_v": 7.4,
+    "current_limit_a": 3,
+    "cc_observation": "not observed"
+  },
+  "services": {
+    "returncode": 0,
+    "stdout": "MainPID=1484\nActiveState=active\nUnitFileState=enabled\n\nMainPID=1492\nActiveState=active\nUnitFileState=enabled\n",
+    "stderr": ""
+  },
+  "status": {
+    "achieved_hz": 49.97369154997828,
+    "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+    "calibrated": false,
+    "configured_imu_profile": "legacy",
+    "device_communication": {
+      "by_id": {
+        "10": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "11": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "12": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "13": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "14": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "20": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "200": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": 8797,
+          "missing": 0,
+          "timeout": 7
+        },
+        "21": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "22": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "23": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "24": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "30": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "31": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "32": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "33": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "34": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        }
+      },
+      "classification": "exclusive-v2",
+      "complete_but_late": 0,
+      "incomplete_timeout_reads": 7,
+      "last_trace": {
+        "address": 56,
+        "bad_checksums": 0,
+        "complete_but_late": false,
+        "deadline_exceeded": false,
+        "discarded": 0,
+        "elapsed_us": 5209,
+        "length": 15,
+        "missing_ids": [],
+        "partial_received": false,
+        "request_sent": true,
+        "rx_bytes": 336
+      },
+      "missing_reads": 0,
+      "session": "1484-1793502948029840121",
+      "total_reads": 10966,
+      "unsent_reads": 0
+    },
+    "errors_by_id": {
+      "200": 7
+    },
+    "imu_bus": {
+      "board": "imu_to_dxl",
+      "gyro_dps_per_lsb": 0.0175,
+      "identification": "legacy_identity",
+      "identity": [
+        0,
+        2,
+        0,
+        68,
+        77
+      ],
+      "profile": "legacy",
+      "protocol": "feetech"
+    },
+    "imu_mount_verified": true,
+    "last_cycle_error": null,
+    "last_failure": {
+      "cycle": 8797,
+      "error": "bus transaction failed: imu_to_dxl ID200 response timeout",
+      "missing_ids": [
+        200
+      ]
+    },
+    "last_sample": {
+      "at_us": 219334383,
+      "cycle": 10966,
+      "imu": {
+        "gravity": [
+          -0.9856210374644644,
+          -0.11163968111860519,
+          -0.12683750276321695
+        ],
+        "gyro_rad_s": [
+          0.0006467074127639179,
+          -0.0030645637068826737,
+          -0.002249952917134266
+        ],
+        "id": 200,
+        "mount_verified": true,
+        "quaternion_wxyz": [
+          0.5175759182405015,
+          -0.4242239579359273,
+          -0.506572089767654,
+          -0.5436303157837227
+        ],
+        "ready": true,
+        "sequence": 120,
+        "source": "bus",
+        "valid": true
+      },
+      "servos": [
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 20,
+          "joint": "left_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2101,
+          "position_signed_raw": 2101,
+          "position_wire_raw": 2101,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 21,
+          "joint": "left_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2265,
+          "position_signed_raw": 2265,
+          "position_wire_raw": 2265,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 22,
+          "joint": "left_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1715,
+          "position_signed_raw": 1715,
+          "position_wire_raw": 1715,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 2,
+          "id": 23,
+          "joint": "left_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1405,
+          "position_signed_raw": 1405,
+          "position_wire_raw": 1405,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 24,
+          "joint": "left_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1254,
+          "position_signed_raw": 1254,
+          "position_wire_raw": 1254,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 30,
+          "joint": "neck_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 3065,
+          "position_signed_raw": 3065,
+          "position_wire_raw": 3065,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 31,
+          "joint": "head_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1245,
+          "position_signed_raw": 1245,
+          "position_wire_raw": 1245,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 32,
+          "joint": "head_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2102,
+          "position_signed_raw": 2102,
+          "position_wire_raw": 2102,
+          "speed_raw": 0,
+          "temperature_c": 36,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 33,
+          "joint": "head_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2129,
+          "position_signed_raw": 2129,
+          "position_wire_raw": 2129,
+          "speed_raw": 0,
+          "temperature_c": 32,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 34,
+          "joint": "mouth",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2033,
+          "position_signed_raw": 2033,
+          "position_wire_raw": 2033,
+          "speed_raw": 0,
+          "temperature_c": 40,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 2,
+          "id": 10,
+          "joint": "right_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2117,
+          "position_signed_raw": 2117,
+          "position_wire_raw": 2117,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 11,
+          "joint": "right_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1827,
+          "position_signed_raw": 1827,
+          "position_wire_raw": 1827,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 12,
+          "joint": "right_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2075,
+          "position_signed_raw": 2075,
+          "position_wire_raw": 2075,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 13,
+          "joint": "right_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2386,
+          "position_signed_raw": 2386,
+          "position_wire_raw": 2386,
+          "speed_raw": 0,
+          "temperature_c": 29,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 14,
+          "joint": "right_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2927,
+          "position_signed_raw": 2927,
+          "position_wire_raw": 2927,
+          "speed_raw": 0,
+          "temperature_c": 29,
+          "voltage_v": 7.1000000000000005
+        }
+      ]
+    },
+    "mode": "commissioning",
+    "motion": null,
+    "phase": "ready",
+    "policy_motion_enabled": false,
+    "port": "/dev/ttyS2",
+    "power_pending": false,
+    "session": 1484,
+    "target_hz": 50.0,
+    "torque_off_pending": null,
+    "torque_state": "off",
+    "total_communication_failures": 7,
+    "total_cycles": 10966,
+    "total_success": 10959,
+    "updated_at_us": 219334418
+  },
+  "bus_held": false,
+  "uart_driver": "serinfo:1.0 driver revision:\n1: uart:16550A mmio:0xFE650000 irq:31 tx:447 rx:698 RTS|CTS|DTR\n2: uart:16550A mmio:0xFE660000 irq:32 tx:2683502 rx:29404431 RTS|DTR\n",
+  "journal": {
+    "returncode": 0,
+    "stdout": "2026-11-01T03:11:06.849962+0000 radxa-zero3 robotd[1191]: 2026-11-01T03:11:06.849735Z  WARN robotd: service shutdown requested signal=\"SIGTERM\"\n2026-11-01T03:11:06.852905+0000 radxa-zero3 systemd[1]: Stopping robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:11:06.861138+0000 radxa-zero3 systemd[1]: robotd.service: Deactivated successfully.\n2026-11-01T03:11:06.862157+0000 radxa-zero3 systemd[1]: Stopped robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:11:06.863448+0000 radxa-zero3 systemd[1]: robotd.service: Consumed 1min 35.366s CPU time.\n2026-11-01T03:11:11.137632+0000 radxa-zero3 systemd[1]: Starting robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:11:11.240598+0000 radxa-zero3 systemd[1]: Started robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:11:11.253608+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.253210Z  INFO robotd: startup: read main configuration step=1 status=\"starting\" path=/etc/robot/feetech-ft5/robotd.toml\n2026-11-01T03:11:11.256060+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.255741Z  WARN robotd: starting service=\"robotd\" build=0.15.1 (rev 27d7921dbcb280bd7d6ba3e9937624f1e2e61d23+duck-v03.1, built 2026-10-31T14:55:53Z) exe=/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd pid=1370\n2026-11-01T03:11:11.257345+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.256922Z  INFO robotd: startup status step=1 status=\"success\" detail=\"配置读取、实例锁、IPC socket、控制线程已启动\"\n2026-11-01T03:11:11.258785+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.258502Z  INFO robotd: serving robot IPC path=/run/robotd.sock mode=\"660\" model_api=2\n2026-11-01T03:11:11.259765+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.258952Z  INFO robotd: startup status step=2 status=\"starting\" detail=\"标定模式：读取已有标定，关闭并确认扭矩，初始化 IMU\"\n2026-11-01T03:11:11.264716+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.264393Z  INFO robotd: startup status step=3 status=\"success\" detail=\"标定模式不加载策略模型\"\n2026-11-01T03:11:11.295948+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.295647Z  INFO robotd: startup status step=2 status=\"success\" detail=\"标定采集第一份有效反馈已读取\"\n2026-11-01T03:11:11.302272+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:11.298530Z  INFO robotd: startup status step=4 status=\"success\" detail=\"标定采集首个周期完成；运动策略关闭\"\n2026-11-01T03:11:27.147849+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:27.147274Z  WARN robotd::feetech_commissioning: bus read failed cycle=793 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:11:28.147499+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:11:28.147096Z  WARN robotd::feetech_commissioning: bus read failed cycle=843 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:12:16.128549+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:12:16.128001Z  WARN robotd::feetech_commissioning: bus read failed cycle=3242 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:12:18.127585+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:12:18.127030Z  WARN robotd::feetech_commissioning: bus read failed cycle=3342 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:13:03.108105+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:13:03.107587Z  WARN robotd::feetech_commissioning: bus read failed cycle=5591 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:13:04.107724+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:13:04.107346Z  WARN robotd::feetech_commissioning: bus read failed cycle=5641 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:13:05.106965+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:13:05.106679Z  WARN robotd::feetech_commissioning: bus read failed cycle=5691 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:13:06.953688+0000 radxa-zero3 robotd[1370]: 2026-11-01T03:13:06.953353Z  WARN robotd: service shutdown requested signal=\"SIGTERM\"\n2026-11-01T03:13:06.954493+0000 radxa-zero3 systemd[1]: Stopping robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:13:06.975119+0000 radxa-zero3 systemd[1]: robotd.service: Deactivated successfully.\n2026-11-01T03:13:06.976026+0000 radxa-zero3 systemd[1]: Stopped robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:13:06.977313+0000 radxa-zero3 systemd[1]: robotd.service: Consumed 11.013s CPU time.\n2026-11-01T03:13:57.352307+0000 radxa-zero3 systemd[1]: Starting robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:13:57.437528+0000 radxa-zero3 systemd[1]: Started robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:13:57.447745+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.447513Z  INFO robotd: startup: read main configuration step=1 status=\"starting\" path=/etc/robot/feetech-ft5/robotd.toml\n2026-11-01T03:13:57.450151+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.449566Z  WARN robotd: starting service=\"robotd\" build=0.15.1 (rev 27d7921dbcb280bd7d6ba3e9937624f1e2e61d23+duck-v03.1, built 2026-10-31T14:55:53Z) exe=/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd pid=1414\n2026-11-01T03:13:57.450633+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.450424Z  INFO robotd: startup status step=1 status=\"success\" detail=\"配置读取、实例锁、IPC socket、控制线程已启动\"\n2026-11-01T03:13:57.450633+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.450547Z  INFO robotd: serving robot IPC path=/run/robotd.sock mode=\"660\" model_api=2\n2026-11-01T03:13:57.451974+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.451763Z  INFO robotd: startup status step=2 status=\"starting\" detail=\"标定模式：读取已有标定，关闭并确认扭矩，初始化 IMU\"\n2026-11-01T03:13:57.456372+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.456190Z  INFO robotd: startup status step=3 status=\"success\" detail=\"标定模式不加载策略模型\"\n2026-11-01T03:13:57.486971+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.486077Z  INFO robotd: startup status step=2 status=\"success\" detail=\"标定采集第一份有效反馈已读取\"\n2026-11-01T03:13:57.486971+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:13:57.486473Z  INFO robotd: startup status step=4 status=\"success\" detail=\"标定采集首个周期完成；运动策略关闭\"\n2026-11-01T03:14:06.077955+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:14:06.077688Z  WARN robotd::feetech_commissioning: bus read failed cycle=430 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:14:07.077962+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:14:07.077675Z  WARN robotd::feetech_commissioning: bus read failed cycle=480 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:14:53.058223+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:14:53.057920Z  WARN robotd::feetech_commissioning: bus read failed cycle=2779 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:14:55.057824+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:14:55.057419Z  WARN robotd::feetech_commissioning: bus read failed cycle=2879 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:15:47.315678+0000 radxa-zero3 robotd[1414]: 2026-11-01T03:15:47.315323Z  WARN robotd: service shutdown requested signal=\"SIGTERM\"\n2026-11-01T03:15:47.316187+0000 radxa-zero3 systemd[1]: Stopping robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:15:47.325812+0000 radxa-zero3 systemd[1]: robotd.service: Deactivated successfully.\n2026-11-01T03:15:47.326772+0000 radxa-zero3 systemd[1]: Stopped robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:15:47.328216+0000 radxa-zero3 systemd[1]: robotd.service: Consumed 10.192s CPU time.\n2026-11-01T03:15:47.920283+0000 radxa-zero3 systemd[1]: Starting robotd.service - Microduck robotd (v0.3 read-only commissioning)...\n2026-11-01T03:15:48.004818+0000 radxa-zero3 systemd[1]: Started robotd.service - Microduck robotd (v0.3 read-only commissioning).\n2026-11-01T03:15:48.019001+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.018509Z  INFO robotd: startup: read main configuration step=1 status=\"starting\" path=/etc/robot/feetech-ft5/robotd.toml\n2026-11-01T03:15:48.021757+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.021195Z  WARN robotd: starting service=\"robotd\" build=0.15.1 (rev 27d7921dbcb280bd7d6ba3e9937624f1e2e61d23+duck-v03.1, built 2026-10-31T14:55:53Z) exe=/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd pid=1484\n2026-11-01T03:15:48.022717+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.022418Z  INFO robotd: startup status step=1 status=\"success\" detail=\"配置读取、实例锁、IPC socket、控制线程已启动\"\n2026-11-01T03:15:48.022717+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.022621Z  INFO robotd: serving robot IPC path=/run/robotd.sock mode=\"660\" model_api=2\n2026-11-01T03:15:48.024442+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.024148Z  INFO robotd: startup status step=2 status=\"starting\" detail=\"标定模式：读取已有标定，关闭并确认扭矩，初始化 IMU\"\n2026-11-01T03:15:48.029902+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.029632Z  INFO robotd: startup status step=3 status=\"success\" detail=\"标定模式不加载策略模型\"\n2026-11-01T03:15:48.057330+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.057063Z  INFO robotd: startup status step=2 status=\"success\" detail=\"标定采集第一份有效反馈已读取\"\n2026-11-01T03:15:48.057330+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:15:48.057320Z  INFO robotd: startup status step=4 status=\"success\" detail=\"标定采集首个周期完成；运动策略关闭\"\n2026-11-01T03:16:20.031339+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:16:20.030781Z  WARN robotd::feetech_commissioning: bus read failed cycle=1599 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:17:34.012017+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:17:34.011453Z  WARN robotd::feetech_commissioning: bus read failed cycle=5298 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:17:35.011191+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:17:35.010895Z  WARN robotd::feetech_commissioning: bus read failed cycle=5348 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:17:36.010934+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:17:36.010635Z  WARN robotd::feetech_commissioning: bus read failed cycle=5398 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:18:40.992012+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:18:40.991471Z  WARN robotd::feetech_commissioning: bus read failed cycle=8647 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:18:42.990851+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:18:42.990544Z  WARN robotd::feetech_commissioning: bus read failed cycle=8747 error=bus transaction failed: imu_to_dxl ID200 response timeout\n2026-11-01T03:18:43.991092+0000 radxa-zero3 robotd[1484]: 2026-11-01T03:18:43.990740Z  WARN robotd::feetech_commissioning: bus read failed cycle=8797 error=bus transaction failed: imu_to_dxl ID200 response timeout\n",
+    "stderr": ""
+  }
+}

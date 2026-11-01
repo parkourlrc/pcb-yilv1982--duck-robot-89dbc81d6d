@@ -1,0 +1,741 @@
+{
+  "date": "2026-11-01",
+  "captured_at_utc": "2026-11-01T07:57:11.396413+00:00",
+  "scope": "Heartbeat, read-only watch and drive open only; no lease acquisition, stand or movement",
+  "sent": [
+    {
+      "t": "hb",
+      "seq": 1,
+      "visible": true,
+      "route": "/pad",
+      "pad_visible": true
+    },
+    {
+      "t": "cmd",
+      "id": "webpad-open-check",
+      "name": "pad.op",
+      "args": {
+        "op": "drive",
+        "open": true,
+        "seq": 1
+      }
+    },
+    {
+      "t": "cmd",
+      "id": "webpad-watch-check",
+      "name": "pad.op",
+      "args": {
+        "op": "watch"
+      }
+    }
+  ],
+  "messages": [
+    {
+      "t": "result",
+      "id": "webpad-watch-check",
+      "ok": true,
+      "reason": null,
+      "data": {}
+    },
+    {
+      "t": "result",
+      "id": "webpad-open-check",
+      "ok": true,
+      "reason": null,
+      "data": {
+        "open": true
+      }
+    }
+  ],
+  "state": {
+    "t": "state",
+    "robotd_ok": true,
+    "robotd_age_ms": 17,
+    "health_age_ms": 1598,
+    "present": true,
+    "mode": "motion",
+    "phase": "control",
+    "build": "0791fcd-feetech-qinmo-control.47",
+    "posture": "holding",
+    "start_error": null,
+    "start_wait": null,
+    "starting_s": null,
+    "starting_long": false,
+    "battery": {
+      "pct": 6,
+      "mode": "calm",
+      "level": "error",
+      "warn": true,
+      "red": true,
+      "low_volt": true,
+      "volts": 6.74,
+      "cls": "light",
+      "why": "站着 / 坐着",
+      "basis": {
+        "kind": "calm",
+        "cls": "rest",
+        "volts": 7.09,
+        "cell": 3.544,
+        "age_s": 138,
+        "pct": 7.7
+      },
+      "rd_volts": 6.79,
+      "rd_pct": 12,
+      "spread": {
+        "min": 6.6,
+        "min_name": "右髋俯仰",
+        "max": 7.0,
+        "max_name": "头转向",
+        "n": 15
+      },
+      "warn_pct": 30,
+      "red_pct": 15,
+      "load_floor_v": 6.9,
+      "cal_offset_v": 0.0,
+      "preset": "2s_liion",
+      "source": "robotd",
+      "shutdown": null,
+      "estimating_left_s": null,
+      "detail": [
+        "最近 5 分钟最轻松的那会儿（卸力，2 分钟前）：7.09 V（15 颗去掉最高最低各 3 颗的平均，校准 +0.00 V）→ 每芯 3.54 V → 约 8%",
+        "2S 锂电通用查表，误差约 ±15%，没校准时偏保守（报得比实际低）",
+        "现在：6.74 V（站着 / 坐着）",
+        "提醒线 30% · 红线 15% · 电压连续 30 秒低于 6.9 V 也会提醒（都只是提醒；查表的 30% 比以前主程序直线的 30% 电压高，黄条会比以前早亮）",
+        "主程序自己的算法：12%（6.79 V，6.6–8.2 V 直线，低电量偏高）",
+        "15 颗电压：最低 6.6 V（右髋俯仰）· 最高 7.0 V（头转向）",
+        "只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）",
+        "放空了尽快充；长期不用存一半电（约 7.4–7.6 V）"
+      ]
+    },
+    "servos": {
+      "online": 15,
+      "total": 15,
+      "hottest": {
+        "name": "嘴",
+        "c": 48.0
+      },
+      "stale": []
+    },
+    "imu": {
+      "status": "ok",
+      "source": "bus",
+      "configured_imu_profile": "legacy",
+      "context_current": true,
+      "generation": 2486.706720506,
+      "diagnostic": {
+        "status": "unknown",
+        "responding": null,
+        "info": null,
+        "age_ms": null,
+        "sample_valid": null,
+        "sensor_ready": null,
+        "sample_fresh": null,
+        "sequence": null,
+        "error": null
+      }
+    },
+    "pad": {
+      "known": false,
+      "connected": false,
+      "name": null,
+      "driver": null,
+      "estop_ok": false
+    },
+    "cpu": {
+      "c": 84.4,
+      "throttled": false,
+      "limited": false,
+      "khz": 1800000,
+      "max_khz": 1800000,
+      "level": 0,
+      "max_level": 6,
+      "hot": true,
+      "src": "robotd",
+      "why": null
+    },
+    "loop": {
+      "hz": 49.98261314815551,
+      "target": 50.0,
+      "missed": 1
+    },
+    "joints": [
+      -0.009203884727313847,
+      -0.15033011721279282,
+      -0.4479223900626072,
+      0.04295146206079795,
+      0.44945637085049284,
+      0.37889325460775336,
+      0.3528155812136975,
+      0.0015339807878856412,
+      0.006135923151542565,
+      -0.021475731030398976,
+      0.015339807878856412,
+      0.09817477042468103,
+      0.45559229400203544,
+      -0.02761165418194154,
+      -0.44945637085049284
+    ],
+    "joints_age_ms": 17,
+    "state_t_ns": 2843168595290,
+    "gravity": [
+      0.02129103107384606,
+      -0.004990381144250646,
+      -0.9997608654532582
+    ],
+    "tilt_deg": 1.2530472446066994,
+    "guard": {
+      "joint_tolerance_deg": 5.0,
+      "max_joint_error_deg": 3.6113596985079126,
+      "ready": true,
+      "reason": "实际 HOME 且机身直立",
+      "stable_samples": 3,
+      "tilt_deg": 1.2530472446066994,
+      "tilt_tolerance_deg": 10.0
+    },
+    "hold": null,
+    "estop": {
+      "state": "ready",
+      "why": ""
+    },
+    "todo": [
+      {
+        "key": "battery_low_volt",
+        "level": "error",
+        "msg": "电压很低：6.74 V",
+        "hint": "连续 30 秒低于 6.9 V；先停下、坐下，准备充电。只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）"
+      },
+      {
+        "key": "battery",
+        "level": "error",
+        "msg": "电量只剩约 6%",
+        "hint": "该充电了。只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）"
+      },
+      {
+        "key": "cpu",
+        "level": "warn",
+        "msg": "主板 84 °C，有点热",
+        "hint": "再热就会降频，控制会变慢；加散热片或小风扇"
+      }
+    ],
+    "commit": {
+      "ready": false,
+      "items": [
+        {
+          "key": "robotd",
+          "label": "主程序",
+          "ok": true,
+          "text": "主程序在线",
+          "action": null
+        },
+        {
+          "key": "mode",
+          "label": "主程序模式",
+          "ok": true,
+          "text": "运动模式：总线已经打开",
+          "action": null,
+          "mode": "motion",
+          "phase": "control"
+        },
+        {
+          "key": "safety",
+          "label": "鸭子姿势",
+          "ok": false,
+          "text": "鸭子在走 / 站着：先坐下或卸力再写",
+          "action": null
+        },
+        {
+          "key": "servo",
+          "label": "舵机零位",
+          "ok": true,
+          "text": "15 颗的零位都记在 servo-centered.json 里了",
+          "action": null,
+          "missing": [],
+          "done": 15,
+          "by_mark": null
+        },
+        {
+          "key": "directions",
+          "label": "方向",
+          "ok": true,
+          "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+          "action": null,
+          "changed": []
+        },
+        {
+          "key": "imu",
+          "label": "IMU 方向",
+          "ok": true,
+          "text": "主程序里的 IMU 方向已经确认过（总线小板（ID 200））",
+          "action": null,
+          "source": "bus",
+          "default": false
+        },
+        {
+          "key": "bus",
+          "label": "舵机总线",
+          "ok": true,
+          "text": "舵机页没开着总线",
+          "action": null
+        }
+      ],
+      "source": "bus",
+      "imu_default": null,
+      "pending": false,
+      "centered": 15,
+      "preview_ok": true,
+      "mode": "motion",
+      "phase": "control",
+      "from_file": false,
+      "note": null,
+      "dirty": false,
+      "dirty_why": [],
+      "job": null,
+      "simulate": false
+    },
+    "servo_session": null,
+    "servo_handback_s": null,
+    "servo_helper": true,
+    "servo_handback_note": null,
+    "servo_giveback_error": null,
+    "servo_giveback_hint": null,
+    "servo_marker_error": null,
+    "servo_orphan": null,
+    "servo_conflict_s": null,
+    "net": {
+      "known": false
+    },
+    "auth": {
+      "has_password": false
+    },
+    "duck": {
+      "label": "radxa-zero3",
+      "short": "radxa-zero3",
+      "color": "#0F7C80"
+    },
+    "name_on_duck": null,
+    "onboarding_same": true
+  },
+  "pad": {
+    "t": "pad",
+    "status": {
+      "known": false,
+      "error": "/run/configd.sock 不在（主程序没在跑）",
+      "driver": null,
+      "pads": [],
+      "active": null,
+      "age_ms": null,
+      "netpad": false,
+      "netpad_why": null
+    },
+    "estop": {
+      "ok": false,
+      "state": "unknown",
+      "checks": [
+        {
+          "key": "pad",
+          "label": "手柄连着",
+          "ok": null,
+          "why": "/run/configd.sock 不在（主程序没在跑）"
+        },
+        {
+          "key": "padd",
+          "label": "padd 在跑（它把手柄的键转给主程序）",
+          "ok": null,
+          "why": null
+        },
+        {
+          "key": "robotd",
+          "label": "主程序在跑（运动模式）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "key": "netpad",
+          "label": "没开 UDP 手柄（netpad）",
+          "ok": true,
+          "why": null
+        }
+      ]
+    },
+    "live": {
+      "device": null,
+      "buttons": {},
+      "axes": {},
+      "other": [],
+      "last_ms": null,
+      "state": "absent",
+      "why": "连不上 padd 的按键旁路（/run/padd/pad.sock）：padd 可能没在跑，或者这版 padd 没开旁路；网页上看不到实时按键，手柄本身照常能用"
+    },
+    "wizard": {
+      "state": "idle",
+      "phase": null,
+      "steps": [],
+      "devices": [],
+      "picked": null,
+      "error": null,
+      "via": null,
+      "elapsed_s": null,
+      "result_name": null,
+      "seen": [],
+      "retry": null,
+      "mac": null,
+      "helper_available": null,
+      "configd_busy_s": null
+    },
+    "estop_test": {
+      "state": "idle"
+    },
+    "virtual": {
+      "owner": null,
+      "last": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "age_ms": 80622,
+      "mirror": false,
+      "mirror_why": null,
+      "pad_unknown": null,
+      "limits": {
+        "v": 0.3,
+        "w": 1.5,
+        "src": "官方默认（读不到 padd 的配置）"
+      },
+      "driver": null,
+      "mode": "drive",
+      "mode_exit": null,
+      "keys": [],
+      "inputs": {
+        "head": 2.5,
+        "mouth": 100.0,
+        "src": "官方默认（头 2.5 rad、嘴 100%）"
+      },
+      "pad_imu_head": false,
+      "pad_imu_head_why": null,
+      "latch": {
+        "head": false,
+        "body": false
+      }
+    },
+    "motion": {
+      "posture": "holding",
+      "posture_cn": "站着（保持）",
+      "block": null,
+      "sitting": false,
+      "buttons": {
+        "stand": {
+          "op": "stand",
+          "label": "站起来",
+          "call": null,
+          "ok": false,
+          "why": "已经站着了"
+        },
+        "walk": {
+          "op": "walk",
+          "label": "开始走",
+          "call": "robot.enable {on:true}",
+          "ok": true,
+          "why": null
+        },
+        "sit": {
+          "op": "sit",
+          "label": "坐下",
+          "call": null,
+          "ok": false,
+          "why": "坐下要策略在跑（官方规定）：先点「开始走」，再点坐下"
+        }
+      },
+      "start": {
+        "op": "walk",
+        "label": "开始走",
+        "ok": true,
+        "why": null,
+        "call": "robot.enable {on:true}"
+      },
+      "reboot": {
+        "ok": true,
+        "why": null,
+        "does": "重启全部舵机：鸭子先软下来（扶住），之后按 Start 站回来"
+      },
+      "drive_mode": {
+        "ok": true,
+        "why": null,
+        "current": "walk",
+        "target": "roller",
+        "does": "按住 3 秒：切到轮滑"
+      },
+      "keys": {
+        "a": {
+          "key": "a",
+          "skill": "ground_pick",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": null,
+          "does": "低头捡",
+          "ok": false,
+          "why": "绑的「ground_pick」这只鸭子用不了：this robot has no skill called \"ground_pick\""
+        },
+        "x": {
+          "key": "x",
+          "skill": "roulade",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": null,
+          "does": "前滚翻",
+          "ok": false,
+          "why": "绑的「roulade」这只鸭子用不了：this robot has no skill called \"roulade\""
+        },
+        "lb": {
+          "key": "lb",
+          "skill": "kick_left",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": null,
+          "does": "左脚踢",
+          "ok": false,
+          "why": "绑的「kick_left」这只鸭子用不了：this robot has no skill called \"kick_left\""
+        },
+        "rb": {
+          "key": "rb",
+          "skill": "kick_right",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": null,
+          "does": "右脚踢",
+          "ok": false,
+          "why": "绑的「kick_right」这只鸭子用不了：this robot has no skill called \"kick_right\""
+        },
+        "dpad_down": {
+          "key": "dpad_down",
+          "skill": "sit_toggle",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": null,
+          "does": "坐下 ↔ 站起",
+          "ok": false,
+          "why": "绑的「sit_toggle」这只鸭子用不了：this robot has no skill called \"sit_toggle\""
+        }
+      },
+      "triggers": {
+        "ok": true,
+        "why": null,
+        "mouth_pct": 100.0,
+        "note": null
+      },
+      "driving": false,
+      "skills": [
+        {
+          "name": "ground_pick",
+          "label": "低头捡",
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        }
+      ],
+      "skills_why": null,
+      "sounds": [
+        {
+          "tag": "chirp",
+          "label": "嘎（叫一声）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "greet",
+          "label": "打招呼",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "inquire",
+          "label": "疑问",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "coo",
+          "label": "咕咕（撒娇）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "alarm",
+          "label": "大叫",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "peck",
+          "label": "告别",
+          "ok": true,
+          "why": null
+        }
+      ],
+      "actions": [
+        {
+          "id": "nod",
+          "name": "点头",
+          "builtin": true,
+          "text": "点头 2 次",
+          "seconds": 1.4,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "shake",
+          "name": "摇头",
+          "builtin": true,
+          "text": "摇头 2 次",
+          "seconds": 1.6,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "tilt",
+          "name": "歪头",
+          "builtin": true,
+          "text": "歪头（右）",
+          "seconds": 1.2,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "mouth",
+          "name": "张嘴",
+          "builtin": true,
+          "text": "张嘴",
+          "seconds": 0.9,
+          "ok": true,
+          "why": null
+        }
+      ],
+      "combos": [
+        {
+          "id": "hello",
+          "name": "打招呼",
+          "builtin": true,
+          "text": "叫一声（打招呼） → 点头 2 次 → 张嘴",
+          "seconds": 2.1,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "happy",
+          "name": "开心",
+          "builtin": true,
+          "text": "叫一声（嘎（叫一声）） → 说话（嘴一张一合） 3 次 → 点头 1 次",
+          "seconds": 1.9,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "ask",
+          "name": "疑问",
+          "builtin": true,
+          "text": "叫一声（疑问） → 歪头（右）",
+          "seconds": 1.2,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "no",
+          "name": "不要",
+          "builtin": true,
+          "text": "摇头 3 次 → 叫一声（咕咕（撒娇））",
+          "seconds": 2.7,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        },
+        {
+          "id": "kicks",
+          "name": "左右各踢一脚",
+          "builtin": true,
+          "text": "左脚踢 → 停 0.6 秒 → 右脚踢",
+          "seconds": 2.2,
+          "ok": false,
+          "why": "要「准备好走」（策略在跑）才能做：先点「开始走」"
+        }
+      ],
+      "running": null,
+      "last": null,
+      "last_action": null,
+      "busy": false
+    },
+    "motion_studio": {
+      "state": "idle",
+      "session_id": null,
+      "owner": null,
+      "elapsed_s": 0.0,
+      "duration_s": 0.0,
+      "loop": 0,
+      "loops": 1,
+      "recordings": [],
+      "draft": null,
+      "library_warning": null,
+      "record_available": {
+        "ok": false,
+        "why": "先让鸭子站稳并进入「准备好走」（策略在跑）"
+      },
+      "idle_available": {
+        "ok": false,
+        "why": "先让鸭子站稳并进入「准备好走」（策略在跑）"
+      },
+      "last_result": null,
+      "error": null,
+      "idle_running": false,
+      "idle_kind": null,
+      "idle_phase": null,
+      "posture_step": null
+    },
+    "audio": {
+      "available": false,
+      "why": "连接不到语音服务，请检查 duck-echo"
+    },
+    "bindings": [
+      {
+        "button": "a",
+        "error": "this robot has no skill called \"ground_pick\"",
+        "overridden": false,
+        "skill": "ground_pick"
+      },
+      {
+        "button": "x",
+        "error": "this robot has no skill called \"roulade\"",
+        "overridden": false,
+        "skill": "roulade"
+      },
+      {
+        "button": "lb",
+        "error": "this robot has no skill called \"kick_left\"",
+        "overridden": false,
+        "skill": "kick_left"
+      },
+      {
+        "button": "rb",
+        "error": "this robot has no skill called \"kick_right\"",
+        "overridden": false,
+        "skill": "kick_right"
+      },
+      {
+        "button": "dpad_down",
+        "error": "this robot has no skill called \"sit_toggle\"",
+        "overridden": false,
+        "skill": "sit_toggle"
+      }
+    ],
+    "mapping": {
+      "mapped": null,
+      "preview": null,
+      "available": false,
+      "stale": true,
+      "mine": false,
+      "owned": false,
+      "error": "暂时连不上手柄映射服务；请确认已安装配套新版 padd，然后重试",
+      "message": null,
+      "draft": {},
+      "capture": null,
+      "required_missing": [],
+      "output_blocked": false
+    }
+  },
+  "status": "web-gamepad session open and status received; no movement command"
+}

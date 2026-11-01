@@ -1,0 +1,15 @@
+# This task installs the read-only runtime. Calibration and policy activation are step 3.
+[bus]
+protocol = "feetech"
+port = "/dev/ttyS2"
+imu_protocol = "feetech"
+imu_profile = "legacy"
+
+[trunk_imu]
+source = "bus"
+
+[policy]
+enabled = false
+
+[audio]
+enabled = false

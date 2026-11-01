@@ -1,0 +1,485 @@
+{
+  "checked_at": "2026-11-01T02:53:39.015290+00:00",
+  "robotd": {
+    "returncode": 0,
+    "properties": {
+      "MainPID": "1191",
+      "Id": "robotd.service",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "stderr": ""
+  },
+  "studio": {
+    "returncode": 0,
+    "properties": {
+      "MainPID": "483",
+      "Id": "microduck-studio.service",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "stderr": ""
+  },
+  "servo_web": {
+    "returncode": 0,
+    "properties": {
+      "MainPID": "0",
+      "Id": "duck-servo-web.service",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "UnitFileState": "disabled"
+    },
+    "stderr": ""
+  },
+  "bus_held": false,
+  "bus_status": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "achieved_hz": 50.02281771213148,
+      "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+      "calibrated": false,
+      "configured_imu_profile": "legacy",
+      "device_communication": {
+        "by_id": {
+          "10": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "11": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "12": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "13": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "14": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "20": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "200": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": 627,
+            "missing": 0,
+            "timeout": 1
+          },
+          "21": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "22": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "23": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "24": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "30": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "31": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "32": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "33": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "34": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          }
+        },
+        "classification": "exclusive-v2",
+        "complete_but_late": 0,
+        "incomplete_timeout_reads": 1,
+        "last_trace": {
+          "address": 56,
+          "bad_checksums": 0,
+          "complete_but_late": false,
+          "deadline_exceeded": false,
+          "discarded": 0,
+          "elapsed_us": 5115,
+          "length": 15,
+          "missing_ids": [],
+          "partial_received": false,
+          "request_sent": true,
+          "rx_bytes": 336
+        },
+        "missing_reads": 0,
+        "session": "1191-1793501598450448462",
+        "total_reads": 1025,
+        "unsent_reads": 0
+      },
+      "errors_by_id": {
+        "200": 1
+      },
+      "imu_bus": {
+        "board": "imu_to_dxl",
+        "gyro_dps_per_lsb": 0.0175,
+        "identification": "legacy_identity",
+        "identity": [
+          0,
+          2,
+          0,
+          68,
+          77
+        ],
+        "profile": "legacy",
+        "protocol": "feetech"
+      },
+      "imu_mount_verified": false,
+      "last_cycle_error": null,
+      "last_failure": {
+        "cycle": 627,
+        "error": "bus transaction failed: imu_to_dxl ID200 response timeout",
+        "missing_ids": [
+          200
+        ]
+      },
+      "last_sample": {
+        "at_us": 20511965,
+        "cycle": 1025,
+        "imu": {
+          "gravity": [
+            -0.3523529675830159,
+            0.9350884835887165,
+            -0.038169544078975326
+          ],
+          "gyro_rad_s": [
+            0.004375434446566122,
+            0.0007526343027301999,
+            -0.00605186875940963
+          ],
+          "id": 200,
+          "mount_verified": false,
+          "quaternion_wxyz": [
+            0.4182189356103364,
+            -0.5757949833537455,
+            0.38647269910661725,
+            -0.5866787126586948
+          ],
+          "ready": true,
+          "sequence": 241,
+          "source": "bus",
+          "valid": true
+        },
+        "servos": [
+          {
+            "calibrated": false,
+            "current_raw": 4,
+            "id": 20,
+            "joint": "left_hip_yaw",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2159,
+            "position_signed_raw": 2159,
+            "position_wire_raw": 2159,
+            "speed_raw": 0,
+            "temperature_c": 26,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 4,
+            "id": 21,
+            "joint": "left_hip_roll",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2058,
+            "position_signed_raw": 2058,
+            "position_wire_raw": 2058,
+            "speed_raw": 0,
+            "temperature_c": 28,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 22,
+            "joint": "left_hip_pitch",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 1856,
+            "position_signed_raw": 1856,
+            "position_wire_raw": 1856,
+            "speed_raw": 0,
+            "temperature_c": 28,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 23,
+            "joint": "left_knee",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 1264,
+            "position_signed_raw": 1264,
+            "position_wire_raw": 1264,
+            "speed_raw": 0,
+            "temperature_c": 28,
+            "voltage_v": 7.0
+          },
+          {
+            "calibrated": false,
+            "current_raw": 4,
+            "id": 24,
+            "joint": "left_ankle",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 1234,
+            "position_signed_raw": 1234,
+            "position_wire_raw": 1234,
+            "speed_raw": 0,
+            "temperature_c": 27,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 30,
+            "joint": "neck_pitch",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 1311,
+            "position_signed_raw": 1311,
+            "position_wire_raw": 1311,
+            "speed_raw": 0,
+            "temperature_c": 29,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 31,
+            "joint": "head_pitch",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2088,
+            "position_signed_raw": 2088,
+            "position_wire_raw": 2088,
+            "speed_raw": 0,
+            "temperature_c": 29,
+            "voltage_v": 7.2
+          },
+          {
+            "calibrated": false,
+            "current_raw": 5,
+            "id": 32,
+            "joint": "head_yaw",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2050,
+            "position_signed_raw": 2050,
+            "position_wire_raw": 2050,
+            "speed_raw": 0,
+            "temperature_c": 26,
+            "voltage_v": 7.2
+          },
+          {
+            "calibrated": false,
+            "current_raw": 4,
+            "id": 33,
+            "joint": "head_roll",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2026,
+            "position_signed_raw": 2026,
+            "position_wire_raw": 2026,
+            "speed_raw": 0,
+            "temperature_c": 26,
+            "voltage_v": 7.2
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 34,
+            "joint": "mouth",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2020,
+            "position_signed_raw": 2020,
+            "position_wire_raw": 2020,
+            "speed_raw": 0,
+            "temperature_c": 27,
+            "voltage_v": 7.2
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 10,
+            "joint": "right_hip_yaw",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2034,
+            "position_signed_raw": 2034,
+            "position_wire_raw": 2034,
+            "speed_raw": 0,
+            "temperature_c": 27,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 5,
+            "id": 11,
+            "joint": "right_hip_roll",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 1768,
+            "position_signed_raw": 1768,
+            "position_wire_raw": 1768,
+            "speed_raw": 0,
+            "temperature_c": 26,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 2,
+            "id": 12,
+            "joint": "right_hip_pitch",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2049,
+            "position_signed_raw": 2049,
+            "position_wire_raw": 2049,
+            "speed_raw": 0,
+            "temperature_c": 27,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 3,
+            "id": 13,
+            "joint": "right_knee",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2940,
+            "position_signed_raw": 2940,
+            "position_wire_raw": 2940,
+            "speed_raw": 0,
+            "temperature_c": 27,
+            "voltage_v": 7.1000000000000005
+          },
+          {
+            "calibrated": false,
+            "current_raw": 4,
+            "id": 14,
+            "joint": "right_ankle",
+            "load_raw": 0,
+            "moving": false,
+            "position_raw": 2925,
+            "position_signed_raw": 2925,
+            "position_wire_raw": 2925,
+            "speed_raw": 0,
+            "temperature_c": 25,
+            "voltage_v": 7.1000000000000005
+          }
+        ]
+      },
+      "mode": "commissioning",
+      "motion": null,
+      "phase": "ready",
+      "policy_motion_enabled": false,
+      "port": "/dev/ttyS2",
+      "power_pending": false,
+      "session": 1191,
+      "target_hz": 50.0,
+      "torque_off_pending": null,
+      "torque_state": "off",
+      "total_communication_failures": 1,
+      "total_cycles": 1025,
+      "total_success": 1024,
+      "updated_at_us": 20512001
+    }
+  },
+  "file_sha256": {
+    "/etc/robot/feetech-ft5/robotd.toml": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+    "/etc/robot/feetech-ft5/hd1910-calibration.toml": "0aae458b6f84e155df63ddd9700b9a3418eb9a8e69d8e8769c57ba2f253550e7",
+    "/usr/local/sbin/microduck-helper": "6e90e701f86e2487b537e4c5e94f67c93a271e267c495b268aaac77623047046",
+    "/home/radxa/studio-dev/studio/app.py": "ca4f0735d3624cc4cb4b13f85a682967a2c1fd5a4f9f904b676646d1bdb418be"
+  }
+}

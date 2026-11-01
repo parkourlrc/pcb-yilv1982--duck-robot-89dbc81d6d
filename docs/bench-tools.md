@@ -1,6 +1,16 @@
 # 台架/装机工具索引（2026-10-22 更新）
 
+> **2026-11-01 当前装机更新**：新单 3P 口 IMU 已换上，软件身份为 ft6/legacy；servo-web 混合 SYNC_READ 已通过只读验收，见[当前记录](references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。下文旧 GD32/v0.3 的电气、固件和故障数据只适用于所标版本，不自动套给新板；本轮未更改供电、刷写或做动作。
+
 按用户指示整理的现行工具清单：**能复用参考工程现成工具的不再自研**。来源分三类：本项目自研、社区 kit（`references/microduck-community-kit/`，只读，部署=拷贝不改源）、replica（只读参考）。
+
+**2026-11-01 12:31 三次原生站姿复现＋改序对照**：[实测] 三次基线在第 2／3／2 次插值目标后收到不同坏校验帧；先舵机后 IMU 的一次实验在第 1 次插值后仍失败，已恢复原单播版。四次均确认 15 颗卸力、两服务 active/enabled，问题未修复。采集脚本防重复标记保留，不删除后重跑；[离线分析](references/b-feetech-policy-deployment-20261024/analyze-hold-home-replay-20261101.py)与[汇总脚本](references/b-feetech-policy-deployment-20261024/compare-hold-repetitions-20261101.py)不访问硬件，可复查帧、次数及时间。见[原始证据与等待判错对比](references/b-feetech-policy-deployment-20261024/research.md)。
+
+**2026-11-01 本机写目标边界**：[实测] 写前 15 颗扭矩寄存器为 0，原样重发目标位置后全部回读为 1。因此不能将“卸力后写旧目标／写当前位置”视为无动力总线测试；具体使能或复位机制尚待确认。两份相关诊断脚本已禁用，证据与试验前提纠正见[记录](references/b-feetech-policy-deployment-20261024/research.md)。
+
+**2026-11-01 工具状态**：SDS814X HD 已到并接入 USB，13:59 PnP 正常；暂停前 VISA 仍在安装、仪器查询未通过，未采波形。当前已换单口板，示波器/SWD 根因排障暂缓，见[保留计划](references/hat-imu-shared-bus-20261027/oscilloscope-plan-20261027.md)。
+
+**2026-10-27 HAT 损伤历史**：R31 拆除及焊盘脱落见[原始记录](references/pcb-pad-repair-20261027/research.md)。用户 10-31 已确认硬件完成，11-01 当前总线已完成新单口板只读验收；此前停止使用受损板的条目不再作为现行阻断，具体维修/替换过程仍未补齐。
 
 ## 一、改号与装配校准（ID 与中位校准 2026-10-20 完成；ID 已于 2026-10-24 对齐上游）
 
@@ -39,7 +49,7 @@
   ```bash
   systemctl --user start|stop|restart|status duck-servo-web   # 崩溃自动重启(Restart=always)
   ```
-  单元 [scripts/duck-servo-web.service](../scripts/duck-servo-web.service)（`--imu-bus` 常开，IMU 未接时自动降级），已 `enable`。**工程可部署副本：[tools/servo-web/](../tools/servo-web/SOURCE.md)（2026-10-27 起，主控 `~/servo-web` 的同步版+来源差异说明；上游参考库只读不改）**。**开机自启还需一次 `sudo loginctl enable-linger radxa`**（未执行前，重启后须 SSH 登录一次服务才起）。手动应急启动仍可用 `( setsid nohup python3 server.py … & )`（注意先停服务防抢串口）。
+  单元 [scripts/duck-servo-web.service](../scripts/duck-servo-web.service)（`--imu-bus` 常开，IMU 未接时自动降级）。**2026-11-01 当前状态：已停止并取消自启**，主控现用 Studio＋robotd，二者均已 enabled；不得与 robotd 或 Studio 舵机会话同时抢占 `/dev/ttyS2`。切回此调试工具时先结束 Studio 总线会话并停止 robotd，再手动启动用户服务；不为旧服务补开机自启或 linger。见[连接恢复记录](references/b-feetech-policy-deployment-20261024/research.md)。**工程可部署副本：[tools/servo-web/](../tools/servo-web/SOURCE.md)（2026-10-27 起，主控 `~/servo-web` 的同步版+来源差异说明；上游参考库只读不改）**。
   ⚠️ 后台作业务必用 `( … & )` 双层脱开：`ssh 'cmd & …'` 形式下本地连接被杀会经 sshd→bash 作业表把 HUP 传给服务、误杀服务（2026-10-24 实测踩过）。
   电脑/手机浏览器开 `http://192.168.1.35:8080`。停止：`pkill -f "[s]erver.py"`（方括号防 pkill 自匹配，2026-10-22 实测踩过）。
 - **常驻监控（2026-10-25 部署，随服务自动开启、每秒实时落盘）**：`~/servo-web/logs/monitor-YYYYMMDD.csv` 记主机 SoC/GPU/频率/负载、每颗电压/温度/电流汇总（v_min/v_avg/t_max/i_sum）、总线统计、分 ID 丢帧 TOP、UART 驱动错误（TIOCICOUNTER）；事件行 STORM_START/STORM_END/ALL_OFFLINE/ID_SET_CHANGE 自动写入并上页面日志。顶栏显示「SoC/CPU/最低电压/监控✓行数·事件N」（悬停见丢帧 TOP 与 UART 错误）。补丁 [scripts/servo-web-full-monitor.py](../scripts/servo-web-full-monitor.py)（叠加于 [servo-web-host-monitor.py](../scripts/servo-web-host-monitor.py)）。首次部署即捕获 04:36 全掉线风暴（当时 SoC 60°C——该次非热因）与 32 号扫描缺失。

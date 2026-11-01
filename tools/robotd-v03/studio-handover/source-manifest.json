@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-01",
+  "source": "Live Radxa files from studio-commit-handover-snapshot-20261101.json",
+  "originals": {
+    "/etc/systemd/system/robotd.service": {
+      "path": "/etc/systemd/system/robotd.service",
+      "exists": true,
+      "sha256": "4e3a282aa7981291c4dac2446ccf935f254cea2d40e8c64e690061fd4a1667e6",
+      "text": "[Unit]\nDescription=Microduck robotd (v0.3 read-only commissioning)\nAfter=local-fs.target\n\n[Service]\nType=exec\nUser=root\nGroup=radxa\nExecStart=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --read-only\nEnvironment=ORT_DYLIB_PATH=/opt/robot/onnxruntime/1.28.0/libonnxruntime.so.1.28.0\nEnvironment=RUST_LOG=info\nRuntimeDirectory=robotd\nRestart=no\nNoNewPrivileges=yes\nProtectKernelTunables=yes\nRestrictSUIDSGID=yes\n\n[Install]\nWantedBy=multi-user.target\n"
+    },
+    "/etc/systemd/system/robotd.service.d/30-studio-commissioning.conf": {
+      "path": "/etc/systemd/system/robotd.service.d/30-studio-commissioning.conf",
+      "exists": true,
+      "sha256": "6203142a3b19a9124c9b698ede348d48556c61c856e87f5d8d1a14e70dbc6aa5",
+      "text": "# Studio commissioning drop-in; operator confirmed support on 2026-10-31.\n# Commissioning startup actively turns servo torque OFF. Support the robot first.\n# It does not run policy motion. Use only after the operator confirms support.\n[Service]\nExecStart=\nExecStart=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --commissioning\n"
+    }
+  },
+  "helper_sha256": "6e90e701f86e2487b537e4c5e94f67c93a271e267c495b268aaac77623047046",
+  "candidate_sha256": {
+    "robotd.service": "ad4fb0d47646f8dd65ff732289b5349ce97409fe85ecde49722eacc4f92a3e5a",
+    "zzzz-zz-microduck-commissioning.conf": "6203142a3b19a9124c9b698ede348d48556c61c856e87f5d8d1a14e70dbc6aa5"
+  }
+}

@@ -1,11 +1,136 @@
 # 进度记录
 
+## 第二次行走摔倒：主控在线，反馈大量中断（2026-11-02 01:08–01:11）
+
+- [实测] 同一 boot、robotd PID367/Studio PID480 均持续运行，无重启；01:08:34 开始走，01:08:38 起出现 IMU200 缺答，之后陈旧数据与超时交替，日志连续失败计数最高90。不能沿用上一事件的低压关机推断。
+- [实测] 对比00:04基线，SYNC_READ超时增加1323、IMU重复块增加2172，ID200及多个舵机都有缺答；01:09:47网页“停下”明确关闭策略。没有本次robot.recover请求或8秒恢复会话。
+- [源码核验／推断] 连续失败超3周期暂停模型并保持实测姿势，恢复反馈后继续；这会严重影响起身，但物理摔倒与通信故障的因果顺序未确认。电压偏低，供电/连接/IMU更新/总线接收原因尚待分离。
+- [实测，01:11] 策略关闭，**扭矩仍开启并确认**；倾角77.82°，IMU及15关节反馈恢复。CPU83.888°C，未出现本次热关机；41个受保护文件哈希不变。本轮只读、未动作。[完整日志与分析](docs/references/b-feetech-policy-deployment-20261024/walk-fall-second-20261102.md)。未提交。
+
+## 行走摔倒后停机调查（2026-11-01 事件，11-02 取证）
+
+- [用户确认] 7.4 V／3 A 台式电源，行走摔倒后自行翻身数次、突然停止；用户随后手动重启。
+- [实测] 23:54:20 舵机电压遥测从约 7.11 V 降到 5.92 V，15 颗为 5.7～6.6 V；23:54:49 开始走获接受，约 17.45 秒后 Studio 与用户会话有序停止。四次更早的显式躺姿恢复均很快结束，原生原因缺失。
+- [源码核验] 实际配置未写 `battery_empty_shutdown`，原生默认 true、EMA≤6.6 V 自动关机；Studio 却将缺项显示为只警告。[推断] 低压自动关机最吻合，但故障 boot 的系统/robotd journal 未保留，缺直接触发证据；限流、配电压降及过热均未定因。
+- [实测，11-02 00:04] 用户重启后 robotd/Studio 已自启 active/enabled，策略及扭矩关闭，IMU ready，六模型加载，41 个受保护文件哈希不变。本轮只读取证，未改配置、未追加动作。[完整调查与原始日志](docs/references/b-feetech-policy-deployment-20261024/walk-crash-investigation-20261101.md)。未提交。
+
+## 躺姿起身入口部署时的只读验收（2026-11-01 23:49–23:50）
+
+- [来源核验] 已装walk联合模型的导出配置包含倒地初始化课程及恢复奖励，env.yaml与包内声明、ZIP原件哈希一致；本机起身未测试。普通网页“站起来”只回HOME，“开始走”要求直立。参考版本已退役旧stand_test teacher，LB迁移为左踢，纠正此前“只是未配置”的说法。
+- [源码核验／离线实测] 按用户批准方案实现独立“躺姿起身”入口，直接使用Net::Walk，零速度恢复／保持，具备8秒上限、取消和断连退出；普通起步保护与混合SYNC_READ未改。ARM64构建、恢复与会话测试、原始包补丁重放通过；一项旧测试在原始源码也失败，已单独记录。[交付及验收](tools/robotd-recovery/README.md)、[Spec](docs/specs/20261101-webpad-walk-recovery/spec.md)。
+- [实测] 用户随后要求“部署”；23:49安装完成，23:50网页只读验收通过。robotd PID843、Studio PID851，均active/enabled，六模型已加载；41个受保护文件哈希未变。页面恢复按钮可用，恢复idle、无request_id、策略关闭且扭矩确认关闭；没有起身或行走测试。现场备份与原始数据见[部署记录](docs/references/b-feetech-policy-deployment-20261024/webpad-recovery-deployment-20261101.md)。未提交。
+- [实测历史] 最近一次已归档回包为上力保持、策略关闭，IMU推算倾角约90.77°、HOME起步保护未通过；不是本次执行时的即时状态。本轮未发动作、未改配置。与之前部署结束时卸力状态区分。见[研究](docs/references/b-feetech-policy-deployment-20261024/getup-availability-20261101.md)。
+
+## 网页手柄与六模型已接通，部署结束时卸力（2026-11-01）
+
+- [用户确认／实测] 用户已完成正式标定，15 个 `calibrated=true`、`zero_raw=2048`、IMU 已验证，主程序为 `motion/control`。网页手柄无需蓝牙配对；六模型文件哈希一致。经用户确认托稳，仅将 `[policy] enabled` 改为 true 并重启，六模型已加载、五个按键绑定无错误；robotd PID 1567、Studio PID 973 均 active/enabled，部署结束时确认卸力、动态动作开关关闭，未运行站姿或模型动作。首次因助手误读扭矩状态字段触发回退，修正验收后部署通过，原始记录保留。
+- 网页入口 `http://192.168.1.35:8000/#/pad`；图中 A=捡取、X=前滚翻、LB/RB=左右踢、十字键下=起坐，行走使用摇杆/键盘。当前技能置灰原因为尚未站起/开始走，不是缺少模型。
+- [实测] 加载前主控 85°C、816 MHz，最终降至 408 MHz；卸力循环约49.97 Hz，模型动作的实时性能尚未验证，正式行走前需关注散热。记录和单字段差异见[研究](docs/references/b-feetech-policy-deployment-20261024/webpad-models-check-20261101.md)、[Spec](docs/specs/20261101-webpad-policy-enable/spec.md)。未提交。
+
+## Studio 第 3 步交接配置修正与预览（2026-11-01 早期记录；正式写入已完成）
+
+- **[实测／修正前]** 用户截图报“主程序的标定模式不是镜像设的，不敢自动切”，helper 返回 `foreign`；主程序在线、15 个零位为 2048。定位时用户站姿保持、编码器目标误差 1.67°，不等于无支撑平衡验收。迁移开始前已卸力，助手没有发卸力或动作命令。
+- **[实测／已部署]** 用户批准后，基础 service 去掉 `--read-only`、临时 commissioning 覆盖迁入正式文件名，旧覆盖归档。只 daemon-reload，robotd/Studio PID 1067/973、启动时刻、有效参数均未变，两服务 active/enabled；标定、pending、模型主配置和全部相关保护文件 SHA 不变。
+- **[实测／验收]** helper 识别为 commissioning，原生 dry-run 与网页实际 `calib.op/preview` 均通过；HTTP 200、页面准备状态 `ready=true`。迁移前后均 commissioning/ready/off，当时未正式提交标定、未运行模型；用户随后已在网页完成正式写入，现状见上节。见[研究与证据](docs/references/b-feetech-policy-deployment-20261024/studio-commit-mode-error-20261101.md)及[Spec](docs/specs/20261101-studio-calibration-handover/spec.md)。
+
+## Studio 两个站姿入口的零位已对齐，物理效果待验证（2026-11-01）
+
+- **[用户反馈]** 新单口板下舵机页站姿能站住，IMU 页站姿角度异常。
+- **[实测／源码计算]** 15 颗 Studio 中位校准记录齐全；无另存站姿，方向均 −1，共同 HOME 弧度相同。修正前主程序使用参考机零位，舵机页使用 2048；左膝、颈、右踝计算目标分别相差 57.66°、42.01°、38.41°。现已仅对齐 15 个零位，共同 14 个目标计算一致；嘴的命令范围按各入口保留。
+- **[实测／已部署]** 用户确认托稳并批准后，基于停服后的最新文件仅改 `zero_raw=2048`，原生 `calibration-status` 回读全部通过；最新 IMU 安装四元数、完成标志和动作保护保留。robotd/Studio active/enabled、HTTP 200，servo-web inactive/disabled，commissioning/ready/off、策略关闭；本轮未试站姿或模型。首次因网页检查早于 Studio 就绪而自动回退，补齐有限等待后重试成功，两次证据均保留。
+- **限制**：零位修正后已有用户触发的保持回读（见上节），没有助手实物量角或无支撑平衡验收；新板 ID 200 缺答仍独立保留。正式交接启动配置已在上节修正并通过预览，实际提交随后已由用户完成，现状见本页顶部；零位修正本身不作为整套交接验收。见[完整对照与部署证据](docs/references/b-feetech-policy-deployment-20261024/studio-home-target-mismatch-20261101.md)与[Spec](docs/specs/20261101-studio-home-zero-alignment/spec.md)。
+
+## Windows 安装 VS Code（2026-11-01）
+
+- **[实测]** 按用户要求通过 WinGet 安装当前用户版 VS Code **1.143.1 x64**，安装包哈希校验及安装成功；CLI 版本、开始菜单快捷方式和用户 PATH 已核对。见[安装记录与验证输出](docs/references/vscode-install-20261101/research.md)。
+
+## 站姿使能因 IMU 超时停止（2026-11-01，未修复）
+
+- **[实测／断电后自启确认]** 用户报告刚断电并要求 robotd/Studio 开机自启；检查时两者已 enabled/active，再执行 `systemctl enable` 固化并核对 multi-user.target 链接。本次启动后约 8.3/9.8 秒分别启动 robotd/Studio，Studio HTTP 200；servo-web disabled/inactive。本轮未重启服务、未重启主控或发动作。见[自启核对](docs/references/b-feetech-policy-deployment-20261024/robot-studio-autostart-confirmed-20261101.json)。
+
+- **[实测／最新服务切换]** 用户要求关闭 servo-web、启动 robotd/Studio。因回读 15 颗仍上力，经用户确认托稳后完成切换；robotd/Studio active，servo-web inactive，Studio HTTP 200，原版 robotd commissioning/ready、已卸力、策略关闭。自启配置未改，未执行站姿或模型动作；见[最终回读](docs/references/b-feetech-policy-deployment-20261024/robot-studio-switch-result-20261101.json)。
+
+- **[实测／服务再次启动]** 用户要求打开 servo-web 服务；核对 robotd 已卸力、策略关闭后停止 robotd/Studio，启动 servo-web，页面 HTTP 200、15/15 舵机在线。自启配置未改，未做动作；见[启动回读](docs/references/b-feetech-policy-deployment-20261024/servo-web-service-start-20261101.json)。
+
+- **[用户最新决定／回滚验收]** [用户确认] 新单 3P 口 IMU 已到货并换上。[实测] 主机通信已回滚为 IMU＋15 舵机同组 SYNC_READ；servo-web 30 秒 296/296 帧舵机完整、IMU 约 9.9 Hz，0 超时/坏校验/错 ID。robotd 已恢复原版；只读验收后已按用户要求切回 robotd/Studio（运行中），servo-web 已停止；此前助手只做过新板只读验收；此前两页站姿零位差已修正，用户已正式写入标定；模型已加载、动作未测试。 原单口板人为损坏的电阻位号/日期未核；双口 v0.3 的波形/SWD 根因排障继续暂缓。参考标定、模型和 Studio 显示适配保留。见[当前回滚记录](docs/references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。
+
+### 此前排障证据与暂缓方案
+
+- **[用户暂停／接探头方法补充]** 根因任务当前暂停。本轮只核对小焊盘固定：建议先两通道，TX 用短细绝缘线引出并固定绝缘段和探头电缆；DATA/GND 可改用已核对的 J1/J3 大接口焊点，不让小焊盘承受探头拉力。尚未接探头或动作；见[同网测点与固定方法](docs/references/b-feetech-policy-deployment-20261024/root-cause-investigation-20261101.md)。
+
+- **[实测，13:33 根因任务]** 用户确认已固定、可做短时对照。4000 周期卸力只读对照未出现完整坏 checksum 帧；原 robotd 临时 10 Hz 的一次站姿仍在首次插值后收到坏帧（5A 应有、5E 实收），上一目标写至 READ 已间隔 **91.277 ms**，固件取消／收发错误计数无增量。已恢复 50 Hz、15 颗卸力、原生产配置 SHA；实验覆盖文件已删除。[推断] 降频未解决，下一步需要 MCU TX／外部 DATA／主控接收的同步证据。示波器已确认是 SDS814X HD 并经 USB 枚举；13:59 USB PnP 已恢复正常；暂停前 VISA 仍在安装，仪器查询尚未通过，未采波形。见[根因任务及原始数据](docs/references/b-feetech-policy-deployment-20261024/root-cause-investigation-20261101.md)。
+- **[源码核验／虚拟时序，IMU＋robotd 联合分析]** 主机 2 ms 只用于 `ppoll`，不会重配、重发或清掉半包；固件另有 500 µs 请求字节超时、50 µs 应答延迟、应答迟到 2 ms 后取消。两应用均无 `tcdrain`／明确包间静默，读取先后改变不等于发送节奏一致。原固件代码 28 个虚拟时序场景未生成坏 checksum，超时／插字节表现为不应答；不含板级 UART，不能排除真实回切问题。[推断] 继续并列查发包间隔、50 µs 回答与硬件回切、自身回显恢复边界，不能因坏包早到排除所有时序。见[完整分析](docs/references/b-feetech-policy-deployment-20261024/imu-robotd-timing-analysis-20261101.md)。本轮只读源码／既有抓包，未追加动作或改参数。
+- **[实测／源码核验，坏帧离线分析]** 原始包在主机 `read()` 取得时已校验无效；三次基线分别发现状态高位 `80`、ID `EC`、状态高位 `80` 等违反 replica 0.2.0 固定字段的候选字节。将前次＋本轮共 5 个坏包交给 servo-web 原样校验函数，5/5 同样拒收，34 个相邻有效包全部接受。正常固件采样、快照组包及发送同步执行，未找到采样覆盖 TX 缓冲的常规路径；IMU UART／CRC 计数监测接收端，不能证明自身回包正确。[推断] 下一步优先分段比较 IMU 总线 TX、共用 DATA、HAT RX 与主机字节，具体物理或固件机理仍待确认；本轮未连真机、未动作、未改保护。见[分析与证据](docs/references/b-feetech-policy-deployment-20261024/research.md)及[离线回放结果](docs/references/b-feetech-policy-deployment-20261024/hold-corruption-analysis-20261101.json)。
+- **[实测，12:21–12:31 三次复现＋一次改序]** 用户要求的三次基线均在 Ramping 失败，失败前分别写了 2／3／2 次插值目标，21 字节坏帧实收 checksum 为 4C／41／56，非固定周期或校验值。先舵机后 IMU 实验在第一次插值后仍收到坏帧（期望 8C／实收 0C），当周期已先收齐 15 颗有效舵机反馈；仅改顺序未解决该次故障。7/7 传输测试和 arm64 编译通过，失败后已恢复 `duck-v03.1`，四次均有 15 颗卸力回读。12:31 最终核对两服务 active/enabled、Studio health 200、commissioning/ready/off；后台仍有通信失败，未改等待/卸力保护、配置、标定或固件。10 份远端原件与本地 SHA 相同。见[研究与等待判错对比](docs/references/b-feetech-policy-deployment-20261024/research.md)、[汇总证据](docs/references/b-feetech-policy-deployment-20261024/hold-repetitions-comparison-20261101.json)及[实验 Spec](docs/specs/20261101-servo-first-imu-read/spec.md)。
+- **[源码核验／实测，11:59 端口锁复查]** robotd 的 IMU READ 和舵机 SYNC_READ 由同一个 control 循环顺序执行，前者失败即跳过后者；11:51 坏帧窗口没有交叉舵机读取。11:59 `/proc` 只发现 robotd 的 FD 11 占用 ttyS2，内核显示 `FLOCK ADVISORY WRITE`；旧 servo-web inactive。现有证据不支持“缺少线程锁使两路请求并发”的解释，不能据此排除电气回切／异常设备发包。两程序实际遥测顺序相反、默认频率和失败处理不同。仅只读核对，未改运行行为或追加动作；见[锁、顺序及限制](docs/references/b-feetech-policy-deployment-20261024/research.md)。
+- **[实测，11:51 一次原生动作复现]** 用户确认托稳后，按 Studio 原样 `hold-home`（15 个 −1、3000 ms）执行一次：预载和上力成功，15 颗扭矩回读 1；发送两次起身插值后，下一 ID 200 READ 在 **0.867 ms** 返回 21 字节，**checksum 错误（期望 0x8C、实收 0x5D）**。原生丢弃后等到截止时间报 `response timeout`，然后主动卸力，15 颗回读 0。因此这次“超时”不是完全无字节。前后取消回复、UART/CRC/溢出计数无增量；坏帧产生位置尚未查明，不归因于限流或取消回复。原生采集共 54 次 IMU READ，53 成功、1 次上述错误。结束已恢复两服务、commissioning/ready/off；一次动作授权已用完，没有追加动作或修改生产代码。见[完整时序、原始帧与限制](docs/references/b-feetech-policy-deployment-20261024/research.md)及[解析结果](docs/references/b-feetech-policy-deployment-20261024/hold-home-replay-summary-20261101.json)。
+- **[实测，11:11–11:19 新证据]** 113 字节目标写包后 ID 200 无应答，53 字节包也复现；最后窗口主控 TX 队列已空、15 颗舵机应答有效，稍后 IMU 帧存在坏校验。**写前扭矩为 0，写目标后 15 颗回读为 1**，因此撤回“卸力时原样写目标等于无动力测试”的假设，两份写包诊断脚本已禁用。服务已恢复 active/enabled、commissioning/ready、off。用户确认台式电源 7.4 V/3 A；最新数次尝试未见限流、显示电流一直低于 1 A，限流假设已降低优先级，不能作为已查明原因。另有卸力时固件取消回复和主机超时路径，不能把全部错误归于一个原因。见[原始数据与限制](docs/references/b-feetech-policy-deployment-20261024/research.md)。
+- **[用户确认/实测]** 用户指出每次点击站姿使能都会变软，现按动作触发问题排查，撤回此前笼统“偶发”描述。日志已记录 10:53:31、10:56:30 两次同样失败。11:00 核对运行进程 SHA 与单播补丁构建一致：ID 200 仍用 READ（0x02）单独读 56/15，随后 15 舵机 SYNC_READ（0x82）；两段合计 20 ms，无 IMU 请求重发，未切回旧混读。见[读取方式证据](docs/references/b-feetech-policy-deployment-20261024/imu200-read-method-20261101.json)及[源码定位](docs/references/b-feetech-policy-deployment-20261024/imu200-read-source-20261101.json)。
+- **[实测]** 10:53:31 用户点击站姿使能，应用返回 `hold-home stopped: ... imu_to_dxl ID200 response timeout`；10:55 主程序仍在线、处于卸力。固定源码在起身阶段遇一次读失败即取消并卸力；已站稳阶段另为连续 25 次失败阈值。
+- **[实测/边界]** 10:55 快照 5272 周期中 2 次 IMU 超时，不能称连接恢复后站姿已验证，也不能按总周期统计弱化每次动作失败。IMU 粗校允许在卸力、手扶稳时采数，站姿使能不是必经条件；坏帧机理和标定写入适配仍待处理。10:55 阶段仅只读；随后实验写过目标，11:51 又经用户授权调用一次原生站姿入口，不能将整轮称为只读。保护阈值未改。见[诊断与源码](docs/references/b-feetech-policy-deployment-20261024/research.md)及[早期原始日志](docs/references/b-feetech-policy-deployment-20261024/studio-stand-limp-20261101.json)。
+
+## Studio 机器人连接恢复，主程序自启已补齐（2026-11-01）
+
+- **[实测]** 10:48 排障发现 robotd 未启动且 disabled，旧 servo-web 自启占串口。已停止并取消 servo-web 自启，启动 robotd 并启用自启；Studio 保持 enabled。网页接口已回读主程序在线、15/15 颗舵机在线。
+- **[实测/用户确认]** 用户随后在 Studio 调舵机、执行站姿，舵机会话接管总线并暂停 robotd，离页保持 14 颗导致 IMU 粗校缺少主程序。用户确认托稳后，已通过 Studio 正常交还流程卸力、释放串口并恢复 robotd。
+- **[实测/10:53:39]** robotd PID 1191、Studio PID 483 均 active/enabled；servo-web inactive/disabled；15 颗卸力、策略关闭、IMU 数据有效，安装方向仍未验证。约 50.02 Hz、1025 周期 1 次通信失败，配置与标定 SHA 未变。IMU 粗校前须交还舵机会话；标定写入的模式适配缺口尚未修改。见[记录](docs/references/b-feetech-policy-deployment-20261024/research.md)及[最终回读](docs/references/b-feetech-policy-deployment-20261024/studio-connect-restored-20261101.json)。
+
+## Studio 开机自启已确认（2026-11-01）
+
+- **[实测]** 北京时间 10:47 核查，`microduck-studio.service` 原已启用开机自启，当前 active/running、PID 483；本次系统启动约 9.83 秒后进入运行，`/healthz` 返回 HTTP 200、`ok=true`。现有配置满足用户要求，本轮无需修改或重启。
+- 访问地址 `http://192.168.1.35:8000/`；10:47 这次仅核查 Studio，随后机器人连接问题与 robotd 自启已在上节处理。见[自启记录与边界](docs/references/b-feetech-policy-deployment-20261024/research.md)及[当时回读](docs/references/b-feetech-policy-deployment-20261024/studio-autostart-20261101.json)。
+
+## Studio 标定完成提示排障（2026-11-01）
+
+- **[实测/00:03–00:07 排障时服务]** robotd 已于 00:02:12 启动，PID 4276；Studio PID 4179，两者 active/running。原生 `commissioning/ready`、约 50 Hz，15 颗有反馈、扭矩关闭、策略未启用。当时“主程序说标定没做完”并非服务未启动；Studio 后续启动状态见上节。
+- **[实测/标定状态]** Studio 已记录 15 颗中位校准完成；主程序 TOML 仍是之前的参考配置，15 个完成标志和 IMU 方向验证标志仍为 false。实际网页提示“新零位尚未写入主程序”，IMU 方向为准备页未通过项；不要求重复舵机校准。
+- **[实测/交接缺口]** 只读 helper 返回 `mode=foreign`：当时临时 commissioning 覆盖未接入 Studio 自动交接；后续配置已修正，用户已正式写入，见本页顶部。该次只做排障。见[现状与证据](docs/references/b-feetech-policy-deployment-20261024/research.md)。
+
+## 六个 HD1910 模型已传到 Radxa，控制器环境已安装（2026-10-31）
+
+- **[实测]** 六个普通足部动作模型及配套文件已上传到 `radxa-zero3:/home/radxa/duck-policies/hd1910-20261031/`，六个 ONNX 的板上 SHA-256 与本地全部一致；[文件回读](docs/references/b-feetech-policy-deployment-20261024/board-model-transfer-20261031.json)与[目录索引](docs/references/b-feetech-policy-deployment-20261024/onboard-model-catalog-20261031.json)已归档。
+- **[实测]** 用户选择先处理运行环境与 IMU 读取后，已安装独立 Python 3.13.18、Studio 2026.10.3101、配套 robotd control.47/padd、ONNX Runtime 1.28.0 和服务/helper；Studio 首页 HTTP 200、服务 active/enabled，系统 Python 保持 3.11.2。见[安装回读](docs/references/b-feetech-policy-deployment-20261024/board-runtime-install-20261031.json)。
+- **[实测]** 已按用户确认的 [v0.3 单播方案](docs/specs/20261031-robotd-v03-unicast/spec.md) 编译并安装 `control.47+duck-v03.1`；新增 5 项传输测试通过，相关回归首次两项失败及复查结果均保留。真机只读约 30 秒 **1500 周期、1497 成功**，最终约 **50 Hz**，平均读取 **6.123 ms**；**2 次 IMU 超时＋1 次舵机校验失败** 为遗留项，不报零错误验收。见[原始数据](docs/references/b-feetech-policy-deployment-20261024/board-v03-read-only-20261031.json)。
+- **[用户确认/实测]** 用户随后要求“按参考项目的数据来”。六模型已导入 Studio，原生合同检查及一次无电机前向计算 **6/6 通过**；配置已接入六槽、配套参数和 `duck-10e4` 参考标定数值。walk 采用幅度 1.0、头/腿滤波 0.5/0.7 的显式运行覆盖，全局 0.7 不再叠乘。参考标定的本机验证标志关闭，动作未启用；旧配置已备份。见[数据导入 Spec](docs/specs/20261031-reference-policy-data/spec.md)、[安装回读](docs/references/b-feetech-policy-deployment-20261024/board-reference-config-install-20261031.json)。
+- **[实测/10-31 验收时服务]** robotd PID 4092 保持 `commissioning/ready`，15 颗卸力已确认、策略关闭；Studio 显示修复后于北京时间 2026-10-31 23:45:16 重启，PID 4179，两个服务均 active/running。servo-web 停止，robotd 未新增自启；配置与参考标定 SHA 未变。当时原生累计 40406 周期/40372 成功/34 次通信失败、约 50 Hz，显示修复不代表总线零错误。见[当时回读](docs/references/b-feetech-policy-deployment-20261024/studio-display-final-20261031.json)，当前服务以上方 11-01 记录为准。
+- **[实测/显示修复已部署]** 用户批准后完成 commissioning 显示适配：真实 `/ws` 至少 3 帧总览与 2 帧舵机表均为 **15/15**，15 行位置、电压、温度有效，IMU 姿态更新且保留方向未验证状态。6 项针对性检查通过；只重启 Studio，robotd/标定/模型动作未改。3D 标定关节姿势和部分原生诊断字段仍未接入。见[已交付 Spec](docs/specs/20261031-studio-commissioning-display/spec.md)、[网页证据](docs/references/b-feetech-policy-deployment-20261024/studio-display-websocket-20261031.json)、[持久补丁与回退](tools/robotd-v03/studio-display/README.md)。
+- 详情与上游固定源码见[上传与控制器核查](docs/references/b-feetech-policy-deployment-20261024/research.md)。
+
+## 硬件完成确认与已训练模型盘点（2026-10-31）
+
+- **[用户确认]** 硬件部分已完成，当前任务转为查找真机测试候选模型。早期装配、刷机、总线排障条目保留为当时记录，不继续作为本轮默认待办；本轮没有补写逐项维修或标定实测。
+- **[实测：本地文件核验]** 已下载的 HD1910 R17/control.43 包含 **6 个普通足部动作模型**（行走/保持/恢复联合、起坐、地面捡取、前滚翻、左脚踢球、右脚踢球）和 **4 个滑轮模型**；10 个 ONNX 哈希均匹配各自清单，均声明 `deployment_verified=false`。自建 mjlab 的 `model_9999.pt` 也仍在；旧 SB3 `training/checkpoints/` 当前未找到。
+- **[盘点时推断，后续状态见本页顶部]** 联合 walk 为优先接入候选。随后已完成运行端安装、IMU 单播适配、六模型导入和参数优先级核验；参考标定的本机匹配与实物动作验收尚未完成。硬件完成不自动证明策略动作已验证。
+- 完整路径、模型用途、SHA、来源与未核验项见[模型盘点](docs/references/b-feetech-policy-deployment-20261024/research.md)和[文件清单](docs/references/b-feetech-policy-deployment-20261024/model-inventory-20261031.json)。
+
+## v0.3 输入规格原厂纠错与两路 5V 失败分析（2026-10-31）
+
+- **[厂商规格]** AP2210K-3.3 的 VIN/EN 推荐上限 **13.2V**、绝对最大 **15V**；旧“5.5V 上限、7.4V 超限”记录错误，已更正现行入口。
+- **[用户确认，补充完整条件]** DATA/GND 始终接总线；pin4 5V 时是**主控启动不了**；DAPLink 5V 时是**IMU PING 不通，且只接 DAPLink +5V、没接其自身 GND**；中间电源线改接总线 7.4V 后正常。**[推断]** DAPLink 缺少明确负极回路是首要解释（其他 USB 间接共地未排除）；pin4 故障需单独查主控公共 5V/启动条件。设计上 5V 仍应可用，不能把两次失败合并成板子不支持 5V。撤回旧摘要中“pin4 5V 单播成功”的窗口归属，数据保留、供电条件待核。
+- 原厂 PDF、原理图、BOM 参数、热耗散示意、失败来源及记录缺口已存[专题](./docs/references/imu-v03-input-voltage-20261031/research.md)。本轮未操作设备，未新增采购、改电路、commit 或 push。
+
 事实性的进度流水：什么时候到了什么、做了什么。核对结论与安全边界见 [README](./README.md) 与 [BOM](./BOM.md)。
+
+## v0.3 新板刷机上线替换板②，servo-web v0.15.4 适配（2026-10-30/31）
+
+- **新板**：v0.3 PCB+SMT 到货（J1/J3 自焊、J2 已贴），DAPLink 烧录 replica 0.2.0 飞特版一次成功；**已上机替换板②**（板②下线）。供电为用户确认整根 3P 接 7.4V 总线，当前正常；**2026-10-31 原厂勘误：7.4V 在 AP2210 推荐范围内，撤回“超限经历”判断**。实装料号/温升未独立复测，见上方专题。
+- **"数据异常"两根因 [实测]**：①0.2.0 状态位旧语义（0x08=健康+读慢提示）被 kit v1 判据误读为传感器失败；②0.2.0 的 SYNC_READ 应答弱（单 ID 30%/多 ID 0%）致混读全丢——**单播 READ 100%/1ms 是该固件可靠路径**。
+- **v0.15.4 已部署**：IMU 改单播 READ（不再连累舵机）+ 状态位判据按 bit7 自动分流（页面新增 fw_bits 显示）；验证 IMU 222/222 live、计数 +12@120Hz、舵机不受连累。
+- **误判勘误**：板子一度全无应答，曾据"uart=0 不涨 + SWD 全活"推断板内收发硬件损伤——**错误**，用户确认 DATA/GND 未改，中间电源线改为 7.4V 后恢复；DAPLink 5V 缺自身 GND，pin4 则是主控无法启动，两个窗口需分别解释，详见顶部补充。uart=0 只记录请求期间固件未计到 UART 接收，仍需分辨数据路径与软件条件。
+- 详见[主记录 10-31 节](./docs/references/servo-web-imu-3d-20261024/research.md)。换回板②时需恢复混读形态（代码注释有说明）。
 
 ## HAT 双口原理图复核：共用 DATA 串阻存在设计差异，实物 V1.2 待核（2026-10-27）
 
-- **IMU 三器件照片定位完成 [照片识别]**：已在原单 3P GD32 IMU 照片标出 R31（红）、R5（黄）、F1（蓝，PTC 自恢复保险丝），并与公开 PCB 布局交叉核对。R5 表面可见 510；R31 阻值/F1 参数未由照片确认，仍需核批次，未改阻或短接。见[定位图与证据](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-photo-components-20261027)。
-- **无示波器时的切入点（用户确认工具条件）**：**[推断]** 优先检查 IMU 通信前端可行，但不能由“舵机正常、IMU 缺答”排除 HAT。三器件位置已由照片定位，下一步核实装参数与批次（公开参考为 100kΩ/51Ω/PTC40R）；用户补测供电均 >7.1V（按上下文暂记 IMU 入口），入口持续欠压降为低优先级，不重复入口测压；板内 3.3V/瞬态未核。有可用正常板时做同条件替换。H1 日志须先确认构建开启，现有 FT232H/DAPLink 不自动触发刷机。详见[无示波器推进顺序](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-first-no-scope-20261027)；本轮未操作硬件。
+- **kissqy工程旁路点已核（用户指定）**：10-07/10-15两版PCB中 **R32 pad2 ↔ TH1 pad1** 可跨过DATA串阻R33，保留TH1；两版R33已标0Ω，R31实际为RX上拉。已核封装脚号、网名、铜线连续性和坐标，生成并查看[标注图与证据](./docs/references/pcb-pad-repair-20261027/research.md#kissqy-bypass-points-20261027)。该工程布局与白色V1.2旧照不对应，本机受损处的实际替代焊点仍待确认；未焊接/上电。
+- **HAT R31拆除、两侧焊盘脱落（用户确认）**：用户为短接R31先拆下电阻，反复尝试锡桥后两个焊盘脱落；不是IMU R31/H1，尚无成功短接/修复证据。当前HAT保持断电，先看受损近照和周边网络，评估从两侧完整同网节点飞线并恢复原值电阻或补焊盘；走线/过孔损伤范围与替代焊点待核。此板恢复和检查前不继续上电抓总线波形。新损伤与此前多节点缺答分开记录，不能把0Ω永久短接当已验证修复；见[维修分支与原理图边界](./docs/references/pcb-pad-repair-20261027/research.md)。
+- **V1.0 R31两端原图追线**：已复读第4页：左侧同网U5 pin4、U4 pin2、R20信号端；右侧同网F1内侧及D3阴极，F1另一侧才到两口DATA。仅作V1.0网络事实，V1.2维修点未核；见[具体脚号与边界](./docs/references/hat-imu-shared-bus-20261027/research.md#r31-v10-endpoints-20261027)。
+- **内部数据调试与开源状态（用户追问后补正）**：已取得jyg9对应GD32固件固定1.5.1源码和Apache-2.0许可；H1是固件日志输出口，具备编译开关和运行级别，不自动复制DATA流量。默认编译关日志；启用后有统计及部分DXL CRC/仲裁TRACE，仍缺本次所需完整飞特收发/丢弃记录。本机CRC构建未匹配不等于闭源；现有记录不足时可用该源码制作最小诊断构建，不必先找STM32替代固件。已纠正“v1必然不同于成品固件”的无依据说法；见[固定来源、缺口及处理分支](./docs/references/hat-imu-shared-bus-20261027/oscilloscope-plan-20261027.md#firmware-source-debug-clarification-20261027)。示波器外部链路检查可先开展，本轮未改固件/接线。
+- **示波器已到货／用户现行决定**：2026-11-01 用户确认 SDS814X HD 已到货并接入 USB，Windows 实读设备名一致但缺驱动（Code 28）；当前 v0.3 原生动作坏帧采集见本页顶部，10-27 原计划区分①请求未正确到IMU、②到MCU RX但未生成预期应答、③回包未到主控。推荐4模拟通道70～100MHz，并已核鼎阳SDS804X HD/普源DHO804厂家规格；建议不等于实际购买型号。借板/售后降为后备，不继续孤立测阻。见[选型、逻辑测点与判据](./docs/references/hat-imu-shared-bus-20261027/oscilloscope-plan-20261027.md)。
+- **排障价值修订（用户指出，2026-10-27）**：测阻后缺少明确处理分支，不能继续让用户量完再等“不确定”；已撤回“下一步测HAT串阻”。用户随后已选择先用示波器；以下借板分支保留为后备：保持15舵机和查询条件做原→参考→原对照，可重复改善则走有效板替换/原板维修，未改善则恢复原配置并转HAT单板对照。器件级改阻必须先有目标值、依据、验收和恢复方案；目前这些条件不齐，不直接把V1.2改成参考150Ω。无健康备件；示波器随后已由用户下单，未执行替换。见[方案与结果处理](./docs/references/hat-imu-shared-bus-20261027/research.md#actionable-isolation-20261027)。
+- **请求方向解释 [假设]**：多节点下 HAT→总线→IMU 请求传输/接收处理出错是重点嫌疑；历史正确请求对应 CRC 错误应答提供线索，但不能独立定位 HAT 发送端，当前超时仍未排除 IMU 发答/回程接收及固件。原先“先查 HAT 串阻”的孤立测量安排已撤回，未判 HAT 为最可能坏板；“高负载”在这里指挂接节点多。见[方向性证据与替代解释](./docs/references/hat-imu-shared-bus-20261027/research.md#request-direction-hypothesis-20261027)。
+- **IMU 三器件测阻完成 [用户实测口述]**：断电、拔掉全部外接线，元件仍焊在板上；R31=100kΩ、R5=51Ω、F1=25Ω。[推断] R31/R5 与公开修订值一致，旧版错料解释降权；F1 未取得具体型号/允许范围，不因25Ω与图纸40R不同判异常。暂不改阻或短接；继续孤立测阻已撤回，用户现选择示波器三阶段定位，替换留后备，IMU/HAT 动态收发和固件仍未分开。见[测量记录及下一步](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-resistance-measured-20261027)。
+- **IMU 三器件照片定位完成 [照片识别]**：已在原单 3P GD32 IMU 照片标出 R31（红）、R5（黄）、F1（蓝，PTC 自恢复保险丝），并与公开 PCB 布局交叉核对。照片可见 R5 的 510 标记；用户随后已完成在板测阻（见下），照片本身仍不作阻值实测依据，未改阻或短接。见[定位图与证据](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-photo-components-20261027)。
+- **先前无示波器阶段的判断（现已到货，主线见上）**：**[推断]** 优先检查 IMU 通信前端可行，但不能由“舵机正常、IMU 缺答”排除 HAT。三器件已完成定位和在板测阻（100kΩ/51Ω/25Ω），旧版阻值解释降权，不再单列 HAT 测阻为下一步；用户补测供电均 >7.1V（按上下文暂记 IMU 入口），入口持续欠压降为低优先级，不重复入口测压；板内 3.3V/瞬态未核。有可用正常板时做同条件替换。H1 日志须先确认构建开启，现有 FT232H/DAPLink 不自动触发刷机。详见[无示波器推进顺序](./docs/references/hat-imu-shared-bus-20261027/research.md#imu-first-no-scope-20261027)；本轮未操作硬件。
 - **DATA 测量补充 [用户实测口述]**：持续读取 IMU 时，万用表直流档对 IMU GND，10 颗舵机为 **3.19V**，15 颗为 **3.14～3.16V**，差 0.03～0.05V。这是通信期间直流读数，不能等同位级高/低电平或 IMU 3.3V 电源轨；低位抬高/边沿假设既未排除也未确认，不据此改阻。见[原始读数与解释](./docs/references/hat-imu-shared-bus-20261027/research.md#data-dc-voltage-20261027)。
 - **用户补充／现行解释（同日）**：IMU 在第二口、中段分叉、左脚掌及左脚踝舵机处均有多节点缺答；用户概括超过 12 颗开始失败、更多时加重。台供确认 **7.4V CV、限流设 3A、输出约 0.6～0.7A**。**[推断]** 不是第二口特有问题，换位未解决；先前窗口成功率不同，不能扩大为任何位置/拓扑都无影响。**[假设]** DATA 并联上拉与串阻/低位驱动、边沿余量优先；0.6～0.7A 是供电总读数，不是 DATA 电流，持续限流解释降权但局部电压/地未排。详见[证据、替代解释与最短区分步骤](./docs/references/hat-imu-shared-bus-20261027/research.md#node-count-current-20261027)，不再重复建议换口。
 - **PCB 来源补充 [原始设计文件／待核]**：沿用户提供的 ScrapMeta 卖家地址，取得其文档锁定的官方 C1 `88d51fa` KiCad PCB/工程/原理图、Gerber、BOM/POS，另存 D1 及 kissqy 不同设计参考。**白色鸭图案 V1.2 专用 PCB 仍未找到**；官方 C1 的 R33=150Ω 不直接映射到本机。见[图纸入口](./docs/schematics/pollen-hat-pcb-reference/README.md)与[检索范围、原图和缺口](./docs/references/hat-imu-shared-bus-20261027/research.md#pcb-source-search-20261027)。
@@ -13,15 +138,15 @@
 - 用户再次确认双 3P 分别接 IMU/舵机时 IMU 无应答，拔舵机恢复；本轮仅复核既有数据、原理图与照片，未操作设备。
 - 存档社区 HAT V1.0 的 CN11/CN12 共用 DATA、+BATT、GND；DATA 共经 **R31=1 kΩ + F1**。官方固定版本对应 **R33=150 Ω**（电阻本体约 6.67 倍差异），同为 TX 自动换向。多节点并联上拉/电容与串阻造成电平和边沿余量不足是具体嫌疑。
 - 实物为 V1.2，对应阻值/网表尚未核实；整条 3P 插拔还改变供电负载与地，故将旧“纯电容/接收崩坏已定案、HAT 第二口无罪”修正为“舵机支路接入是强触发证据，机制待隔离”。无改阻、采购或刷机结论。
-- [原图对比、计算假设、证据与最短排查](./docs/references/hat-imu-shared-bus-20261027/research.md)已归档；与 IMU 板的 R31/R5 分开编号，下一步优先核 V1.2 对应器件并结合已完成的负载分组；不重复换口。
+- [原图对比、计算假设、证据与最短排查](./docs/references/hat-imu-shared-bus-20261027/research.md)已归档；与 IMU 板的 R31/R5 分开编号，已完成负载分组；继续孤立测阻已撤回，不重复换口，处理路径见本页顶部。
 
 ## 四步受控 SyncRead 实验（独占）：舵机支路接入触发缺答，正常应答流量不是必要条件（2026-10-27 深夜）
 
 - **用户设计四步实验**（停服务独占、脚本直发、robotd 口径 50Hz/16 ID 顺序）：①单条单 ID(200) 超时；②**单 ID @50Hz×10s 成功率仅 1.26%**（6/475，成功孤立随机、板活着）；③单条全 16 ID 整拍全灭（R3 连锁 bad_id 15）；④全 ID @50Hz×10s **386 拍 200 与 15 颗舵机全部 0.0**（bad_id 5786≈386×15 精确吻合）。
 - **定位证据**：步骤 2 只请求 ID 200，15 颗舵机支路接入时 IMU 仅 6/475 成功；无需主动查询舵机即可触发。物理层交互优先，但 bad_id=0 不证明模拟总线无异常流量，DATA/供电/地尚未分离。R3 连锁放大混读缺失是另一已记录问题。
 - **A/B 复验**：拔掉整条舵机 3P 后单 ID 从 6/475 恢复 500/500，0 错误，块计数严格 +2。支持“接入舵机支路触发缺答”；复验无断电的条件来自当轮记录，JSON 本身不记录电源状态。不能据此定位为纯电容或确定请求/应答哪一方向损坏。
-- **下一步候选**：V1.2 对应 DATA 串阻/网络核对，复核已有舵机分组结果；必要时比较串阻前后/IMU 接收端波形及电源。见上方原理图专题和[主记录续 9](./docs/references/servo-web-imu-3d-20261024/research.md)。
-- **顺带发现已建档**：feetech.py sync_read 主机侧缺席连锁错位缺陷（缺席 ID 之后全部应答被错位吃掉；单舵机 294.7ms 逐项对账、386 拍 bad_id 5786 精确吻合、历史"多颗×N"警告形态由此解释）——用户指示暂不修，[spec 待定档案](./docs/specs/20261027-sync-read-cascade/spec.md)。**负载梯度+接法对照全系列已归档（现象层 [实测]，[主记录续 11](./docs/references/servo-web-imu-3d-20261024/research.md) 完整表格）**：负载阈值 12→13 颗（13 颗混读 3–5%、14 颗单发 30.9%/混读 1.63%、15 颗单发 1.26%/混读 0%），失败簇状、与舵机个体/批次无关、**所有配置下纯舵机轮询 100% 零错误（15 颗含 IMU 挂链同样 100%）**、第二口已测试的 ≤12 颗窗口零失败，不能外推永久稳定；**不同接法的已记录窗口成功率不同，位置独立效应未隔离**（15 颗单发：左脚串联 35.75% > 中段焊接分叉 13.78% > HAT 第二口 1.26%），但**与 10-24"中段 100%"历史记录矛盾 [待确认]**（当时负载/接法细节未核对），位置好坏单一叙事不成立。四份实验脚本入库、原始 JSON 六份归档专题目录（同名覆盖损失已声明）。机理（电容/边沿/串阻/边际）均 [假设]，下一步实物 V1.2 阻值核对（HAT 共用串阻+IMU 板 R5/R31）。
+- **下一步候选（已修订）**：不重复分组或孤立测阻；用户已选择在15舵机原故障条件下先用示波器定位异常段；替换留后备，器件级修理须先有明确目标值与回退方案。见上方原理图专题和[主记录续 9](./docs/references/servo-web-imu-3d-20261024/research.md)。
+- **顺带发现已建档**：feetech.py sync_read 主机侧缺席连锁错位缺陷（缺席 ID 之后全部应答被错位吃掉；单舵机 294.7ms 逐项对账、386 拍 bad_id 5786 精确吻合、历史"多颗×N"警告形态由此解释）——用户指示暂不修，[spec 待定档案](./docs/specs/20261027-sync-read-cascade/spec.md)。**负载梯度+接法对照全系列已归档（现象层 [实测]，[主记录续 11](./docs/references/servo-web-imu-3d-20261024/research.md) 完整表格）**：负载阈值 12→13 颗（13 颗混读 3–5%、14 颗单发 30.9%/混读 1.63%、15 颗单发 1.26%/混读 0%），失败簇状、与舵机个体/批次无关、**所有配置下纯舵机轮询 100% 零错误（15 颗含 IMU 挂链同样 100%）**、第二口已测试的 ≤12 颗窗口零失败，不能外推永久稳定；**不同接法的已记录窗口成功率不同，位置独立效应未隔离**（15 颗单发：左脚串联 35.75% > 中段焊接分叉 13.78% > HAT 第二口 1.26%；**中段分叉 10 颗时三轮全 100%——负载阈值效应在链上位置同样成立，"中段分叉+10 颗"为完整可用配置**），但**与 10-24"中段 100%"历史记录矛盾 [待确认]**（当时负载/接法细节未核对），位置好坏单一叙事不成立。四份实验脚本入库、原始 JSON 六份归档专题目录（同名覆盖损失已声明）。**槽位对照 [实测]**（中段分叉+15 颗）：IMU 放列表末位 vs 首位，自身成功率不变（单发 13.09%↔13.78%、混读 0.17%↔0.17%）——与槽位时序无关；**末位放置解除 R3 连累（15 颗舵机混读恢复 100%、bad_id=0），为 IMU 修复前的立即可用规避配置**。机理（电容/边沿/串阻/边际）均 [假设]；IMU 在板测阻已完成，继续孤立测阻已撤回，现行推进见本页顶部。
 
 ## 舵机总线接回后混读形态首次全量采集：IMU 混读槽 0 应答为零、R3 连锁错位逐帧坐实（2026-10-27 深夜）
 
@@ -119,8 +244,8 @@
 
 ## 板①（ScrapMeta v0.3）测量短接致损（2026-10-25 晚，事故登记·归因已更正）
 
-- 用户在 7.4V 分支上给 v0.3 备件测电压时**表笔短接，板烧损**（用户确认）。**归因更正：初记"7.4V 过压烧毁 5V 设计板"不成立为定论**——过压风险回到未验证；v0.3 按 5V 供电的红线继续执行（flash/README 已改横幅）。附带损伤初步排查：舵机 15/15 健康、总线正常；待用户确认短路点位（VBATT-GND/DATA-VBATT/DATA-GND）后复核 HAT 74LVC。
-- 责任记录（保留）：本会话推荐"换板①"时未先核查其 5V 供电规格，属流程缺陷；烧损直接原因为测量短接。若仅 LDO 损坏可换 AP2210K-3.3 修复，待目检损坏位置。
+- 用户在 7.4V 分支上给 v0.3 备件测电压时**表笔短接，板烧损**（用户确认）。**归因更正：初记"7.4V 过压烧毁 5V 设计板"不成立为定论**——2026-10-31 原厂复核确认 7.4V 在 AP2210 推荐范围内，撤回“只能 5V”的旧限制（见本文件顶部专题）；短接致损事实保留。附带损伤初步排查：舵机 15/15 健康、总线正常；待用户确认短路点位（VBATT-GND/DATA-VBATT/DATA-GND）后复核 HAT 74LVC。
+- 责任记录（保留）：本会话此前对器件规格未完成原厂复核便下结论，属证据不足；2026-10-31 已更正“仅 5V”错误，烧损直接原因为测量短接。若仅 LDO 损坏可换 AP2210K-3.3 修复，待目检损坏位置。
 - 已同步：BOM（板①改“测量短接致损”，板②保留间歇缺答及备件缺口，撤回“半死干扰总线”定案）、flash/README 事故横幅（更正版）、[总线风暴调研](docs/references/bus-storm-power-20261025/research.md)（换板①路径暂停）。
 - **善后**：当前使用板②（jyg9），已确认有间歇缺答，但“半死干扰固件缺陷”尚未证实，见顶部原始取证。备件缺口保留，是否补购另行决定；换板/断电重上不作为已验证根治。事故后板子重启、linger 生效服务自起、15/15 舵机健康的现场记录保留。
 
@@ -173,7 +298,7 @@
 ## Radxa IP 固定为静态 192.168.1.35——DHCP 漂移遗留风险关闭（2026-10-25 上午，实测验收）
 
 - 背景：用户重启 radxa 后 DHCP 把板子租到 192.168.1.34，与本机（Windows）IP 冲突；再重启一次后 WiFi 未关联、全 /24 TCP 22 扫描找不到板子（仅 .9 一台 Linksys EA6700 路由器开着 SSH，非本板）；断电重新上电后板子自动回 192.168.1.35。
-- 修复（本机 SSH 实测执行）：板上 NetworkManager 固定静态——`sudo nmcli con mod 'CU_M9pw_5G' ipv4.method manual ipv4.addresses 192.168.1.35/24 ipv4.gateway 192.168.1.1 ipv4.dns 192.168.1.1` + `nmcli dev reapply wlan0`（radxa 用户改系统连接需 sudo，密码 radxa；reapply 不断链、SSH 会话存活）。
+- 修复（本机 SSH 实测执行）：板上 NetworkManager 固定静态——`sudo nmcli con mod 'CU_M9pw_5G' ipv4.method manual ipv4.addresses 192.168.1.35/24 ipv4.gateway 192.168.1.1 ipv4.dns 192.168.1.1` + `nmcli dev reapply wlan0`（radxa 用户改系统连接需 sudo，密码已脱敏；reapply 不断链、SSH 会话存活）。
 - 验收（本机实测）：配置回读 manual/.35/24；默认路由从 `proto dhcp` 变 `proto static`；**下发 reboot 后板子自动回 .35，uptime 0 分钟时配置仍为 manual**。`ssh radxa` 别名与文档中 `http://192.168.1.35:8080` 等地址从此稳定。
 - 残余：路由器 DHCP 池若含 .35 理论上仍可能租给其他设备（更彻底是路由器 MAC 绑定保留地址，暂无路由器管理权未做）；本次"重启后 WiFi 未关联"一次的原因未深究（与当日总线风暴/疑似供电波动背景同日），再现再查。详见 [radxa-env-check 2026-10-25 补充](./docs/references/radxa-env-check-20261014/research.md)。
 
@@ -590,7 +715,7 @@
 |---|---|---|
 | 微雪 Waveshare Bus Servo Adapter (A) | 1 | 半双工总线转接板，即 replica《电控采购清单》的「半双工总线转接板」待买项；此前台架一直用 FE-URT-2 顶替。整机走它还是飞线，待测。2026-10-10 照片归档+元件标注（[docs/photos/](./docs/photos/README.md)）：实物 v1.1，输入**直通舵机口不稳压**（HD-1910 台架喂 2S，严禁 12V），跳线 A=UART/B=USB（CH343） |
 | 黑色降压模块（XT60 端子） | 1 | 2026-10-10 照片细读（[存档](./docs/photos/README.md)）+ **空载实测**（[操作单](./docs/buck-module-test.md)）：板名 **BUS SERVO POWER SUPPLY V1.3**（By 造物の乐趣，社区自研件，公开无资料，二维码待扫）；丝印 PWR IN 7.2-18V / OUT PWR 5V or 7.4V MAX 6A。**实测**：VCC（3P）12V→6.00V、6.6V→6.00V、6.3V→5.99V——选压桥 **6V 档**、稳压下限 **≈6.3V**（跌落跟随非关机，远好于丝印 7.2V），**2S 最差工况可用**；PWR OUT（2P）全程跟随输入 = **电池直通口**（舵机总线，对上 HD-1910 直挂 7.8-8.1V 用法）。接口分工闭环（~~DC 母座~~系照片误判，实物无此件）。当前方案不使用 VCC 稳压口、无需为 IMU 改焊 5V；模块不再是整机必需件，载流未验证 |
-| 绿色 IMU 板 ×2 | 2 | **板①（双 3P 口）= ScrapMeta microduck-diy imu_to_dxl v0.3**（STM32G031，板 32×22mm）。三版来源对比与刷机兼容性查证见 [docs/references/imu-to-dxl-variants-20261009](./docs/references/imu-to-dxl-variants-20261009/research.md)；**飞特固件刷写包已备好**（[flash/](./flash/README.md)：校验过的 0.2.0 HEX + OpenOCD + 一键脚本 + imu200 验收工具），按归档设计拟从总线 VBATT 取电、U3 自降 3.3V，实物料号、输入规格及温升待验证——**2026-10-25 勘误：“两板都可直挂总线”旧指导因缺板①实物器件闭环而清除，供电按 [flash/README](./flash/README.md) 红线执行；当晚测量表笔短接致损，不再列可用备件**，若仅 LDO 损坏可换 AP2210K-3.3 修复，补板走 PCB+SMT 一体单（见 [BOM](./BOM.md)）。**板②（单 3P 口）= jyg9 社区成品版**（2026-10-14 照片判别：GD32F303 LQFP48 + 降压前端，[照片存档](./docs/photos/README.md)）：出厂 DXL 2.0 + 飞特双协议免刷、可直接挂总线。**2026-10-26 官方 0.2 BOM/原理图析毕**（[电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）：Buck=ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压设定），5V 必不启动、不损坏**；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；官方即无 CH340（USB 走 GD32 原生引排针），旧出入关闭；电源正极无保险、反接必烧，断电核针序保留。板②当前使用（整机优先），间歇缺答根因未隔离；板①烧损后备件缺口保留 |
+| 绿色 IMU 板 ×2 | 2 | **板①（双 3P 口）= ScrapMeta microduck-diy imu_to_dxl v0.3**（STM32G031，板 32×22mm）。三版来源对比与刷机兼容性查证见 [docs/references/imu-to-dxl-variants-20261009](./docs/references/imu-to-dxl-variants-20261009/research.md)；**飞特固件刷写包已备好**（[flash/](./flash/README.md)：校验过的 0.2.0 HEX + OpenOCD + 一键脚本 + imu200 验收工具），按归档设计拟从总线 VBATT 取电、U3 自降 3.3V，实物料号、输入规格及温升待验证——**2026-10-25 勘误：“两板都可直挂总线”旧指导因缺板①实物器件闭环而清除，2026-10-31 原厂复核已撤回“仅 5V”限制，供电见 [flash/README](./flash/README.md)；当晚测量表笔短接致损，不再列可用备件**，若仅 LDO 损坏可换 AP2210K-3.3 修复，补板走 PCB+SMT 一体单（见 [BOM](./BOM.md)）。**板②（单 3P 口）= jyg9 社区成品版**（2026-10-14 照片判别：GD32F303 LQFP48 + 降压前端，[照片存档](./docs/photos/README.md)）：出厂 DXL 2.0 + 飞特双协议免刷、可直接挂总线。**2026-10-26 官方 0.2 BOM/原理图析毕**（[电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）：Buck=ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压设定），5V 必不启动、不损坏**；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；官方即无 CH340（USB 走 GD32 原生引排针），旧出入关闭；电源正极无保险、反接必烧，断电核针序保留。板②为该历史窗口使用板，2026-10-31 已被新 v0.3 板替换下线；旧板①损伤事实保留，不与新制板混同 |
 | 白色鸭图案 HAT（**实物丝印 V1.2**，2026-10-10 照片更正，此前误记 V1.1） | 1 | **原理图已归档查证**（2026-10-09，[docs/references/microduck-hat-20261006](./docs/references/microduck-hat-20261006/research.md)）：官方 RPI Robot HAT 的嘉立创 EDA 派生版，Radxa Zero 3W（舵机总线 UART2=ttyS2）兼容 Pi Zero 2W，比官方多一颗 BNO085。**2026-10-10 正反面照片归档+元件标注**（[docs/photos/](./docs/photos/README.md)）：实物 V1.2 与存档原理图 V1.0 差异大——**背面多一颗 MCU 类器件（完整型号/功能待核）；正面圆柱电容标记 10 / 50V，不再按超级电容处理**；RS485 座未焊。接线/上电前须索取 V1.2 原理图 |
 | 全部舵机 | 待清点 | 型号/数量/出厂 ID 状态待登记。飞特方案按官方关节表应为 HD-1910-C001 ×15（含嘴） |
 | 打印件 | 待清点 | 版本/材料/数量待登记；打印模型以上游独立仓库 microduck-replica-cad 为准 |
@@ -616,7 +741,9 @@
 
 **banana_pcb 打板已下单（2026-10-09 用户确认），等板回来。** 到板后手顺：焊 U6068 插针 ×2（未购则先买）→ 打印 `banana_pcb_locker` → 拆电池焊接出线（线径按 3-5A 选）→ 万用表直流档核极性 → 断电机械试装（插针与电池触点配合、locker 保持力）→ 只带主控支路验证 5V。
 
-### 由到货衍生的待办
+### 2026-10-09 到货衍生事项（历史清单，非当前执行队列）
+
+2026-10-31 用户已确认硬件部分完成；下列勾选和板卡状态保留为历史快照，不表示当前仍须采购、刷机或重复排障。当前在用新 v0.3 板及模型准备见本页顶部。
 
 - [ ] 万用表实测降压模块（[操作单](./docs/buck-module-test.md)）：**2026-10-10 空载扫描已完成**——选压桥 6V 档、实测稳压下限 ≈6.3V（压差 0.3V 跌落跟随，远好于丝印 7.2V）、2S 最差点 6.6V 时输出仍 6.00V，**2S 初判可用**；接口分工闭环（XT60 入 / PWR OUT 直通 / 3P VCC 稳压；"DC 母座"系照片误判，实物无此件）。现行候选不使用稳压口，取消改焊 5V；若仅作直通转接，仍须核验其直通路径及接头载流，空载结果不是整机验收
 - [x] 确认 IMU 板是哪一版设计（2026-10-09 用户确认板①：ScrapMeta microduck-diy v0.3；2026-10-14 照片判别板②：jyg9 社区 GD32 成品版，见同专题补充节）

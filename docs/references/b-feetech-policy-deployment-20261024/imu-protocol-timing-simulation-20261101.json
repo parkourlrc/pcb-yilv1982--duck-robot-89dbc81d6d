@@ -1,0 +1,510 @@
+{
+  "date": "2026-11-01",
+  "kind": "Deterministic virtual-time experiment, not hardware measurement",
+  "source_files_sha256": {
+    "references/microduck-replica/hardware/imu_to_dxl/firmware/Core/Src/protocol.c": "cab625cc7533a3b8bf9af28335622a29a672ee2b7b1872be65b0ab64fd484105",
+    "references/microduck-replica/hardware/imu_to_dxl/firmware/Core/Src/control_table.c": "1dfc2635b89e9927619d69e87198347a860ee51e281a7c3477769791083ba83e",
+    "references/microduck-replica/hardware/imu_to_dxl/firmware/Tests/bus_sim_shim.c": "e2a280497b598269d750db55859574ab4c4b21fff9f831e2d3bc3d67b275caaf",
+    "references/microduck-replica/hardware/imu_to_dxl/firmware/Core/Inc/protocol.h": "e343ca223e44c2620de160be6ddfdf026cb9df43917e74f3e0d2af74414ae9bb",
+    "references/microduck-replica/hardware/imu_to_dxl/firmware/Core/Inc/control_table.h": "fa0506da26aca17e2761fa41cc8a0e5e23f730751fd5fb96b841f215c431554d"
+  },
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "build_stdout": "",
+  "build_stderr": "",
+  "cases": [
+    {
+      "case": "first_poll_after_read_49",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 49
+    },
+    {
+      "case": "first_poll_after_read_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 50
+    },
+    {
+      "case": "first_poll_after_read_500",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 500
+    },
+    {
+      "case": "first_poll_after_read_2000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 2000
+    },
+    {
+      "case": "first_poll_after_read_2050",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 2050
+    },
+    {
+      "case": "first_poll_after_read_2051",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 1,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "last_byte_to_first_poll_us": 2051
+    },
+    {
+      "case": "request_interbyte_gap_499",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "one_request_interbyte_gap_us": 499
+    },
+    {
+      "case": "request_interbyte_gap_500",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "one_request_interbyte_gap_us": 500
+    },
+    {
+      "case": "request_interbyte_gap_501",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 0,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 1,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "one_request_interbyte_gap_us": 501
+    },
+    {
+      "case": "foreign_byte_before_reply_ff",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 1,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true
+    },
+    {
+      "case": "foreign_byte_before_reply_55",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 1,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 1,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true
+    },
+    {
+      "case": "hold-home-replay-20261101_goal_then_read_gap_0",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 0
+    },
+    {
+      "case": "hold-home-replay-20261101_goal_then_read_gap_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 50
+    },
+    {
+      "case": "hold-home-replay-20261101_goal_then_read_gap_12000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 12000
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r1_goal_then_read_gap_0",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 0
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r1_goal_then_read_gap_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 50
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r1_goal_then_read_gap_12000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 12000
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r2_goal_then_read_gap_0",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 0
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r2_goal_then_read_gap_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 50
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r2_goal_then_read_gap_12000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 12000
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r3_goal_then_read_gap_0",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 0
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r3_goal_then_read_gap_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 50
+    },
+    {
+      "case": "hold-home-baseline3-20261101-r3_goal_then_read_gap_12000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 12000
+    },
+    {
+      "case": "hold-home-servo-first-20261101_goal_then_read_gap_0",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 0
+    },
+    {
+      "case": "hold-home-servo-first-20261101_goal_then_read_gap_50",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 50
+    },
+    {
+      "case": "hold-home-servo-first-20261101_goal_then_read_gap_12000",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 2,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true,
+      "goal_bytes": 113,
+      "synthetic_idle_us": 12000
+    },
+    {
+      "case": "servo_only_sync_and_15_replies_do_not_queue_imu",
+      "tx_bytes": 0,
+      "tx_hex": "",
+      "checksum_valid": null,
+      "counters": {
+        "rx_packets": 16,
+        "tx_packets": 0,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true
+    },
+    {
+      "case": "unicast_after_servo_only_sync_and_15_replies",
+      "tx_bytes": 21,
+      "tx_hex": "ffffc811000100020003000030003000300a000086",
+      "checksum_valid": true,
+      "counters": {
+        "rx_packets": 17,
+        "tx_packets": 1,
+        "crc_errors": 0,
+        "malformed_packets": 0,
+        "receive_timeouts": 0,
+        "cancelled_replies": 0,
+        "skipped_slots": 0
+      },
+      "expected_result_met": true
+    }
+  ],
+  "scope": "Unmodified archived protocol.c and control_table.c with existing bus_sim_shim.c, temporary build output outside read-only references",
+  "limitations": [
+    "Does not execute board.c, MCU UART, interrupts, HAT, Linux UART or physical line.",
+    "Synthetic byte times and fixture sensor data; does not claim reconstruction of actual wire timing.",
+    "A protocol branch cancelling a response is not a reproduction of the observed 21-byte checksum corruption.",
+    "Never opens a serial device or connects to the robot."
+  ]
+}

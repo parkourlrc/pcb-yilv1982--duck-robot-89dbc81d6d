@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-01",
+  "source": "user message in current conversation",
+  "evidence_level": "user report and decision; no new hardware measurement",
+  "decision": "Set aside the dual-port v0.3 IMU; buy a new same-type single-3P IMU and try it first",
+  "reasons": [
+    "Small-pad probing is too difficult for the user",
+    "User lacks the 7P cable needed for their proposed DAPLink connection"
+  ],
+  "old_single_port_board": {
+    "project_identity": "previous jyg9 GD32 single-3P board",
+    "user_report": "Board was OK before user damaged one resistor; now broken",
+    "damaged_component_reference": "unknown",
+    "damage_date": "unknown",
+    "photograph": "not supplied"
+  },
+  "replacement_board": {
+    "purchase_status": "planned; not confirmed ordered",
+    "quantity": 1,
+    "exact_revision_and_firmware": "verify when available",
+    "installed": false
+  },
+  "validation_boundary": "Earlier missing-response measurements remain historical evidence. New report does not date the resistor damage or explain every earlier error. v0.3 stand-up corruption remains unresolved.",
+  "next_step": "On arrival verify board identity/pinout and protocol using read-only queries, then compare native robotd stand-up under appropriate physical support; retain existing checks and fault protection.",
+  "this_turn": "Documentation only; no purchase, soldering, flashing, service changes, or robot commands"
+}

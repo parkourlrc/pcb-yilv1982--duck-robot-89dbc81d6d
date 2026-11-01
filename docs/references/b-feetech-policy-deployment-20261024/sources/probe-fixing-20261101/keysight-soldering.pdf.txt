@@ -1,0 +1,425 @@
+PAGE 1
+Page 1
+Find us at www.keysight.com  
+APPLICATION NOTE
+Probe soldering guidelines for 
+Keysight InfiniiMax probes
+Introduction
+There are various ways to connect test instrumentation probes to devices under 
+test (DUTs). One such method is soldering, which provides a reliable connection 
+and minimizes parasitic probing effects by keeping wire lengths and connections 
+as short as possible. Many of Keysight’s high performance oscilloscope probes 
+utilize soldered connections. As probes and devices continue to shrink in size, 
+using the correct tools and soldering skills becomes even more critical in order 
+to avoid damage and connectivity issues. This guide provides helpful tips, 
+recommended tools, and techniques specific to Keysight probes to help test 
+engineers get the most out of their soldered-in probes and connections.
+Tools
+Soldering iron
+Keysight recommends a high-quality soldering 
+iron with the ability to control the tip temperature. 
+Different solder alloys have different melting 
+points, and keeping the temperature as low as 
+possible while still melting the alloy is essential 
+to prolonging the life of your probe accessories. 
+Additionally, the iron should support the 
+smallest tips possible. The JBC NANE Nano 
+Soldering Station is an excellent choice. For 
+probe soldering, a simple pointed tip is all that 
+is required, although some irons have “tweezer” 
+tips that may be useful for other DUT rework.
+Figure 1: A JBC Nano Soldering Station
+
+PAGE 2
+Page 2
+Find us at www.keysight.com  
+Generally, it is not a good idea to use different solder alloys with the same tip. 
+Also, when finished soldering, it is best to leave some solder on the tip before 
+shutting off the iron to prevent tip corrosion. Using a water-soaked sponge to 
+clean probe tips accelerates corrosion; it is best to use brass “wool” or a silicone 
+pad to wipe the tips clean (included with the above referenced iron).
+Sometimes, using a larger tip can be helpful to minimize dwell times, even though 
+it might make visibility a bit more challenging. Often, the corner of a chisel-tip can 
+be very effective at delivering heat to a joint.
+Figure 2: Suitable soldering iron tips should be sized 
+appropriately for probe heads.
+Flux
+Flux is a chemical used with soldering processes that cleans the surfaces to be 
+soldered, promoting a better solder joint and a quicker soldering process. Many 
+solders have flux incorporated, either as part of a solder paste or as a component 
+in solder wire. Keysight recommends using a flux pen e.g., (CircuitWorks 
+CW8100)—this provides a convenient way to brush flux onto DUT and probe leads 
+without being too messy. However, any type of liquid flux for electronics rework 
+should suffice. Also, it doesn’t hurt to add flux when soldering probes, even if the 
+solder has integrated flux. Flux residue can be cleaned using various flux cleaners 
+but is typically not necessary for probing work, if care is taken not to get excessive 
+flux on or around the probe tip components.
+Soldering iron tips
+It is best to have a variety of tip shapes and sizes to accommodate different DUTs 
+and probes. Different operators may prefer different shaped tips as well. A very 
+small tip (0.1 mm tip diameter, > 5 mm overall length) is crucial, as is a larger 
+chisel tip for larger soldering masses. These tips work well for probe soldering and 
+are compatible with the aforementioned soldering iron:
+• JBC Chisel tip C105113
+• JBC Conical cartridge C105101
+PAGE 3
+Page 3
+Find us at www.keysight.com  
+Solder
+There are a number of solder alloys available for use with electronics. Since the 
+majority of customers and products have moved to use lead-free/RoHS compliant 
+solders, Keysight only recommends these types.
+For general purpose soldering, a SAC (tin, silver, copper or Sn/Ag/Cu alloy) solder 
+is appropriate. SAC305 is a common lead-free alloy, easy to find, and melts at 
+220 °C.
+For detail work or difficult soldering jobs (such as soldering a small probe tip), 
+Keysight recommends a tin-bismuth solder. This low-temp solder melts at 138 °C 
+and can be joined to existing higher-temp alloys. With a melting temperature 
+this low, joints reflow very quickly and easily, and less thermal stress is placed 
+on probe and DUT components. Chip Quik sells SnBi solder in paste form, and 
+Keysight provides a .010” diameter solder wire as part number MX0102-21303.
+Solder comes in several forms, each of which has advantages and disadvantages:
+• The simplest form of solder is wire. Electronics solder wire of many different 
+alloys can be found at distributors. Wire typically has flux integrated but 
+it helps to add additional flux when soldering. Keysight recommends the 
+smallest diameter solder wire possible for probe soldering; Loctite makes a 
+.009” diameter wire using SAC387 alloy that works well. This wire is available 
+from Keysight as part number MX0102-21302.
+• Solder alloys can also be purchased in what are known as “preforms”. These 
+are pre-cut (often custom) pieces of solder than can be placed at a joint and 
+reflowed using an iron or even in an oven. These can be cut in a variety of 
+shapes, including discs, washers, squares, etc. Preforms allow the user to 
+very carefully control the amount of solder applied to a joint.
+• Solder in paste form can allow a very specific amount of solder to be applied 
+to a joint. However, it can be extremely messy and difficult to work with. Most 
+pastes have flux incorporated as well. Keysight does not recommend using 
+pastes to solder probes. It is best to apply solder paste very judiciously, taking 
+care not to get any on unintended joints—a sharp pick or hobby knife blade 
+works well for this. It is not advised to dispense the paste from a tube/etc. 
+when using paste with probes, because it can be too easy to over-apply. The 
+best way to clean off excess solder paste is with an ultrasonic bath, but that’s 
+likely not feasible once probes are attached; the next best alternative is to 
+manually remove excess paste using a tissue or brush. Again, Keysight does 
+not recommend using pastes for precisely this reason. Equipment for precisely 
+dispensing solder pastes is available and useful but not common among 
+Keysight probe users.
+PAGE 4
+Page 4
+Find us at www.keysight.com  
+Figure 3: Solder paste, solder wire of two sizes, and solder preforms
+Clamps and fixtures
+Difficult soldering tasks can be made much easier by securing components prior 
+to applying heat. Bench vises do a good job of holding probe PCBs, DUT PCBs, 
+and wires, and can be easily found at a variety of distributors. When using a bench 
+vise, care should be taken to avoid sinking heat into the vise during soldering. For 
+instance, clamping to a DUT PCB ground plane will make it much harder for the 
+soldering iron to heat the ground plane. Kapton tape can be added to the grips of 
+the vise to thermally insulate it from the soldering specimens. Keysight’s N2787A 
+probe positioner is very effective for holding probes during soldering operations.
+Figure 4: A bench vise works well for securing PCBs during soldering.
+
+PAGE 5
+Page 5
+Find us at www.keysight.com  
+Figure 5: Keysight’s N2787A Probe Positioner can be used to 
+hold soldered-in probes.
+Various forms of tape can be used to secure a probe head or tip to a DUT PCB 
+prior to soldering. Double-sided foam tape works well, and various thicknesses of 
+foam can be found to accommodate different surfaces. Single-sided Kapton tape 
+can be used simply across the top of probe cables to keep things in place during 
+soldering. On flex-circuit based probes and user DUTs, care should be taken to 
+minimize the amount of tape across controlled impedance lines.
+Clamping tweezers (inverse tweezers) can be very useful for holding small 
+components during soldering. Typically, use of these types of tweezers requires a 
+vise to hold them to avoid occupying all of the user’s hands. Selecting tweezers 
+with small points keeps their thermal mass low and will make soldering a joint very 
+close to the tweezers easier.
+Figure 6: Clamping tweezers holding a probe head
+
+PAGE 6
+Page 6
+Find us at www.keysight.com  
+Tweezers and toothpicks
+General-purpose tweezers are incredibly useful for dealing with small probe 
+parts. They can be used to adjust tip wires, hold wires during soldering, position 
+preforms, hold probe tips, etc. It is best to have several different tweezer sizes for 
+a variety of different jobs. Keysight recommends a sharp metal tweezer such as 
+part number 8710-2837 for most of these tasks. 
+Cutting tweezers can be a great way to precisely cut small probe tips wires, 
+particularly on high-performance probes where minimizing the probe tip wire 
+length is critical for maximizing performance (bandwidth, loading, etc.). These 
+can also cut wires very flush. Keysight offers cutting tweezers as part number 
+8710-2838.
+Toothpicks can be used to push tip wires and spread flux, especially if sharpened 
+first with a knife.
+Figure 7: A variety of tweezers is useful for soldering probes. 
+From left to right, cutting tweezers, general purpose tweezers, 
+fine-point tweezers, sharpened toothpick, clamping tweezers.
+Microscope
+It is absolutely critical when working with small electronic devices to have a 
+quality microscope. There are many probe/DUT soldering tasks that simply 
+cannot be performed without significant magnification and good lighting. While 
+simple magnifying glasses or hoods do help, Keysight has found that these are 
+insufficient and can be uncomfortable to use.
+PAGE 7
+Page 7
+Find us at www.keysight.com  
+A good microscope setup has the following features: binocular eyepieces, 
+adjustable magnification (at least 20x), good working distance from the sample (at 
+least 4”), an adjustable arm, and an integrated ring light around the objective lens.
+A boom-type adjustable arm works well for the microscope; this allows a tabletop 
+to act as the work surface, which is more flexible than using an integrated 
+microscope stand.
+Keysight engineers use microscopes from Meiji and Leica.
+Figure 8: An ideal microscope setup
+
+PAGE 8
+Page 8
+Find us at www.keysight.com  
+General Soldering Tips and Techniques
+It is important to remember that there are many possible tools and techniques—
+it is not critical to follow this guide precisely as long as some general rules are 
+followed.
+The most critical consideration when soldering heat-sensitive devices is keeping 
+the temperature as low as possible while still reflowing the solder at the joint of 
+concern. A temperature-controlled soldering iron is the best way to do this. Set it 
+to no more than 350 °C if using standard lead-free solders and 150 °C for tin-
+bismuth solder.
+To keep your DUT and probe temperatures low during soldering, it is also critical 
+to limit heat transfer to anything except the solder joint—there are several ways to 
+do this:
+• Dwell time: You should never need to rest a soldering iron on a probe joint 
+for more than a few seconds (unless a huge thermal mass is present; an RF 
+connector for instance). Minimize dwell times! A skilled operator can reflow a 
+probe tip solder joint in less than one second.
+• If you’re having trouble keeping dwell times low, make sure you’re using an 
+appropriately-sized solder iron tip. While it may be convenient to pick a tiny 
+tip, it may not be able to deliver heat quickly enough if the joint is too thermally 
+massive.
+• Supplemental heat can be used to help with dwell times. Typically, this is done 
+through the use of a hot plate. The solder target (usually a PCB) is placed on 
+the hot plate, which is set to some temperature lower than the solder melting 
+point. In this way, the DUT is pre-heated and the soldering iron is used to melt 
+the joint. Since not much additional heat is required, the joint can reflow more 
+quickly. Supplemental heat can also be added with a hot air gun but this is 
+less easily controllable than a hot plate.
+• Use plenty of flux, even if your solder already contains flux. This cleans the 
+solder joint and allows for easier solder flowing and quicker dwell times.
+PAGE 9
+Page 9
+Find us at www.keysight.com  
+Strain relief
+After a probe head or tip is connected electrically to a DUT via solder, it is best 
+to secure it mechanically as well. This protects the electrical connection from 
+accidental bumps and shakes. There are a handful of ways to do this:
+Figure 9: A variety of strain-relief materials can be useful for 
+securing probes.
+Figure 10: Probe heads secured with a variety of strain-relieving 
+methods.
+• Tape is a good method for semi-permanent strain relief, and a large variety 
+is available, with different levels of adhesion and foam thicknesses to suit 
+each application. As mentioned above, double-sided foam tape can be used 
+underneath probe heads and tips. 
+• “Poster” putty can also be used to secure probe head cables in a manner 
+that is easy to remove. Some putties can leave residue behind—Keysight part 
+number N5439-65201 doesn’t leave residue and adheres quite well.
+PAGE 10
+Page 10
+Find us at www.keysight.com  
+• Glue can be a good strain relieving solution with some caveats. First, no 
+matter the glue type, it is almost always a permanent solution. It will be 
+impossible to get all the glue residue off of a DUT PCB or a probe. The 
+upside of glue is that the strain-relieving performance is superior to all other 
+methods. The only glue type that Keysight recommends for use with probes 
+is low-temperature hot melt glue. This is typically called “craft” glue where 
+the melting point of the glue is below 100 °C. It is critical to stay below the 
+maximum non-operating temperature of the probe. This low temperature 
+glue can also be softened using a hot-air gun or hair dryer, which makes re-
+using glued probes more reasonable. Avoid placing glue near the probe tips 
+themselves where signal integrity could be affected; usually glue on the cables 
+is fine.
+• For all methods of strain relief, test adhesion first on a non-critical area of 
+the DUT to ensure there is no unwanted residue left behind or other damage 
+to the DUT. Also, make sure the location of the probe on the DUT doesn’t 
+interfere with DUT operation, such as on top of a controlled impedance line or 
+thermally sensitive component.
+Figure 11: Proper application of low-temp hot melt glue to a ZIF tip.
+
+PAGE 11
+Page 11
+Find us at www.keysight.com  
+Specific Techniques for Keysight Infiniimax Products
+Attaching probe heads to your circuits
+Keysight offers a variety of probe heads to accommodate different DUT 
+geometries and performance requirements. Soldered-in probe heads generally 
+provide the highest performance and most reliable connection, with a trade-off of 
+slightly more up-front time making the connection.
+Keysight recommends the same general attachment procedure for all solder-in 
+probes:
+1. Prepare the device. Add a small amount of solder to the DUT leads where 
+the solder-in probe will be attached. Sometimes it is helpful to add flux before 
+adding solder.
+2. Prepare the probe head. Trim tip or damping resistor wire lengths as short as 
+possible to maximize measurement performance. Shape the tips wires with 
+tweezers to match the DUT leads.
+Figure 12: Add solder to target leads.
+Figure 13: Adjust the tip leads using tweezers if necessary.
+
+PAGE 12
+Page 12
+Find us at www.keysight.com  
+3. Apply more flux to the DUT and probe tip wires (a flux pen works well for this).
+4. Position the probe head with the tip wires lined up on the DUT pads/leads. 
+Reflow both portions of the joint as quickly as possible with an appropriately 
+sized iron. Repeat for the second tip wire.
+5. Relieve the strain of the probing system on this joint by using one of the strain 
+relief methods outlined above.
+Figure 14: Apply flux.
+Figure 15: Reflow joints to secure probe head.
+The above procedure works well for differential measurements using the following 
+Keysight probe heads: N5381B, N2836A, E2677B, E2679B, MX0100A.
+For InfiniiMode measurements utilizing a ground connection, a similar process can 
+be followed (for instance the N2836A):
+1. Prepare the device. Add a small amount of solder to the DUT leads where 
+the solder-in probe will be attached. Sometimes it is helpful to add flux before 
+adding solder.
+PAGE 13
+Page 13
+Find us at www.keysight.com  
+2. Add ground connection wires to your probe head. To minimize wire lengths, 
+it is best to have the wire exit the bottom of the probe head. Insert plenty of 
+fresh wire into the ground hole and add a minimal amount of solder to secure 
+the wire. Any excess wire coming out of the top of the hole can be trimmed 
+with cutting tweezers.
+3. Prepare the probe head. Trim tip wire lengths as short as possible to maximize 
+measurement performance. Shape the tips wires with tweezers to match the 
+DUT leads. Keep the ground wires long at this step.
+4. Apply more flux to the DUT and probe tip wires (a flux pen works well for this).
+5. Position the probe head with the tip wires lined up on the input DUT pads/
+leads. Reflow both portions of the joint as quickly as possible with an 
+appropriately sized iron. Repeat for the second tip wire.
+6. Position the probe head (now attached to the DUT at the probe inputs) to line 
+up the ground wires with the DUT ground pads. Try to minimize the ground 
+wire lengths.
+Figure 16: Add ground wires to probe head.
+Figure 17: Probe head with signal inputs soldered and 
+ground wires free.
+
+PAGE 14
+Page 14
+Find us at www.keysight.com  
+7. Solder the ground wires to the ground pads on the DUT. Clip excess wire with 
+cutting tweezers.
+8. Relieve the strain of the probing system on this joint by using one of the strain 
+relief methods outlined above.
+Replacing probe head tip wires and resistors
+Many of Keysight’s solder-in probes have user-replaceable tip wires or damping 
+resistors. Although this may initially seem daunting, with the right tools and 
+techniques, most probe heads can be repaired many times without damaging the 
+probe head.
+Product manuals contain more detailed information, but here is a general 
+procedure for replacing tip wires on probe heads with damping resistors 
+integrated on the PCB (N5381B, MX0100A):
+1. Use a vise to gently clamp the probe tip under a microscope for easier 
+viewing.
+Figure 18: Probe head with all leads soldered.
+Figure 19: Probe head clamped in vise.
+
+PAGE 15
+Page 15
+Find us at www.keysight.com  
+2. Grab the remaining wire with tweezers and then momentarily touch the solder 
+joint from the underside with a fine solder iron tip and remove the wire. Cutting 
+tweezers can grip a very short wire. If there isn’t enough wire to grab with 
+tweezers, fresh wire can be used to push the old wire out of the hole.
+3. Use a flux pen to apply flux to the via area.
+4. Reflow the via while simultaneously inserting the new wire into the via. Start 
+with a long piece of wire—it is easy to trim excess afterwards. Take care not to 
+dwell too long at this step. If this is challenging, it is possible on some probe 
+heads to use a solder wick to first remove all solder from the via. However, this 
+step will make probe head damage more likely.
+Figure 20: Tug the broken wire while reflowing the via.
+Figure 21: Apply flux.
+Figure 22: Reflow the via and insert new wire.
+
+PAGE 16
+Page 16
+Find us at www.keysight.com  
+5. Apply a small amount of solder to tip of the soldering iron, and touch the 
+solder tip with the solder on it to the via and wire to reinforce the joint.
+6. With cutting tweezers, trim the excess wire flush with the bottom of the probe 
+head PCB. Cut the input wire off with plenty of length (1/4” or so).
+7. Repeat the wire replacement for the other via hole if necessary.
+8. Trim the two tip wires to the same length using cutting tweezers. Probe heads 
+include either a physical gauge or a template to help attain the correct length.
+Figure 23: Reinforce the solder joint with additional solder.
+Figure 24: Trim the excess wire on the bottom (flush) and 
+top (per trim gage).
+
+PAGE 17
+Page 17
+Find us at www.keysight.com  
+Replacing probe head tip mini-axial resistors
+“Mini-axial” style resistors are used for damping on several Keysight probe heads 
+(N2836A, E2677B, E2679B). These can be replaced when broken or mangled by 
+following roughly the same procedure as outlined above for probe tip wires, with 
+the added step of properly orienting the new damping resistor during soldering. 
+Some damping resistors appear symmetric—these can be oriented with either 
+wire in the probe head via. The damping resistors with black epoxy on one side 
+should be oriented with this epoxy toward the probe head—this will protect the 
+epoxy from the high temperatures the input-side of the wires will experience 
+during repeated soldering/desoldering from the DUT.
+Securing Keysight probe heads.
+As outlined previously, there are a variety of ways to secure or relieve strain on 
+probe components. Securing probe heads not only protects delicate tip wires from 
+accidental damage but keeps the probe in a consistent orientation and position, 
+which can lead to more repeatable measurements. For Keysight’s InfiniiMax, it 
+is recommended to use either double-sided foam tape or putty, attached to the 
+coaxial cable of the probe head. Low-temp melt glue is also acceptable if a more 
+permanent attachment is desired; it is best to use this on the probe head coaxial 
+cable as well. Adhesives near the probe tips themselves are not recommended 
+due to possible impacts on probe performance. After a probe head is secured, it 
+can also be helpful to secure the probe amplifier using the above methods. 
+Flex-circuit probe heads (such as the MX0100A) should be secured only on their 
+undersides—these probe heads have controlled impedance microstrips on the top 
+surface and any foreign objects will lead to a change in impedance and possible 
+measurement errors.
+Figure 25: A flat flex-based probe head properly strain relieved.
+
+PAGE 18
+Page 18
+This information is subject to change without notice. © Keysight Technologies, 2018, Published in USA, October 7, 2018, 5992-3350EN
+Find us at www.keysight.com  
+Learn more at:  www.keysight.com
+For more information on Keysight Technologies’ products, applications or services, 
+please contact your local Keysight office. The complete list is available at:       
+www.keysight.com/find/contactus
+Working with Keysight probe “tips”
+Some of Keysight’s probing products such as ZIF head/tip or QuickTip head/
+tip include a “consumable” portion of the probe intended to be left permanently 
+on a DUT that connects to a larger, more robust probe head. Splitting the probe 
+head into two components can keep the total cost of a probing solution lower, 
+particularly for users who probe many sites repeatedly on a DUT. 
+The tips and processes outlined above for regular solder-in probe heads apply to 
+probe tips, but there are a few additional things to pay attention to:
+• If a probe tip kit includes “arms” to help position the tips while soldering, use 
+them. These tips (N2838A, N5440A, N5447A) can be challenging to grip and 
+position and these arms help do so without damage.
+• With the exception of N5451A long wire ZIF tips, Keysight does not 
+recommend replacing wires or resistors on consumable tips.
+• Only N5426A tips should be directly strain-relieved, under the probe head 
+with double-sided foam tape. All other Keysight tips mate inside their 
+respective probe heads and most strain relief techniques will interfere with this 
+connection.
+• Several InfiniiMax tips support InfiniiMode operation (for instance, N2838A, 
+N2849A). For the best signal fidelity, For the best signal fidelity, it is best 
+to connect ground wires when making single-ended or common mode 
+measurement.
+Conclusion
+For the best connection fidelity, Keysight recommends using soldered-in probes. 
+Not only does soldering form a reliable joint that can maintain electrical connection 
+during DUT movement, it keeps parasitics low by minimizing wire lengths. 
+Soldering probes can be a bit tricky, but with the right tools, techniques, and a 
+bit of practice, anybody can make high-quality probe connections. Following the 
+guidelines in this application note should ensure high-quality measurements and 
+the maximum lifetime from your Keysight InfiniiMax probing system.

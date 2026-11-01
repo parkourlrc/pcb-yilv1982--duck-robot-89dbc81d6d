@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-31",
+  "evidence_level": "源码核验",
+  "upstream_commit": "27d7921dbcb280bd7d6ba3e9937624f1e2e61d23",
+  "web_attempt": "web.run 未返回可用正文；实际依据是前轮已固定并记录 SHA 的官方源码缓存。",
+  "files": [
+    {
+      "source_url": "https://github.com/fanhao375/Microduck-kissqy/blob/27d7921dbcb280bd7d6ba3e9937624f1e2e61d23/microduck-hd1910/firmware/duck-control/src/deployment.rs",
+      "path": "duck-control/src/deployment.rs",
+      "sha256": "342602cf0320ff22de3537a6b46e534291180b794fca2ec8e77b502fc2cfa172",
+      "excerpts": [
+        {
+          "start_line": 9,
+          "end_line": 20,
+          "text": "    pub task: String,\n    pub slot: String,\n    pub home: [f64; NUM_JOINTS],\n    pub scale: f64,\n    pub training_action_scale: f64,\n    pub ema_old_weight: f64,\n    /// Explicitly unfiltered exports use direct targets for this model only.\n    pub target_filter_passthrough: bool,\n    /// A separately declared deployment override; never rewrites the training contract.\n    pub runtime_execution_profile: Option<RuntimeExecutionProfile>,\n    /// Runtime coefficients declared by this roller export, separate from training EMA.\n    pub roller_execution: Option<(f64, f64, f64)>,"
+        },
+        {
+          "start_line": 31,
+          "end_line": 70,
+          "text": "#[derive(Clone, Debug, PartialEq, serde::Serialize, serde::Deserialize)]\n#[serde(deny_unknown_fields)]\npub struct RuntimeExecutionProfile {\n    pub schema: String,\n    pub model_sha256: String,\n    pub mode: String,\n    pub action_scale: f64,\n    pub head_lowpass: f64,\n    pub legs_lowpass: f64,\n}\n\nimpl RuntimeExecutionProfile {\n    fn validate(&self, contract: &Contract, digest: &str) -> Result<(), String> {\n        if self.schema != \"microduck-runtime-execution/v1\"\n            || self.mode != \"uniform\"\n            || self.model_sha256 != digest\n        {\n            return Err(\"runtime execution profile identity or uniform mode mismatch\".into());\n        }\n        if !contract.is_unfiltered_joint_walk()\n            || contract.training_action_scale != 1.0\n            || contract.ema_old_weight != 0.0\n        {\n            return Err(\n                \"uniform runtime profile requires the unfiltered scale-1 VelStand rough contract\"\n                    .into(),\n            );\n        }\n        if !self.action_scale.is_finite()\n            || !(0.1..=2.0).contains(&self.action_scale)\n            || !self.head_lowpass.is_finite()\n            || !(0.0..=1.0).contains(&self.head_lowpass)\n            || self.head_lowpass == 0.0\n            || !self.legs_lowpass.is_finite()\n            || !(0.0..=1.0).contains(&self.legs_lowpass)\n            || self.legs_lowpass == 0.0\n        {\n            return Err(\"invalid uniform action scale or target filter coefficients\".into());\n        }\n        Ok(())"
+        },
+        {
+          "start_line": 143,
+          "end_line": 182,
+          "text": "        c.body.roll = c.body.roll.clamp(self.limits[10].0, self.limits[10].1);\n        c.body.pitch = c.body.pitch.clamp(self.limits[11].0, self.limits[11].1);\n        c\n    }\n    pub fn load(path: &Path) -> Result<Self, String> {\n        let directory = path.parent().ok_or(\"model has no directory\")?;\n        let contract_path = directory.join(\"deployment-contract.json\");\n        let json = read_json(&contract_path)?;\n        let manifest = read_json(&directory.join(\"manifest.json\"))?;\n        let bytes = std::fs::read(path).map_err(|e| e.to_string())?;\n        let digest = Sha256::digest(&bytes)\n            .iter()\n            .map(|b| format!(\"{b:02x}\"))\n            .collect::<String>();\n        if manifest[\"onnx_sha256\"].as_str() != Some(&digest) || manifest[\"task\"] != json[\"task\"] {\n            return Err(\"model checksum or task differs from export manifest\".into());\n        }\n        let mut contract =\n            Self::parse(&json).map_err(|e| format!(\"{}: {e}\", contract_path.display()))?;\n        let runtime_path = directory.join(\"deployment-runtime.json\");\n        if runtime_path.exists() {\n            let runtime = read_json(&runtime_path)?;\n            contract\n                .apply_runtime_commands(&runtime, &digest)\n                .map_err(|e| format!(\"{}: {e}\", runtime_path.display()))?;\n        }\n        let execution_path = directory.join(\"deployment-execution.json\");\n        if execution_path.exists() {\n            // Typed parsing also rejects duplicate fields instead of losing them in Value.\n            let bytes = std::fs::read(&execution_path)\n                .map_err(|e| format!(\"{}: {e}\", execution_path.display()))?;\n            let profile: RuntimeExecutionProfile = serde_json::from_slice(&bytes)\n                .map_err(|e| format!(\"{}: {e}\", execution_path.display()))?;\n            profile\n                .validate(&contract, &digest)\n                .map_err(|e| format!(\"{}: {e}\", execution_path.display()))?;\n            contract.runtime_execution_profile = Some(profile);\n        }\n        Ok(contract)\n    }"
+        }
+      ]
+    },
+    {
+      "source_url": "https://github.com/fanhao375/Microduck-kissqy/blob/27d7921dbcb280bd7d6ba3e9937624f1e2e61d23/microduck-hd1910/firmware/robotd/src/control.rs",
+      "path": "robotd/src/control.rs",
+      "sha256": "3c6b7a7453cb86cb255c3b1bf194b382d54a7eb0cc020a3f0ba7daf95168d4e2",
+      "excerpts": [
+        {
+          "start_line": 613,
+          "end_line": 636,
+          "text": "        let contract = self.policy.contract(net);\n        let home = contract.map_or(DEFAULT_POSITION, |c| c.home);\n        let contract_scale = contract.map_or(1.0, |c| c.scale);\n        let training_action_scale = contract.map_or(1.0, |c| c.training_action_scale);\n        let uses_global_scale = contract.is_some_and(|c| c.uses_global_action_scale());\n        let ema_old_weight = contract.map_or(0.0, |c| c.ema_old_weight);\n        let target_filter_passthrough = contract.is_some_and(|c| c.target_filter_passthrough);\n        let unfiltered_joint_walk =\n            net == Net::Walk && contract.is_some_and(|c| c.is_unfiltered_joint_walk());\n        let uniform = if net == Net::Walk {\n            contract\n                .and_then(|c| c.runtime_execution_profile.as_ref())\n                .map(|p| (p.action_scale, p.head_lowpass, p.legs_lowpass))\n        } else {\n            None\n        };\n        // Each roller network owns its exported runtime scale/filter. Crouch's\n        // deployment EMA differs from its unfiltered training data; switching back\n        // to swizzle or spin must immediately recover those models' coefficients.\n        let execution = uniform.or_else(|| contract.and_then(|c| c.roller_execution));\n        if self.last_net != Some(net) && contract.is_some_and(|c| c.roller_execution.is_some()) {\n            self.previous = None;\n            self.contract_previous = None;\n        }"
+        },
+        {
+          "start_line": 704,
+          "end_line": 750,
+          "text": "                },\n                (self.tuning.gain as f64 * self.tuning.standing_gain_ratio).round() as u16,\n            ),\n            _ => (self.tuning.action_scale, self.tuning.gain),\n        };\n        // The student's declared training mapping remains its no-override baseline.\n        // A separately declared uniform profile is the user's explicit runtime choice:\n        // walking, holding and recovery use the same arithmetic, without a phase gate.\n        let base_scale = execution.map_or_else(\n            || {\n                if unfiltered_joint_walk {\n                    training_action_scale\n                } else {\n                    scale\n                }\n            },\n            |(scale, _, _)| scale,\n        );\n        let (head_filter, legs_filter) = execution.map_or_else(\n            || {\n                if target_filter_passthrough {\n                    (1.0, 1.0)\n                } else {\n                    (\n                        self.tuning.head_lowpass.unwrap_or(1.0),\n                        self.tuning.legs_lowpass.unwrap_or(1.0),\n                    )\n                }\n            },\n            |(_, head, legs)| (head, legs),\n        );\n        let runtime_scale = base_scale * scale_mult;\n        self.applied_action_scale = Some(runtime_scale);\n        self.applied_target_filters = Some((head_filter, legs_filter));\n        let scale = contract_scale * runtime_scale;\n\n        let offsets = Observation::scatter_action(&action);\n        let mut targets = [0.0; NUM_JOINTS];\n        for joint in 0..NUM_JOINTS {\n            targets[joint] = home[joint] + scale * offsets[joint];\n        }\n\n        if ema_old_weight > 0.0 {\n            let previous = self.contract_previous.unwrap_or(home);\n            for joint in 0..NUM_JOINTS {\n                targets[joint] =\n                    ema_old_weight * previous[joint] + (1.0 - ema_old_weight) * targets[joint];"
+        }
+      ]
+    },
+    {
+      "source_url": "https://github.com/fanhao375/Microduck-kissqy/blob/27d7921dbcb280bd7d6ba3e9937624f1e2e61d23/microduck-hd1910/firmware/duck-control/src/policy.rs",
+      "path": "duck-control/src/policy.rs",
+      "sha256": "fcd5265e78286a739865ba575f4c6d1ec98555fac6fa1c36a51190ceffdbfd21",
+      "excerpts": [
+        {
+          "start_line": 516,
+          "end_line": 525,
+          "text": "/// Deployment preflight: the official loader plus one inference, without motor access.\npub fn validate_and_warm(path: &Path) -> Result<(), PolicyError> {\n    ensure_runtime()?;\n    catching_ort_panics(|| {\n        let mut network = open(path)?;\n        network.run(&Observation::zeroed()).map(drop)\n    })\n}\n\n/// The mjlab/rsl_rl LSTM export passes state explicitly. Buffers belong to one"
+        }
+      ]
+    }
+  ]
+}

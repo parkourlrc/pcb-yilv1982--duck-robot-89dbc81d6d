@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-01",
+  "build": "0791fcd-feetech-qinmo-control.47+duck-recovery.1",
+  "target": "aarch64-unknown-linux-gnu.2.31",
+  "api_version": 43,
+  "deployed": false,
+  "robot_motion_tested": false,
+  "robotd_sha256": "fe200aabe2700a492cfb4ea8523c505d4047c26e081c4b18266af1cb8511e82a",
+  "robotd_bytes": 7222040,
+  "required_runtime": {
+    "onnxruntime": "existing compatible ARM64 shared runtime (dlopen)",
+    "studio_python": "3.13"
+  },
+  "source_manifest_sha256": "3bb6cec07474d864d0250699dc3d7a3f3e033e8374fa60cd33b376b4c1ca0cdb",
+  "baseline_robotd_sha256": "725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00",
+  "baseline_is_live_backup": false,
+  "rollback_remove_only_if_candidate_hash_matches": [
+    "studio/studio/pad_recovery.py"
+  ],
+  "candidate_files": {
+    "bin/robotd": "fe200aabe2700a492cfb4ea8523c505d4047c26e081c4b18266af1cb8511e82a",
+    "studio/studio/pad.py": "09e429fbdaeac768500f8b80c1582dac1fb0bb6d7c781f58982b9aea9fb23c69",
+    "studio/studio/pad_drive.py": "7df8a8c54106122b31427eecc7d46fc720d51086a827bebd332ca778a8ac9834",
+    "studio/studio/pad_recovery.py": "9cd456bf54c848749bb62b3de4fde19309c37d5b7713ef70cf4282e074a6001b",
+    "studio/studio/updates.py": "1c051f7fd16f621d983093ca37dbb7a74945cd992d3e413020f4885001297f8a",
+    "studio/web/pad.js": "a73b78bcb41106f33b03a023e95f7800b16401e70b15ebdd49be7b2ac09b9806"
+  },
+  "baseline_files": {
+    "bin/robotd": "725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00",
+    "studio/studio/pad.py": "795ef360dee481cf9e729e06d3f6229129ab1a8cee3a8101df8b03d15c7c7bd4",
+    "studio/studio/pad_drive.py": "4b73042ee7ea7b5c17de260c9f6a33439e4412e04863161134229ec35ac2b78f",
+    "studio/studio/updates.py": "b33a4953e23e3fe96a084b9be31f410d5551dae9003ff7a0fcc794155cbc312d",
+    "studio/web/pad.js": "15ad7f5bf0ba8a4004e3d328b1cdf004f2fcc055dc3126e720f648e09580fb5e"
+  },
+  "not_included": [
+    "models",
+    "calibration",
+    "robotd.toml",
+    "systemd services",
+    "installer"
+  ],
+  "candidate_archive": {
+    "path": "artifacts/duck-recovery.1-candidate.tar.gz",
+    "sha256": "23b6d73ac89a9a3494ddb0b4ca6758316e062e8c09ca3b7a338e42676273988d",
+    "bytes": 3244805
+  },
+  "baseline-rollback_archive": {
+    "path": "artifacts/duck-recovery.1-baseline-rollback.tar.gz",
+    "sha256": "130c67b95f8709c9687543fc3d107fff62aed05230a272e1e5c082438b4d2a0a",
+    "bytes": 2703526
+  }
+}

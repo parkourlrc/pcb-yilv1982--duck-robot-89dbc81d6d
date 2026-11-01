@@ -1,0 +1,310 @@
+{
+  "date": "2026-11-01",
+  "captured_at_utc": "2026-11-01T07:47:50.848678+00:00",
+  "scope": "Studio calib.op preview only, then read-only service/file verification",
+  "sent": [
+    {
+      "t": "hb",
+      "seq": 1,
+      "visible": true,
+      "route": "/"
+    },
+    {
+      "t": "cmd",
+      "id": "codex-preview-20261101",
+      "name": "calib.op",
+      "args": {
+        "op": "preview"
+      }
+    }
+  ],
+  "http_status": 200,
+  "page_state": {
+    "t": "state",
+    "robotd_ok": true,
+    "mode": "commissioning",
+    "phase": "ready",
+    "posture": "commissioning",
+    "hold": null,
+    "commit": {
+      "ready": true,
+      "items": [
+        {
+          "key": "robotd",
+          "label": "主程序",
+          "ok": true,
+          "text": "主程序在线",
+          "action": null
+        },
+        {
+          "key": "mode",
+          "label": "主程序模式",
+          "ok": true,
+          "text": "标定模式：15 颗舵机都有新读数",
+          "action": null,
+          "mode": "commissioning",
+          "phase": "ready"
+        },
+        {
+          "key": "safety",
+          "label": "鸭子姿势",
+          "ok": true,
+          "text": "没在走、没站着，可以写",
+          "action": null
+        },
+        {
+          "key": "servo",
+          "label": "舵机零位",
+          "ok": true,
+          "text": "15 颗的零位都记在 servo-centered.json 里了",
+          "action": null,
+          "missing": [],
+          "done": 15,
+          "by_mark": null
+        },
+        {
+          "key": "directions",
+          "label": "方向",
+          "ok": true,
+          "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+          "action": null,
+          "changed": []
+        },
+        {
+          "key": "imu",
+          "label": "IMU 方向",
+          "ok": true,
+          "text": "IMU 页校过了（总线小板（ID 200）），写的时候用这份新方向",
+          "action": null,
+          "source": "bus",
+          "default": false
+        },
+        {
+          "key": "bus",
+          "label": "舵机总线",
+          "ok": true,
+          "text": "舵机页没开着总线",
+          "action": null
+        }
+      ],
+      "source": "bus",
+      "imu_default": null,
+      "pending": true,
+      "centered": 15,
+      "preview_ok": true,
+      "mode": "commissioning",
+      "phase": "ready",
+      "from_file": false,
+      "note": null,
+      "dirty": true,
+      "dirty_why": [
+        "IMU 方向有新校准还没写",
+        "舵机零位记录比上次成功写入新"
+      ],
+      "job": {
+        "phase": "failed",
+        "msg": "写文件、切模式、重启主程序（最多 180 秒）",
+        "started": 1793518724.7541988,
+        "steps": [
+          {
+            "msg": "准备写入",
+            "at": 1793518724.765188
+          },
+          {
+            "msg": "写文件、切模式、重启主程序（最多 180 秒）",
+            "at": 1793518724.7658703
+          }
+        ],
+        "ok": false,
+        "reason": "主程序的标定模式不是镜像设的，不敢自动切",
+        "rolled_back": false,
+        "finished": 1793518728.7404273,
+        "from_last_result": false,
+        "detail": {
+          "exit": 3,
+          "result": "foreign_commissioning",
+          "ExecStart": "{ path=/opt/robot/daemon/current/bin/robotd ; argv[]=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --commissioning ; ignore_errors=no ; start_time=[Sun 2026-11-01 07:29:34 UTC] ; stop_time=[n/a] ; pid=1067 ; code=(null) ; status=0/0 }",
+          "commissioning_file": "/etc/systemd/system/robotd.service.d/zzzz-zz-microduck-commissioning.conf"
+        }
+      },
+      "simulate": false
+    }
+  },
+  "preview_result": {
+    "t": "result",
+    "id": "codex-preview-20261101",
+    "ok": true,
+    "data": {
+      "imu": {
+        "source": "bus",
+        "label": "总线小板（ID 200）",
+        "text": "芯片 x 朝上，芯片 y 朝右，芯片 z 朝前",
+        "off_deg": 4.45,
+        "quat": [
+          0.03257974300004262,
+          -0.7032482290009199,
+          -0.020598759000026945,
+          -0.7098987110009286
+        ],
+        "default": null
+      },
+      "joints": [
+        {
+          "name": "left_hip_yaw",
+          "cn": "左髋转向",
+          "id": 20,
+          "direction": -1,
+          "min_deg": -25.0,
+          "max_deg": 30.0
+        },
+        {
+          "name": "left_hip_roll",
+          "cn": "左髋横滚",
+          "id": 21,
+          "direction": -1,
+          "min_deg": -22.0,
+          "max_deg": 22.0
+        },
+        {
+          "name": "left_hip_pitch",
+          "cn": "左髋俯仰",
+          "id": 22,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 90.0
+        },
+        {
+          "name": "left_knee",
+          "cn": "左膝",
+          "id": 23,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 90.0
+        },
+        {
+          "name": "left_ankle",
+          "cn": "左踝",
+          "id": 24,
+          "direction": -1,
+          "min_deg": -70.0,
+          "max_deg": 70.0
+        },
+        {
+          "name": "neck_pitch",
+          "cn": "脖子",
+          "id": 30,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 70.0
+        },
+        {
+          "name": "head_pitch",
+          "cn": "头俯仰",
+          "id": 31,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 90.0
+        },
+        {
+          "name": "head_yaw",
+          "cn": "头转向",
+          "id": 32,
+          "direction": -1,
+          "min_deg": -170.0,
+          "max_deg": 170.0
+        },
+        {
+          "name": "head_roll",
+          "cn": "头横滚",
+          "id": 33,
+          "direction": -1,
+          "min_deg": -20.0,
+          "max_deg": 20.0
+        },
+        {
+          "name": "mouth",
+          "cn": "嘴",
+          "id": 34,
+          "direction": -1,
+          "min_deg": -5.0,
+          "max_deg": 30.0
+        },
+        {
+          "name": "right_hip_yaw",
+          "cn": "右髋转向",
+          "id": 10,
+          "direction": -1,
+          "min_deg": -30.0,
+          "max_deg": 25.0
+        },
+        {
+          "name": "right_hip_roll",
+          "cn": "右髋横滚",
+          "id": 11,
+          "direction": -1,
+          "min_deg": -22.0,
+          "max_deg": 22.0
+        },
+        {
+          "name": "right_hip_pitch",
+          "cn": "右髋俯仰",
+          "id": 12,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 90.0
+        },
+        {
+          "name": "right_knee",
+          "cn": "右膝",
+          "id": 13,
+          "direction": -1,
+          "min_deg": -90.0,
+          "max_deg": 90.0
+        },
+        {
+          "name": "right_ankle",
+          "cn": "右踝",
+          "id": 14,
+          "direction": -1,
+          "min_deg": -70.0,
+          "max_deg": 70.0
+        }
+      ],
+      "toml": "motion_enabled = true\nimu_mount_verified = true\nimu_mount_quat = [0.03257974300004262, -0.7032482290009199, -0.020598759000026945, -0.7098987110009286]\ncurrent_ma_per_count = 0.0\nunits_verified = false\nimu_bus_protocol = \"feetech\"\nimu_bus_profile = \"legacy\"\n\n[[joints]]\nname = \"left_hip_yaw\"\nid = 20\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.4363323129985824\nmax_rad = 0.5235987755982988\n\n[[joints]]\nname = \"left_hip_roll\"\nid = 21\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.3839724354387525\nmax_rad = 0.3839724354387525\n\n[[joints]]\nname = \"left_hip_pitch\"\nid = 22\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.5707963267948966\n\n[[joints]]\nname = \"left_knee\"\nid = 23\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.5707963267948966\n\n[[joints]]\nname = \"left_ankle\"\nid = 24\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.2217304763960306\nmax_rad = 1.2217304763960306\n\n[[joints]]\nname = \"neck_pitch\"\nid = 30\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.2217304763960306\n\n[[joints]]\nname = \"head_pitch\"\nid = 31\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.5707963267948966\n\n[[joints]]\nname = \"head_yaw\"\nid = 32\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -2.9670597283903604\nmax_rad = 2.9670597283903604\n\n[[joints]]\nname = \"head_roll\"\nid = 33\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.3490658503988659\nmax_rad = 0.3490658503988659\n\n[[joints]]\nname = \"mouth\"\nid = 34\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.08726646259971647\nmax_rad = 0.5235987755982988\n\n[[joints]]\nname = \"right_hip_yaw\"\nid = 10\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.5235987755982988\nmax_rad = 0.4363323129985824\n\n[[joints]]\nname = \"right_hip_roll\"\nid = 11\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -0.3839724354387525\nmax_rad = 0.3839724354387525\n\n[[joints]]\nname = \"right_hip_pitch\"\nid = 12\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.5707963267948966\n\n[[joints]]\nname = \"right_knee\"\nid = 13\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.5707963267948966\nmax_rad = 1.5707963267948966\n\n[[joints]]\nname = \"right_ankle\"\nid = 14\nzero_raw = 2048\ndirection = -1\ncalibrated = true\nmin_rad = -1.2217304763960306\nmax_rad = 1.2217304763960306\n",
+      "helper": true,
+      "from_file": false,
+      "note": null
+    }
+  },
+  "after": {
+    "files": {
+      "/etc/robot/feetech-ft5/hd1910-calibration.toml": "9ec81be4d14c703d93f83ba7c6eb29ef1451547acf109d276c86f8854ea7fc2f",
+      "/etc/robot/feetech-ft5/robotd.toml": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+      "/home/radxa/studio-dev/state/servo-centered.json": "add00af4972611955ec76efcbc9f64790d0371dd3aa1ab1a83a901ba52b68273",
+      "/home/radxa/studio-dev/state/servo-directions.json": null,
+      "/home/radxa/studio-dev/state/imu-pending.json": "c7036e1f4eadc3d7f06278d6ca8e6d6a84967c36f0b50293f509714caa6d4c50",
+      "/etc/systemd/system/robotd.service.d/zzzz-studio-bus.conf": "b767c8ebb67acf898530ecf3c30e55fe3d588ecd99804f90ed8b8fc8a53eeb99",
+      "/usr/local/sbin/microduck-helper": "6e90e701f86e2487b537e4c5e94f67c93a271e267c495b268aaac77623047046",
+      "/opt/robot/daemon/current/bin/robotd": "725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00",
+      "/home/radxa/studio-dev/studio/commit.py": "cc2b1190aacee76fc3b500d89e1506b6283c2822d527acc4e889f1d296347ff9"
+    },
+    "services": {
+      "robotd.service": {
+        "MainPID": "1067",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "microduck-studio.service": {
+        "MainPID": "973",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      }
+    },
+    "app_source": {
+      "path": "/home/radxa/studio-dev/studio/app.py",
+      "sha256": "ca4f0735d3624cc4cb4b13f85a682967a2c1fd5a4f9f904b676646d1bdb418be",
+      "preview_route_excerpt": "        async def run_calib_op(cid, args):\n            \"\"\"上手清单第 3 步：「先看看要写什么」= 小助手 dry_run；「写进主程序」= 校验准备情况后交给小助手写、重启主程序。\"\"\"\n            from .commit import Refused as CommitRefused\n            op = args.get(\"op\") if isinstance(args, dict) else None\n            if commit is None:\n                await send({\"t\": \"result\", \"id\": cid, \"ok\": False, \"reason\": \"这只鸭子没开「写进主程序」\"})\n                return\n            if op == \"preview\":\n                try:\n                    data = await asyncio.to_thread(commit.preview, by)\n                except CommitRefused as e:\n                    await send({\"t\": \"result\", \"id\": cid, \"ok\": False, \"reason\": str(e)})\n                    return\n                except Exception as e:  # noqa: BLE001\n                    log.error(\"算「要写什么」时出错\", cat=\"校准\", raw=f\"{type(e).__name__}: {e}\", exc=True,\n                              hint=\"这是 Studio 的问题，导出诊断包发出来\")\n                    await send({\"t\": \"result\", \"id\": cid, \"ok\": False,\n                                \"reason\": f\"Studio 出错：{type(e).__name__}: {e}\"})\n                    return\n                await send({\"t\": \"result\", \"id\": cid, \"ok\": True, \"data\": data})\n                return\n            if op != \"commit\":\n                await send({\"t\": \"result\", \"id\": cid, \"ok\": False, \"reason\": f\"不认识的写入操作：{op}\"})\n                return\n            try:\n                view = commit.view(robotd, servo)"
+    }
+  },
+  "status": "actual Studio page preview passed; processes and protected files unchanged"
+}

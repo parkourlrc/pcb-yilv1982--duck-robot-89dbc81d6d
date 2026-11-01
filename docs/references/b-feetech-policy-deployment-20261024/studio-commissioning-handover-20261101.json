@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-10-31T16:06:00.967178+00:00",
+  "helper": null,
+  "files": {
+    "/etc/systemd/system/robotd.service": {
+      "exists": true,
+      "content": "[Unit]\nDescription=Microduck robotd (v0.3 read-only commissioning)\nAfter=local-fs.target\n\n[Service]\nType=exec\nUser=root\nGroup=radxa\nExecStart=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --read-only\nEnvironment=ORT_DYLIB_PATH=/opt/robot/onnxruntime/1.28.0/libonnxruntime.so.1.28.0\nEnvironment=RUST_LOG=info\nRuntimeDirectory=robotd\nRestart=no\nNoNewPrivileges=yes\nProtectKernelTunables=yes\nRestrictSUIDSGID=yes\n\n[Install]\nWantedBy=multi-user.target\n"
+    },
+    "/etc/systemd/system/robotd.service.d/30-studio-commissioning.conf": {
+      "exists": true,
+      "content": "# Studio commissioning drop-in; operator confirmed support on 2026-10-31.\n# Commissioning startup actively turns servo torque OFF. Support the robot first.\n# It does not run policy motion. Use only after the operator confirms support.\n[Service]\nExecStart=\nExecStart=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --commissioning\n"
+    },
+    "/etc/systemd/system/robotd.service.d/zzzz-zz-microduck-commissioning.conf": {
+      "exists": false,
+      "content": null
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-31",
+  "models": [
+    {
+      "slot": "kick_left",
+      "name": "左脚踢球",
+      "id": "08f3ea309a604a79a1989d5a1fa87622",
+      "sha256": "ee0376c927044cdece056ba1d3e6eac77b3e02ee3f701f1feb437c183ed39a6d"
+    },
+    {
+      "slot": "walk",
+      "name": "行走、零速度保持与倒地恢复联合策略",
+      "id": "316b92cd3d4f42babda055a804e73b03",
+      "sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f"
+    },
+    {
+      "slot": "ground_pick",
+      "name": "地面捡取",
+      "id": "33bb2637cdc947809511af1985397e26",
+      "sha256": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69"
+    },
+    {
+      "slot": "roulade",
+      "name": "前滚翻",
+      "id": "4bcb5891434a43eeaf19842ae9444520",
+      "sha256": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac"
+    },
+    {
+      "slot": "sitstand",
+      "name": "起坐",
+      "id": "777c1b28fe47420b9180a4298e04b0bb",
+      "sha256": "1c94934c6421ec72ed48079cea74966868a7a59f7d732e0207d0f7bdaeed3c50"
+    },
+    {
+      "slot": "kick_right",
+      "name": "右脚踢球",
+      "id": "ea26b97e6a054e558e9f295c94634670",
+      "sha256": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd"
+    }
+  ],
+  "configuration_sha256": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+  "calibration_sha256": "0aae458b6f84e155df63ddd9700b9a3418eb9a8e69d8e8769c57ba2f253550e7",
+  "robotd": {
+    "exit_code": 0,
+    "stdout": "ExecStart={ path=/opt/robot/daemon/current/bin/robotd ; argv[]=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --read-only ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nActiveState=inactive\nUnitFileState=disabled",
+    "stderr": ""
+  },
+  "servo_web": {
+    "exit_code": 0,
+    "stdout": "MainPID=1912\nActiveState=active",
+    "stderr": ""
+  },
+  "uart_owner": {
+    "exit_code": 0,
+    "stdout": "1912",
+    "stderr": "/dev/ttyS2:"
+  },
+  "studio_http": 200,
+  "policy_enabled": false,
+  "motion_enabled": false,
+  "reference_robot": "duck-10e4",
+  "local_calibration_verified": false
+}

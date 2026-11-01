@@ -1,5 +1,7 @@
 # servo-web · 飞特舵机网页调试台
 
+> **2026-11-01 本机部署**：0.15.3，IMU ID 200 排第一，与 15 颗舵机同组 SYNC_READ；针对当前新单口板恢复原版 legacy 状态判据。30 秒真实只读采集 15/15 舵机、IMU live 约 9.9 Hz，0 超时/坏校验/错 ID；未做动作。见[来源与差异](SOURCE.md)及[验收记录](../../docs/references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。
+
 > 页面里的 3D 模型用于调试显示，仍基于上游仿真几何，**不能导出后当最新飞特打印件使用**。结构件与装配模型统一从 [microduck-replica-cad](https://github.com/fanhao375/microduck-replica-cad) 获取。
 
 接上串口，浏览器里拖滑块让舵机动，3D 鸭子跟着转。给装机、校零、台架验收用，也是[飞特适配架构](../../software/飞特适配架构.md)台架清单 0–8 项的工具。

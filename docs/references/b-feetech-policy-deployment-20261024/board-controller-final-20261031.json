@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-31",
+  "programs": {
+    "/usr/local/bin/robotd": {
+      "target": "/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd",
+      "sha256": "9f9fa71723339b80f97d7be065dec04855bb0d31a3ed7c5978e8605c22db3e5b"
+    },
+    "/usr/local/bin/robotctl": {
+      "target": "/opt/robot/daemon/releases/duck-v03-20261031/bin/robotctl",
+      "sha256": "f025e343fbcc44ff013dbd1a6ab4cefefd137e8453eedf12614214a2c521b649"
+    },
+    "/opt/robot/feetech-ft5-r5/robotd": {
+      "target": "/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd",
+      "sha256": "9f9fa71723339b80f97d7be065dec04855bb0d31a3ed7c5978e8605c22db3e5b"
+    }
+  },
+  "deployment_info": {
+    "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+    "model_api": 2,
+    "official_version": "0.15.1"
+  },
+  "system_services": "Id=microduck-studio.service\nActiveState=active\nUnitFileState=enabled\n\nId=robotd.service\nActiveState=inactive\nUnitFileState=disabled\n",
+  "servo_web_service": "active",
+  "serial_holders": "1912",
+  "studio_http": 200,
+  "studio_address": "http://192.168.1.35:8000/",
+  "calibration_imported": false,
+  "policy_started": false,
+  "servo_web_version": "0.15.4"
+}

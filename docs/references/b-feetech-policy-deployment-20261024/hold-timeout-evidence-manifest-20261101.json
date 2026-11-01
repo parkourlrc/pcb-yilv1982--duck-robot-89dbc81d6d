@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-01",
+  "user_power": {
+    "source": "bench supply",
+    "voltage_v": 7.4,
+    "current_limit_a": 3,
+    "cc_state": "not observed"
+  },
+  "evidence": [
+    {
+      "file": "imu-diagnostic-read-20261101.json",
+      "sha256": "38aa13afbf3533007f65f322a6172ac9f3c4d90e53f70484ae37de464a7576b9",
+      "bytes": 130726,
+      "error": null
+    },
+    {
+      "file": "imu-traffic-isolation-20261101.json",
+      "sha256": "aeca8de3b1ac5bc154efbc33f5ce8d1ce5f8e986c7a985f9da6dbb566e31e414",
+      "bytes": 4164937,
+      "error": "RuntimeError(\"Diagnostic snapshot did not reply: {'address': 124, 'length': 124, 'request': 'ffffc804027c7c39', 'raw': '', 'elapsed_us': 101046, 'chunks': [], 'ok': False}\")"
+    },
+    {
+      "file": "imu-write-boundary-20261101.json",
+      "sha256": "a60c66e42132e57c3bde07f516a316d3289661ad6e171ede70829e5713e1c870",
+      "bytes": 38920,
+      "error": "RuntimeError(\"All 15 torque-off register readbacks required: {'ok': True, 'elapsed_us': 2604, 'request': 'fffffe1382280114151617181e1f2021220a0b0c0d0ef9', 'raw': 'ffff14030001e7ffff15030001e6ffff16030001e5ffff17030001e4ffff18030001e3ffff1e030001ddffff1f030001dcffff20030001dbffff21030001daffff22030001d9ffff0a030001f1ffff0b030001f0ffff0c030001efffff0d030001eeffff0e030001ed', 'chunks': [[759, 'ff'], [846, 'ff14030001e7ffff15030001e6ffff16'], [964, '030001e5ffff17'], [1100, '03'], [1170, '0001e4ffff'], [1334, '18030001e3ffff1e'], [1411, '030001ddffff1f'], [1489, '030001dcff'], [1562, 'ff20030001dbffff'], [1682, '21'], [1745, '030001daffff22'], [1820, '030001d9ff'], [1938, 'ff'], [1999, '0a030001f1ffff'], [2121, '0b030001f0ffff0c'], [2249, '03'], [2315, '0001ef'], [2393, 'ffff0d030001eeffff0e'], [2516, '03'], [2582, '0001ed']], 'bad_checksum': 0, 'missing': [], 'replies': {20: '01', 21: '01', 22: '01', 23: '01', 24: '01', 30: '01', 31: '01', 32: '01', 33: '01', 34: '01', 10: '01', 11: '01', 12: '01', 13: '01', 14: '01'}}\")"
+    },
+    {
+      "file": "hold-timeout-final-read-20261101.json",
+      "sha256": "9037a875f91aa1db68fe3d2df996b083d129edf78837440db98fa58477be94dd",
+      "bytes": 23995,
+      "error": null
+    }
+  ],
+  "missing_new_links": []
+}

@@ -1,0 +1,232 @@
+{
+  "first_warning": {
+    "line": 40,
+    "text": "2026-11-01T17:08:38.978329+0000 radxa-zero3 robotd[367]: 2026-11-01T17:08:38.978039Z  WARN robotd: bus read failed error=bus transaction failed: Feetech Sync Read timeout; missing IDs [200] consecutive=1 also=1"
+  },
+  "last_warning": {
+    "line": 455,
+    "text": "2026-11-01T17:09:53.442590+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:53.442388Z  WARN robotd: bus read failed error=bus transaction failed: IMU not ready or stale (invalid reading / Feetech counter / DXL2 repeated core bytes) consecutive=80 also=9"
+  },
+  "warning_lines_by_type": {
+    "bus transaction failed: Feetech Sync Read timeout; missing IDs [200]": 99,
+    "bus transaction failed: IMU not ready or stale (invalid reading / Feetech counter / DXL2 repeated core bytes)": 217
+  },
+  "warning_counts_are_not_transaction_counts": true,
+  "max_logged_consecutive_errors": 90,
+  "counter_comparison_baseline_utc": "2026-11-01T16:04:24.494894+00:00",
+  "after_utc": "2026-11-01T17:11:10.550938+00:00",
+  "deltas_since_baseline": {
+    "failed_sync_reads": 1323,
+    "imu_duplicate_blocks": 2172,
+    "missed_control_periods": 1324
+  },
+  "missing_by_id_delta": {
+    "10": 321,
+    "11": 335,
+    "12": 344,
+    "13": 348,
+    "14": 351,
+    "20": 331,
+    "200": 1252,
+    "21": 341,
+    "22": 382,
+    "23": 400,
+    "24": 377,
+    "30": 86,
+    "31": 77,
+    "32": 26,
+    "33": 1,
+    "34": 64
+  },
+  "protected_file_changes": [],
+  "post_status": {
+    "health": {
+      "battery": {
+        "percent": 11.026120121229335,
+        "volts": 6.776417921939669
+      },
+      "bus": {
+        "consecutive_errors": 0,
+        "startup_failures": 0
+      },
+      "control_loop": {
+        "achieved_hz": 49.99957205366279,
+        "last_tick_age_ms": 15,
+        "missed": 1326,
+        "target_hz": 50.0,
+        "ticks": 216467
+      },
+      "cpu_temp_c": 83.888,
+      "cpu_throttle": {
+        "khz": 1800000,
+        "level": 0,
+        "max_khz": 1800000,
+        "max_level": 6
+      },
+      "healthy": true,
+      "imu": {
+        "consecutive_stale_blocks": 0,
+        "ready": true,
+        "stale_blocks": 2172
+      },
+      "motors": {
+        "hottest": "head_yaw",
+        "max_c": 52.0,
+        "mean_c": 40.6
+      }
+    },
+    "policy_enabled": false,
+    "torque_enabled": true,
+    "torque_state_confirmed": true,
+    "walk_recovery": {
+      "elapsed_ms": 0,
+      "phase": "idle",
+      "reason": "等待明确点击躺姿起身",
+      "request_id": null,
+      "torque_state_confirmed": null
+    },
+    "home_start_guard": {
+      "joint_tolerance_deg": 5.0,
+      "max_joint_error_deg": 3.2011683719829604,
+      "ready": false,
+      "reason": "机身未直立（倾斜超过 10° 或 IMU 无效）",
+      "stable_samples": 0,
+      "tilt_deg": 77.81514083751662,
+      "tilt_tolerance_deg": 10.0
+    }
+  },
+  "important_events": [
+    {
+      "line": 27,
+      "text": "2026-11-01T17:08:25.255526+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:08:25.254+00:00 [命令] → 站起来（电脑 192.168.1.34） · 步骤：robot.init"
+    },
+    {
+      "line": 30,
+      "text": "2026-11-01T17:08:25.265060+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:08:25.260+00:00 [命令] ← 站起来 成功 · 5 ms · 步骤：robot.init · 原文：{\"accepted\": true}"
+    },
+    {
+      "line": 33,
+      "text": "2026-11-01T17:08:27.103081+0000 radxa-zero3 robotd[367]: 2026-11-01T17:08:27.102738Z  WARN duck_control::safety: the fall verdict changed fallen=true gravity_z=-0.39378202181951827"
+    },
+    {
+      "line": 35,
+      "text": "2026-11-01T17:08:30.163290+0000 radxa-zero3 robotd[367]: 2026-11-01T17:08:30.162977Z  WARN duck_control::safety: the fall verdict changed fallen=false gravity_z=-0.5017419013271994"
+    },
+    {
+      "line": 36,
+      "text": "2026-11-01T17:08:34.158460+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:08:34.156+00:00 [命令] → 开始走（电脑 192.168.1.34） · 步骤：robot.enable · 原文：{\"on\": true, \"toggle\": false}"
+    },
+    {
+      "line": 38,
+      "text": "2026-11-01T17:08:34.169304+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:08:34.167+00:00 [命令] ← 开始走 成功 · 10 ms · enabled — driving · 步骤：robot.enable · 原文：{\"accepted\": true, \"reason\": \"enabled — driving\"}"
+    },
+    {
+      "line": 86,
+      "text": "2026-11-01T17:08:50.537656+0000 radxa-zero3 robotd[367]: 2026-11-01T17:08:50.536994Z  WARN duck_control::safety: the fall verdict changed fallen=true gravity_z=-0.4559841624752735"
+    },
+    {
+      "line": 173,
+      "text": "2026-11-01T17:09:06.186126+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:06.185855Z  INFO robotd: control loop total=210243 hz=\"49.0\" missed=446 bus_drops=1148 driving=true fallen=true battery_v=\"6.92\" motor_max_c=\"49\" cpu_c=\"79\""
+    },
+    {
+      "line": 204,
+      "text": "2026-11-01T17:09:11.719842+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:11.719534Z  WARN duck_control::safety: the fall verdict changed fallen=false gravity_z=-0.5192151216412595"
+    },
+    {
+      "line": 220,
+      "text": "2026-11-01T17:09:14.394086+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:09:14.392+00:00 [电池][警告] 15 颗舵机都读不到电压超过 10 秒：电量重新估算 · 建议：舵机断电了（拔电池、换电池）或者总线断了；读数回来后先显示「估算中」30 秒 · 现场：{\"last_pct\": 8}"
+    },
+    {
+      "line": 297,
+      "text": "2026-11-01T17:09:28.342622+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:28.342297Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 310,
+      "text": "2026-11-01T17:09:30.524464+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:30.524097Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 312,
+      "text": "2026-11-01T17:09:30.740610+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:30.739644Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 315,
+      "text": "2026-11-01T17:09:31.001623+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:31.000875Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 328,
+      "text": "2026-11-01T17:09:33.180871+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:33.180272Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 330,
+      "text": "2026-11-01T17:09:33.420268+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:33.419905Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 332,
+      "text": "2026-11-01T17:09:33.682891+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:33.682475Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 345,
+      "text": "2026-11-01T17:09:35.860073+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:35.859495Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 348,
+      "text": "2026-11-01T17:09:36.098656+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:36.097882Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 350,
+      "text": "2026-11-01T17:09:36.359477+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:36.358560Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 363,
+      "text": "2026-11-01T17:09:38.540426+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:38.539879Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 365,
+      "text": "2026-11-01T17:09:38.780502+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:38.779718Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 368,
+      "text": "2026-11-01T17:09:39.040987+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:39.040093Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 381,
+      "text": "2026-11-01T17:09:41.242344+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:41.241955Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 383,
+      "text": "2026-11-01T17:09:41.460824+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:41.460063Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 385,
+      "text": "2026-11-01T17:09:41.723743+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:41.722914Z  WARN duck_control::safety: joint targets clamped to the actuator's travel joints=1 first_joint=5 tripped=1"
+    },
+    {
+      "line": 418,
+      "text": "2026-11-01T17:09:47.305859+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:09:47.304+00:00 [命令] → 停下：先把速度清零（电脑 192.168.1.34） · 步骤：robot.stop"
+    },
+    {
+      "line": 419,
+      "text": "2026-11-01T17:09:47.316601+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:09:47.312+00:00 [命令] ← 停下：先把速度清零 成功 · 8 ms · 步骤：robot.stop · 原文：{\"accepted\": true}"
+    },
+    {
+      "line": 420,
+      "text": "2026-11-01T17:09:47.321892+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:09:47.320+00:00 [命令] → 停下（站好）（电脑 192.168.1.34） · 步骤：robot.enable · 原文：{\"on\": false, \"toggle\": false}"
+    },
+    {
+      "line": 422,
+      "text": "2026-11-01T17:09:47.331214+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:09:47.328+00:00 [命令] ← 停下（站好） 成功 · 7 ms · disabled — returning to the home pose · 步骤：robot.enable · 原文：{\"accepted\": true, \"reason\": \"disabled — returning to the home pose\"}"
+    },
+    {
+      "line": 456,
+      "text": "2026-11-01T17:09:53.743808+0000 radxa-zero3 robotd[367]: 2026-11-01T17:09:53.743175Z  WARN duck_control::safety: the fall verdict changed fallen=true gravity_z=-0.2340026953449225"
+    },
+    {
+      "line": 465,
+      "text": "2026-11-01T17:10:00.540163+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:10:00.538+00:00 [电池] 电量估算起步：走路中 6.80 V（负载电压，偏低） → 约 2% · 建议：查表估的，误差约 ±15%；读数校准 +0.00 V · 现场：{\"mode\": \"load_rough\", \"pct\": 2, \"cls\": \"heavy\", \"source\": \"robotd\", \"basis_v\": 6.8, \"cal\": 0.0, \"calm_points\": 0, \"samples\": 16}"
+    },
+    {
+      "line": 497,
+      "text": "2026-11-01T17:10:30.627700+0000 radxa-zero3 python3.13[480]: 2026-11-01T17:10:30.624+00:00 [电池][错误] 电压很低：最近 30 秒都在 6.9 V 以下（最低 6.62 V） · 建议：先停下、坐下，准备充电；只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电） · 现场：{\"mode\": \"load_rough\", \"pct\": 2, \"cls\": \"light\", \"source\": \"robotd\", \"basis_v\": 6.622, \"cal\": 0.0, \"calm_points\": 0, \"samples\": 44}"
+    }
+  ]
+}

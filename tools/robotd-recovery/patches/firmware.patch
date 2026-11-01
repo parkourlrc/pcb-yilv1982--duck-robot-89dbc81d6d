@@ -1,0 +1,1134 @@
+--- a/docs/design/robotd-design.md
++++ b/docs/design/robotd-design.md
+@@ -1,5 +1,34 @@
+ <!-- Modified 2026-10 by fanhao375 (microduck-replica): trunk IMU module over I2C; optional servo P/D/torque-limit file; UDP pad ([netpad]) and pad-loss sit; BNO08x gyro-integrated attitude; see IMU-MODULE.md at the repository root. -->
+ **原文 / Original** | [English](robotd-design.en.md)
++
++## duck-robot 项目恢复补丁（2026-11-01，尚未部署）
++
++`control.47+duck-recovery.1` 增加 `robot.recover`，API_VERSION 为 43。
++这是本项目对固定 control.47 的实验扩展，未取得真机起身效果数据。
++`action=start` 只在 motion/control、策略关闭且倒地时产生一次 request_id；
++`keepalive` 必须携带同一编号和递增 sequence，500 ms 内续期；`cancel` 只取消
++匹配编号，通用 `robot.relax` 则不限编号。Studio 浏览器每 100 ms 发送心跳，
++后台不代发；页面隐藏、离开、断连或取消后不续期。旧心跳不能创建或恢复请求。
++
++`robotd/src/recovery.rs` 拥有租约和状态机，控制线程独占串口与扭矩操作。
++入场再次核验完整新鲜反馈、IMU 安装方向、已知扭矩及无模式/策略切换；
++卸力时调用现有预载/上力/确认流程，随后重新读取关节和 IMU，才允许第一帧推理。
++首次目标滤波历史从实测位置初始化，普通 HOME 启动保护不变。
++
++恢复固定调用当前 SHA256 为
++`1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f` 的 `Net::Walk`，
++校验其执行约定 scale=1.0、头低通=0.5、腿低通=0.7；速度、头、身体及嘴保持中性。
++最长恢复尝试 8 秒；关节 HOME 误差≤5°（不含嘴）、倾角≤10°且新鲜反馈连续
++1 秒后进入 `recovered_hold`，继续同一模型零速度保持。只有显式普通 enable
++且起步判据再次成立，才解除恢复输入限制；模型不重置。
++保持中再次失去姿态判据持续 1 秒则退出；IMU/关节反馈异常、非有限输出、
++取消或租约过期立即取消当前输出并请求卸力回读，确认失败明确报告“卸力未确认”。
++恢复中 HOME/INIT 作为取消处理，之后的新 HOME 操作必须另行请求。
++
++8 秒与连续 1 秒为本项目首轮参数，未经真机验证。姿态判据不能检测足底承重，
++不能写成已经站稳。通信仍是原版飞特混合 SYNC_READ；本补丁不更换权重、
++标定、总线时序或已有普通行走执行参数。协议需 robotd 与 Studio 配套安装，
++安装与动作不属于本次实现授权。
+ 
+ ## 当前 R17 v1.0.157-Fix6 / control.36
+ 
+--- a/duck-ipc-proto/src/lib.rs
++++ b/duck-ipc-proto/src/lib.rs
+@@ -441,7 +441,7 @@
+ /// # v42 — independent startup bus-IMU observations
+ /// `robot.busStatus.native.imu_observation` is diagnostic evidence even when servo
+ /// startup refuses motion. Install matching control.47 and Studio for this display.
+-pub const API_VERSION: u32 = 42;
++pub const API_VERSION: u32 = 43;
+ 
+ /// The observation width every policy this robot family runs is built against.
+ ///
+@@ -622,6 +622,7 @@
+     pub const ROBOT_STOP: &str = "robot.stop";
+     /// Turn policy execution on or off.
+     pub const ROBOT_ENABLE: &str = "robot.enable";
++    pub const ROBOT_RECOVER: &str = "robot.recover";
+ 
+     // ── power to the joints ──────────────────────────────────────────────────
+     //
+@@ -1014,6 +1015,7 @@
+     RobotLook(LookParams),
+     RobotStop,
+     RobotEnable(EnableParams),
++    RobotRecover(RecoverParams),
+     /// Power the joints and ramp to the home pose. No policy needed.
+     RobotInit,
+     /// Cut power to the joints. The robot collapses if nothing holds it.
+@@ -1199,6 +1201,7 @@
+             Call::RobotLook(_) => method::ROBOT_LOOK,
+             Call::RobotStop => method::ROBOT_STOP,
+             Call::RobotEnable(_) => method::ROBOT_ENABLE,
++            Call::RobotRecover(_) => method::ROBOT_RECOVER,
+             Call::RobotInit => method::ROBOT_INIT,
+             Call::RobotRelax => method::ROBOT_RELAX,
+             Call::RobotRebootMotors(_) => method::ROBOT_REBOOT_MOTORS,
+@@ -1382,6 +1385,7 @@
+             | Call::RobotLook(_)
+             | Call::RobotStop
+             | Call::RobotEnable(_)
++            | Call::RobotRecover(_)
+             | Call::RobotInit
+             | Call::RobotRelax
+             | Call::RobotRebootMotors(_)
+@@ -1493,6 +1497,7 @@
+             Call::RobotHead(p) => encode(p),
+             Call::RobotLook(p) => encode(p),
+             Call::RobotEnable(p) => encode(p),
++            Call::RobotRecover(p) => encode(p),
+             Call::RobotDo(p) => encode(p),
+             Call::RobotRebootMotors(p) => encode(p),
+             Call::RobotPose(p) => encode(p),
+@@ -1588,6 +1593,7 @@
+             method::ROBOT_LOOK => Call::RobotLook(decode(params)?),
+             method::ROBOT_STOP => Call::RobotStop,
+             method::ROBOT_ENABLE => Call::RobotEnable(decode(params)?),
++            method::ROBOT_RECOVER => Call::RobotRecover(decode(params)?),
+             method::ROBOT_INIT => Call::RobotInit,
+             method::ROBOT_RELAX => Call::RobotRelax,
+             method::ROBOT_REBOOT_MOTORS => Call::RobotRebootMotors(decode(params)?),
+@@ -1741,6 +1747,7 @@
+                 on: true,
+                 toggle: false,
+             }),
++            Call::RobotRecover(RecoverParams::default()),
+             Call::RobotInit,
+             Call::RobotRelax,
+             Call::RobotRebootMotors(RebootMotorsParams { ids: vec![3, 11] }),
+@@ -2813,6 +2820,18 @@
+     pub skills: Vec<String>,
+ }
+ 
++/// Explicit recovery lease. A keepalive can never create a new recovery.
++#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum RecoverAction { #[default] Start, Keepalive, Cancel }
++#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
++#[serde(deny_unknown_fields)]
++pub struct RecoverParams {
++    #[serde(default)] pub action: RecoverAction,
++    #[serde(default)] pub request_id: Option<u64>,
++    #[serde(default)] pub sequence: u64,
++}
++
+ /// Whether the policy should run. Discrete intent — see [`method::ROBOT_ENABLE`].
+ #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+ #[serde(deny_unknown_fields)]
+@@ -5636,7 +5655,7 @@
+     fn every_call_covers_every_variant() {
+         assert_eq!(
+             every_call().len(),
+-            67,
++            68,
+             "a Call variant was added or removed — update every_call() and this count"
+         );
+     }
+@@ -5688,6 +5707,16 @@
+ 
+             assert_eq!(request.method, call.method(), "{line}");
+             assert_eq!(request.as_call().unwrap(), call, "{line}");
++        }
++    }
++
++    #[test]
++    fn recovery_actions_round_trip_without_duplicate_methods() {
++        for action in [RecoverAction::Start, RecoverAction::Keepalive, RecoverAction::Cancel] {
++            let call = Call::RobotRecover(RecoverParams { action, request_id: Some(71), sequence: 2 });
++            let line = serde_json::to_string(&Request::call(Id::Number(1), &call)).unwrap();
++            let request: Request = serde_json::from_str(&line).unwrap();
++            assert_eq!(request.as_call().unwrap(), call);
+         }
+     }
+ 
+--- a/robotd/src/control.rs
++++ b/robotd/src/control.rs
+@@ -235,6 +235,7 @@
+     applied_action_scale: Option<f64>,
+     applied_target_filters: Option<(f64, f64)>,
+     contract_previous: Option<[f64; NUM_JOINTS]>,
++    recovering: bool,
+ }
+ 
+ impl Controller {
+@@ -284,6 +285,7 @@
+             applied_action_scale: None,
+             applied_target_filters: None,
+             contract_previous: None,
++            recovering: false,
+         }
+     }
+ 
+@@ -348,12 +350,26 @@
+     /// R17 explicitly returning HOME ends the skill as well as its inference episode.
+     /// Ordinary resets after a sensor pause or a policy reload still preserve the seat.
+     pub fn reset_for_home(&mut self) {
++        self.recovering = false;
+         self.sit = Sit::Up;
+         self.ground_pick = None;
+         self.active = None;
+         self.last_net = None;
+         self.reset();
+     }
++
++    pub fn recovery_available(&self) -> bool {
++        self.policy.contract(Net::Walk).and_then(|c| c.runtime_execution_profile.as_ref())
++            .is_some_and(|p| p.model_sha256 == "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f"
++                && p.action_scale == 1.0 && p.head_lowpass == 0.5 && p.legs_lowpass == 0.7)
++    }
++    pub fn start_recovery(&mut self, measured: [f64; NUM_JOINTS]) {
++        self.reset_for_home();
++        self.previous = Some(measured);
++        self.contract_previous = Some(measured);
++        self.recovering = true;
++    }
++    pub fn finish_recovery(&mut self) { self.recovering = false; }
+ 
+     pub fn has_sitstand(&self) -> bool {
+         self.policy.has_sitstand()
+@@ -552,7 +568,9 @@
+         // Re-encode the command for the active skill and pick the network. The priority chain
+         // is the prototype's, with its three one-shots now one entry: skill > ground pick >
+         // sit/rise > stand-by-magnitude > walk, and the skills themselves ordered by config.
+-        let (net, effective, label) = if let Some(active) = self.active {
++        let (net, effective, label) = if self.recovering {
++            (Net::Walk, Command::default(), "walk".into())
++        } else if let Some(active) = self.active {
+             // Head and body are zeroed whatever the phase — every one-shot published so far
+             // declares them unused, and a policy trained with `zero_command_padding` expects
+             // exactly that. Only the twist differs, and for most skills it is zero too, which is
+--- a/robotd/src/feetech_commissioning.rs
++++ b/robotd/src/feetech_commissioning.rs
+@@ -22,7 +22,7 @@
+ use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
+ use tokio::sync::oneshot;
+ 
+-pub const BUILD: &str = "0791fcd-feetech-qinmo-control.47";
++pub const BUILD: &str = "0791fcd-feetech-qinmo-control.47+duck-recovery.1";
+ const MAX_PENDING: usize = 16;
+ const POSITION_TOLERANCE: u16 = 8;
+ const SETTLE_TIMEOUT: Duration = Duration::from_secs(4);
+--- a/robotd/src/feetech_recovery_tests.rs
++++ b/robotd/src/feetech_recovery_tests.rs
+@@ -8,6 +8,8 @@
+ struct Trace {
+     writes: Vec<(u32, [f64; NUM_JOINTS])>,
+     torque: Vec<bool>,
++    events: Vec<&'static str>,
++    fail_after_torque_on: bool,
+ }
+ 
+ struct RecoveryIo {
+@@ -23,6 +25,12 @@
+         Err(duck_control::io::IoError::Simulated)
+     }
+     fn read(&mut self) -> Result<Sensors> {
++        let injected = {
++            let mut t = self.trace.lock().unwrap();
++            t.events.push("read");
++            t.fail_after_torque_on && t.torque.last() == Some(&true)
++        };
++        if injected { self.missing += 1; return Err(IoError::Simulated); }
+         if self.dropping.load(Ordering::Relaxed) {
+             self.missing += 1;
+             Err(IoError::Simulated)
+@@ -32,6 +40,7 @@
+         }
+     }
+     fn write(&mut self, target: &duck_control::JointTargets) -> Result<()> {
++        self.trace.lock().unwrap().events.push("write");
+         if self.fail_write.swap(false, Ordering::Relaxed) {
+             return Err(IoError::Simulated);
+         }
+@@ -46,7 +55,9 @@
+         Ok(())
+     }
+     fn set_torque(&mut self, on: bool) -> Result<()> {
+-        self.trace.lock().unwrap().torque.push(on);
++        let mut t = self.trace.lock().unwrap();
++        t.torque.push(on);
++        t.events.push(if on { "torque_on" } else { "torque_off" });
+         Ok(())
+     }
+     fn imu_ready(&self) -> bool {
+@@ -996,6 +1007,10 @@
+ impl LbRig {
+     async fn new(duration: f64) -> Self {
+         let params = manual_lb_params(duration);
++        Self::with_params(params).await
++    }
++
++    async fn with_params(params: Params) -> Self {
+         let path = PathBuf::from("/tmp/lb-all-poses-unused.toml");
+         let state = Arc::new(RobotState::new(&params, &path, false, false));
+         let intents = Arc::new(Intents::new());
+@@ -1069,6 +1084,111 @@
+         self.state.shutdown.store(true, Ordering::Relaxed);
+         self.task.await.unwrap();
+     }
++}
++
++fn joint_walk_recovery_params() -> Params {
++    let mut p: Params = toml::from_str(include_str!("../../packaging/robotd-profile.toml")).unwrap();
++    p.policy.walk = Some(PathBuf::from(std::env::var("RECOVERY_TEST_MODEL").expect("set RECOVERY_TEST_MODEL to the installed joint Walk export")));
++    p.policy.stand = Some("none".into());
++    p.policy.sitstand = Some("none".into());
++    p.policy.ground_pick = Some("none".into());
++    p.policy.kick_left = Some("none".into());
++    p.policy.kick_right = Some("none".into());
++    p.policy.roulade = Some("none".into());
++    p.policy.skills.clear();
++    p.policy.voltage_adapt = false;
++    p.audio.enabled = false; p.audio.greet = false;
++    p
++}
++
++fn joint_walk_recovery_start(rig: &LbRig) -> u64 {
++    let reply: serde_json::Value = dispatch(&rig.state, &rig.intents, proto::Id::Number(1),
++        &proto::Call::RobotRecover(proto::RecoverParams::default())).result_as().unwrap();
++    assert_eq!(reply["accepted"], true, "{reply}");
++    reply["request_id"].as_u64().unwrap()
++}
++
++#[tokio::test]
++async fn joint_walk_recovery_uses_walk_math_reads_after_torque_and_lease_expires() {
++    let rig=LbRig::with_params(joint_walk_recovery_params()).await;
++    rig.fall().await;
++    let id=joint_walk_recovery_start(&rig);
++    until(|| rig.intents.walk_recovery.report.load().phase == "recovering").await;
++    let status=bus_status(&rig.state).unwrap();
++    assert_eq!(status["active_model"]["sha256"],"1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f");
++    assert_eq!(status["active_action_scale"],1.0);
++    assert_eq!(status["active_target_filters"]["head_lowpass"],0.5);
++    assert_eq!(status["active_target_filters"]["legs_lowpass"],0.7);
++    {
++        let t=rig.trace.lock().unwrap();
++        let on=t.events.iter().position(|e| *e=="torque_on").unwrap();
++        assert_eq!(t.events[on+1],"read","first inference must follow a new read after torque-on");
++    }
++    assert!(!rig.state.safe_to_restart().safe);
++    until(|| rig.intents.walk_recovery.report.load().phase=="stopped").await;
++    assert!(!rig.intents.enabled());
++    assert_eq!(rig.trace.lock().unwrap().torque,[true,false]);
++    assert!(rig.intents.walk_recovery.keepalive(id,1,Instant::now()).is_err());
++    rig.stop().await;
++}
++
++#[tokio::test]
++async fn joint_walk_recovery_post_torque_read_failure_never_writes_a_model_target() {
++    let rig=LbRig::with_params(joint_walk_recovery_params()).await;
++    rig.fall().await;
++    rig.trace.lock().unwrap().fail_after_torque_on=true;
++    joint_walk_recovery_start(&rig);
++    until(|| rig.intents.walk_recovery.report.load().phase=="stopped").await;
++    {
++        let t=rig.trace.lock().unwrap();
++        assert_eq!(t.torque,[true,false]);
++        let on=t.events.iter().position(|e| *e=="torque_on").unwrap();
++        let off=t.events.iter().position(|e| *e=="torque_off").unwrap();
++        assert!(!t.events[on+1..off].contains(&"write"));
++    }
++    assert!(!rig.intents.enabled());
++    rig.stop().await;
++}
++
++#[tokio::test]
++async fn joint_walk_recovery_home_cancels_without_a_second_torque_on() {
++    let rig=LbRig::with_params(joint_walk_recovery_params()).await;
++    rig.fall().await;
++    joint_walk_recovery_start(&rig);
++    until(|| rig.intents.walk_recovery.report.load().phase=="recovering").await;
++    assert!(rig.call(proto::Call::RobotInit).accepted);
++    until(|| rig.intents.walk_recovery.report.load().phase=="stopped").await;
++    let tick=rig.state.ticks.load(Ordering::Relaxed);
++    until(|| rig.state.ticks.load(Ordering::Relaxed)>tick+10).await;
++    assert_eq!(rig.trace.lock().unwrap().torque,[true,false]);
++    assert!(!rig.intents.enabled());
++    rig.stop().await;
++}
++
++#[tokio::test]
++async fn joint_walk_recovery_holds_neutral_until_explicit_walk_handoff() {
++    let rig=LbRig::with_params(joint_walk_recovery_params()).await;
++    rig.fall().await;
++    let id=joint_walk_recovery_start(&rig);
++    until(|| rig.intents.walk_recovery.report.load().phase=="recovering").await;
++    {
++        let mut s=rig.current.lock().unwrap();
++        s.positions=duck_control::deployment::home();
++        s.imu.gravity=[0.0,0.0,-1.0];
++    }
++    for sequence in 1..=20 {
++        rig.intents.walk_recovery.keepalive(id,sequence,Instant::now()).unwrap();
++        tokio::time::sleep(Duration::from_millis(80)).await;
++    }
++    assert_eq!(rig.intents.walk_recovery.report.load().phase,"recovered_hold");
++    assert!(!rig.call(proto::Call::RobotMove(proto::MoveParams {vx:0.2,vy:0.0,vyaw:0.0})).accepted);
++    assert_eq!(rig.intents.snapshot().command.twist,[0.0;3]);
++    assert!(rig.call(proto::Call::RobotEnable(proto::EnableParams {on:true,toggle:false})).accepted);
++    until(|| rig.intents.walk_recovery.report.load().phase=="idle").await;
++    assert!(rig.intents.enabled());
++    assert!(rig.call(proto::Call::RobotRelax).accepted);
++    until(|| rig.trace.lock().unwrap().torque.last()==Some(&false)).await;
++    rig.stop().await;
+ }
+ 
+ /// The test drives the real ONNX and control loop from a measured fallen pose,
+--- a/robotd/src/intents.rs
++++ b/robotd/src/intents.rs
+@@ -136,6 +136,7 @@
+ }
+ 
+ pub struct Intents {
++    pub walk_recovery: crate::recovery::Mailbox,
+     /// Epoch for every stamp. `Instant` so the clock cannot run backwards under us.
+     epoch: Instant,
+     twist: ArcSwap<Stamped<[f64; 3]>>,
+@@ -299,6 +300,7 @@
+             chorale_piece: AtomicU8::new(0),
+             chorale_heard: std::sync::Mutex::new(Vec::new()),
+             skills: std::sync::atomic::AtomicU32::new(0),
++            walk_recovery: crate::recovery::Mailbox::default(),
+             home_skill: ArcSwapOption::empty(),
+             home_skill_cancel: AtomicU64::new(0),
+             shutdown: AtomicBool::new(false),
+@@ -333,6 +335,7 @@
+ 
+     /// Zero the velocity now. Distinct from the deadman only in that it is deliberate.
+     pub fn stop(&self) {
++        if self.walk_recovery.active() { self.request_relax(); }
+         self.set_twist([0.0; 3]);
+     }
+ 
+@@ -376,6 +379,22 @@
+             sit_toggle: bits & SKILL_SIT_TOGGLE != 0,
+             skills: bits >> SKILL_BITS,
+         }
++    }
++
++    pub fn request_walk_recovery(&self, now: Instant) -> Result<u64, &'static str> {
++        let token = RecoveryRequest {
++            index: 0, // Activation generation only; never used as a skill index.
++            enable_state: self.enabled.load(Ordering::Relaxed),
++            cancel_generation: self.home_skill_cancel.load(Ordering::Relaxed),
++        };
++        if token.enable_state & 1 != 0 { return Err("请先关闭普通策略再启动躺姿恢复"); }
++        self.walk_recovery.start(token, now)
++    }
++
++    pub fn clear_motion_inputs(&self) {
++        self.set_twist([0.0; 3]); self.set_head([0.0; 4]);
++        self.set_pose(PoseIntent::default()); self.set_mouth(0.0);
++        self.skills.store(0, Ordering::Relaxed);
+     }
+ 
+     pub fn request_home_skill(&self, index: usize) {
+@@ -494,6 +513,7 @@
+     /// The code rather than [`Mode`] itself, so this module does not have to know what modes
+     /// exist — `main.rs` owns that mapping and the loop reads it back.
+     pub fn request_mode_switch(&self, code: u8) {
++        self.walk_recovery.cancel("模式切换取消恢复");
+         self.mode_switch.store(code, Ordering::Relaxed);
+     }
+ 
+@@ -513,6 +533,7 @@
+     /// seconds later, which is why the loop keeps the controller it has until the new one is
+     /// built.
+     pub fn request_policy_change(&self, change: PolicyChange) {
++        self.walk_recovery.cancel("模型变更取消恢复");
+         self.policy_change.store(Some(Arc::new(change)));
+     }
+ 
+@@ -535,6 +556,7 @@
+     }
+ 
+     fn cancel_home_skill(&self) {
++        self.walk_recovery.cancel("收到停止／卸力／HOME请求");
+         self.home_skill_cancel.fetch_add(1, Ordering::Relaxed);
+         self.home_skill.store(None);
+     }
+--- a/robotd/src/main.rs
++++ b/robotd/src/main.rs
+@@ -25,6 +25,7 @@
+ mod feetech_commissioning;
+ mod feetech_read_only;
+ mod home_start;
++mod recovery;
+ mod intents;
+ mod params;
+ mod process_safety;
+@@ -2355,6 +2356,7 @@
+     let mut bus_drops_window = 0u32;
+     let mut was_driving = false;
+     let mut home_recovery = false;
++    let mut walk_recovery: Option<recovery::Session> = None;
+     let mut home_start_guard = home_start::Guard::default();
+     let mut policy_enable_latched = false;
+     let mut policy_enable_generation = 0;
+@@ -2595,6 +2597,33 @@
+         // As upstream: IMU readiness gates policy inference below; it does not
+         // manufacture a robot.relax request. Failed observations coast then hold.
+         let mut snapshot = intents.snapshot();
++        let mut skip_recovery_write = false;
++        let recovery_owned_at_tick = walk_recovery.is_some() || intents.walk_recovery.active();
++        macro_rules! abort_walk_recovery {
++            ($why:expr) => {{
++                let reason = $why.to_string();
++                intents.walk_recovery.cancel(&reason);
++                intents.set_enabled(false);
++                // Consume an INIT queued while inference was running: that press
++                // cancels recovery; only a new press after cancellation may HOME.
++                let _ = intents.take_power_request();
++                intents.clear_motion_inputs();
++                let off = safety.set_torque(false);
++                let torque = safety.feetech_control_status().and_then(|d| d.torque_state_confirmed);
++                let message = if off.is_ok() && torque == Some(false) { reason } else { format!("{reason}；卸力未确认") };
++                intents.walk_recovery.finish("stopped", &message, torque);
++                state.enable_refusal.store(Some(Arc::new(message)));
++                if let Some(c) = controller.as_mut() { c.reset_for_home(); }
++                hold = coast.known_positions(hold);
++                bringup = Bringup::Limp;
++                was_driving = false;
++                walk_recovery = None;
++                skip_recovery_write = true;
++            }};
++        }
++        if intents.walk_recovery.active() && intents.walk_recovery.ticket().is_none() {
++            abort_walk_recovery!("恢复请求已取消");
++        }
+         let (gated, deadman) = safety.gate(snapshot.command, snapshot.twist_age);
+         let mut limits: Vec<duck_control::safety::Limit> = deadman.into_iter().collect();
+ 
+@@ -2603,7 +2632,11 @@
+         // Before the enable-driven bring-up below, so a `relax` that arrives in the same tick as a
+         // still-set `enabled` flag wins — `request_relax` clears that flag, and reading the request
+         // first means the order cannot invert.
+-        let power_request = intents.take_power_request();
++        let mut power_request = intents.take_power_request();
++        if recovery_owned_at_tick && power_request.is_some() {
++            abort_walk_recovery!("电源或HOME请求取消恢复，已请求卸力");
++            power_request = None;
++        }
+         match power_request {
+             // The power-off has been asked for and torque is off. Standing the robot up now would
+             // hand the poweroff a robot mid-ramp, stiff, which is the outcome the sit exists to
+@@ -3272,6 +3305,62 @@
+             }
+         }
+         state.home_recovery.store(home_recovery, Ordering::Relaxed);
++        // The only cold-start path for Walk recovery. Never synthesize a HOME ramp.
++        if walk_recovery.is_none() && !skip_recovery_write
++            && let Some(ticket) = intents.walk_recovery.ticket()
++        {
++            let start = (|| -> Result<(), String> {
++                if !feetech || power_request.is_some() || rebooting || powered_off
++                    || shutdown_sit.is_some() || mode_requested || policy_change_requested
++                    || mode_change.is_some() || pending_swap.is_some()
++                    || !matches!(bringup, Bringup::Limp | Bringup::Ready)
++                    || snapshot.enabled || home_recovery || !safety.fallen()
++                { return Err("当前模式、姿态或动作不允许躺姿恢复".into()); }
++                let ready = |native: Option<duck_control::feetech::FeetechControlStatus>, sample: Option<&duck_control::Sensors>, warm| {
++                    home_start::recovery_sensors_ready(sample,
++                        native.is_some_and(|d| d.all_joints_fresh && !d.joints_held),
++                        warm && native.is_some_and(|d| d.imu_mount_verified && d.imu_ready))
++                };
++                let native = safety.feetech_control_status();
++                if !ready(native, fresh.as_ref(), safety.imu_ready())
++                    || proto::clock::monotonic_ns().saturating_sub(sensors_read_ns) > 80_000_000
++                    || native.and_then(|d| d.torque_state_confirmed).is_none()
++                    || !intents.walk_recovery.current(ticket.id, Instant::now())
++                    || !intents.home_skill_current(ticket.activation)
++                { return Err("恢复入场需要新鲜完整反馈和已确认扭矩状态".into()); }
++                if !controller.as_ref().is_some_and(|c| c.recovery_available()) {
++                    return Err("已装walk模型或uniform执行参数不匹配".into());
++                }
++                if native.and_then(|d| d.torque_state_confirmed) == Some(false) {
++                    if bringup != Bringup::Limp { return Err("软件与硬件扭矩状态不一致".into()); }
++                    safety.set_torque(true).map_err(|e| e.to_string())?;
++                    let read_at = proto::clock::monotonic_ns();
++                    let next = safety.read().map_err(|e| e.to_string())?;
++                    if !ready(safety.feetech_control_status(), Some(&next), safety.imu_ready()) {
++                        return Err("上力后没有取得新的有效反馈".into());
++                    }
++                    safety.observe(&next, Duration::ZERO);
++                    fresh = Some(next); sensors = coast.sample(fresh); sensors_read_ns = read_at;
++                } else if bringup != Bringup::Ready {
++                    return Err("软件与硬件扭矩状态不一致".into());
++                }
++                if safety.feetech_control_status().and_then(|d| d.torque_state_confirmed) != Some(true)
++                    || !safety.fallen() || !intents.walk_recovery.current(ticket.id, Instant::now())
++                    || !intents.activate_home_skill(ticket.activation)
++                { return Err("上力期间姿态改变、确认失败或恢复已取消".into()); }
++                intents.clear_motion_inputs();
++                hold = fresh.as_ref().expect("entry checked sensors").positions;
++                controller.as_mut().expect("entry checked controller").start_recovery(hold);
++                walk_recovery = Some(recovery::Session::new(ticket.id));
++                bringup = Bringup::Ready; seated_boot = false; limp_fall = LimpFall::Idle; falling.reset();
++                snapshot = intents.snapshot(); state.enable_refusal.store(None);
++                Ok(())
++            })();
++            if let Err(reason) = start {
++                snapshot.enabled = false;
++                abort_walk_recovery!(reason);
++            }
++        }
+ 
+         // Limp-fall (`[safety] limp_fall`): catch the fall on the way down.
+         //
+@@ -3415,7 +3504,7 @@
+         } else {
+             body_ema = [0.0; 3];
+         }
+-        let command = PolicyCommand {
++        let mut command = PolicyCommand {
+             twist: twist_ema,
+             // The chorale's sway rides on top of whatever the head was asked to do, computed
+             // last tick (20 ms stale, invisible at sway speed) and slewed to zero when the
+@@ -3670,9 +3759,28 @@
+                 policy_enable_generation = snapshot.enable_generation;
+                 policy_enable_latched = false;
+             }
+-            if home_recovery {
++            if let Some(session) = walk_recovery.as_mut() {
++                let valid = report.recovery_sensors_ready
++                    && native.is_some_and(|d| d.torque_state_confirmed == Some(true))
++                    && snapshot.enabled && !powered_off && !in_limp_fall;
++                if let Err(reason) = session.check(Instant::now(), &intents.walk_recovery, valid, recovery::pose_ready(&report)) {
++                    snapshot.enabled = false;
++                    abort_walk_recovery!(reason);
++                } else if session.holding() && intents.walk_recovery.take_handoff(session.id) {
++                    if report.refusal(Instant::now()).is_none() {
++                        intents.walk_recovery.finish("idle", "已明确开始走", Some(true));
++                        if let Some(c) = controller.as_mut() { c.finish_recovery(); }
++                        walk_recovery = None;
++                        intents.clear_motion_inputs();
++                        snapshot = intents.snapshot();
++                        command = PolicyCommand::default();
++                        twist_ema = [0.0; 3]; head_ema = [0.0; 4]; body_ema = [0.0; 3];
++                    }
++                }
++            }
++            if home_recovery || walk_recovery.is_some() {
+                 // A lying robot cannot satisfy the upright Walk start check.
+-                // This exception only owns LB recovery, never ordinary enable.
++                // Only explicit recovery owns this exception; ordinary enable is unchanged.
+                 policy_enable_latched = true;
+             } else if let Some(reason) =
+                 home_start::check_edge(&mut snapshot.enabled, &mut policy_enable_latched, &report)
+@@ -3703,7 +3811,7 @@
+             // fires again within a few ticks, and resetting then re-introduces exactly the
+             // discontinuity the reset is for: a zeroed action the policy observes, and a
+             // low-pass filter with no anchor.
+-            if reset_on_resume(stopped_driving_at, tick_start)
++            if walk_recovery.is_none() && reset_on_resume(stopped_driving_at, tick_start)
+                 && let Some(controller) = controller.as_mut()
+             {
+                 controller.reset();
+@@ -3745,6 +3853,12 @@
+         } else {
+             1.0
+         };
++        if walk_recovery.is_some() {
++            command = PolicyCommand::default();
++            snapshot.pose.active = false;
++            snapshot.mouth = 0.0;
++            twist_ema = [0.0; 3]; head_ema = [0.0; 4]; body_ema = [0.0; 3];
++        }
+         let (mut targets, gain, moving, policy_label) = match (driving, sensors.as_ref()) {
+             // The limp-fall sequence, before anything else — `driving` is false throughout,
+             // so without this it would fall through to the hold branch and the robot would
+@@ -3791,6 +3905,7 @@
+                     roller_heading.reset();
+                     command
+                 };
++                if let Some(session) = walk_recovery.as_mut() { session.first_output(Instant::now()); }
+                 match controller.step(sensors, &adapted, snapshot.pose.active, dt, scale_mult) {
+                     Ok(step) => (
+                         step.targets,
+@@ -3800,6 +3915,7 @@
+                         step.label,
+                     ),
+                     Err(e) => {
++                        if walk_recovery.is_some() { intents.walk_recovery.cancel("恢复推理失败"); }
+                         tracing::warn!(error = %e, "inference failed; holding");
+                         (hold, policy_cfg.gain, false, "held".into())
+                     }
+@@ -3817,7 +3933,7 @@
+             ),
+             _ => (hold, policy_cfg.gain, false, "held".into()),
+         };
+-        state.moving.store(moving, Ordering::Relaxed);
++        state.moving.store(moving || walk_recovery.is_some(), Ordering::Relaxed);
+ 
+         // The theremin: a hand's distance in front of the beak, turned into a note and a
+         // mouth opening. Before the mouth is written, because while an instrument is up it
+@@ -4015,14 +4131,31 @@
+                 }
+             }
+         }
+-        if startup_pose_ready {
++        // An IPC cancellation during inference must win before the next motor write.
++        if let Some(session) = walk_recovery.as_ref() {
++            if !intents.walk_recovery.current(session.id, Instant::now()) || !intents.enabled()
++                || !targets.iter().all(|v| v.is_finite())
++                || proto::clock::monotonic_ns().saturating_sub(sensors_read_ns) > 80_000_000
++            { abort_walk_recovery!("恢复输出已取消、租约过期或数值无效"); }
++        }
++        if recovery_owned_at_tick && !intents.enabled() && !skip_recovery_write {
++            abort_walk_recovery!("恢复交接期间收到停止请求");
++        }
++        if walk_recovery.is_some() {
++            targets[duck_control::model::MOUTH_INDEX] = duck_control::model::mouth_target(0.0);
++        }
++        if startup_pose_ready && !skip_recovery_write {
+             match safety.apply(targets, hold, gain) {
+                 Ok(applied) => limits.extend(applied.limits),
+                 // Upstream keeps the last motor goal when a write fails and tries the
+                 // next tick. A transport error is not an instruction to drop the robot.
+-                Err(e) => tracing::warn!(error = %e, "bus write failed"),
+-            }
+-        }
++                Err(e) => {
++                    if walk_recovery.is_some() { abort_walk_recovery!(format!("恢复写舵机失败：{e}")); }
++                    tracing::warn!(error = %e, "bus write failed");
++                },
++            }
++        }
++        if skip_recovery_write { state.moving.store(false, Ordering::Relaxed); }
+ 
+         // These post-apply facts include the torque/clamp verdict of this tick.
+         // Accounting is independent of reports and of whether anyone is connected.
+@@ -4073,6 +4206,7 @@
+                     last_enable_refusal: state.enable_refusal.load_full(),
+                     policy_enabled: intents.enabled(),
+                     home_recovery,
++                    walk_recovery: (*intents.walk_recovery.report.load_full()).clone(),
+                     walk_action_scale: policy_cfg.action_scale,
+                     walking_action_scale: policy_cfg.action_scale,
+                     hold_action_scale: policy_cfg.action_scale,
+@@ -4885,6 +5019,9 @@
+ }
+ 
+ fn apply_intent(state: &RobotState, intents: &Intents, call: &proto::Call) -> bool {
++    if intents.walk_recovery.active() && matches!(call,
++        proto::Call::RobotMove(_) | proto::Call::RobotHead(_) | proto::Call::RobotPose(_)
++        | proto::Call::RobotMouth(_) | proto::Call::RobotDo(_) | proto::Call::RobotLook(_)) { return true; }
+     match call {
+         proto::Call::RobotMove(p) => {
+             intents.set_twist([p.vx, p.vy, p.vyaw]);
+@@ -5492,7 +5629,64 @@
+             ),
+         );
+     }
++    if intents.walk_recovery.active() {
++        match call {
++            proto::Call::RobotStop | proto::Call::RobotInit | proto::Call::RobotRelax => {
++                intents.request_relax();
++                return proto::Response::ok(Some(id), &proto::IntentResult::accepted());
++            }
++            proto::Call::RobotEnable(p) => {
++                if !p.on || p.toggle { intents.request_relax(); }
++                else {
++                    let reason = state.home_start.load_full().and_then(|r| r.refusal(Instant::now()));
++                    if reason.is_some() || state.home_start.load().is_none() {
++                        return proto::Response::ok(Some(id), &proto::IntentResult::refused("姿态尚未满足普通起步条件"));
++                    }
++                    if let Err(reason) = intents.walk_recovery.handoff() {
++                        return proto::Response::ok(Some(id), &proto::IntentResult::refused(reason));
++                    }
++                }
++                return proto::Response::ok(Some(id), &proto::IntentResult::accepted());
++            }
++            proto::Call::RobotMove(_) | proto::Call::RobotHead(_) | proto::Call::RobotLook(_)
++            | proto::Call::RobotPose(_) | proto::Call::RobotMouth(_) | proto::Call::RobotDo(_)
++            | proto::Call::RobotSetMode(_) | proto::Call::RobotLoadPolicy(_) | proto::Call::RobotReloadPolicies
++            | proto::Call::RobotSetSkill(_) | proto::Call::RobotRemoveSkill(_)
++            | proto::Call::RobotTheremin(_) | proto::Call::RobotChorale(_) => {
++                return proto::Response::ok(Some(id), &proto::IntentResult::refused("躺姿恢复期间只接受停止、卸力和本次心跳"));
++            }
++            _ => {}
++        }
++    }
+     match call {
++        proto::Call::RobotRecover(p) => {
++            use proto::RecoverAction;
++            if p.action == RecoverAction::Cancel {
++                if intents.walk_recovery.ticket().is_some_and(|t| Some(t.id) == p.request_id) {
++                    intents.request_relax();
++                    return proto::Response::ok(Some(id), &proto::IntentResult::accepted());
++                }
++                return proto::Response::ok(Some(id), &proto::IntentResult::refused("恢复请求不匹配或已结束"));
++            }
++            if p.action == RecoverAction::Keepalive {
++                let result = intents.walk_recovery.keepalive(p.request_id.unwrap_or(0), p.sequence, Instant::now());
++                return proto::Response::ok(Some(id), &match result {
++                    Ok(()) => proto::IntentResult::accepted(), Err(e) => proto::IntentResult::refused(e),
++                });
++            }
++            let reason = bus_startup_refusal(state).or_else(|| {
++                if !state.feetech || !state.fallen.load(Ordering::Relaxed) || intents.enabled()
++                    || state.policy_error.load().is_some() || state.policies.load().walk.is_none()
++                { Some("当前模式、策略或倒地状态不允许恢复".into()) }
++                else { state.home_start.load_full().map_or(Some("尚无有效传感器状态".into()),
++                    |r| r.recovery_refusal(Instant::now(), false, true)) }
++            });
++            if let Some(reason) = reason { return proto::Response::ok(Some(id), &proto::IntentResult::refused(reason)); }
++            return match intents.request_walk_recovery(Instant::now()) {
++                Ok(request_id) => proto::Response::ok(Some(id), &serde_json::json!({"accepted":true,"request_id":request_id})),
++                Err(e) => proto::Response::ok(Some(id), &proto::IntentResult::refused(e)),
++            };
++        }
+         proto::Call::RobotMove(_)
+         | proto::Call::RobotHead(_)
+         | proto::Call::RobotPose(_)
+--- a/robotd/src/raw_stream.rs
++++ b/robotd/src/raw_stream.rs
+@@ -82,6 +82,7 @@
+     pub last_enable_refusal: Option<Arc<String>>,
+     pub policy_enabled: bool,
+     pub home_recovery: bool,
++    pub walk_recovery: crate::recovery::Report,
+     pub walk_action_scale: f64,
+     pub walking_action_scale: f64,
+     pub hold_action_scale: f64,
+@@ -641,6 +642,7 @@
+                     last_enable_refusal: None,
+                     policy_enabled: false,
+                     home_recovery: false,
++                    walk_recovery: crate::recovery::Report::default(),
+                     walk_action_scale: 0.25,
+                     walking_action_scale: 0.25,
+                     hold_action_scale: 0.25,
+--- /dev/null
++++ b/robotd/src/recovery.rs
+@@ -0,0 +1,314 @@
++//! Explicit, leased recovery with the installed joint Walk policy.
++//! No IO lives here: the control thread owns torque and the last pre-write fence.
++use crate::{home_start, intents::RecoveryRequest};
++use arc_swap::{ArcSwap, ArcSwapOption};
++use serde::Serialize;
++use std::{
++    sync::{
++        Arc,
++        atomic::{AtomicU64, Ordering},
++    },
++    time::{Duration, Instant},
++};
++
++pub const LEASE: Duration = Duration::from_millis(500);
++pub const TIMEOUT: Duration = Duration::from_secs(8);
++const STABLE: Duration = Duration::from_secs(1);
++
++#[derive(Clone)]
++pub struct Ticket {
++    pub id: u64,
++    pub activation: RecoveryRequest,
++    pub seen: Instant,
++    pub sequence: u64,
++}
++
++#[derive(Clone, Debug, Serialize)]
++pub struct Report {
++    pub phase: &'static str,
++    pub request_id: Option<u64>,
++    pub reason: String,
++    pub elapsed_ms: u64,
++    pub torque_state_confirmed: Option<bool>,
++}
++impl Report {
++    pub fn active(&self) -> bool {
++        matches!(
++            self.phase,
++            "starting" | "recovering" | "recovered_hold" | "stopping"
++        )
++    }
++}
++impl Default for Report {
++    fn default() -> Self {
++        Self {
++            phase: "idle",
++            request_id: None,
++            reason: "等待明确点击躺姿起身".into(),
++            elapsed_ms: 0,
++            torque_state_confirmed: None,
++        }
++    }
++}
++
++pub struct Mailbox {
++    ticket: ArcSwapOption<Ticket>,
++    pub report: ArcSwap<Report>,
++    next_id: AtomicU64,
++    handoff: AtomicU64,
++}
++impl Default for Mailbox {
++    fn default() -> Self {
++        Self {
++            ticket: ArcSwapOption::empty(),
++            report: ArcSwap::from_pointee(Report::default()),
++            next_id: AtomicU64::new(duck_ipc_proto::clock::monotonic_ns() / 1000),
++            handoff: AtomicU64::new(0),
++        }
++    }
++}
++impl Mailbox {
++    pub fn ticket(&self) -> Option<Arc<Ticket>> {
++        self.ticket.load_full()
++    }
++    pub fn active(&self) -> bool {
++        self.ticket.load().is_some() || self.report.load().active()
++    }
++    pub fn start(&self, activation: RecoveryRequest, now: Instant) -> Result<u64, &'static str> {
++        if self.report.load().active() {
++            return Err("恢复尚未结束，请先停止");
++        }
++        let id = self.next_id.fetch_add(1, Ordering::SeqCst);
++        let ticket = Arc::new(Ticket {
++            id,
++            activation,
++            seen: now,
++            sequence: 0,
++        });
++        let previous = self
++            .ticket
++            .compare_and_swap(&None::<Arc<Ticket>>, Some(ticket));
++        if previous.is_some() {
++            return Err("恢复请求已经存在");
++        }
++        self.report.store(Arc::new(Report {
++            phase: "starting",
++            request_id: Some(id),
++            reason: "请求已接收，等待控制线程复核".into(),
++            ..Report::default()
++        }));
++        Ok(id)
++    }
++    pub fn keepalive(&self, id: u64, sequence: u64, now: Instant) -> Result<(), &'static str> {
++        loop {
++            let old = self.ticket().ok_or("恢复已结束；旧心跳不能重新启动")?;
++            if old.id != id
++                || sequence <= old.sequence
++                || now.saturating_duration_since(old.seen) >= LEASE
++            {
++                return Err("恢复心跳过期、序号重复或请求不匹配");
++            }
++            let next = Arc::new(Ticket {
++                seen: now,
++                sequence,
++                ..(*old).clone()
++            });
++            let previous = self.ticket.compare_and_swap(&Some(old.clone()), Some(next));
++            if previous.as_ref().is_some_and(|p| Arc::ptr_eq(p, &old)) {
++                return Ok(());
++            }
++        }
++    }
++    pub fn current(&self, id: u64, now: Instant) -> bool {
++        self.ticket()
++            .is_some_and(|t| t.id == id && now.saturating_duration_since(t.seen) < LEASE)
++    }
++    pub fn cancel(&self, reason: &str) {
++        if self.ticket.swap(None).is_some() {
++            let old = self.report.load_full();
++            self.report.store(Arc::new(Report {
++                phase: "stopping",
++                reason: reason.into(),
++                ..(*old).clone()
++            }));
++        }
++        self.handoff.store(0, Ordering::SeqCst);
++    }
++    pub fn handoff(&self) -> Result<(), &'static str> {
++        let r = self.report.load();
++        if r.phase != "recovered_hold" {
++            return Err("姿态尚未恢复，不能开始走");
++        }
++        let id = r.request_id.ok_or("没有恢复请求")?;
++        if !self.current(id, Instant::now()) {
++            return Err("恢复会话已经过期");
++        }
++        self.handoff.store(id, Ordering::SeqCst);
++        Ok(())
++    }
++    pub fn take_handoff(&self, id: u64) -> bool {
++        self.handoff.swap(0, Ordering::SeqCst) == id
++    }
++    pub fn finish(&self, phase: &'static str, reason: &str, torque: Option<bool>) {
++        self.ticket.store(None);
++        self.handoff.store(0, Ordering::SeqCst);
++        let old = self.report.load_full();
++        self.report.store(Arc::new(Report {
++            phase,
++            reason: reason.into(),
++            torque_state_confirmed: torque,
++            ..(*old).clone()
++        }));
++    }
++}
++
++pub struct Session {
++    pub id: u64,
++    first_output: Option<Instant>,
++    stable_since: Option<Instant>,
++    unstable_since: Option<Instant>,
++    holding: bool,
++}
++impl Session {
++    pub fn new(id: u64) -> Self {
++        Self {
++            id,
++            first_output: None,
++            stable_since: None,
++            unstable_since: None,
++            holding: false,
++        }
++    }
++    pub fn first_output(&mut self, now: Instant) {
++        self.first_output.get_or_insert(now);
++    }
++    pub fn check(
++        &mut self,
++        now: Instant,
++        mailbox: &Mailbox,
++        valid: bool,
++        pose: bool,
++    ) -> Result<(), &'static str> {
++        if !mailbox.current(self.id, now) {
++            return Err("恢复已取消或网页心跳超过500 ms");
++        }
++        if !valid {
++            return Err("恢复需要每拍完整的新鲜关节和就绪IMU");
++        }
++        let Some(start) = self.first_output else {
++            return Ok(());
++        };
++        let elapsed = now.saturating_duration_since(start);
++        if !self.holding {
++            if elapsed >= TIMEOUT {
++                return Err("8秒内未满足姿态恢复判据");
++            }
++            if pose {
++                let since = self.stable_since.get_or_insert(now);
++                if now.saturating_duration_since(*since) >= STABLE {
++                    self.holding = true;
++                }
++            } else {
++                self.stable_since = None;
++            }
++        } else if pose {
++            self.unstable_since = None;
++        } else {
++            let since = self.unstable_since.get_or_insert(now);
++            if now.saturating_duration_since(*since) >= STABLE {
++                return Err("恢复保持再次失去姿态判据");
++            }
++        }
++        mailbox.report.store(Arc::new(Report {
++            phase: if self.holding {
++                "recovered_hold"
++            } else {
++                "recovering"
++            },
++            request_id: Some(self.id),
++            reason: if self.holding {
++                "姿态已恢复，零速度保持"
++            } else {
++                "正在尝试躺姿起身"
++            }
++            .into(),
++            elapsed_ms: elapsed.as_millis() as u64,
++            torque_state_confirmed: Some(true),
++        }));
++        Ok(())
++    }
++    pub fn holding(&self) -> bool {
++        self.holding
++    }
++}
++
++pub fn pose_ready(report: &home_start::Report) -> bool {
++    report.ready && report.recovery_sensors_ready
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::intents::Intents;
++    #[test]
++    fn duplicate_start_and_heartbeat_do_not_restart_deadline() {
++        let i = Intents::new();
++        let now = Instant::now();
++        let id = i.request_walk_recovery(now).unwrap();
++        assert!(i.request_walk_recovery(now).is_err());
++        assert!(i.walk_recovery.keepalive(id, 1, now).is_ok());
++        assert!(i.walk_recovery.keepalive(id, 1, now).is_err());
++        assert!(i.walk_recovery.keepalive(id, 2, now + LEASE).is_err());
++        assert!(!i.walk_recovery.current(id, now + LEASE));
++    }
++    #[test]
++    fn taken_start_cannot_outlive_relax_or_init() {
++        for init in [false, true] {
++            let i = Intents::new();
++            i.request_walk_recovery(Instant::now()).unwrap();
++            let t = i.walk_recovery.ticket().unwrap();
++            if init {
++                i.request_init();
++            } else {
++                i.request_relax();
++            }
++            assert!(!i.activate_home_skill(t.activation));
++            assert!(!i.walk_recovery.current(t.id, Instant::now()));
++            assert!(!i.enabled());
++        }
++    }
++    #[test]
++    fn recovery_needs_continuous_pose_and_exits_on_new_instability() {
++        let i = Intents::new();
++        let now = Instant::now();
++        let id = i.request_walk_recovery(now).unwrap();
++        let mut session = Session::new(id);
++        session.first_output(now);
++        for n in 1..=11 {
++            let at = now + Duration::from_millis(n * 100);
++            i.walk_recovery.keepalive(id, n, at).unwrap();
++            session.check(at, &i.walk_recovery, true, true).unwrap();
++        }
++        assert!(session.holding());
++        for n in 12..=22 {
++            let at = now + Duration::from_millis(n * 100);
++            i.walk_recovery.keepalive(id, n, at).unwrap();
++            let r = session.check(at, &i.walk_recovery, true, false);
++            assert_eq!(r.is_err(), n == 22);
++        }
++    }
++    #[test]
++    fn bad_feedback_and_timeout_abort_even_with_fresh_lease() {
++        let i = Intents::new();
++        let now = Instant::now();
++        let id = i.request_walk_recovery(now).unwrap();
++        let mut s = Session::new(id);
++        s.first_output(now);
++        assert!(s.check(now, &i.walk_recovery, false, false).is_err());
++        for n in 1..=80 {
++            let at = now + Duration::from_millis(n * 100);
++            i.walk_recovery.keepalive(id, n, at).unwrap();
++            assert_eq!(s.check(at, &i.walk_recovery, true, false).is_err(), n == 80);
++        }
++    }
++}
+--- a/updater/src/ipc.rs
++++ b/updater/src/ipc.rs
+@@ -785,6 +785,7 @@
+             | Call::RobotLook(_)
+             | Call::RobotStop
+             | Call::RobotEnable(_)
++            | Call::RobotRecover(_)
+             | Call::RobotInit
+             | Call::RobotRelax
+             | Call::RobotRebootMotors(_)

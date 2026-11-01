@@ -1,0 +1,304 @@
+--- /dev/null
++++ b/studio/commissioning_display.py
+@@ -0,0 +1,121 @@
++"""本机 commissioning 反馈的显示适配；不改原始 RPC，不用于控制或标定。"""
++import math
++import time
++
++from .estop import STARTING_PHASES
++
++MAX_AGE_MS = 3000
++IDS = (20, 21, 22, 23, 24, 30, 31, 32, 33, 34, 10, 11, 12, 13, 14)
++
++
++def _number(value):
++    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
++
++
++def _counter(value):
++    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
++
++
++def _sample(bus):
++    sample = bus.get("last_sample")
++    if not isinstance(sample, dict):
++        return None
++    if not all(_counter(sample.get(k)) for k in ("at_us", "cycle")):
++        return None
++    updated = bus.get("updated_at_us")
++    if not _counter(updated) or updated < sample["at_us"]:
++        return None
++    return sample
++
++
++def _session(bus):
++    comm = bus.get("device_communication")
++    return (comm.get("session") if isinstance(comm, dict) else None, bus.get("session"))
++
++
++class CommissioningClock:
++    """轮询时记录样本推进时刻；重复收到同一旧帧不会刷新其寿命。"""
++
++    def __init__(self):
++        self.reset()
++
++    def reset(self):
++        self.session = self.key = self.advanced_at = None
++
++    def observe(self, bus, now=None):
++        now = time.monotonic() if now is None else now
++        if not isinstance(bus, dict) or bus.get("mode") != "commissioning":
++            self.reset()
++            return
++        sample = _sample(bus)
++        if sample is None or bus.get("phase") in STARTING_PHASES:
++            self.reset()
++            return
++        session = _session(bus)
++        if session == (None, None):
++            self.reset()
++            return
++        if session != self.session:
++            self.reset()
++            self.session = session
++        key = sample["at_us"], sample["cycle"]
++        if self.key is None or (key[0] > self.key[0] and key[1] > self.key[1]):
++            self.key = key
++            self.advanced_at = now - (bus["updated_at_us"] - sample["at_us"]) / 1_000_000
++
++
++def snapshot(rd, now=None):
++    """返回显示用反馈；其他运行模式返回 None，保留原有显示路径。"""
++    bus_sample = getattr(rd, "bus", None)
++    bus = getattr(bus_sample, "value", None)
++    if not isinstance(bus, dict) or bus.get("mode") != "commissioning" or bus.get("phase") in STARTING_PHASES:
++        return None
++    now = time.monotonic() if now is None else now
++    sample = _sample(bus)
++    clock = getattr(rd, "commissioning_clock", None)
++    receipt_s = bus_sample.age(now)
++    hello_at = getattr(getattr(rd, "hello", None), "at", None)
++    current = (getattr(rd, "present", None) is True and bus_sample.error is None
++               and _number(receipt_s) and receipt_s >= 0
++               and (hello_at is None or (bus_sample.at is not None and bus_sample.at >= hello_at)))
++    age_ms = None
++    if (sample is not None and clock is not None and clock.advanced_at is not None
++            and clock.session == _session(bus) and clock.key == (sample["at_us"], sample["cycle"])):
++        wire_ms = (bus["updated_at_us"] - sample["at_us"]) / 1000
++        if _number(receipt_s) and receipt_s >= 0:
++            age_ms = max((now - clock.advanced_at) * 1000, wire_ms + receipt_s * 1000)
++    error = bus_sample.error or bus.get("last_cycle_error") or bus.get("error")
++    fresh = bool(current and age_ms is not None and 0 <= age_ms < MAX_AGE_MS
++                 and bus.get("phase") != "read_error" and not error)
++    by_id = {}
++    raw_rows = sample.get("servos") if sample is not None else None
++    for row in raw_rows if isinstance(raw_rows, list) else []:
++        if not isinstance(row, dict) or not _counter(row.get("id")) or row["id"] not in IDS:
++            continue
++        by_id[row["id"]] = row
++    joints = []
++    for sid, row in by_id.items():
++        valid_position = isinstance(row.get("position_raw"), int) and not isinstance(row["position_raw"], bool)
++        live = fresh and valid_position
++        j = {"id": sid, "name": row.get("joint"), "feedback_fresh": live,
++             "sample_age_ms": round(age_ms, 3) if age_ms is not None else None}
++        for src, dst in (("position_raw", "position_raw"), ("speed_raw", "speed_raw"),
++                         ("load_raw", "load_raw"), ("current_raw", "current_raw"),
++                         ("voltage_v", "volts"), ("temperature_c", "temperature_c")):
++            value = row.get(src)
++            j[dst] = value if live and _number(value) else None
++        joints.append(j)
++    imu = sample.get("imu") if sample is not None else None
++    imu = imu if isinstance(imu, dict) else {}
++    gravity = imu.get("gravity")
++    imu_live = fresh and imu.get("valid") is True and imu.get("ready") is True
++    if not (imu_live and isinstance(gravity, list) and len(gravity) == 3 and all(_number(x) for x in gravity)):
++        gravity = None
++    return {"joints": joints, "online": sum(j["feedback_fresh"] for j in joints) if fresh else None,
++            "fresh": fresh, "age_ms": round(age_ms, 3) if age_ms is not None else None,
++            "error": error or ("调试模式本轮读取失败" if bus.get("phase") == "read_error" else None),
++            "at_us": sample["at_us"] if sample is not None else None,
++            "imu": {"ready": imu.get("ready") if fresh else None,
++                    "valid": imu.get("valid") if fresh else None, "gravity": gravity,
++                    "source": imu.get("source") if current else None,
++                    "mount_verified": bus.get("imu_mount_verified") if current else None}}
+--- a/studio/imu.py
++++ b/studio/imu.py
+@@ -16,6 +16,7 @@
+ import time
+ 
+ from . import helper, imu_calib
++from .commissioning_display import snapshot as commissioning_snapshot
+ from .robotd import fresh_calib
+ from .rpc import RpcError, Timeout, Unreachable, call_once
+ from .startup_status import imu_context_current, imu_diagnostic
+@@ -183,9 +184,14 @@
+         self._seen_context = context
+         ls = bus.get("last_sample") if isinstance(bus.get("last_sample"), dict) else {}
+         s_imu = ls.get("imu") if isinstance(ls.get("imu"), dict) else {}
++        commissioning = commissioning_snapshot(self.rd) if bus.get("mode") == "commissioning" else None
++        if commissioning is not None:
++            s_imu = {**commissioning["imu"], "age_ms": commissioning["age_ms"]}
+         reader = native.get("imu_reader")
+         if reader is None and bus.get("mode") == "commissioning":
+             reader = {"state": ("streaming" if s_imu.get("ready") else "missing"), "errors": 0}
++            if commissioning is not None and not commissioning["fresh"]:
++                reader = {"state": "stale", "errors": None}
+         return {
+             "t": "imu", "mode": bus.get("mode"), "source": source, "chip_setting": None, "mount": mount,
+             "diagnostic": imu_diagnostic(self.rd),
+--- a/studio/robotd.py
++++ b/studio/robotd.py
+@@ -18,6 +18,7 @@
+ import asyncio
+ import time
+ 
++from .commissioning_display import CommissioningClock
+ from .estop import CONFIRM_TIMEOUT_S, JOIN_S, RESEND_AT_S, STARTING_PHASES, EStop, evidence
+ from .log import log_cmd
+ from .rpc import Conn, RpcError, Timeout, Unreachable, call_once, encode, open_conn, read_message
+@@ -58,6 +59,7 @@
+         self.cmd = Conn(robotd_addr, "cmd", log)
+         self.cfg = Conn(configd_addr, "configd", log)
+         self.hello, self.health, self.bus = Sample(), Sample(), Sample()
++        self.commissioning_clock = CommissioningClock()
+         self.policies, self.calib, self.state = Sample(), Sample(), Sample()
+         self.pad, self.sysinfo = Sample(), Sample()
+         self.present = None          # robotd 的 socket 在不在；None = 还没试过
+@@ -286,6 +288,7 @@
+                 self.log.info("跟主程序的轮询连接重连过：当成新连上，重新 hello、重读标定状态", cat="robotd")
+             try:
+                 if not hello_done:
++                    self.commissioning_clock.reset()
+                     self.bus.fail("等待这次连接的总线状态")
+                     r = await self.poll.call("hello", {"api_version": API_VERSION}, timeout=2.0)
+                     self.hello.set(r)
+@@ -309,6 +312,7 @@
+                     bus, asked = await self._ask("bus", "robot.busStatus", every=every)
+                     if bus is not None:
+                         self.bus.set(bus)
++                        self.commissioning_clock.observe(bus, self.bus.at)
+                         self._check_build(bus)
+                         # 离开 control（robotd 卡回等总线、换了模式）：已经读到的标定不作数（代码审查 C8）；
+                         # 从「等总线 / 启动中」进了 control（或调试模式的 ready）：标定文件这时才存进 robotd
+@@ -343,6 +347,7 @@
+                         due["policies"] = now + 2.0
+                 fails = 0
+             except Unreachable as e:
++                self.commissioning_clock.reset()
+                 self.bus.fail(e)
+                 hello_done = False
+                 self._mark_present(False, e)
+--- a/studio/servo.py
++++ b/studio/servo.py
+@@ -29,6 +29,7 @@
+ import time
+ 
+ from .bus import feetech
++from .commissioning_display import snapshot as commissioning_snapshot
+ from .startup_status import servo_observations
+ 
+ IDS = [20, 21, 22, 23, 24, 30, 31, 32, 33, 34, 10, 11, 12, 13, 14]     # 跟 robotd 的 JOINT_NAMES 同一个顺序
+@@ -678,8 +679,11 @@
+                                       bus_error=getattr(rd.bus, "error", None) if rd is not None else None)
+     if observations is not None:
+         return _view_startup_observations(observations, directions, state, error, sim)
++    commissioning = commissioning_snapshot(rd) if rd is not None else None
+     native = (bus or {}).get("native") if isinstance(bus, dict) and isinstance(bus.get("native"), dict) else {}
+     joints = {j.get("id"): j for j in (native.get("joints") or []) if isinstance(j, dict)}
++    if commissioning is not None:
++        joints = {j["id"]: j for j in commissioning["joints"]}
+     torque_on = native.get("torque_enabled")
+     rows, volts = [], []
+     for sid in IDS:
+@@ -702,8 +706,8 @@
+         })
+     avg_v = round(sum(volts) / len(volts), 2) if volts else None
+     return {
+-        "t": "servo", "state": state, "error": error, "sim": sim, "source": "robotd",
+-        "port": "主程序", "online": sum(1 for r in rows if r["fresh"]), "total": len(IDS),
++        "t": "servo", "state": state, "error": error or (commissioning["error"] if commissioning is not None else None), "sim": sim, "source": "robotd",
++        "port": "主程序", "online": commissioning["online"] if commissioning is not None else sum(1 for r in rows if r["fresh"]), "total": len(IDS),
+         "hz": None, "avg_volts": avg_v, "battery_pct": battery_percent(avg_v), "drop_rate": None, "bus": None,
+         "holding": sum(1 for r in rows if r["torque"] == 1), "all_off": False, "latched": False,
+         "relaxing": False, "last_relax": None, "rows": rows,
+--- a/studio/state.py
++++ b/studio/state.py
+@@ -19,6 +19,7 @@
+ import math
+ import time
+ 
++from .commissioning_display import snapshot as commissioning_snapshot
+ from .estop import STARTING_LONG_S, STARTING_PHASES
+ from .startup import startup_todo
+ from .startup_status import imu_context_current, imu_diagnostic, servo_observations, startup_wait
+@@ -182,6 +183,7 @@
+     native = (bus or {}).get("native") if isinstance((bus or {}).get("native"), dict) else {}
+ 
+     # 新鲜度：Studio 自己多久没拿到新数据（浏览器那边再加上传输的年龄）
++    commissioning = commissioning_snapshot(rd, now)
+     freshest = min([a for a in (bus_age, st_age) if a is not None], default=None)
+     robotd_ok = rd.present is True and bus_age is not None and bus_age < STALE_S
+ 
+@@ -197,6 +199,13 @@
+     servos = {"online": len(fresh) if joints else None, "total": len(joints) or 15, "hottest": hottest,
+               "stale": [JOINT_CN.get(j.get("name"), j.get("name")) for j in joints
+                         if isinstance(j, dict) and j.get("feedback_fresh") is False]}
++    if commissioning is not None:
++        live = [j for j in commissioning["joints"] if j["feedback_fresh"]]
++        temperatures = [j for j in live if j["temperature_c"] is not None]
++        hot = max(temperatures, key=lambda j: j["temperature_c"]) if temperatures else None
++        servos = {"online": commissioning["online"], "total": 15,
++                  "hottest": {"name": JOINT_CN.get(hot["name"], hot["name"]), "c": hot["temperature_c"]} if hot else None,
++                  "stale": [JOINT_CN.get(j["name"], j["name"]) for j in commissioning["joints"] if not j["feedback_fresh"]]}
+     observations = servo_observations(bus, present=rd.present, bus_age_s=bus_age,
+                                       bus_error=getattr(rd.bus, "error", None))
+     if observations is not None:
+@@ -217,6 +226,16 @@
+         imu_status = "ok"
+     else:
+         imu_status = None
++    if commissioning is not None:
++        ci = commissioning["imu"]
++        if not commissioning["fresh"]:
++            imu_status = "frozen" if (commissioning["age_ms"] or 0) >= STALE_S * 1000 else None
++        elif ci["ready"] is False:
++            imu_status = "missing"
++        elif ci["mount_verified"] is False:
++            imu_status = "unverified"
++        else:
++            imu_status = "ok" if ci["ready"] is True and ci["valid"] is True else None
+     pad_v = _fresh(rd.pad, "pad", now)
+     pads = (pad_v.get("pads") or []) if isinstance(pad_v, dict) else None
+     pad = {"known": pads is not None, "connected": bool(pads and any(p.get("connected") for p in pads if isinstance(p, dict))),
+@@ -236,16 +255,13 @@
+     st_age_live = st_age
+     state_t_ns = st_any.get("t_ns")
+     hold = (bus or {}).get("hold") if isinstance((bus or {}).get("hold"), dict) else None
+-    if (bus or {}).get("mode") == "commissioning":
++    if commissioning is not None:
+         # 标定模式没有 robot.state：IMU 读数从 busStatus.last_sample 拿（标定模式 10 Hz 轮询），
+         # IMU 页的「现在」和站着校准就都有实时数据了（用户 10-21：标定模式也能站姿、站着校）
+-        ls = (bus or {}).get("last_sample") if isinstance((bus or {}).get("last_sample"), dict) else {}
+-        s_imu = ls.get("imu") if isinstance(ls.get("imu"), dict) else {}
+-        g = s_imu.get("gravity")
+-        if s_imu.get("valid") is True and isinstance(g, list) and len(g) == 3:
+-            grav = g
+-            st_age_live = bus_age
+-            state_t_ns = ls.get("at_us") * 1000 if isinstance(ls.get("at_us"), int) else None
++        js = None  # 调试反馈没有已标定关节弧度，不沿用上一运动会话。
++        grav = commissioning["imu"]["gravity"]
++        st_age_live = commissioning["age_ms"] / 1000 if commissioning["age_ms"] is not None else None
++        state_t_ns = commissioning["at_us"] * 1000 if grav is not None else None
+     pose = posture(rd.present, bus, pol, st)
+     est = rd.estop.status(present=rd.present is not False, bus=bus, bus_age_s=bus_age, now=now)
+     if servo_orphan_view(servo) is not None and rd.present is not True:
+@@ -281,7 +297,7 @@
+         "starting_long": starting_s is not None and starting_s >= STARTING_LONG_S,
+         "battery": battery,
+         "servos": servos,
+-        "imu": {"status": imu_status, "source": native.get("imu_source"),
++        "imu": {"status": imu_status, "source": commissioning["imu"]["source"] if commissioning is not None else native.get("imu_source"),
+                 "configured_imu_profile": native.get("configured_imu_profile", (bus or {}).get("configured_imu_profile")),
+                 "context_current": imu_context_current(rd, now),
+                 "generation": getattr(getattr(rd, "hello", None), "at", None),

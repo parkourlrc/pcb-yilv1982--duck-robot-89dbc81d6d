@@ -1,0 +1,2175 @@
+PAGE 1
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+1 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+300mA RF ULDO REGULATOR 
+ 
+Description 
+The AP2210 is a 300mA ULDO regulator which provides very low 
+noise, ultra-low dropout voltage (typically 250mV at 300mA), very low 
+standby current (1µA maximum) , and excellent power supply ripple 
+rejection (PSRR 75dB at 100Hz ). This device is used in battery 
+powered applications , such as handsets  and PDAs; and in noise 
+sensitive applications, such as RF electronics. 
+ 
+The AP2210 also features individual logic compatible 
+enable/shutdown control inputs, a low  power shutdown mode for 
+extended battery life, over current protection, over temperature 
+protection, and reversed current protection. 
+ 
+The AP2210 has 2.5V, 2.8V, 3.0V, 3.3V, 3.6V, 4.0V, 5.0V , and ADJ 
+versions. 
+ 
+The AP2210 is available in the space saving SOT-23-3 and SOT-23-5 
+packages. 
+ 
+Features 
+• Up to 300mA Output Current 
+• Excellent ESR Stability 
+• Low Standby Current 
+• Low Dropout Voltage: VDROP = 250mV at 300mA 
+• High Output Accuracy: ±1% 
+• Good Ripple Rejection Ability: 75dB at 100Hz and IOUT = 100µA 
+• Tight Load and Line Regulation 
+• Low Temperature Coefficient 
+• Over-Current Protection 
+• Thermal Protection 
+• Reverse Current Protection 
+• Logic-controlled Enable 
+• Moisture Sensitivity: Level 3 Per J-STD-020 
+• Terminals: SOT-23-3/SOT-23-5 Finish—Mat te Tin Plated Leads, 
+Solderable per MIL-STD-202, Method 208 
+• Weight:  
+ SOT-23-3: 0.014 grams (Approximate) 
+ SOT-23-5: 0.015 grams (Approximate) 
+ Totally Lead-Free; RoHS Compliant (Notes 1 & 2) 
+• Lead-Free Packages, Available in “Green” Molding Compound: 
+SOT-23-3, SOT-23-5 
+ Totally Lead-Free & Fully RoHS Compliant (Notes 1 & 2) 
+ Halogen and Antimony Free. “Green” Device (Note 3) 
+• For automotive applications requiring specific change 
+control (i.e. parts qualified to AEC -Q100/101/200, PPAP 
+capable, and manufactured in IATF 16949 certified facilities), 
+please contact us or your local Diodes representative.  
+https://www.diodes.com/quality/product-definitions/ 
+ 
+Pin Assignments 
+ 
+ 
+ 
+3
+21
+GND VOUT
+VIN
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Applications 
+• Cellular Phones 
+• Cordless Phones 
+• Wireless Communicators 
+• PDAs/Palmtops 
+• PC Motherboards 
+• Consumer Electronics 
+ 
+ 
+ 
+Notes: 1. No purposely added lead. Fully EU Directive 2002/95/EC (RoHS), 2011/65/EU (RoHS 2) & 2015/863/EU (RoHS 3) compliant. 
+ 2. See https://www.diodes.com/quality/lead-free/ for more information about Diodes Incorporated’s definitions of Halogen- and Antimony-free, "Green"     
+     and Lead-free. 
+ 3. Halogen- and Antimony-free "Green” products are defined as those which contain <900ppm bromine, <900ppm chlorine (<1500ppm total Br + Cl) and  
+         <1000ppm antimony compounds. 
+1
+2
+3 4
+5VIN
+GND
+EN BYP/ADJ
+VOUT
+(Top View) (Top View) 
+SOT-23-3 SOT-23-5 
+
+
+PAGE 2
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+2 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Typical Applications Circuit (Note 4)  
+ 
+GND
+AP2210-3.0
+VIN VOUTVIN
+VIN =4.0V
+CIN
+1.0 µF
+COUT
+2.2 µF
+VOUT =3.0V
+VOUT
+1
+23
+ 
+ 
+ 
+EN
+GND
+AP2210-3.0
+VIN VOUT
+BYP
+VIN
+VIN =4.0V
+CIN
+1.0 µF
+COUT
+2.2 µF
+VOUT =3.0V
+VOUT
+100pF
+CBYP
+1
+2
+3 4
+5
+ 
+ 
+For Fixed Version 
+ 
+ 
+EN
+GND
+AP2210-ADJ
+VIN VOUT
+ADJ
+VIN
+COUT
+VOUT
+C IN
+VEN
+R1
+R2
+1
+2
+3 4
+5
+ 
+ 
+VOUT = 1.25V*(1+R2/R1) 
+ 
+For Adjustable Version 
+ 
+Notes: 4. Dropout voltage is 250mV when TA = +25oC. In order to obtain a normal output voltage, VOUT+0.25V is the minimum input voltage which will result a low 
+PSRR, imposing a bad influence on system. Therefore, the recommended input voltage is V OUT+1V to 13.2V. For AP2210-3.0 version, its input voltage 
+can be set from 4V (VOUT+1V) to 13.2V. 
+ 
+
+PAGE 3
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+3 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Pin Descriptions 
+Pin Number 
+Pin Name Function 
+SOT23-3 SOT23-5 
+1 2 GND Ground  
+2 5 VOUT Regulated output voltage 
+3 1 VIN Input voltage 
+– 3 EN Enable input: CMOS or TTL compatible input. Logic high=enable, logic low=shutdown 
+– 4 BYP/ADJ Bypass capacitor for low noise operation/Adjustable Output 
+ 
+ 
+Functional Block Diagram 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fixed Version 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ADJ Version (For SOT-23-5) 
++
+- Bandgap
+Ref.
+Current Limit
+Thermal Shutdown
+VIN
+BYP
+EN
+GND
+VOUT
+3(1)
+(4)
+(3)
+2(5)
+1(2)
+A(B)
+A for SOT-23-3
+B for SOT-23-5
++
+- Bandgap
+Ref.
+Current Limit
+Thermal Shutdown
+VIN
+ADJ
+EN
+GND
+VOUT
+1
+2
+5
+4
+3
+
+PAGE 4
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+4 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Absolute Maximum Ratings (Note 5) 
+Symbol Parameter Rating Unit 
+VIN Supply Input Voltage 15 V 
+VEN Enable Input Voltage 15 V 
+PD Power Dissipation Internally Limited  
+(Thermal Protection) W 
+TLEAD Lead Temperature (Soldering, 10sec) +260 °C 
+TJ Junction Temperature +150 °C 
+TSTG Storage Temperature -65 to +150 °C 
+ESD ESD (Machine Model) 300 V 
+θJA Thermal Resistance (No Heatsink) 
+SOT-23-3 200 
+°C/W 
+SOT-23-5 200 
+Notes: 5. Stresses greater than those listed under “Absolute Maximum Ratings” may cause permanent damage to the device. These are stress ratings only, and 
+functional operation of the device at these or any other conditions beyond those indicated under “Recommended Operating Conditions” is not implied. 
+Exposure to “Absolute Maximum Ratings” for extended periods may affect device reliability. 
+ 
+ 
+ 
+Recommended Operating Conditions  
+Symbol Parameter Min Max Unit 
+VIN Supply Input Voltage 2.5 13.2 V 
+VEN Enable Input Voltage 0 13.2 V 
+TJ Operating Junction Temperature -40 +125 °C 
+ 
+
+PAGE 5
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+5 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-2.5 Electrical Characteristics (VIN = 3.5V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  48 —  ppm/oC 
+VRLINE Line Regulation VIN = 3.5V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 6
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+6 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-2.5 Electrical Characteristics (Cont.) (VIN = 3.5V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production. 
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by th e total temperature range. 
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are cover ed by the thermal regulation specification. 
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 7
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+7 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-2.8 Electrical Characteristics (VIN = 3.8V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  42.8 —  ppm/oC 
+VRLINE Line Regulation VIN = 3.8V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 8
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+8 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-2.8 Electrical Characteristics (Cont.) (VIN = 3.8V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case volta ge change divided by the total temperature range. 
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V  —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 9
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+9 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.0 Electrical Characteristics (VIN = 4V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  40 —  ppm/oC 
+VRLINE Line Regulation VIN = 4V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 10
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+10 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.0 Electrical Characteristics (Cont.) (VIN = 4V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range. 
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 11
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+11 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.3 Electrical Characteristics (VIN = 4.3V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C,  
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  36.3 —  ppm/oC 
+VRLINE Line Regulation VIN = 4.3V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 12
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+12 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.3 Electrical Characteristics (Cont.) (VIN = 4.3V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range.  
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 13
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+13 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.6 Electrical Characteristics (VIN = 4.6V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  48 —  ppm/oC 
+VRLINE Line Regulation VIN = 4.6V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 14
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+14 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-3.6 Electrical Characteristics (Cont.) (VIN = 4.6V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range.  
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 15
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+15 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-4.0 Electrical Characteristics (VIN = 5.0V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  48 —  ppm/oC 
+VRLINE Line Regulation VIN = 5.0V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 16
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+16 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-4.0 Electrical Characteristics (Cont.) (VIN = 5.0V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range.  
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 17
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+17 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-5.0 Electrical Characteristics (VIN = 6.0V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  48 —  ppm/oC 
+VRLINE Line Regulation VIN = 6.0V to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+VDROP Dropout Voltage (Note 9) 
+IOUT = 100µA 
+—  15 50 
+mV 
+—  —  70 
+IOUT = 50mA 
+—  110 150 
+—  —  230 
+IOUT = 100mA 
+—  140 250 
+—  —  300 
+IOUT = 150mA 
+—  165 275 
+—  —  350 
+IOUT = 300mA 
+—  250 400 
+—  —  500 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+
+PAGE 18
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+18 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-5.0 Electrical Characteristics (Cont.) (VIN = 6.0V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range.  
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+ 
+Symbol Parameter Conditions Min Typ Max Unit 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 19
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+19 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+AP2210-ADJ Electrical Characteristics (VIN = VOUT+1V, IOUT = 100µA, CIN = 1.0µF, COUT = 2.2µF, VEN ≥ 2.0V, TJ = +25°C, 
+Bold typeface applies over -40°C ≤ TJ ≤ +125°C (Note 6), unless otherwise specified.) 
+ 
+Notes: 6. Specifications in bold type are limited to -40°C ≤ TJ ≤ +125°C. Limits over temperature are guaranteed by design, but not tested in production.  
+7. Output voltage temperature coefficient is defined as the worst case voltage change divided by the total temperature range.  
+8. Regulation is measured at constant junction temperature using low duty cycle pulse testing. Parts are tested for load regulat ion in the load range from 
+0.1mA to 300mA. Changes in output voltage due to heating effects are covered by the thermal regulation specification.  
+9. Dropout voltage is defined as the input to output differential at which the output voltage drops 1% (T J = +25oC) or 2% ( -40oC ≤ TJ ≤ +125oC) below its 
+nominal value measured at 1V differential. 
+10. Ground pin current is the regulator quiescent current plus pass transistor base current. The total current drawn from the sup ply is the sum of the load 
+current plus the ground pin current. 
+Symbol Parameter Conditions Min Typ Max Unit 
+∆VOUT/VOUT Output Voltage Accuracy Variation from specified VOUT 
+-1 —  1 
+% 
+-2 —  2 
+∆VOUT/∆T Output Voltage Temperature 
+Coefficient (Note 7) 
+—  —  120 —  µV/oC 
+(∆VOUT/VOUT)/∆T —  —  48 —  ppm/oC 
+VRLINE Line Regulation VIN = VOUT+1V  to 13.2V 
+—  1.5 4.5 
+mV 
+—  —  12 
+VRLOAD Load Regulation (Note 8) IOUT = 0.1mA to 300mA 
+—  1 6 
+mV 
+—  —  30 
+ISTD Standby Current 
+VEN ≤ 0.4V (shutdown) —  0.01 1 
+µA 
+VEN ≤ 0.18V (shutdown) —  —  5 
+IGND Ground Pin Current (Note 10) 
+VEN ≥ 2.0V, IOUT = 100µA 
+—  100 150 
+µA 
+—  —  180 
+VEN ≥ 2.0V, IOUT = 50mA 
+—  350 600 
+—  —  800 
+VEN ≥ 2.0V, IOUT = 150mA 
+—  1.3 1.9 
+mA 
+—  —  2.5 
+VEN ≥ 2.0V, IOUT = 300mA 
+—  4 10 
+—  —  15 
+PSRR Ripple Rejection f = 100Hz, IOUT = 100µA —  75 —  dB 
+ILIMIT Current Limit VOUT = 0V —  450 900 mA 
+eno Output Noise IOUT = 50mA, COUT = 2.2µF, 
+100pF from BYP to GND —  260 —   
+VIL Enable Input Logic-low Voltage Regulator shutdown 
+—  —  0.4 
+V 
+—  —  0.18 
+VIH Enable Input Logic-high Voltage Regulator enabled 2.0 —  —  V 
+IIL Enable Input Logic-low Current 
+VIL ≤ 0.4V —  0.01 1 
+µA 
+VIL ≤ 0.18V —  —  2 
+IIH Enable Input Logic-high Current 
+VIL ≥ 2.0V —  5 20 
+µA 
+VIL ≥ 2.0V —  —  25 
+HznV /
+
+PAGE 20
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+20 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Performance Characteristics 
+Output Voltage vs. Junction Temperature                                 Dropout Voltage vs. Junction Temperature 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                
+ 
+Ground Pin Current vs. Output Current                                Ground Pin Current vs. Junction Temperature 
+ 
+                                                                                                              
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                  Enable Current vs. Junction Temperature                                   Enable Voltage vs. Junction Temperature 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+-50 -25 0 25 50 75 100 125
+2.9850
+2.9875
+2.9900
+2.9925
+2.9950
+2.9975
+3.0000
+3.0025
+3.0050
+3.0075
+3.0100
+3.0125
+3.0150
+ 
+ 
+Output Voltage (V)
+Junction Temperature (
+o
+C)
+AP2210-3.0
+VIN=4V, IOUT=10mA
+CIN=1.0µF, COUT=2.2µF
+-60 -40 -20 0 20 40 60 80 100 120 140
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+500
+550
+CIN=1.0µF, COUT=2.2µF
+ 
+ 
+Dropout Voltage (mv)
+Junction Temperature (
+o
+C)
+ IOUT=50mA
+ IOUT=100mA
+ IOUT=150mA
+ IOUT=300mA
+0 50 100 150 200 250 300
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+4.5
+5.0
+ 
+ 
+Ground Pin Current (mA)
+Output Current (mA)
+TA=25
+o
+C
+CIN=1.0µF, COUT=2.2µF
+-60 -40 -20 0 20 40 60 80 100 120 140
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+4.5
+5.0
+ IOUT=50mA
+ IOUT=100mA
+ IOUT=150mA
+ IOUT=300mA
+ 
+ 
+Ground Pin Current (mA)
+Junction Temperature (
+o
+C)
+AP2210-3.0
+VIN=4V,CIN=1.0µF,COUT=2.2µF
+-50 -25 0 25 50 75 100 125
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Enable Current (µA)
+Junction Temperature (
+o
+C)
+AP2210-3.0
+VIN=4V, CIN=1.0µF
+COUT=2.2µF, IOUT=100µA
+  VEN=1.8V
+  VEN=2.0V
+  VEN=3.0V
+          VEN=3.7V
+-50 -25 0 25 50 75 100 125
+0.4
+0.6
+0.8
+1.0
+1.2
+1.4
+1.6
+1.8
+2.0
+ VEN=logic high
+ VEN=logic low
+AP2210-3.0
+CIN=1.0µF, COUT=2.2µF 
+VIN=4V, IOUT=100µA
+ 
+ 
+Enable Voltage (V)
+Junction Temperature (
+o
+C)
+
+PAGE 21
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+21 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Performance Characteristics (Cont.) 
+                                                                                                                           Line Transient  
+Output Noise vs. Frequency                                                      (Conditions: VIN =4 to 5V, VEN =2V,  
+                                                                                                                                        IOUT = 1mA, COUT = 2.2µF) 
+ 
+ 
+ 
+     
+HzµV/ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                
+Load Transient                                                                                     V
+EN vs. VOUT  
+(Conditions: VIN = 4V, VEN = 2V,                                                  (Conditions: VEN = 0 to 2V, VIN = 4V, 
+IOUT = 10mA to 300mA, CIN = 1.0µF, COUT = 2.2µF)                                 IOUT = 30mA, CIN = 1.0µF, COUT = 2.2µF) 
+ 
+                                                                                                              
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                 
+ 
+                                                                                  
+PSRR vs. Frequency                                                   Power Dissipation vs. Ambient Temperature 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10 100 1k 10k 100k 1M 10M
+10
+1
+0.1
+0.01
+0.001
+Frequency (Hz)
+AP2210-3.0
+VIN=4.5V, IOUT=10mA 
+CIN=1.0µF, COUT=2.2µF 
+CBYP=100pF
+Output Noise (             )
+0.0001
+∆VOUT (50mV/Div) IOUT (200mA/Div) 
+Time 
+(20µs/Div) 
+AP2210-3.0 
+600 
+400 
+200 
+0 
+50 
+0 
+-50 
+-100 
+10 100 1k 10k 100k 1M
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+ 
+ 
+PSRR (dB)
+Frequency (Hz)
+AP2210-3.0
+VIN=4V, VRIPPLE=1VPP
+IOUT=10mA, COUT=2.2µF
+25 50 75 100 125 150
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+Power Dissipation (W)
+Ambient Temperature (
+o
+C)
+AP2210-3.0
+SOT-23-3 Package
+No Heatsink
+VOUT (2V/Div) VEN (2V/Div) 
+Time 
+(20µs/Div) 
+Time 
+(40µs/Div) 
+VIN (0.5V/Div) ∆VOUT (50mV/Div) 
+5.5 
+5 
+4.5 
+4 
+50 
+0 
+-50 
+-100 
+
+PAGE 22
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+22 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Performance Characteristics (Cont.) 
+Power Dissipation vs. Ambient Temperature                                        ESR vs. Output Current 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                
+ 
+ESR vs. Output Current                                                           ESR vs. Output Current 
+ 
+                                                                                                              
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+25 50 75 100 125 150
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+ 
+ 
+Power Dissipation (W)
+Ambient Temperature (
+o
+C)
+AP2210-3.0
+SOT-23-5 Package
+No Heatsink
+50 100 150 200 250 300
+0.01
+0.1
+1
+10
+100
+1000
+ 
+ 
+ESR (Ω)
+Output Current (mA)
+COUT=1µF
+No Bypass Capacitor
+Stable Area
+50 100 150 200 250 300
+0.01
+0.1
+1
+10
+100
+1000
+ 
+ 
+ESR (Ω)
+Output Current (mA)
+COUT=2.2µF
+No Bypass Capacitor
+Stable Area
+50 100 150 200 250 300
+0.01
+0.1
+1
+10
+100
+1000
+ 
+ 
+ESR (Ω)
+Output Current (mA)
+COUT=4.7µF
+No Bypass Capacitor
+Stable Area
+
+PAGE 23
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+23 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Application Information 
+Input Capacitor 
+A 1µF minimum capacitor is recommended to be placed between VIN and GND. 
+ 
+Output Capacitor 
+An output capacitor  is required to prevent oscillation. A 1.0µF minimum is recommended when C BYP is unused. A 2.2µF minimum is 
+recommended when CBYP is 100pF. The output capacitor may be increased to improve transient response. 
+ 
+Noise Bypass Capacitor 
+A bypass capacitor is connected to the internal voltage reference. A small capacitor connected from BYP to GND makes  this reference quiet, 
+resulting in a significant reduction in output noise, but the ESR s table area will be narrowed. In order to keep the output stability, it is 
+recommended to use the bypass capacitor no more than 100pF. 
+ 
+The start-up speed of the AP2210 is inversely proportional to the value of  the reference bypass capacitor. In some cases,  if output noise is not a 
+major concern and rapid turn-on is necessary, omit CBYP and leave BYP open. 
+ 
+Power Dissipation 
+Thermal shutdown may take place if the maximum power dissipation is exceeded in application. Under all possible operating conditions, t he 
+junction temperature must be within the range specified under absolute maximum ratings to avoid thermal shutdown.  
+ 
+To determine if the power dissipated in the regulator reaches the maximum power dissipation (see Figure Power Dissipation vs. Ambient 
+Temperature and Figure ESR vs. Output Current in Page 22), use:  
+ 
+TJ = PD*θJA + TA 
+ 
+PD = (VIN-VOUT)*IOUT+VIN*IGND 
+ 
+Where: T
+J ≤ TJ(max), TJ(max) is absolute maximum ratings for the junction temperature; VIN*IGND can be ignored due to its small value. 
+ 
+T
+J(max) is +150oC, θJA is 200oC/W, no heatsink is required since the package alone will dissipate enough heat to satisfy these requirements, unless 
+the calculated value for power dissipation exceeds the limit. 
+ 
+Example (3.0V version):  
+ 
+IOUT = 300mA, TA = +50°C, VIN(Max) is: 
+ 
+(150°C-50°C)/(0.3A*200oC/W)+3.0V=4.67V 
+ 
+Therefore, for good performance, please make sure that the input voltage is less than 4.67V without heatsink when TA = +50°C. 
+ 
+ 
+ 
+ 
+
+PAGE 24
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+24 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Ordering Information 
+ 
+AP2210 X - X X X
+PackingPackage
+TR : Tape & ReelN : SOT-23-3
+K : SOT-23-5
+Product Name Output Voltage
+ADJ : Adjustable Output
+2.8 : Fixed Output 2.8V
+3.0 : Fixed Output 3.0V
+3.3 : Fixed Output 3.3V
+3.6 : Fixed Output 3.6V
+4.0 : Fixed Output 4.0V
+2.5 : Fixed Output 2.5V
+5.0 : Fixed Output 5.0V
+G1 : Green
+E1/G1
+E1 : RoHS Compliant
+ 
+ 
+ 
+ 
+Package Temperature 
+Range 
+Part Number Marking ID 
+Packing  RoHS Compliant Green RoHS 
+Compliant Green 
+ 
+SOT-23-3 -40°C to +85°C 
+AP2210N-2.8TRE1 
+(Note 11) AP2210N-2.8TRG1 EH3 GH3 3000/Tape & 
+Reel 
+ AP2210N-3.0TRE1 
+(Note 11) AP2210N-3.0TRG1 EH4 GH4 3000/Tape & 
+Reel 
+ AP2210N-3.3TRE1 
+(Note 11) AP2210N-3.3TRG1 EH5 GH5 3000/Tape & 
+Reel 
+ —  AP2210N-3.6TRG1 —  GB7 3000/Tape & 
+Reel 
+ —  AP2210N-4.0TRG1 —  GC7 3000/Tape & 
+Reel 
+ —  AP2210N-5.0TRG1 —  GH9 3000/Tape & 
+Reel 
+ 
+SOT-23-5 -40°C to +85°C 
+AP2210K-2.5TRE1 
+(Note 11) —  E5C —  3000/Tape & 
+Reel 
+ AP2210K-2.8TRE1 
+(Note 11) AP2210K-2.8TRG1 E5F G5F 3000/Tape & 
+Reel 
+ AP2210K-3.0TRE1 
+(Note 11) AP2210K-3.0TRG1 E5H G5H 3000/Tape & 
+Reel 
+ AP2210K-3.3TRE1 
+(Note 11) AP2210K-3.3TRG1 E5K G5K 3000/Tape & 
+Reel 
+ —  AP2210K-3.6TRG1 —  G5I 3000/Tape & 
+Reel 
+ —  AP2210K-4.0TRG1 —  G5J 3000/Tape & 
+Reel 
+ —  AP2210K-5.0TRG1 —  G5L 3000/Tape & 
+Reel 
+ —  AP2210K-ADJTRG1 —  G5M 3000/Tape & 
+Reel 
+Notes: 11. Not recommended for new design. 
+ 
+Pb
+Lead-Free
+Pb
+Lead-Free
+
+
+PAGE 25
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+25 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Marking Information 
+(1)  SOT-23-3 
+(Top View) 
+              
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(2) SOT-23-5 
+(Top View) 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+:  Logo 
+XXX:  Marking ID 
+(See Ordering Information) 
+:  Logo 
+XXX:  Marking ID 
+(See Ordering Information) 
+ 
+XXX 
+XXX 
+
+PAGE 26
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+26 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Package Outline Dimensions (All dimensions in mm(inch).)   
+(1) Package Type: SOT-23-3 
+ 
+ 
+2.820(0.111)
+3.100(0.122)
+2.650(0.104)
+3.000(0.118)
+0.950(0.037)
+TYP
+0.300(0.012)
+0.500(0.020)
+1.500(0.059)
+1.700(0.067)
+1.800(0.071)
+2.000(0.079)
+0.300(0.012)
+0.600(0.024)
+0.100(0.004)
+0.200(0.008)
+0.000(0.000)
+0.150(0.006)
+0.900(0.035)
+1.300(0.051)
+1.450(0.057)
+MAX.
+0.200(0.008)
+0
+8 °
+°
+ 
+ 
+ 
+ 
+
+PAGE 27
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+27 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Package Outline Dimensions (Cont. All dimensions in mm(inch).)   
+(2) Package Type: SOT-23-5 
+ 
+ 
+2.820(0.111)
+2.650(0.104) 1.500(0.059)
+0.000(0.000)
+0.300(0.012)
+0.950(0.037)
+0.900(0.035)
+0.100(0.004)
+0.200(0.008)
+0.300(0.012)
+8°
+0°
+3.100(0.122)
+1.700(0.067)3.000(0.118)
+0.500(0.020)
+0.150(0.006)
+1.300(0.051)
+0.200(0.008)
+0.600(0.024)
+1.800(0.071)
+2.000(0.079)
+0.700(0.028)
+REF
+TYP
+1.450(0.057)
+MAX
+ 
+ 
+ 
+ 
+
+PAGE 28
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+28 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Suggested Pad Layout  
+(1) Package Type: SOT-23-3 
+ 
+ 
+Y
+ZG E1
+E2
+X
+ 
+ 
+ 
+Dimensions Z 
+(mm)/(inch) 
+G 
+(mm)/(inch) 
+X 
+(mm)/(inch) 
+Y 
+(mm)/(inch) 
+E1 
+(mm)/(inch) 
+E2 
+(mm)/(inch) 
+Value 3.600/0.142 1.600/0.063 0.700/0.028 1.000/0.039 0.950/0.037 1.900/0.075 
+ 
+ 
+ 
+
+PAGE 29
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+29 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+Suggested Pad Layout (Cont.) 
+(2) Package Type: SOT-23-5 
+ 
+ 
+E2
+E1
+Y
+X
+G Z
+ 
+ 
+ 
+Dimensions Z 
+(mm)/(inch) 
+G 
+(mm)/(inch) 
+X 
+(mm)/(inch) 
+Y 
+(mm)/(inch) 
+E1 
+(mm)/(inch) 
+E2 
+(mm)/(inch) 
+Value 3.600/0.142 1.600/0.063 0.700/0.028 1.000/0.039 0.950/0.037 1.900/0.075 
+ 
+
+PAGE 30
+ 
+AP2210 
+Document number: DS37517 Rev. 4 - 2 
+30 of 30 
+www.diodes.com  
+March 2021 
+© Diodes Incorporated 
+ 
+AP2210 
+ 
+ 
+ 
+ 
+ 
+ 
+IMPORTANT NOTICE 
+ 
+1. DIODES INCORPORATED AND ITS SUBSIDIARIES (“DIODES”) MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+WITH REGARDS TO ANY INFORMATION CONTAINED IN THIS DOCUMENT, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON -INFRINGEMENT OF THIRD PARTY 
+INTELLECTUAL PROPERTY RIGHTS (AND THEIR EQUIVALENTS UNDER THE LAWS OF ANY JURISDICTION).   
+ 
+2. The Information contained herein is for informational purpose only and is provided only to illustrate the operation of Diodes products 
+described herein and application examples. Diodes does not assume any liability arising out of the application or use of this  document or any 
+product described herein. This document is intended for skilled and technically trained engineering customers and users who design with Diodes 
+products. Diodes products may be used to facilitate safety -related applications; however, in all instances customers and users are responsible for 
+(a) selecting the appropriate Diodes products for their applications, (b) evaluating the suitability of the Diodes products f or their intended 
+applications, (c) ensuring their applications, which incorporate Diodes products, comply the applicable legal and regulatory requirements as well 
+as safety and functional -safety related standards, and (d) ensuring they design with appropriate safeguards (including testing, validation, quality 
+control techniques, redundancy , malfunction prevention, and appropriate treatment for aging degradation) to minimize the risks associated with 
+their applications.    
+ 
+3. Diodes assumes no liability for any application- related information, support, assistance or feedback that may be provided by Diodes 
+from time to time. Any customer or user of this document or products described herein will assume all risks and liabilities associated with such 
+use, and will hold Diodes and all companies whose products are represented herein or on Diodes’  websites, harmless against all damages and 
+liabilities.   
+ 
+4. Products described herein may be covered by one or more United States, international or foreign patents and pending patent 
+applications. Product names and markings noted herein may also be covered by one or more United States, international or foreign trademarks 
+and trademark applications. Diodes does not convey any license under any of its intellectual property rights or the rights of any third parties 
+(including third parties whose products and services may be described in this document or on Diodes’ website) under this document.   
+ 
+5. Diodes products are provided subject to Diodes’ Standard Terms and Conditions of Sale 
+(https://www.diodes.com/about/company/terms-and-conditions/terms-and-conditions-of-sales/)  or other applicable terms. This document does not 
+alter or expand the applicable warranties provided by Diodes. Diodes does not warrant or accept any liability whatsoever in respect of any 
+products purchased through unauthorized sales channel.   
+ 
+6. Diodes products and technology may not be used for or incorporated into any products or systems whose manufacture, use or sal e is 
+prohibited under any applicable laws and regulations. Should customers or users use Diodes products in contravention of any applicable l aws or 
+regulations, or for any unintended or unauthorized application, customers and users will (a) be solely responsible for any damages, losses or 
+penalties arising in connection therewith or as a result thereof, and (b) indemnify and hold Diodes and its representatives and agents harmless 
+against any and all claims, damages, expenses, and attorney fees arising out of, directly or indirectly, any claim relating to any noncompliance with 
+the applicable laws and regulations, as well as any unintended or unauthorized application. 
+ 
+7. While efforts have been made to ensure the information contained in this document is accurate, complete and current, it may contain 
+technical inaccuracies, omissions and typographical errors. Diodes does not warrant that information contained in this document is error -free and 
+Diodes is under no obligation to update or otherwise correct this information. Notwithstanding the foregoing, Diodes reserves the right to make 
+modifications, enhancements, improvements, corrections or other changes without further notice to this document and any product described 
+herein. This document is written in English but may be translated into multiple languages for reference. Only the English version of this document 
+is the final and determinative format released by Diodes. 
+ 
+8. Any unauthorized copying, modification, distribution, transmission, display or other use of this docum ent (or any portion hereof) is 
+prohibited. Diodes assumes no responsibility for any losses incurred by the customers or users or any third parties arising f rom any such 
+unauthorized use. 
+ 
+Copyright © 2021 Diodes Incorporated 
+ 
+www.diodes.com 
+ 
+ 
+ 
+ 

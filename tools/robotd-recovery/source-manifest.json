@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-01",
+  "build": "0791fcd-feetech-qinmo-control.47+duck-recovery.1",
+  "api_version": 43,
+  "deployed": false,
+  "robot_motion_tested": false,
+  "components": {
+    "firmware": {
+      "archive": "controller-source.tar.gz",
+      "archive_sha256": "45cd22a955f3ff68bfbcb2d4266352d92798b6d1abd87a559fd613fcd52817d1",
+      "archive_prefix": "fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/",
+      "patch_sha256": "ae9e9836349754a2f23fb31239d3f012d44dda228b51200482ec5baf0a0c6de7",
+      "files": [
+        {
+          "path": "docs/design/robotd-design.md",
+          "original_sha256": "a57fef36a6951c66453cb191d69542901f7db38666484b70258f7e8f773f8994",
+          "candidate_sha256": "93ae0e78b55b0e086337c513d0953a54fc91fdb78d8c24f9c03bd649b2157e12",
+          "candidate_bytes": 117769
+        },
+        {
+          "path": "duck-ipc-proto/src/lib.rs",
+          "original_sha256": "60b78a074011d592aa843a5dc93f64b1f8b171beafe5060f220361b2585d9aad",
+          "candidate_sha256": "681d610e22a3830c296886548bb321b8b5e9bdc4424ce5eec9ab6bd62ed9b15f",
+          "candidate_bytes": 330431
+        },
+        {
+          "path": "robotd/src/control.rs",
+          "original_sha256": "3c6b7a7453cb86cb255c3b1bf194b382d54a7eb0cc020a3f0ba7daf95168d4e2",
+          "candidate_sha256": "9e2796a56e38b734a40e20ac89de4f283bad79d9814cb933e783d683e9c75ba9",
+          "candidate_bytes": 42161
+        },
+        {
+          "path": "robotd/src/feetech_commissioning.rs",
+          "original_sha256": "518775f7fb9c37e0bfba48e1c6be09e6e84fa0ab1427e8449aa65dc62bf152d7",
+          "candidate_sha256": "79e6adcce91350d6fd3d2d4e5bb959ea89ffdf5c20d773a295e186659e92b466",
+          "candidate_bytes": 118336
+        },
+        {
+          "path": "robotd/src/feetech_recovery_tests.rs",
+          "original_sha256": "6de7cf2f068c0b829b9b1a5f292db157f9a6a6ae7e2b74ab340cdbf73ee36197",
+          "candidate_sha256": "483c986a9f468d23f0aefd227caaf980aa6b642c48a524cbd915ff53291e7b0e",
+          "candidate_bytes": 57273
+        },
+        {
+          "path": "robotd/src/intents.rs",
+          "original_sha256": "601316b05e9a4bd5b50befa0e1841a1be60ffd92d983679e7c5ea165a656c718",
+          "candidate_sha256": "f5c9484b90c0bb0fb2d0bae7a37c9660ddca7b8e2bbb37e599ae5e584fe99d0c",
+          "candidate_bytes": 37571
+        },
+        {
+          "path": "robotd/src/main.rs",
+          "original_sha256": "e305af68b72025426443335159e5206ea9fa9afa1f1671cff3237a8e210f4032",
+          "candidate_sha256": "16fa3397ee75bd0e7f56daabdfc79c6e4932cfe52f656d6d9ff172def2fb3058",
+          "candidate_bytes": 504955
+        },
+        {
+          "path": "robotd/src/raw_stream.rs",
+          "original_sha256": "886fced8945e13df27d26f724f96bf1c7e1931ffb672da1a5ec9fe5aa7cf5ec7",
+          "candidate_sha256": "d03401f3ad7499dc69a22574c3a14ab427c6896ca78dfdab826f857cc1ca4d81",
+          "candidate_bytes": 41849
+        },
+        {
+          "path": "robotd/src/recovery.rs",
+          "original_sha256": null,
+          "candidate_sha256": "21132d3a5d045b0fad748df9db1eedb249bda43c6eaa224e5e712c7cf617c1d9",
+          "candidate_bytes": 10267
+        },
+        {
+          "path": "updater/src/ipc.rs",
+          "original_sha256": "fff027fcca5cc569fe0ec1fd1b961480d81cc433af4cf98975c5c82437301a5d",
+          "candidate_sha256": "61baa6e062b9aa785e8e612e3cac0319a2ad163a668ef46a2cc1fd0d9da564fb",
+          "candidate_bytes": 49361
+        }
+      ]
+    },
+    "studio": {
+      "archive": "studio-runtime.tar.gz",
+      "archive_sha256": "fd4753ba11619607d36852f35080c62dc845fdffd005ef37aac74f61157b55ef",
+      "archive_prefix": "studio/",
+      "patch_sha256": "35c5aca210d20937ee4a6a4b3c9accb5d779916c6f129e4f0452c8edb0e746d6",
+      "files": [
+        {
+          "path": "studio/pad.py",
+          "original_sha256": "795ef360dee481cf9e729e06d3f6229129ab1a8cee3a8101df8b03d15c7c7bd4",
+          "candidate_sha256": "09e429fbdaeac768500f8b80c1582dac1fb0bb6d7c781f58982b9aea9fb23c69",
+          "candidate_bytes": 148972
+        },
+        {
+          "path": "studio/pad_drive.py",
+          "original_sha256": "4b73042ee7ea7b5c17de260c9f6a33439e4412e04863161134229ec35ac2b78f",
+          "candidate_sha256": "7df8a8c54106122b31427eecc7d46fc720d51086a827bebd332ca778a8ac9834",
+          "candidate_bytes": 126419
+        },
+        {
+          "path": "studio/pad_recovery.py",
+          "original_sha256": null,
+          "candidate_sha256": "9cd456bf54c848749bb62b3de4fde19309c37d5b7713ef70cf4282e074a6001b",
+          "candidate_bytes": 6547
+        },
+        {
+          "path": "studio/updates.py",
+          "original_sha256": "b33a4953e23e3fe96a084b9be31f410d5551dae9003ff7a0fcc794155cbc312d",
+          "candidate_sha256": "1c051f7fd16f621d983093ca37dbb7a74945cd992d3e413020f4885001297f8a",
+          "candidate_bytes": 12645
+        },
+        {
+          "path": "web/pad.js",
+          "original_sha256": "15ad7f5bf0ba8a4004e3d328b1cdf004f2fcc055dc3126e720f648e09580fb5e",
+          "candidate_sha256": "a73b78bcb41106f33b03a023e95f7800b16401e70b15ebdd49be7b2ac09b9806",
+          "candidate_bytes": 98630
+        }
+      ]
+    }
+  },
+  "unchanged_control_sources": {
+    "Cargo.lock": "08d0237b9467f89daf44093785232343e132c5ac46065fd1eb1df84eeff5afd8",
+    "duck-control/src/feetech.rs": "b3b9342af9248f46833ad1fe8b592342f71e227b4464c7dab45849a568b02a48",
+    "duck-control/src/imu.rs": "372f67c17abe8c84a0a3dcf2d67ce64191bce59e37695d7f7495b9dcdfef1a9b",
+    "duck-control/src/feetech_imu_observation.rs": "eb8aebe4c263b8784cb393d5aafe10b9eabf3370598c85316d29f5c751d32c4c",
+    "duck-control/src/feetech_observations.rs": "8a324e8200055f309dbfddb1037cbc5e5ba3565c4f2f840a139c61427f4418ae"
+  }
+}

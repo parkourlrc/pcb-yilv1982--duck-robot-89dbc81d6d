@@ -1,0 +1,1943 @@
+PDF PAGE 19 / printed 18
+SDS Series Programming Guide 
+18                                                                            Int.siglent.com 
+Supported Models 
+The commands and queries listed in this document can be used for SIGLENTs Digital Oscilloscope 
+Series as shown below. Models are arranged according to their initial release dates. 
+ 
+Model Version for New Commands 
+SDS5000X 0.9.0 and later 
+SDS2000X Plus 1.3.5R3 and later 
+SDS6000 Pro/ 
+SDS6000A 1.1.7.0 and later 
+SHS800X/ 
+SHS1000X 1.1.9 and later 
+SDS2000X HD 1.2.0.2 and later 
+SDS6000L 1.0.1.0 
+SDS1000X HD 1.1.0.2 
+SDS7000A 1.0.7.0 
+SDS800X HD 1.1.3.1 
+SDS3000X HD 1.0.3.0 
+ 
+  
+
+PDF PAGE 20 / printed 19
+SDS Series Programming Guide 
+Int.siglent.com                                                                           19  
+Programming Overview 
+This chapter introduces how to build communication between the instrument and the PC. It also 
+introduces how to configure a system for remote instrument control. 
+ 
+Users can remotely control the instrument through USB and LAN interfaces, in combination with 
+National Instruments NI-VISA and programming languages. Through the LAN interface, users can 
+communicate using VXI-11, Sockets and Telnet protocols, depending on the capabilities of the 
+specific instrument. 
+ 
+Establishing Communications 
+Install NI-VISA  
+USB control requires the National Instruments NI-VISA Library for communications. We also 
+recommend using it for LAN communications for its ease of use, but sockets, telnet, and VXI-11 can 
+also be implemented via LAN connections.  
+ 
+Currently, NI-VISA is packaged in two versions: A full version and a Run-Time Engine version. The 
+full version includes the NI device drivers and a tool named NI MAX which is a user interface to 
+control and test remotely connected devices. The Run-Time Engine is recommended, as it is a 
+much smaller download than the full version and includes the necessary tools for basic 
+communication to instruments. 
+ 
+For example, you can get the NI-VISA 5.4 full version from http://www.ni.com/download/ni-visa-
+5.4/4230/en/. 
+ 
+You also can download NI-VISA Run-Time Engine 5.4 to your PC and install it as the default 
+selection. Its installation process is similar to the full version. 
+ 
+After you downloaded the file, follow these steps to install NI-VISA (The full version of NI-VISA 5.4 is 
+used in this example. Newer versions are likely and should be compatible with SIGLENT 
+instrumentation. Download the latest version available for the operating system being used by the 
+controlling computer): 
+ 
+a. Double click the visa540_full.exe, the dialog will be similar to that shown below: 
+
+PDF PAGE 23 / printed 22
+SDS Series Programming Guide 
+22                                                                            Int.siglent.com 
+Connect the Instrument  
+Depending on the specific model, your oscilloscope may be able to communicate with a PC through 
+the USB or LAN interface. 
+ 
+Connect the instrument and the USB Host interface of the PC using a USB cable. Assuming your 
+PC is already turned on, turn on your oscilloscope, and then the PC will display the “Device Setup” 
+screen as it automatically installs the device driver as shown below. 
+ 
+ 
+Wait for the installation to complete and then proceed to the next step.   
+
+
+PDF PAGE 31 / printed 30
+SDS Series Programming Guide 
+30                                                                            Int.siglent.com 
+*IDN 
+Query 
+ 
+DESCRIPTION The command query identifies the instrument type and 
+software version. The response consists of four different fields 
+providing information on the manufacturer, the scope model, 
+the serial number and the firmware revision. 
+ 
+QUERY SYNTAX *IDN? 
+ 
+RESPONSE FORMAT Siglent Technologies,<model>,<serial_number>,<firmware> 
+ 
+<model>:= The model number of the instrument. 
+ 
+<serial number>:= A 14-character code. 
+ 
+<firmware>:= The software revision of the instrument 
+ 
+EXAMPLE The following command queries the instrument type and 
+software version. 
+ 
+Query message: 
+*IDN? 
+ 
+Response message: 
+Siglent 
+Technologies,SDS5104X,SDS5XDAD2R0160,4.6.0.8.7R1 
+ 
+ 
+*OPC 
+Query 
+ 
+DESCRIPTION The command query places an ASCII "1" in the output queue 
+when all pending device operations have completed. The 
+interface hangs until this query returns. 
+ 
+QUERY SYNTAX *OPC? 
+ 
+RESPONSE FORMAT 1 
+ 
+EXAMPLE Query message: 
+*OPC? 
+ 
+Response message: 
+1 
+ 
+ 
+
+PDF PAGE 39 / printed 38
+SDS Series Programming Guide 
+38                                                                            Int.siglent.com 
+:ACQuire:MMANagement 
+Command/Query 
+ 
+DESCRIPTION The command sets the memory mode of the oscilloscope. 
+ 
+The query returns the current memory mode of the 
+oscilloscope. 
+ 
+COMMAND SYNTAX :ACQuire:MMANagement <mem_mode> 
+ 
+<mem_mode>:= {AUTO|FSRate|FMDepth} 
+ AUTO mode maintain the maximum sampling rate, and 
+automatically set the memory depth and sampling rate 
+according to the time base. 
+ FSRate mode is Fixed Samling Rate, maintain the 
+specified sampling rate and automatically set the memory 
+depth according to the time base. 
+ FMDepth mode is Fixed Memory Depth, the oscilloscope 
+automatically sets the sampling rate according to the 
+storage depth and time base. 
+ 
+QUERY SYNTAX :ACQuire:MMANagement? 
+ 
+RESPONSE FORMAT <mem_mode> 
+ 
+< mem_mode>:= {AUTO|FSRate|FMDepth} 
+ 
+EXAMPLE The following command sets the memory mode of the 
+oscilloscope as FMDepth. 
+ 
+Command message: 
+:ACQuire:MMANagement FMDepth 
+ACQ:MMAN FMD 
+ 
+Query message: 
+ACQ:MMAN? 
+ 
+Response message: 
+FMDepth 
+ 
+ 
+  
+
+PDF PAGE 41 / printed 40
+SDS Series Programming Guide 
+40                                                                            Int.siglent.com 
+:ACQuire:MDEPth 
+Command/Query 
+ 
+DESCRIPTION The command sets the maximum memory depth. 
+ 
+The query returns the maximum memory depth. 
+ 
+COMMAND SYNTAX :ACQuire:MDEPth <memory_size> 
+ 
+<memory_size>:= Varies by model. See the table below for 
+details: 
+Model <memory_size> 
+SDS5000X 
+Single Channel 
+{250k|1.25M|2.5M|12.5M|25M|125M|
+250M} 
+Dual-Channel 
+{125k|625k|1.25M|6.25M|12.5M| 
+62.5M|125M} 
+SDS2000X Plus 
+Single Channel 
+{20k|200k|2M|20M|200M} 
+Dual-Channel 
+{10k|100k|1M|10M|100M} 
+SDS6000 Pro 
+SDS6000A 
+1G Model Single Channel 
+{1.25k|5k|25k|50k|250k|500k| 
+2.5M|5M|12.5M|125M|250M} 
+1G Model Dual-Channel 
+{1.25k|2.5k|12.5k|25k|125k|250k| 
+1.25M|2.5M|12.5M|62.5M|125M} 
+2G Model 
+{2.5k|5k|25k|50k|250k|500k| 
+2.5M|5M|12.5M|25M|50M|125M|250
+M|250M|500M} 
+SDS6000L 
+{2.5k|5k|25k|50k|250k|500k| 
+2.5M|5M|12.5M|25M|50M|125M|250
+M|250M|500M} 
+SHS800X 
+SHS1000X 
+Single Channel 
+{12k|120k|1.2M|12M} 
+Dual-Channel 
+{6k|60k|600k|6M} 
+SDS2000X HD 
+Single Channel 
+{20k|200k|2M|20M|200M} 
+Dual-Channel 
+{10k|100k|1M|10M|100M} 
+SDS800X HD 
+SDS1000X HD 
+Single Channel 
+{10k|100k|1M|10M|100M} 
+Dual-Channel 
+{10k|100k|1M|10M|50M} 
+Four-Channel 
+{10k|100k|1M|10M|25M} 
+
+PDF PAGE 42 / printed 41
+SDS Series Programming Guide 
+Int.siglent.com                                                                           41  
+SDS7000A {1k|5k|10k|50k|100k|500k|1M|5M| 
+10M|50M|100M|500M|1G} 
+SDS3000X HD 
+Single Channel 
+{2k|10k|20k|100k|200k|1M|10M|20M|
+100M|200M|400M} 
+Dual-Channel 
+{2k|10k|20k|100k|200k|1M|10M|20M|
+100M|200M} 
+Quad-Channel 
+{2k|10k|20k|100k|200k|1M|10M|20M|
+100M} 
+ 
+Note: 
+• For the definition of single and dual channel mode, please 
+refer to the user manual. 
+• Turn on digital channels or set the acquisition type to 
+AVERage/ERES or set the acquisition mode to roll, will 
+limit the memory depth. 
+ 
+QUERY SYNTAX :ACQuire:MDEPth? 
+ 
+RESPONSE FORMAT <memory_size> 
+ 
+EXAMPLE The following command sets the memory depth to 125 Mpts 
+for the SDS5000X series. 
+ 
+Command message: 
+:ACQuire:MDEPth 125M 
+ACQ:MDEP 125M 
+Query message: 
+:ACQ:MDEP? 
+ 
+Response message: 
+125M 
+ 
+RELATED COMMANDS :ACQuire:MODE 
+:ACQuire:TYPE 
+:DIGital 
+ 
+  
+
+PDF PAGE 43 / printed 42
+SDS Series Programming Guide 
+42                                                                            Int.siglent.com 
+:ACQuire:NUMACq 
+Query 
+ 
+DESCRIPTION The query returns the number of waveform acquisitions that 
+have occurred since starting acquisition. This value is reset to 
+zero when any acquisition,horizontal, or vertical arguments 
+that affect the waveform are changed. 
+ 
+QUERY SYNTAX :ACQuire:NUMACq? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following query returns that 350 acquisitions have 
+occurred since starting acquisition. 
+ 
+Query message: 
+:ACQuire:NUMACq? 
+ACQ:NUMAC? 
+ 
+Response message: 
+350 
+ 
+:ACQuire:POINts 
+Query 
+ 
+DESCRIPTION The query returns the number of sampled points of the current 
+waveform on the screen. 
+ 
+QUERY SYNTAX :ACQuire:POINts? 
+ 
+RESPONSE FORMAT <point> 
+ 
+<point>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command queries the points of current 
+acquisition. 
+ 
+Query message: 
+ACQ:POIN? 
+ 
+Response message: 
+1.25E+08 
+ 
+  
+
+PDF PAGE 45 / printed 44
+SDS Series Programming Guide 
+44                                                                            Int.siglent.com 
+:ACQuire:SEQuence 
+Command/Query 
+ 
+DESCRIPTION The command enables or disables sequence acquisition 
+mode. 
+ 
+The query returns whether the current sequence acquisition 
+switch is on or not. 
+ 
+COMMAND SYNTAX  :ACQuire:SEQuence <state> 
+ 
+<state>:= {ON|OFF} 
+ 
+QUERY SYNTAX :ACQuire:SEQuence? 
+ 
+RESPONSE FORMAT <state> 
+ 
+<state>:= {ON|OFF} 
+ 
+EXAMPLE The following command turns on sequence acquisition mode. 
+ 
+Command message: 
+:ACQuire:SEQuence ON 
+ACQ:SEQ ON 
+ 
+Query message: 
+ACQ:SEQ? 
+ 
+Response message: 
+ON 
+ 
+RELATED COMMANDS :ACQuire:SEQuence:COUNt 
+ 
+  
+
+PDF PAGE 46 / printed 45
+SDS Series Programming Guide 
+Int.siglent.com                                                                           45  
+:ACQuire:SEQuence:COUNt 
+Command/Query 
+ 
+DESCRIPTION The command sets the number of memory segments to 
+acquire. The maximum number of segments may be limited by 
+the memory depth of your oscilloscope. 
+ 
+The query returns the current count setting. 
+ 
+COMMAND SYNTAX :ACQuire:SEQuence:COUNt <count> 
+ 
+<count>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. The range of the value varies from the 
+models and the current timebase, see the user manual for 
+details. 
+ 
+QUERY SYNTAX : ACQuire:SEQuence:COUNt? 
+ 
+RESPONSE FORMAT <count_value> 
+ 
+<count_value>:= Value in NR1 format, including an integer and 
+no decimal point, like 1. 
+ 
+EXAMPLE The following command sets the count of sequence segment 
+as 5. 
+ 
+Command message:  
+:ACQuire:SEQuence:COUNt 5 
+ACQ:SEQ:COUN 5 
+ 
+Query message:  
+ACQ:SEQ:COUN? 
+ 
+Response message: 
+5 
+ 
+RELATED COMMANDS :ACQuire:SEQuence 
+ 
+  
+
+PDF PAGE 47 / printed 46
+SDS Series Programming Guide 
+46                                                                            Int.siglent.com 
+:ACQuire:SRATe 
+Command/Query 
+ 
+DESCRIPTION The command set the sampling rate when in the fixed 
+sampling rare mode. 
+ 
+The query returns the current sampling rate. 
+ 
+COMMAND SYNTAX  :ACQuire:SRATe <rate> 
+ 
+<type>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. If the set value is greater than the 
+settable value, it will automatically match to the settable value. 
+ 
+QUERY SYNTAX :ACQuire:SRATe? 
+ 
+RESPONSE FORMAT <sample_rate> 
+ 
+<sample_rate>:= Value in NR3 format, including a decimal 
+point and exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command sets the current sampling rate. 
+ 
+Command message: 
+:ACQuire:SRATe 5.00E9 
+ACQ:SRAT 5.00E9 
+ 
+Query message: 
+ACQ:SRAT? 
+ 
+Response message: 
+5.00E+09 
+ 
+  
+
+PDF PAGE 51 / printed 50
+SDS Series Programming Guide 
+50                                                                            Int.siglent.com 
+:CHANnel<n>:BWLimit 
+Command/Query 
+ 
+DESCRIPTION The command enables or disables the bandwidth-limiting low-
+pass filter. If the bandwidth filter is on, it will filter the signal to 
+reduce noise and other unwanted high frequency components. 
+When the filter is on, the bandwidth of the specified channel is 
+limited to approximately 20 MHz or 200 MHz. 
+ 
+The query returns the current setting of the low-pass filter. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:BWLimit <bwlimit> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<bwlimit>:= {FULL|20M|200M} 
+ FULL sets the oscilloscope bandwidth to full. 
+ 20M enables the 20 MHz bandwidth filter. 
+ 200M enables the 200 MHz bandwidth filter. 
+ 
+QUERY SYNTAX :CHANnel<n>:BWLimit? 
+ 
+RESPONSE FORMAT <bwlimit> 
+ 
+<bwlimit>:= {FULL|20M|200M} 
+ 
+EXAMPLE The following command sets the bandwidth filter of Channel 1 
+to 20 MHz. 
+ 
+Command message:  
+:CHANnel1:BWLimit 20M 
+CHAN1:BWL 20M 
+ 
+Query message: 
+CHAN1:BWL? 
+ 
+Response message: 
+20M 
+ 
+ 
+  
+
+PDF PAGE 52 / printed 51
+SDS Series Programming Guide 
+Int.siglent.com                                                                           51  
+:CHANnel<n>:COUPling 
+Command/Query 
+ 
+DESCRIPTION The command selects the coupling mode of the specified input 
+channel. 
+ 
+The query returns the coupling mode of the specified channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:COUPling <coupling_mode> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<coupling_mode>:= {DC|AC|GND} 
+ DC sets the channel coupling to DC. 
+ AC sets the channel coupling to AC. 
+ GND sets the channel coupling to Ground. 
+ 
+QUERY SYNTAX :CHANnel<n>: COUPling? 
+ 
+RESPONSE FORMAT <coupling_mode> 
+ 
+<coupling_mode>:= {DC|AC|GND} 
+ 
+EXAMPLE The following command sets the coupling mode of Channel 1 
+to AC. 
+ 
+Command message: 
+:CHANnel1:COUPling AC 
+CHAN1:COUP AC 
+ 
+Query message: 
+CHAN1:COUP? 
+ 
+Response message: 
+AC 
+ 
+ 
+  
+
+PDF PAGE 53 / printed 52
+SDS Series Programming Guide 
+52                                                                            Int.siglent.com 
+:CHANnel<n>:IMPedance  
+Command/Query 
+ 
+DESCRIPTION The command sets the input impedance of the selected 
+channel. There are two impedance values available, 
+depending on model. They are 1 MOhm and 50. 
+ 
+The query returns the current impedance setting of the 
+selected channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:IMPedance <impedance> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<impedance>:= {ONEMeg|FIFTy} 
+ ONEMeg means 1 Mohm. 
+ FIFTy means 50 ohm. 
+ 
+Note: 
+When set to FIFTy, the range of legal values set by 
+the :CHAN<n>:SCAL commands is limited to less than 1 V. 
+ 
+QUERY SYNTAX :CHANnel<n>:IMPedance? 
+ 
+RESPONSE FORMAT <impedance> 
+ 
+<impedance>:= {ONEMeg|FIFTy} 
+ 
+EXAMPLE The following command sets the impedance of Channel 2 to 1 
+MOhm. 
+ 
+Command message: 
+:CHANnel2:IMPedance ONEMeg 
+CHAN2:IMP ONEM 
+ 
+Query message: 
+CHAN2:IMP? 
+ 
+Response message: 
+ONEMeg 
+ 
+RELATED COMMANDS :CHANnel<n>:SCALe 
+ 
+ 
+  
+
+PDF PAGE 54 / printed 53
+SDS Series Programming Guide 
+Int.siglent.com                                                                           53  
+:CHANnel<n>:INVert 
+Command/Query 
+ 
+DESCRIPTION The command selects whether or not to mathematically invert 
+the input signal for the specified channel. This is a 
+mathematical operation and does not change the polarity of 
+the input signal with reference to ground. 
+ 
+The query returns the current state of the channel inversion. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:INVert <state> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<state>:= {ON|OFF} 
+ ON enables channel inversion. 
+ Off disables channel inversion. 
+ 
+QUERY SYNTAX :CHANnel<n>:INVert? 
+ 
+RESPONSE FORMAT <state> 
+ 
+<state>:= {ON|OFF} 
+ 
+EXAMPLE The following command inverts the display of Channel 2. 
+ 
+Command message: 
+:CHANnel2:INVert ON 
+CHAN2:INV ON 
+ 
+Query message: 
+CHAN2:INV? 
+ 
+Response message: 
+ON 
+ 
+  
+
+PDF PAGE 57 / printed 56
+SDS Series Programming Guide 
+56                                                                            Int.siglent.com 
+:CHANnel<n>:OFFSet 
+Command/Query 
+ 
+DESCRIPTION The command allows adjustment of the vertical offset of the 
+specified input channel. The maximum ranges depend on the 
+fixed sensitivity setting. 
+ 
+The query returns the offset value of the specified channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:OFFSet <offset_value> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<offset_value>:= Value in NR3 format, including a decimal point 
+and exponent, like 1.23E+2. 
+ 
+Note: 
+The range of legal values varies with the value set by 
+the :CHANnel<n>:SCALe commands. 
+ 
+QUERY SYNTAX :CHANnel<n>:OFFSet? 
+ 
+RESPONSE FORMAT <offset_value> 
+ 
+<offset_value>:= Value in NR3 format, including a decimal point 
+and exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command sets the offset of Channel 2 to -3.8 V. 
+ 
+Command message: 
+:CHANnel2:OFFSet -3.8E+00 
+CHAN2:OFFS -3.8E+00 
+ 
+Query message: 
+CHAN2:OFFS? 
+ 
+Response message: 
+-3.8E+00 
+ 
+RELATED COMMANDS :CHANnel<n>:SCALe 
+ 
+  
+
+PDF PAGE 58 / printed 57
+SDS Series Programming Guide 
+Int.siglent.com                                                                           57  
+:CHANnel<n>:PROBe 
+Command/Query 
+ 
+DESCRIPTION The command specifies the probe attenuation factor for the 
+selected channel. This command does not change the actual 
+input sensitivity of the oscilloscope. It changes the reference 
+constants for scaling the display factors, for making automatic 
+measurements, and for setting trigger levels. 
+ 
+The query returns the current probe attenuation factor for the 
+selected channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:PROBe <attenuation>[,<value>] 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<attenuation>:= {DEFault|VALue} 
+ DEFault means set to the default value 1X. 
+ VALue means set to the <value>. 
+ 
+<value>:= Probe attenuation ratio in NR3 format when 
+<attenuation> is VALue, and the range is [1E-6, 1E6]. 
+ 
+QUERY SYNTAX :CHANnel<n>:PROBe? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command sets the attenuation factor of Channel 
+1 to 100:1. To ensure the data matches the true signal voltage 
+values, the physical probe attenuation must match the scope 
+attenuation values for that input channel. 
+ 
+Command message: 
+:CHANnel1:PROBe VALue,1.00E+02 
+CHAN1:PROB VAL,1.00E+02 
+ 
+Query message: 
+CHAN1:PROB? 
+ 
+Response message: 
+1.00E+02 
+ 
+RELATED COMMANDS :CHANnel<n>:SCALe 
+:CHANnel<n>:OFFSet 
+  
+
+PDF PAGE 59 / printed 58
+SDS Series Programming Guide 
+58                                                                            Int.siglent.com 
+:CHANnel<n>:SCALe 
+Command/Query 
+ 
+DESCRIPTION The command sets the vertical sensitivity in Volts/div. If the 
+probe attenuation is changed, the scale value is multiplied by 
+the probe's attenuation factor. 
+ 
+The query returns the current vertical sensitivity of the 
+specified channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:SCALe <scale> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+<scale>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+Note: 
+The range of value varies from the models and the bandwidth 
+of the model. See the data sheet for details. 
+ 
+QUERY SYNTAX :CHANnel<n>:SCALe? 
+ 
+RESPONSE FORMAT <scale> 
+ 
+<scale>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. The return value is affected by probe. 
+ 
+EXAMPLE The following command sets the vertical sensitivity of  
+Channel 1 to 50 mV/div 
+ 
+Command message:  
+:CHANnel1:SCALe 5.00E-02 
+CHAN1:SCAL 5.00E-02 
+ 
+Query message: 
+CHAN1:SCAL? 
+ 
+Response message: 
+5.00E-02 
+5.00E-01 (when the probe attenuation ratio is 10:1) 
+ 
+RELATED COMMANDS :CHANnel<n>:PROBe 
+ 
+  
+
+PDF PAGE 61 / printed 60
+SDS Series Programming Guide 
+60                                                                            Int.siglent.com 
+:CHANnel<n>:SWITch 
+Command/Query 
+ 
+DESCRIPTION The command turns the display of the specified channel on or 
+off. 
+ 
+The query returns current status of the selected channel. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:SWITch <state> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+<state>:= {OFF|ON} 
+ 
+QUERY SYNTAX :CHANnel<n>:SWITch? 
+ 
+RESPONSE FORMAT <state> 
+ 
+<state>:= {OFF|ON} 
+ 
+EXAMPLE The following command displays Channel 1. 
+ 
+Command message: 
+:CHANnel1:SWITch ON 
+CHAN1:SWIT ON 
+ 
+Query message: 
+CHAN1:SWIT? 
+ 
+Response message: 
+ON 
+  
+
+PDF PAGE 63 / printed 62
+SDS Series Programming Guide 
+62                                                                            Int.siglent.com 
+:CHANnel<n>:VISible 
+Command/Query 
+ 
+DESCRIPTION The command is used to whether display the waveform of the 
+specified channel or not. Different from the 
+command :CHANnel<n>:SWITch, it sets the state on the 
+display, and the latter sets the physical switch. 
+ 
+The query returns whether the waveform display function of 
+the selected channel is on or off. 
+ 
+COMMAND SYNTAX  :CHANnel<n>:VISible <display_state> 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+<display_state>:= {ON|OFF} 
+ 
+QUERY SYNTAX :CHANnel<n>:VISible? 
+ 
+RESPONSE FORMAT <display_state> 
+ 
+<display_state>:= {ON|OFF} 
+ 
+EXAMPLE The following command sets the display of Channel 2 to ON. 
+ 
+Command message: 
+:CHANnel2:VISible ON 
+CHAN2:VIS ON 
+ 
+Query message: 
+CHAN2:VIS? 
+ 
+Response message: 
+ON 
+  
+
+PDF PAGE 474 / printed 473
+SDS Series Programming Guide 
+Int.siglent.com                                                                           473  
+:TIMebase:DELay 
+Command/Query 
+ 
+DESCRIPTION The command specifies the main timebase delay. This delay is 
+the time between the trigger event and the delay reference point 
+on the screen. 
+ 
+The query returns the current delay value. 
+ 
+COMMAND SYNTAX  :TIMebase:DELay <delay_value> 
+ 
+<delay_value>:= Value in NR3 format, including a decimal 
+point and exponent, like 1.23E+2. The range of the value is  
+[-5000div*timebase, 5div*timebase]. 
+ 
+QUERY SYNTAX :TIMebase:DELay? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command specifies a 10 us delay of main time 
+base. 
+ 
+Command message:  
+:TIMebase:DELay 1.00E-05 
+TIM:DEL 1.00E-05 
+ 
+Query message:  
+TIM:DEL? 
+ 
+Response message:  
+1.00E-05 
+ 
+RELATED COMMANDS :TIMebase:SCALe 
+ 
+ 
+  
+
+PDF PAGE 477 / printed 476
+SDS Series Programming Guide 
+476                                                                            Int.siglent.com 
+:TIMebase:SCALe 
+Command/Query 
+ 
+DESCRIPTION The command sets the horizontal scale per division for the 
+main window. 
+ 
+The query returns the current horizontal scale setting in 
+seconds per division for the main window. 
+ 
+Note: 
+Due to the limitation of the expansion strategy, when the time 
+base is set from large to small, it will automatically adjust to 
+the minimum time base that can be set currently. 
+ 
+COMMAND SYNTAX  :TIMebase:SCALe <value> 
+ 
+<value>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+Note: 
+The range of value varies from the models. See the datasheet 
+for details. 
+ 
+QUERY SYNTAX :TIMebase:SCALe? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR3 format, including a decimal point and 
+exponent, like 1.23E+2. 
+ 
+EXAMPLE The following command sets the horizontal scale to 100 ns/div. 
+ 
+Command message:  
+:TIMebase:SCALe 1.00E-07 
+TIM:SCAL 1.00E-07 
+ 
+Query message:  
+TIM:SCAL? 
+ 
+Response message:  
+1.00E-07 
+ 
+RELATED COMMANDS :TIMebase:DELay 
+ 
+ 
+  
+
+PDF PAGE 483 / printed 482
+SDS Series Programming Guide 
+482                                                                            Int.siglent.com 
+:TRIGger:MODE 
+  
+Command/Query 
+ 
+DESCRIPTION The command sets the mode of the trigger. 
+ 
+The query returns the current mode of trigger. 
+ 
+COMMAND SYNTAX  :TRIGger:MODE <mode> 
+ 
+<mode>:= {SINGle|NORMal|AUTO|FTRIG} 
+◆ AUTO: The oscilloscope begins to search for the trigger 
+signal that meets the conditions. If the trigger signal is 
+satisfied, the running state on the top left corner of the 
+user interface shows Trig'd, and the interface shows 
+stable waveform. Otherwise, the running state always 
+shows Auto, and the interface shows unstable waveform. 
+◆ NORMal: The oscilloscope enters the wait trigger state 
+and begins to search for trigger signals that meet the 
+conditions. If the trigger signal is satisfied, the running 
+state shows Trig'd, and the interface shows stable 
+waveform. Otherwise, the running state shows Ready, and 
+the interface displays the last triggered waveform 
+(previous trigger) or does not display the waveform (no 
+previous trigger). 
+◆ SINGle: The backlight of SINGLE key lights up, the 
+oscilloscope enters the waiting trigger state and begins to 
+search for the trigger signal that meets the conditions. If 
+the trigger signal is satisfied, the running state shows 
+Trig'd, and the interface shows stable waveform. Then, 
+the oscilloscope stops scanning, the RUN/STOP key 
+becomes red, and the running status shows Stop. 
+Otherwise, the running state shows Ready, and the 
+interface does not display the waveform. 
+◆ FTRIG: Force to acquire a frame regardless of whether 
+the input signal meets the trigger conditions or not. 
+ 
+QUERY SYNTAX :TRIGger:MODE? 
+ 
+RESPONSE FORMAT <mode> 
+ 
+<mode>:= {SINGle|NORMal|AUTO|FTRIG} 
+ 
+EXAMPLE The following command sets the oscilloscope to SINGLE 
+trigger mode. 
+ 
+Command message: 
+:TRIGger:MODE SINGle 
+TRIG:MODE SING 
+ 
+Query message: 
+TRIG:MODE? 
+ 
+Response message: 
+SINGle 
+
+PDF PAGE 484 / printed 483
+SDS Series Programming Guide 
+Int.siglent.com                                                                           483  
+:TRIGger:RUN 
+Command 
+ 
+DESCRIPTION The command sets the oscilloscope to run. 
+ 
+COMMAND SYNTAX  :TRIGger:RUN 
+ 
+EXAMPLE The following command sets the oscilloscope to run. 
+ 
+Command message: 
+:TRIGger:RUN 
+TRIG:RUN 
+ 
+RELATED COMMANDS :TRIGger:STOP 
+ 
+ 
+ 
+:TRIGger:STATus 
+Query 
+ 
+DESCRIPTION The command query returns the current state of the trigger. 
+ 
+QUERY SYNTAX :TRIGger:STATus? 
+ 
+RESPONSE FORMAT <status> 
+ 
+<status>:= {Arm|Ready|Auto|Trig'd|Stop|Roll} 
+ 
+EXAMPLE The following command queries the state of trigger mode. 
+ 
+Query message: 
+TRIG:STAT? 
+ 
+Response message:  
+Stop 
+ 
+RELATED COMMANDS :TRIGger:MODE 
+ 
+ 
+  
+
+PDF PAGE 485 / printed 484
+SDS Series Programming Guide 
+484                                                                            Int.siglent.com 
+:TRIGger:STOP 
+Command 
+ 
+DESCRIPTION The command sets the oscilloscope from run to stop. 
+ 
+COMMAND SYNTAX  :TRIGger:STOP 
+ 
+EXAMPLE The following command stops the oscilloscope. 
+ 
+Command message: 
+:TRIGger:STOP 
+TRIG:STOP 
+ 
+RELATED COMMANDS :TRIGger:RUN 
+ 
+ 
+ 
+:TRIGger:TYPE 
+Command/Query 
+ 
+DESCRIPTION The command sets the type of trigger. 
+ 
+The query returns the current type of trigger. 
+ 
+COMMAND SYNTAX  :TRIGger:TYPE <type> 
+ 
+<type>:= {EDGE|PULSE|SLOPe|INTerval|PATTern|RUNT| 
+WINDow|DROPout|VIDeo|QUALified|NEDGe|DELay|SHOLd| 
+IIC|SPI|UART|LIN|CAN|FLEXray|CANFd|IIS|M1553|SENT| 
+A429} 
+ 
+QUERY SYNTAX :TRIGger:TYPE? 
+ 
+RESPONSE FORMAT <type> 
+ 
+<type>:= {EDGE|PULSE|SLOPe|INTerval|PATTern|RUNT| 
+WINDow|DROPout|VIDeo|QUALified|NEDGe|DELay|SHOLd|II
+C|SPI|UART|LIN|CAN|FLEXray|CANFd|IIS|M1553|SENT||A42
+9} 
+ 
+EXAMPLE The following command sets the type of trigger to edge trigger. 
+ 
+Command message: 
+:TRIGger:TYPE EDGE 
+TRIG:TYPE EDGE 
+ 
+Query message: 
+TRIG:TYPE? 
+ 
+Command message: 
+EDGE 
+  
+
+PDF PAGE 486 / printed 485
+SDS Series Programming Guide 
+Int.siglent.com                                                                           485  
+:TRIGger:EDGE Commands 
+The :TRIGGER:EDGE subsystem commands control the edge trigger parameters. 
+ 
+ :TRIGger:EDGE:COUPling 
+ :TRIGger:EDGE:HLDEVent 
+ :TRIGger:EDGE:HLDTime 
+ :TRIGger:EDGE:HOLDoff 
+ :TRIGger:EDGE:HSTart 
+ :TRIGger:EDGE:IMPedance 
+ :TRIGger:EDGE:LEVel 
+ :TRIGger:EDGE:NREJect 
+ :TRIGger:EDGE:SLOPe 
+ :TRIGger:EDGE:SOURce 
+ 
+ 
+  
+
+PDF PAGE 487 / printed 486
+SDS Series Programming Guide 
+486                                                                            Int.siglent.com 
+:TRIGger:EDGE:COUPling 
+Command/Query 
+ 
+DESCRIPTION The command sets the coupling mode of the edge trigger. 
+ 
+The query returns the current coupling mode of the edge 
+trigger. 
+ 
+COMMAND SYNTAX  :TRIGger:EDGE:COUPling <mode> 
+ 
+<mode>:= {DC|AC|LFREJect|HFREJect} 
+ DC coupling allows dc and ac signals into the trigger path. 
+ AC coupling places a high-pass filter in the trigger path, 
+removing dc offset voltage from the trigger waveform. Use 
+AC coupling to get a stable edge trigger when your 
+waveform has a large dc offset. 
+ HFREJect which is a high-frequency rejection filter that 
+adds a low-pass filter in the trigger path to remove high-
+frequency components from the trigger waveform. Use the 
+high-frequency rejection filter to remove high-frequency 
+noise, such as AM or FM broadcast stations, from the 
+trigger path. 
+ LFREJect which is a low frequency rejection filter adds a 
+high-pass filter in series with the trigger waveform to 
+remove any unwanted low-frequency components from a 
+trigger waveform, such as power line frequencies, that 
+can interfere with proper triggering. 
+ 
+QUERY SYNTAX :TRIGger:EDGE:COUPling? 
+ 
+RESPONSE FORMAT <mode> 
+ 
+<mode>:= {DC|AC|LFREJect|HFREJect} 
+ 
+EXAMPLE The following command sets the coupling mode of the edge 
+trigger to DC. 
+ 
+Command message: 
+:TRIGger:EDGE:COUPling DC 
+TRIG:EDGE:COUP DC 
+ 
+Query message: 
+TRIG:EDGE:COUP? 
+ 
+Response message: 
+DC 
+ 
+ 
+  
+
+PDF PAGE 488 / printed 487
+SDS Series Programming Guide 
+Int.siglent.com                                                                           487  
+:TRIGger:EDGE:HLDEVent 
+Command/Query 
+ 
+DESCRIPTION This command sets the number of holdoff events of the edge 
+trigger. 
+ 
+The query returns the current number of holdoff events of the 
+edge trigger. 
+ 
+COMMAND SYNTAX  :TRIGger:EDGE:HLDEVent <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. The range of the value is [1, 100000000]. 
+ 
+QUERY SYNTAX :TRIGger:EDGE:HLDEVent? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following command sets the number of holdoff events of 
+the edge trigger to 3. 
+ 
+Command message: 
+:TRIGger:EDGE:HLDEVent 3 
+TRIG:EDGE:HLDEV 3 
+ 
+Query message:  
+TRIG:EDGE:HLDEV? 
+ 
+Response message:  
+3 
+ 
+RELATED COMMANDS :TRIGger:EDGE:HOLDoff 
+ 
+ 
+  
+
+PDF PAGE 748 / printed 747
+SDS Series Programming Guide 
+Int.siglent.com                                                                           747  
+:WAVeform:BYTeorder 
+Command/Query 
+ 
+DESCRIPTION The command sets the byte order of transmitted waveform 
+data words. When waveform data is transmitted in 16 bits, 
+byte order needs to be set, defaulting to LSB. 
+ 
+The query returns the transmission order of waveform data. 
+ 
+COMMAND SYNTAX  :WAVeform:BYTeorder <order> 
+ 
+<order>:= {MSB|LSB} 
+ 
+QUERY SYNTAX :WAVeform:BYTeorder? 
+ 
+RESPONSE FORMAT <order> 
+ 
+<order>:= {MSB|LSB} 
+ 
+EXAMPLE The following command sets the byte order of data words 
+transmitted by the oscilloscope to MSB 
+ 
+Command message: 
+:WAVeform:BYTeorder MSB 
+WAV:BYT MSB 
+ 
+Query message: 
+WAV:BYT? 
+ 
+Response message: 
+MSB 
+ 
+RELATED COMMANDS :WAVeform:WIDTh 
+ 
+  
+
+PDF PAGE 749 / printed 748
+SDS Series Programming Guide 
+748                                                                            Int.siglent.com 
+:WAVeform:SOURce 
+Command/Query 
+ 
+DESCRIPTION The command specifies the source waveform to be transferred 
+from the oscilloscope using the query :WAVeform:DATA? 
+ 
+The query returns the source waveform to be transferred from 
+the oscilloscope. 
+ 
+COMMAND SYNTAX :WAVeform:SOURce <source> 
+ 
+<source>:= {C<n>|F<x>|D<d>} 
+ C denotes an analog channel.  
+ F denotes a math function. 
+ D denotes a digital channel. 
+ 
+<n>:= 1 to (# analog channels) in NR1 format, including an 
+integer and no decimal point, like 1. 
+<x>:= 1 to (# math functions) in NR1 format, including an 
+integer and no decimal point, like 1. 
+<d>:= 0 to (# digital channels - 1) in NR1 format, including an 
+integer and no decimal point, like 1. 
+ 
+QUERY SYNTAX :WAVeform:SOURce? 
+ 
+RESPONSE FORMAT <source> 
+ 
+<source>:= {C<n>|F<x>|D<d>} 
+ 
+EXAMPLE The following command specifies that the Channel 2 waveform 
+will be transferred in the next :WAVeform:DATA? query 
+or :WAVeform:PREamble? query. 
+ 
+Command message: 
+:WAVeform:SOURce C2 
+WAV:SOUR C2 
+ 
+Query message: 
+WAV:SOUR? 
+ 
+Response message: 
+C2 
+ 
+RELATED COMMANDS :WAVeform:DATA 
+:WAVeform:PREamble 
+  
+
+PDF PAGE 750 / printed 749
+SDS Series Programming Guide 
+Int.siglent.com                                                                           749  
+:WAVeform:STARt 
+Command/Query 
+ 
+DESCRIPTION The command specifies the starting data point for waveform 
+transfer using the query :WAVeform:DATA?. 
+ 
+The query returns the starting data point for waveform transfer. 
+ 
+COMMAND SYNTAX  :WAVeform:STARt <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+Note: 
+The value range is related to the current waveform point and 
+the value set by the command :WAVeform:POINt. 
+ 
+QUERY SYNTAX :WAVeform:STARt? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following command sets the start point to 1000 when the 
+current waveform point is 400 kpts. 
+ 
+Command message: 
+:WAVeform:STARt 1000 
+WAV:STAR 1000 
+ 
+Query message: 
+WAV:STAR? 
+ 
+Response message: 
+1000 
+ 
+RELATED COMMANDS :WAVeform:POINt 
+ 
+ 
+  
+
+PDF PAGE 751 / printed 750
+SDS Series Programming Guide 
+750                                                                            Int.siglent.com 
+:WAVeform:INTerval 
+Command/Query 
+ 
+DESCRIPTION The command sets the interval between data points for 
+waveform transfer using the query :WAVeform:DATA? 
+ 
+The query returns the interval between data points for 
+waveform transfer. 
+ 
+COMMAND SYNTAX  :WAVeform:INTerval <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+Note: 
+The value range is related to the values set by the 
+command :WAVeform:POINt and :WAVeform:STARt. 
+ 
+QUERY SYNTAX :WAVeform:INTerval? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following command sets the interval between data points 
+for waveform transfer to 200. 
+ 
+Command message: 
+:WAVeform:INTerval 200 
+WAV:INT 200 
+ 
+Query message: 
+WAV:INT? 
+ 
+Response message: 
+200 
+ 
+RELATED COMMANDS :WAVeform:STARt 
+:WAVeform:POINt 
+ 
+ 
+  
+
+PDF PAGE 752 / printed 751
+SDS Series Programming Guide 
+Int.siglent.com                                                                           751  
+:WAVeform:POINt 
+Command/Query 
+ 
+DESCRIPTION The command sets the number of waveform points to be 
+transferred with the query :WAVeform:DATA? 
+ 
+The query returns the number of waveform points to be 
+transferred. 
+ 
+COMMAND SYNTAX  :WAVeform:POINt <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+Note: 
+The value range is related to the current waveform point. 
+ 
+QUERY SYNTAX :WAVeform:POINt? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following command the number of waveform points to be 
+transferred to 2000 pts. 
+ 
+Command message: 
+:WAVeform:POINt 20000 
+WAV:POIN 20000 
+ 
+Query message: 
+WAV:POIN? 
+ 
+Response message: 
+20000 
+ 
+RELATED COMMANDS :ACQuire:POINts 
+ 
+ 
+  
+
+PDF PAGE 753 / printed 752
+SDS Series Programming Guide 
+752                                                                            Int.siglent.com 
+:WAVeform:MAXPoint 
+Query 
+ 
+DESCRIPTION The query returns the maximum points of one piece, when it 
+needs to read the waveform data in pieces. 
+ 
+QUERY SYNTAX :WAVeform:MAXPoint? 
+ 
+RESPONSE FORMAT <value> 
+ 
+<value>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE The following return the maximum points of one piece in 
+SDS2000X Plus series. 
+ 
+Query message: 
+:WAV:MAXP? 
+ 
+Response message: 
+10000000 
+ 
+ 
+  
+
+PDF PAGE 754 / printed 753
+SDS Series Programming Guide 
+Int.siglent.com                                                                           753  
+:WAVeform:WIDTh 
+Command/Query 
+ 
+DESCRIPTION The command sets the current output format for the transfer of 
+waveform data. 
+ 
+The query returns the current output format for the transfer of 
+waveform data. 
+ 
+COMMAND SYNTAX  :WAVeform:WIDTh <type> 
+ 
+<type>:= {BYTE|WORD} 
+ 
+WORD formatted data transfers 16-bit data as two bytes, and 
+transmission in LSB format 
+BYTE formatted data is transferred as 8-bit bytes. 
+ 
+Note: 
+When the vertical resolution is set to 10 bit or the ADC bit is 
+more than 8bit, it must to use the command to set to WORD 
+before transferring waveform data. 
+ 
+QUERY SYNTAX :WAVeform:WIDTh? 
+ 
+RESPONSE FORMAT <type> 
+ 
+<type>:= {BYTE|WORD} 
+ 
+EXAMPLE The following command sets the current output format for the 
+transfer of waveform data to BYTE. 
+ 
+Command message: 
+:WAVeform:WIDTh BYTE 
+WAV:WIDT BYTE 
+ 
+Query message: 
+WAV:WIDT? 
+ 
+Response message: 
+BYTE 
+ 
+ 
+  
+
+PDF PAGE 755 / printed 754
+SDS Series Programming Guide 
+754                                                                            Int.siglent.com 
+:WAVeform:PREamble 
+Query 
+ 
+DESCRIPTION The query returns the parameters of the source using by the 
+command :WAVeform:SOURce. 
+ 
+QUERY SYNTAX :WAVeform:PREamble? 
+ 
+RESPONSE FORMAT <bin> 
+ 
+<bin>:= binary data block headed " #9<9-Digits>”. See the 
+table below for details. 
+ 
+RELATED COMMANDS :WAVeform:SOURce 
+ 
+Table 1 Explanation of the descriptor block 
+(The first byte after "#9<9-digits>" is the starting position) 
+Addres
+s Type Length Description 
+0~15 char 16 Descriptor name. It is string, the first 8 chars are always 
+“WAVEDESC” 
+16~31 char 16 Template name. It is string, the first 7 chars are always 
+“WAVEACE”. 
+32~33 short 2 COMM_TYPE. It is chosen by remote command comm_format. 
+0 - byte, 1- word. Default value is 0. 
+34~35 short 2 COMM_ORDER. It is chosen by remote command 
+comm_format. 0 - LSB, 1- MSB. Default value is 0. 
+36~39 long 4 wave_desc_length. Length in bytes of block WAVEDESC. (346) 
+40~59 long 4*5 Reserved 
+60~63 long 4 
+WAVE_ARRAY_1. Length in bytes of 1st simple data array. In 
+transmitted waveform, represent the number of transmitted 
+bytes in accordance with the parameter of 
+the :WAVeform:WIDTh remote command and the used format 
+(see COMM_TYPE). Only for analog channel. 
+64~75 long 4*3 Reserved 
+76~91 char 16 Instrument name. It is string, always “Siglent SDS”. 
+92~95 long 4 Reserved 
+96~111 char 16 Reserved 
+112~115 long 4 Reserved 
+116~119 long 4 
+Wave array count. Number of data points in the data array. Only 
+for analog channel. When sequence is on, this value means the 
+points number of single sequence frame. 
+120~131 long 4*3 Reserved 
+132~135 long 4 
+First point. Indicates the offset relative to the beginning of the 
+trace buffer. Value is the same as the parameter of 
+the :WAVeform:STARt remote command. 
+136~139 long 4 
+Data interval. Indicates the interval between data points for 
+waveform transfer. Value is the same as the parameter of 
+the :WAVeform:INTerval remote command.  
+140~143 long 4 Reserved 
+
+PDF PAGE 756 / printed 755
+SDS Series Programming Guide 
+Int.siglent.com                                                                           755  
+144~147 long 4 read_frames, number of sequence frames transferred this time. 
+Used to calculate the reading times of sequence waveform 
+148~151 long 4 sum_frames, number of sequence frames acquired. Used to 
+calculate the reading times of sequence waveform 
+152~155 short 2*2 Reserved 
+156~159 float 4 Vertical gain. The value of vertical scale without probe 
+attenuation. 
+160~163 float 4 Vertical offset. The value of vertical offset without probe 
+attenuation. 
+164~167 float 4 code_per_div. The value is different for different vertical gain of 
+different models 
+168~171 float 4 Reserved 
+172~173 short 2 Adc_bit 
+174~175 short 2 
+The specified frame index of sequence set by the parameter 
+<value1> of the command :WAVeform:SEQuence. Default Value 
+is 1 
+176~179 float 4 Horizontal interval. Sampling interval for time domain 
+waveforms.  Horizontal interval = 1/sampling rate. 
+180~187 long 
+double 8 Horizontal offset. Trigger offset for the first sweep of the trigger, 
+seconds between the trigger and the first data point. Unit is s. 
+188~195 long 
+double 8 Reserved 
+196~243 char 48 Reserved 
+244~291 char 48 Reserved 
+292~295 float 4 Reserved 
+296~311 struct 16 Reserved 
+312~315 float 4 Reserved 
+316~323 short 2*4 Reserved 
+324~325 short 2 Time_base. This is the enumerated time/div. see the Table 2 for 
+details. 
+326~327 short 2 Vertical coupling. 0-DC,1-AC,2-GND 
+328~331 float 4 Probe attenuation. 
+332~333 short 2 
+Fixed vertical gain. This is the enumerated vertical scale. This 
+value is not intuitive, and the vertical scale is usually 
+represented by the value of address 156~159 
+334~335 short 2 Bandwidth limit. 0-OFF,1-20M,2-200M 
+336~343 float 4*2 Reserved 
+344~345 short 2 Wave source. 0-C1,1-C2,2-C3,3-C4,4-C5,5-C6,6-C7,7-C8 
+ 
+  
+
+PDF PAGE 757 / printed 756
+SDS Series Programming Guide 
+756                                                                            Int.siglent.com 
+Table 2 Enum of Timebase 
+Index Timebase (s) Index Timebase(s) 
+0 200E-12 20 1E-3 
+1 500E-12 21 2E-3 
+2 1E-9 22 5E-3 
+3 2E-9 23 10E-3 
+4 5E-9 24 20E-3 
+5 10E-9 25 50E-3 
+6 20E-9 26 100E-3 
+7 50E-9 27 200E-3 
+8 100E-9 28 500E-3 
+9 200E-0 29 1 
+10 500E-9 30 2 
+11 1E-6 31 5 
+12 2E-6 32 10 
+13 5E-6 33 20 
+14 10E-6 34 50 
+15 20E-6 35 100 
+16 50E-6 36 200 
+17 100E-6 37 500 
+18 200E-6 38 1000 
+19 500E-6   
+ 
+Note: Different models have different time base enumeration 
+ 
+ 
+  
+
+PDF PAGE 758 / printed 757
+SDS Series Programming Guide 
+Int.siglent.com                                                                           757  
+:WAVeform:DATA 
+Query 
+ 
+DESCRIPTION The query returns the waveform data of the source using by 
+the command :WAVeform:SOURce to be transferred from the 
+oscilloscope. 
+ 
+QUERY SYNTAX :WAVeform:DATA? 
+ 
+RESPONSE FORMAT <wave_data> 
+ 
+<wave_data>:=binary data block headed " #N<N-Digits>” 
+ 
+RELATED COMMANDS :WAVeform:STARt 
+:WAVeform:INTerval 
+:WAVeform:POINt 
+:WAVeform:MAXPoint 
+:WAVeform:WIDTh 
+ 
+EXAMPLE For SDS5000X series, the following steps show how to use 
+the command to reconstitute the display of waveform. 
+ 
+ 
+For analog channel waveform and math waveform (except for FFT): 
+ 
+ 
+ 
+Step 1: Send the commands to get the data of waveform. 
+Command message: 
+:WAVeform:SOURce C2 
+:WAVeform:DATA? 
+  
+
+
+PDF PAGE 759 / printed 758
+SDS Series Programming Guide 
+758                                                                            Int.siglent.com 
+Response message: 
+The header is “#9000001000” which nine ASCII integers are used to give the number of the 
+waveform data points (1000 pts). After the header of block, is beginning of the wave data, and the 
+last two bytes “0A 0A” means the end of data. 
+ 
+ 
+Step 2: Send the query to get the parameters of waveform. 
+Query message: 
+:WAVeform:PRE? 
+ 
+For parameter parsing, see the section of the query. Through the query, we can get the vertical 
+scale is 10 V/div, the vertical offset is 14.5 V, the timebase is 20E-9 s, the trigger delay is 1.72E-8 s, 
+and the sampling interval is 2E-10 s. 
+ 
+Step 3: Calculate the voltage value corresponding to the data point. 
+Using the formula: voltage value (V) = code value *(vdiv /code_per_div) - voffset.  
+Parameter Description Example above 
+code value 
+Signed number of wave data. If the vertical resolution 
+of the model is greater than 8bit, the code value is a 
+word in LSB byte order by the 
+command :WAVeform:WIDTh. The data is left aligned, 
+and the lower bit is zero filled. 
+ 
+For SDS6000 Pro, 12bit data is used for 12bit and 
+10bit models, but the ADC range is different.  
+The first point is the 
+17th data “F5”, 
+convert to decimal is 
+“-11” 
+vdiv 
+The vertical scale. 
+It is the value with address 156~159 in the data block 
+returned by the :WAVeform:PREamble? 
+10 
+voffset 
+The vertical position value. 
+It is the value with address 160~163 in the data block 
+returned by the :WAVeform:PREamble? 
+14.5 
+code_per_div 
+Code value per division in vertical direction. 
+It is the value with address 164~167 in the data block 
+returned by the :WAVeform:PREamble? 
+30 
+ 
+The picture above as an example: 
+The first point: voltage value = -11*(10/30)-(14.5) = -18.167 V. 
+
+
+PDF PAGE 760 / printed 759
+SDS Series Programming Guide 
+Int.siglent.com                                                                           759  
+ 
+Step 4: Calculate the time value of the data point. 
+Using the formula: time value(S) = delay-(timebase*grid/2)+index*interval 
+Parameter Description Example above 
+timebase 
+The horizontal scale. 
+It is the value with address 324~325 in the data block 
+returned by the :WAVeform:PREamble? 
+2E-8 
+delay 
+The horizontal position value. 
+It is the value with address 180~187 in the data block 
+returned by the :WAVeform:PREamble? 
+1.72E-8 
+grid 
+The grid numbers in horizontal direction. 
+SDS7000A/SDS6000 Pro/SDS6000A/SDS5000X/ 
+SDS3000X HD/SDS2000X Plus/SDS2000X 
+HD/SDS1000X HD/SDS800X HD:10 
+SHS800X/SHS1000X:12 
+10 
+index The index of the data. The first point is 0. -- 
+interval 
+Sampling interval. 
+It is the value with address 176~179 in the data block 
+returned by the :WAVeform:PREamble? 
+2E-10 
+ 
+The picture above as an example: 
+The first data point: time value = (1.72E-8)-(2E-08*10/2) = -8.28E-08 s = -82.8 ns. 
+The second data point: time value = -82.8 ns + 0.2ns = -82.6 ns. 
+ 
+Use python to reconstruct the waveform: (See the code in Read Waveform Data Example) 
+ 
+ 
+ 
+For digital channel waveform:  
+
+
+PDF PAGE 761 / printed 760
+SDS Series Programming Guide 
+760                                                                            Int.siglent.com 
+ 
+ 
+Step 1: Send the commands to get the data of waveform. 
+Command message: 
+:WAVeform:SOURce D0 
+:WAVeform:DATA? 
+ 
+Response message: 
+The header is “#9000002500” which nine ASCII integers are used to give the number of the 
+waveform data points (2500 pts). After the header of block, is beginning of the wave data. For 
+digital, one bit represents a data point, if the number of points is not an integer multiple of 8, the 
+byte less than 8 bits will be filled with 0. So there are 313 bytes. The last two bytes “0A 0A” means 
+the end of data. 
+ 
+ 
+Step 2: Send the query to get the parameters of waveform. 
+Query message: 
+:WAVeform:PRE? 
+ 
+
+
+PDF PAGE 762 / printed 761
+SDS Series Programming Guide 
+Int.siglent.com                                                                           761  
+For parameter parsing, see the section of the query. Through the query, we can get the timabase is 
+2E-7 s, the trigger delay is 2E-7 s, and the sampling interval is 2E-10 s. 
+ 
+Step 3: Covert to the high (1) and low (0) corresponding to the data point. 
+According to the wave data, we can know the first eight points of waveform is the 17th byte “FF”, 
+convert to binary is “11111111” (Hexadecimal converted to binary (LSB)).  
+ 
+Step 4: Calculate the time value of the data point. 
+Using the formula: time value(S) = delay-(timebase*grid/2)+index*interval 
+Parameter Description Example above 
+timebase The horizontal scale. 2E-7 
+delay The voltage position value. 2E-7 
+grid 
+The grid numbers in horizontal direction. 
+SDS7000A/SDS6000Pro/SDS6000A/SDS5000X 
+/SDS300X HD/SDS2000X Plus/SDS2000X 
+HD/SDS1000X HD/SDS800X HD:10 
+SHS800X/SHS1000X:12 
+10 
+index The index of the data. The first point is 0. -- 
+interval Sampling interval. 8E-10 
+ 
+The picture above as an example: 
+The first data point: time value = 2E-7-(2E-7*10/2) = -8E-07 s = -800 ns. 
+The second data point: time value = -800 ns+0.8 ns = -799.2 ns. 
+ 
+Use python to reconstruct the waveform: (See the code in Read Waveform Data of Digital Example) 
+ 
+
+PDF PAGE 763 / printed 762
+SDS Series Programming Guide 
+762                                                                            Int.siglent.com 
+ 
+ 
+For an example of FFT waveform, please refer to Read Waveform Data of FFT Example. 
+  
+
+
+PDF PAGE 764 / printed 763
+SDS Series Programming Guide 
+Int.siglent.com                                                                           763  
+:WAVeform:SEQuence 
+Command/Query 
+ 
+DESCRIPTION This command is used to set the sequence waveform frame to 
+be read. Valid only when sequnce is on. 
+ 
+The query returns the index of sequence frame to be 
+transferred. 
+ 
+COMMAND SYNTAX  :WAVeform:SEQuence <value1>,<value2> 
+ 
+<value1>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+It sets the index of sequence frame to be transferred with the 
+query :WAVeform:DATA?. When set to 0, all sequence frames 
+are returned and the query :WAVeform:DATA? will transfer as 
+much sequence frames as it can transfer at once. 
+ 
+<value2>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+It sets the start index of sequence frame to be transferred with 
+the query :WAVeform:DATA? This value is valid when 
+<value1> is set to 0.  
+Due to the memory limitation, when the number of all frames 
+exceeds the limit, it is necessary to read by slice through 
+<value2>. The number of slices can be calculated by 
+read_frames (0x90-0x93) and sum_frames(0x94-0x97) in the 
+query :WAVeform:PREamble? 
+ 
+Note: 
+• When sequence is enabled, <value1> will be set to 1 by 
+default;when sequence and history are enabled, <value1> 
+will be set to the current frame by default. In other cases, 
+<value1> is set to 4294967295 by default. 
+• The value range is related to the current sequence 
+number. 
+ 
+QUERY SYNTAX :WAVeform:SEQuence? 
+ 
+RESPONSE FORMAT <value1>,<value2> 
+ 
+<value1>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+<value2>:= Value in NR1 format, including an integer and no 
+decimal point, like 1. 
+ 
+EXAMPLE After 5 frames are acquired in sequence mode, and history is 
+enabled, there are 10 kpts per frame, totaling 50 kpts. After 
+sending the following command, all segments can be read at 
+one time through the query :WAVeform:DATA?. 
+ 
+Command message: 
+:WAVeform:SEQuence 0,1 
+WAV:SEQ 0,1 
+ 
+Query message: 
+WAV:SEQ? 
+Response message: 
+0,1 
+ 
+See the python code in Read Sequence Waveform Data Example for reference.  
+
+PDF PAGE 765 / printed 764
+SDS Series Programming Guide 
+764                                                                            Int.siglent.com 
+WGEN Commands 
+When the oscilloscope supports the function generator module (built-in waveform generator or 
+SAG1021I) and is licensed (Option FG), you can output sine, square, ramp, pulse, DC, noise, 
+exponential rise, exponential fall, cardiac, gaussian pulse and arbitrary waveforms. The WGEN 
+commands are used to select the waveform function and parameters. 
+ 
+The WGEN commands are the same as that of Siglent SDG series, so the format is not consistent 
+with other groups. Refer to SDG programming guide for details. 
+ 
+ ARbWaVe 
+ BaSic_WaVe 
+ OUTPut 
+ SToreList 
+ SYNC 
+ VOLTPRT 
+  

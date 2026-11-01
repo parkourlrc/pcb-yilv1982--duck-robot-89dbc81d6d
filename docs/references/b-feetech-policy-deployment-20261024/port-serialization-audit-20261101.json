@@ -1,0 +1,529 @@
+{
+  "utc": "2026-11-01T03:59:22.767023+00:00",
+  "scope": "Read-only /proc, source hashes, service status and robot.busStatus; no UART open",
+  "uart_holders": [
+    {
+      "pid": 1724,
+      "fd": 11,
+      "target": "/dev/ttyS2",
+      "cmdline": "/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --commissioning ",
+      "tasks": [
+        {
+          "tid": 1724,
+          "comm": "robotd"
+        },
+        {
+          "tid": 1725,
+          "comm": "tokio-rt-worker"
+        },
+        {
+          "tid": 1726,
+          "comm": "tokio-rt-worker"
+        },
+        {
+          "tid": 1727,
+          "comm": "tokio-rt-worker"
+        },
+        {
+          "tid": 1728,
+          "comm": "tokio-rt-worker"
+        },
+        {
+          "tid": 1730,
+          "comm": "control"
+        }
+      ],
+      "fdinfo": "pos:\t0\nflags:\t02400002\nmnt_id:\t400\nino:\t94\nlock:\t1: FLOCK  ADVISORY  WRITE 1724 00:05:94 0 EOF\n"
+    }
+  ],
+  "scan_errors": [],
+  "board_sources": {
+    "/home/radxa/servo-web/feetech.py": {
+      "sha256": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+      "snippets": [
+        {
+          "start": 72,
+          "end": 84,
+          "text": "class FeetechBus:\n    def __init__(self, port, baud=1_000_000, timeout=0.02, ser=None):\n        # ser 给模拟器用（sim_bus.SimSerial），真机走串口\n        self.ser = ser if ser is not None else serial.Serial(port, baud, timeout=timeout, write_timeout=0.1)\n        # 串口互斥锁。别叫 self.lock：会盖住下面的 lock(sid)「加 EEPROM 锁」方法（2026-09-20 真机踩到）\n        self._io = threading.Lock()\n        # 原始收发记录：设一个 trace(文本) 回调就开始记。飞特不支持的操作照样回\"成功\"，\n        # 只有对着十六进制才分得清「真做了」和「装作做了」。10 Hz 的状态轮询不记，不然日志全是它\n        self.trace = None\n        self.trace_skip = {SYNC_READ, SYNC_WRITE}\n        self._last = (None, None)\n        self.stats = {\"tx\": 0, \"rx_ok\": 0, \"timeout\": 0, \"bad_checksum\": 0, \"bad_id\": 0}\n"
+        },
+        {
+          "start": 96,
+          "end": 150,
+          "text": "        self.ser.reset_input_buffer()\n        pkt = self._packet(sid, instr, params)\n        self.ser.write(pkt)\n        self.stats[\"tx\"] += 1\n        self._last = (sid, instr)\n        if self.trace and instr not in self.trace_skip:\n            note = \"\"\n            if instr in (READ, WRITE) and params:\n                reg = REGISTERS.get(params[0])\n                note = f\"  地址{params[0]}\" + (f\"「{reg[0]}」\" if reg else \"\") + (\n                    f\" 写 {list(params[1:])}\" if instr == WRITE else f\" 读 {params[1]} 字节\")\n            self.trace(f\"→ #{sid} {INSTR_NAMES.get(instr, hex(instr))} {hexs(pkt)}{note}\")\n\n    def _read_status(self, expect_id=None):\n        \"\"\"读一个应答帧，返回 (id, error, params)。\"\"\"\n        # 找 FF FF\n        hdr = b\"\"\n        deadline = time.monotonic() + self.ser.timeout * 3\n        while time.monotonic() < deadline:\n            b = self.ser.read(1)\n            if not b:\n                break\n            hdr = (hdr + b)[-2:]\n            if hdr == b\"\\xff\\xff\":\n                break\n        who = f\"id {expect_id}\" if expect_id is not None else \"舵机\"\n        if hdr != b\"\\xff\\xff\":\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 没应答（{self.ser.timeout * 3 * 1000:.0f} ms 内没收到帧头）\")\n        rest = self.ser.read(2)\n        if len(rest) < 2:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答断在 ID/长度（收到 ff ff {hexs(rest)}）\")\n        sid, length = rest[0], rest[1]\n        body = self.ser.read(length)\n        if len(body) < length:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答不完整：长度 {length} 只收到 {len(body)}（ff ff {hexs(rest + body)}）\")\n        err, params, chk = body[0], body[1:-1], body[-1]\n        if ((~(sid + length + err + sum(params))) & 0xFF) != chk:\n            self.stats[\"bad_checksum\"] += 1\n            raise BusError(f\"{who} 校验和不对（ff ff {hexs(rest + body)}）\")\n        if expect_id is not None and sid != expect_id:\n            self.stats[\"bad_id\"] += 1\n            raise BusError(f\"等 id {expect_id} 的应答，来的是 id {sid}（ff ff {hexs(rest + body)}）\")\n        self.stats[\"rx_ok\"] += 1\n        if self.trace and self._last[1] not in self.trace_skip:\n            head = b'\\xff\\xff'\n            self.trace(f\"← #{sid} 状态0x{err:02X} {hexs(head + rest + body)}\"\n                       + (f\"  数据 {list(params)}\" if params else \"\"))\n        return sid, err, bytes(params)\n\n    # ---- 指令 ----\n    def ping(self, sid):\n        with self._io:"
+        },
+        {
+          "start": 158,
+          "end": 212,
+          "text": "    def read(self, sid, addr, n):\n        with self._io:\n            self._send(sid, READ, bytes([addr, n]))\n            _, err, params = self._read_status(sid)\n            if len(params) != n:\n                raise BusError(f\"id {sid} 读地址 {addr} 起 {n} 字节，只回了 {len(params)} 字节\")\n            return err, params\n\n    def write(self, sid, addr, data, wait=True):\n        with self._io:\n            self._send(sid, WRITE, bytes([addr]) + bytes(data))\n            if not wait or sid == BROADCAST:\n                return None\n            try:\n                _, err, _ = self._read_status(sid)\n                return err\n            except BusTimeout:\n                # 应答级别 0 时写指令不回包，不算错；调用方拿到 None 自己判断\n                return None\n\n    def write_u8(self, sid, addr, v):\n        return self.write(sid, addr, [v & 0xFF])\n\n    def write_u16(self, sid, addr, v):\n        return self.write(sid, addr, struct.pack(\"<H\", v & 0xFFFF))\n\n    def read_u8(self, sid, addr):\n        return self.read(sid, addr, 1)[1][0]\n\n    def read_u16(self, sid, addr):\n        return struct.unpack(\"<H\", self.read(sid, addr, 2)[1])[0]\n\n    def sync_write(self, addr, length, id_values):\n        \"\"\"id_values: [(id, bytes), ...]，每个 bytes 长度 = length。\"\"\"\n        params = bytes([addr, length])\n        for sid, data in id_values:\n            assert len(data) == length\n            params += bytes([sid]) + bytes(data)\n        with self._io:\n            self._send(BROADCAST, SYNC_WRITE, params)\n\n    def sync_read(self, ids, addr, n):\n        \"\"\"返回 {id: (err, params) 或 None}，顺序按 ids。任何一颗超时不影响后面的。\"\"\"\n        out = {}\n        with self._io:\n            self._send(BROADCAST, SYNC_READ, bytes([addr, n]) + bytes(ids))\n            for sid in ids:\n                try:\n                    _, err, params = self._read_status(sid)\n                    out[sid] = (err, params) if len(params) == n else None\n                except BusError:\n                    out[sid] = None\n        return out\n\n    def reboot(self, sid):"
+        }
+      ]
+    },
+    "/home/radxa/servo-web/server.py": {
+      "sha256": "229bf37c24af05926682c0212097158bea2139273bc430b2f6139e2c0f80689e",
+      "snippets": [
+        {
+          "start": 1517,
+          "end": 1547,
+          "text": "def read_states_with_imu(ids, service):\n    \"\"\"--imu-bus：跟主控每 tick 同一条 sync_read（地址 56、长度 15、200 排第一），\n    舵机状态照旧解，200 的块喂给 service。200 连续不应答时 service 会让它暂时出列。\"\"\"\n    import imu_bus\n    servo_ids = [i for i in ids if i != imu_bus.IMU_ID]\n    with_imu = service.include_in_sync()\n    if not with_imu and service.due_probe():\n        if service.probe_result(BUS.ping(imu_bus.IMU_ID) is not None):\n            log(\"ID 200 的 PING 有应答了，重新跟舵机一起读\", \"IMU\")\n    if isinstance(BUS, FakeBus):\n        # 虚拟小板：启动参数 --fake --imu-bus 时 fallback_fake 挂上，或者页面「模拟」里接上\n        st = BUS.states(servo_ids)\n        got = BUS.sync_read([imu_bus.IMU_ID], imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN) if with_imu else {}\n    else:\n        # 2026-10-31 本机补丁（v0.15.4）：200 改独立单播 READ——当前 v0.3 板固件（replica\n        # 0.2.0）SYNC_READ 应答弱（实测单 ID ~30%、多 ID 0%），单播 READ 100% 且 1ms 快答；\n        # 舵机照旧整表 sync_read，IMU 缺答不再连累舵机帧。板②（kit v1 固件）SYNC_READ\n        # 正常，换回时恢复 ids_sent 混读形态即可。\n        got = BUS.sync_read(servo_ids, imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN) if servo_ids else {}\n        st = {sid: (feetech.FeetechBus._decode_state(*got[sid]) if got.get(sid) else None) for sid in servo_ids}\n        if with_imu:\n            try:\n                _, blk = BUS.read(imu_bus.IMU_ID, imu_bus.BLOCK_ADDR, imu_bus.BLOCK_LEN)\n                got[imu_bus.IMU_ID] = (imu_bus.BLOCK_ADDR, blk)\n            except Exception:\n                pass  # 缺答交给 service.feed(None) 计 miss，不连累上面的舵机帧\n    v = got.get(imu_bus.IMU_ID)\n    if with_imu or v is not None:\n        service.feed(v[1] if v else None)\n    return st\n"
+        }
+      ]
+    }
+  },
+  "robotd": {
+    "exit": 0,
+    "stdout": "MainPID=1724\nExecStart={ path=/opt/robot/daemon/current/bin/robotd ; argv[]=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock --commissioning ; ignore_errors=no ; start_time=[Sun 2026-11-01 03:51:09 UTC] ; stop_time=[n/a] ; pid=1724 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+    "stderr": ""
+  },
+  "studio": {
+    "exit": 0,
+    "stdout": "MainPID=1732\nActiveState=active\n",
+    "stderr": ""
+  },
+  "servo_web_user_service": {
+    "exit": 3,
+    "stdout": "inactive\n",
+    "stderr": ""
+  },
+  "status": {
+    "achieved_hz": 49.97822669155226,
+    "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+    "calibrated": false,
+    "configured_imu_profile": "legacy",
+    "device_communication": {
+      "by_id": {
+        "10": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "11": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "12": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": 1421,
+          "missing": 0,
+          "timeout": 1
+        },
+        "13": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "14": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "20": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "200": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 1,
+          "last_missing_read": null,
+          "last_timeout_read": 24684,
+          "missing": 0,
+          "timeout": 16
+        },
+        "21": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "22": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "23": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "24": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "30": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "31": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "32": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "33": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "34": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": 1421,
+          "missing": 0,
+          "timeout": 1
+        }
+      },
+      "classification": "exclusive-v2",
+      "complete_but_late": 0,
+      "incomplete_timeout_reads": 17,
+      "last_trace": {
+        "address": 56,
+        "bad_checksums": 0,
+        "complete_but_late": false,
+        "deadline_exceeded": true,
+        "discarded": 0,
+        "elapsed_us": 20099,
+        "length": 15,
+        "missing_ids": [
+          200
+        ],
+        "partial_received": false,
+        "request_sent": true,
+        "rx_bytes": 0
+      },
+      "missing_reads": 0,
+      "session": "1724-1793505069187306724",
+      "total_reads": 24684,
+      "unsent_reads": 0
+    },
+    "errors_by_id": {
+      "12": 1,
+      "200": 16,
+      "34": 1
+    },
+    "imu_bus": {
+      "board": "imu_to_dxl",
+      "gyro_dps_per_lsb": 0.0175,
+      "identification": "legacy_identity",
+      "identity": [
+        0,
+        2,
+        0,
+        68,
+        77
+      ],
+      "profile": "legacy",
+      "protocol": "feetech"
+    },
+    "imu_mount_verified": true,
+    "last_cycle_error": "bus transaction failed: imu_to_dxl ID200 response timeout",
+    "last_failure": {
+      "cycle": 24684,
+      "error": "bus transaction failed: imu_to_dxl ID200 response timeout",
+      "missing_ids": [
+        200
+      ]
+    },
+    "last_sample": {
+      "at_us": 493612975,
+      "cycle": 24680,
+      "imu": {
+        "gravity": [
+          -0.9289681693270575,
+          -0.07611483254067879,
+          0.362249461896688
+        ],
+        "gyro_rad_s": [
+          0.000370694225593461,
+          -0.0021541014912247114,
+          -0.0021617646567305905
+        ],
+        "id": 200,
+        "mount_verified": true,
+        "quaternion_wxyz": [
+          0.5646822373356332,
+          0.0629664574060716,
+          -0.8228972938283814,
+          -0.0030397186185202266
+        ],
+        "ready": true,
+        "sequence": 76,
+        "source": "bus",
+        "valid": true
+      },
+      "servos": [
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 20,
+          "joint": "left_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2197,
+          "position_signed_raw": 2197,
+          "position_wire_raw": 2197,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 21,
+          "joint": "left_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2297,
+          "position_signed_raw": 2297,
+          "position_wire_raw": 2297,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 22,
+          "joint": "left_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1596,
+          "position_signed_raw": 1596,
+          "position_wire_raw": 1596,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 2,
+          "id": 23,
+          "joint": "left_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1906,
+          "position_signed_raw": 1906,
+          "position_wire_raw": 1906,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 24,
+          "joint": "left_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1241,
+          "position_signed_raw": 1241,
+          "position_wire_raw": 1241,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 30,
+          "joint": "neck_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2133,
+          "position_signed_raw": 2133,
+          "position_wire_raw": 2133,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 31,
+          "joint": "head_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1706,
+          "position_signed_raw": 1706,
+          "position_wire_raw": 1706,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 32,
+          "joint": "head_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1874,
+          "position_signed_raw": 1874,
+          "position_wire_raw": 1874,
+          "speed_raw": 0,
+          "temperature_c": 38,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 33,
+          "joint": "head_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2076,
+          "position_signed_raw": 2076,
+          "position_wire_raw": 2076,
+          "speed_raw": 0,
+          "temperature_c": 35,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 34,
+          "joint": "mouth",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2052,
+          "position_signed_raw": 2052,
+          "position_wire_raw": 2052,
+          "speed_raw": 0,
+          "temperature_c": 40,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 10,
+          "joint": "right_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2031,
+          "position_signed_raw": 2031,
+          "position_wire_raw": 2031,
+          "speed_raw": 0,
+          "temperature_c": 32,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 5,
+          "id": 11,
+          "joint": "right_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1778,
+          "position_signed_raw": 1778,
+          "position_wire_raw": 1778,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 12,
+          "joint": "right_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2792,
+          "position_signed_raw": 2792,
+          "position_wire_raw": 2792,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 13,
+          "joint": "right_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2513,
+          "position_signed_raw": 2513,
+          "position_wire_raw": 2513,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 14,
+          "joint": "right_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2927,
+          "position_signed_raw": 2927,
+          "position_wire_raw": 2927,
+          "speed_raw": 0,
+          "temperature_c": 29,
+          "voltage_v": 7.1000000000000005
+        }
+      ]
+    },
+    "mode": "commissioning",
+    "motion": null,
+    "phase": "read_error",
+    "policy_motion_enabled": false,
+    "port": "/dev/ttyS2",
+    "power_pending": false,
+    "session": 1724,
+    "target_hz": 50.0,
+    "torque_off_pending": null,
+    "torque_state": "off",
+    "total_communication_failures": 17,
+    "total_cycles": 24684,
+    "total_success": 24667,
+    "updated_at_us": 493708060
+  }
+}
