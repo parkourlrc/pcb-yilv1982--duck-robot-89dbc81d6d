@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-01",
+  "board_utc_time": "2026-11-01T07:11:02.017184+00:00",
+  "user_report": "刚才断电，要求 robotd 和 Studio 自启动",
+  "action": "systemctl enable robotd.service microduck-studio.service",
+  "already_enabled_before_request": true,
+  "restarted_services": false,
+  "rebooted_board": false,
+  "services": {
+    "robotd.service": {
+      "is-enabled": {
+        "returncode": 0,
+        "value": "enabled"
+      },
+      "is-active": {
+        "returncode": 0,
+        "value": "active"
+      }
+    },
+    "microduck-studio.service": {
+      "is-enabled": {
+        "returncode": 0,
+        "value": "enabled"
+      },
+      "is-active": {
+        "returncode": 0,
+        "value": "active"
+      }
+    },
+    "duck-servo-web.service": {
+      "is-enabled": {
+        "returncode": 1,
+        "value": "disabled"
+      },
+      "is-active": {
+        "returncode": 3,
+        "value": "inactive"
+      }
+    }
+  },
+  "boot_id": "b61a0c0f-7279-430e-a1fa-22e3ec75f63c",
+  "autostart_links": {
+    "robotd.service": "/etc/systemd/system/robotd.service",
+    "microduck-studio.service": "/etc/systemd/system/microduck-studio.service"
+  },
+  "unit_details": "ExecMainStartTimestampMonotonic=8292638\nExecMainStatus=0\nId=robotd.service\nWantedBy=multi-user.target\nActiveEnterTimestampMonotonic=8551025\n\nExecMainStartTimestampMonotonic=9796425\nExecMainStatus=0\nId=microduck-studio.service\nWantedBy=multi-user.target\nActiveEnterTimestampMonotonic=9798249",
+  "studio_http_status": 200
+}

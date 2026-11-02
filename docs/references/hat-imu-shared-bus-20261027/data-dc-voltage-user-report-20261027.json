@@ -1,0 +1,25 @@
+{
+  "received_date": "2026-10-27",
+  "source": "用户本轮测量口述及测量方式确认；非仪器导出采样",
+  "device": "当前单3P GD32 IMU；具体DATA焊点位于保护件哪侧未确认",
+  "instrument": "万用表直流电压档，型号、量程及精度未记录",
+  "reference": "IMU GND",
+  "activity": "测量时程序持续读取IMU；查询模式、频率及同期成功率未单独记录",
+  "power_context_previously_confirmed": {
+    "supply_v": 7.4,
+    "mode": "CV",
+    "current_limit_a": 3,
+    "reported_total_current_a": [0.6, 0.7]
+  },
+  "observations": [
+    {"servo_count": 10, "reported_data_voltage_v": 3.19},
+    {"servo_count": 15, "reported_data_voltage_range_v": [3.14, 3.16]}
+  ],
+  "displayed_difference_v": [0.03, 0.05],
+  "limitations": [
+    "非示波器高低电平、波形、纹波或瞬态测量",
+    "没有仪表照片、原始采样或测量时间戳",
+    "不能由直流读数反推低电平、上拉电阻、电容或IMU供电轨",
+    "请求和应答活动变化也可能改变仪表读数"
+  ]
+}

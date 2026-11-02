@@ -1,0 +1,220 @@
+# -*- coding: utf-8 -*-
+"""从舵机总线读 IMU 小板（ID 200）：跟主控每 tick 发的是同一条 sync_read。
+
+地址 56、长度 15、ID 200 排第一，后面跟舵机（hardware/imu_to_dxl/总线协议.md §2/§3）。
+舵机状态照旧解，ID 200 的 15 字节块交给这里：判据照主控（fork 的 duck-control
+imu.rs / bus.rs）写，跟 tools/imu200/imu200.py 同一套：
+
+- 四元数三分量全 0 → 融合还没出数（主控沿用上一帧，不计入 ready）
+- 不是有限数 / norm² > 1.02 → 主控拒绝这一帧
+- 前 12 字节连续 25 帧完全相同 → 主控报 orientation is frozen
+- 保留字节（byte 14）必须是 0；状态位 BIT1/BIT2 是板子自己报的故障
+
+板子不应答时，同一条 sync_read 里后面的舵机也会跟着丢（规格 §2），所以连续 5 帧
+没应答就把 200 移出列表、舵机单独读，每 2 秒单独 PING 一下 200，应答了再放回列表 ——
+调试台不会因为没接小板而瘫掉，重试也不会再连累舵机那一帧。
+"""
+import math
+import struct
+import threading
+import time
+from collections import deque
+
+from imu_bridge import BridgeError, HOST_STALE_MS, decode_quaternion, empty_frame
+
+IMU_ID = 200
+BLOCK_ADDR = 56
+BLOCK_LEN = 15
+WINDOW = 12               # 主控只看前 12 字节，StaleImuTracker 也只比这 12 字节
+FROZEN_FRAMES = 25        # bus.rs: 连续 25 帧相同就报 frozen
+GYRO_DPS_PER_LSB = 0.0175
+MISS_DEGRADE = 5          # 连续这么多帧 200 没应答：先把它移出 sync_read
+RETRY_S = 2.0             # 移出后每隔这么久单独 PING 它一次
+
+# 2026-10-24 本机补丁：板②固件状态位为社区 kit v1 语义（host/bus.py TELEM_FLAG_BITS）
+# ——bit0=四元数有效、bit1=计数回绕、bit2=陀螺饱和、bit3=传感器探测失败、bit4=模拟器、
+# bit7=融合运行中。上游 duck-control 旧判据（bit0=未就绪、bit1=通信失败）与本板相反，
+# 曾把有效帧全判“融合没出数”、把计数回绕当“通信失败”。
+BIT_SFLP_VALID = 0x01
+BIT_CNT_WRAP = 0x02
+BIT_SENSOR_ERR = 0x08
+BIT_FUSION_OK = 0x80
+
+
+def decode_block(block):
+    """15 字节 → 陀螺（原始/°/s）、四元数位型、计数、状态、保留。不做任何坐标变换。"""
+    if len(block) != BLOCK_LEN:
+        raise BridgeError(f"块长度 {len(block)}，应为 {BLOCK_LEN}")
+    gyro = struct.unpack_from("<3h", block, 0)
+    packed = struct.unpack_from("<3H", block, 6)
+    return {"gyro_raw": list(gyro), "gyro_dps": [v * GYRO_DPS_PER_LSB for v in gyro],
+            "quat_fp16": list(packed), "counter": block[12], "bits": block[13], "reserved": block[14],
+            "window": bytes(block[:WINDOW])}
+
+
+class BusImuService:
+    """跟 BridgeService 同样的接口（start/stop/get_status），数据由 server 的状态轮询喂进来。"""
+
+    demo = False
+    backend = "bus"
+
+    def __init__(self, poll_hz=None):
+        # 调试台自己按 poll_hz 读（默认 10 Hz）。低于 30 Hz 时 BIT3 每帧都会亮，那是我们读得慢，不是主控，不提示
+        self.poll_hz = poll_hz
+        self.lock = threading.Lock()
+        self.frame = self._frame("disconnected", "等待第一条带 ID 200 的 sync_read。")
+        self.last_publish = time.monotonic()
+        self.misses = 0
+        self.total_misses = 0
+        self.success_times = deque()   # 2026-10-26 本机补丁：60s 滑窗成功应答时刻
+        self.excluded_since = None       # 被移出 sync_read 的时刻；None = 正常带着 200
+        self.last_probe = None
+        self.last_window = None
+        self.same_run = 0
+        self.previous_ok = None
+        self.smooth_hz = 0.0
+        self.frames = 0
+
+    # ---- 生命周期：没有自己的线程，接口跟 BridgeService 对齐 ----
+    def start(self):
+        pass
+
+    def stop(self):
+        pass
+
+    def _frame(self, status, message, **extra):
+        frame = empty_frame("live", status, message)
+        frame.update(backend="bus", probe_name="舵机总线 ID 200", **extra)
+        # 2026-10-25 本机补丁：页面 validPacket 要求 ready==1 且 configured==1（SWD/JLink
+        # 桥的字段），总线模式从未填过 → 面板永远「数据无效」。总线桥本身永远就绪，补上。
+        frame["ready"] = 1
+        frame["configured"] = 1
+        return frame
+
+    def _publish(self, frame):
+        frame["timestamp_ms"] = int(time.time() * 1000)
+        with self.lock:
+            self.frame = frame
+            self.last_publish = time.monotonic()
+
+    def get_status(self):
+        with self.lock:
+            result = dict(self.frame)
+            elapsed_ms = (time.monotonic() - self.last_publish) * 1000
+        if result["live"] and elapsed_ms >= HOST_STALE_MS:
+            result.update(status="stale", live=False, quaternion_xyzw=None, gyro_dps=None, hz=0.0,
+                          message="总线轮询停了（没有网页连着，或者正在校准），姿态暂停。")
+        return result
+
+    # ---- 轮询侧 ----
+    def include_in_sync(self):
+        """这一帧 sync_read 要不要带上 200。"""
+        return self.excluded_since is None
+
+    def due_probe(self, now=None):
+        """出列期间，到点了就该单独 PING 一次 200。"""
+        if self.excluded_since is None:
+            return False
+        now = time.monotonic() if now is None else now
+        if self.last_probe is None or now - self.last_probe >= RETRY_S:
+            self.last_probe = now
+            return True
+        return False
+
+    def probe_result(self, answered):
+        """单独 PING 的结果：应答了就放回 sync_read。返回是否放回。"""
+        if answered and self.excluded_since is not None:
+            self.excluded_since = None
+            self.misses = 0
+            now2 = time.monotonic()
+            self.success_times.append(now2)
+            while self.success_times and now2 - self.success_times[0] > 60.0:
+                self.success_times.popleft()
+            self._publish(self._frame("disconnected", "ID 200 的 PING 有应答了，下一帧重新带上它。"))
+            return True
+        return False
+
+    def feed(self, block, now=None):
+        """block = 200 的 15 字节；None = 这一帧它没应答（或没带它）。返回生成的帧。"""
+        now = time.monotonic() if now is None else now
+        if block is None:
+            self.misses += 1
+            self.total_misses += 1
+            if self.misses >= MISS_DEGRADE and self.excluded_since is None:
+                self.excluded_since = now
+            k = sum(1 for t in self.success_times if now - t <= 60.0)
+            frame = self._frame("disconnected",
+                                f"IMU 应答率过低：连续 {self.misses} 帧未应答，最近 60 秒成功 {k} 次"
+                                f"（链路未断，应答帧内容正常）；小板已隔离单独 PING（每 {RETRY_S:.0f} 秒），"
+                                f"可排查小板供电、DATA 接线和固件协议。",
+                                misses=self.total_misses)
+            self._publish(frame)
+            return frame
+        self.misses = 0
+        self.excluded_since = None
+        self.success_times.append(now)
+        while self.success_times and now - self.success_times[0] > 60.0:
+            self.success_times.popleft()
+        d = decode_block(block)
+        # 2026-10-31 本机补丁（v0.15.4）：状态位判据按固件语义自动区分——
+        # bit7（FUSION_OK）：kit v1 固件（板②出厂）健康帧恒置位；replica 0.2.0（v0.3 新板）
+        # 不使用该位（实测恒 0）。据此分流两套判据，避免把 0.2.0 的 0x08（旧语义=就绪+读慢
+        # 提示）误判成 kit 的"传感器失败+未出数"。[推断：依据两固件位定义与实测特征不重叠]
+        is_kit = bool(d["bits"] & BIT_FUSION_OK)
+        extra = {"connected": True, "sample_count": d["counter"], "raw_gyro": d["gyro_raw"],
+                 "quat_fp16": d["quat_fp16"], "status_bits": d["bits"], "misses": self.total_misses,
+                 "fw_bits": "kit-v1" if is_kit else "rep-0.2.0",
+                 "errors": {"imu": (d["bits"] & BIT_SENSOR_ERR) if is_kit else (d["bits"] & 0x06),
+                            "spi": None, "fifo": None, "quaternion": None, "recovery": None}}
+        self.same_run = self.same_run + 1 if d["window"] == self.last_window else 0
+        self.last_window = d["window"]
+        if d["reserved"] != 0:
+            frame = self._frame("error", f"块的保留字节（byte 14）是 {d['reserved']}，规格要求 0：固件不符合总线协议 §3。", **extra)
+        elif not is_kit and d["bits"] & 0x02:
+            frame = self._frame("error", "小板报告与 IMU 芯片通信失败（0.2.0 语义 BIT1）：检查小板。", **extra)
+        elif not is_kit and d["bits"] & 0x04:
+            frame = self._frame("error", "小板报告 IMU 自检失败（0.2.0 语义 BIT2）：检查 IMU 芯片焊接。", **extra)
+        elif is_kit and d["bits"] & BIT_SENSOR_ERR:
+            frame = self._frame("error", "小板报告传感器探测失败（BIT3，kit 语义 sensor_err）：检查小板与 IMU 芯片。", **extra)
+        elif (not (d["bits"] & BIT_SFLP_VALID) if is_kit else bool(d["bits"] & 0x01)) or not any(d["quat_fp16"]):
+            frame = self._frame("stale", "IMU 融合还没出数（四元数全 0 / 就绪位不符），刚上电约 0.5 秒内正常。", **extra)
+        elif self.same_run + 1 >= FROZEN_FRAMES:
+            frame = self._frame("stale", f"前 12 字节连续 {self.same_run + 1} 帧完全相同：主控会报 orientation is frozen。"
+                                "真芯片静置时低位也在跳，固件不能平滑或量化陀螺。", **extra)
+        else:
+            try:
+                quaternion = decode_quaternion(tuple(d["quat_fp16"]))
+            except BridgeError as exc:
+                frame = self._frame("error", f"四元数主控会拒绝：{exc}", **extra)
+            else:
+                if self.previous_ok is not None:
+                    instant = 1.0 / max(1e-4, now - self.previous_ok)
+                    self.smooth_hz = instant if self.smooth_hz == 0 else self.smooth_hz * 0.8 + instant * 0.2
+                self.previous_ok = now
+                slow = ""   # kit 语义 bit3=传感器错误已在上面按 error 返回；旧“读太慢”提示不适用本板
+                frame = self._frame("live", "正在从舵机总线读 ID 200（跟主控同一条 sync_read）" + slow + "。",
+                                    live=True, quaternion_xyzw=quaternion, gyro_dps=d["gyro_dps"],
+                                    hz=round(self.smooth_hz, 1), age_ms=None, **extra)
+        self.frames += 1
+        self._publish(frame)
+        return frame
+
+
+class FakeImu200:
+    """假总线（--fake）用的假小板：120 Hz 换块，陀螺低位带抖动，四元数绕 Z 慢慢转。"""
+
+    def __init__(self, sample_hz=120.0, ready_after_s=0.5):
+        self.t0 = time.monotonic()
+        self.sample_hz, self.ready_after_s = sample_hz, ready_after_s
+
+    def block(self, now=None):
+        t = (time.monotonic() if now is None else now) - self.t0
+        n = int(t * self.sample_hz)
+        if t < self.ready_after_s:
+            return bytes(12) + bytes([n & 0xFF, 0, 0])   # kit 语义：未就绪=bit0 不置位
+        jitter = (n % 7) - 3
+        yaw = 0.6 * math.sin(t * 0.5)
+        gyro = (int(17 * math.cos(t * 0.5)) + jitter, jitter, -jitter)
+        quat = (0.05, 0.0, math.sin(yaw / 2))   # 带一点倾斜，z 过零时也不会是全 0 的"未就绪"标记
+        return (struct.pack("<3h", *gyro) + struct.pack("<3e", *quat)
+                + bytes([n & 0xFF, BIT_SFLP_VALID | BIT_FUSION_OK, 0]))

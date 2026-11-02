@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-27",
+  "photo": "docs/photos/imu-board-b-20261014-b.jpg",
+  "photo_received_date": "2026-10-14",
+  "photo_sha256": "5c00c3104dca6e190069999f0b712e82f3dce62c1c3404eafc252a7fd18a5f80",
+  "photo_size_px": [
+    1080,
+    1440
+  ],
+  "pcb": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb",
+  "pcb_sha256": "182efae4083ae14193eb7a5bc8ace51cbd62a833c4d7e8b63452029ae092fc82",
+  "evidence": "照片位号/相对布局与公开 PCB 交叉核对，非实测阻值；参考设计批次未与实物逐件对应",
+  "orientation": "用户原图元件面，白色3P朝右；无镜像、无旋转",
+  "detail_crop_xyxy": [
+    475,
+    655,
+    755,
+    850
+  ],
+  "components": {
+    "R5": {
+      "footprint": "microduck:R0603",
+      "at_mm_and_degrees": "133.45 125.66 -90",
+      "reference_design_value": "51R",
+      "photo_box_xyxy": [
+        593,
+        770,
+        644,
+        795
+      ]
+    },
+    "R31": {
+      "footprint": "microduck:R0402",
+      "at_mm_and_degrees": "135.3247 126.3926",
+      "reference_design_value": "100k",
+      "photo_box_xyxy": [
+        596,
+        804,
+        617,
+        839
+      ]
+    },
+    "F1": {
+      "footprint": "microduck:F0603",
+      "at_mm_and_degrees": "130.46 124.1 -90",
+      "reference_design_value": "PTC(40R)",
+      "photo_box_xyxy": [
+        620,
+        706,
+        675,
+        736
+      ]
+    }
+  },
+  "photo_observations": {
+    "R5": "表面可见510标记，未实测电阻",
+    "R31": "无可辨阻值",
+    "F1": "位号F1，非普通电阻；表面类似X的标记不用于确定规格"
+  },
+  "outputs": [
+    "docs/photos/imu-single-port-r31-r5-f1-location-20261027.png",
+    "docs/photos/imu-single-port-data-front-end-crop-20261027.png"
+  ],
+  "generator": "scripts/annotate-imu-data-components-20261027.py"
+}

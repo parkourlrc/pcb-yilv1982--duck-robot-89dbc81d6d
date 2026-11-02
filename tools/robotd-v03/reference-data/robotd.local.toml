@@ -1,0 +1,77 @@
+# Reference numeric settings; local motion remains disabled.
+# Walk deployment-execution.json overrides global action_scale.
+# R17 self-trained HD1910: native HAT transport stays unchanged.
+[bus]
+port = "/dev/ttyS2"
+protocol = "feetech"
+imu_protocol = "feetech"
+imu_profile = "legacy"
+feetech_calibration = "/etc/robot/feetech-ft5/hd1910-calibration.toml"
+[control]
+hz = 50
+[policy]
+custom_only = true
+enabled = false
+mode = "walk"
+walk = "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx"
+sitstand = "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx"
+stand = "none"
+ground_pick = "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx"
+kick_left = "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx"
+kick_right = "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx"
+roulade = "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx"
+gain = 5
+head_lowpass = 1.0
+legs_lowpass = 1.0
+# Policy defaults are generated from config/r17-management.json.
+action_scale = 0.7
+standing_action_scale = 1.0
+ground_pick_period = 4.0
+ground_pick_action_scale = 1.0
+ground_pick_gain_ratio = 1.0
+
+[[policy.skill]]
+name = "roulade"
+duration = 1.0
+chain = true
+command = [0.0, 0.0, 0.0]
+unwind = [0.0, 0.0, 0.0]
+unwind_s = 0.0
+[policy.skill.params]
+action_scale = 1.0
+gain_ratio = 1.0
+
+[[policy.skill]]
+name = "kick_right"
+path = "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx"
+duration = 0.5
+chain = false
+command = [0.0, 0.0, 0.0]
+unwind = [0.0, 0.0, 0.0]
+unwind_s = 0.0
+[policy.skill.params]
+action_scale = 1.0
+
+[[policy.skill]]
+name = "kick_left"
+path = "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx"
+duration = 0.5
+chain = false
+command = [0.0, 0.0, 0.0]
+unwind = [0.0, 0.0, 0.0]
+unwind_s = 0.0
+[policy.skill.params]
+action_scale = 1.0
+
+[pad]
+a = "ground_pick"
+x = "roulade"
+lb = "kick_left"
+rb = "kick_right"
+dpad_down = "sit_toggle"
+
+[trunk_imu]
+source = "bus"
+
+[audio]
+enabled = false

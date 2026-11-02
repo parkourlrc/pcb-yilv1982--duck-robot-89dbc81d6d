@@ -1,0 +1,271 @@
+PDF PAGE 2
+SDS Series Programming Guide 
+Int.siglent.com                                                                           1 
+contents 
+VERSION DECLARATION ..................................................................................................... 14 
+What’s New in Version E11G ........................................................................................... 14 
+What’s New in Version E11F ........................................................................................... 15 
+What’s New in Version E11E ........................................................................................... 15 
+What’s New in Version E11D ........................................................................................... 16 
+What’s New in Version E11C ........................................................................................... 16 
+What’s New in Version E11B ........................................................................................... 17 
+Version E11A at Introduction ........................................................................................... 17 
+SUPPORTED MODELS ......................................................................................................... 18 
+PROGRAMMING OVERVIEW ............................................................................................... 19 
+Establishing Communications ......................................................................................... 19 
+Install NI-VISA .......................................................................................................... 19 
+Connect the Instrument ............................................................................................ 22 
+Remote Control ................................................................................................................ 23 
+User-defined Programming ...................................................................................... 23 
+Send SCPI Commands via NI-MAX ......................................................................... 23 
+Using SCPI with Telnet ............................................................................................. 23 
+Using SCPI with Sockets .......................................................................................... 24 
+Introduction to the SCPI Language ................................................................................. 25 
+Command and Query Structure ............................................................................... 25 
+Long and Short Form................................................................................................ 25 
+Syntax Notation ........................................................................................................ 25 
+Parameter Types ...................................................................................................... 26 
+COMMANDS & QUERIES ..................................................................................................... 28 
+Common (*) Commands .................................................................................................. 29 
+*IDN .......................................................................................................................... 30 
+*OPC ......................................................................................................................... 30 
+*RST ......................................................................................................................... 31 
+Root(:) Commands .......................................................................................................... 32 
+:AUToset ................................................................................................................... 33 
+:PRINt ....................................................................................................................... 33 
+:FORMat:DATA ......................................................................................................... 34 
+ACQUire Commands ....................................................................................................... 35 
+:ACQuire:AMODe ..................................................................................................... 36 
+
+PDF PAGE 3
+SDS Series Programming Guide 
+2                                                                           Int.siglent.com 
+:ACQuire:CSWeep ................................................................................................... 36 
+:ACQuire:INTerpolation ............................................................................................ 37 
+:ACQuire:MMANagement ......................................................................................... 38 
+:ACQuire:MODE ....................................................................................................... 39 
+:ACQuire:MDEPth .................................................................................................... 40 
+:ACQuire:NUMACq ................................................................................................... 42 
+:ACQuire:POINts ...................................................................................................... 42 
+:ACQuire:RESolution ................................................................................................ 43 
+:ACQuire:SEQuence ................................................................................................ 44 
+:ACQuire:SEQuence:COUNt .................................................................................... 45 
+:ACQuire:SRATe ....................................................................................................... 46 
+:ACQuire:TYPE ........................................................................................................ 47 
+CHANnel Commands ...................................................................................................... 48 
+:CHANnel:REFerence .............................................................................................. 49 
+:CHANnel<n>:BWLimit ............................................................................................. 50 
+:CHANnel<n>:COUPling .......................................................................................... 51 
+:CHANnel<n>:IMPedance ........................................................................................ 52 
+:CHANnel<n>:INVert ................................................................................................ 53 
+:CHANnel<n>:LABel ................................................................................................. 54 
+:CHANnel<n>:LABel:TEXT ...................................................................................... 55 
+:CHANnel<n>:OFFSet .............................................................................................. 56 
+:CHANnel<n>:PROBe .............................................................................................. 57 
+:CHANnel<n>:SCALe ............................................................................................... 58 
+:CHANnel<n>:SKEW ................................................................................................ 59 
+:CHANnel<n>:SWITch .............................................................................................. 60 
+:CHANnel<n>:UNIT .................................................................................................. 61 
+:CHANnel<n>:VISible ............................................................................................... 62 
+COUNter Commands....................................................................................................... 63 
+:COUNter .................................................................................................................. 64 
+:COUNter:CURRent ................................................................................................. 65 
+:COUNter:LEVel ....................................................................................................... 66 
+:COUNter:MODE ...................................................................................................... 67 
+:COUNter:SOURce ................................................................................................... 68 
+:COUNter:STATistics ................................................................................................ 69 
+:COUNter:STATistics:RESet ..................................................................................... 70 
+:COUNter:STATistics:VALue ..................................................................................... 71 
+:COUNter:TOTalizer:GATE ....................................................................................... 72 
+:COUNter:TOTalizer:GATE:LEVel ............................................................................ 73 
+
+PDF PAGE 20
+SDS Series Programming Guide 
+Int.siglent.com                                                                           19  
+Programming Overview 
+This chapter introduces how to build communication between the instrument and the PC. It also 
+introduces how to configure a system for remote instrument control. 
+ 
+Users can remotely control the instrument through USB and LAN interfaces, in combination with 
+National Instruments NI-VISA and programming languages. Through the LAN interface, users can 
+communicate using VXI-11, Sockets and Telnet protocols, depending on the capabilities of the 
+specific instrument. 
+ 
+Establishing Communications 
+Install NI-VISA  
+USB control requires the National Instruments NI-VISA Library for communications. We also 
+recommend using it for LAN communications for its ease of use, but sockets, telnet, and VXI-11 can 
+also be implemented via LAN connections.  
+ 
+Currently, NI-VISA is packaged in two versions: A full version and a Run-Time Engine version. The 
+full version includes the NI device drivers and a tool named NI MAX which is a user interface to 
+control and test remotely connected devices. The Run-Time Engine is recommended, as it is a 
+much smaller download than the full version and includes the necessary tools for basic 
+communication to instruments. 
+ 
+For example, you can get the NI-VISA 5.4 full version from http://www.ni.com/download/ni-visa-
+5.4/4230/en/. 
+ 
+You also can download NI-VISA Run-Time Engine 5.4 to your PC and install it as the default 
+selection. Its installation process is similar to the full version. 
+ 
+After you downloaded the file, follow these steps to install NI-VISA (The full version of NI-VISA 5.4 is 
+used in this example. Newer versions are likely and should be compatible with SIGLENT 
+instrumentation. Download the latest version available for the operating system being used by the 
+controlling computer): 
+ 
+a. Double click the visa540_full.exe, the dialog will be similar to that shown below: 
+
+PDF PAGE 21
+SDS Series Programming Guide 
+20                                                                            Int.siglent.com 
+ 
+ 
+b. Click Unzip, the installation process will automatically launch after unzipping files. If your 
+computer needs to install .NET Framework 4, it may auto start. 
+ 
+ 
+c. The NI-VISA installing dialog is shown above. Click Next to start the installation process. 
+ 
+ 
+d. Set the install path. The default path is “C:\Program Files\National Instruments\”, you can 
+change it. Click Next, dialog shown as above. 
+
+
+PDF PAGE 25
+SDS Series Programming Guide 
+24                                                                            Int.siglent.com 
+ 
+ 
+5. At the SCPI> prompt, input the SCPI commands such as *IDN? to return the company name, 
+model number, serial number, and firmware version number. 
+ 
+ 
+6. To exit the SCPI> session, press the Ctrl+] keys simultaneously. 
+7. Type quit at the prompt or close the Telnet window to close the connection to the instrument 
+and exit Telnet. 
+ 
+Using SCPI with Sockets 
+Socket API can be used to control the SDS2000X Plus series via LAN without installing any other 
+libraries. This can reduce the complexity of programming. 
+ 
+SOCKET ADDRESS IP address+port number 
+IP ADDRESS SDS IP address 
+PORT NUMBER 5025 
+ 
+Please see the section "Examples of Using Sockets" for the details. 
+
+
+PDF PAGE 26
+SDS Series Programming Guide 
+Int.siglent.com                                                                           25  
+Introduction to the SCPI Language 
+Command and Query Structure 
+Commands consist of set commands and query commands (usually called commands and queries). 
+Commands modify oscilloscope settings or tell the oscilloscope to perform a specific action. Queries 
+cause the oscilloscope to return data and status information. Not all commands have both a set and 
+a query form. Some commands have set only and some have query only. 
+ 
+Commands usually start with a colon [:]. A keyword is separated by a colon (:) followed by optional 
+parameter settings. A question mark (?) is added after the command line to indicate that this 
+function is queried. The command keyword is separated from the first parameter by spaces. 
+Example: 
+:CHANnel:SCALe <value> 
+:CHANnel:SCALe? 
+ 
+Long and Short Form 
+Each command has both a long and a short form. Note that elsewhere in this document a special 
+notation is employed to differentiate the short form keyword from the long form of the same 
+keyword. The long form of the keyword is shown, with the short form portion shown in uppercase 
+characters, and the rest of the keyword is shown in lowercase characters. If you want to abbreviate, 
+you have to type all the capital letters in the command format. 
+Example:  
+:CHANnel1:SCALe? 
+:CHAN1:SCAL? 
+ 
+Syntax Notation 
+The following notations are used in the commands: 
+ 
+< > (Angle Brackets) 
+Angle brackets enclose words that are used as placeholders, of which there are two types: the 
+header path and the data parameter of a command. Parameters are distinguished by enclosing the 
+type name in angle brackets. 
+ 
+:= (Defined As) 
+A colon followed by an equals sign separates a placeholder from the description of the type and 
+range of values that may be used in a command instead of the placeholder. 
+ 
+
+PDF PAGE 31
+SDS Series Programming Guide 
+30                                                                            Int.siglent.com 
+*IDN 
+Query 
+ 
+DESCRIPTION The command query identifies the instrument type and 
+software version. The response consists of four different fields 
+providing information on the manufacturer, the scope model, 
+the serial number and the firmware revision. 
+ 
+QUERY SYNTAX *IDN? 
+ 
+RESPONSE FORMAT Siglent Technologies,<model>,<serial_number>,<firmware> 
+ 
+<model>:= The model number of the instrument. 
+ 
+<serial number>:= A 14-character code. 
+ 
+<firmware>:= The software revision of the instrument 
+ 
+EXAMPLE The following command queries the instrument type and 
+software version. 
+ 
+Query message: 
+*IDN? 
+ 
+Response message: 
+Siglent 
+Technologies,SDS5104X,SDS5XDAD2R0160,4.6.0.8.7R1 
+ 
+ 
+*OPC 
+Query 
+ 
+DESCRIPTION The command query places an ASCII "1" in the output queue 
+when all pending device operations have completed. The 
+interface hangs until this query returns. 
+ 
+QUERY SYNTAX *OPC? 
+ 
+RESPONSE FORMAT 1 
+ 
+EXAMPLE Query message: 
+*OPC? 
+ 
+Response message: 
+1 
+ 
+ 
+
+PDF PAGE 36
+SDS Series Programming Guide 
+Int.siglent.com                                                                           35  
+ACQUire Commands 
+The :ACQUIRE subsystem commands control the way in which waveforms are acquired. These 
+commands set the parameters for acquiring and storing data. 
+ 
+ :ACQuire:AMODe 
+ :ACQuire:CSWeep 
+ :ACQuire:INTerpolation 
+ :ACQuire:MMANagement 
+ :ACQuire:MODE 
+ :ACQuire:MDEPth 
+ :ACQuire:NUMACq 
+ :ACQuire:POINts 
+ :ACQuire:RESolution 
+ :ACQuire:SEQuence 
+ :ACQuire:SEQuence:COUNt 
+ :ACQuire:SRATe 
+ :ACQuire:TYPE 
+ 
+  

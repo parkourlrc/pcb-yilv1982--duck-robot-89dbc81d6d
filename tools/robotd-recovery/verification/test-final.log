@@ -1,0 +1,17 @@
+   Compiling duck-ipc-proto v0.15.1 (/root/duck-robot-recovery-20261101/duck-ipc-proto)
+   Compiling duck-control v0.15.1 (/root/duck-robot-recovery-20261101/duck-control)
+   Compiling odometry v0.15.1 (/root/duck-robot-recovery-20261101/odometry)
+   Compiling updater v0.15.1 (/root/duck-robot-recovery-20261101/updater)
+   Compiling robotd-params v0.15.1 (/root/duck-robot-recovery-20261101/robotd-params)
+   Compiling robotd v0.15.1 (/root/duck-robot-recovery-20261101/robotd)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.10s
+     Running unittests src/main.rs (target/debug/deps/robotd-841120f08aa4bf66)
+
+running 4 tests
+test recovery::tests::bad_feedback_and_timeout_abort_even_with_fresh_lease ... ok
+test recovery::tests::duplicate_start_and_heartbeat_do_not_restart_deadline ... ok
+test recovery::tests::recovery_needs_continuous_pose_and_exits_on_new_instability ... ok
+test recovery::tests::taken_start_cannot_outlive_relax_or_init ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 328 filtered out; finished in 0.00s
+

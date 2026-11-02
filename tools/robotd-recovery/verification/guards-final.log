@@ -1,0 +1,92 @@
+   Compiling duck-ipc-proto v0.15.1 (/root/duck-robot-recovery-20261101/duck-ipc-proto)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.05s
+     Running unittests src/lib.rs (target/debug/deps/duck_ipc_proto-cf64655e3d7a7dc0)
+
+running 55 tests
+test clock::tests::monotonic_advances_and_realtime_is_this_century ... ok
+test tests::a_beacon_survives_the_advertisement ... ok
+test tests::a_binary_outside_the_layout_has_no_release ... ok
+test tests::a_call_serialises_as_jsonrpc ... ok
+test tests::a_bus_section_missing_a_counter_still_parses ... ok
+test tests::a_deleted_binary_still_names_its_release ... ok
+test tests::a_clean_frame_carries_neither_alarm ... ok
+test tests::a_dev_release_keeps_the_suffix_that_distinguishes_it ... ok
+test tests::a_hit_renders_only_what_the_publisher_wrote ... ok
+test tests::a_log_entry_without_a_run_still_parses ... ok
+test tests::a_missing_battery_is_unknown_not_empty ... ok
+test tests::a_notification_parses_without_an_id_field ... ok
+test tests::a_pairing_pin_is_redacted_from_debug_output ... ok
+test tests::a_quantised_register_is_good_enough_to_cast_from ... ok
+test tests::a_ref_with_a_slash_survives_the_wire ... ok
+test tests::a_release_path_names_its_version ... ok
+test tests::a_roster_of_the_wrong_length_is_not_a_beacon ... ok
+test tests::a_run_record_is_one_flat_line ... ok
+test tests::a_state_frame_missing_odom_still_parses ... ok
+test tests::a_usb_pad_is_not_on_the_radio ... ok
+test tests::a_wifi_key_is_redacted_from_debug_output ... ok
+test tests::a_wifi_key_still_serialises ... ok
+test tests::an_address_payload_is_not_mistaken_for_a_beacon ... ok
+test tests::an_imu_section_missing_its_newest_field_still_parses ... ok
+test tests::an_unknown_run_event_keeps_the_rest_of_the_transcript ... ok
+test tests::an_unlimited_command_omits_limited_by ... ok
+test tests::build_info_is_explicit_about_an_unknown_revision ... ok
+test tests::an_unknown_params_member_is_refused_by_name ... ok
+test tests::an_older_frame_reports_no_velocity_rather_than_zero ... ok
+test tests::component_carrying_calls_expose_it ... ok
+test tests::build_info_macro_reports_the_calling_crate ... ok
+test tests::every_call_covers_every_variant ... ok
+test tests::degraded_is_omitted_when_false_and_present_when_true ... ok
+test tests::every_call_has_a_distinct_method ... ok
+test tests::from_dir_round_trips_and_is_omitted_when_unset ... ok
+test tests::health_without_the_degraded_field_is_not_degraded ... ok
+test tests::an_identity_survives_being_published_and_read_back ... ok
+test tests::methods_without_params_accept_any_params_field ... ok
+test tests::hello_result_round_trips_with_and_without_a_revision ... ok
+test tests::notifications_carry_no_id ... ok
+test tests::only_authenticate_has_no_service ... ok
+test tests::only_software_changing_calls_are_mutating ... ok
+test tests::every_call_round_trips_over_the_wire ... ok
+test tests::pairing_a_pad_needs_no_parameters ... ok
+test tests::recovery_actions_round_trip_without_duplicate_methods ... ok
+test tests::pad_reports_round_trip_under_their_tag ... ok
+test tests::robot_results_round_trip ... ok
+test tests::responses_omit_the_half_they_do_not_use ... ok
+test tests::subscriptions_are_the_only_thing_on_the_stream_lane ... ok
+test tests::robot_state_uses_the_documented_field_names ... ok
+test tests::the_imu_fusion_view_is_optional_and_tolerant ... ok
+test tests::unknown_methods_and_bad_params_get_different_codes ... ok
+test tests::target_round_trips_in_every_form ... ok
+test tests::velocity_and_load_ride_under_their_documented_names ... ok
+test tests::the_theremin_block_is_absent_until_there_is_a_theremin ... ok
+
+test result: ok. 55 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running unittests src/main.rs (target/debug/deps/robotd-841120f08aa4bf66)
+
+running 7 tests
+test home_start::tests::actual_home_is_required_even_after_the_ramp ... ok
+test home_start::tests::first_inference_rechecks_home_and_never_queues_a_rejected_press ... ok
+test home_start::tests::home_uses_the_model_contract_and_beak_remains_independent ... ok
+test home_start::tests::incomplete_sensors_torque_and_homing_each_block_start ... ok
+test home_start::tests::limp_recovery_needs_live_fallen_feedback_without_upright_home ... ok
+test home_start::tests::stable_frames_reset_on_a_gap_and_ready_feedback_expires ... ok
+test home_start::tests::tilt_and_invalid_gravity_block_start ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 325 filtered out; finished in 0.00s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running unittests src/main.rs (target/debug/deps/robotd-841120f08aa4bf66)
+
+running 8 tests
+test tests::r17_explicit_disable_returns_home_only_after_an_enabled_policy ... ok
+test tests::r17_home_hold_mouth_never_bypasses_startup_relax_fall_or_missing_sensors ... ok
+test tests::r17_homed_flag_alone_cannot_enable_and_home_does_not_replay_the_press ... ok
+test tests::r17_init_needs_no_home_imu_or_readiness_precheck ... ok
+test tests::r17_motion_reads_loaded_calibration_but_rejects_raw_mutations ... ok
+test tests::r17_old_home_feedback_cannot_enable ... ok
+test tests::r17_start_outside_home_requests_home_without_enabling ... ok
+test tests::r17_startup_refuses_motion_without_queuing_it_for_later ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 324 filtered out; finished in 0.00s
+

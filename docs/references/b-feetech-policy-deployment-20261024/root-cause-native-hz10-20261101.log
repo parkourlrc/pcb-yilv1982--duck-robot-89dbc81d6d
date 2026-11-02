@@ -1,0 +1,399 @@
+1793511167.993145 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000246>
+1793511167.994483 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1963832}) <0.000174>
+1793511167.995088 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000073>
+1793511167.995328 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1494809}) <0.000546>
+1793511167.996030 read(11, "\xff\xff\xc8\x11\x00\xf7\xff\xf8\xff\x04\x00\x7a\xb0\x3b\xb2\x15\x3a\x26\x08\x00\xa1", 128) = 21 <0.000059>
+1793511167.996281 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000048>
+1793511167.996451 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1993874}) <0.000044>
+1793511167.996634 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000046>
+1793511167.996809 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1385137}) <0.000659>
+1793511167.997629 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x03\x00\x49\xff\xff\x15\x11\x00", 256) = 26 <0.000050>
+1793511167.997839 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992999}) <0.000046>
+1793511167.998029 read(11, "\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x04\x00\x86\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x48\x06\x04\x00\xd2\xff\xff\x17", 256) = 40 <0.000043>
+1793511167.998202 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000045>
+1793511167.998386 read(11, "\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x03\x00\x9c\xff\xff\x18\x11", 256) = 22 <0.000043>
+1793511167.998553 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993874}) <0.000045>
+1793511167.998736 read(11, "\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x04\x00\xb1\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x04\x00\xc2\xff\xff\x1f\x11\x00", 256) = 43 <0.000044>
+1793511167.998913 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1942247}) <0.000097>
+1793511167.999151 read(11, "\xac\x06\x00\x00\x00\x00\x48\x1f\x00\x00\x00\xac\x06\x03\x00\x01\xff\xff\x20", 256) = 19 <0.000043>
+1793511167.999321 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000044>
+1793511167.999501 read(11, "\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x04\x00\xd9\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x48\x21\x00\x00\x00\x0b\x08\x03\x00\x3b\xff\xff\x22\x11\x00", 256) = 44 <0.000043>
+1793511167.999671 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1939914}) <0.000099>
+1793511167.999910 read(11, "\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x05\x00\x95\xff\xff\x0a", 256) = 19 <0.000042>
+1793511168.000101 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993583}) <0.000046>
+1793511168.000285 read(11, "\x11\x00\xe6\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe6\x07\x03\x00\xa0\xff\xff", 256) = 20 <0.000043>
+1793511168.000453 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000043>
+1793511168.000634 read(11, "\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x04\x00\xb6\xff\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x03\x00\xa8\xff\xff", 256) = 42 <0.000042>
+1793511168.000804 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1986291}) <0.000095>
+1793511168.001350 read(11, "\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x03\x00\x43\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x03\x00\xdf", 256) = 40 <0.000051>
+1793511168.092537 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000121>
+1793511168.093169 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1967332}) <0.000168>
+1793511168.093727 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000142>
+1793511168.094086 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1658151}) <0.000429>
+1793511168.094677 read(11, "\xff\xff\xc8\x11\x00\xf8\xff\xfc\xff\x02\x00\x7a\xb0\x3b\xb2\x15\x3a\x32\x08\x00\x92", 128) = 21 <0.000058>
+1793511168.094933 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000106>
+1793511168.095186 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1992417}) <0.000100>
+1793511168.095463 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000112>
+1793511168.095722 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1590772}) <0.000448>
+1793511168.096328 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x8d\x08\x02\x00\x49\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x04\x00\x86", 256) = 42 <0.000070>
+1793511168.096541 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1929122}) <0.000110>
+1793511168.096787 read(11, "\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x48\x06\x04\x00\xd2", 256) = 21 <0.000043>
+1793511168.097015 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992708}) <0.000114>
+1793511168.097307 read(11, "\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x03\x00\x9c\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x03\x00\xb2", 256) = 42 <0.000049>
+1793511168.097529 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993583}) <0.000046>
+1793511168.097718 read(11, "\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x04\x00\xc2", 256) = 21 <0.000044>
+1793511168.097892 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000044>
+1793511168.098071 read(11, "\xff\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x48\x1f\x00\x00\x00\xac\x06\x03\x00\x01\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x03\x00\xda", 256) = 42 <0.000043>
+1793511168.098241 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1967332}) <0.000071>
+1793511168.098447 read(11, "\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x48\x20\x00\x00\x00\x0b\x08\x03\x00\x3c", 256) = 21 <0.000065>
+1793511168.098642 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000043>
+1793511168.098843 read(11, "\xff\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x05\x00\x95\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe6\x07\x03\x00\xa0", 256) = 42 <0.000042>
+1793511168.099009 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000058>
+1793511168.099201 read(11, "\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x03\x00\xb7\xff", 256) = 22 <0.000042>
+1793511168.099383 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000045>
+1793511168.099686 read(11, "\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x03\x00\xa8\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x04\x00\x42", 256) = 41 <0.000043>
+1793511168.099854 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000042>
+1793511168.100031 read(11, "\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x02\x00\xe0", 256) = 21 <0.000041>
+1793511168.192922 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000158>
+1793511168.193502 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1979874}) <0.000109>
+1793511168.193849 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000177>
+1793511168.194235 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1724070}) <0.000318>
+1793511168.194713 read(11, "\xff\xff\xc8\x11\x00\xf5\xff\xf8\xff\x01\x00\x79\xb0\x3b\xb2\x15\x3a\x3d\x08\x00\x90", 128) = 21 <0.000154>
+1793511168.195068 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000100>
+1793511168.195316 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1989208}) <0.000101>
+1793511168.195586 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000114>
+1793511168.195845 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1599523}) <0.000441>
+1793511168.196431 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x03\x00\x49", 256) = 21 <0.000067>
+1793511168.196637 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000043>
+1793511168.196825 read(11, "\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x04\x00\x86\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x48\x06\x03\x00\xd3", 256) = 42 <0.000042>
+1793511168.197043 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1990083}) <0.000056>
+1793511168.197282 read(11, "\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x03\x00\x9c", 256) = 21 <0.000048>
+1793511168.197460 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994166}) <0.000045>
+1793511168.197646 read(11, "\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x04\x00\xb1\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x05\x00\xc1\xff", 256) = 43 <0.000043>
+1793511168.197818 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000043>
+1793511168.197997 read(11, "\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xac\x06\x03\x00\x02", 256) = 20 <0.000042>
+1793511168.198162 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995625}) <0.000042>
+1793511168.198339 read(11, "\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x04\x00\xd9\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x48\x20\x00\x00\x00\x0b\x08\x04\x00\x3b\xff", 256) = 43 <0.000056>
+1793511168.198522 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1919788}) <0.000118>
+1793511168.198774 read(11, "\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x04\x00\x96", 256) = 20 <0.000042>
+1793511168.198961 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994166}) <0.000045>
+1793511168.199258 read(11, "\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe6\x07\x04\x00\x9f\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x04\x00\xb6", 256) = 42 <0.000044>
+1793511168.199430 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995334}) <0.000044>
+1793511168.199608 read(11, "\xff\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x04\x00\xa7", 256) = 21 <0.000042>
+1793511168.199784 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000043>
+1793511168.199962 read(11, "\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x04\x00\x42\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x03\x00\xdf", 256) = 42 <0.000042>
+1793511168.293010 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000158>
+1793511168.293587 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1976665}) <0.000156>
+1793511168.294081 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000133>
+1793511168.294426 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1740988}) <0.000346>
+1793511168.294923 read(11, "\xff\xff\xc8\x11\x00\xfa\xff\xfc\xff\xff\xff\x79\xb0\x3b\xb2\x15\x3a\x49\x08\x00\x7e", 128) = 21 <0.000056>
+1793511168.295163 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000096>
+1793511168.295397 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1993291}) <0.000092>
+1793511168.295658 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000105>
+1793511168.295906 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1650858}) <0.000389>
+1793511168.296441 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x03\x00\x49", 256) = 21 <0.000044>
+1793511168.296640 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994749}) <0.000043>
+1793511168.296818 read(11, "\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x04\x00\x86\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x48\x06\x04\x00\xd2", 256) = 42 <0.000043>
+1793511168.297036 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1935539}) <0.000111>
+1793511168.297328 read(11, "\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x03\x00\x9c", 256) = 21 <0.000067>
+1793511168.297532 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992999}) <0.000046>
+1793511168.297721 read(11, "\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x03\x00\xb2\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x04\x00\xc2\xff", 256) = 43 <0.000043>
+1793511168.297899 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994459}) <0.000044>
+1793511168.298081 read(11, "\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xac\x06\x04\x00\x01", 256) = 20 <0.000043>
+1793511168.298248 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000043>
+1793511168.298430 read(11, "\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x03\x00\xda", 256) = 21 <0.000044>
+1793511168.298597 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000044>
+1793511168.298903 read(11, "\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x48\x20\x00\x00\x00\x0b\x08\x04\x00\x3b\xff\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x03\x00\x97", 256) = 42 <0.000044>
+1793511168.299085 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992708}) <0.000046>
+1793511168.299272 read(11, "\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe6\x07\x03\x00\xa0\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x04\x00\xb6", 256) = 42 <0.000044>
+1793511168.299445 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1978124}) <0.000082>
+1793511168.299662 read(11, "\xff\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x20\x00\x00\x00\x5f\x0a\x03\x00\xa7", 256) = 21 <0.000043>
+1793511168.299848 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000042>
+1793511168.300024 read(11, "\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x03\x00\x43\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x04\x00\xde", 256) = 42 <0.000042>
+1793511168.392369 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000075>
+1793511168.392897 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1968498}) <0.000175>
+1793511168.393510 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000185>
+1793511168.393934 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1835492}) <0.000206>
+1793511168.394307 read(11, "\xff\xff\xc8\x11\x00\xf5\xff\xfa\xff\x01\x00\x79\xb0\x3b\xb2\x15\x3a\x55\x08\x00\x76", 128) = 21 <0.000060>
+1793511168.394558 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000053>
+1793511168.394732 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1993875}) <0.000044>
+1793511168.394914 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000046>
+1793511168.395092 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1581439}) <0.000456>
+1793511168.395683 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x02\x00\x4a", 256) = 21 <0.000044>
+1793511168.395861 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000041>
+1793511168.396036 read(11, "\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x04\x00\x86", 256) = 21 <0.000041>
+1793511168.396201 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000042>
+1793511168.396377 read(11, "\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x48\x06\x04\x00\xd2\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x02\x00\x9d", 256) = 42 <0.000042>
+1793511168.396543 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1957706}) <0.000081>
+1793511168.396758 read(11, "\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x03\x00\xb2", 256) = 21 <0.000042>
+1793511168.396926 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993875}) <0.000057>
+1793511168.397212 read(11, "\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x04\x00\xc2\xff\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xac\x06\x03\x00\x02", 256) = 42 <0.000047>
+1793511168.397400 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000044>
+1793511168.397749 read(11, "\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x04\x00\xd9\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x47\x20\x00\x00\x00\x0b\x08\x03\x00\x3d\xff", 256) = 43 <0.000044>
+1793511168.397926 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000043>
+1793511168.398106 read(11, "\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x03\x00\x97", 256) = 20 <0.000041>
+1793511168.398292 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000042>
+1793511168.398469 read(11, "\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe6\x07\x02\x00\xa2\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x04\x00\xb6\xff", 256) = 43 <0.000054>
+1793511168.398652 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1922413}) <0.000116>
+1793511168.398903 read(11, "\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x04\x00\xa7", 256) = 20 <0.000042>
+1793511168.399087 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000042>
+1793511168.399264 read(11, "\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x04\x00\x42\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x03\x00\xdf", 256) = 42 <0.000059>
+1793511168.399678 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000052>
+1793511168.399851 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1993583}) <0.000045>
+1793511168.400112 write(11, "\xff\xff\xfe\x6d\x83\x2a\x06\x14\x8d\x08\x00\x00\x00\x00\x15\xed\x08\x00\x00\x00\x00\x16\x48\x06\x00\x00\x00\x00\x17\x63\x07\x00\x00\x00\x00\x18\xda\x04\x00\x00\x00\x00\x1e\x4a\x08\x00\x00\x00\x00\x1f\xac\x06\x00\x00\x00\x00\x20\x3c\x07\x00\x00\x00\x00\x21\x0b\x08\x00\x00\x00\x00\x22\xdc\x07\x00\x00\x00\x00\x0a\xe6\x07\x00\x00\x00\x00\x0b\x5b\x07\x00\x00\x00\x00\x0c\x5f\x0a\x00\x00\x00\x00\x0d\x92\x09\x00\x00\x00\x00\x0e\x42\x0b\x00\x00\x00\x00\x9a", 113) = 113 <0.000073>
+1793511168.492110 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000688>
+1793511168.493604 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1959164}) <0.000186>
+1793511168.494556 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000253>
+1793511168.495200 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1972582}) <0.000177>
+1793511168.495700 read(11, "\xff\xff\xc8\x11\x00\xf6\xff\xfb\xff\x01\x00\x79\xb0\x3a\xb2\x15\x3a\x61\x08\x00\x69", 128) = 21 <0.000147>
+1793511168.496218 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000061>
+1793511168.496460 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1976666}) <0.000065>
+1793511168.496701 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000084>
+1793511168.496929 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1664276}) <0.000387>
+1793511168.497560 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x01\x80\xcb", 256) = 21 <0.000075>
+1793511168.497795 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000044>
+1793511168.497980 read(11, "\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x01\x80\x09\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x48\x06\x03\x80\x54", 256) = 42 <0.000046>
+1793511168.498157 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993583}) <0.000049>
+1793511168.498499 read(11, "\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x45\x1e\x00\x00\x00\x63\x07\x02\x80\x1e\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xda\x04\x01\x80\x34", 256) = 42 <0.000046>
+1793511168.498684 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1956831}) <0.000082>
+1793511168.498905 read(11, "\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x4a\x08\x00\x00\xc7\xff", 256) = 22 <0.000064>
+1793511168.499095 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000043>
+1793511168.499290 read(11, "\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xac\x06\x01\x80\x84\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x01\x00\xdc", 256) = 41 <0.000042>
+1793511168.499458 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000058>
+1793511168.499649 read(11, "\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x47\x20\x00\x00\x00\x0b\x08\x00\x00\x40\xff", 256) = 22 <0.000041>
+1793511168.499827 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995917}) <0.000042>
+1793511168.500004 read(11, "\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x01\x80\x19\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe6\x07\x01\x80\x23", 256) = 41 <0.000059>
+1793511168.500185 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1896162}) <0.000141>
+1793511168.500463 read(11, "\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x01\x80\x39\xff", 256) = 22 <0.000042>
+1793511168.500636 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995917}) <0.000042>
+1793511168.500812 read(11, "\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x02\x80\x29\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x02\x80\xc4\xff", 256) = 42 <0.000061>
+1793511168.501035 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1932330}) <0.000117>
+1793511168.501317 read(11, "\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x02\x80\x60", 256) = 20 <0.000048>
+1793511168.501622 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000053>
+1793511168.501800 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1991542}) <0.000046>
+1793511168.502001 write(11, "\xff\xff\xfe\x22\x83\x28\x01\x14\x01\x15\x01\x16\x01\x17\x01\x18\x01\x1e\x01\x1f\x01\x20\x01\x21\x01\x22\x01\x0a\x01\x0b\x01\x0c\x01\x0d\x01\x0e\x01\xda", 38) = 38 <0.000075>
+1793511168.502237 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000042>
+1793511168.502394 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1994749}) <0.000042>
+1793511168.502571 write(11, "\xff\xff\xfe\x13\x82\x28\x01\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xf9", 23) = 23 <0.000055>
+1793511168.502756 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1670109}) <0.000368>
+1793511168.503259 read(11, "\xff\xff\x14\x03\x00\x01\xe7\xff\xff\x15\x03\x00\x01\xe6\xff\xff\x16\x03\x00\x01\xe5", 256) = 21 <0.000059>
+1793511168.503445 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000042>
+1793511168.503622 read(11, "\xff\xff\x17\x03\x00\x01\xe4\xff\xff\x18\x03\x00\x01\xe3", 256) = 14 <0.000042>
+1793511168.503891 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994167}) <0.000057>
+1793511168.504084 read(11, "\xff\xff\x1e\x03\x00\x01\xdd\xff\xff\x1f\x03\x00\x01\xdc\xff\xff\x20\x03\x00\x01\xdb\xff\xff\x21\x03\x00\x01\xda", 256) = 28 <0.000043>
+1793511168.504262 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000042>
+1793511168.504439 read(11, "\xff\xff\x22\x03\x00\x01\xd9\xff\xff\x0a\x03\x00\x01\xf1\xff\xff\x0b\x03\x00\x01\xf0", 256) = 21 <0.000045>
+1793511168.504606 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000043>
+1793511168.504786 read(11, "\xff\xff\x0c\x03\x00\x01\xef\xff\xff\x0d\x03\x00\x01\xee", 256) = 14 <0.000042>
+1793511168.504950 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1991542}) <0.000056>
+1793511168.505236 read(11, "\xff\xff\x0e\x03\x00\x01\xed", 256) = 7 <0.000047>
+1793511168.592284 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000166>
+1793511168.592905 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1971999}) <0.000166>
+1793511168.593496 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000140>
+1793511168.593814 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1706277}) <0.000333>
+1793511168.594359 read(11, "\xff\xff\xc8\x11\x00\xf6\xff\xfb\xff\x03\x00\x7a\xb0\x3b\xb2\x15\x3a\x6d\x08\x00\x59", 128) = 21 <0.000103>
+1793511168.594753 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000096>
+1793511168.595003 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1989208}) <0.000140>
+1793511168.595358 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000071>
+1793511168.595572 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1578522}) <0.000461>
+1793511168.596178 read(11, "\xff\xff\x14\x11\x00\x8d\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x8d\x08\x00\x00\x4c", 256) = 21 <0.000052>
+1793511168.596390 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1986875}) <0.000058>
+1793511168.596635 read(11, "\xff\xff\x15\x11\x00\xed\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xed\x08\x00\x00\x8a\xff\xff\x16\x11\x00\x48\x06\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x48\x06\x02\x80\x55", 256) = 42 <0.000170>
+1793511168.597661 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1969665}) <0.000126>
+1793511168.598443 read(11, "\xff\xff\x17\x11\x00\x63\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x63\x07\x02\x80\x1d\xff\xff\x18\x11\x00\xda\x04\x00\x00\x00\x00\x46\x1e\x00\x00\x00\xda\x04\x02\x80\x34\xff\xff\x1e\x11\x00\x4a\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x4a\x08\x00\x00\xc6\xff\xff\x1f\x11\x00\xac\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xac\x06\x02\x80\x83\xff\xff\x20\x11\x00\x3c\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3c\x07\x00\x00\xdd\xff\xff\x21\x11\x00\x0b\x08\x00\x00\x00\x00\x48\x21\x00\x00\x00\x0b\x08\x01\x80\xbd\xff\xff\x22\x11\x00\xdc\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xdc\x07\x02\x80\x18", 256) = 147 <0.000079>
+1793511168.598860 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1974332}) <0.000208>
+1793511168.599427 read(11, "\xff\xff\x0a\x11\x00\xe6\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe6\x07\x00\x00\xa4\xff\xff\x0b\x11\x00\x5b\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5b\x07\x00\x00\xba\xff\xff\x0c\x11\x00\x5f\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x5f\x0a\x02\x80\x29\xff\xff\x0d\x11\x00\x92\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x92\x09\x03\x80\xc3", 256) = 84 <0.000212>
+1793511168.600283 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1975498}) <0.000124>
+1793511168.600777 read(11, "\xff\xff\x0e\x11\x00\x42\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x42\x0b\x02\x80\x60", 256) = 21 <0.000105>
+1793511168.601357 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000158>
+1793511168.601783 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1975498}) <0.000113>
+1793511168.602158 write(11, "\xff\xff\xfe\x6d\x83\x2a\x06\x14\x88\x08\x00\x00\x00\x00\x15\xeb\x08\x00\x00\x00\x00\x16\x5d\x06\x00\x00\x00\x00\x17\x53\x07\x00\x00\x00\x00\x18\xe5\x04\x00\x00\x00\x00\x1e\x50\x08\x00\x00\x00\x00\x1f\xb5\x06\x00\x00\x00\x00\x20\x3f\x07\x00\x00\x00\x00\x21\xfc\x07\x00\x00\x00\x00\x22\xc8\x07\x00\x00\x00\x00\x0a\xe4\x07\x00\x00\x00\x00\x0b\x55\x07\x00\x00\x00\x00\x0c\x3a\x0a\x00\x00\x00\x00\x0d\x81\x09\x00\x00\x00\x00\x0e\x23\x0b\x00\x00\x00\x00\x00", 113) = 113 <0.000068>
+1793511168.692335 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000161>
+1793511168.692915 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1973166}) <0.000165>
+1793511168.693503 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000114>
+1793511168.693838 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1643858}) <0.000502>
+1793511168.694547 read(11, "\xff\xff\xc8\x11\x00\xfd\xff\xca\xfe\x63\x00\x5f\xb0\x0e\xb2\x18\x3a\x7c\x08\x00\x5e", 128) = 21 <0.000106>
+1793511168.694866 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002210>
+1793511168.697375 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002202>
+1793511168.699798 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002319>
+1793511168.702658 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002323>
+1793511168.705763 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002217>
+1793511168.708333 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002162>
+1793511168.710738 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=1541873}, [], 8) = 0 (Timeout) <0.001698>
+1793511168.712667 write(4, "\x01\x00\x00\x00\x00\x00\x00\x00", 8) = 8 <0.000434>
+1793511168.713540 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000194>
+1793511168.714112 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1959748}) <0.000166>
+1793511168.714692 write(11, "\xff\xff\xfe\x22\x83\x28\x01\x14\x00\x15\x00\x16\x00\x17\x00\x18\x00\x1e\x00\x1f\x00\x20\x00\x21\x00\x22\x00\x0a\x00\x0b\x00\x0c\x00\x0d\x00\x0e\x00\xe9", 38) = 38 <0.000100>
+1793511168.715039 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000058>
+1793511168.715233 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1981040}) <0.000062>
+1793511168.715450 write(11, "\xff\xff\xfe\x13\x82\x28\x01\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xf9", 23) = 23 <0.000048>
+1793511168.715631 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1642400}) <0.000395>
+1793511168.716166 read(11, "\xff\xff\x14\x03\x00\x00\xe8\xff\xff\x15\x03\x00\x00\xe7", 256) = 14 <0.000055>
+1793511168.716366 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994749}) <0.000044>
+1793511168.716546 read(11, "\xff\xff\x16\x03\x00\x00\xe6\xff\xff\x17\x03\x00\x00\xe5\xff\xff\x18\x03\x00\x00\xe4", 256) = 21 <0.000043>
+1793511168.716723 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000043>
+1793511168.717197 read(11, "\xff\xff\x1e\x03\x00\x00\xde\xff\xff\x1f\x03\x00\x00\xdd\xff\xff\x20\x03\x00\x00\xdc\xff\xff\x21\x03\x00\x00\xdb\xff\xff\x22\x03\x00\x00\xda\xff\xff\x0a\x03\x00", 256) = 40 <0.000059>
+1793511168.717467 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1986875}) <0.000055>
+1793511168.717683 read(11, "\x00\xf2\xff\xff\x0b\x03\x00\x00\xf1\xff\xff\x0c\x03\x00\x00\xf0\xff\xff\x0d\x03\x00\x00\xef", 256) = 23 <0.000046>
+1793511168.717864 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993583}) <0.000046>
+1793511168.718048 read(11, "\xff\xff\x0e\x03\x00\x00\xee", 256) = 7 <0.000042>
+1793511168.718331 write(2, "\x1b\x5b\x32\x6d\x32\x30\x32\x36\x2d\x31\x31\x2d\x30\x31\x54\x30\x35\x3a\x33\x32\x3a\x34\x38\x2e\x37\x31\x38\x32\x34\x30\x5a\x1b\x5b\x30\x6d\x20\x1b\x5b\x33\x33\x6d\x20\x57\x41\x52\x4e\x1b\x5b\x30\x6d\x20\x1b\x5b\x32\x6d\x72\x6f\x62\x6f\x74\x64\x3a\x3a\x66\x65\x65\x74\x65\x63\x68\x5f\x63\x6f\x6d\x6d\x69\x73\x73\x69\x6f\x6e\x69\x6e\x67\x1b\x5b\x30\x6d\x1b\x5b\x32\x6d\x3a\x1b\x5b\x30\x6d\x20\x62\x75\x73\x20\x72\x65\x61\x64\x20\x66\x61\x69\x6c\x65\x64\x20\x1b\x5b\x33\x6d\x63\x79\x63\x6c\x65\x1b\x5b\x30\x6d\x1b\x5b\x32\x6d\x3d\x1b\x5b\x30\x6d\x31\x30\x20\x1b\x5b\x33\x6d\x65\x72\x72\x6f\x72\x1b\x5b\x30\x6d\x1b\x5b\x32\x6d\x3d\x1b\x5b\x30\x6d\x62\x75\x73\x20\x74\x72\x61\x6e\x73\x61\x63\x74\x69\x6f\x6e\x20\x66\x61\x69\x6c\x65\x64\x3a\x20\x69\x6d\x75\x5f\x74\x6f\x5f\x64\x78\x6c\x20\x49\x44\x32\x30\x30\x20\x72\x65\x73\x70\x6f\x6e\x73\x65\x20\x74\x69\x6d\x65\x6f\x75\x74\x0a", 219) = 219 <0.000117>
+1793511168.792544 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000172>
+1793511168.793226 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1965873}) <0.000171>
+1793511168.793775 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000121>
+1793511168.794112 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1622274}) <0.000466>
+1793511168.794780 read(11, "\xff\xff\xc8\x11\x00\x2e\x00\x41\x00\xfa\xff\x47\xb0\x19\xb2\x18\x3a\x84\x08\x00\x1e", 128) = 21 <0.000062>
+1793511168.795043 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000051>
+1793511168.795232 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1992125}) <0.000104>
+1793511168.795505 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000100>
+1793511168.795757 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1523394}) <0.000566>
+1793511168.796479 read(11, "\xff\xff\x14\x11\x00\x88\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x88\x08\x04\x00\x51\xff\xff\x15\x11", 256) = 25 <0.000052>
+1793511168.796684 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993000}) <0.000048>
+1793511168.796876 read(11, "\x00\xeb\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xeb\x08\x04\x00\x8a\xff\xff\x16\x11\x00\x55\x06\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x55\x06\x03\x00\xba\xff\xff\x17\x11", 256) = 42 <0.000102>
+1793511168.797138 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1991541}) <0.000051>
+1793511168.797346 read(11, "\x00\x57\x07\x00\x00\x00\x00\x45\x1e\x00\x00\x00\x57\x07\x03\x00\xb5\xff\xff\x18\x11\x00\xe4\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xe4\x04\x03\x00\x9e\xff\xff\x1e\x11", 256) = 42 <0.000048>
+1793511168.797534 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1933205}) <0.000108>
+1793511168.797785 read(11, "\x00\x46\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x46\x08\x03\x00\xcc\xff\xff\x1f\x11", 256) = 21 <0.000044>
+1793511168.798099 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993291}) <0.000047>
+1793511168.798296 read(11, "\x00\xba\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xba\x06\x03\x00\xe6\xff\xff\x20\x11\x00\x3d\x07\x00\x00\x00\x00\x47\x23\x00\x00\x00\x3d\x07\x03\x00\xd9\xff\xff\x21", 256) = 41 <0.000046>
+1793511168.798472 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995624}) <0.000044>
+1793511168.798655 read(11, "\x11\x00\xfe\x07\x00\x00\x00\x00\x48\x21\x00\x00\x00\xfe\x07\x04\x00\x56\xff\xff\x22\x11\x00\xc7\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xc7\x07\x02\x00\xc2\xff", 256) = 40 <0.000044>
+1793511168.798832 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1881869}) <0.000158>
+1793511168.799130 read(11, "\xff\x0a\x11\x00\xe3\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe3\x07\x03\x00\xa7\xff\xff\x0b\x11", 256) = 24 <0.000043>
+1793511168.799302 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000045>
+1793511168.799485 read(11, "\x00\x59\x07\x02\x00\x00\x00\x46\x1f\x00\x00\x01\x59\x07\x04\x00\xb7\xff\xff\x0c\x11\x00\x39\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x39\x0a\x03\x00\xf4\xff\xff", 256) = 40 <0.000044>
+1793511168.799661 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1904620}) <0.000135>
+1793511168.799941 read(11, "\x0d\x11\x00\x80\x09\x00\x00\x00\x00\x45\x1e\x00\x00\x00\x80\x09\x03\x00\x69\xff\xff\x0e\x11\x00", 256) = 24 <0.000044>
+1793511168.800113 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000044>
+1793511168.800294 read(11, "\x25\x0b\x01\x00\x00\x00\x46\x1e\x00\x00\x01\x25\x0b\x01\x00\x19", 256) = 16 <0.000043>
+1793511168.892589 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000143>
+1793511168.893317 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1964123}) <0.000177>
+1793511168.893905 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000167>
+1793511168.894347 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1789990}) <0.000347>
+1793511168.894969 read(11, "\xff\xff\xc8\x11\x00\xf6\xff\x19\x00\x08\x00\x45\xb0\x1b\xb2\x18\x3a\x90\x08\x00\x64", 128) = 21 <0.000064>
+1793511168.895253 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000054>
+1793511168.895433 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1991833}) <0.000049>
+1793511168.895624 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000047>
+1793511168.895805 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1462141}) <0.000577>
+1793511168.896521 read(11, "\xff\xff\x14\x11\x00\x88\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x88\x08\x04\x00\x51\xff\xff\x15\x11", 256) = 25 <0.000049>
+1793511168.896715 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000044>
+1793511168.896897 read(11, "\x00\xeb\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xeb\x08\x03\x00\x8b\xff\xff\x16\x11\x00\x55\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x55\x06\x03\x00\xb9\xff\xff\x17", 256) = 41 <0.000110>
+1793511168.897154 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993874}) <0.000048>
+1793511168.897345 read(11, "\x11\x00\x57\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x57\x07\x03\x00\xb4\xff\xff\x18\x11", 256) = 22 <0.000045>
+1793511168.897514 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993000}) <0.000049>
+1793511168.897859 read(11, "\x00\xe4\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xe4\x04\x02\x00\x9f\xff\xff\x1e\x11\x00\x45\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x45\x08\x03\x00\xcd\xff\xff\x1f\x11\x00", 256) = 43 <0.000045>
+1793511168.898040 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000044>
+1793511168.898223 read(11, "\xba\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xba\x06\x02\x00\xe7\xff\xff\x20\x11\x00\x3b\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3b\x07\x04\x00\xdb\xff\xff\x21\x11", 256) = 41 <0.000044>
+1793511168.898393 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1917163}) <0.000122>
+1793511168.898653 read(11, "\x00\xfe\x07\x00\x00\x00\x00\x48\x20\x00\x00\x00\xfe\x07\x04\x00\x57\xff\xff\x22\x11", 256) = 21 <0.000044>
+1793511168.898825 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000044>
+1793511168.899005 read(11, "\x00\xc7\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xc7\x07\x04\x00\xc0\xff\xff\x0a", 256) = 20 <0.000043>
+1793511168.899172 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000042>
+1793511168.899348 read(11, "\x11\x00\xe3\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe3\x07\x02\x00\xa7\xff\xff\x0b\x11\x00\x58\x07\x01\x80\x00\x00\x46\x1f\x00\x00\x01\x58\x07\x04\x00\x3a\xff", 256) = 40 <0.000043>
+1793511168.899517 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000042>
+1793511168.899695 read(11, "\xff\x0c\x11\x00\x39\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x39\x0a\x03\x00\xf4", 256) = 20 <0.000042>
+1793511168.899860 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000043>
+1793511168.900038 read(11, "\xff\xff\x0d\x11\x00\x81\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x81\x09\x03\x00\x65\xff\xff\x0e\x11\x00\x25\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x25\x0b\x03\x00\x19", 256) = 42 <0.000043>
+1793511168.900324 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000051>
+1793511168.900494 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1994166}) <0.000044>
+1793511168.900676 write(11, "\xff\xff\xfe\x22\x83\x28\x01\x14\x00\x15\x00\x16\x00\x17\x00\x18\x00\x1e\x00\x1f\x00\x20\x00\x21\x00\x22\x00\x0a\x00\x0b\x00\x0c\x00\x0d\x00\x0e\x00\xe9", 38) = 38 <0.000048>
+1793511168.900875 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000085>
+1793511168.901084 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1991250}) <0.000047>
+1793511168.901272 write(11, "\xff\xff\xfe\x13\x82\x28\x01\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xf9", 23) = 23 <0.000046>
+1793511168.901447 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1725820}) <0.000312>
+1793511168.901895 read(11, "\xff\xff\x14\x03\x00\x00\xe8\xff\xff\x15\x03\x00\x00\xe7", 256) = 14 <0.000046>
+1793511168.902070 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000044>
+1793511168.902249 read(11, "\xff\xff\x16\x03\x00\x00\xe6\xff\xff\x17\x03\x00\x00\xe5\xff\xff\x18\x03\x00\x00\xe4", 256) = 21 <0.000042>
+1793511168.902417 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000043>
+1793511168.902595 read(11, "\xff\xff\x1e\x03\x00\x00\xde\xff\xff\x1f\x03\x00\x00\xdd", 256) = 14 <0.000042>
+1793511168.902758 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000045>
+1793511168.903036 read(11, "\xff\xff\x20\x03\x00\x00\xdc\xff\xff\x21\x03\x00\x00\xdb\xff\xff\x22\x03\x00\x00\xda\xff\xff\x0a\x03\x00\x00\xf2", 256) = 28 <0.000044>
+1793511168.903207 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000044>
+1793511168.903385 read(11, "\xff\xff\x0b\x03\x00\x00\xf1\xff\xff\x0c\x03\x00\x00\xf0", 256) = 14 <0.000042>
+1793511168.903552 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995625}) <0.000043>
+1793511168.903730 read(11, "\xff\xff\x0d\x03\x00\x00\xef\xff\xff\x0e\x03\x00\x00\xee", 256) = 14 <0.000042>
+1793511168.903939 write(4, "\x01\x00\x00\x00\x00\x00\x00\x00", 8) = 8 <0.000058>
+1793511168.992269 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000079>
+1793511168.992821 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1967915}) <0.000186>
+1793511168.993388 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000117>
+1793511168.993776 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1631899}) <0.000464>
+1793511168.994480 read(11, "\xff\xff\xc8\x11\x00\xf7\xff\xf6\xff\x05\x00\x45\xb0\x1c\xb2\x18\x3a\x9c\x08\x00\x7d", 128) = 21 <0.000111>
+1793511168.994841 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000102>
+1793511168.995120 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1990375}) <0.000099>
+1793511168.995368 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000049>
+1793511168.995554 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1474100}) <0.000565>
+1793511168.996259 read(11, "\xff\xff\x14\x11\x00\x88\x08\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x88\x08\x03\x00\x53\xff\xff\x15", 256) = 24 <0.000048>
+1793511168.996449 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995041}) <0.000044>
+1793511168.996632 read(11, "\x11\x00\xeb\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xeb\x08\x04\x00\x8a\xff\xff\x16\x11\x00\x55\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x55\x06\x03\x00\xb9\xff\xff", 256) = 41 <0.000045>
+1793511168.996807 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1936997}) <0.000141>
+1793511168.997110 read(11, "\x17\x11\x00\x57\x07\x00\x00\x00\x00\x45\x1e\x00\x00\x00\x57\x07\x01\x00\xb7\xff\xff\x18\x11", 256) = 23 <0.000047>
+1793511168.997294 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992125}) <0.000048>
+1793511168.997482 read(11, "\x00\xe4\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xe4\x04\x03\x00\x9e\xff\xff\x1e\x11\x00\x45\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x45\x08\x04\x00\xcc\xff\xff\x1f\x11\x00", 256) = 43 <0.000044>
+1793511168.997662 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1953914}) <0.000087>
+1793511168.997890 read(11, "\xba\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xba\x06\x03\x00\xe6\xff\xff", 256) = 18 <0.000043>
+1793511168.998060 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000045>
+1793511168.998248 read(11, "\x20\x11\x00\x3b\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3b\x07\x03\x00\xdc\xff\xff", 256) = 21 <0.000043>
+1793511168.998417 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995333}) <0.000044>
+1793511168.998601 read(11, "\x21\x11\x00\xfe\x07\x00\x00\x00\x00\x48\x21\x00\x00\x00\xfe\x07\x04\x00\x56\xff\xff\x22\x11\x00\xc7\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xc7\x07\x03\x00\xc1\xff\xff\x0a\x11\x00\xe3\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe3\x07\x02\x00\xa8\xff\xff\x0b", 256) = 64 <0.000046>
+1793511168.998938 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1923288}) <0.000117>
+1793511168.999197 read(11, "\x11\x00\x58\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x58\x07\x03\x00\xbd\xff\xff\x0c\x11\x00", 256) = 23 <0.000043>
+1793511168.999369 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993875}) <0.000046>
+1793511168.999554 read(11, "\x39\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x39\x0a\x04\x00\xf3\xff\xff", 256) = 18 <0.000045>
+1793511168.999725 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993583}) <0.000046>
+1793511168.999911 read(11, "\x0d\x11\x00\x81\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x81\x09\x04\x00\x64\xff\xff\x0e\x11\x00\x25\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x25\x0b\x03\x00\x19", 256) = 40 <0.000043>
+1793511169.092839 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000166>
+1793511169.093498 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1973165}) <0.000165>
+1793511169.094020 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000115>
+1793511169.094302 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1541770}) <0.000501>
+1793511169.094958 read(11, "\xff\xff\xc8\x11\x00\xf9\xff\xf3\xff\x00\x00\x45\xb0\x1d\xb2\x18\x3a\xa8\x08\x00\x76", 128) = 21 <0.000056>
+1793511169.095207 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000110>
+1793511169.095465 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1990666}) <0.000100>
+1793511169.095738 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000098>
+1793511169.095985 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1485184}) <0.000558>
+1793511169.096690 read(11, "\xff\xff\x14\x11\x00\x88\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x88\x08\x03\x00\x52\xff\xff\x15\x11", 256) = 25 <0.000047>
+1793511169.096880 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994166}) <0.000093>
+1793511169.097136 read(11, "\x00\xeb\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xeb\x08\x04\x00\x8a\xff\xff\x16\x11\x00\x55\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x55\x06\x03\x00\xb9\xff\xff\x17\x11", 256) = 42 <0.000053>
+1793511169.097347 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1990666}) <0.000051>
+1793511169.097546 read(11, "\x00\x57\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x57\x07\x03\x00\xb4\xff\xff\x18\x11", 256) = 21 <0.000044>
+1793511169.097719 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000044>
+1793511169.097902 read(11, "\x00\xe4\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xe4\x04\x04\x00\x9d\xff\xff\x1e\x11\x00\x45\x08\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x45\x08\x05\x00\xcb\xff\xff\x1f\x11", 256) = 42 <0.000043>
+1793511169.098078 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1993874}) <0.000046>
+1793511169.098266 read(11, "\x00\xba\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\xba\x06\x04\x00\xe5\xff\xff", 256) = 19 <0.000043>
+1793511169.098433 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000045>
+1793511169.098747 read(11, "\x20\x11\x00\x3b\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3b\x07\x05\x00\xda\xff\xff\x21\x11\x00\xfe\x07\x00\x00\x00\x00\x48\x20\x00\x00\x00\xfe\x07\x03\x00\x58\xff\xff\x22\x11\x00", 256) = 45 <0.000046>
+1793511169.098935 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992708}) <0.000046>
+1793511169.099122 read(11, "\xc7\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xc7\x07\x03\x00\xc1\xff\xff\x0a\x11\x00\xe3\x07\x00\x00\x00\x00\x46\x20\x00\x00\x00\xe3\x07\x03\x00\xa7\xff\xff\x0b", 256) = 40 <0.000043>
+1793511169.099292 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1895579}) <0.000144>
+1793511169.099576 read(11, "\x11\x00\x58\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x58\x07\x04\x00\xbc\xff\xff\x0c\x11", 256) = 22 <0.000045>
+1793511169.099752 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994458}) <0.000045>
+1793511169.099936 read(11, "\x00\x39\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x39\x0a\x03\x00\xf4\xff\xff", 256) = 19 <0.000044>
+1793511169.100106 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994167}) <0.000044>
+1793511169.100287 read(11, "\x0d\x11\x00\x81\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x81\x09\x03\x00\x65\xff\xff\x0e\x11\x00\x25\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x25\x0b\x03\x00\x19", 256) = 40 <0.000043>
+1793511169.192496 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000177>
+1793511169.193227 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1966165}) <0.000176>
+1793511169.193810 write(11, "\xff\xff\xc8\x04\x02\x38\x0f\xea", 8) = 8 <0.000125>
+1793511169.194157 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1689944}) <0.000394>
+1793511169.194753 read(11, "\xff\xff\xc8\x11\x00\xf8\xff\xf1\xff\x00\x00\x46\xb0\x1d\xb2\x18\x3a\xb3\x08\x00\x6d", 128) = 21 <0.000102>
+1793511169.195101 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000055>
+1793511169.195339 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1991833}) <0.000097>
+1793511169.195605 write(11, "\xff\xff\xfe\x13\x82\x38\x0f\x14\x15\x16\x17\x18\x1e\x1f\x20\x21\x22\x0a\x0b\x0c\x0d\x0e\xdb", 23) = 23 <0.000149>
+1793511169.195909 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1547604}) <0.000495>
+1793511169.196552 read(11, "\xff\xff\x14\x11\x00\x88\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x88\x08\x03\x00\x52\xff\xff\x15", 256) = 24 <0.000048>
+1793511169.196741 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000045>
+1793511169.196923 read(11, "\x11\x00\xeb\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xeb\x08\x04\x00\x8a\xff\xff\x16\x11\x00\x55\x06\x00\x00\x00\x00\x47\x1f\x00\x00\x00\x55\x06\x04\x00\xb8", 256) = 39 <0.000051>
+1793511169.197243 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1992417}) <0.000049>
+1793511169.197495 read(11, "\xff\xff\x17\x11\x00\x57\x07\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x57\x07\x02\x00\xb5\xff\xff\x18\x11\x00\xe4\x04\x00\x00\x00\x00\x46\x1f\x00\x00\x00\xe4\x04\x04\x00\x9d\xff\xff", 256) = 44 <0.000092>
+1793511169.197732 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994166}) <0.000047>
+1793511169.197919 read(11, "\x1e\x11\x00\x45\x08\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x45\x08\x04\x00\xcd\xff\xff\x1f\x11\x00\xba", 256) = 25 <0.000045>
+1793511169.198090 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994750}) <0.000045>
+1793511169.198405 read(11, "\x06\x00\x00\x00\x00\x48\x1f\x00\x00\x00\xba\x06\x03\x00\xe5\xff\xff\x20\x11\x00\x3b\x07\x00\x00\x00\x00\x48\x23\x00\x00\x00\x3b\x07\x04\x00\xdb\xff\xff\x21", 256) = 39 <0.000046>
+1793511169.198589 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1994166}) <0.000046>
+1793511169.198771 read(11, "\x11\x00\xfe\x07\x00\x00\x00\x00\x48\x21\x00\x00\x00\xfe\x07\x04\x00\x56\xff\xff\x22\x11\x00\xc7\x07\x00\x00\x00\x00\x47\x25\x00\x00\x00\xc7\x07\x03\x00\xc1", 256) = 39 <0.000043>
+1793511169.198942 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1947206}) <0.000092>
+1793511169.199167 read(11, "\xff\xff\x0a\x11\x00\xe3\x07\x00\x00\x00\x00\x47\x20\x00\x00\x00\xe3\x07\x02\x00\xa7", 256) = 21 <0.000042>
+1793511169.199332 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995625}) <0.000043>
+1793511169.199510 read(11, "\xff\xff\x0b\x11\x00\x58\x07\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x58\x07\x04\x00\xbc\xff\xff", 256) = 23 <0.000044>
+1793511169.199679 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1995042}) <0.000043>
+1793511169.199856 read(11, "\x0c\x11\x00\x39\x0a\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x39\x0a\x02\x00\xf5\xff\xff\x0d\x11\x00\x81\x09\x00\x00\x00\x00\x46\x1f\x00\x00\x00\x81\x09\x04\x00\x64\xff", 256) = 41 <0.000042>
+1793511169.200020 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1957123}) <0.000082>
+1793511169.200236 read(11, "\xff\x0e\x11\x00\x25\x0b\x00\x00\x00\x00\x46\x1e\x00\x00\x00\x25\x0b\x02\x00\x1a", 256) = 20 <0.000042>

@@ -1,0 +1,18 @@
+[Unit]
+Description=Microduck Studio (Python 3.13)
+After=network.target
+
+[Service]
+User=radxa
+Group=radxa
+WorkingDirectory=/home/radxa/studio-dev
+ExecStart=/opt/duck-robot/python-3.13.18/bin/python3.13 -I run.py --listen 0.0.0.0:8000
+Restart=on-failure
+RestartSec=5
+Nice=10
+CPUWeight=20
+CPUQuota=60%
+MemoryMax=300M
+
+[Install]
+WantedBy=multi-user.target

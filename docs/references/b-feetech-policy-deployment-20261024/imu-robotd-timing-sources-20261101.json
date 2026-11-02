@@ -1,0 +1,349 @@
+{
+  "date": "2026-11-01",
+  "source_excerpts": [
+    {
+      "path": "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Inc\\protocol.h",
+      "sha256": "e343ca223e44c2620de160be6ddfdf026cb9df43917e74f3e0d2af74414ae9bb",
+      "snippets": [
+        {
+          "start": 9,
+          "end": 46,
+          "text": " *\n * Frame: FF FF ID LEN INSTR/ERR params... CHK\n *        LEN = params + 2, CHK = ~(ID + LEN + INSTR + sum(params)) & 0xFF\n * There is no byte stuffing, so FF FF may also appear inside a payload: the\n * receiver resynchronizes by checksum, never by header alone. */\n#define PROTO_DEVICE_ID              200u\n#define PROTO_BROADCAST_ID           0xFEu\n#define PROTO_FW_MAJOR               0u      /* Address 0-1: our own version (sec.9). */\n#define PROTO_FW_MINOR               2u\n#define PROTO_MODEL_NUMBER           0x4D44u /* Address 3-4: custom model. */\n#define PROTO_PACKET_CAPACITY        260u    /* FF FF ID LEN + up to 255 more bytes. */\n#define PROTO_MAX_READ               250u    /* Reply is 6 + length bytes. */\n#define PROTO_MAX_SYNC_IDS           64u     /* Queue position we can track (sec.5). */\n/* sec.5 timing. All values are inferred from the 1 Mbps / 6 ms tick budget and\n * must be covered by bench measurements (sec.12). */\n#define PROTO_RESPONSE_DELAY_US      50u     /* T_resp: last stop bit -> our first start bit. */\n#define PROTO_BYTE_TIMEOUT_US        500u    /* Longer gap inside a frame: drop the partial frame. */\n#define PROTO_SLOT_GAP_US            1000u   /* Silent this long while queued: device ahead is offline. */\n#define PROTO_TRANSACTION_TIMEOUT_US 25000u  /* Never got our turn: give up the reply. */\n#define PROTO_REPLY_EXPIRY_US        2000u   /* Could not send this late after due: give up. */\n\nenum {\n    PROTO_OK = 0,\n    PROTO_ERR_RANGE = 1\n};\n\nenum {\n    PROTO_IDLE = 0,       /* Nothing to send. */\n    PROTO_READY = 1,      /* Reply built, send at reply_due_us. */\n    PROTO_WAIT_TURN = 2   /* Sync Read: wait until the devices listed before us replied. */\n};\n\n/* read fills the complete range or returns PROTO_ERR_RANGE; it is called for\n * addresses 9..255 only (0..8 are answered here, sec.9). send is synchronous:\n * send every byte, wait for UART TC (not TXE), release the driver, re-enable\n * RX, then return. No callbacks run in an ISR. */\ntypedef uint8_t (*proto_read_fn)(void *user, uint16_t address,\n                              uint16_t length, uint8_t *out);"
+        }
+      ]
+    },
+    {
+      "path": "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Inc\\board_config.h",
+      "sha256": "e0142833382e464f4431536387e73fa9c2fd76971fa2eae44136957506b30576",
+      "snippets": [
+        {
+          "start": 6,
+          "end": 23,
+          "text": " * First power-up uses HSI16 -> PLL -> 64 MHz, independent of X1 population. */\n#define BOARD_USE_HSE_BYPASS       0\n#define BOARD_HSE_HZ               16000000UL\n#define BOARD_ENABLE_WATCHDOG      1\n#define BOARD_LOG_UART_SWAP        0\n#define BOARD_LOG_BAUD             115200UL\n#define BOARD_BUS_BAUD             1000000UL\n#define BOARD_BUS_RX_SIZE          256u /* power of two, timestamp per byte */\n#define BOARD_LOG_TX_SIZE          512u\n#define BOARD_RX_EN_PIN            7u   /* PB7; PB8 shares package pin: ANALOG */\n#define BOARD_SPI_BR               4u   /* PCLK/32: 2 MHz at 64 MHz */\n#define BOARD_SPI_MODE             3u   /* LSM6DSV16X supports mode 0 and 3 */\n#define BOARD_FIRMWARE_STRING      \"imu_to_dxl 0.2.0\"\n\n#if BOARD_HSE_HZ != 16000000UL\n#error Update PLL settings before using an oscillator other than 16 MHz\n#endif\n#if (BOARD_BUS_RX_SIZE & (BOARD_BUS_RX_SIZE - 1u)) != 0"
+        }
+      ]
+    },
+    {
+      "path": "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\main.c",
+      "sha256": "fb9deaca73e170aa82aecaf8e8a056a1d303632487fae819b4a8d04a92988b50",
+      "snippets": [
+        {
+          "start": 31,
+          "end": 65,
+          "text": "    uint32_t last_log = 0u;\n    uint8_t periodic_log = 1u;\n    board_init();\n    proto_init(&protocol, control_table_read, send_packet, &protocol);\n    imu_init(board_millis());\n    board_log(\"\\r\\n\" BOARD_FIRMWARE_STRING \" | STM32G031F8 | Feetech ID=200 1000000 8N1 block@56\\r\\n\");\n    board_log(\"LOG=115200 8N1; ?:help s:status l:toggle logs r:restart IMU\\r\\n\");\n    for (;;) {\n        uint8_t byte;\n        uint32_t received_us;\n        if (board_bus_take_fault()) proto_reset_receiver(&protocol);\n        while (board_bus_pop(&byte, &received_us)) {\n            proto_feed(&protocol, byte, received_us);\n        }\n        proto_poll(&protocol, board_micros());\n        if (protocol.reboot_requested) {\n            board_reboot();               /* REBOOT 0x08: no reply, back within 800 ms (sec.8). */\n        }\n        /* Do not begin sensor/log work while an instruction is being received\n         * or a synchronized reply is queued. Protocol traffic has priority. */\n        if (protocol.rx_length == 0u && protocol.pending == 0u) {\n            imu_poll(board_millis());\n            int command = board_log_getchar();\n            if (command == 'r' || command == 'R') { imu_request_reinit(); board_log(\"IMU restart requested\\r\\n\"); }\n            else if (command == 'l' || command == 'L') { periodic_log ^= 1u; board_log(periodic_log ? \"logs on\\r\\n\" : \"logs off\\r\\n\"); }\n            else if (command == '?' || command == 'h') board_log(\"s=status, l=toggle periodic logs, r=reinitialize IMU\\r\\n\");\n            if (command == 's' || command == 'S' ||\n                (periodic_log && (uint32_t)(board_millis() - last_log) >= 1000u)) {\n                last_log = board_millis(); print_status();\n            }\n        }\n        board_watchdog_feed();\n    }\n}"
+        }
+      ]
+    },
+    {
+      "path": "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\protocol.c",
+      "sha256": "cab625cc7533a3b8bf9af28335622a29a672ee2b7b1872be65b0ab64fd484105",
+      "snippets": [
+        {
+          "start": 98,
+          "end": 130,
+          "text": "/* Status frame, ERROR byte always 0x00 (sec.8). Payload must already be at tx[5]. */\nstatic void make_status(proto_context *ctx, uint16_t data_length)\n{\n    ctx->tx[0] = 0xFFu;\n    ctx->tx[1] = 0xFFu;\n    ctx->tx[2] = PROTO_DEVICE_ID;\n    ctx->tx[3] = (uint8_t)(data_length + 2u);\n    ctx->tx[4] = 0x00u;\n    ctx->tx[5u + data_length] = proto_checksum(ctx->tx + 2u, (uint16_t)(3u + data_length));\n    ctx->tx_length = (uint16_t)(6u + data_length);\n}\n\nstatic void schedule(proto_context *ctx, uint32_t now_us)\n{\n    ctx->pending = PROTO_READY;\n    ctx->reply_due_us = now_us + PROTO_RESPONSE_DELAY_US;\n}\n\nstatic void reply_ack(proto_context *ctx, uint32_t now_us)\n{\n    make_status(ctx, 0u);\n    schedule(ctx, now_us);\n}\n\n/* Build the data reply now, from one consistent table read. */\nstatic int build_read(proto_context *ctx, uint16_t address, uint16_t length)\n{\n    if (read_table(ctx, address, length, ctx->tx + 5u) != PROTO_OK) {\n        ++ctx->malformed_packets;\n        return 0;\n    }\n    make_status(ctx, length);\n    return 1;"
+        },
+        {
+          "start": 152,
+          "end": 190,
+          "text": "    return 1;\n}\n\nstatic void sync_read(proto_context *ctx, const uint8_t *p, uint16_t n, uint32_t now_us)\n{\n    const uint8_t *ids = p + 2u;\n    uint16_t count;\n    uint16_t k;\n    if (n < 3u || !valid_id_list(ids, (uint16_t)(n - 2u))) {\n        ++ctx->malformed_packets;\n        return;\n    }\n    count = (uint16_t)(n - 2u);\n    for (k = 0u; k < count && ids[k] != PROTO_DEVICE_ID; ++k) {\n    }\n    if (k == count) {\n        return;                                   /* Not asked. */\n    }\n    if (k >= PROTO_MAX_SYNC_IDS || !build_read(ctx, p[0], p[1])) {\n        if (k >= PROTO_MAX_SYNC_IDS) {\n            ++ctx->malformed_packets;\n        }\n        return;\n    }\n    if (k == 0u) {                                /* Runtime case: 200 is always first. */\n        schedule(ctx, now_us);\n        return;\n    }\n    /* sec.5 queue rule: stay receiving until the k devices ahead have answered. */\n    memcpy(ctx->before, ids, k);\n    ctx->turn = (uint8_t)k;\n    ctx->slot = 0u;\n    ctx->sync_length = p[1];\n    ctx->transaction_start_us = now_us;\n    ctx->quiet_since_us = now_us;\n    ctx->pending = PROTO_WAIT_TURN;\n}\n\n/* Byte 4 of a frame: an instruction code from the controller, or the ERROR"
+        },
+        {
+          "start": 233,
+          "end": 302,
+          "text": "{\n    uint8_t id = ctx->rx[2];\n    uint8_t len = ctx->rx[3];\n    uint8_t instruction = ctx->rx[4];\n    const uint8_t *p = ctx->rx + 5u;\n    uint16_t n = (uint16_t)(len - 2u);\n    int unicast = id == PROTO_DEVICE_ID;\n    if (ctx->pending == PROTO_WAIT_TURN && queued_reply(ctx, id, len, instruction, now_us)) {\n        return;\n    }\n    /* Any other valid frame is a new controller instruction: the earlier\n     * transaction is over, including when it is addressed to someone else. */\n    cancel_reply(ctx);\n    if (!unicast && id != PROTO_BROADCAST_ID) {\n        return;\n    }\n    switch (instruction) {\n    case INSTR_PING:                              /* Broadcast PING stays silent (sec.8). */\n        if (unicast) {\n            reply_ack(ctx, now_us);\n        }\n        break;\n    case INSTR_READ:\n        if (!unicast) {\n            break;\n        }\n        if (n != 2u) {\n            ++ctx->malformed_packets;\n        } else if (build_read(ctx, p[0], p[1])) {\n            schedule(ctx, now_us);\n        }\n        break;\n    case INSTR_WRITE:                             /* ACK, contents ignored (sec.8). */\n    case INSTR_REG_WRITE:\n        if (unicast) {\n            if (n < 2u) {\n                ++ctx->malformed_packets;\n            } else {\n                reply_ack(ctx, now_us);\n            }\n        }\n        break;\n    case INSTR_ACTION:\n    case INSTR_RESET:\n    case 0x09u:\n    case 0x0Au:\n    case 0x0Bu:                                   /* ACK, no action (sec.8). */\n        if (unicast) {\n            reply_ack(ctx, now_us);\n        }\n        break;\n    case INSTR_REBOOT:                            /* Real reboot, no reply (sec.8). */\n        ctx->reboot_requested = 1u;\n        break;\n    case INSTR_SYNC_READ:\n        if (!unicast) {\n            sync_read(ctx, p, n, now_us);\n        }\n        break;\n    case INSTR_SYNC_WRITE:                        /* Never configured by the controller. */\n        break;\n    default:\n        if (unicast) {\n            ++ctx->malformed_packets;\n        }\n        break;\n    }\n}\n\nstatic void drop_front(proto_context *ctx, uint16_t count)"
+        },
+        {
+          "start": 315,
+          "end": 412,
+          "text": "static void scan(proto_context *ctx, uint32_t now_us)\n{\n    for (;;) {\n        uint16_t skip = 0u;\n        uint16_t total;\n        while (skip < ctx->rx_length && !(ctx->rx[skip] == 0xFFu &&\n               (skip + 1u >= ctx->rx_length || ctx->rx[skip + 1u] == 0xFFu))) {\n            ++skip;\n        }\n        drop_front(ctx, skip);\n        if (ctx->rx_length < 4u) {\n            return;                               /* Need more bytes. */\n        }\n        if (ctx->rx[2] == 0xFFu) {                /* FF FF FF: one extra preamble byte. */\n            drop_front(ctx, 1u);\n            continue;\n        }\n        if (ctx->rx[3] < 2u || (uint16_t)(ctx->rx[3] + 4u) > PROTO_PACKET_CAPACITY) {\n            ++ctx->malformed_packets;\n            drop_front(ctx, 1u);\n            continue;\n        }\n        total = (uint16_t)(ctx->rx[3] + 4u);\n        if (ctx->rx_length < total) {\n            return;\n        }\n        if (proto_checksum(ctx->rx + 2u, (uint16_t)(total - 3u)) != ctx->rx[total - 1u]) {\n            ++ctx->crc_errors;\n            drop_front(ctx, 1u);\n            continue;\n        }\n        ++ctx->rx_packets;\n        execute(ctx, now_us);\n        drop_front(ctx, total);\n    }\n}\n\nvoid proto_feed(proto_context *ctx, uint8_t byte, uint32_t now_us)\n{\n    if (ctx->rx_length != 0u &&\n        (uint32_t)(now_us - ctx->last_byte_us) > PROTO_BYTE_TIMEOUT_US) {\n        ctx->rx_length = 0u;\n        ++ctx->receive_timeouts;\n    }\n    /* A reply waiting for T_resp loses its turn as soon as someone else talks.\n     * The application MUST drain RX before calling proto_poll. */\n    if (ctx->pending == PROTO_READY) {\n        cancel_reply(ctx);\n    }\n    ctx->last_byte_us = now_us;\n    ctx->quiet_since_us = now_us;\n    if (ctx->rx_length >= PROTO_PACKET_CAPACITY) {\n        ctx->rx_length = 0u;                      /* Unreachable: scan bounds frames. */\n        ++ctx->malformed_packets;\n    }\n    ctx->rx[ctx->rx_length++] = byte;\n    scan(ctx, now_us);\n}\n\nvoid proto_poll(proto_context *ctx, uint32_t now_us)\n{\n    if (ctx->rx_length != 0u &&\n        (uint32_t)(now_us - ctx->last_byte_us) > PROTO_BYTE_TIMEOUT_US) {\n        ctx->rx_length = 0u;\n        ++ctx->receive_timeouts;\n    }\n    if (ctx->pending == PROTO_WAIT_TURN) {\n        if ((uint32_t)(now_us - ctx->transaction_start_us) >= PROTO_TRANSACTION_TIMEOUT_US) {\n            cancel_reply(ctx);\n            return;\n        }\n        /* A listed device that stays silent is offline: count its slot (sec.5). */\n        if (ctx->rx_length == 0u &&\n            (uint32_t)(now_us - ctx->quiet_since_us) >= PROTO_SLOT_GAP_US) {\n            ++ctx->skipped_slots;\n            ++ctx->slot;\n            ctx->quiet_since_us = now_us;\n            if (ctx->slot >= ctx->turn) {\n                ctx->pending = PROTO_READY;       /* Bus has been idle: go now. */\n                ctx->reply_due_us = now_us;\n            }\n        }\n    }\n    if (ctx->pending == PROTO_READY && (int32_t)(now_us - ctx->reply_due_us) >= 0) {\n        uint16_t length = ctx->tx_length;\n        if ((uint32_t)(now_us - ctx->reply_due_us) > PROTO_REPLY_EXPIRY_US ||\n            ctx->rx_length != 0u) {\n            cancel_reply(ctx);\n            return;\n        }\n        ctx->pending = PROTO_IDLE;\n        ctx->tx_length = 0u;\n        if (ctx->send != 0) {\n            ctx->send(ctx->user, ctx->tx, length);\n            ++ctx->tx_packets;\n        }\n    }\n}"
+        }
+      ]
+    },
+    {
+      "path": "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\board.c",
+      "sha256": "0c8ad494eadc2527d80884af3385376de9b07f6c636ab06d61505799e96c4e60",
+      "snippets": [
+        {
+          "start": 113,
+          "end": 138,
+          "text": "    TIM2->CR1 = TIM_CR1_CEN;\n    (void)SysTick_Config(SystemCoreClock / 1000u);\n    NVIC_SetPriority(SysTick_IRQn, 2u);\n    /* SPI1 AF0: PA5=SCK, PA6=MISO, PA7=MOSI. */\n    pin_af(GPIOA, 5u, 0u); pin_af(GPIOA, 6u, 0u); pin_af(GPIOA, 7u, 0u);\n    spi_init();\n    /* USART2 AF1, external single-wire buffers: do NOT set UART HDSEL. */\n    GPIOA->PUPDR = (GPIOA->PUPDR & ~(3UL << 6)) | (1UL << 6); /* PA3 pull-up */\n    pin_af(GPIOA, 2u, 1u); pin_af(GPIOA, 3u, 1u);\n    USART2->CR1 = 0;\n    USART2->BRR = (SystemCoreClock + BOARD_BUS_BAUD / 2u) / BOARD_BUS_BAUD;\n    USART2->CR2 = 0; USART2->CR3 = USART_CR3_EIE;\n    USART2->ICR = USART_ICR_ORECF | USART_ICR_FECF | USART_ICR_NECF | USART_ICR_PECF;\n    USART2->CR1 = USART_CR1_UE | USART_CR1_TE | USART_CR1_RE | USART_CR1_RXNEIE_RXFNEIE;\n    NVIC_SetPriority(USART2_IRQn, 0u); NVIC_EnableIRQ(USART2_IRQn);\n    /* TSSOP20 package pins 16/17: route PA9/10 onto PA11/12 pads. */\n    SYSCFG->CFGR1 |= SYSCFG_CFGR1_PA11_RMP | SYSCFG_CFGR1_PA12_RMP;\n    pin_af(GPIOA, 9u, 1u); pin_af(GPIOA, 10u, 1u);\n    USART1->CR1 = 0;\n    USART1->BRR = (SystemCoreClock + BOARD_LOG_BAUD / 2u) / BOARD_LOG_BAUD;\n    USART1->CR2 = BOARD_LOG_UART_SWAP ? USART_CR2_SWAP : 0u;\n    USART1->CR3 = 0;\n    USART1->CR1 = USART_CR1_UE | USART_CR1_TE | USART_CR1_RE | USART_CR1_RXNEIE_RXFNEIE;\n    NVIC_SetPriority(USART1_IRQn, 2u); NVIC_EnableIRQ(USART1_IRQn);\n#if BOARD_ENABLE_WATCHDOG\n    DBG->APBFZ1 |= DBG_APB_FZ1_DBG_IWDG_STOP;"
+        },
+        {
+          "start": 196,
+          "end": 267,
+          "text": "void USART2_IRQHandler(void)\n{\n    uint32_t status = USART2->ISR;\n    if (status & (USART_ISR_ORE | USART_ISR_FE | USART_ISR_NE | USART_ISR_PE)) {\n        USART2->ICR = USART_ICR_ORECF | USART_ICR_FECF | USART_ICR_NECF | USART_ICR_PECF;\n        ++board_diagnostics.uart_errors;\n        /* Only an overrun loses bytes: drop the partial frame. A noise / framing\n         * flag keeps its byte in RDR; the frame checksum rejects it if it is\n         * wrong. Treating those as faults would also flush the good bytes of\n         * the same tick and silence the board for a whole Sync Read. */\n        if (status & USART_ISR_ORE) bus_fault = 1u;\n    }\n    if (status & USART_ISR_RXNE_RXFNE) {\n        uint8_t byte = (uint8_t)USART2->RDR;\n        uint16_t next = (uint16_t)((bus_head + 1u) & (BOARD_BUS_RX_SIZE - 1u));\n        ++board_diagnostics.rx_bytes;\n        if (next == bus_tail) { ++board_diagnostics.rx_overflows; bus_fault = 1u; }\n        else { bus_rx[bus_head] = byte; bus_rx_time[bus_head] = board_micros(); __DMB(); bus_head = next; }\n    }\n}\nint board_bus_pop(uint8_t *byte, uint32_t *received_us)\n{\n    if (bus_tail == bus_head) return 0;\n    *byte = bus_rx[bus_tail]; *received_us = bus_rx_time[bus_tail];\n    __DMB(); bus_tail = (uint16_t)((bus_tail + 1u) & (BOARD_BUS_RX_SIZE - 1u));\n    return 1;\n}\nint board_bus_take_fault(void)\n{\n    uint32_t p = lock_irq(); int fault = bus_fault;\n    if (fault) { bus_tail = bus_head; bus_fault = 0; }\n    unlock_irq(p); return fault;\n}\nint board_bus_send(const uint8_t *data, uint16_t len)\n{\n    if (!data || !len) return -1;\n    uint32_t irq = lock_irq();\n    NVIC_DisableIRQ(USART2_IRQn);\n    /* A new request can arrive after main drained the ring. Recheck with no\n     * preemption immediately before enabling the driver; never erase that RX. */\n    if (bus_fault || bus_head != bus_tail ||\n        (USART2->ISR & (USART_ISR_BUSY | USART_ISR_RXNE_RXFNE | USART_ISR_ORE |\n                       USART_ISR_FE | USART_ISR_NE | USART_ISR_PE))) {\n        ++board_diagnostics.tx_busy_drops;\n        NVIC_EnableIRQ(USART2_IRQn); unlock_irq(irq); return -2;\n    }\n    GPIOB->BRR = 1UL << BOARD_RX_EN_PIN; /* suppress local echo; PA3 pull-up stays on */\n    USART2->ICR = USART_ICR_TCCF;\n    GPIOA->BRR = 1UL << 1; /* 1OE# LOW -> drive bus */\n    unlock_irq(irq);\n    uint32_t start = board_micros();\n    uint32_t limit = ((uint32_t)len * 10000000UL) / BOARD_BUS_BAUD + 1000u;\n    int result = 0;\n    for (uint16_t i = 0; i < len; ++i) {\n        while (!(USART2->ISR & USART_ISR_TXE_TXFNF)) {\n            if ((uint32_t)(board_micros() - start) > limit) { result = -1; break; }\n        }\n        if (result) break;\n        USART2->TDR = data[i];\n    }\n    while (!(USART2->ISR & USART_ISR_TC)) {\n        if ((uint32_t)(board_micros() - start) > limit) { result = -1; break; }\n    }\n    GPIOA->BSRR = 1UL << 1; /* only release after final stop bit / timeout */\n    while (USART2->ISR & USART_ISR_RXNE_RXFNE) (void)USART2->RDR;\n    USART2->ICR = USART_ICR_ORECF | USART_ICR_FECF | USART_ICR_NECF | USART_ICR_PECF;\n    GPIOB->BSRR = 1UL << BOARD_RX_EN_PIN;\n    NVIC_ClearPendingIRQ(USART2_IRQn); NVIC_EnableIRQ(USART2_IRQn);\n    if (result) { ++board_diagnostics.tx_timeouts; bus_fault = 1u; }\n    else ++board_diagnostics.tx_packets;\n    return result;\n}"
+        }
+      ]
+    },
+    {
+      "path": "training\\logs\\b-feetech-walk-20261024\\controller-preparation-20261031\\controller-source\\fanhao375-Microduck-kissqy-27d7921\\microduck-hd1910\\firmware\\duck-control\\src\\feetech.rs",
+      "sha256": "b3b9342af9248f46833ad1fe8b592342f71e227b4464c7dab45849a568b02a48",
+      "snippets": [
+        {
+          "start": 169,
+          "end": 182,
+          "text": "pub const SYNC_READ: u8 = 0x82;\npub const SYNC_WRITE: u8 = 0x83;\n/// Budget for one complete 50 Hz telemetry transaction.\n/// Setup/torque verification and explicit read-only diagnostics keep their own budget.\npub const TELEMETRY_DEADLINE_MS: u64 = 20;\n/// Full telemetry and its host-side age share one 20 ms budget.\n/// Retained in diagnostics so consoles can interpret archived timing records.\npub const TELEMETRY_COMPLETE_MAX_AGE_MS: u64 = TELEMETRY_DEADLINE_MS;\npub const READ_TIMING_REVISION: &str = \"r15-read-timing.2\";\n/// Budget for all fifteen torque/goal confirmations at a state transition.\n/// Normal telemetry keeps its separate per-tick deadline.\npub const CONTROL_READBACK_DEADLINE_MS: u64 = 10;\n\nfn error(message: impl Into<String>) -> IoError {"
+        },
+        {
+          "start": 557,
+          "end": 600,
+          "text": "    fn send(&mut self, bytes: &[u8], deadline: Instant) -> Result<()> {\n        let instruction = bytes\n            .get(if bytes.starts_with(&crate::dxl2::HEADER) {\n                7\n            } else {\n                4\n            })\n            .copied();\n        if self.read_only && !matches!(instruction, Some(1 | READ | SYNC_READ)) {\n            return Err(error(\"read-only motor bus: write instruction refused\"));\n        }\n        self.port\n            .clear(serialport::ClearBuffer::Input)\n            .map_err(|e| error(e.to_string()))?;\n        let mut remaining = bytes;\n        while !remaining.is_empty() {\n            self.poll_timeout(deadline)?;\n            match self.port.write(remaining) {\n                Ok(0) => return Err(error(\"Feetech request write returned zero\")),\n                Ok(count) => remaining = &remaining[count..],\n                Err(e)\n                    if matches!(\n                        e.kind(),\n                        std::io::ErrorKind::Interrupted\n                            | std::io::ErrorKind::TimedOut\n                            | std::io::ErrorKind::WouldBlock\n                    ) => {}\n                Err(e) => return Err(error(e.to_string())),\n            }\n        }\n        // On the HAT, direction is automatic. Start receiving a request's replies\n        // immediately: Unix SerialPort::flush calls tcdrain and can delay the\n        // control thread after the small request has already left the UART.\n        Ok(())\n    }\n\n    fn poll_timeout(&mut self, deadline: Instant) -> Result<()> {\n        let left = deadline.saturating_duration_since(Instant::now());\n        if left.is_zero() {\n            return Err(error(\"Feetech transaction deadline exceeded\"));\n        }\n        self.port\n            .set_timeout(left.min(Duration::from_millis(2)))\n            .map_err(|e| error(e.to_string()))"
+        },
+        {
+          "start": 693,
+          "end": 706,
+          "text": "    }\n\n    /// A broadcast has NO acknowledgement. Success here means sent, not confirmed.\n    /// The UART preserves write order; HAT direction is automatic. A following\n    /// query confirms transitions without tcdrain sleeping on every position.\n    pub fn sync_write(&mut self, address: u8, rows: &[(u8, Vec<u8>)]) -> Result<()> {\n        self.send(\n            &sync_write_packet(address, rows)?,\n            Instant::now() + Duration::from_millis(4),\n        )\n    }\n\n    /// One bounded transition confirmation, never an automatic retry.\n    pub fn read_control(&mut self, id: u8, address: u8, length: u8) -> Result<Vec<u8>> {"
+        },
+        {
+          "start": 733,
+          "end": 817,
+          "text": "        self.sync_read_window(address, length, ids, allow_partial, None, false)\n    }\n\n    fn sync_read_window(\n        &mut self,\n        address: u8,\n        length: u8,\n        ids: &[u8],\n        allow_partial: bool,\n        window: Option<(Instant, Instant)>,\n        external_imu: bool,\n    ) -> Result<BTreeMap<u8, Vec<u8>>> {\n        let started = Instant::now();\n        let budget = if address == SYNC_ADDRESS {\n            Duration::from_millis(TELEMETRY_DEADLINE_MS)\n        } else if ids.len() == NUM_JOINTS && matches!((address, length), (40, 1) | (42, 2)) {\n            Duration::from_millis(CONTROL_READBACK_DEADLINE_MS)\n        } else {\n            Duration::from_millis(4)\n        };\n        let deadline = started\n            + if self.read_only\n                && !(self.imu_profile == BusImuProfile::Qinmo && address == SYNC_ADDRESS)\n            {\n                self.timeout\n            } else {\n                budget\n            };\n        let (started, deadline) = window.unwrap_or((started, deadline));\n        let mut pending = ids.iter().copied().collect::<BTreeSet<_>>();\n        let mut decoder = Decoder::for_sync_read(length);\n        let mut rx_bytes = 0;\n        let mut complete_but_late = false;\n        let mut request_sent = false;\n        let mut late_bytes = false;\n        let result = (|| {\n            self.send(&sync_read_packet(address, length, ids)?, deadline)?;\n            request_sent = true;\n            self.observations.requested(ids, Instant::now());\n            let mut replies = BTreeMap::new();\n            let mut failure = None;\n            let mut bytes = [0u8; 256];\n            while Instant::now() < deadline {\n                if self.poll_timeout(deadline).is_err() {\n                    break;\n                }\n                match self.port.read(&mut bytes) {\n                    Ok(count) => {\n                        late_bytes |= count > 0 && Instant::now() >= deadline;\n                        rx_bytes += count;\n                        for byte in &bytes[..count] {\n                            if let Some(status) = decoder.push(*byte) {\n                                if pending.contains(&status.id) {\n                                    self.observations.replied(&status, address, length, Instant::now());\n                                }\n                                if let Err(error) =\n                                    accept_sync_status(&mut pending, &mut replies, status, length)\n                                {\n                                    failure.get_or_insert(error);\n                                }\n                            }\n                        }\n                        if pending.is_empty() {\n                            if let Some(error) = failure {\n                                return Err(error);\n                            }\n                            if decoder.bad_checksums > 0 {\n                                return Err(error(\"Feetech Sync Read checksum error\"));\n                            }\n                            let completed = Instant::now();\n                            if completed >= deadline {\n                                complete_but_late = true;\n                                break;\n                            }\n                            return Ok(replies);\n                        }\n                    }\n                    Err(e)\n                        if matches!(\n                            e.kind(),\n                            std::io::ErrorKind::TimedOut\n                                | std::io::ErrorKind::WouldBlock\n                                | std::io::ErrorKind::Interrupted\n                        ) => {}\n                    Err(e) => return Err(error(e.to_string())),"
+        }
+      ]
+    },
+    {
+      "path": "training\\logs\\b-feetech-walk-20261024\\controller-preparation-20261031\\controller-source\\fanhao375-Microduck-kissqy-27d7921\\microduck-hd1910\\firmware\\robotd\\src\\feetech_commissioning.rs",
+      "sha256": "518775f7fb9c37e0bfba48e1c6be09e6e84fa0ab1427e8449aa65dc62bf152d7",
+      "snippets": [
+        {
+          "start": 608,
+          "end": 641,
+          "text": "        match h.stage {\n            HoldStage::Preload => {\n                let rows = ids\n                    .iter()\n                    .map(|id| (*id, samples[id].feedback.position_signed_raw))\n                    .collect::<Vec<_>>();\n                h.from = ids.iter().map(|id| samples[id].feedback.position_raw).collect();\n                bus.signed_positions(&rows).map_err(|e| e.to_string())?;\n                h.stage = HoldStage::Enable;\n            }\n            HoldStage::Enable => {\n                bus.torque(ids, true).map_err(|e| e.to_string())?;\n                bus.verify_torque(ids, true).map_err(|e| e.to_string())?;\n                h.started = Instant::now();\n                h.stage = HoldStage::Ramping;\n            }\n            HoldStage::Ramping => {\n                let elapsed = h.started.elapsed();\n                let fraction = (elapsed.as_secs_f64() / h.duration.as_secs_f64()).min(1.0);\n                let goals = h\n                    .from\n                    .iter()\n                    .zip(&h.targets)\n                    .map(|(from, to)| {\n                        (f64::from(*from) + f64::from(to - from) * fraction).round() as i32\n                    })\n                    .collect::<Vec<_>>();\n                if h.last_written.as_ref() != Some(&goals) {\n                    let rows = ids.iter().copied().zip(goals.iter().copied()).collect::<Vec<_>>();\n                    bus.signed_positions(&rows).map_err(|e| e.to_string())?;\n                    h.last_written = Some(goals);\n                }\n                h.max_error = hold_error(samples, ids, &h.targets);\n                if elapsed >= h.duration"
+        },
+        {
+          "start": 1490,
+          "end": 1495,
+          "text": "    let mut ticker = super::control_ticker(period);\n    // Tokio intervals tick immediately on creation. Start periodic telemetry one\n    // normal period after startup torque verification, not in the same burst.\n    // This runs once: no warm-up read, discarded failure or steady-state delay.\n    ticker.reset_after(period);\n    let mut rate_start = Instant::now();"
+        },
+        {
+          "start": 1517,
+          "end": 1536,
+          "text": "    let mut next_publish = Instant::now();\n    while !state.shutdown.load(Ordering::Relaxed) {\n        ticker.tick().await;\n        if state.shutdown.load(Ordering::Relaxed) {\n            break;\n        }\n        let tick = Instant::now();\n        let cycle = state.ticks.load(Ordering::Relaxed) + 1;\n        let publish = tick >= next_publish;\n        let mut samples = BTreeMap::new();\n        let mut imu_status = None;\n        let result = (|| -> Result<(), String> {\n            let acquisition = if host_imu.is_some() {\n                bus.joint_telemetry(&ids)\n            } else {\n                bus.telemetry(&ids)\n            };\n            communication_stats.observe(&bus.last_sync);\n            let blocks = acquisition.map_err(|e| e.to_string())?;\n            for id in &ids {"
+        },
+        {
+          "start": 1640,
+          "end": 1651,
+          "text": "            let consecutive = state.consecutive_errors.fetch_add(1, Ordering::Relaxed) + 1;\n            if motion.is_some() {\n                off_pending = abort_motion(&mut bus, &ids, &mut motion, error);\n            }\n            if hold.as_ref().is_some_and(|h| {\n                h.stage != HoldStage::Holding || consecutive >= HOLD_READ_FAILURES\n            }) {\n                cancel_hold(&mut hold, error);\n                off_pending = torque_off(&mut bus, &ids).err();\n            }\n            if consecutive == 1 {\n                tracing::warn!(cycle,%error,\"bus read failed\");"
+        },
+        {
+          "start": 1768,
+          "end": 1770,
+          "text": "            step_motion(&mut bus, &samples, &ids, &mut motion, &mut off_pending);\n            step_hold(&mut bus, &samples, &ids, &mut hold, &mut off_pending);\n        }"
+        }
+      ]
+    },
+    {
+      "path": "training\\logs\\b-feetech-walk-20261024\\controller-preparation-20261031\\controller-source\\fanhao375-Microduck-kissqy-27d7921\\microduck-hd1910\\firmware\\robotd\\src\\main.rs",
+      "sha256": "e305af68b72025426443335159e5206ea9fa9afa1f1671cff3237a8e210f4032",
+      "snippets": [
+        {
+          "start": 4300,
+          "end": 4305,
+          "text": "fn control_ticker(period: Duration) -> tokio::time::Interval {\n    let mut ticker = tokio::time::interval(period);\n    ticker.set_missed_tick_behavior(tokio::time::MissedTickBehavior::Skip);\n    ticker\n}\n"
+        }
+      ]
+    },
+    {
+      "path": "tools\\robotd-v03\\patches\\v03-unicast.patch",
+      "sha256": "74829eb519036d57a5c311f5082990e84868ca31db63145f9da02d507642d31d",
+      "snippets": [
+        {
+          "start": 57,
+          "end": 181,
+          "text": "+    }\n+\n+    /// Unlike the general register reader, both halves of this acquisition must finish\n+    /// inside the same control-tick budget, including when used through --read-only.\n+    fn imu_to_dxl_telemetry(\n+        &mut self,\n+        servo_ids: &[u8],\n+        allow_partial: bool,\n+    ) -> Result<BTreeMap<u8, Vec<u8>>> {\n+        let started = Instant::now();\n+        let deadline = started + Duration::from_millis(TELEMETRY_DEADLINE_MS);\n+        let raw = self.imu_to_dxl_read(deadline)?;\n+        let imu_trace = self.last_sync.clone();\n+        let clean_imu = imu_trace.discarded == 0\n+            && imu_trace.bad_checksums == 0\n+            && self\n+                .decode_imu(&raw)\n+                .is_ok_and(|s| s.is_fresh(imu_trace.elapsed_us));\n+        let result = self.sync_read_window(\n+            SYNC_ADDRESS,\n+            SYNC_LENGTH,\n+            servo_ids,\n+            allow_partial,\n+            Some((started, deadline)),\n+            clean_imu,\n+        );\n+        self.last_sync.rx_bytes += imu_trace.rx_bytes;\n+        self.last_sync.bad_checksums += imu_trace.bad_checksums;\n+        self.last_sync.discarded += imu_trace.discarded;\n+        let mut blocks = result?;\n+        blocks.insert(IMU_ID, raw);\n+        Ok(blocks)\n+    }\n+\n+    fn imu_to_dxl_read(&mut self, deadline: Instant) -> Result<Vec<u8>> {\n+        let started = Instant::now();\n+        let params = [SYNC_ADDRESS, IMU_LENGTH];\n+        let mut decoder = Decoder::default();\n+        let mut trace = SyncTrace {\n+            address: SYNC_ADDRESS,\n+            length: IMU_LENGTH,\n+            missing_ids: vec![IMU_ID],\n+            ..SyncTrace::default()\n+        };\n+        let mut echo_bytes = 0;\n+        let result = (|| {\n+            self.send(&packet(IMU_ID, READ, &params)?, deadline)?;\n+            trace.request_sent = true;\n+            self.observations.requested(&[IMU_ID], Instant::now());\n+            let mut chunk = [0u8; 128];\n+            while Instant::now() < deadline {\n+                if self.poll_timeout(deadline).is_err() {\n+                    break;\n+                }\n+                match self.port.read(&mut chunk) {\n+                    Ok(count) => {\n+                        trace.rx_bytes += count;\n+                        let mut answer = None;\n+                        for byte in &chunk[..count] {\n+                            if let Some(status) = decoder.push(*byte) {\n+                                if status.id != IMU_ID {\n+                                    continue;\n+                                }\n+                                // A half-duplex request echo is not a status-error reply.\n+                                if status.error == READ && status.data == params {\n+                                    echo_bytes += status.data.len() + 6;\n+                                    continue;\n+                                }\n+                                self.last_imu_response_at = Some(Instant::now());\n+                                self.observations.replied(\n+                                    &status,\n+                                    SYNC_ADDRESS,\n+                                    IMU_LENGTH,\n+                                    Instant::now(),\n+                                );\n+                                if status.error != 0 {\n+                                    return Err(error(format!(\n+                                        \"imu_to_dxl ID200 status error 0x{:02x}\",\n+                                        status.error,\n+                                    )));\n+                                }\n+                                if status.data.len() != usize::from(IMU_LENGTH) {\n+                                    return Err(error(\"imu_to_dxl ID200 requires 56/15\"));\n+                                }\n+                                if answer.is_some() {\n+                                    return Err(error(\"duplicate imu_to_dxl ID200 reply\"));\n+                                }\n+                                answer = Some(status.data);\n+                            }\n+                        }\n+                        if let Some(raw) = answer {\n+                            // Include a foreign frame or a noise tail in the trace so a\n+                            // noisy IMU half cannot qualify for partial servo acceptance.\n+                            trace.discarded =\n+                                trace.rx_bytes.saturating_sub(raw.len() + 6 + echo_bytes) as u64;\n+                            if decoder.bad_checksums != 0 {\n+                                return Err(error(\"imu_to_dxl ID200 checksum error\"));\n+                            }\n+                            if Instant::now() >= deadline {\n+                                trace.complete_but_late = true;\n+                                return Err(error(\"imu_to_dxl ID200 response exceeded deadline\"));\n+                            }\n+                            return Ok(raw);\n+                        }\n+                    }\n+                    Err(e)\n+                        if matches!(\n+                            e.kind(),\n+                            std::io::ErrorKind::TimedOut\n+                                | std::io::ErrorKind::WouldBlock\n+                                | std::io::ErrorKind::Interrupted\n+                        ) => {}\n+                    Err(e) => return Err(error(e.to_string())),\n+                }\n+            }\n+            Err(error(\"imu_to_dxl ID200 response timeout\"))\n+        })();\n+        trace.elapsed_us = started.elapsed().as_micros() as u64;\n+        trace.deadline_exceeded = Instant::now() >= deadline;\n+        trace.bad_checksums = decoder.bad_checksums;\n+        trace.discarded = trace.discarded.max(decoder.discarded);\n+        if result.is_ok() {\n+            trace.missing_ids.clear();\n+        }\n+        self.last_sync = trace;"
+        }
+      ]
+    },
+    {
+      "path": "tools\\servo-web\\feetech.py",
+      "sha256": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+      "snippets": [
+        {
+          "start": 73,
+          "end": 104,
+          "text": "    def __init__(self, port, baud=1_000_000, timeout=0.02, ser=None):\n        # ser 给模拟器用（sim_bus.SimSerial），真机走串口\n        self.ser = ser if ser is not None else serial.Serial(port, baud, timeout=timeout, write_timeout=0.1)\n        # 串口互斥锁。别叫 self.lock：会盖住下面的 lock(sid)「加 EEPROM 锁」方法（2026-09-20 真机踩到）\n        self._io = threading.Lock()\n        # 原始收发记录：设一个 trace(文本) 回调就开始记。飞特不支持的操作照样回\"成功\"，\n        # 只有对着十六进制才分得清「真做了」和「装作做了」。10 Hz 的状态轮询不记，不然日志全是它\n        self.trace = None\n        self.trace_skip = {SYNC_READ, SYNC_WRITE}\n        self._last = (None, None)\n        self.stats = {\"tx\": 0, \"rx_ok\": 0, \"timeout\": 0, \"bad_checksum\": 0, \"bad_id\": 0}\n\n    def close(self):\n        self.ser.close()\n\n    # ---- 包 ----\n    @staticmethod\n    def _packet(sid, instr, params=b\"\"):\n        length = len(params) + 2\n        chk = (~(sid + length + instr + sum(params))) & 0xFF\n        return bytes([0xFF, 0xFF, sid, length, instr]) + bytes(params) + bytes([chk])\n\n    def _send(self, sid, instr, params=b\"\"):\n        self.ser.reset_input_buffer()\n        pkt = self._packet(sid, instr, params)\n        self.ser.write(pkt)\n        self.stats[\"tx\"] += 1\n        self._last = (sid, instr)\n        if self.trace and instr not in self.trace_skip:\n            note = \"\"\n            if instr in (READ, WRITE) and params:\n                reg = REGISTERS.get(params[0])"
+        },
+        {
+          "start": 109,
+          "end": 145,
+          "text": "    def _read_status(self, expect_id=None):\n        \"\"\"读一个应答帧，返回 (id, error, params)。\"\"\"\n        # 找 FF FF\n        hdr = b\"\"\n        deadline = time.monotonic() + self.ser.timeout * 3\n        while time.monotonic() < deadline:\n            b = self.ser.read(1)\n            if not b:\n                break\n            hdr = (hdr + b)[-2:]\n            if hdr == b\"\\xff\\xff\":\n                break\n        who = f\"id {expect_id}\" if expect_id is not None else \"舵机\"\n        if hdr != b\"\\xff\\xff\":\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 没应答（{self.ser.timeout * 3 * 1000:.0f} ms 内没收到帧头）\")\n        rest = self.ser.read(2)\n        if len(rest) < 2:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答断在 ID/长度（收到 ff ff {hexs(rest)}）\")\n        sid, length = rest[0], rest[1]\n        body = self.ser.read(length)\n        if len(body) < length:\n            self.stats[\"timeout\"] += 1\n            raise BusTimeout(f\"{who} 应答不完整：长度 {length} 只收到 {len(body)}（ff ff {hexs(rest + body)}）\")\n        err, params, chk = body[0], body[1:-1], body[-1]\n        if ((~(sid + length + err + sum(params))) & 0xFF) != chk:\n            self.stats[\"bad_checksum\"] += 1\n            raise BusError(f\"{who} 校验和不对（ff ff {hexs(rest + body)}）\")\n        if expect_id is not None and sid != expect_id:\n            self.stats[\"bad_id\"] += 1\n            raise BusError(f\"等 id {expect_id} 的应答，来的是 id {sid}（ff ff {hexs(rest + body)}）\")\n        self.stats[\"rx_ok\"] += 1\n        if self.trace and self._last[1] not in self.trace_skip:\n            head = b'\\xff\\xff'\n            self.trace(f\"← #{sid} 状态0x{err:02X} {hexs(head + rest + body)}\"\n                       + (f\"  数据 {list(params)}\" if params else \"\"))"
+        },
+        {
+          "start": 159,
+          "end": 166,
+          "text": "        with self._io:\n            self._send(sid, READ, bytes([addr, n]))\n            _, err, params = self._read_status(sid)\n            if len(params) != n:\n                raise BusError(f\"id {sid} 读地址 {addr} 起 {n} 字节，只回了 {len(params)} 字节\")\n            return err, params\n\n    def write(self, sid, addr, data, wait=True):"
+        },
+        {
+          "start": 199,
+          "end": 212,
+          "text": "    def sync_read(self, ids, addr, n):\n        \"\"\"返回 {id: (err, params) 或 None}，顺序按 ids。任何一颗超时不影响后面的。\"\"\"\n        out = {}\n        with self._io:\n            self._send(BROADCAST, SYNC_READ, bytes([addr, n]) + bytes(ids))\n            for sid in ids:\n                try:\n                    _, err, params = self._read_status(sid)\n                    out[sid] = (err, params) if len(params) == n else None\n                except BusError:\n                    out[sid] = None\n        return out\n\n    def reboot(self, sid):"
+        }
+      ]
+    }
+  ],
+  "controller_scope": "Archived fixed upstream code plus deployed v03-unicast.patch; experiment order is covered by prior trial records",
+  "hardware_operations": "None; remote command only imports serial/inspect and reads library source",
+  "serialport_library": [
+    {
+      "path": "/opt/duck-robot/cargo/registry/src/rsproxy.cn-e3de039b2554c837/serialport-4.9.0/src/posix/tty.rs",
+      "sha256": "fd5f701990e8227206991c2b3a1f7c13903b574b0b6e6a3a53e07a5473c62f01",
+      "snippets": [
+        {
+          "start": 466,
+          "end": 504,
+          "text": "impl io::Read for TTYPort {\n    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {\n        if let Err(e) = super::poll::wait_read_fd(self.fd, self.timeout) {\n            return Err(io::Error::from(Error::from(e)));\n        }\n\n        nix::unistd::read(self.fd, buf).map_err(|e| io::Error::from(Error::from(e)))\n    }\n}\n\nimpl io::Write for TTYPort {\n    fn write(&mut self, buf: &[u8]) -> io::Result<usize> {\n        if let Err(e) = super::poll::wait_write_fd(self.fd, self.timeout) {\n            return Err(io::Error::from(Error::from(e)));\n        }\n\n        nix::unistd::write(self.fd, buf).map_err(|e| io::Error::from(Error::from(e)))\n    }\n\n    fn flush(&mut self) -> io::Result<()> {\n        let timeout = Instant::now() + self.timeout;\n        loop {\n            return match nix::sys::termios::tcdrain(self.fd) {\n                Ok(_) => Ok(()),\n                Err(Errno::EINTR) => {\n                    // Retry flushing. But only up to the ports timeout for not retrying\n                    // indefinitely in case that it gets interrupted again.\n                    if Instant::now() < timeout {\n                        continue;\n                    } else {\n                        Err(io::Error::new(\n                            io::ErrorKind::TimedOut,\n                            \"timeout for retrying flush reached\",\n                        ))\n                    }\n                }\n                Err(_) => Err(io::Error::new(io::ErrorKind::Other, \"flush failed\")),\n            };\n        }"
+        },
+        {
+          "start": 732,
+          "end": 735,
+          "text": "    fn set_timeout(&mut self, timeout: Duration) -> Result<()> {\n        self.timeout = timeout;\n        Ok(())\n    }"
+        },
+        {
+          "start": 761,
+          "end": 781,
+          "text": "    fn bytes_to_read(&self) -> Result<u32> {\n        ioctl::fionread(self.fd)\n    }\n\n    fn bytes_to_write(&self) -> Result<u32> {\n        ioctl::tiocoutq(self.fd)\n    }\n\n    fn clear(&self, buffer_to_clear: ClearBuffer) -> Result<()> {\n        let buffer_id = match buffer_to_clear {\n            ClearBuffer::Input => libc::TCIFLUSH,\n            ClearBuffer::Output => libc::TCOFLUSH,\n            ClearBuffer::All => libc::TCIOFLUSH,\n        };\n\n        Errno::result(unsafe { libc::tcflush(self.fd, buffer_id) })\n            .map(|_| ())\n            .map_err(|e| e.into())\n    }\n\n    fn try_clone(&self) -> Result<Box<dyn SerialPort>> {"
+        }
+      ]
+    },
+    {
+      "path": "/opt/duck-robot/cargo/registry/src/rsproxy.cn-e3de039b2554c837/serialport-4.9.0/src/posix/poll.rs",
+      "sha256": "1d8179cf29d04cbf1061e0e94d0864bb09eb8167b585feec9c6d4e1768c76364",
+      "snippets": [
+        {
+          "start": 14,
+          "end": 65,
+          "text": "\npub fn wait_read_fd(fd: RawFd, timeout: Duration) -> io::Result<()> {\n    wait_fd(fd, PollFlags::POLLIN, timeout)\n}\n\npub fn wait_write_fd(fd: RawFd, timeout: Duration) -> io::Result<()> {\n    wait_fd(fd, PollFlags::POLLOUT, timeout)\n}\n\nfn wait_fd(fd: RawFd, events: PollFlags, timeout: Duration) -> io::Result<()> {\n    use nix::errno::Errno::{EIO, EPIPE};\n\n    let mut fd = PollFd::new(fd, events);\n\n    let wait = match poll_clamped(&mut fd, timeout) {\n        Ok(r) => r,\n        Err(e) => return Err(io::Error::from(crate::Error::from(e))),\n    };\n    // All errors generated by poll or ppoll are already caught by the nix wrapper around libc, so\n    // here we only need to check if there's at least 1 event\n    if wait != 1 {\n        return Err(io::Error::new(\n            io::ErrorKind::TimedOut,\n            \"Operation timed out\",\n        ));\n    }\n\n    // Check the result of ppoll() by looking at the revents field\n    match fd.revents() {\n        Some(e) if e == events => return Ok(()),\n        // If there was a hangout or invalid request\n        Some(e) if e.contains(PollFlags::POLLHUP) || e.contains(PollFlags::POLLNVAL) => {\n            return Err(io::Error::new(io::ErrorKind::BrokenPipe, EPIPE.desc()));\n        }\n        Some(_) | None => (),\n    }\n\n    Err(io::Error::new(io::ErrorKind::Other, EIO.desc()))\n}\n\n/// Poll with a duration clamped to the maximum value representable by the `TimeSpec` used by\n/// `ppoll`.\n#[cfg(target_os = \"linux\")]\nfn poll_clamped(fd: &mut PollFd, timeout: Duration) -> nix::Result<c_int> {\n    let spec = clamped_time_spec(timeout);\n    nix::poll::ppoll(slice::from_mut(fd), Some(spec), Some(SigSet::empty()))\n}\n\n#[cfg(any(target_os = \"linux\", test))]\n// The type time_t is deprecaten on musl. The nix crate internally uses this type and makes an\n// exeption for the deprecation for musl. And so do we.\n//"
+        }
+      ]
+    }
+  ],
+  "pyserial_remote_read": {
+    "returncode": 0,
+    "stderr": "close - IO is still pending on closed socket. read:1, write:1, io:00000243196DEC10\n"
+  },
+  "pyserial": {
+    "version": "3.5",
+    "path": "/usr/lib/python3/dist-packages/serial/serialposix.py",
+    "sha256": "5d56f98513391e1766a1847a04e2e1202ced4172a152803ba1c823a149a9b6f9",
+    "methods": [
+      {
+        "name": "read",
+        "start": 553,
+        "text": "    def read(self, size=1):\n        \"\"\"\\\n        Read size bytes from the serial port. If a timeout is set it may\n        return less characters as requested. With no timeout it will block\n        until the requested number of bytes is read.\n        \"\"\"\n        if not self.is_open:\n            raise PortNotOpenError()\n        read = bytearray()\n        timeout = Timeout(self._timeout)\n        while len(read) < size:\n            try:\n                ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())\n                if self.pipe_abort_read_r in ready:\n                    os.read(self.pipe_abort_read_r, 1000)\n                    break\n                # If select was used with a timeout, and the timeout occurs, it\n                # returns with empty lists -> thus abort read operation.\n                # For timeout == 0 (non-blocking operation) also abort when\n                # there is nothing to read.\n                if not ready:\n                    break   # timeout\n                buf = os.read(self.fd, size - len(read))\n            except OSError as e:\n                # this is for Python 3.x where select.error is a subclass of\n                # OSError ignore BlockingIOErrors and EINTR. other errors are shown\n                # https://www.python.org/dev/peps/pep-0475.\n                if e.errno not in (errno.EAGAIN, errno.EALREADY, errno.EWOULDBLOCK, errno.EINPROGRESS, errno.EINTR):\n                    raise SerialException('read failed: {}'.format(e))\n            except select.error as e:\n                # this is for Python 2.x\n                # ignore BlockingIOErrors and EINTR. all errors are shown\n                # see also http://www.python.org/dev/peps/pep-3151/#select\n                if e[0] not in (errno.EAGAIN, errno.EALREADY, errno.EWOULDBLOCK, errno.EINPROGRESS, errno.EINTR):\n                    raise SerialException('read failed: {}'.format(e))\n            else:\n                # read should always return some data as select reported it was\n                # ready to read when we get to this point.\n                if not buf:\n                    # Disconnected devices, at least on Linux, show the\n                    # behavior that they are always ready to read immediately\n                    # but reading returns nothing.\n                    raise SerialException(\n                        'device reports readiness to read but returned no data '\n                        '(device disconnected or multiple access on port?)')\n                read.extend(buf)\n\n            if timeout.expired():\n                break\n        return bytes(read)\n"
+      },
+      {
+        "name": "write",
+        "start": 612,
+        "text": "    def write(self, data):\n        \"\"\"Output the given byte string over the serial port.\"\"\"\n        if not self.is_open:\n            raise PortNotOpenError()\n        d = to_bytes(data)\n        tx_len = length = len(d)\n        timeout = Timeout(self._write_timeout)\n        while tx_len > 0:\n            try:\n                n = os.write(self.fd, d)\n                if timeout.is_non_blocking:\n                    # Zero timeout indicates non-blocking - simply return the\n                    # number of bytes of data actually written\n                    return n\n                elif not timeout.is_infinite:\n                    # when timeout is set, use select to wait for being ready\n                    # with the time left as timeout\n                    if timeout.expired():\n                        raise SerialTimeoutException('Write timeout')\n                    abort, ready, _ = select.select([self.pipe_abort_write_r], [self.fd], [], timeout.time_left())\n                    if abort:\n                        os.read(self.pipe_abort_write_r, 1000)\n                        break\n                    if not ready:\n                        raise SerialTimeoutException('Write timeout')\n                else:\n                    assert timeout.time_left() is None\n                    # wait for write operation\n                    abort, ready, _ = select.select([self.pipe_abort_write_r], [self.fd], [], None)\n                    if abort:\n                        os.read(self.pipe_abort_write_r, 1)\n                        break\n                    if not ready:\n                        raise SerialException('write failed (select)')\n                d = d[n:]\n                tx_len -= n\n            except SerialException:\n                raise\n            except OSError as e:\n                # this is for Python 3.x where select.error is a subclass of\n                # OSError ignore BlockingIOErrors and EINTR. other errors are shown\n                # https://www.python.org/dev/peps/pep-0475.\n                if e.errno not in (errno.EAGAIN, errno.EALREADY, errno.EWOULDBLOCK, errno.EINPROGRESS, errno.EINTR):\n                    raise SerialException('write failed: {}'.format(e))\n            except select.error as e:\n                # this is for Python 2.x\n                # ignore BlockingIOErrors and EINTR. all errors are shown\n                # see also http://www.python.org/dev/peps/pep-3151/#select\n                if e[0] not in (errno.EAGAIN, errno.EALREADY, errno.EWOULDBLOCK, errno.EINPROGRESS, errno.EINTR):\n                    raise SerialException('write failed: {}'.format(e))\n            if not timeout.is_non_blocking and timeout.expired():\n                raise SerialTimeoutException('Write timeout')\n        return length - len(d)\n"
+      },
+      {
+        "name": "flush",
+        "start": 666,
+        "text": "    def flush(self):\n        \"\"\"\\\n        Flush of file like objects. In this case, wait until all data\n        is written.\n        \"\"\"\n        if not self.is_open:\n            raise PortNotOpenError()\n        termios.tcdrain(self.fd)\n"
+      },
+      {
+        "name": "reset_input_buffer",
+        "start": 679,
+        "text": "    def reset_input_buffer(self):\n        \"\"\"Clear input buffer, discarding all that is in the buffer.\"\"\"\n        if not self.is_open:\n            raise PortNotOpenError()\n        self._reset_input_buffer()\n"
+      }
+    ]
+  },
+  "captured_failure_windows": [
+    {
+      "experiment": "hold-home-replay-20261101",
+      "request_write_count_before_native_off": 1,
+      "read_syscall_count": 1,
+      "poll_timeout_count": 8,
+      "ioctl_between_request_and_bad_read": [],
+      "read_bytes": 21,
+      "first_read_start_us": 867,
+      "read_duration_us": 57,
+      "read_complete_us_from_request": 924,
+      "prior_goal_return_to_imu_write_us": 13428,
+      "trace_start_line": 734,
+      "trace_end_line_exclusive": 748,
+      "trace_text": "1793505068.321202 write(11, \"\\xff\\xff\\xc8\\x04\\x02\\x38\\x0f\\xea\", 8) = 8 <0.000124>\n1793505068.321613 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1808952}) <0.000277>\n1793505068.322069 read(11, \"\\xff\\xff\\xc8\\x11\\x00\\xce\\xff\\xb2\\x00\\xb5\\x00\\xc7\\xb0\\x7e\\xb2\\x12\\x3a\\x73\\x80\\x80\\x5d\", 128) = 21 <0.000057>\n1793505068.322268 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002108>\n1793505068.324524 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002164>\n1793505068.326917 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002160>\n1793505068.329317 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002215>\n1793505068.331795 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002204>\n1793505068.334270 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002202>\n1793505068.336689 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002163>\n1793505068.339077 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=1241731}, [], 8) = 0 (Timeout) <0.001397>\n1793505068.340700 write(4, \"\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\", 8) = 8 <0.000061>\n1793505068.341242 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000196>\n1793505068.341821 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1964124}) <0.000196>",
+      "source_sha256": {
+        "hold-home-replay-20261101.log": "7b1b74247edf12a61e7176a147098bc7615f94059cf01cfc7e79527c2e24b211",
+        "hold-home-replay-20261101.json": "11f3439e1a7063fc4c014864af568de8e1e70204f25d4305a75e8dde7946dc11"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r1",
+      "request_write_count_before_native_off": 1,
+      "read_syscall_count": 1,
+      "poll_timeout_count": 8,
+      "ioctl_between_request_and_bad_read": [],
+      "read_bytes": 21,
+      "first_read_start_us": 917,
+      "read_duration_us": 55,
+      "read_complete_us_from_request": 972,
+      "prior_goal_return_to_imu_write_us": 13433,
+      "trace_start_line": 738,
+      "trace_end_line_exclusive": 752,
+      "trace_text": "1793506918.163394 write(11, \"\\xff\\xff\\xc8\\x04\\x02\\x38\\x0f\\xea\", 8) = 8 <0.000147>\n1793506918.163751 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1678870}) <0.000407>\n1793506918.164311 read(11, \"\\xff\\xff\\xc8\\x11\\x00\\xd1\\xff\\x7a\\x00\\x3f\\x80\\x53\\xb0\\x6f\\xfb\\x16\\xbf\\xdd\\x80\\x00\\x4c\", 128) = 21 <0.000055>\n1793506918.164505 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002116>\n1793506918.166857 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002163>\n1793506918.169276 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002220>\n1793506918.171733 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002170>\n1793506918.174120 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002211>\n1793506918.176666 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002202>\n1793506918.179130 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002203>\n1793506918.181603 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=854125}, [], 8) = 0 (Timeout) <0.001054>\n1793506918.182936 write(4, \"\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\", 8) = 8 <0.000107>\n1793506918.183323 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000127>\n1793506918.183731 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1976374}) <0.000118>",
+      "source_sha256": {
+        "hold-home-baseline3-20261101-r1.log": "0d4bc472fceffa67c5942fb85914459a01e8d7c61bb26db1cd219d835bdf1c7e",
+        "hold-home-baseline3-20261101-r1.json": "e80d1bb02175d46124bbd6adf1df655a67f3f59d75633931c2423d04a479472c"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r2",
+      "request_write_count_before_native_off": 1,
+      "read_syscall_count": 1,
+      "poll_timeout_count": 7,
+      "ioctl_between_request_and_bad_read": [],
+      "read_bytes": 21,
+      "first_read_start_us": 1486,
+      "read_duration_us": 142,
+      "read_complete_us_from_request": 1628,
+      "prior_goal_return_to_imu_write_us": 12395,
+      "trace_start_line": 791,
+      "trace_end_line_exclusive": 804,
+      "trace_text": "1793506922.544602 write(11, \"\\xff\\xff\\xc8\\x04\\x02\\x38\\x0f\\xea\", 8) = 8 <0.000074>\n1793506922.544830 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1378449}) <0.000779>\n1793506922.546088 read(11, \"\\xff\\xff\\xec\\x11\\x00\\x81\\x00\\x02\\x00\\x9b\\x00\\x56\\xb0\\x66\\xb2\\x9f\\x3a\\xe2\\x00\\x00\\x41\", 128) = 21 <0.000142>\n1793506922.546659 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002365>\n1793506922.549598 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002167>\n1793506922.552141 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002165>\n1793506922.554569 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002153>\n1793506922.556905 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002169>\n1793506922.559315 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002137>\n1793506922.561784 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002165>\n1793506922.564356 write(4, \"\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\", 8) = 8 <0.000067>\n1793506922.564625 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000063>\n1793506922.564829 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1982500}) <0.000167>",
+      "source_sha256": {
+        "hold-home-baseline3-20261101-r2.log": "3c7249fa93dd90bc91aa0189b720f5f003e1824f4437d4085fb2dd34f38ac660",
+        "hold-home-baseline3-20261101-r2.json": "e8afc6e7e561a840f8f00ffc56eb882aa381de5f89478a4e36f5c1dc4a09b156"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r3",
+      "request_write_count_before_native_off": 1,
+      "read_syscall_count": 1,
+      "poll_timeout_count": 8,
+      "ioctl_between_request_and_bad_read": [],
+      "read_bytes": 21,
+      "first_read_start_us": 997,
+      "read_duration_us": 53,
+      "read_complete_us_from_request": 1050,
+      "prior_goal_return_to_imu_write_us": 13087,
+      "trace_start_line": 766,
+      "trace_end_line_exclusive": 780,
+      "trace_text": "1793506926.801845 write(11, \"\\xff\\xff\\xc8\\x04\\x02\\x38\\x0f\\xea\", 8) = 8 <0.000100>\n1793506926.802131 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1477325}) <0.000563>\n1793506926.802842 read(11, \"\\xff\\xff\\xc8\\x11\\x00\\xbd\\xff\\xc0\\x00\\x11\\x00\\x50\\xb0\\x68\\xb2\\x9f\\x3a\\xd9\\x80\\x00\\x56\", 128) = 21 <0.000053>\n1793506926.803031 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002177>\n1793506926.805507 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002258>\n1793506926.808013 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002165>\n1793506926.810419 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002213>\n1793506926.812864 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002249>\n1793506926.815402 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002209>\n1793506926.817904 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002258>\n1793506926.820393 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=799288}, [], 8) = 0 (Timeout) <0.000963>\n1793506926.821685 write(4, \"\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\", 8) = 8 <0.000177>\n1793506926.822186 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000196>\n1793506926.822719 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1964999}) <0.000193>",
+      "source_sha256": {
+        "hold-home-baseline3-20261101-r3.log": "fce7dab74d188e80190ee1edab49c2f7a7ccfef7e96d1b42329fc57d47e05a00",
+        "hold-home-baseline3-20261101-r3.json": "d3b6a64ef4b58d63c06903b0178e7dc56fd5c95c8bf2624569ee94fccc46eda4"
+      }
+    },
+    {
+      "experiment": "hold-home-servo-first-20261101",
+      "request_write_count_before_native_off": 1,
+      "read_syscall_count": 1,
+      "poll_timeout_count": 6,
+      "ioctl_between_request_and_bad_read": [],
+      "read_bytes": 21,
+      "first_read_start_us": 683,
+      "read_duration_us": 45,
+      "read_complete_us_from_request": 728,
+      "prior_goal_return_to_imu_write_us": 18645,
+      "trace_start_line": 736,
+      "trace_end_line_exclusive": 748,
+      "trace_text": "1793507213.029290 write(11, \"\\xff\\xff\\xc8\\x04\\x02\\x38\\x0f\\xea\", 8) = 8 <0.000053>\n1793507213.029472 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLIN}], left {tv_sec=0, tv_nsec=1689952}) <0.000350>\n1793507213.029973 read(11, \"\\xff\\xff\\xc8\\x11\\x00\\xf5\\xff\\xfe\\xff\\x84\\x00\\x4f\\xb0\\x67\\xb2\\x16\\x3a\\xbd\\x00\\x00\\x0c\", 128) = 21 <0.000045>\n1793507213.030143 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002108>\n1793507213.032409 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002172>\n1793507213.034822 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002168>\n1793507213.037273 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002214>\n1793507213.039736 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 0 (Timeout) <0.002166>\n1793507213.042142 ppoll([{fd=11, events=POLLIN}], 1, {tv_sec=0, tv_nsec=980048}, [], 8) = 0 (Timeout) <0.001130>\n1793507213.043560 write(4, \"\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\", 8) = 8 <0.000105>\n1793507213.043894 ioctl(11, TCFLSH, TCIFLUSH) = 0 <0.000101>\n1793507213.044237 ppoll([{fd=11, events=POLLOUT}], 1, {tv_sec=0, tv_nsec=2000000}, [], 8) = 1 ([{fd=11, revents=POLLOUT}], left {tv_sec=0, tv_nsec=1976666}) <0.000128>",
+      "source_sha256": {
+        "hold-home-servo-first-20261101.log": "a2c97b60ee67eb62462fe283222bc112d9c3813a5f957b773a68bbf78710c20b",
+        "hold-home-servo-first-20261101.json": "13417bec67e9c95e18507ac0d021fd50b293991913fb0629a158459eff56b29c"
+      }
+    }
+  ]
+}

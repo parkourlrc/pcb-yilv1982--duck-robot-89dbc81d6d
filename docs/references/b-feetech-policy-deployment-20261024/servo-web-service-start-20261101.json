@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-01",
+  "request": "启动 servo-web",
+  "before": {
+    "servo_web": "inactive",
+    "robotd": "active",
+    "studio": "active",
+    "robotd_build": "0791fcd-feetech-qinmo-control.47",
+    "torque_state": "off",
+    "policy_motion_enabled": false
+  },
+  "changes": [
+    "stop microduck-studio.service and robotd.service",
+    "start user duck-servo-web.service"
+  ],
+  "service_enablement_changed": false,
+  "http_status": 200,
+  "api": {
+    "version": "0.15.3",
+    "fake": false,
+    "present": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      30,
+      31,
+      32,
+      33,
+      34,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "stats": {
+      "tx": 16,
+      "rx_ok": 16,
+      "timeout": 0,
+      "bad_checksum": 0,
+      "bad_id": 0
+    }
+  },
+  "services": {
+    "servo_web": "active",
+    "robotd": "inactive",
+    "studio": "inactive"
+  }
+}

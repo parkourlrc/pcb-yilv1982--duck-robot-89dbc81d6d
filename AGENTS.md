@@ -30,6 +30,8 @@
 | [`scripts/`](scripts/) | 本项目辅助脚本：图片标注、历史训练启动等；复用前核对路径和环境。 |
 | [`tools/jlc-order/`](tools/jlc-order/README.md) | 嘉立创 API 下单/查询工具、测试与示例配置；真实配置和调用台账不提交。 |
 | [`tools/servo-web/`](tools/servo-web/SOURCE.md) | 本项目 servo-web **可部署工作副本**（主控 Radxa `~/servo-web` 的工程同步版，含来源与差异说明，2026-10-27 建）；servo-web 修改在本副本/板侧进行后同步回此，上游 `references/microduck-replica/tools/servo-web/` 保持只读。 |
+| [`tools/robotd-recovery/`](tools/robotd-recovery/README.md) | 网页调用联合 walk 模型从躺姿恢复的补丁、产物和验收；2026-11-01 已部署，用户随后尝试恢复及行走并报告停机，原因和日志限制见进度及排障记录，尚无成功起身验收。 |
+| [`tools/robotd-v03/`](tools/robotd-v03/README.md) | 本机飞特 robotd 的 v0.3 补丁与安装历史；2026-11-01 通信补丁已撤回，当前新单口板恢复原版混读；来源档案、Studio 显示适配与参考数据保留，状态见目录 README。 |
 | [`references/microduck-community-kit/`](references/microduck-community-kit/README.md) | **C 线主参考，只读**：取电/配电/IMU 板、固件、飞特补丁、舵机调试器。 |
 | [`references/microduck-replica/`](references/microduck-replica/README.md) | **B 线参考，只读**：机械、电控、舵机资料、部署及训练研究。各子目录许可不同。 |
 | [`references/microduck-build-tutorial/`](references/microduck-build-tutorial/README.md) | **A 线参考，只读**：Pi Zero 2 W / OpenRB / XL330 教程；不是当前 C 线施工依据。 |

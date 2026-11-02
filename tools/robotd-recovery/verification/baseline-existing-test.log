@@ -1,0 +1,19 @@
+   Compiling robotd v0.15.1 (/root/duck-robot-recovery-baseline-20261101/robotd)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.22s
+     Running unittests src/main.rs (/root/duck-robot-recovery-20261101/target/debug/deps/robotd-841120f08aa4bf66)
+
+running 1 test
+
+thread 'tests::r17_empty_snapshot_and_warming_imu_do_not_accept_home' (665) panicked at robotd/src/main.rs:10849:13:
+loop did not tick
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test tests::r17_empty_snapshot_and_warming_imu_do_not_accept_home ... FAILED
+
+failures:
+
+failures:
+    tests::r17_empty_snapshot_and_warming_imu_do_not_accept_home
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 323 filtered out; finished in 1.00s
+
+error: test failed, to rerun pass `-p robotd --bin robotd`

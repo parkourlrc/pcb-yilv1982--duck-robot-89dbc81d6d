@@ -1,0 +1,1144 @@
+{
+  "date": "2026-10-27",
+  "source_commit": "7c5fba929e668aab4fa86f608fb7586c0e9718b2",
+  "scope": "kissqy参考工程候选点；不是白色HAT V1.2已核准维修点",
+  "versions": [
+    {
+      "source": "docs/schematics/kissqy-hat-reva-reference/ProPrj_HAT_REVA_SCH_2026-10-07.epro2",
+      "sha256": "5aa0db7d24a14887e9e7340c1c3708c9d2a60ef5638243d39e743cc7430447f7",
+      "epru_sha256": "2488a47e5fbecd70ef9dac6495d31301bd15b28a282e79a405c29afb0e0a7745",
+      "units": "mil",
+      "view": "top; x right, y up",
+      "tombstones_processed": 668,
+      "checks": {
+        "a_net_matches_r33_1": true,
+        "b_net_matches_r33_2": true,
+        "a_to_r33_1_copper": true,
+        "b_to_r33_2_copper": true,
+        "a_other_pad_is_3v3": true,
+        "b_other_pad_is_external_data": true,
+        "r31_is_rx_pullup": true
+      },
+      "candidate_a": {
+        "ref": "R32",
+        "pin": "2",
+        "net": "DXL_DATA_INT",
+        "x": 775.002,
+        "y": -759.66,
+        "layer": 1,
+        "angle": -90,
+        "shape": {
+          "padType": "RECT",
+          "width": 31.751,
+          "height": 34.016,
+          "radius": 0
+        },
+        "source_line": 8868,
+        "footprint": "80287ff33eb24f48",
+        "footprint_pad_id": "e7"
+      },
+      "candidate_b": {
+        "ref": "TH1",
+        "pin": "1",
+        "net": "DXL_DATA_CLAMPED",
+        "x": 675.0,
+        "y": -754.66,
+        "layer": 1,
+        "angle": 90,
+        "shape": {
+          "padType": "RECT",
+          "width": 31.751,
+          "height": 34.016,
+          "radius": 0
+        },
+        "source_line": 8881,
+        "footprint": "c10bdb5a6e701541",
+        "footprint_pad_id": "e15"
+      },
+      "distance_mm": 2.5432237547216787,
+      "relevant_components": [
+        {
+          "ref": "D4",
+          "x": 678.704,
+          "y": -860,
+          "angle": -90,
+          "value": "5V1 / bus clamp",
+          "layer": 1
+        },
+        {
+          "ref": "R31",
+          "x": 965,
+          "y": -590,
+          "angle": -90,
+          "value": "10k / RX pull-up",
+          "layer": 1
+        },
+        {
+          "ref": "R32",
+          "x": 775.002,
+          "y": -730,
+          "angle": -90,
+          "value": "10k / data pull-up",
+          "layer": 1
+        },
+        {
+          "ref": "R33",
+          "x": 745,
+          "y": -860,
+          "angle": -90,
+          "value": "0Ω",
+          "layer": 1
+        },
+        {
+          "ref": "TH1",
+          "x": 675,
+          "y": -725,
+          "angle": 90,
+          "value": "100R PTC",
+          "layer": 1
+        },
+        {
+          "ref": "U5",
+          "x": 855,
+          "y": -535,
+          "angle": 0,
+          "value": "74LVC1G08 / RX gate",
+          "layer": 1
+        },
+        {
+          "ref": "U6",
+          "x": 875,
+          "y": -665,
+          "angle": 0,
+          "value": "SN74LVC1G125 / RX",
+          "layer": 1
+        },
+        {
+          "ref": "U7",
+          "x": 925,
+          "y": -820,
+          "angle": 90,
+          "value": "SN74LVC1G126 / TX",
+          "layer": 1
+        }
+      ],
+      "relevant_pads": [
+        {
+          "ref": "D4",
+          "pin": "1",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 678.704,
+          "y": -813.84,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 39.37,
+            "height": 27.559,
+            "radius": 0
+          },
+          "source_line": 8628,
+          "footprint": "171b71b6890ef3f8",
+          "footprint_pad_id": "e13"
+        },
+        {
+          "ref": "J13",
+          "pin": "3",
+          "net": "DXL_DATA",
+          "x": 354.8104,
+          "y": -625.83,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "ELLIPSE",
+            "width": 66.929,
+            "height": 66.929
+          },
+          "source_line": 8724,
+          "footprint": "3607626cf6ae9f31",
+          "footprint_pad_id": "e17"
+        },
+        {
+          "ref": "J14",
+          "pin": "3",
+          "net": "DXL_DATA",
+          "x": 552.527,
+          "y": -625.83,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "ELLIPSE",
+            "width": 66.929,
+            "height": 66.929
+          },
+          "source_line": 8731,
+          "footprint": "3607626cf6ae9f31",
+          "footprint_pad_id": "e17"
+        },
+        {
+          "ref": "R31",
+          "pin": "2",
+          "net": "TTL_RX_RAW",
+          "x": 965.0,
+          "y": -619.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8862,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R31",
+          "pin": "1",
+          "net": "3V3",
+          "x": 965.0,
+          "y": -560.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8863,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "R32",
+          "pin": "2",
+          "net": "DXL_DATA_INT",
+          "x": 775.002,
+          "y": -759.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8868,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R32",
+          "pin": "1",
+          "net": "3V3",
+          "x": 775.002,
+          "y": -700.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8869,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "R33",
+          "pin": "2",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 745.0,
+          "y": -889.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8874,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R33",
+          "pin": "1",
+          "net": "DXL_DATA_INT",
+          "x": 745.0,
+          "y": -830.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8875,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "TH1",
+          "pin": "2",
+          "net": "DXL_DATA",
+          "x": 675.0,
+          "y": -695.34,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8880,
+          "footprint": "c10bdb5a6e701541",
+          "footprint_pad_id": "e14"
+        },
+        {
+          "ref": "TH1",
+          "pin": "1",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 675.0,
+          "y": -754.66,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 8881,
+          "footprint": "c10bdb5a6e701541",
+          "footprint_pad_id": "e15"
+        },
+        {
+          "ref": "U6",
+          "pin": "2",
+          "net": "DXL_DATA_INT",
+          "x": 875.0,
+          "y": -708.31,
+          "layer": 1,
+          "angle": 0,
+          "shape": {
+            "padType": "RECT",
+            "width": 23.622,
+            "height": 39.37,
+            "radius": 0
+          },
+          "source_line": 8968,
+          "footprint": "59f70c71d2bcf6c9",
+          "footprint_pad_id": "e11"
+        },
+        {
+          "ref": "U7",
+          "pin": "4",
+          "net": "DXL_DATA_INT",
+          "x": 887.6,
+          "y": -871.185,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 43.307,
+            "height": 23.622,
+            "radius": 0
+          },
+          "source_line": 8974,
+          "footprint": "eae95f20eac6ed9b",
+          "footprint_pad_id": "e15"
+        }
+      ],
+      "relevant_lines": [
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 675,
+          "startY": -695.34,
+          "endX": 605.49,
+          "endY": -625.83,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9087
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 605.49,
+          "startY": -625.83,
+          "endX": 552.527,
+          "endY": -625.83,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9088
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 552.527,
+          "startY": -625.83,
+          "endX": 354.8104,
+          "endY": -625.83,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9089
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 745,
+          "startY": -889.66,
+          "endX": 714.66,
+          "endY": -889.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9123
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 875,
+          "startY": -708.31,
+          "endX": 875,
+          "endY": -725,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9130
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 714.66,
+          "startY": -889.66,
+          "endX": 675,
+          "endY": -850,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9600
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 675,
+          "startY": -850,
+          "endX": 675,
+          "endY": -754.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9601
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 875,
+          "startY": -725,
+          "endX": 840.34,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9608
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 840.34,
+          "startY": -759.66,
+          "endX": 835,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9610
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -759.66,
+          "endX": 835,
+          "endY": -795,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9612
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -795,
+          "endX": 887.6,
+          "endY": -847.6,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9613
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 887.6,
+          "startY": -847.6,
+          "endX": 887.6,
+          "endY": -871.185,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9614
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -759.66,
+          "endX": 775.002,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9616
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 775.002,
+          "startY": -759.66,
+          "endX": 775.002,
+          "endY": -800.338,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9617
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 775.002,
+          "startY": -800.338,
+          "endX": 745.002,
+          "endY": -830.338,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9618
+        }
+      ]
+    },
+    {
+      "source": "docs/schematics/kissqy-hat-reva-reference/ProPrj_HAT_REVA_SCH_2026-10-15.epro2",
+      "sha256": "9c2870a28b29845ef6e559369cf3ea3c27e3fccd12b63745ed661af77fff32b0",
+      "epru_sha256": "acb831eb301af65a65cd0a14ef6f10496fc7fd66ccc6430ae500229bba88a312",
+      "units": "mil",
+      "view": "top; x right, y up",
+      "tombstones_processed": 724,
+      "checks": {
+        "a_net_matches_r33_1": true,
+        "b_net_matches_r33_2": true,
+        "a_to_r33_1_copper": true,
+        "b_to_r33_2_copper": true,
+        "a_other_pad_is_3v3": true,
+        "b_other_pad_is_external_data": true,
+        "r31_is_rx_pullup": true
+      },
+      "candidate_a": {
+        "ref": "R32",
+        "pin": "2",
+        "net": "DXL_DATA_INT",
+        "x": 775.002,
+        "y": -759.66,
+        "layer": 1,
+        "angle": -90,
+        "shape": {
+          "padType": "RECT",
+          "width": 31.751,
+          "height": 34.016,
+          "radius": 0
+        },
+        "source_line": 9231,
+        "footprint": "80287ff33eb24f48",
+        "footprint_pad_id": "e7"
+      },
+      "candidate_b": {
+        "ref": "TH1",
+        "pin": "1",
+        "net": "DXL_DATA_CLAMPED",
+        "x": 675.0,
+        "y": -754.66,
+        "layer": 1,
+        "angle": 90,
+        "shape": {
+          "padType": "RECT",
+          "width": 31.751,
+          "height": 34.016,
+          "radius": 0
+        },
+        "source_line": 9244,
+        "footprint": "c10bdb5a6e701541",
+        "footprint_pad_id": "e15"
+      },
+      "distance_mm": 2.5432237547216787,
+      "relevant_components": [
+        {
+          "ref": "D4",
+          "x": 678.704,
+          "y": -860,
+          "angle": -90,
+          "value": "5V1 / bus clamp",
+          "layer": 1
+        },
+        {
+          "ref": "R31",
+          "x": 965,
+          "y": -590,
+          "angle": -90,
+          "value": "10k / RX pull-up",
+          "layer": 1
+        },
+        {
+          "ref": "R32",
+          "x": 775.002,
+          "y": -730,
+          "angle": -90,
+          "value": "10k / data pull-up",
+          "layer": 1
+        },
+        {
+          "ref": "R33",
+          "x": 745,
+          "y": -860,
+          "angle": -90,
+          "value": "0Ω",
+          "layer": 1
+        },
+        {
+          "ref": "TH1",
+          "x": 675,
+          "y": -725,
+          "angle": 90,
+          "value": "100R PTC",
+          "layer": 1
+        },
+        {
+          "ref": "U5",
+          "x": 855,
+          "y": -535,
+          "angle": 0,
+          "value": "74LVC1G08 / RX gate",
+          "layer": 1
+        },
+        {
+          "ref": "U6",
+          "x": 875,
+          "y": -665,
+          "angle": 0,
+          "value": "SN74LVC1G125 / RX",
+          "layer": 1
+        },
+        {
+          "ref": "U7",
+          "x": 925,
+          "y": -820,
+          "angle": 90,
+          "value": "SN74LVC1G126 / TX",
+          "layer": 1
+        }
+      ],
+      "relevant_pads": [
+        {
+          "ref": "D4",
+          "pin": "1",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 678.704,
+          "y": -813.84,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 39.37,
+            "height": 27.559,
+            "radius": 0
+          },
+          "source_line": 9007,
+          "footprint": "171b71b6890ef3f8",
+          "footprint_pad_id": "e13"
+        },
+        {
+          "ref": "R31",
+          "pin": "2",
+          "net": "TTL_RX_RAW",
+          "x": 965.0,
+          "y": -619.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9225,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R31",
+          "pin": "1",
+          "net": "3V3",
+          "x": 965.0,
+          "y": -560.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9226,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "R32",
+          "pin": "2",
+          "net": "DXL_DATA_INT",
+          "x": 775.002,
+          "y": -759.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9231,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R32",
+          "pin": "1",
+          "net": "3V3",
+          "x": 775.002,
+          "y": -700.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9232,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "R33",
+          "pin": "2",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 745.0,
+          "y": -889.66,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9237,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e7"
+        },
+        {
+          "ref": "R33",
+          "pin": "1",
+          "net": "DXL_DATA_INT",
+          "x": 745.0,
+          "y": -830.34,
+          "layer": 1,
+          "angle": -90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9238,
+          "footprint": "80287ff33eb24f48",
+          "footprint_pad_id": "e8"
+        },
+        {
+          "ref": "TH1",
+          "pin": "2",
+          "net": "DXL_DATA",
+          "x": 675.0,
+          "y": -695.34,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9243,
+          "footprint": "c10bdb5a6e701541",
+          "footprint_pad_id": "e14"
+        },
+        {
+          "ref": "TH1",
+          "pin": "1",
+          "net": "DXL_DATA_CLAMPED",
+          "x": 675.0,
+          "y": -754.66,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 31.751,
+            "height": 34.016,
+            "radius": 0
+          },
+          "source_line": 9244,
+          "footprint": "c10bdb5a6e701541",
+          "footprint_pad_id": "e15"
+        },
+        {
+          "ref": "U6",
+          "pin": "2",
+          "net": "DXL_DATA_INT",
+          "x": 875.0,
+          "y": -708.31,
+          "layer": 1,
+          "angle": 0,
+          "shape": {
+            "padType": "RECT",
+            "width": 23.622,
+            "height": 39.37,
+            "radius": 0
+          },
+          "source_line": 9331,
+          "footprint": "59f70c71d2bcf6c9",
+          "footprint_pad_id": "e11"
+        },
+        {
+          "ref": "U7",
+          "pin": "4",
+          "net": "DXL_DATA_INT",
+          "x": 887.6,
+          "y": -871.185,
+          "layer": 1,
+          "angle": 90,
+          "shape": {
+            "padType": "RECT",
+            "width": 43.307,
+            "height": 23.622,
+            "radius": 0
+          },
+          "source_line": 9337,
+          "footprint": "eae95f20eac6ed9b",
+          "footprint_pad_id": "e15"
+        },
+        {
+          "ref": "J13",
+          "pin": "3",
+          "net": "DXL_DATA",
+          "x": 354.8064,
+          "y": -645.514,
+          "layer": 1,
+          "angle": 360,
+          "shape": {
+            "padType": "ELLIPSE",
+            "width": 55.118,
+            "height": 55.118
+          },
+          "source_line": 10089,
+          "footprint": "f1ebf6babde15c98",
+          "footprint_pad_id": "e15"
+        },
+        {
+          "ref": "J14",
+          "pin": "3",
+          "net": "DXL_DATA",
+          "x": 552.523,
+          "y": -645.514,
+          "layer": 1,
+          "angle": 360,
+          "shape": {
+            "padType": "ELLIPSE",
+            "width": 55.118,
+            "height": 55.118
+          },
+          "source_line": 10096,
+          "footprint": "f1ebf6babde15c98",
+          "footprint_pad_id": "e15"
+        }
+      ],
+      "relevant_lines": [
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 745,
+          "startY": -889.66,
+          "endX": 714.66,
+          "endY": -889.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9479
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 875,
+          "startY": -708.31,
+          "endX": 875,
+          "endY": -725,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9486
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 714.66,
+          "startY": -889.66,
+          "endX": 675,
+          "endY": -850,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9928
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_CLAMPED",
+          "layerId": 1,
+          "startX": 675,
+          "startY": -850,
+          "endX": 675,
+          "endY": -754.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9929
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 875,
+          "startY": -725,
+          "endX": 840.34,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9936
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 840.34,
+          "startY": -759.66,
+          "endX": 835,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9938
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -759.66,
+          "endX": 835,
+          "endY": -795,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9940
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -795,
+          "endX": 887.6,
+          "endY": -847.6,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9941
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 887.6,
+          "startY": -847.6,
+          "endX": 887.6,
+          "endY": -871.185,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9942
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 835,
+          "startY": -759.66,
+          "endX": 775.002,
+          "endY": -759.66,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9944
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 775.002,
+          "startY": -759.66,
+          "endX": 775.002,
+          "endY": -800.338,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9945
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA_INT",
+          "layerId": 1,
+          "startX": 775.002,
+          "startY": -800.338,
+          "endX": 745.002,
+          "endY": -830.338,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 9946
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 675,
+          "startY": -695.34,
+          "endX": 625.174,
+          "endY": -645.514,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 10108
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 625.174,
+          "startY": -645.514,
+          "endX": 552.523,
+          "endY": -645.514,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 10109
+        },
+        {
+          "partitionId": "",
+          "groupId": 0,
+          "netName": "DXL_DATA",
+          "layerId": 1,
+          "startX": 552.523,
+          "startY": -645.514,
+          "endX": 354.8064,
+          "endY": -645.514,
+          "width": 10,
+          "locked": false,
+          "zIndex": -1,
+          "source_line": 10110
+        }
+      ]
+    }
+  ],
+  "two_versions_candidate_geometry_equal": true,
+  "figure": {
+    "path": "docs/photos/kissqy-hat-r33-bypass-reference-20261027.png",
+    "sha256": "017199d46eea49b1ea50dc92fa340e43de21dff8b7100b02c13859bfc43900d6"
+  }
+}

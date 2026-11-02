@@ -1,0 +1,415 @@
+{
+  "captured_at": "2026-11-01T00:04:30.9435708+08:00",
+  "operation": "Read-only WebSocket heartbeat; no control command",
+  "state": {
+    "robotd_ok": true,
+    "mode": "commissioning",
+    "phase": "ready",
+    "estop": {
+      "state": "confirmed",
+      "why": "15 颗都已卸力"
+    },
+    "servos": {
+      "online": 15,
+      "total": 15,
+      "hottest": {
+        "name": "嘴",
+        "c": 41
+      },
+      "stale": []
+    },
+    "imu": {
+      "status": "unverified",
+      "source": "bus",
+      "configured_imu_profile": "legacy",
+      "context_current": true,
+      "generation": 7052.329414988,
+      "diagnostic": {
+        "status": "unknown",
+        "responding": null,
+        "info": null,
+        "age_ms": null,
+        "sample_valid": null,
+        "sensor_ready": null,
+        "sample_fresh": null,
+        "sequence": null,
+        "error": null
+      }
+    },
+    "commit": {
+      "ready": false,
+      "items": [
+        {
+          "key": "robotd",
+          "label": "主程序",
+          "ok": true,
+          "text": "主程序在线",
+          "action": null
+        },
+        {
+          "key": "mode",
+          "label": "主程序模式",
+          "ok": true,
+          "text": "标定模式：15 颗舵机都有新读数",
+          "action": null,
+          "mode": "commissioning",
+          "phase": "ready"
+        },
+        {
+          "key": "safety",
+          "label": "鸭子姿势",
+          "ok": true,
+          "text": "没在走、没站着，可以写",
+          "action": null
+        },
+        {
+          "key": "servo",
+          "label": "舵机零位",
+          "ok": true,
+          "text": "15 颗的零位都记在 servo-centered.json 里了",
+          "action": null,
+          "missing": [],
+          "done": 15,
+          "by_mark": null
+        },
+        {
+          "key": "directions",
+          "label": "方向",
+          "ok": true,
+          "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+          "action": null,
+          "changed": []
+        },
+        {
+          "key": "imu",
+          "label": "IMU 方向",
+          "ok": false,
+          "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+          "action": {
+            "do": "imu",
+            "label": "去 IMU 页"
+          },
+          "source": "bus",
+          "default": false
+        },
+        {
+          "key": "bus",
+          "label": "舵机总线",
+          "ok": true,
+          "text": "舵机页没开着总线",
+          "action": null
+        }
+      ],
+      "source": "bus",
+      "imu_default": null,
+      "pending": false,
+      "centered": 15,
+      "preview_ok": true,
+      "mode": "commissioning",
+      "phase": "ready",
+      "from_file": false,
+      "note": null,
+      "dirty": true,
+      "dirty_why": [
+        "舵机零位记录比上次成功写入新"
+      ],
+      "job": null,
+      "simulate": false
+    },
+    "onboarding": {
+      "header": {
+        "ok": false,
+        "kind": "commissioning",
+        "text": "标定模式：做完 IMU 粗校，第 3 步写完会自动切运动模式"
+      },
+      "rows": [
+        {
+          "key": "servo",
+          "n": 1,
+          "title": "舵机零位",
+          "tip": "两套零位会打架：用 Studio 的舵机页标（标完，主程序文件里 15 颗的 zero_raw 都要是 2048）",
+          "state": "no",
+          "text": "主程序说 15 颗还没标：左髋转向、左髋横滚、左髋俯仰、左膝…",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "servos",
+              "label": "去舵机页"
+            }
+          ],
+          "hard": "主程序说标定没做完：{v}鸭子也站不起来",
+          "found": null,
+          "ask": null,
+          "go": "servos",
+          "mark": {
+            "ack": [
+              "hard"
+            ],
+            "done": {
+              "confirm": true,
+              "ask": "确定标成已完成？主程序说标定没做完：标成已完成鸭子也站不起来"
+            },
+            "skip": {
+              "confirm": true,
+              "ask": "确定跳过？主程序说标定没做完：跳过了鸭子也站不起来"
+            }
+          },
+          "marked": null
+        },
+        {
+          "key": "imu",
+          "n": 2,
+          "title": "IMU 方向",
+          "tip": "装歪 8.5° 一走就往前冲（一号鸭 10-12）",
+          "state": "no",
+          "text": "标定模式下主程序说 IMU 方向没确认",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "imu",
+              "label": "去 IMU 页"
+            }
+          ],
+          "hard": "主程序没确认 IMU 方向：{v}鸭子也站不起来",
+          "found": null,
+          "ask": null,
+          "go": "imu",
+          "mark": {
+            "ack": [
+              "hard"
+            ],
+            "done": {
+              "confirm": true,
+              "ask": "确定标成已完成？主程序没确认 IMU 方向：标成已完成鸭子也站不起来"
+            },
+            "skip": {
+              "confirm": true,
+              "ask": "确定跳过？主程序没确认 IMU 方向：跳过了鸭子也站不起来"
+            }
+          },
+          "marked": null
+        },
+        {
+          "key": "commit",
+          "n": 3,
+          "title": "写进主程序",
+          "tip": "写的时候主程序会先卸力：扶好鸭子，别让它摔了",
+          "state": "todo",
+          "text": "有新改动还没写进主程序：舵机零位记录比上次成功写入新",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "commit",
+              "label": "去写进主程序"
+            }
+          ],
+          "hard": null,
+          "found": null,
+          "ask": null,
+          "go": "commit",
+          "mark": {
+            "ack": [],
+            "done": {
+              "confirm": false,
+              "ask": null
+            },
+            "skip": {
+              "confirm": false,
+              "ask": null
+            }
+          },
+          "marked": null,
+          "desc": "把舵机零位、方向、IMU 方向写进主程序。出厂镜像是标定模式；写完会切到运动模式并重启（约 20 秒），以后开机直接就能站、能走，不开网页也行。",
+          "commit": {
+            "ready": false,
+            "items": [
+              {
+                "key": "robotd",
+                "label": "主程序",
+                "ok": true,
+                "text": "主程序在线",
+                "action": null
+              },
+              {
+                "key": "mode",
+                "label": "主程序模式",
+                "ok": true,
+                "text": "标定模式：15 颗舵机都有新读数",
+                "action": null,
+                "mode": "commissioning",
+                "phase": "ready"
+              },
+              {
+                "key": "safety",
+                "label": "鸭子姿势",
+                "ok": true,
+                "text": "没在走、没站着，可以写",
+                "action": null
+              },
+              {
+                "key": "servo",
+                "label": "舵机零位",
+                "ok": true,
+                "text": "15 颗的零位都记在 servo-centered.json 里了",
+                "action": null,
+                "missing": [],
+                "done": 15,
+                "by_mark": null
+              },
+              {
+                "key": "directions",
+                "label": "方向",
+                "ok": true,
+                "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+                "action": null,
+                "changed": []
+              },
+              {
+                "key": "imu",
+                "label": "IMU 方向",
+                "ok": false,
+                "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+                "action": {
+                  "do": "imu",
+                  "label": "去 IMU 页"
+                },
+                "source": "bus",
+                "default": false
+              },
+              {
+                "key": "bus",
+                "label": "舵机总线",
+                "ok": true,
+                "text": "舵机页没开着总线",
+                "action": null
+              }
+            ],
+            "source": "bus",
+            "imu_default": null,
+            "pending": false,
+            "centered": 15,
+            "preview_ok": true,
+            "mode": "commissioning",
+            "phase": "ready",
+            "from_file": false,
+            "note": null,
+            "dirty": true,
+            "dirty_why": [
+              "舵机零位记录比上次成功写入新"
+            ],
+            "job": null,
+            "simulate": false
+          }
+        },
+        {
+          "key": "pad",
+          "n": 4,
+          "title": "配手柄",
+          "tip": "G50 Pro 先拨到 S 档",
+          "state": "unk",
+          "text": "读不到 configd 的手柄状态（有的鸭子关着它）",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "pad_wizard",
+              "label": "配对手柄"
+            }
+          ],
+          "hard": null,
+          "found": null,
+          "ask": null,
+          "go": "pad_wizard",
+          "mark": {
+            "ack": [
+              "unk"
+            ],
+            "done": {
+              "confirm": true,
+              "ask": "确定标成已完成？这一步现在读不到（读不到 configd 的手柄状态（有的鸭子关着它））：Studio 核对不了，就按你说的算"
+            },
+            "skip": {
+              "confirm": true,
+              "ask": "确定跳过？这一步现在读不到（读不到 configd 的手柄状态（有的鸭子关着它））：Studio 核对不了，就按你说的算"
+            }
+          },
+          "marked": null
+        },
+        {
+          "key": "estop",
+          "n": 5,
+          "title": "测急停",
+          "tip": "每次换手柄都测一次",
+          "state": "no",
+          "text": "还没真按一次 Select 测过（现在测不了：主程序在跑（运动模式）：调试模式：Select 不经过主程序）",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "estop",
+              "label": "去测急停"
+            }
+          ],
+          "hard": null,
+          "found": null,
+          "ask": "确定{q}？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：{v}也不会变好用",
+          "go": "estop",
+          "mark": {
+            "ack": [
+              "fp"
+            ],
+            "done": {
+              "confirm": true,
+              "ask": "确定标成已完成？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：标成已完成也不会变好用"
+            },
+            "skip": {
+              "confirm": true,
+              "ask": "确定跳过？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：跳过了也不会变好用"
+            }
+          },
+          "marked": null
+        },
+        {
+          "key": "walk",
+          "n": 6,
+          "title": "站起来、走几步",
+          "tip": null,
+          "state": "no",
+          "text": "还没站起来过：托着它，点「站起来」，再点「开始走」、推左摇杆",
+          "when": null,
+          "note": null,
+          "actions": [
+            {
+              "do": "remote",
+              "label": "去遥控"
+            }
+          ],
+          "hard": null,
+          "found": null,
+          "ask": null,
+          "go": "remote",
+          "mark": {
+            "ack": [],
+            "done": {
+              "confirm": false,
+              "ask": null
+            },
+            "skip": {
+              "confirm": false,
+              "ask": null
+            }
+          },
+          "marked": null
+        }
+      ],
+      "next": "servo",
+      "all_done": false,
+      "skipped_n": 0,
+      "marked_n": 0,
+      "frozen": false
+    }
+  }
+}

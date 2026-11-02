@@ -1,0 +1,199 @@
+PAGE 1
+Socket Cables and
+Solder Tip Kit s
+ZZZ
+Instructions
+Overview
+These instructions apply to the following kits:
+Kit part
+number Description Qty
+020-2954-00 Socket Cable 1
+020-2960-00 Socket Cable XL &
+DSP Filter Files CD
+1
+020-2958-00 TriMode High Temp Solder Tip 10
+020-2955-00 TriMode Micro-Coax Solder Tip 10
+020-2959-00 Damped Wire Pair 25
+Order the resistor kit below to replace the
+resistors on your solder tips.
+020-2937-00 TriMode Solder Tips Replacement
+Resistor Kit (Includes 50 each of
+the following components)
+100 Ω leaded resistor
+75 Ω surface-mount resistor, 0402
+Non-conductive tube
+Description
+The Socket Cables and Solder Tips allow you
+to create custom ized, hands-free connections
+from your circuit to Tektronix P7500 Series
+TriMode probes. Integral resistors on the tips
+include small-diameter, pre-trimmed leads for
+you to solder to your circuit board vias or other
+ﬁne-pitch features. Sockets at the ends of the
+cables allow yo u to quickly change between the
+soldered-down tips at multiple test points.
+The TriMode High Temp Solder Tip and
+TriMode Micro-Coax Solder Tip support full
+TriMode capability (differential, single-ended,
+and common-mode con ﬁgurations). The
+Damped Wire Pair are designed for differential
+measurements only.
+The Socket Cable XL is 5 feet long and is
+intended for use only with the TriMode High
+Temp Solder Tip. Always use the DSP ﬁlter ﬁles
+when using the XL cable.
+Using the Solder Tips
+General recommendations:
+Use the Damped Wires only in pairs, in the
+A-B (differential) mode.
+The solder tips cannot support the weight of
+the attached probe, so you must secure the
+probe to the circuit board to relieve strain on
+the tips and the solder connections.
+Use a ﬂux pen to add ﬂux to the solder tips
+and to your test points. The ﬂux makes
+soldering easier.
+Use only ESD-approved soldering irons and
+no-clean ﬂux solder when soldering.
+Procedure
+1. Choose a location where the solder tip leads
+can reach your test points, while keeping
+the tip leads as short as possible for the best
+signal quality. Note signal polarities and
+grounds where applicable.
+2. Apply solder to the test points on your
+circuit.
+3. Solder the tip leads to the test points on your
+circuit and clip off any excess.
+4. Connect the pins of the tip to the sockets
+in the cable . Note signal polarities and
+grounds where applicable.
+5. Align the cable with the red band to the A
+input of the probe. Push the cable end into
+the probe head until it seats in the head.
+6. For a secure mechanical connection, use
+double-sided tape or hot glue to secure the
+tip to your circuit.
+Signal Quality with the Socket Cable XL
+Due to the length of the Socket Cable XL, the
+input signal to the oscilloscope requires some
+DSP ﬁltering. Y ou must load ﬁlter ﬁles onto your
+oscilloscope from the CD that is included in your
+XL cable kit. Always use the ﬁlter ﬁles when
+you use the Socket Cable XL.
+*P071253800*
+071-2538-00
+PAGE 2
+Load the Filter S oftware
+1. Insert the CD in the oscilloscope drive.
+2. Navigate to the CD folder and make a copy
+of the Socket Cable XL Filter Files.
+3. Paste the ﬁles in C:/TekScope/
+Math_Arbitrary_Filters/Probe-Filters.
+4. From the V ertical menu, click Probe Cal.
+Under Probe Tip, select Other Tip.
+5. From the Math menu, select Math Setup.
+6. Click Editor and select Filter.
+7. In the user-de ﬁned Arbitrary Filter area,
+click the Load button.
+8. Navigate to the directory that you stored the
+ﬁlter in (from step 2) and select the ﬁlter.
+Using the Filter Software
+Two ﬁlters are available:
+XL_HTT_DIFF_Multirate.ﬂt
+(for differential mode)
+XL_HTT_A_B_COMM_Multirate.ﬂt
+(for A-Gnd, B -Gnd, and CM modes)
+Both ﬁlters are multi-rate ﬁlters that can
+operate at sampling rates from 50 GS/s down
+to 1.25 GS/s. Since these are multi-rate ﬁlters,
+the ﬁlter bandwidth and rise time vary with the
+sample rate.
+The ﬁlters are 4000 points long, so your
+oscilloscope record length must be at least 2X
+or greater to display a usable waveform. The
+ﬁrst and last 2000 points of record length are
+truncated from the ﬁltered waveform.
+More information about using ﬁlters is located in
+the Tektronix Digital Oscilloscopes Online Help
+in the “Math Equation Editor (Filter Tab)” topic.
+For speciﬁc information on arbitrary ﬁlters, refer
+to “Arbitrary ﬁlters, math”.
+Replacing the Resistors
+The resistors that are presoldered to the solder
+tips need to be replaced periodically, due to
+normal wear. A kit of replacement resistors is
+available (order part number 020-2937-00).
+1. Apply a soldering iron to the via on the tip
+board and remove the existing wire. Work
+quickly with a low-heat soldering iron.
+If a small piece of wire is in the via, heat the
+solder and use another piece of wire to push
+the wire fragment from the via.
+2. Add fresh solder to the via, if necessary.
+3. Cut one lead of the resistor to 0.2" (5mm).
+4. Heat the solder in the via and thread the cut
+resistor lead into the via, leaving enough
+lead length to bend the resistor ﬂat with the
+tip board.
+5. Cut excess lead on the bottom of the board.
+6. Cut the remaining resistor lead as necessary
+to reach your test point.
+Dimensions
+ Electrical Characteristics (Typical)
+Table 1: Socket Cable 1
+Tip/measurement
+mode
+Rise time, ps
+10–90% 20–80%
+BW,
+GHz
+TriMode High Temp Solder Tip
+Differential (A-B) 60 40 6
+Single-ended( A ,B ) 120 80 3
+Common-mode 150 100 2.5
+TriMode Micro-Coax Solder Tip
+Differential (A-B) 100 60 4
+Single-ended (A, B) 150 100 2.5
+Common-mode 200 135 1.5
+Damped Wire Pair
+Differential (A-B) 50 35 8
+1 Temperature range 0 °C to +40 °C (32 °F to 104 °F)
+Table 2: Socket Cable XL with TriMode High Temp
+Solder Tip and DSP ﬁlter ﬁles 12
+Measurement mode
+Differential A, B, Com
+Acquisition
+rate, Gs/s
+Rise time,
+ps, 10–90%
+BW,
+GHz
+Rise time,
+ps, 10–90%
+BW,
+GHz
+50 55 10 150 3
+25 60 8 150 3
+12.5 120 4 150 3
+6.25 230 2 230 2
+3.125 450 1 450 1
+1.5625 900 0.5 900 0.5
+1.25 1150 0.4 1150 0.4
+1 The DSP ﬁlter ﬁles must be used with the Socket Cable XL.
+2 Temperature range –55 °C to +150 °C (-67 °F to 302 °F)
+Warranty Information
+For warranty information, go to
+www.tektronix.com\warranty.
+Contacting Tektronix
+Tektronix, Inc.
+14200 SW Karl Braun Drive
+PO Box 500
+Beaverton, OR 97077
+USA
+For product information, sales, service, and
+technical support:
+In North America, call 1-800-833-9200.
+Worldwide, visit www.tektronix.com to ﬁnd
+contacts in your area.
+Copyright © Tektronix, Inc. All rights reserved. www.tektronix.com

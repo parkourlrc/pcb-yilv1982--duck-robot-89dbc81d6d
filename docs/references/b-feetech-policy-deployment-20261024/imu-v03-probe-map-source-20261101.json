@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-01",
+  "kind": "Derived manufacturing pad-coordinate annotation, not a photograph or electrical measurement",
+  "source": "docs\\schematics\\imu-to-dxl-scrapmeta-v0.3\\production\\imu_to_dxl_v03_gerber.zip",
+  "source_sha256": "7b2d7823f0d6be15895bc190c0ea6b1d697cb4cdc4ef34a1bf0e67145df73152",
+  "member": "FlyingProbeTesting.json",
+  "member_sha256": "cd055d0633fdd75b7b8665099a20b05dbc643c697985e7159a4cff15fc81475c",
+  "orientation": "Top component view, X right, PCB negative Y displayed down; J2 above J1/J3",
+  "points": {
+    "A": {
+      "pad": {
+        "PIN_NO": 94,
+        "PIN_NAME": "U6_2",
+        "PIN_X": 96.69,
+        "PIN_Y": -610,
+        "LAYER": "T",
+        "PIN_TYPE": "SMD",
+        "NET_NAME": "USART2_TX",
+        "NET_TYPE": "",
+        "PAD_SHAPE": "R",
+        "PAD_SIZEX": 23.622,
+        "PAD_SIZEY": 39.37,
+        "HOLE_SIZE": 0,
+        "HOLE_LEN": 0,
+        "PAD_ANGLE": 270
+      },
+      "meaning": "MCU 发送 → U6 输入"
+    },
+    "B": {
+      "pad": {
+        "PIN_NO": 52,
+        "PIN_NAME": "R6_1",
+        "PIN_X": 454.66,
+        "PIN_Y": -565,
+        "LAYER": "T",
+        "PIN_TYPE": "SMD",
+        "NET_NAME": "DXL_BUS",
+        "NET_TYPE": "",
+        "PAD_SHAPE": "R",
+        "PAD_SIZEX": 31.751,
+        "PAD_SIZEY": 34.016,
+        "HOLE_SIZE": 0,
+        "HOLE_LEN": 0,
+        "PAD_ANGLE": 180
+      },
+      "meaning": "外部 DATA，与 J1/J3 第 3 脚同网"
+    },
+    "C": {
+      "pad": {
+        "PIN_NO": 53,
+        "PIN_NAME": "R6_2",
+        "PIN_X": 395.34,
+        "PIN_Y": -565,
+        "LAYER": "T",
+        "PIN_TYPE": "SMD",
+        "NET_NAME": "DXL_DATA",
+        "NET_TYPE": "",
+        "PAD_SHAPE": "R",
+        "PAD_SIZEX": 31.751,
+        "PAD_SIZEY": 34.016,
+        "HOLE_SIZE": 0,
+        "HOLE_LEN": 0,
+        "PAD_ANGLE": 180
+      },
+      "meaning": "芯片侧 DATA，与 U6-4、PA3 同网"
+    },
+    "D": {
+      "pad": {
+        "PIN_NO": 47,
+        "PIN_NAME": "R3_2",
+        "PIN_X": 137.04,
+        "PIN_Y": -500,
+        "LAYER": "T",
+        "PIN_TYPE": "SMD",
+        "NET_NAME": "DXL_OE_",
+        "NET_TYPE": "",
+        "PAD_SHAPE": "R",
+        "PAD_SIZEX": 22.27,
+        "PAD_SIZEY": 21.26,
+        "HOLE_SIZE": 0,
+        "HOLE_LEN": 0,
+        "PAD_ANGLE": 0
+      },
+      "meaning": "发送使能 OE#，低电平使能"
+    },
+    "G": {
+      "pad": {
+        "PIN_NO": 95,
+        "PIN_NAME": "U6_3",
+        "PIN_X": 96.69,
+        "PIN_Y": -647.4,
+        "LAYER": "T",
+        "PIN_TYPE": "SMD",
+        "NET_NAME": "GND",
+        "NET_TYPE": "GND",
+        "PAD_SHAPE": "R",
+        "PAD_SIZEX": 23.622,
+        "PAD_SIZEY": 39.37,
+        "HOLE_SIZE": 0,
+        "HOLE_LEN": 0,
+        "PAD_ANGLE": 270
+      },
+      "meaning": "附近地线候选点；不是测量通道"
+    }
+  },
+  "image_sha256": "9ee9883fc5dbe4204e66e73f618eb3da4d131d39eeccf5a2b2931d86d463c016",
+  "limitations": [
+    "Must match actual manufactured board orientation and labels before probing",
+    "Copper traces and solder appearance are not rendered",
+    "Pad identity comes from manufacture export, not a new continuity measurement"
+  ]
+}

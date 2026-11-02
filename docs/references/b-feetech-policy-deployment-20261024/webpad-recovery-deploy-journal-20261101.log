@@ -1,0 +1,59 @@
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Stopping microduck-studio.service - Microduck Studio (Python 3.13)...
+Nov 01 15:49:22 radxa-zero3 python3.13[494]: 2026-11-01T15:49:22.119+00:00 [连接] 页面断开（电脑 192.168.1.34，还剩 3 个）
+Nov 01 15:49:22 radxa-zero3 python3.13[494]: 2026-11-01T15:49:22.121+00:00 [连接] 页面断开（电脑 192.168.1.34，还剩 2 个）
+Nov 01 15:49:22 radxa-zero3 python3.13[494]: 2026-11-01T15:49:22.123+00:00 [连接] 页面断开（电脑 192.168.1.34，还剩 1 个）
+Nov 01 15:49:22 radxa-zero3 python3.13[494]: 2026-11-01T15:49:22.125+00:00 [连接] 页面断开（电脑 192.168.1.34，还剩 0 个）
+Nov 01 15:49:22 radxa-zero3 python3.13[494]: 2026-11-01T15:49:22.230+00:00 [系统] Studio 停止
+Nov 01 15:49:22 radxa-zero3 systemd[1]: microduck-studio.service: Deactivated successfully.
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Stopped microduck-studio.service - Microduck Studio (Python 3.13).
+Nov 01 15:49:22 radxa-zero3 systemd[1]: microduck-studio.service: Consumed 7min 28.516s CPU time.
+Nov 01 15:49:22 radxa-zero3 robotd[374]: 2026-11-01T15:49:22.357627Z  WARN robotd: service shutdown requested signal="SIGTERM"
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Stopping robotd.service - Microduck robotd (Studio calibration handover)...
+Nov 01 15:49:22 radxa-zero3 robotd[374]: 2026-11-01T15:49:22.371673Z  INFO robotd: control loop stopped
+Nov 01 15:49:22 radxa-zero3 systemd[1]: robotd.service: Deactivated successfully.
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Stopped robotd.service - Microduck robotd (Studio calibration handover).
+Nov 01 15:49:22 radxa-zero3 systemd[1]: robotd.service: Consumed 6min 19.557s CPU time.
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Starting robotd.service - Microduck robotd (Studio calibration handover)...
+Nov 01 15:49:22 radxa-zero3 systemd[1]: Started robotd.service - Microduck robotd (Studio calibration handover).
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.777086Z  INFO robotd: startup: read main configuration step=1 status="starting" path=/etc/robot/feetech-ft5/robotd.toml
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.779081Z  WARN robotd: starting service="robotd" build=0.15.1 (rev unknown, not a CI build) exe=/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd pid=843
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.779800Z  INFO robotd: startup status step=1 status="success" detail="配置读取、实例锁、IPC socket、控制线程已启动"
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.779898Z  INFO robotd: serving robot IPC path=/run/robotd.sock mode="660" model_api=2
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.780362Z  INFO robotd: startup status step=2 status="starting" detail="读取保存标定、打开串口、关闭并确认扭矩、初始化 IMU"
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.785580Z  WARN robotd: native Feetech selected; startup torque OFF confirmed; init/enable remains explicit
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.785892Z  INFO robotd: startup status step=2 status="waiting" detail="等待第一份有效关节与 IMU 反馈；未发送目标"
+Nov 01 15:49:22 radxa-zero3 robotd[843]: 2026-11-01T15:49:22.792237Z  INFO robotd: startup status step=2 status="waiting" detail="关节反馈已有效；确认 IMU 融合就绪；未发送目标"
+Nov 01 15:49:23 radxa-zero3 robotd[843]: 2026-11-01T15:49:23.456334Z  INFO robotd: startup status step=2 status="success" detail="第一份有效关节与 IMU 反馈已读取"
+Nov 01 15:49:23 radxa-zero3 robotd[843]: 2026-11-01T15:49:23.456554Z  INFO robotd: startup status step=2 status="success" detail="硬件初始化与第一份有效反馈完成"
+Nov 01 15:49:23 radxa-zero3 robotd[843]: 2026-11-01T15:49:23.456606Z  INFO robotd: startup status step=3 status="starting" detail="加载随包模型配置与推理运行时"
+Nov 01 15:49:23 radxa-zero3 robotd[843]: 2026-11-01T15:49:23.494027Z  INFO robotd::selftrained_profile: self-trained HD1910 models loaded from disk contracts task=Mjlab-VelStand-Rough-Backlash-MicroDuck firmware_p=5
+Nov 01 15:49:23 radxa-zero3 robotd[843]: 2026-11-01T15:49:23.903103Z  WARN robotd: seated boot detected — will stand up via the sitstand policy deviation="0.37"
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.179693Z  WARN robotd: policy loaded mode="walk" walk=/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx stand=None sitstand=Some("/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx") ground_pick=Some("/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx") kicks=true roulade=Some("/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx") limp_fall=false
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.179928Z  INFO robotd: startup status step=3 status="success" detail="随包模型可用"
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.180266Z  INFO robotd: startup status step=4 status="starting" detail="等待首个 50 Hz 控制周期完成"
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.186972Z  WARN duck_control::feetech: Feetech retains native servo gains; XL330 gain requests are not written
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.187156Z  INFO robotd: startup status step=4 status="success" detail="首个控制周期完成；50 Hz 循环运行，运动需显式请求"
+Nov 01 15:49:24 radxa-zero3 systemd[1]: Started microduck-studio.service - Microduck Studio (Python 3.13).
+Nov 01 15:49:24 radxa-zero3 robotd[843]: 2026-11-01T15:49:24.367389Z  WARN duck_control::safety: the fall verdict changed fallen=true gravity_z=0.0216477325997626
+Nov 01 15:49:32 radxa-zero3 python3.13[851]: 2026-11-01T15:49:32.673+00:00 [系统] 依赖：starlette 0.46.1 · uvicorn 0.32.0 · 来自 /home/radxa/studio-dev/deps
+Nov 01 15:49:32 radxa-zero3 python3.13[851]: 2026-11-01T15:49:32.681+00:00 [系统] 没设密码：同一个网络里打开网页就能用（想加密码：更多 → 登录密码） · 建议：网页里设，或者用 radxa 用户运行：python3 -I /home/radxa/studio-dev/run.py set-password（别用 sudo）
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.160+00:00 [系统] 网页地址：http://<鸭子 IP>:8000/
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.575+00:00 [系统] Studio 0.1.0-dev 启动 · Python 3.13.18 · radxa-zero3
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.592+00:00 [手柄][警告] configd 的 system.info 读不到 · 原文：/run/configd.sock 不在（主程序没在跑） · 建议：有的鸭子关掉了 configd；不影响站和走，只是手柄那一栏显示「不知道」
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.594+00:00 [手柄][警告] configd 的 pad.status 读不到 · 原文：/run/configd.sock 不在（主程序没在跑） · 建议：有的鸭子关掉了 configd；不影响站和走，只是手柄那一栏显示「不知道」
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.764+00:00 [robotd][警告] 主程序的接口版本是 43，Studio 按 42 写的 · 建议：一般能用；哪个功能出错，会在那个功能上报出来
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.765+00:00 [robotd] 连上主程序（接口 v43，版本 0.15.1）
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.780+00:00 [robotd][警告] 主程序版本 0791fcd-feetech-qinmo-control.47+duck-recovery.1 Studio 还没核对过 · 建议：只读显示和卸力照常；以后的运动按钮会先置灰
+Nov 01 15:49:33 radxa-zero3 python3.13[851]: 2026-11-01T15:49:33.973+00:00 [手柄] Studio 连上主程序：发了一次 robot.pose {"active": false}（清掉上一次可能留下的身体模式）
+Nov 01 15:49:34 radxa-zero3 python3.13[851]: 2026-11-01T15:49:34.291+00:00 [连接] 页面连上（电脑 192.168.1.34，现在 1 个）
+Nov 01 15:49:34 radxa-zero3 python3.13[851]: 2026-11-01T15:49:34.347+00:00 [连接] 页面连上（电脑 192.168.1.34，现在 2 个）
+Nov 01 15:49:34 radxa-zero3 python3.13[851]: 2026-11-01T15:49:34.378+00:00 [robotd] 开始订阅实时状态（10 Hz，0 个页面在看）
+Nov 01 15:49:37 radxa-zero3 python3.13[851]: 2026-11-01T15:49:37.978+00:00 [连接] 页面连上（电脑 192.168.1.34，现在 3 个）
+Nov 01 15:49:38 radxa-zero3 python3.13[851]: 2026-11-01T15:49:38.993+00:00 [连接] 页面连上（电脑 192.168.1.34，现在 4 个）
+Nov 01 15:49:49 radxa-zero3 python3.13[851]: 2026-11-01T15:49:49.069+00:00 [robotd] 没人在看了，停止订阅
+Nov 01 15:50:04 radxa-zero3 python3.13[851]: 2026-11-01T15:50:04.643+00:00 [电池] 电量估算起步：卸力时 7.11 V → 约 8% · 建议：查表估的，误差约 ±15%；读数校准 +0.00 V · 现场：{"mode": "calm", "pct": 8, "cls": "rest", "source": "robotd", "basis_v": 7.111, "cal": 0.0, "calm_points": 1, "samples": 30}
+Nov 01 15:50:19 radxa-zero3 python3.13[851]: 2026-11-01T15:50:19.105+00:00 [连接] 页面连上（电脑 192.168.1.34，现在 5 个）
+Nov 01 15:50:19 radxa-zero3 python3.13[851]: 2026-11-01T15:50:19.133+00:00 [robotd] 开始订阅实时状态（10 Hz，1 个页面在看）
+Nov 01 15:50:19 radxa-zero3 python3.13[851]: 2026-11-01T15:50:19.164+00:00 [手柄] 手柄按键绑定：a=ground_pick、x=roulade、lb=kick_left、rb=kick_right、dpad_down=sit_toggle · 步骤：pad.bindings
+Nov 01 15:50:19 radxa-zero3 python3.13[851]: 2026-11-01T15:50:19.176+00:00 [手柄][警告] 读不到手柄按键（padd 旁路）：连不上 padd 的按键旁路（/run/padd/pad.sock）：padd 可能没在跑，或者这版 padd 没开旁路；网页上看不到实时按键，手柄本身照常能用 · 卡在：pad.input · 建议：padd 只在主程序跑着时才在
+Nov 01 15:50:19 radxa-zero3 python3.13[851]: 2026-11-01T15:50:19.265+00:00 [连接] 页面断开（电脑 192.168.1.34，还剩 4 个）

@@ -1,0 +1,1635 @@
+{
+  "time_utc": "2026-11-01T15:50:18.633476+00:00",
+  "scope": "HTTP plus WebSocket page heartbeat and read-only watch; no drive lease or motion",
+  "sent": [
+    {
+      "t": "hb",
+      "seq": 1,
+      "visible": true,
+      "route": "/pad",
+      "pad_visible": true
+    },
+    {
+      "t": "cmd",
+      "id": "recovery-readonly-watch",
+      "name": "pad.op",
+      "args": {
+        "op": "watch"
+      }
+    }
+  ],
+  "/": {
+    "status": 200,
+    "sha256": "c841fe6e7381017dc8d2995cd10bbd7ebdd6fc442100df1323aa00ab767111e8"
+  },
+  "/pad.js": {
+    "status": 200,
+    "sha256": "a73b78bcb41106f33b03a023e95f7800b16401e70b15ebdd49be7b2ac09b9806"
+  },
+  "state": {
+    "robotd_ok": true,
+    "mode": "motion",
+    "phase": "control",
+    "build": "0791fcd-feetech-qinmo-control.47+duck-recovery.1",
+    "posture": "limp",
+    "present": true,
+    "start_error": null
+  },
+  "watch_result": {
+    "t": "result",
+    "id": "recovery-readonly-watch",
+    "ok": true,
+    "reason": null,
+    "data": {}
+  },
+  "pad": {
+    "t": "pad",
+    "status": {
+      "known": false,
+      "error": "/run/configd.sock 不在（主程序没在跑）",
+      "driver": null,
+      "pads": [],
+      "active": null,
+      "age_ms": null,
+      "netpad": false,
+      "netpad_why": null
+    },
+    "estop": {
+      "ok": false,
+      "state": "unknown",
+      "checks": [
+        {
+          "key": "pad",
+          "label": "手柄连着",
+          "ok": null,
+          "why": "/run/configd.sock 不在（主程序没在跑）"
+        },
+        {
+          "key": "padd",
+          "label": "padd 在跑（它把手柄的键转给主程序）",
+          "ok": null,
+          "why": null
+        },
+        {
+          "key": "robotd",
+          "label": "主程序在跑（运动模式）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "key": "netpad",
+          "label": "没开 UDP 手柄（netpad）",
+          "ok": true,
+          "why": null
+        }
+      ]
+    },
+    "live": {
+      "device": null,
+      "buttons": {},
+      "axes": {},
+      "other": [],
+      "last_ms": null,
+      "state": "absent",
+      "why": "连不上 padd 的按键旁路（/run/padd/pad.sock）：padd 可能没在跑，或者这版 padd 没开旁路；网页上看不到实时按键，手柄本身照常能用"
+    },
+    "wizard": {
+      "state": "idle",
+      "phase": null,
+      "steps": [],
+      "devices": [],
+      "picked": null,
+      "error": null,
+      "via": null,
+      "elapsed_s": null,
+      "result_name": null,
+      "seen": [],
+      "retry": null,
+      "mac": null,
+      "helper_available": null,
+      "configd_busy_s": null
+    },
+    "estop_test": {
+      "state": "idle"
+    },
+    "virtual": {
+      "owner": null,
+      "last": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "age_ms": null,
+      "mirror": false,
+      "mirror_why": null,
+      "pad_unknown": null,
+      "limits": {
+        "v": 0.3,
+        "w": 1.5,
+        "src": "官方默认（读不到 padd 的配置）"
+      },
+      "driver": null,
+      "mode": "drive",
+      "mode_exit": null,
+      "keys": [],
+      "inputs": {
+        "head": 2.5,
+        "mouth": 100.0,
+        "src": "官方默认（头 2.5 rad、嘴 100%）"
+      },
+      "pad_imu_head": false,
+      "pad_imu_head_why": null,
+      "latch": {
+        "head": false,
+        "body": false
+      }
+    },
+    "motion": {
+      "posture": "limp",
+      "posture_cn": "软着",
+      "block": null,
+      "sitting": false,
+      "buttons": {
+        "stand": {
+          "op": "stand",
+          "label": "站起来",
+          "call": "robot.init",
+          "ok": true,
+          "why": null
+        },
+        "walk": {
+          "op": "walk",
+          "label": "开始走",
+          "call": null,
+          "ok": false,
+          "why": "软着：先点「站起来」"
+        },
+        "sit": {
+          "op": "sit",
+          "label": "坐下",
+          "call": null,
+          "ok": false,
+          "why": "软着：先点「站起来」"
+        }
+      },
+      "start": {
+        "op": "stand",
+        "label": "站起来",
+        "ok": true,
+        "why": null,
+        "call": "robot.init"
+      },
+      "reboot": {
+        "ok": true,
+        "why": null,
+        "does": "重启全部舵机：鸭子先软下来（扶住），之后按 Start 站回来"
+      },
+      "drive_mode": {
+        "ok": true,
+        "why": null,
+        "current": "walk",
+        "target": "roller",
+        "does": "按住 3 秒：切到轮滑"
+      },
+      "keys": {
+        "a": {
+          "key": "a",
+          "skill": "ground_pick",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": "skill",
+          "does": "低头捡",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        "x": {
+          "key": "x",
+          "skill": "roulade",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": "skill",
+          "does": "前滚翻",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        "lb": {
+          "key": "lb",
+          "skill": "kick_left",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": "skill",
+          "does": "左脚踢",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        "rb": {
+          "key": "rb",
+          "skill": "kick_right",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": "skill",
+          "does": "右脚踢",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        "dpad_down": {
+          "key": "dpad_down",
+          "skill": "sit_toggle",
+          "src": "pad.bindings",
+          "overridden": false,
+          "op": "sit",
+          "does": "坐下",
+          "ok": false,
+          "why": "软着：先点「站起来」"
+        }
+      },
+      "triggers": {
+        "ok": true,
+        "why": null,
+        "mouth_pct": 100.0,
+        "note": "软着：只有声音，嘴不会动（站好了才动嘴）"
+      },
+      "driving": false,
+      "recovery": {
+        "elapsed_ms": 0,
+        "phase": "idle",
+        "reason": "等待明确点击躺姿起身",
+        "request_id": null,
+        "torque_state_confirmed": null,
+        "available": true,
+        "active": false,
+        "ok": true,
+        "why": null
+      },
+      "skills": [
+        {
+          "name": "ground_pick",
+          "label": "低头捡",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "name": "roulade",
+          "label": "前滚翻",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "name": "kick_left",
+          "label": "左脚踢",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "name": "kick_right",
+          "label": "右脚踢",
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        }
+      ],
+      "skills_why": null,
+      "sounds": [
+        {
+          "tag": "chirp",
+          "label": "嘎（叫一声）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "greet",
+          "label": "打招呼",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "inquire",
+          "label": "疑问",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "coo",
+          "label": "咕咕（撒娇）",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "alarm",
+          "label": "大叫",
+          "ok": true,
+          "why": null
+        },
+        {
+          "tag": "peck",
+          "label": "告别",
+          "ok": true,
+          "why": null
+        }
+      ],
+      "actions": [
+        {
+          "id": "nod",
+          "name": "点头",
+          "builtin": true,
+          "text": "点头 2 次",
+          "seconds": 1.4,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "shake",
+          "name": "摇头",
+          "builtin": true,
+          "text": "摇头 2 次",
+          "seconds": 1.6,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "tilt",
+          "name": "歪头",
+          "builtin": true,
+          "text": "歪头（右）",
+          "seconds": 1.2,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "mouth",
+          "name": "张嘴",
+          "builtin": true,
+          "text": "张嘴（软着：嘴不会动，站好了才动）",
+          "seconds": 0.9,
+          "ok": true,
+          "why": null
+        }
+      ],
+      "combos": [
+        {
+          "id": "hello",
+          "name": "打招呼",
+          "builtin": true,
+          "text": "叫一声（打招呼） → 点头 2 次 → 张嘴",
+          "seconds": 2.1,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "happy",
+          "name": "开心",
+          "builtin": true,
+          "text": "叫一声（嘎（叫一声）） → 说话（嘴一张一合） 3 次 → 点头 1 次",
+          "seconds": 1.9,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "ask",
+          "name": "疑问",
+          "builtin": true,
+          "text": "叫一声（疑问） → 歪头（右）",
+          "seconds": 1.2,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "no",
+          "name": "不要",
+          "builtin": true,
+          "text": "摇头 3 次 → 叫一声（咕咕（撒娇））",
+          "seconds": 2.7,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        },
+        {
+          "id": "kicks",
+          "name": "左右各踢一脚",
+          "builtin": true,
+          "text": "左脚踢 → 停 0.6 秒 → 右脚踢",
+          "seconds": 2.2,
+          "ok": false,
+          "why": "现在软着：先站起来、点「开始走」"
+        }
+      ],
+      "running": null,
+      "last": null,
+      "last_action": null,
+      "busy": false
+    },
+    "motion_studio": {
+      "state": "idle",
+      "session_id": null,
+      "owner": null,
+      "elapsed_s": 0.0,
+      "duration_s": 0.0,
+      "loop": 0,
+      "loops": 1,
+      "recordings": [],
+      "draft": null,
+      "library_warning": null,
+      "record_available": {
+        "ok": false,
+        "why": "页面不在手柄控制区：滚到遥控区再开始"
+      },
+      "idle_available": {
+        "ok": false,
+        "why": "页面不在手柄控制区：滚到遥控区再开始"
+      },
+      "last_result": null,
+      "error": null,
+      "idle_running": false,
+      "idle_kind": null,
+      "idle_phase": null,
+      "posture_step": null
+    },
+    "audio": {
+      "available": false,
+      "why": "语音服务尚未连接"
+    },
+    "bindings": [
+      {
+        "button": "a",
+        "overridden": false,
+        "skill": "ground_pick"
+      },
+      {
+        "button": "x",
+        "overridden": false,
+        "skill": "roulade"
+      },
+      {
+        "button": "lb",
+        "overridden": false,
+        "skill": "kick_left"
+      },
+      {
+        "button": "rb",
+        "overridden": false,
+        "skill": "kick_right"
+      },
+      {
+        "button": "dpad_down",
+        "overridden": false,
+        "skill": "sit_toggle"
+      }
+    ],
+    "mapping": {
+      "mapped": null,
+      "preview": null,
+      "available": false,
+      "stale": true,
+      "mine": false,
+      "owned": false,
+      "error": "暂时连不上手柄映射服务；请确认已安装配套新版 padd，然后重试",
+      "message": null,
+      "draft": {},
+      "capture": null,
+      "required_missing": [],
+      "output_blocked": false
+    }
+  },
+  "after": {
+    "time_utc": "2026-11-01T15:50:20.300418+00:00",
+    "services": {
+      "robotd.service": {
+        "MainPID": "843",
+        "ExecStart": "{ path=/opt/robot/daemon/current/bin/robotd ; argv[]=/opt/robot/daemon/current/bin/robotd --params /etc/robot/feetech-ft5/robotd.toml --socket /run/robotd.sock ; ignore_errors=no ; start_time=[Sun 2026-11-01 15:49:22 UTC] ; stop_time=[n/a] ; pid=843 ; code=(null) ; status=0/0 }",
+        "WorkingDirectory": "",
+        "ActiveState": "active",
+        "UnitFileState": "enabled",
+        "process_argv": [
+          "/opt/robot/daemon/current/bin/robotd",
+          "--params",
+          "/etc/robot/feetech-ft5/robotd.toml",
+          "--socket",
+          "/run/robotd.sock"
+        ]
+      },
+      "microduck-studio.service": {
+        "MainPID": "851",
+        "ExecStart": "{ path=/opt/duck-robot/python-3.13.18/bin/python3.13 ; argv[]=/opt/duck-robot/python-3.13.18/bin/python3.13 -I run.py --listen 0.0.0.0:8000 ; ignore_errors=no ; start_time=[Sun 2026-11-01 15:49:24 UTC] ; stop_time=[n/a] ; pid=851 ; code=(null) ; status=0/0 }",
+        "WorkingDirectory": "/home/radxa/studio-dev",
+        "ActiveState": "active",
+        "UnitFileState": "enabled",
+        "process_argv": [
+          "/opt/duck-robot/python-3.13.18/bin/python3.13",
+          "-I",
+          "run.py",
+          "--listen",
+          "0.0.0.0:8000"
+        ]
+      }
+    },
+    "files": {
+      "bin/robotd": "fe200aabe2700a492cfb4ea8523c505d4047c26e081c4b18266af1cb8511e82a",
+      "studio/studio/pad.py": "09e429fbdaeac768500f8b80c1582dac1fb0bb6d7c781f58982b9aea9fb23c69",
+      "studio/studio/pad_drive.py": "7df8a8c54106122b31427eecc7d46fc720d51086a827bebd332ca778a8ac9834",
+      "studio/studio/pad_recovery.py": "9cd456bf54c848749bb62b3de4fde19309c37d5b7713ef70cf4282e074a6001b",
+      "studio/studio/updates.py": "1c051f7fd16f621d983093ca37dbb7a74945cd992d3e413020f4885001297f8a",
+      "studio/web/pad.js": "a73b78bcb41106f33b03a023e95f7800b16401e70b15ebdd49be7b2ac09b9806"
+    },
+    "protected": {
+      "/etc/robot/feetech-ft5/robotd.toml": "ce9d94c91796fb873169fb9fb1d8bde60eb4c8adf4c6fb2ee2e5cf01e46e4fd5",
+      "/etc/robot/feetech-ft5/hd1910-calibration.toml": "3cb4fdef7116b2df382959000aab1e6815a8bfaeb484687362300c0c16372634",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/.studio-model.json": "f04d4958b74bc4f6837a009c0e445dec0d4185b94352ab45f37889fd3775ed60",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/deployment-contract.json": "0e645c9298997e2266538bfef68a8fcb3c70d6a4a4a62d64dc5a5c9d52651067",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/deployment-execution.json": "1e77b8c032cf784a7d3d059d0e8d1a32e71fa49d56e1a399aeac7ebc03e2afc9",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/deployment-runtime.json": "0a71011ea44943aa51b22efd9cea4da4b23be3533e48a6a94d300b82678b08e2",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/manifest.json": "d61b0ce5745f82fc8553dc6718dfc9b4cd11dc8fc24ad2e40e7323cfb80fe4d5",
+      "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/model-info.json": "27333c5744d4b94800eee07c3183d13324862437979c79169b52769d5eafb327",
+      "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx": "1c94934c6421ec72ed48079cea74966868a7a59f7d732e0207d0f7bdaeed3c50",
+      "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/.studio-model.json": "6ea640849c9ca2c394bd90f87f1fe04a98316eca9f617d4f00357f9367f1730e",
+      "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/deployment-contract.json": "fcd3b944a0bd6314daa4f27a050817e3e189e36fc30687cc1623ed7a6700aaef",
+      "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/deployment-runtime.json": "b9b0385fc48ed013e18b3881877e0a2fd0949b38c76d0399e4b32c6972b67e1b",
+      "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/manifest.json": "24428f211159adcf19c9a474487489b1f532e7d7900d7b3549bfefbc927b243a",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/.studio-model.json": "cad6d05991256eece5308a74188b7447a2ec1241646b6da9a2a1ac451a512841",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/deployment-contract.json": "2d2e807aadb1f98df7b64e5f3378041db6fd939e5e286a9958f1b1540ab21fee",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/deployment-runtime.json": "17d8dac2df102ea80b9ce8513ab45a10e60d16d913cbdaca330d4a01e329e907",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/manifest.json": "12d6870830a48bdc00f9c1dd961e09263919c535cb2604d31659e080ff497b83",
+      "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/model-info.json": "eae1c29bb287c49dec2ae5b8e5fc6838c4a622bc630fd548cc7e91682a38a276",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx": "ee0376c927044cdece056ba1d3e6eac77b3e02ee3f701f1feb437c183ed39a6d",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/.studio-model.json": "5679a5602415e3835c1330acf4246eed6b800ad4db0db3b386ee0e8d02ba06c3",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/deployment-contract.json": "0b3b2183ae873ca0fd289d82fd98f1aec046cd33abf038815eaf1aca14a10005",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/deployment-runtime.json": "fbaccdf1bff876c9f29810113f4c911d70f9e4a45c24418529fb52cd901284fa",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/manifest.json": "b02df1889d690219b900c7a7d41e57ac901c14791f7e27c681fa84eadc17db57",
+      "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/model-info.json": "2ba3e9cd0e3eea38da096b9cbca60957e9dae5d338e06535c9845b901697a117",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/.studio-model.json": "95032175132de6d19bc7d8746a80d4d5ee6b6f8565979f85ab5d889028e2b6fa",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/deployment-contract.json": "48ba1c5217705b5af6ef7279e85413346e46de9ab146dc5f8864b95b5514f4ae",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/deployment-runtime.json": "07580e30eab8e26b0efea5e1266532de843a51165d652d2b098a7efd283d7b02",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/manifest.json": "ba1fbae9b89f19f8c9e8ce2233e75ca5639b6380365ea19aed1160aac76ee3cb",
+      "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/model-info.json": "c8392e7f0893c00c87cb66de1702907eb0a18fe0f2966c1a25cdd98b002f93ad",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/.studio-model.json": "0531c9260d55905242c0d729e552a759293f3232da67ee39482898fbb5576d39",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/deployment-contract.json": "2e40493605eac00978db51bcc0e127d6681fb78b170694f979c703bcd8dff330",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/deployment-runtime.json": "5be6255feba32d60fcffaa98b5333d244c738d25320b5761304b9448a9444a73",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/manifest.json": "f097326d4331fdd298e2d4ad4e7ade8aec8d8148195b0db2e0b30b968dce15b5",
+      "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/model-info.json": "22d43ea985d210a34b4dc605feb4215dc8b022ed9f1f0a7de492d3989086fcff",
+      "/etc/systemd/system/robotd.service": "ad4fb0d47646f8dd65ff732289b5349ce97409fe85ecde49722eacc4f92a3e5a",
+      "/etc/systemd/system/robotd.service.d/zzzz-studio-bus.conf": "b767c8ebb67acf898530ecf3c30e55fe3d588ecd99804f90ed8b8fc8a53eeb99",
+      "/etc/systemd/system/microduck-studio.service": "d622a4a0305c4d7c7a5bd3f6def71440a49f390036d54fdce03dcb32ef7f8b4d"
+    },
+    "binary_resolved": "/opt/robot/daemon/releases/duck-v03-20261031/bin/robotd",
+    "bus_held": false,
+    "configured_model_loading": true,
+    "robot.busStatus": {
+      "action_scale": 0.7,
+      "active_action_scale": null,
+      "active_model": null,
+      "active_target_filters": null,
+      "all_joints_fresh": true,
+      "build": "0791fcd-feetech-qinmo-control.47+duck-recovery.1",
+      "cycle": 2813,
+      "device_communication": {
+        "by_id": {
+          "10": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "11": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "12": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "13": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "14": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "20": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "200": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "21": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "22": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "23": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "24": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "30": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "31": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "32": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "33": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          },
+          "34": {
+            "consecutive_missing": 0,
+            "consecutive_timeout": 0,
+            "last_missing_read": null,
+            "last_timeout_read": null,
+            "missing": 0,
+            "timeout": 0
+          }
+        },
+        "classification": "exclusive-v2",
+        "complete_but_late": 0,
+        "incomplete_timeout_reads": 0,
+        "last_trace": {
+          "address": 56,
+          "bad_checksums": 0,
+          "complete_but_late": false,
+          "deadline_exceeded": false,
+          "discarded": 0,
+          "elapsed_us": 4762,
+          "length": 15,
+          "missing_ids": [],
+          "partial_received": false,
+          "request_sent": true,
+          "rx_bytes": 336
+        },
+        "missing_reads": 0,
+        "session": "843-1793548164180889541",
+        "total_reads": 2813,
+        "unsent_reads": 0
+      },
+      "fresh_sample": true,
+      "head_lowpass": 1.0,
+      "hold_action_scale": 0.7,
+      "home_recovery": false,
+      "home_start_guard": {
+        "joint_tolerance_deg": 5.0,
+        "max_joint_error_deg": 51.652433755573696,
+        "ready": false,
+        "reason": "尚未完成回 HOME，或正在卸力 / 关机",
+        "stable_samples": 0,
+        "tilt_deg": 91.24822217162615,
+        "tilt_tolerance_deg": 10.0
+      },
+      "homed": false,
+      "joint_recovery": "per_joint_three_tick_coast_then_hold",
+      "last_cycle_error": null,
+      "last_enable_refusal": null,
+      "legs_lowpass": 1.0,
+      "loaded_models": {
+        "ground_pick": {
+          "path": "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx",
+          "sha256": "b14e3a8b56ddbb8d2d831e727774a168c8f5b00194e3e431ae7593a840498c69",
+          "task": "Mjlab-GroundPick-Flat-Backlash-MicroDuck"
+        },
+        "kick_left": {
+          "path": "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx",
+          "sha256": "ee0376c927044cdece056ba1d3e6eac77b3e02ee3f701f1feb437c183ed39a6d",
+          "task": "Mjlab-BallKickLeft-Flat-Backlash-MicroDuck"
+        },
+        "kick_right": {
+          "path": "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx",
+          "sha256": "67ad09d82f4865d222a7ae06f250cf9f77f08c27e4f019ee3f7e431a764419fd",
+          "task": "Mjlab-BallKick-Flat-MicroDuck"
+        },
+        "roulade": {
+          "path": "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx",
+          "sha256": "59e15d7b04d0c40e9b11b8a70bdecae6da87a5e096efc204fb58eea304fcbbac",
+          "task": "Mjlab-Roulade-Flat-MicroDuck"
+        },
+        "sitstand": {
+          "path": "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx",
+          "sha256": "1c94934c6421ec72ed48079cea74966868a7a59f7d732e0207d0f7bdaeed3c50",
+          "task": "Mjlab-SitStand-Flat-MicroDuck"
+        },
+        "stand": null,
+        "walk": {
+          "path": "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx",
+          "runtime_execution_profile": {
+            "action_scale": 1.0,
+            "head_lowpass": 0.5,
+            "legs_lowpass": 0.7,
+            "mode": "uniform",
+            "model_sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+            "schema": "microduck-runtime-execution/v1"
+          },
+          "sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+          "task": "Mjlab-VelStand-Rough-Backlash-MicroDuck"
+        }
+      },
+      "mode": "motion",
+      "model_action_scales": {
+        "ground_pick": 1.0,
+        "roulade": 1.0,
+        "sitstand": 1.0,
+        "stand": 1.0,
+        "stand_test": 0.7,
+        "walk": 0.7
+      },
+      "native": {
+        "all_joints_fresh": true,
+        "backend": "feetech_ft6",
+        "calibration_complete": true,
+        "command_clamps_total": 0,
+        "configured_imu_profile": "legacy",
+        "current_available": false,
+        "gain_mode": "hd1910_model_contract_p_restore_on_relax_native_d_torque_limit_preserved",
+        "hd1910": {
+          "acceleration_policy": "preserve_register_41_never_written",
+          "goal_address": 42,
+          "goal_length": 6,
+          "goal_speed_raw": 0,
+          "model_source": "deployment_contract_disk",
+          "profile": "hd1910-selftrained",
+          "registers_before_arm": [],
+          "restore_pending": false,
+          "servo_parameters": null,
+          "skills": {
+            "getup": false,
+            "pick": true
+          },
+          "temporary_gains_applied": false
+        },
+        "held_joint_ids": [],
+        "imu_age_ms": null,
+        "imu_age_upper_bound_ms": 30,
+        "imu_bus": {
+          "board": "ft6",
+          "gyro_dps_per_lsb": 0.0175,
+          "identification": "legacy_identity",
+          "identity": [
+            6,
+            0,
+            0,
+            0,
+            242
+          ],
+          "profile": "legacy",
+          "protocol": "feetech"
+        },
+        "imu_mount_verified": true,
+        "imu_ready": true,
+        "imu_sequence": 107,
+        "imu_source": "bus",
+        "imu_status": 0,
+        "joints": [
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 4,
+            "feedback_fresh": true,
+            "id": 20,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "left_hip_yaw",
+            "position_rad": -0.41264083194123746,
+            "position_raw": 2317,
+            "position_signed_raw": 2317,
+            "position_wire_raw": 2317,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.0
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 21,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "left_hip_roll",
+            "position_rad": -0.3512816004258118,
+            "position_raw": 2277,
+            "position_signed_raw": 2277,
+            "position_wire_raw": 2277,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.0
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 5,
+            "feedback_fresh": true,
+            "id": 22,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "left_hip_pitch",
+            "position_rad": -0.8007379712763046,
+            "position_raw": 2570,
+            "position_signed_raw": 2570,
+            "position_wire_raw": 2570,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 4,
+            "feedback_fresh": true,
+            "id": 23,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "left_knee",
+            "position_rad": 0.20708740636456155,
+            "position_raw": 1913,
+            "position_signed_raw": 1913,
+            "position_wire_raw": 1913,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.0
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 4,
+            "feedback_fresh": true,
+            "id": 24,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "left_ankle",
+            "position_rad": 0.5031456984264903,
+            "position_raw": 1720,
+            "position_signed_raw": 1720,
+            "position_wire_raw": 1720,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 12,
+            "feedback_fresh": true,
+            "id": 30,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "neck_pitch",
+            "position_rad": 0.2086213871524472,
+            "position_raw": 1912,
+            "position_signed_raw": 1912,
+            "position_wire_raw": 1912,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 32,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": -4,
+            "feedback_fresh": true,
+            "id": 31,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "head_pitch",
+            "position_rad": -0.17027186745530618,
+            "position_raw": 2159,
+            "position_signed_raw": 2159,
+            "position_wire_raw": 2159,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.2
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 0,
+            "feedback_fresh": true,
+            "id": 32,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "head_yaw",
+            "position_rad": -0.2653786763042159,
+            "position_raw": 2221,
+            "position_signed_raw": 2221,
+            "position_wire_raw": 2221,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 36,
+            "velocity_rad_s": -0.0,
+            "volts": 7.2
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 33,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "head_roll",
+            "position_rad": -0.2899223689103862,
+            "position_raw": 2237,
+            "position_signed_raw": 2237,
+            "position_wire_raw": 2237,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 33,
+            "velocity_rad_s": -0.0,
+            "volts": 7.2
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 34,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "mouth",
+            "position_rad": -0.01227184630308513,
+            "position_raw": 2056,
+            "position_signed_raw": 2056,
+            "position_wire_raw": 2056,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 38,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 10,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "right_hip_yaw",
+            "position_rad": 0.05368932757599744,
+            "position_raw": 2013,
+            "position_signed_raw": 2013,
+            "position_wire_raw": 2013,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 34,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 11,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "right_hip_roll",
+            "position_rad": -0.0674951546669682,
+            "position_raw": 2092,
+            "position_signed_raw": 2092,
+            "position_wire_raw": 2092,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 32,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 12,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "right_hip_pitch",
+            "position_rad": -0.1641359443037636,
+            "position_raw": 2155,
+            "position_signed_raw": 2155,
+            "position_wire_raw": 2155,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 32,
+            "velocity_rad_s": -0.0,
+            "volts": 7.1000000000000005
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 4,
+            "feedback_fresh": true,
+            "id": 13,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "right_knee",
+            "position_rad": -0.6596117387908257,
+            "position_raw": 2478,
+            "position_signed_raw": 2478,
+            "position_wire_raw": 2478,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 32,
+            "velocity_rad_s": -0.0,
+            "volts": 7.0
+          },
+          {
+            "calibrated": true,
+            "consecutive_missing": 0,
+            "current_ma": null,
+            "current_raw": 3,
+            "feedback_fresh": true,
+            "id": 14,
+            "load_raw": 0,
+            "missing_total": 0,
+            "name": "right_ankle",
+            "position_rad": -1.354505035703021,
+            "position_raw": 2931,
+            "position_signed_raw": 2931,
+            "position_wire_raw": 2931,
+            "read_recovery": "fresh",
+            "sample_age_ms": 4,
+            "speed_raw": 0,
+            "temperature_c": 31,
+            "velocity_rad_s": -0.0,
+            "volts": 7.0
+          }
+        ],
+        "motion_enabled": true,
+        "partial_samples_total": 0,
+        "read_timing_revision": "r15-read-timing.2",
+        "sample_age_ms": 4,
+        "servo_observations": {
+          "age_ms": 2,
+          "attempted": true,
+          "rows": [
+            {
+              "check_age_ms": 4,
+              "current_raw": 4,
+              "feedback_age_ms": 3,
+              "id": 20,
+              "load_raw": 0,
+              "name": "left_hip_yaw",
+              "position_raw": 2317,
+              "reply_age_ms": 3,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.0
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 3,
+              "id": 21,
+              "load_raw": 0,
+              "name": "left_hip_roll",
+              "position_raw": 2277,
+              "reply_age_ms": 3,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.0
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 5,
+              "feedback_age_ms": 3,
+              "id": 22,
+              "load_raw": 0,
+              "name": "left_hip_pitch",
+              "position_raw": 2570,
+              "reply_age_ms": 3,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 4,
+              "feedback_age_ms": 3,
+              "id": 23,
+              "load_raw": 0,
+              "name": "left_knee",
+              "position_raw": 1913,
+              "reply_age_ms": 3,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.0
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 4,
+              "feedback_age_ms": 2,
+              "id": 24,
+              "load_raw": 0,
+              "name": "left_ankle",
+              "position_raw": 1720,
+              "reply_age_ms": 2,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 12,
+              "feedback_age_ms": 2,
+              "id": 30,
+              "load_raw": 0,
+              "name": "neck_pitch",
+              "position_raw": 1912,
+              "reply_age_ms": 2,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 32,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": -4,
+              "feedback_age_ms": 2,
+              "id": 31,
+              "load_raw": 0,
+              "name": "head_pitch",
+              "position_raw": 2159,
+              "reply_age_ms": 2,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.2
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 0,
+              "feedback_age_ms": 2,
+              "id": 32,
+              "load_raw": 0,
+              "name": "head_yaw",
+              "position_raw": 2221,
+              "reply_age_ms": 2,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 36,
+              "volts": 7.2
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 1,
+              "id": 33,
+              "load_raw": 0,
+              "name": "head_roll",
+              "position_raw": 2237,
+              "reply_age_ms": 1,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 33,
+              "volts": 7.2
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 1,
+              "id": 34,
+              "load_raw": 0,
+              "name": "mouth",
+              "position_raw": 2056,
+              "reply_age_ms": 1,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 38,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 1,
+              "id": 10,
+              "load_raw": 0,
+              "name": "right_hip_yaw",
+              "position_raw": 2013,
+              "reply_age_ms": 1,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 34,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 0,
+              "id": 11,
+              "load_raw": 0,
+              "name": "right_hip_roll",
+              "position_raw": 2092,
+              "reply_age_ms": 0,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 32,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 0,
+              "id": 12,
+              "load_raw": 0,
+              "name": "right_hip_pitch",
+              "position_raw": 2155,
+              "reply_age_ms": 0,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 32,
+              "volts": 7.1000000000000005
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 4,
+              "feedback_age_ms": 0,
+              "id": 13,
+              "load_raw": 0,
+              "name": "right_knee",
+              "position_raw": 2478,
+              "reply_age_ms": 0,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 32,
+              "volts": 7.0
+            },
+            {
+              "check_age_ms": 4,
+              "current_raw": 3,
+              "feedback_age_ms": 0,
+              "id": 14,
+              "load_raw": 0,
+              "name": "right_ankle",
+              "position_raw": 2931,
+              "reply_age_ms": 0,
+              "responding": true,
+              "speed_raw": 0,
+              "temperature_c": 31,
+              "volts": 7.0
+            }
+          ]
+        },
+        "stale_joint_ids": [],
+        "sync": {
+          "address": 56,
+          "bad_checksums": 0,
+          "complete_but_late": false,
+          "deadline_exceeded": false,
+          "discarded": 0,
+          "elapsed_us": 4762,
+          "length": 15,
+          "missing_ids": [],
+          "partial_received": false,
+          "request_sent": true,
+          "rx_bytes": 336
+        },
+        "telemetry": {
+          "accepted_complete_but_late": 0,
+          "complete_but_late": 0,
+          "failed_reads": 0,
+          "last_complete_but_late": null,
+          "last_error": null,
+          "last_failure": null,
+          "last_missing_read_by_id": {},
+          "missing_by_id": {},
+          "session": "843-1793548162782042497",
+          "total_reads": 2838
+        },
+        "torque_enabled": false,
+        "torque_state_confirmed": false,
+        "velocity_rad_s_per_count": 0.07669903939428206,
+        "velocity_source": "hd1910_native_register_50_steps_per_second"
+      },
+      "nominal_voltage": 7.4,
+      "partial_sample": false,
+      "phase": "control",
+      "policy_enabled": false,
+      "port": "/dev/ttyS2",
+      "read_recovery": "fresh",
+      "scale_use": "held",
+      "stability_revision": "r16-startup.2",
+      "startup_pose_ready": true,
+      "torque_off_pending": false,
+      "voltage_adapt": true,
+      "voltage_scale_mult": 1.040150859829877,
+      "walk_action_scale": 0.7,
+      "walk_recovery": {
+        "elapsed_ms": 0,
+        "phase": "idle",
+        "reason": "等待明确点击躺姿起身",
+        "request_id": null,
+        "torque_state_confirmed": null
+      },
+      "walking_action_scale": 0.7
+    },
+    "robot.policies": {
+      "enabled": true,
+      "homed": false,
+      "mode": "walk",
+      "sitting": false,
+      "skills": [
+        "roulade",
+        "kick_left",
+        "kick_right"
+      ],
+      "slots": [
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx",
+          "slot": "walk"
+        },
+        {
+          "error": null,
+          "origin": null,
+          "overridden": true,
+          "path": null,
+          "slot": "stand"
+        },
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx",
+          "slot": "sitstand"
+        },
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx",
+          "slot": "ground_pick"
+        },
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx",
+          "slot": "kick_left"
+        },
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx",
+          "slot": "kick_right"
+        },
+        {
+          "error": null,
+          "origin": "local",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx",
+          "slot": "roulade"
+        }
+      ]
+    },
+    "robot.health": {
+      "battery": {
+        "percent": 32.14703906089617,
+        "volts": 7.114352624974338
+      },
+      "bus": {
+        "consecutive_errors": 0,
+        "startup_failures": 0
+      },
+      "control_loop": {
+        "achieved_hz": 50.036984395513144,
+        "last_tick_age_ms": 6,
+        "missed": 0,
+        "target_hz": 50.0,
+        "ticks": 2813
+      },
+      "cpu_temp_c": 80.0,
+      "cpu_throttle": {
+        "khz": 1800000,
+        "level": 0,
+        "max_khz": 1800000,
+        "max_level": 6
+      },
+      "healthy": true,
+      "imu": {
+        "consecutive_stale_blocks": 0,
+        "ready": true,
+        "stale_blocks": 0
+      },
+      "motors": {
+        "hottest": "mouth",
+        "max_c": 38.0,
+        "mean_c": 32.4
+      }
+    },
+    "robot.skills": {
+      "built_in": [
+        "ground_pick",
+        "sit_toggle"
+      ],
+      "skills": [
+        {
+          "action_scale": 1.0,
+          "chain": true,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "duration": 1.0,
+          "gain_ratio": 1.0,
+          "name": "roulade",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx",
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0
+        },
+        {
+          "action_scale": 1.0,
+          "chain": false,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "duration": 0.5,
+          "name": "kick_left",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx",
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0
+        },
+        {
+          "action_scale": 1.0,
+          "chain": false,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "duration": 0.5,
+          "name": "kick_right",
+          "overridden": true,
+          "path": "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx",
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0
+        }
+      ]
+    },
+    "pad.bindings": {
+      "bindings": [
+        {
+          "button": "a",
+          "overridden": false,
+          "skill": "ground_pick"
+        },
+        {
+          "button": "x",
+          "overridden": false,
+          "skill": "roulade"
+        },
+        {
+          "button": "lb",
+          "overridden": false,
+          "skill": "kick_left"
+        },
+        {
+          "button": "rb",
+          "overridden": false,
+          "skill": "kick_right"
+        },
+        {
+          "button": "dpad_down",
+          "overridden": false,
+          "skill": "sit_toggle"
+        }
+      ]
+    }
+  },
+  "status": "deployed page and native state verified; no recovery request, torque OFF, protected files unchanged"
+}

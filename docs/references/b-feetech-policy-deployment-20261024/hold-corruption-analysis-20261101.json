@@ -1,0 +1,451 @@
+{
+  "date": "2026-11-01",
+  "method": "Offline existing host syscall captures and current local source only",
+  "rows": [
+    {
+      "experiment": "hold-home-replay-20261101",
+      "bad_frame_hex": "ffffc81100ceffb200b500c7b07eb2123a7380805d",
+      "bad_frame_is_one_read_syscall": true,
+      "read_returned_bytes": [
+        21
+      ],
+      "read_durations_us": [
+        57
+      ],
+      "fixed_field_violations": [
+        {
+          "offset": 18,
+          "register": 69,
+          "field": "status",
+          "observed": "80",
+          "expected": "bits 4..7 zero"
+        },
+        {
+          "offset": 19,
+          "register": 70,
+          "field": "reserved",
+          "observed": "80",
+          "expected": "00"
+        }
+      ],
+      "servo_web_offline_verdict": {
+        "accepted": false,
+        "exception": "BusError",
+        "message": "id 200 校验和不对（ff ff c8 11 00 ce ff b2 00 b5 00 c7 b0 7e b2 12 3a 73 80 80 5d）",
+        "stats": {
+          "bad_checksum": 1
+        }
+      },
+      "nearby_valid_frames_accepted_by_servo_web": 6,
+      "nearby_valid_statuses": {
+        "00": 6
+      },
+      "nearby_valid_frames": [
+        {
+          "time": "1793505068.242246",
+          "frame": "ffffc81100fafff8ffffff85b080b2123a6900001c",
+          "sequence": 105,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793505068.261931",
+          "frame": "ffffc81100f6fffcff020085b080b2113a6c000016",
+          "sequence": 108,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793505068.281549",
+          "frame": "ffffc81100f4ff0200050085b080b2113a6e00000c",
+          "sequence": 110,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793505068.300458",
+          "frame": "ffffc81100f6ff0000040085b080b2113a7000000b",
+          "sequence": 112,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793505068.348423",
+          "frame": "ffffc811009b016503c00090b06eb2113a76000041",
+          "sequence": 118,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793505068.362175",
+          "frame": "ffffc81100ad0087030c0296b069b2113a770000be",
+          "sequence": 119,
+          "status": 0,
+          "reserved": 0
+        }
+      ],
+      "sources": {
+        "hold-home-replay-20261101.log": "7b1b74247edf12a61e7176a147098bc7615f94059cf01cfc7e79527c2e24b211",
+        "hold-home-replay-20261101.json": "11f3439e1a7063fc4c014864af568de8e1e70204f25d4305a75e8dde7946dc11"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r1",
+      "bad_frame_hex": "ffffc81100d1ff7a003f8053b06ffb16bfdd80004c",
+      "bad_frame_is_one_read_syscall": true,
+      "read_returned_bytes": [
+        21
+      ],
+      "read_durations_us": [
+        55
+      ],
+      "fixed_field_violations": [
+        {
+          "offset": 18,
+          "register": 69,
+          "field": "status",
+          "observed": "80",
+          "expected": "bits 4..7 zero"
+        }
+      ],
+      "servo_web_offline_verdict": {
+        "accepted": false,
+        "exception": "BusError",
+        "message": "id 200 校验和不对（ff ff c8 11 00 d1 ff 7a 00 3f 80 53 b0 6f fb 16 bf dd 80 00 4c）",
+        "stats": {
+          "bad_checksum": 1
+        }
+      },
+      "nearby_valid_frames_accepted_by_servo_web": 6,
+      "nearby_valid_statuses": {
+        "00": 6
+      },
+      "nearby_valid_frames": [
+        {
+          "time": "1793506918.084176",
+          "frame": "ffffc81100f9fffaff030053b06fb2153ad40000eb",
+          "sequence": 212,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506918.102565",
+          "frame": "ffffc81100f8fffaff010053b06fb2153ad60000ec",
+          "sequence": 214,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506918.123017",
+          "frame": "ffffc81100f6fff9ff010053b06fb2153ad90000ec",
+          "sequence": 217,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506918.142884",
+          "frame": "ffffc81100f9fffbff000053b06fb2153adb0000e6",
+          "sequence": 219,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506918.191288",
+          "frame": "ffffc81100e300c800d7ff58b065b2153ae1000056",
+          "sequence": 225,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506918.203846",
+          "frame": "ffffc8110085004200320058b064b2153ae20000de",
+          "sequence": 226,
+          "status": 0,
+          "reserved": 0
+        }
+      ],
+      "sources": {
+        "hold-home-baseline3-20261101-r1.log": "0d4bc472fceffa67c5942fb85914459a01e8d7c61bb26db1cd219d835bdf1c7e",
+        "hold-home-baseline3-20261101-r1.json": "e80d1bb02175d46124bbd6adf1df655a67f3f59d75633931c2423d04a479472c"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r2",
+      "bad_frame_hex": "ffffec1100810002009b0056b066b29f3ae2000041",
+      "bad_frame_is_one_read_syscall": true,
+      "read_returned_bytes": [
+        21
+      ],
+      "read_durations_us": [
+        142
+      ],
+      "fixed_field_violations": [
+        {
+          "offset": 2,
+          "field": "ID",
+          "observed": "ec",
+          "expected": "c8"
+        }
+      ],
+      "servo_web_offline_verdict": {
+        "accepted": false,
+        "exception": "BusError",
+        "message": "id 200 校验和不对（ff ff ec 11 00 81 00 02 00 9b 00 56 b0 66 b2 9f 3a e2 00 00 41）",
+        "stats": {
+          "bad_checksum": 1
+        }
+      },
+      "nearby_valid_frames_accepted_by_servo_web": 11,
+      "nearby_valid_statuses": {
+        "00": 11
+      },
+      "nearby_valid_frames": [
+        {
+          "time": "1793506922.445653",
+          "frame": "ffffc81100f6fffaff010051b067b2153ad70000f7",
+          "sequence": 215,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.465181",
+          "frame": "ffffc81100f7fffbff020052b067b2153ad90000f1",
+          "sequence": 217,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.485505",
+          "frame": "ffffc81100f8fffaff010052b067b2153adb0000f0",
+          "sequence": 219,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.504615",
+          "frame": "ffffc81100fbfffcff050052b067b2153add0000e5",
+          "sequence": 221,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.525164",
+          "frame": "ffffc81100a8ff7300120052b066b2153ae00000b1",
+          "sequence": 224,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.571618",
+          "frame": "ffffc8110091ff40ff0b0052b068b2153ae50000fc",
+          "sequence": 229,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.584445",
+          "frame": "ffffc811002500f6fe86004db06ab2163ae7000037",
+          "sequence": 231,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.604702",
+          "frame": "ffffc81100100095ffc3ff4cb06bb2163ae900006e",
+          "sequence": 233,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.625741",
+          "frame": "ffffc81100f3ff3600ddff47b06db2163aec0000d0",
+          "sequence": 236,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.645223",
+          "frame": "ffffc81100b8ffef00b4004ab06bb2163aee000077",
+          "sequence": 238,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506922.666044",
+          "frame": "ffffc811001700deffbaff50b068b2163af100001e",
+          "sequence": 241,
+          "status": 0,
+          "reserved": 0
+        }
+      ],
+      "sources": {
+        "hold-home-baseline3-20261101-r2.log": "3c7249fa93dd90bc91aa0189b720f5f003e1824f4437d4085fb2dd34f38ac660",
+        "hold-home-baseline3-20261101-r2.json": "e8afc6e7e561a840f8f00ffc56eb882aa381de5f89478a4e36f5c1dc4a09b156"
+      }
+    },
+    {
+      "experiment": "hold-home-baseline3-20261101-r3",
+      "bad_frame_hex": "ffffc81100bdffc000110050b068b29f3ad9800056",
+      "bad_frame_is_one_read_syscall": true,
+      "read_returned_bytes": [
+        21
+      ],
+      "read_durations_us": [
+        53
+      ],
+      "fixed_field_violations": [
+        {
+          "offset": 18,
+          "register": 69,
+          "field": "status",
+          "observed": "80",
+          "expected": "bits 4..7 zero"
+        }
+      ],
+      "servo_web_offline_verdict": {
+        "accepted": false,
+        "exception": "BusError",
+        "message": "id 200 校验和不对（ff ff c8 11 00 bd ff c0 00 11 00 50 b0 68 b2 9f 3a d9 80 00 56）",
+        "stats": {
+          "bad_checksum": 1
+        }
+      },
+      "nearby_valid_frames_accepted_by_servo_web": 6,
+      "nearby_valid_statuses": {
+        "00": 6
+      },
+      "nearby_valid_frames": [
+        {
+          "time": "1793506926.722212",
+          "frame": "ffffc81100fbfff7ff02004eb069b2163acf0000fc",
+          "sequence": 207,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506926.742386",
+          "frame": "ffffc81100f7fffaff01004eb06ab2163ad10000fb",
+          "sequence": 209,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506926.761624",
+          "frame": "ffffc81100f5ffffff02004eb069b2163ad40000f5",
+          "sequence": 212,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506926.782009",
+          "frame": "ffffc81100f8fff9ff02004eb069b2163ad60000f6",
+          "sequence": 214,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506926.828843",
+          "frame": "ffffc811002e007fffbeff51b065b2163adc000079",
+          "sequence": 220,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793506926.842011",
+          "frame": "ffffc81100d6ff83ff9fff50b067b2163add0000eb",
+          "sequence": 221,
+          "status": 0,
+          "reserved": 0
+        }
+      ],
+      "sources": {
+        "hold-home-baseline3-20261101-r3.log": "fce7dab74d188e80190ee1edab49c2f7a7ccfef7e96d1b42329fc57d47e05a00",
+        "hold-home-baseline3-20261101-r3.json": "d3b6a64ef4b58d63c06903b0178e7dc56fd5c95c8bf2624569ee94fccc46eda4"
+      }
+    },
+    {
+      "experiment": "hold-home-servo-first-20261101",
+      "bad_frame_hex": "ffffc81100f5fffeff84004fb067b2163abd00000c",
+      "bad_frame_is_one_read_syscall": true,
+      "read_returned_bytes": [
+        21
+      ],
+      "read_durations_us": [
+        45
+      ],
+      "fixed_field_violations": [],
+      "servo_web_offline_verdict": {
+        "accepted": false,
+        "exception": "BusError",
+        "message": "id 200 校验和不对（ff ff c8 11 00 f5 ff fe ff 84 00 4f b0 67 b2 16 3a bd 00 00 0c）",
+        "stats": {
+          "bad_checksum": 1
+        }
+      },
+      "nearby_valid_frames_accepted_by_servo_web": 5,
+      "nearby_valid_statuses": {
+        "00": 5
+      },
+      "nearby_valid_frames": [
+        {
+          "time": "1793507212.969689",
+          "frame": "ffffc81100f4fffbff050050b067b2153ab6000016",
+          "sequence": 182,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793507212.989832",
+          "frame": "ffffc81100f6fffdff030050b067b2153ab9000011",
+          "sequence": 185,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793507213.009277",
+          "frame": "ffffc81100f7fff8ff030050b067b2163abb000012",
+          "sequence": 187,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793507213.055402",
+          "frame": "ffffc81100caffb7003b0052b066b2153ac0000042",
+          "sequence": 192,
+          "status": 0,
+          "reserved": 0
+        },
+        {
+          "time": "1793507213.070074",
+          "frame": "ffffc8110028006b00030056b064b2153ac2000063",
+          "sequence": 194,
+          "status": 0,
+          "reserved": 0
+        }
+      ],
+      "sources": {
+        "hold-home-servo-first-20261101.log": "a2c97b60ee67eb62462fe283222bc112d9c3813a5f957b773a68bbf78710c20b",
+        "hold-home-servo-first-20261101.json": "13417bec67e9c95e18507ac0d021fd50b293991913fb0629a158459eff56b29c"
+      }
+    }
+  ],
+  "source_sha256": {
+    "tools\\servo-web\\feetech.py": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\main.c": "fb9deaca73e170aa82aecaf8e8a056a1d303632487fae819b4a8d04a92988b50",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\protocol.c": "cab625cc7533a3b8bf9af28335622a29a672ee2b7b1872be65b0ab64fd484105",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\board.c": "0c8ad494eadc2527d80884af3385376de9b07f6c636ab06d61505799e96c4e60",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\control_table.c": "1dfc2635b89e9927619d69e87198347a860ee51e281a7c3477769791083ba83e",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Src\\imu.c": "dbfe3344f96e6804b5041306eca51ef4707868855263980d1abbae9f9c6195a3",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Inc\\protocol.h": "e343ca223e44c2620de160be6ddfdf026cb9df43917e74f3e0d2af74414ae9bb",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Core\\Inc\\control_table.h": "fa0506da26aca17e2761fa41cc8a0e5e23f730751fd5fb96b841f215c431554d",
+    "references\\microduck-replica\\hardware\\imu_to_dxl\\firmware\\Build\\imu_to_dxl.hex": "10ef4813c52a6f8ed0115d5ac09c271f895e1e1097d904f9f916cf7cde880f35"
+  },
+  "limits": [
+    "Invalid frames are not sensor samples; fixed-field comparisons do not identify original bytes or the corruption location.",
+    "Block 56/15 contains gyro int16 x3, quaternion FP16 x3, sequence, status, reserved; not four int16 quaternion components.",
+    "Memory replay verifies byte acceptance only; it does not reproduce servo-web live timing or electrical load.",
+    "Firmware analysis uses archived replica 0.2.0 source and deployment history; no fresh flash/RAM readback in this analysis.",
+    "Firmware receive error counters do not validate its outgoing bytes at the host; TX routine disables USART2 IRQ and clears flags before re-enabling.",
+    "No packet is repaired, passed to robotd, or used to move the robot."
+  ]
+}

@@ -1,5 +1,7 @@
 # 已确认硬件原理图档案
 
+> **2026-10-31 IMU 更新**：新制 v0.3 双口板已上线；AP2210 推荐输入上限 13.2V、绝对最大 15V，旧“只能 5V”说明已纠正。原厂手册、BOM 与 5V/7.4V 现象分析见[专题](../references/imu-v03-input-voltage-20261031/research.md)。
+
 存放本项目在手硬件的原理图/设计源文件；**实物修订已对应与仅有同源参考须按每行依据区分**。每块板一个子目录，来源与版本钉死在上游提交。查证分析记录另见 `docs/references/`（那里保留研究过程，这里只放权威文件副本）。
 
 | 子目录 | 硬件 | 确认依据 | 权威文件 | 上游来源与版本 |
@@ -12,8 +14,8 @@
 | 硬件 | 来源与边界 |
 |---|---|
 | [Pollen HAT C1 / D1 PCB 参考](pollen-hat-pcb-reference/README.md) | 2026-10-27 沿用户提供的 ScrapMeta 地址取得：其文档锁定官方 C1 `88d51fa`，已下载 KiCad PCB/工程/原理图、PCB PDF、Gerber、BOM/POS；另有 D1 `6de8628` PCB/装配图。**都未核准对应白色鸭图案 V1.2**；官方 R33=150Ω 不能直接映射实物。 |
-| [kissqy HAT REVA 另版工程](kissqy-hat-reva-reference/README.md) | 同日取得 10-07 / 10-15 两份 `.epro2`，容器确有 PCB 与原理图；两层板、接口版本不同，未与本机 V1.2 对应，不作为本机改阻依据。 |
-| jyg9 / community-kit 单 3P GD32 IMU（当前排查对象） | 本地只读参考目录已有[KiCad 工程](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pro)、[PCB 布局](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb)、[原理图](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_sch)。KiCad 9，布局标 `imu2dxl 0.2 / 2026/9/27`；2026-10-26 上游 API 亦确认文件存在，但当前上游 blob 与本地快照不同，未同步覆盖。实物修订尚未逐网核对，来源、指纹及生产文件入口见[记录](../references/imu-to-dxl-variants-20261009/research.md#single-port-pcb-20261026)。 |
+| [kissqy HAT REVA 另版工程](kissqy-hat-reva-reference/README.md) | 同日取得10-07/10-15两份`.epro2`，含PCB与原理图；已核这版R33旁路候选点为R32 pad2/TH1 pad1，R31则是RX上拉。两层板、接口版本不同，未与本机V1.2对应，不能照位号改阻；[定位图与证据](../references/pcb-pad-repair-20261027/research.md#kissqy-bypass-points-20261027)。 |
+| jyg9 / community-kit 单 3P GD32 IMU（10-31 已下线，旧故障存档） | 本地只读参考目录已有[KiCad 工程](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pro)、[PCB 布局](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb)、[原理图](../../references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_sch)。KiCad 9，布局标 `imu2dxl 0.2 / 2026/9/27`；2026-10-26 上游 API 亦确认文件存在，但当前上游 blob 与本地快照不同，未同步覆盖。实物修订尚未逐网核对，来源、指纹及生产文件入口见[记录](../references/imu-to-dxl-variants-20261009/research.md#single-port-pcb-20261026)。 |
 | 微雪 Waveshare Bus Servo Adapter (A)，实物丝印 v1.1 | 2026-10-25 从官方 Wiki 取得[含 CH343P/USB 的单页原理图](../references/servo-web-imu-3d-20261024/waveshare-bus-servo-adapter-a-schematic-20261025.pdf)；图中未标版本号，不能宣称已与实物逐件对应。供电网络核对、SHA256 及旧无 USB 图的区别见[供电研究](../references/servo-web-imu-3d-20261024/research.md#waveshare-usb-20261025)。更正此前“无公开原理图”的记录。 |
 
 **尚未取得原理图的到位硬件**（只留定位信息）：

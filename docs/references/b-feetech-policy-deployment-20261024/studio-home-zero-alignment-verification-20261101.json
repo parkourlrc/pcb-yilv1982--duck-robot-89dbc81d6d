@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "evidence": "Local copies match deployed hashes and native calibration-status; read-only systemctl check",
+  "changed_lines": 15,
+  "changed_fields": "Only 15 zero_raw values",
+  "zero_raw": 2048,
+  "common_target_count": 14,
+  "common_targets_match": true,
+  "protected_hashes_match": true,
+  "services": {
+    "robotd.service": {
+      "is-active": "active",
+      "is-enabled": "enabled"
+    },
+    "microduck-studio.service": {
+      "is-active": "active",
+      "is-enabled": "enabled"
+    },
+    "duck-servo-web.service": {
+      "is-active": "inactive",
+      "is-enabled": "disabled"
+    }
+  },
+  "no_stand_or_model_command": true
+}

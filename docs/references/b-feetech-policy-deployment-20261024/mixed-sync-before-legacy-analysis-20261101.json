@@ -1,0 +1,72 @@
+{
+  "source_trace": "mixed-sync-servo-web-bus-20261101.log",
+  "tx_by_kind": {
+    "id=254 instruction=0x82": 297
+  },
+  "rx_by_id": {
+    "200": 297,
+    "20": 296,
+    "21": 296,
+    "22": 296,
+    "23": 296,
+    "24": 296,
+    "30": 296,
+    "31": 296,
+    "32": 296,
+    "33": 296,
+    "34": 296,
+    "10": 296,
+    "11": 296,
+    "12": 296,
+    "13": 296,
+    "14": 296
+  },
+  "packet_checks": {
+    "valid": 5034
+  },
+  "mixed_sync_requests": 297,
+  "all_requests_expected": true,
+  "complete_16_reply_cycles": 296,
+  "incomplete_cycles": [
+    {
+      "index": 296,
+      "address": 56,
+      "length": 15,
+      "ids": [
+        200,
+        20,
+        21,
+        22,
+        23,
+        24,
+        30,
+        31,
+        32,
+        33,
+        34,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "received": [
+        200
+      ]
+    }
+  ],
+  "imu_blocks": 297,
+  "imu_unique_first12": 235,
+  "imu_bits": {
+    "8": 297
+  },
+  "imu_counter_steps_mod256": {
+    "10": 258,
+    "11": 38
+  },
+  "restored_legacy_replay_status": {
+    "live": 297
+  },
+  "unparsed_lines": [],
+  "limitations": "Application bus logger timestamps are not wire edge timings; WebSocket IMU broadcasts may repeat samples."
+}

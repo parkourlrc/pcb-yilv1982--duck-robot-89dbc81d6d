@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-11-01T10:47:03.651831+08:00",
+  "host": "radxa",
+  "service": "microduck-studio.service",
+  "boot_time": {
+    "returncode": 0,
+    "stdout": "2026-11-01 02:44:33",
+    "stderr": ""
+  },
+  "enabled": {
+    "returncode": 0,
+    "stdout": "enabled",
+    "stderr": ""
+  },
+  "service_state": {
+    "returncode": 0,
+    "stdout": "MainPID=483\nActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/microduck-studio.service\nUnitFileState=enabled\nActiveEnterTimestamp=Sat 2026-10-31 16:08:22 UTC",
+    "stderr": ""
+  },
+  "unit": {
+    "returncode": 0,
+    "stdout": "# /etc/systemd/system/microduck-studio.service\n[Unit]\nDescription=Microduck Studio (Python 3.13)\nAfter=network.target\n\n[Service]\nUser=radxa\nGroup=radxa\nWorkingDirectory=/home/radxa/studio-dev\nExecStart=/opt/duck-robot/python-3.13.18/bin/python3.13 -I run.py --listen 0.0.0.0:8000\nRestart=on-failure\nRestartSec=5\nNice=10\nCPUWeight=20\nCPUQuota=60%\nMemoryMax=300M\n\n[Install]\nWantedBy=multi-user.target",
+    "stderr": ""
+  },
+  "boot_journal": {
+    "returncode": 0,
+    "stdout": "Nov 01 02:46:46 radxa-zero3 sudo[809]:    radxa : PWD=/home/radxa/studio-dev ; USER=root ; COMMAND=/usr/local/sbin/microduck-helper calib-read\nNov 01 02:46:46 radxa-zero3 sudo[809]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)\nNov 01 02:46:47 radxa-zero3 sudo[809]: pam_unix(sudo:session): session closed for user root\nNov 01 02:46:51 radxa-zero3 sudo[814]:    radxa : PWD=/home/radxa/studio-dev ; USER=root ; COMMAND=/usr/local/sbin/microduck-helper calib-read\nNov 01 02:46:51 radxa-zero3 sudo[814]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)\nNov 01 02:46:53 radxa-zero3 sudo[814]: pam_unix(sudo:session): session closed for user root\nNov 01 02:46:56 radxa-zero3 sudo[819]:    radxa : PWD=/home/radxa/studio-dev ; USER=root ; COMMAND=/usr/local/sbin/microduck-helper calib-read\nNov 01 02:46:56 radxa-zero3 sudo[819]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)\nNov 01 02:46:58 radxa-zero3 sudo[819]: pam_unix(sudo:session): session closed for user root\nNov 01 02:47:02 radxa-zero3 sudo[824]:    radxa : PWD=/home/radxa/studio-dev ; USER=root ; COMMAND=/usr/local/sbin/microduck-helper calib-read\nNov 01 02:47:02 radxa-zero3 sudo[824]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)\nNov 01 02:47:03 radxa-zero3 sudo[824]: pam_unix(sudo:session): session closed for user root",
+    "stderr": "Hint: You are currently not seeing messages from other users and the system.\n      Users in groups 'adm', 'systemd-journal' can see all messages.\n      Pass -q to turn off this notice."
+  },
+  "healthz": {
+    "status": 200,
+    "body": "{\"ok\":true,\"version\":\"0.1.0-dev\",\"suite_version\":null,\"runtime_root\":\"/home/radxa\"}"
+  },
+  "monotonic_verification": {
+    "service_monotonic": "ExecMainStartTimestampMonotonic=9831745\nActiveEnterTimestampMonotonic=9833956",
+    "uptime_seconds": 166.45
+  }
+}

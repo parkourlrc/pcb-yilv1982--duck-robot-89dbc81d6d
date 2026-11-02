@@ -1,0 +1,97 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling serde_core v1.0.229
+   Compiling quote v1.0.47
+   Compiling once_cell v1.21.4
+   Compiling libc v0.2.189
+   Compiling getrandom v0.4.3
+   Compiling syn v3.0.3
+   Compiling tempfile v3.27.0
+   Compiling serde_json v1.0.151
+   Compiling semver v1.0.28
+   Compiling serde_derive v1.0.229
+   Compiling serde v1.0.229
+   Compiling duck-ipc-proto v0.15.1 (/root/duck-robot-recovery-20261101/duck-ipc-proto)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.35s
+     Running unittests src/lib.rs (target/debug/deps/duck_ipc_proto-cf64655e3d7a7dc0)
+
+running 54 tests
+test clock::tests::monotonic_advances_and_realtime_is_this_century ... ok
+test tests::a_beacon_survives_the_advertisement ... ok
+test tests::a_bus_section_missing_a_counter_still_parses ... ok
+test tests::a_clean_frame_carries_neither_alarm ... ok
+test tests::a_binary_outside_the_layout_has_no_release ... ok
+test tests::a_deleted_binary_still_names_its_release ... ok
+test tests::a_call_serialises_as_jsonrpc ... ok
+test tests::a_dev_release_keeps_the_suffix_that_distinguishes_it ... ok
+test tests::a_hit_renders_only_what_the_publisher_wrote ... ok
+test tests::a_log_entry_without_a_run_still_parses ... ok
+test tests::a_missing_battery_is_unknown_not_empty ... ok
+test tests::a_pairing_pin_is_redacted_from_debug_output ... ok
+test tests::a_quantised_register_is_good_enough_to_cast_from ... ok
+test tests::a_notification_parses_without_an_id_field ... ok
+test tests::a_ref_with_a_slash_survives_the_wire ... ok
+test tests::a_release_path_names_its_version ... ok
+test tests::a_roster_of_the_wrong_length_is_not_a_beacon ... ok
+test tests::a_run_record_is_one_flat_line ... ok
+test tests::a_state_frame_missing_odom_still_parses ... ok
+test tests::a_usb_pad_is_not_on_the_radio ... ok
+test tests::a_wifi_key_is_redacted_from_debug_output ... ok
+test tests::a_wifi_key_still_serialises ... ok
+test tests::an_address_payload_is_not_mistaken_for_a_beacon ... ok
+test tests::an_imu_section_missing_its_newest_field_still_parses ... ok
+test tests::an_older_frame_reports_no_velocity_rather_than_zero ... ok
+test tests::an_unknown_run_event_keeps_the_rest_of_the_transcript ... ok
+test tests::an_unlimited_command_omits_limited_by ... ok
+test tests::an_unknown_params_member_is_refused_by_name ... ok
+test tests::build_info_is_explicit_about_an_unknown_revision ... ok
+test tests::component_carrying_calls_expose_it ... ok
+test tests::degraded_is_omitted_when_false_and_present_when_true ... ok
+test tests::from_dir_round_trips_and_is_omitted_when_unset ... ok
+test tests::build_info_macro_reports_the_calling_crate ... ok
+test tests::an_identity_survives_being_published_and_read_back ... ok
+test tests::methods_without_params_accept_any_params_field ... ok
+test tests::health_without_the_degraded_field_is_not_degraded ... ok
+test tests::hello_result_round_trips_with_and_without_a_revision ... ok
+test tests::notifications_carry_no_id ... ok
+test tests::only_software_changing_calls_are_mutating ... ok
+test tests::pad_reports_round_trip_under_their_tag ... ok
+test tests::responses_omit_the_half_they_do_not_use ... ok
+test tests::every_call_covers_every_variant ... FAILED
+test tests::every_call_has_a_distinct_method ... FAILED
+test tests::subscriptions_are_the_only_thing_on_the_stream_lane ... ok
+test tests::target_round_trips_in_every_form ... ok
+test tests::the_imu_fusion_view_is_optional_and_tolerant ... ok
+test tests::the_theremin_block_is_absent_until_there_is_a_theremin ... ok
+test tests::every_call_round_trips_over_the_wire ... ok
+test tests::robot_state_uses_the_documented_field_names ... ok
+test tests::unknown_methods_and_bad_params_get_different_codes ... ok
+test tests::pairing_a_pad_needs_no_parameters ... ok
+test tests::robot_results_round_trip ... ok
+test tests::only_authenticate_has_no_service ... ok
+test tests::velocity_and_load_ride_under_their_documented_names ... ok
+
+failures:
+
+---- tests::every_call_covers_every_variant stdout ----
+
+thread 'tests::every_call_covers_every_variant' (874) panicked at duck-ipc-proto/src/lib.rs:5658:9:
+assertion `left == right` failed: a Call variant was added or removed — update every_call() and this count
+  left: 70
+ right: 67
+
+---- tests::every_call_has_a_distinct_method stdout ----
+
+thread 'tests::every_call_has_a_distinct_method' (875) panicked at duck-ipc-proto/src/lib.rs:5680:9:
+assertion `left == right` failed: every_call lists the same method twice, so a variant is standing in for another
+  left: 68
+ right: 70
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::every_call_covers_every_variant
+    tests::every_call_has_a_distinct_method
+
+test result: FAILED. 52 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p duck-ipc-proto --lib`

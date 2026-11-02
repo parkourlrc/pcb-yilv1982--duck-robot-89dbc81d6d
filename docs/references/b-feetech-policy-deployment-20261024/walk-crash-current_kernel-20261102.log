@@ -1,0 +1,771 @@
+2026-11-01T15:55:08.135440+0000 radxa-zero3 kernel: zram: Added device: zram0
+2026-11-01T15:55:08.135617+0000 radxa-zero3 kernel: of_dma_request_slave_channel: dma-names property of node '/serial@fe650000' missing or empty
+2026-11-01T15:55:08.135710+0000 radxa-zero3 kernel: dw-apb-uart fe650000.serial: failed to request DMA, use interrupt mode
+2026-11-01T15:55:08.179399+0000 radxa-zero3 kernel: zram0: detected capacity change from 0 to 4016544
+2026-11-01T15:55:08.282974+0000 radxa-zero3 kernel: Adding 2008268k swap on /dev/zram0.  Priority:100 extents:1 across:2008268k SS
+2026-11-01T15:55:08.318917+0000 radxa-zero3 kernel: of_dma_request_slave_channel: dma-names property of node '/serial@fe660000' missing or empty
+2026-11-01T15:55:08.319275+0000 radxa-zero3 kernel: dw-apb-uart fe660000.serial: failed to request DMA, use interrupt mode
+2026-11-01T15:55:08.400324+0000 radxa-zero3 kernel: rockchip-pm-domain fdd90000.power-management:power-controller: Looking up gpu-supply from device tree
+2026-11-01T15:55:08.400724+0000 radxa-zero3 kernel: rockchip-pm-domain fdd90000.power-management:power-controller: Looking up gpu-supply property in node /power-management@fdd90000/power-controller failed
+2026-11-01T15:55:08.400914+0000 radxa-zero3 kernel: panfrost fde60000.gpu: clock rate = 594000000
+2026-11-01T15:55:08.401956+0000 radxa-zero3 kernel: panfrost fde60000.gpu: bus_clock rate = 500000000
+2026-11-01T15:55:08.406515+0000 radxa-zero3 kernel: panfrost fde60000.gpu: Looking up mali-supply from device tree
+2026-11-01T15:55:08.420051+0000 radxa-zero3 kernel: panfrost fde60000.gpu: mali-g52 id 0x7402 major 0x1 minor 0x0 status 0x0
+2026-11-01T15:55:08.421172+0000 radxa-zero3 kernel: panfrost fde60000.gpu: features: 00000000,00000cf7, issues: 00000000,00000400
+2026-11-01T15:55:08.422191+0000 radxa-zero3 kernel: panfrost fde60000.gpu: Features: L2:0x07110206 Shader:0x00000002 Tiler:0x00000209 Mem:0x1 MMU:0x00002823 AS:0xff JS:0x7
+2026-11-01T15:55:08.427890+0000 radxa-zero3 kernel: panfrost fde60000.gpu: shader_present=0x1 l2_present=0x1
+2026-11-01T15:55:08.659054+0000 radxa-zero3 kernel: [drm] Initialized panfrost 1.2.0 20180908 for fde60000.gpu on minor 1
+2026-11-01T15:55:08.910867+0000 radxa-zero3 kernel: aic8800_bsp: loading out-of-tree module taints kernel.
+2026-11-01T15:55:08.943181+0000 radxa-zero3 kernel: aicbsp_init
+2026-11-01T15:55:08.943411+0000 radxa-zero3 kernel: RELEASE_DATE:2024_1119_06da8476
+2026-11-01T15:55:08.943504+0000 radxa-zero3 kernel: aicbsp_resv_mem_init 
+2026-11-01T15:55:09.094948+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_mod_init()
+2026-11-01T15:55:09.095195+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx v6.4.3.0 - - 241c091M (master)
+2026-11-01T15:55:09.095277+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        RELEASE_DATE:2024_1119_06da8476 
+2026-11-01T15:55:09.095342+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array Enter 
+2026-11-01T15:55:09.095406+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[0]:0000000025b515ed 
+2026-11-01T15:55:09.095589+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[1]:00000000aa9a0567 
+2026-11-01T15:55:09.095663+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[2]:000000004a2ca16a 
+2026-11-01T15:55:09.095726+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[3]:0000000073208eef 
+2026-11-01T15:55:09.095790+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[4]:000000004523d2ad 
+2026-11-01T15:55:09.095902+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[5]:00000000c4a1526b 
+2026-11-01T15:55:09.095967+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[6]:00000000812fdba9 
+2026-11-01T15:55:09.096029+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[7]:00000000591e56c8 
+2026-11-01T15:55:09.096092+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[8]:00000000c206a369 
+2026-11-01T15:55:09.096154+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[9]:0000000036a42af9 
+2026-11-01T15:55:09.096217+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[10]:00000000f9534b75 
+2026-11-01T15:55:09.096279+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[11]:000000009f756021 
+2026-11-01T15:55:09.096341+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[12]:00000000f8dfa090 
+2026-11-01T15:55:09.096403+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[13]:00000000689a7ae9 
+2026-11-01T15:55:09.096466+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[14]:00000000027ec5d0 
+2026-11-01T15:55:09.096588+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[15]:0000000000cc70c3 
+2026-11-01T15:55:09.096654+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[16]:000000005c6905bb 
+2026-11-01T15:55:09.096717+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[17]:00000000c47ea362 
+2026-11-01T15:55:09.096779+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[18]:00000000dc451981 
+2026-11-01T15:55:09.096841+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[19]:000000000cd9f4aa 
+2026-11-01T15:55:09.096904+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[20]:000000009f8516fb 
+2026-11-01T15:55:09.096967+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[21]:000000008748c192 
+2026-11-01T15:55:09.097030+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[22]:00000000d68cd72f 
+2026-11-01T15:55:09.097092+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[23]:00000000290e9b52 
+2026-11-01T15:55:09.097155+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[24]:00000000dd0e3b1b 
+2026-11-01T15:55:09.097284+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[25]:00000000626d55d5 
+2026-11-01T15:55:09.097348+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[26]:00000000d873a292 
+2026-11-01T15:55:09.097410+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[27]:00000000cac7c06a 
+2026-11-01T15:55:09.097473+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[28]:000000003b283c52 
+2026-11-01T15:55:09.097536+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[29]:0000000075f0d756 
+2026-11-01T15:55:09.097600+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[30]:000000006b343b6e 
+2026-11-01T15:55:09.097664+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[31]:000000001f17c1fc 
+2026-11-01T15:55:09.097727+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[32]:00000000ccca33f9 
+2026-11-01T15:55:09.097789+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[33]:000000002e2ada0b 
+2026-11-01T15:55:09.097851+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[34]:00000000ed87600a 
+2026-11-01T15:55:09.097965+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[35]:000000007908ac23 
+2026-11-01T15:55:09.098031+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[36]:00000000ccab2b39 
+2026-11-01T15:55:09.098095+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[37]:000000001ec62665 
+2026-11-01T15:55:09.098157+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[38]:00000000c687f58c 
+2026-11-01T15:55:09.098219+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array cmd_queue[39]:00000000000a318d 
+2026-11-01T15:55:09.098281+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_init_cmd_array Exit 
+2026-11-01T15:55:09.098343+0000 radxa-zero3 kernel: aicbsp: aicbsp_set_subsys, subsys: AIC_WIFI, state to: 1
+2026-11-01T15:55:09.098405+0000 radxa-zero3 kernel: aicbsp: aicbsp_set_subsys, power state change to 1 dure to AIC_WIFI
+2026-11-01T15:55:09.098467+0000 radxa-zero3 kernel: aicbsp: aicbsp_platform_power_on
+2026-11-01T15:55:09.170918+0000 radxa-zero3 kernel: aicbsp: aicbsp_sdio_probe:1 vid:0xC8A1  did:0x0082
+2026-11-01T15:55:09.194897+0000 radxa-zero3 kernel: aicbsp: aicbsp_sdio_probe:2 vid:0xC8A1  did:0x0182
+2026-11-01T15:55:09.195162+0000 radxa-zero3 kernel: aicbsp: aicbsp_sdio_probe after replace:1
+2026-11-01T15:55:09.195424+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        aicwf_sdio_chipmatch USE AIC8800D80
+2026-11-01T15:55:09.195530+0000 radxa-zero3 kernel: aicbsp: aicbsp_get_feature, set FEATURE_SDIO_CLOCK 150 MHz
+2026-11-01T15:55:09.195597+0000 radxa-zero3 kernel: aicbsp: aicwf_sdio_reg_init
+2026-11-01T15:55:09.195662+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        aicbsp: aicbsp_driver_fw_init, chip rev: 7
+2026-11-01T15:55:09.195727+0000 radxa-zero3 kernel: rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/fw_patch_table_8800d80_u02.bin  
+2026-11-01T15:55:09.195791+0000 radxa-zero3 kernel: file md5:2a860bc9f2ec72ed45ed20c464ec66ba
+2026-11-01T15:55:09.195853+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicbt_patch_info_unpack head_t->len:6 base_len:4 
+2026-11-01T15:55:09.195916+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicbt_patch_info_unpack memcpy_len:5 
+2026-11-01T15:55:09.195980+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicbt_patch_info_unpack adid_addrinf:1e77b8 addr_adid:201940 
+2026-11-01T15:55:09.196047+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicbt_patch_info_unpack id:0 addr:20b43c 
+2026-11-01T15:55:09.196113+0000 radxa-zero3 kernel: rwnx_plat_bin_fw_upload_android
+2026-11-01T15:55:09.196259+0000 radxa-zero3 kernel: rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/fw_adid_8800d80_u02.bin  
+2026-11-01T15:55:09.196339+0000 radxa-zero3 kernel: file md5:f546881a81b960d89a672578eb45a809
+2026-11-01T15:55:09.196408+0000 radxa-zero3 kernel: rwnx_plat_bin_fw_upload_android
+2026-11-01T15:55:09.196470+0000 radxa-zero3 kernel: rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/fw_patch_8800d80_u02.bin  
+2026-11-01T15:55:09.196534+0000 radxa-zero3 kernel: file md5:6ef0dc3eb798477555461169a77ed4f8
+2026-11-01T15:55:09.202909+0000 radxa-zero3 kernel: input: rockchip-hdmi rockchip-hdmi as /devices/platform/hdmi-sound/sound/card0/input4
+2026-11-01T15:55:09.207025+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicbt_ext_patch_data_load ext_patch_file_name:fw_patch_8800d80_u02_ext0.bin ext_patch_id:0 ext_patch_addr:20b43c 
+2026-11-01T15:55:09.207376+0000 radxa-zero3 kernel: rwnx_plat_bin_fw_upload_android
+2026-11-01T15:55:09.207510+0000 radxa-zero3 kernel: rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/fw_patch_8800d80_u02_ext0.bin  
+2026-11-01T15:55:09.207583+0000 radxa-zero3 kernel: file md5:2110a40c713998d743127d65239a71fe
+2026-11-01T15:55:09.243005+0000 radxa-zero3 kernel: aicbt_patch_table_load bt btmode[3]:5 
+2026-11-01T15:55:09.243261+0000 radxa-zero3 kernel: aicbt_patch_table_load bt uart_baud[3]:1500000 
+2026-11-01T15:55:09.243339+0000 radxa-zero3 kernel: aicbt_patch_table_load bt uart_flowctrl[3]:1 
+2026-11-01T15:55:09.243407+0000 radxa-zero3 kernel: aicbt_patch_table_load bt lpm_enable[3]:0 
+2026-11-01T15:55:09.243469+0000 radxa-zero3 kernel: aicbt_patch_table_load bt tx_pwr[3]:28463 
+2026-11-01T15:55:09.251025+0000 radxa-zero3 kernel: aicbsp: bt patch version: - Nov 18 2024 16:37:52 - git 1a301b6
+2026-11-01T15:55:09.251268+0000 radxa-zero3 kernel: rwnx_plat_bin_fw_upload_android
+2026-11-01T15:55:09.251340+0000 radxa-zero3 kernel: rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/fmacfw_8800d80_u02.bin  
+2026-11-01T15:55:09.258903+0000 radxa-zero3 kernel: file md5:bfab40aa1988fa3f1e8af84c26423ab3
+2026-11-01T15:55:09.338897+0000 radxa-zero3 kernel: rd_version_val=06090101
+2026-11-01T15:55:09.357454+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        aicwf_sdio_probe:1
+2026-11-01T15:55:09.357756+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        Class=7
+2026-11-01T15:55:09.357898+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        sdio vendor ID: 0xc8a1
+2026-11-01T15:55:09.357995+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        sdio device ID: 0x0082
+2026-11-01T15:55:09.358073+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        Function#: 1
+2026-11-01T15:55:09.358143+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        aicwf_sdio_chipmatch USE AIC8800D80
+2026-11-01T15:55:09.358213+0000 radxa-zero3 kernel: aicbsp: aicbsp_get_feature, set FEATURE_SDIO_CLOCK 150 MHz
+2026-11-01T15:55:09.358279+0000 radxa-zero3 kernel: aicsdio: aicwf_sdio_reg_init
+2026-11-01T15:55:09.358908+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio ready
+2026-11-01T15:55:09.359141+0000 radxa-zero3 kernel: aicwf_prealloc_init enter
+2026-11-01T15:55:09.363253+0000 radxa-zero3 kernel: pre alloc rxbuff list len: 30
+2026-11-01T15:55:09.363478+0000 radxa-zero3 kernel: aicbsp: aicbsp_resv_mem_alloc_skb, alloc resv_mem_txdata succuss, id: 0, size: 98304
+2026-11-01T15:55:09.363590+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_bustx_thread the policy of current thread is:1
+2026-11-01T15:55:09.363807+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_bustx_thread the rt_priority of current thread is:1
+2026-11-01T15:55:09.363916+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_bustx_thread the current pid is:461
+2026-11-01T15:55:09.363998+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_platform_init()
+2026-11-01T15:55:09.364142+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cfg80211_init()
+2026-11-01T15:55:09.364223+0000 radxa-zero3 kernel: aicbsp: aicbsp_get_feature, set FEATURE_SDIO_CLOCK 150 MHz
+2026-11-01T15:55:09.364289+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_cfg80211_init sizeof(struct rwnx_hw):19192 
+2026-11-01T15:55:09.364357+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_init_aic()
+2026-11-01T15:55:09.364421+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cmd_mgr_init()
+2026-11-01T15:55:09.364485+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_busrx_thread the policy of current thread is:1
+2026-11-01T15:55:09.364550+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_busrx_thread the rt_priority of current thread is:1
+2026-11-01T15:55:09.364613+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_busrx_thread the current pid is:462
+2026-11-01T15:55:09.364677+0000 radxa-zero3 kernel: tcp_ack_init 
+2026-11-01T15:55:09.364738+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        aicwf_prealloc_txq_alloc size is diff will to be kzalloc 
+2026-11-01T15:55:09.364801+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        aicwf_prealloc_txq_alloc txq kzalloc successful 
+2026-11-01T15:55:09.364864+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_dbg_mem_read_req()
+2026-11-01T15:55:09.364997+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (1025)DBG_MEM_READ_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.365065+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.365129+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x401 
+2026-11-01T15:55:09.365194+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.365257+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_dbg_mem_read_req()
+2026-11-01T15:55:09.365320+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (1025)DBG_MEM_READ_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.365387+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.365452+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x401 
+2026-11-01T15:55:09.365515+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.365578+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        FDRV chip_id=7, chip_sub_id=2!!
+2026-11-01T15:55:09.365700+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_platform_on()
+2026-11-01T15:55:09.365766+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        userconfig file path:aic_userconfig_8800d80.txt 
+2026-11-01T15:55:09.365831+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        ### Load file aic_userconfig_8800d80.txt
+2026-11-01T15:55:09.365895+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_load_firmware :firmware path = /lib/firmware/aic8800_fw/SDIO/aic8800D80/aic_userconfig_8800d80.txt  
+2026-11-01T15:55:09.367256+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        file md5:4c1619f2ad65562412588a297dfbc86f
+2026-11-01T15:55:09.367501+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        ### Load file done: aic_userconfig_8800d80.txt, size=2724
+2026-11-01T15:55:09.367612+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: AIC USERCONFIG 2022/0803/1707
+2026-11-01T15:55:09.367689+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: txpwr_lvl
+2026-11-01T15:55:09.367877+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=enable value=1
+2026-11-01T15:55:09.367965+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_1m_2g4 value=18
+2026-11-01T15:55:09.368036+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_2m_2g4 value=18
+2026-11-01T15:55:09.368102+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_5m5_2g4 value=18
+2026-11-01T15:55:09.368167+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_11m_2g4 value=18
+2026-11-01T15:55:09.368230+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_6m_2g4 value=18
+2026-11-01T15:55:09.368294+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_9m_2g4 value=18
+2026-11-01T15:55:09.368358+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_12m_2g4 value=18
+2026-11-01T15:55:09.368420+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_18m_2g4 value=18
+2026-11-01T15:55:09.368484+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_24m_2g4 value=16
+2026-11-01T15:55:09.368620+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_36m_2g4 value=16
+2026-11-01T15:55:09.368692+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_48m_2g4 value=15
+2026-11-01T15:55:09.368756+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11b_11ag_54m_2g4 value=15
+2026-11-01T15:55:09.368822+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs0_2g4 value=18
+2026-11-01T15:55:09.368884+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs1_2g4 value=18
+2026-11-01T15:55:09.368946+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs2_2g4 value=18
+2026-11-01T15:55:09.369010+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs3_2g4 value=18
+2026-11-01T15:55:09.369072+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs4_2g4 value=16
+2026-11-01T15:55:09.369136+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs5_2g4 value=16
+2026-11-01T15:55:09.369200+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs6_2g4 value=15
+2026-11-01T15:55:09.369264+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs7_2g4 value=15
+2026-11-01T15:55:09.369396+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs8_2g4 value=14
+2026-11-01T15:55:09.369466+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs9_2g4 value=14
+2026-11-01T15:55:09.369531+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs0_2g4 value=18
+2026-11-01T15:55:09.369595+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs1_2g4 value=18
+2026-11-01T15:55:09.369658+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs2_2g4 value=18
+2026-11-01T15:55:09.369721+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs3_2g4 value=18
+2026-11-01T15:55:09.369785+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs4_2g4 value=16
+2026-11-01T15:55:09.369848+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs5_2g4 value=16
+2026-11-01T15:55:09.369938+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs6_2g4 value=15
+2026-11-01T15:55:09.370002+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs7_2g4 value=15
+2026-11-01T15:55:09.370066+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs8_2g4 value=14
+2026-11-01T15:55:09.370282+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs9_2g4 value=14
+2026-11-01T15:55:09.370375+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs10_2g4 value=13
+2026-11-01T15:55:09.370445+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs11_2g4 value=13
+2026-11-01T15:55:09.370513+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_6m_5g value=18
+2026-11-01T15:55:09.370579+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_9m_5g value=18
+2026-11-01T15:55:09.370643+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_12m_5g value=18
+2026-11-01T15:55:09.370709+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_18m_5g value=18
+2026-11-01T15:55:09.370774+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_24m_5g value=16
+2026-11-01T15:55:09.370915+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_36m_5g value=16
+2026-11-01T15:55:09.370982+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_48m_5g value=15
+2026-11-01T15:55:09.371158+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11a_54m_5g value=15
+2026-11-01T15:55:09.371252+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs0_5g value=18
+2026-11-01T15:55:09.371321+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs1_5g value=18
+2026-11-01T15:55:09.371387+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs2_5g value=18
+2026-11-01T15:55:09.371452+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs3_5g value=18
+2026-11-01T15:55:09.371516+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs4_5g value=16
+2026-11-01T15:55:09.371582+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs5_5g value=16
+2026-11-01T15:55:09.371646+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs6_5g value=15
+2026-11-01T15:55:09.371712+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs7_5g value=15
+2026-11-01T15:55:09.371778+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs8_5g value=14
+2026-11-01T15:55:09.371842+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11n_11ac_mcs9_5g value=14
+2026-11-01T15:55:09.371978+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs0_5g value=18
+2026-11-01T15:55:09.372066+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs1_5g value=18
+2026-11-01T15:55:09.372134+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs2_5g value=18
+2026-11-01T15:55:09.372198+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs3_5g value=18
+2026-11-01T15:55:09.372263+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs4_5g value=16
+2026-11-01T15:55:09.372327+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs5_5g value=16
+2026-11-01T15:55:09.372391+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs6_5g value=14
+2026-11-01T15:55:09.372457+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs7_5g value=14
+2026-11-01T15:55:09.372522+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs8_5g value=13
+2026-11-01T15:55:09.372586+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs9_5g value=13
+2026-11-01T15:55:09.372648+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs10_5g value=12
+2026-11-01T15:55:09.372801+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_11ax_mcs11_5g value=12
+2026-11-01T15:55:09.372880+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: txpwr_lvl_adj
+2026-11-01T15:55:09.372945+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_enable value=0
+2026-11-01T15:55:09.373014+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_2g4_chan_1_4 value=0
+2026-11-01T15:55:09.373079+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_2g4_chan_5_9 value=0
+2026-11-01T15:55:09.373144+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_2g4_chan_10_13 value=0
+2026-11-01T15:55:09.373205+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_42 value=0
+2026-11-01T15:55:09.373268+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_58 value=0
+2026-11-01T15:55:09.373330+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_106 value=0
+2026-11-01T15:55:09.373392+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_122 value=0
+2026-11-01T15:55:09.373455+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_138 value=0
+2026-11-01T15:55:09.373585+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=lvl_adj_5g_chan_155 value=0
+2026-11-01T15:55:09.373652+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: txpwr_loss
+2026-11-01T15:55:09.373714+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=loss_enable_2g4 value=0
+2026-11-01T15:55:09.373777+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=loss_value_2g4 value=2
+2026-11-01T15:55:09.373839+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=loss_enable_5g value=0
+2026-11-01T15:55:09.373902+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=loss_value_5g value=5
+2026-11-01T15:55:09.373963+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: txpwr_ofst
+2026-11-01T15:55:09.374024+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_enable value=0
+2026-11-01T15:55:09.374086+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_11b_chan_1_4 value=0
+2026-11-01T15:55:09.374149+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_11b_chan_5_9 value=0
+2026-11-01T15:55:09.374211+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_11b_chan_10_13 value=0
+2026-11-01T15:55:09.374339+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_highrate_chan_1_4 value=0
+2026-11-01T15:55:09.374408+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_highrate_chan_5_9 value=0
+2026-11-01T15:55:09.374472+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_highrate_chan_10_13 value=0
+2026-11-01T15:55:09.374533+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_lowrate_chan_1_4 value=0
+2026-11-01T15:55:09.374597+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_lowrate_chan_5_9 value=0
+2026-11-01T15:55:09.374659+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_2g4_ofdm_lowrate_chan_10_13 value=0
+2026-11-01T15:55:09.374721+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_42 value=0
+2026-11-01T15:55:09.374862+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_58 value=0
+2026-11-01T15:55:09.374938+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_106 value=0
+2026-11-01T15:55:09.375003+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_122 value=0
+2026-11-01T15:55:09.375821+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_138 value=0
+2026-11-01T15:55:09.376005+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_lowrate_chan_155 value=0
+2026-11-01T15:55:09.376530+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_42 value=0
+2026-11-01T15:55:09.376676+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_58 value=0
+2026-11-01T15:55:09.376761+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_106 value=0
+2026-11-01T15:55:09.376833+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_122 value=0
+2026-11-01T15:55:09.377001+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_138 value=0
+2026-11-01T15:55:09.377097+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_highrate_chan_155 value=0
+2026-11-01T15:55:09.377165+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_42 value=0
+2026-11-01T15:55:09.377230+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_58 value=0
+2026-11-01T15:55:09.377293+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_106 value=0
+2026-11-01T15:55:09.377358+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_122 value=0
+2026-11-01T15:55:09.377423+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_138 value=0
+2026-11-01T15:55:09.377487+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=ofst_5g_ofdm_midrate_chan_155 value=0
+2026-11-01T15:55:09.377551+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_userconfig_parsing3: xtal cap
+2026-11-01T15:55:09.377615+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=xtal_enable value=0
+2026-11-01T15:55:09.377731+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=xtal_cap value=24
+2026-11-01T15:55:09.377801+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_plat_nvram_set_value_v3:command=xtal_cap_fine value=31
+2026-11-01T15:55:09.377865+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        userconfig download complete
+2026-11-01T15:55:09.377929+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (124)MM_SET_STACK_START_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.377993+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.378057+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x7c 
+2026-11-01T15:55:09.378121+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.378185+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        is 5g support = 1, vendor_info = 0x00
+2026-11-01T15:55:09.378274+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (129)MM_GET_FW_VERSION_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.378339+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.378401+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x81 
+2026-11-01T15:55:09.378535+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.378601+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        Firmware Version: di Nov 08 2024 09:59:29 - g33833fe
+2026-11-01T15:55:09.378731+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_txpwr_lvl_v3_req()
+2026-11-01T15:55:09.378909+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:enable:1
+2026-11-01T15:55:09.379393+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_1m_2g4:18
+2026-11-01T15:55:09.379547+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_2m_2g4:18
+2026-11-01T15:55:09.379621+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_5m5_2g4:18
+2026-11-01T15:55:09.379933+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_11m_2g4:18
+2026-11-01T15:55:09.380032+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_6m_2g4:18
+2026-11-01T15:55:09.380099+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_9m_2g4:18
+2026-11-01T15:55:09.380166+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_12m_2g4:18
+2026-11-01T15:55:09.380231+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_18m_2g4:18
+2026-11-01T15:55:09.380297+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_24m_2g4:16
+2026-11-01T15:55:09.380473+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_36m_2g4:16
+2026-11-01T15:55:09.380586+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_48m_2g4:15
+2026-11-01T15:55:09.380658+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11b_11ag_54m_2g4:15
+2026-11-01T15:55:09.380721+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs0_2g4:18
+2026-11-01T15:55:09.380860+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs1_2g4:18
+2026-11-01T15:55:09.380941+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs2_2g4:18
+2026-11-01T15:55:09.381006+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs3_2g4:18
+2026-11-01T15:55:09.381071+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs4_2g4:16
+2026-11-01T15:55:09.381136+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs5_2g4:16
+2026-11-01T15:55:09.381201+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs6_2g4:15
+2026-11-01T15:55:09.381266+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs7_2g4:15
+2026-11-01T15:55:09.381400+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs8_2g4:14
+2026-11-01T15:55:09.381468+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs9_2g4:14
+2026-11-01T15:55:09.381531+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs0_2g4:18
+2026-11-01T15:55:09.381594+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs1_2g4:18
+2026-11-01T15:55:09.381657+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs2_2g4:18
+2026-11-01T15:55:09.381720+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs3_2g4:18
+2026-11-01T15:55:09.381783+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs4_2g4:16
+2026-11-01T15:55:09.381848+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs5_2g4:16
+2026-11-01T15:55:09.381912+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs6_2g4:15
+2026-11-01T15:55:09.381974+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs7_2g4:15
+2026-11-01T15:55:09.382038+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs8_2g4:14
+2026-11-01T15:55:09.382172+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs9_2g4:14
+2026-11-01T15:55:09.382239+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs10_2g4:13
+2026-11-01T15:55:09.382302+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs11_2g4:13
+2026-11-01T15:55:09.382366+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_1m_5g:-128
+2026-11-01T15:55:09.382430+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_2m_5g:-128
+2026-11-01T15:55:09.382494+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_5m5_5g:-128
+2026-11-01T15:55:09.382558+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_11m_5g:-128
+2026-11-01T15:55:09.382622+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_6m_5g:18
+2026-11-01T15:55:09.382687+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_9m_5g:18
+2026-11-01T15:55:09.382748+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_12m_5g:18
+2026-11-01T15:55:09.382893+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_18m_5g:18
+2026-11-01T15:55:09.383076+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_24m_5g:16
+2026-11-01T15:55:09.383145+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_36m_5g:16
+2026-11-01T15:55:09.383210+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_48m_5g:15
+2026-11-01T15:55:09.383271+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11a_54m_5g:15
+2026-11-01T15:55:09.383335+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs0_5g:18
+2026-11-01T15:55:09.383399+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs1_5g:18
+2026-11-01T15:55:09.383463+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs2_5g:18
+2026-11-01T15:55:09.383526+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs3_5g:18
+2026-11-01T15:55:09.383589+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs4_5g:16
+2026-11-01T15:55:09.383654+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs5_5g:16
+2026-11-01T15:55:09.383719+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs6_5g:15
+2026-11-01T15:55:09.383856+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs7_5g:15
+2026-11-01T15:55:09.383939+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs8_5g:14
+2026-11-01T15:55:09.384006+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11n_11ac_mcs9_5g:14
+2026-11-01T15:55:09.384070+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs0_5g:18
+2026-11-01T15:55:09.384135+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs1_5g:18
+2026-11-01T15:55:09.384198+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs2_5g:18
+2026-11-01T15:55:09.384260+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs3_5g:18
+2026-11-01T15:55:09.384325+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs4_5g:16
+2026-11-01T15:55:09.384387+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs5_5g:16
+2026-11-01T15:55:09.384450+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs6_5g:14
+2026-11-01T15:55:09.384513+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs7_5g:14
+2026-11-01T15:55:09.384642+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs8_5g:13
+2026-11-01T15:55:09.384711+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs9_5g:13
+2026-11-01T15:55:09.384774+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs10_5g:12
+2026-11-01T15:55:09.384837+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_v3_in_fdrv:lvl_11ax_mcs11_5g:12
+2026-11-01T15:55:09.384902+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        get_userconfig_txpwr_loss:loss_enable_2g4: 0, val_2g4: 2, loss_enable_5g: 0, val_5g: 5
+2026-11-01T15:55:09.384967+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:enable:1
+2026-11-01T15:55:09.385032+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_1m_2g4:18
+2026-11-01T15:55:09.385096+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_2m_2g4:18
+2026-11-01T15:55:09.385159+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_5m5_2g4:18
+2026-11-01T15:55:09.385222+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_11m_2g4:18
+2026-11-01T15:55:09.385284+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_6m_2g4:18
+2026-11-01T15:55:09.385411+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_9m_2g4:18
+2026-11-01T15:55:09.385525+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_12m_2g4:18
+2026-11-01T15:55:09.385614+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_18m_2g4:18
+2026-11-01T15:55:09.385683+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_24m_2g4:16
+2026-11-01T15:55:09.385750+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_36m_2g4:16
+2026-11-01T15:55:09.385817+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_48m_2g4:15
+2026-11-01T15:55:09.385881+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11b_11ag_54m_2g4:15
+2026-11-01T15:55:09.385945+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs0_2g4:18
+2026-11-01T15:55:09.386009+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs1_2g4:18
+2026-11-01T15:55:09.386072+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs2_2g4:18
+2026-11-01T15:55:09.386207+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs3_2g4:18
+2026-11-01T15:55:09.386278+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs4_2g4:16
+2026-11-01T15:55:09.386341+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs5_2g4:16
+2026-11-01T15:55:09.386404+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs6_2g4:15
+2026-11-01T15:55:09.386467+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs7_2g4:15
+2026-11-01T15:55:09.386530+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs8_2g4:14
+2026-11-01T15:55:09.386594+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs9_2g4:14
+2026-11-01T15:55:09.386659+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs0_2g4:18
+2026-11-01T15:55:09.386857+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs1_2g4:18
+2026-11-01T15:55:09.386946+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs2_2g4:18
+2026-11-01T15:55:09.387011+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs3_2g4:18
+2026-11-01T15:55:09.387076+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs4_2g4:16
+2026-11-01T15:55:09.387140+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs5_2g4:16
+2026-11-01T15:55:09.387203+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs6_2g4:15
+2026-11-01T15:55:09.387268+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs7_2g4:15
+2026-11-01T15:55:09.387453+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs8_2g4:14
+2026-11-01T15:55:09.387546+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs9_2g4:14
+2026-11-01T15:55:09.387615+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs10_2g4:13
+2026-11-01T15:55:09.387681+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs11_2g4:13
+2026-11-01T15:55:09.387749+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_1m_5g:-128
+2026-11-01T15:55:09.387813+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_2m_5g:-128
+2026-11-01T15:55:09.387877+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_5m5_5g:-128
+2026-11-01T15:55:09.387942+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_11m_5g:-128
+2026-11-01T15:55:09.388005+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_6m_5g:18
+2026-11-01T15:55:09.388070+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_9m_5g:18
+2026-11-01T15:55:09.388133+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_12m_5g:18
+2026-11-01T15:55:09.388266+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_18m_5g:18
+2026-11-01T15:55:09.388338+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_24m_5g:16
+2026-11-01T15:55:09.388402+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_36m_5g:16
+2026-11-01T15:55:09.388466+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_48m_5g:15
+2026-11-01T15:55:09.388528+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11a_54m_5g:15
+2026-11-01T15:55:09.388591+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs0_5g:18
+2026-11-01T15:55:09.388654+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs1_5g:18
+2026-11-01T15:55:09.388717+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs2_5g:18
+2026-11-01T15:55:09.388780+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs3_5g:18
+2026-11-01T15:55:09.388844+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs4_5g:16
+2026-11-01T15:55:09.388906+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs5_5g:16
+2026-11-01T15:55:09.389034+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs6_5g:15
+2026-11-01T15:55:09.389105+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs7_5g:15
+2026-11-01T15:55:09.389168+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs8_5g:14
+2026-11-01T15:55:09.389232+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11n_11ac_mcs9_5g:14
+2026-11-01T15:55:09.389295+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs0_5g:18
+2026-11-01T15:55:09.389358+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs1_5g:18
+2026-11-01T15:55:09.389422+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs2_5g:18
+2026-11-01T15:55:09.389485+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs3_5g:18
+2026-11-01T15:55:09.389549+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs4_5g:16
+2026-11-01T15:55:09.389613+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs5_5g:16
+2026-11-01T15:55:09.389679+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs6_5g:14
+2026-11-01T15:55:09.389813+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs7_5g:14
+2026-11-01T15:55:09.389886+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs8_5g:13
+2026-11-01T15:55:09.389951+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs9_5g:13
+2026-11-01T15:55:09.390013+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs10_5g:12
+2026-11-01T15:55:09.390076+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_lvl_v3_req:lvl_11ax_mcs11_5g:12
+2026-11-01T15:55:09.390139+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (120)MM_SET_TXPWR_IDX_LVL_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.390205+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.390268+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x78 
+2026-11-01T15:55:09.390331+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.390396+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_txpwr_ofst2x_req()
+2026-11-01T15:55:09.390462+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_ofst2x_in_fdrv:enable      :0
+2026-11-01T15:55:09.390526+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        pwrofst2x 2.4g: [0]:11b, [1]:ofdm_highrate, [2]:ofdm_lowrate
+                                                      chan=        1-4        5-9        10-13
+2026-11-01T15:55:09.390662+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [0] =
+2026-11-01T15:55:09.390736+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.390873+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.390943+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391004+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [1] =
+2026-11-01T15:55:09.391067+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391127+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391188+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391249+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [2] =
+2026-11-01T15:55:09.391312+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391372+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391432+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391493+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                    pwrofst2x 5g: [0]:ofdm_lowrate, [1]:ofdm_highrate, [2]:ofdm_midrate
+                                                      chan=        36-50        51-64        98-114        115-130        131-146        147-166
+2026-11-01T15:55:09.391561+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [0] =
+2026-11-01T15:55:09.391624+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391790+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391864+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391925+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.391984+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392046+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392108+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [1] =
+2026-11-01T15:55:09.392171+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392231+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392291+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392352+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392413+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392473+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392533+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+                                                      [2] =
+2026-11-01T15:55:09.392596+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392656+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392715+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392774+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392834+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.392959+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)                0
+2026-11-01T15:55:09.393021+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        
+2026-11-01T15:55:09.393083+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_send_txpwr_ofst2x_req:Do not use txpwr_ofst2x
+2026-11-01T15:55:09.393146+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_msg_free()
+2026-11-01T15:55:09.393207+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_txpwr_lvl_adj_req()
+2026-11-01T15:55:09.393269+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:enable:0
+2026-11-01T15:55:09.393332+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_1_4:0
+2026-11-01T15:55:09.393395+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_5_9:0
+2026-11-01T15:55:09.393461+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_2g4_chan_10_13:0
+2026-11-01T15:55:09.393525+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_42:0
+2026-11-01T15:55:09.393589+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_58:0
+2026-11-01T15:55:09.393651+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_106:0
+2026-11-01T15:55:09.393775+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_122:0
+2026-11-01T15:55:09.393843+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_138:0
+2026-11-01T15:55:09.393906+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_txpwr_lvl_adj_in_fdrv:lvl_adj_5g_chan_155:0
+2026-11-01T15:55:09.393969+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_msg_free()
+2026-11-01T15:55:09.394032+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_rf_calib_req()
+2026-11-01T15:55:09.394093+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_xtal_cap:enable       :0
+2026-11-01T15:55:09.394156+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_xtal_cap:xtal_cap     :0
+2026-11-01T15:55:09.394220+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get_userconfig_xtal_cap:xtal_cap_fine:0
+2026-11-01T15:55:09.394284+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (106)MM_SET_RF_CALIB_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:09.394348+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:09.394412+0000 radxa-zero3 kernel: aicbsp: sdio_err:<aicwf_sdio_bus_pwrctl,1404>: bus down
+2026-11-01T15:55:09.616378+0000 radxa-zero3 kernel: [BT_RFKILL]: rfkill_rk_set_power: set bt wake_host high!
+2026-11-01T15:55:09.658865+0000 radxa-zero3 kernel: [BT_RFKILL]: rfkill_rk_set_power: set bt wake_host input!
+2026-11-01T15:55:09.659041+0000 radxa-zero3 kernel: [BT_RFKILL]: ENABLE UART_RTS
+2026-11-01T15:55:09.766957+0000 radxa-zero3 kernel: [BT_RFKILL]: DISABLE UART_RTS
+2026-11-01T15:55:09.767317+0000 radxa-zero3 kernel: [BT_RFKILL]: bt turn on power
+2026-11-01T15:55:09.767423+0000 radxa-zero3 kernel: [BT_RFKILL]: Request irq for bt wakeup host
+2026-11-01T15:55:09.767487+0000 radxa-zero3 kernel: [BT_RFKILL]: ** disable irq
+2026-11-01T15:55:10.171212+0000 radxa-zero3 kernel: FAT-fs (mmcblk0p1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+2026-11-01T15:55:10.238897+0000 radxa-zero3 kernel: FAT-fs (mmcblk0p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+2026-11-01T15:55:10.254930+0000 radxa-zero3 kernel: Bluetooth: Core ver 2.22
+2026-11-01T15:55:10.255176+0000 radxa-zero3 kernel: NET: Registered PF_BLUETOOTH protocol family
+2026-11-01T15:55:10.255266+0000 radxa-zero3 kernel: Bluetooth: HCI device and connection manager initialized
+2026-11-01T15:55:10.255331+0000 radxa-zero3 kernel: Bluetooth: HCI socket layer initialized
+2026-11-01T15:55:10.255393+0000 radxa-zero3 kernel: Bluetooth: L2CAP socket layer initialized
+2026-11-01T15:55:10.255453+0000 radxa-zero3 kernel: Bluetooth: SCO socket layer initialized
+2026-11-01T15:55:10.286909+0000 radxa-zero3 kernel: Bluetooth: HCI UART driver ver 2.3
+2026-11-01T15:55:10.287159+0000 radxa-zero3 kernel: Bluetooth: HCI UART protocol H4 registered
+2026-11-01T15:55:10.287263+0000 radxa-zero3 kernel: Bluetooth: HCI UART protocol ATH3K registered
+2026-11-01T15:55:10.287338+0000 radxa-zero3 kernel: Bluetooth: HCI UART protocol Three-wire (H5) registered
+2026-11-01T15:55:10.287407+0000 radxa-zero3 kernel: Bluetooth: HCI UART protocol Intel registered
+2026-11-01T15:55:10.287473+0000 radxa-zero3 kernel: Bluetooth: HCI UART protocol Broadcom registered
+2026-11-01T15:55:10.299079+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x6a 
+2026-11-01T15:55:10.299453+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.299655+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_get_macaddr_req()
+2026-11-01T15:55:10.299784+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (116)MM_GET_MAC_ADDR_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.299880+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.299956+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x74 
+2026-11-01T15:55:10.300030+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.300100+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        get macaddr: 78:22:88:75:bf:ea
+2026-11-01T15:55:10.300168+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_reset()
+2026-11-01T15:55:10.300237+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (1)MM_RESET_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.300470+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.300610+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1 
+2026-11-01T15:55:10.300696+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.300768+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_version_req()
+2026-11-01T15:55:10.300841+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (5)MM_VERSION_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.300911+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.300976+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x5 
+2026-11-01T15:55:10.301042+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.301106+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_set_vers()
+2026-11-01T15:55:10.301171+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_me_config_req()
+2026-11-01T15:55:10.301235+0000 radxa-zero3 kernel: ieee80211 phy0: HT supp 1, VHT supp 1, HE supp 1
+2026-11-01T15:55:10.303564+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (5121)ME_CONFIG_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.303804+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.303901+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1401 
+2026-11-01T15:55:10.303977+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.304049+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_me_chan_config_req()
+2026-11-01T15:55:10.304119+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (5123)ME_CHAN_CONFIG_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.304215+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.304282+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1403 
+2026-11-01T15:55:10.304350+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.311250+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        getRegdomainFromRwnxDB set ccode:00 
+2026-11-01T15:55:10.311690+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_get_countrycode_channels support channel:1 2 3 4 5 6 7 8 9 10 11 12 13 14 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165 
+2026-11-01T15:55:10.311840+0000 radxa-zero3 kernel: ieee80211 phy0: 
+                                                    *******************************************************
+                                                    ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
+                                                    *******************************************************
+2026-11-01T15:55:10.314411+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_me_chan_config_req()
+2026-11-01T15:55:10.314646+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (5123)ME_CHAN_CONFIG_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.314860+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.315016+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1403 
+2026-11-01T15:55:10.315117+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.315193+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_dbgfs_register()
+2026-11-01T15:55:10.315262+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_interface_add: wlan%d, 2, 10
+2026-11-01T15:55:10.316290+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        interface add:78 22 88 75 bf ea
+2026-11-01T15:55:10.367935+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.368187+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        New interface create wlan0 
+2026-11-01T15:55:10.368262+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.493520+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_open()
+2026-11-01T15:55:10.493718+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_start()
+2026-11-01T15:55:10.493806+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (3)MM_START_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.493878+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.493945+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x3 
+2026-11-01T15:55:10.499046+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.499299+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_coex_req()
+2026-11-01T15:55:10.499399+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (102)MM_SET_COEX_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.499472+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.499541+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x66 
+2026-11-01T15:55:10.499731+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.499804+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_open rwnx_vif->drv_flags:4
+2026-11-01T15:55:10.499869+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_add_if()
+2026-11-01T15:55:10.499933+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (7)MM_ADD_IF_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.499997+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.500058+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x7 
+2026-11-01T15:55:10.500121+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.500183+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_open sta create vif in rwnx_hw->vif_table[0] 
+2026-11-01T15:55:10.507198+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.520804+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.521061+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.521157+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.521221+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.521401+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.635136+0000 radxa-zero3 kernel: rwnx_virtual_interface_add: 10, p2p-dev-wlan0
+2026-11-01T15:55:10.635305+0000 radxa-zero3 kernel: rwnx_virtual_interface_add, ifname=p2p-dev-wlan0, wdev=00000000ac747918, vif_idx=1
+2026-11-01T15:55:10.635394+0000 radxa-zero3 kernel: p2p dev addr=78 22 88 75 bf eb
+2026-11-01T15:55:10.635470+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.635540+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.674902+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675181+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675275+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675338+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675401+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675463+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:10.675523+0000 radxa-zero3 kernel: P2P interface started
+2026-11-01T15:55:10.758858+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cfg80211_scan()
+2026-11-01T15:55:10.759142+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_scanu_req()
+2026-11-01T15:55:10.759246+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:1(2412) 
+2026-11-01T15:55:10.759315+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:2(2417) 
+2026-11-01T15:55:10.759518+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:3(2422) 
+2026-11-01T15:55:10.759595+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:4(2427) 
+2026-11-01T15:55:10.759663+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:5(2432) 
+2026-11-01T15:55:10.759726+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:6(2437) 
+2026-11-01T15:55:10.759790+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:7(2442) 
+2026-11-01T15:55:10.759854+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:8(2447) 
+2026-11-01T15:55:10.759916+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:9(2452) 
+2026-11-01T15:55:10.759979+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:10(2457) 
+2026-11-01T15:55:10.760043+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:11(2462) 
+2026-11-01T15:55:10.760106+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:12(2467) 
+2026-11-01T15:55:10.760171+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:13(2472) 
+2026-11-01T15:55:10.760237+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:14(2484) 
+2026-11-01T15:55:10.760361+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:36(5180) 
+2026-11-01T15:55:10.760429+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:40(5200) 
+2026-11-01T15:55:10.760493+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:44(5220) 
+2026-11-01T15:55:10.760559+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:48(5240) 
+2026-11-01T15:55:10.760624+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:52(5260) 
+2026-11-01T15:55:10.760687+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:56(5280) 
+2026-11-01T15:55:10.760750+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:60(5300) 
+2026-11-01T15:55:10.760812+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:64(5320) 
+2026-11-01T15:55:10.760875+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:100(5500) 
+2026-11-01T15:55:10.760937+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:104(5520) 
+2026-11-01T15:55:10.761001+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:108(5540) 
+2026-11-01T15:55:10.761125+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:112(5560) 
+2026-11-01T15:55:10.761197+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:116(5580) 
+2026-11-01T15:55:10.761261+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:120(5600) 
+2026-11-01T15:55:10.761329+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:124(5620) 
+2026-11-01T15:55:10.761392+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:128(5640) 
+2026-11-01T15:55:10.761455+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:132(5660) 
+2026-11-01T15:55:10.761518+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:136(5680) 
+2026-11-01T15:55:10.761580+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:140(5700) 
+2026-11-01T15:55:10.761642+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:144(5720) 
+2026-11-01T15:55:10.761705+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:149(5745) 
+2026-11-01T15:55:10.761767+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:153(5765) 
+2026-11-01T15:55:10.761830+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:157(5785) 
+2026-11-01T15:55:10.761959+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:161(5805) 
+2026-11-01T15:55:10.762037+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        scan channel:165(5825) 
+2026-11-01T15:55:10.762101+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (4105)SCANU_START_CFM_ADDTIONAL reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:10.762166+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.762228+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1009 
+2026-11-01T15:55:10.762291+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:10.762841+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.775282+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.807073+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.822941+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:10.847645+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:10.882889+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:10.918873+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:10.923111+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.926864+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.934902+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.946870+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.954979+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:10.959062+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.962905+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:10.990924+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.007151+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.015153+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.018934+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.023079+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.042910+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.078918+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.114996+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.147075+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.202917+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.214952+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.218891+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.222872+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.238940+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.294890+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.326903+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.331423+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.331678+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.331805+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.331890+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.350908+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.363181+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.382987+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.419032+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.419287+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.426864+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.474934+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.506865+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.507604+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:11.543202+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.578911+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.614977+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.618947+0000 radxa-zero3 kernel: dwhdmi-rockchip fe0a0000.hdmi: Rate 0 missing; compute N dynamically
+2026-11-01T15:55:11.620146+0000 radxa-zero3 kernel: dwhdmi-rockchip fe0a0000.hdmi: Rate 0 missing; compute N dynamically
+2026-11-01T15:55:11.622935+0000 radxa-zero3 kernel: dwhdmi-rockchip fe0a0000.hdmi: Rate 0 missing; compute N dynamically
+2026-11-01T15:55:11.624016+0000 radxa-zero3 kernel: dwhdmi-rockchip fe0a0000.hdmi: Rate 0 missing; compute N dynamically
+2026-11-01T15:55:11.646910+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.682875+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.718937+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.754915+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.786896+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.822954+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.859039+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.894900+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.926864+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.962981+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:11.998947+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.034999+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.071120+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.071516+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.071599+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.071665+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.075019+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.090909+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.094833+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.102888+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.159126+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.214922+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.271035+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.274942+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.302900+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.303675+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1001 
+2026-11-01T15:55:12.303865+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_rx_scanu_start_cfm()
+2026-11-01T15:55:12.426839+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cfg80211_connect()
+2026-11-01T15:55:12.427221+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_set_conn_state drv_conn_state:000000007b7b4255 RWNX_DRV_STATUS_DISCONNECTED --> RWNX_DRV_STATUS_CONNECTING 
+2026-11-01T15:55:12.427365+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_sm_connect_req()
+2026-11-01T15:55:12.427442+0000 radxa-zero3 kernel: rwnx_send_sm_connect_req drv_vif_index:0 connect to CU_M9pw_5G(10) channel:5180 auth_type:0
+2026-11-01T15:55:12.427509+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (6145)SM_CONNECT_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.427575+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.427641+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1801 
+2026-11-01T15:55:12.427705+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.427767+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x4f 
+2026-11-01T15:55:12.427833+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1004 
+2026-11-01T15:55:12.659148+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x44 
+2026-11-01T15:55:12.666961+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1802 
+2026-11-01T15:55:12.667692+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_rx_sm_connect_ind()
+2026-11-01T15:55:12.668641+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_rx_sm_connect_ind ind->status_code:0 
+2026-11-01T15:55:12.668922+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_rx_sm_connect_ind ind->roamed:0 ind->status_code:0 rwnx_vif->drv_conn_state:2
+2026-11-01T15:55:12.669045+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_set_conn_state drv_conn_state:000000007b7b4255 RWNX_DRV_STATUS_CONNECTING --> RWNX_DRV_STATUS_CONNECTED 
+2026-11-01T15:55:12.669126+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        rwnx_rx_sm_connect_ind cfg80211_connect_result pass, rwnx_vif->drv_conn_state:3
+2026-11-01T15:55:12.671060+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        need cfm ethertype:    8e88,user_idx=1, skb=000000007dff7510
+2026-11-01T15:55:12.671537+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_host_tx_cfm_handler:used_idx=0, 0x00000000854961ed, status=9
+2026-11-01T15:55:12.679092+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        need cfm ethertype:    8e88,user_idx=2, skb=000000005d63100a
+2026-11-01T15:55:12.679309+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cfg80211_add_key()
+2026-11-01T15:55:12.679395+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_key_add()
+2026-11-01T15:55:12.679782+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_key_add: sta_idx:0 key_idx:0 inst_nbr:0 cipher:2 key_len:16
+2026-11-01T15:55:12.679933+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (37)MM_KEY_ADD_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.680024+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.680103+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x25 
+2026-11-01T15:55:12.680189+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.680259+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        sdio_host_tx_cfm_handler:used_idx=1, 0x00000000854961ed, status=9
+2026-11-01T15:55:12.683691+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_cfg80211_add_key()
+2026-11-01T15:55:12.683966+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_key_add()
+2026-11-01T15:55:12.684087+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_key_add: sta_idx:255 key_idx:1 inst_nbr:0 cipher:2 key_len:16
+2026-11-01T15:55:12.684525+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (37)MM_KEY_ADD_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.684767+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.684863+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x25 
+2026-11-01T15:55:12.684935+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.685004+0000 radxa-zero3 kernel: IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+2026-11-01T15:55:12.685074+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_cfg_rssi_req()
+2026-11-01T15:55:12.685138+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (134)MM_CFG_RSSI_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.685207+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.685270+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x86 
+2026-11-01T15:55:12.685337+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.685407+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (118)MM_GET_STA_INFO_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.685472+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.685535+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x76 
+2026-11-01T15:55:12.685601+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.685839+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_fill_station_info ModTx(2):5 TxIndex:11 ModRx(0):0 RxHTIndex:0 RxVHTIndex:0 RxHEIndex:0 RSSI:0 
+2026-11-01T15:55:12.685952+0000 radxa-zero3 kernel: get_txpwr_max:txpwr_max:18 
+2026-11-01T15:55:12.690932+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_send_me_set_control_port_req()
+2026-11-01T15:55:12.691324+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_send_msg (5125)ME_SET_CONTROL_PORT_CFM reqcfm:1 in_irq:0 in_softirq:0 in_atomic:0
+2026-11-01T15:55:12.691447+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_malloc get cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:12.691521+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x1405 
+2026-11-01T15:55:12.691590+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        rwnx_cmd_free cmd_array[0]:0000000025b515ed 
+2026-11-01T15:55:13.239117+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        reord_init_sta:78:22:88:75:bf:ea
+2026-11-01T15:55:19.306868+0000 radxa-zero3 kernel: AICWFDBG(LOGINFO)        flush:tid=7
+2026-11-01T15:55:19.307463+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x140b 
+2026-11-01T15:55:19.307600+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_rx_me_tx_credits_update_ind()
+2026-11-01T15:55:20.587008+0000 radxa-zero3 kernel: platform mtd_vendor_storage: deferred probe pending
+2026-11-01T15:55:37.915037+0000 radxa-zero3 kernel: AICWFDBG(LOGDEBUG)        rwnx_rx_handle_msg msg->id:0x140b 
+2026-11-01T15:55:37.915866+0000 radxa-zero3 kernel: AICWFDBG(LOGTRACE)        >>> rwnx_rx_me_tx_credits_update_ind()

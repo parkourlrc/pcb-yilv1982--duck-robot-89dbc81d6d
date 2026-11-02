@@ -1,0 +1,28 @@
+{
+  "base": "duck-v03.1",
+  "experiment": "duck-v03.2-servo-first",
+  "scope": "strict telemetry only; partial entry unchanged",
+  "files": [
+    {
+      "path": "duck-control/src/feetech.rs",
+      "before_sha256": "de2eb2b927d9f940146ea4936a4bad5643e8b5827afb3155fa6024ac03bf5e83",
+      "after_sha256": "c2c60f4aacc80c89f2ca94b737524691ffadf1efc5e67e17885401871f6eb01c"
+    },
+    {
+      "path": "duck-control/src/feetech_v03_tests.rs",
+      "before_sha256": "3f1900a253d1f462ff85c6c97ff86e1abee79be8e6777ebe2c0ad02f4a75762f",
+      "after_sha256": "d1388ee176d1a5de520fa4eef79512ddddc61ca51bd2ad8572d79e8f98141310"
+    },
+    {
+      "path": "robotd/src/feetech_commissioning.rs",
+      "before_sha256": "cd9000809b8acdf7b1ae7400781dee2ae68babf520fbb97bbc20e66873cca6b2",
+      "after_sha256": "3ce7ffd3bfe0e79f9027f75c2c9499d9949c8f29ac728ec152ca5b95efacf69f"
+    },
+    {
+      "path": "robotd/src/feetech_read_only.rs",
+      "before_sha256": "2e07af007c7f229e07c1ebac96f427beb0578a4967e5448a7cc83c5615396e02",
+      "after_sha256": "2e07af007c7f229e07c1ebac96f427beb0578a4967e5448a7cc83c5615396e02"
+    }
+  ],
+  "patch_sha256": "af0caa3b450ce3025cb0a04f3d3c0d3590df1c08315e41449f4b6bab012bfe65"
+}

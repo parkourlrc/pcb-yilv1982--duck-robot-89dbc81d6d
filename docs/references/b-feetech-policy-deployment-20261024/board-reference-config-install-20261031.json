@@ -1,0 +1,269 @@
+{
+  "date": "2026-10-31",
+  "backup": "/etc/robot/feetech-ft5/backup-before-reference-20261031T151401297666Z",
+  "configuration_installed": true,
+  "configuration": {
+    "bus": {
+      "port": "/dev/ttyS2",
+      "protocol": "feetech",
+      "imu_protocol": "feetech",
+      "imu_profile": "legacy",
+      "feetech_calibration": "/etc/robot/feetech-ft5/hd1910-calibration.toml"
+    },
+    "control": {
+      "hz": 50
+    },
+    "policy": {
+      "custom_only": true,
+      "enabled": false,
+      "mode": "walk",
+      "walk": "/home/radxa/studio-dev/state/models/316b92cd3d4f42babda055a804e73b03/policy.onnx",
+      "sitstand": "/home/radxa/studio-dev/state/models/777c1b28fe47420b9180a4298e04b0bb/policy.onnx",
+      "stand": "none",
+      "ground_pick": "/home/radxa/studio-dev/state/models/33bb2637cdc947809511af1985397e26/policy.onnx",
+      "kick_left": "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx",
+      "kick_right": "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx",
+      "roulade": "/home/radxa/studio-dev/state/models/4bcb5891434a43eeaf19842ae9444520/policy.onnx",
+      "gain": 5,
+      "head_lowpass": 1.0,
+      "legs_lowpass": 1.0,
+      "action_scale": 0.7,
+      "standing_action_scale": 1.0,
+      "ground_pick_period": 4.0,
+      "ground_pick_action_scale": 1.0,
+      "ground_pick_gain_ratio": 1.0,
+      "skill": [
+        {
+          "name": "roulade",
+          "duration": 1.0,
+          "chain": true,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0,
+          "params": {
+            "action_scale": 1.0,
+            "gain_ratio": 1.0
+          }
+        },
+        {
+          "name": "kick_right",
+          "path": "/home/radxa/studio-dev/state/models/ea26b97e6a054e558e9f295c94634670/policy.onnx",
+          "duration": 0.5,
+          "chain": false,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0,
+          "params": {
+            "action_scale": 1.0
+          }
+        },
+        {
+          "name": "kick_left",
+          "path": "/home/radxa/studio-dev/state/models/08f3ea309a604a79a1989d5a1fa87622/policy.onnx",
+          "duration": 0.5,
+          "chain": false,
+          "command": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "unwind_s": 0.0,
+          "params": {
+            "action_scale": 1.0
+          }
+        }
+      ]
+    },
+    "pad": {
+      "a": "ground_pick",
+      "x": "roulade",
+      "lb": "kick_left",
+      "rb": "kick_right",
+      "dpad_down": "sit_toggle"
+    },
+    "trunk_imu": {
+      "source": "bus"
+    },
+    "audio": {
+      "enabled": false
+    }
+  },
+  "configuration_sha256": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+  "calibration": {
+    "motion_enabled": false,
+    "imu_mount_verified": false,
+    "imu_mount_quat": [
+      0.037577263,
+      0.701353391,
+      -0.035866967,
+      0.710918372
+    ],
+    "current_ma_per_count": 0.0,
+    "units_verified": false,
+    "joints": [
+      {
+        "name": "left_hip_yaw",
+        "id": 20,
+        "zero_raw": 2035,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.4363323129985824,
+        "max_rad": 0.5235987755982988
+      },
+      {
+        "name": "left_hip_roll",
+        "id": 21,
+        "zero_raw": 2176,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.3839724354387525,
+        "max_rad": 0.3839724354387525
+      },
+      {
+        "name": "left_hip_pitch",
+        "id": 22,
+        "zero_raw": 1977,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.5707963267948966
+      },
+      {
+        "name": "left_knee",
+        "id": 23,
+        "zero_raw": 1392,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.5707963267948966
+      },
+      {
+        "name": "left_ankle",
+        "id": 24,
+        "zero_raw": 1893,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.2217304763960306,
+        "max_rad": 1.2217304763960306
+      },
+      {
+        "name": "neck_pitch",
+        "id": 30,
+        "zero_raw": 2526,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.2217304763960306
+      },
+      {
+        "name": "head_pitch",
+        "id": 31,
+        "zero_raw": 2228,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.5707963267948966
+      },
+      {
+        "name": "head_yaw",
+        "id": 32,
+        "zero_raw": 1952,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -2.9670597283903604,
+        "max_rad": 2.9670597283903604
+      },
+      {
+        "name": "head_roll",
+        "id": 33,
+        "zero_raw": 1599,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.3490658503988659,
+        "max_rad": 0.3490658503988659
+      },
+      {
+        "name": "mouth",
+        "id": 34,
+        "zero_raw": 1372,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.08726646259971647,
+        "max_rad": 0.5235987755982988
+      },
+      {
+        "name": "right_hip_yaw",
+        "id": 10,
+        "zero_raw": 1974,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.5235987755982988,
+        "max_rad": 0.4363323129985824
+      },
+      {
+        "name": "right_hip_roll",
+        "id": 11,
+        "zero_raw": 1760,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -0.3839724354387525,
+        "max_rad": 0.3839724354387525
+      },
+      {
+        "name": "right_hip_pitch",
+        "id": 12,
+        "zero_raw": 1799,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.5707963267948966
+      },
+      {
+        "name": "right_knee",
+        "id": 13,
+        "zero_raw": 1908,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.5707963267948966,
+        "max_rad": 1.5707963267948966
+      },
+      {
+        "name": "right_ankle",
+        "id": 14,
+        "zero_raw": 1611,
+        "direction": -1,
+        "calibrated": false,
+        "min_rad": -1.2217304763960306,
+        "max_rad": 1.2217304763960306
+      }
+    ]
+  },
+  "calibration_sha256": "0aae458b6f84e155df63ddd9700b9a3418eb9a8e69d8e8769c57ba2f253550e7",
+  "reference_robot": "duck-10e4",
+  "local_calibration_verified": false,
+  "robotd_active": "inactive",
+  "robotd_enabled": "disabled",
+  "studio_active": "active",
+  "motor_access": false
+}

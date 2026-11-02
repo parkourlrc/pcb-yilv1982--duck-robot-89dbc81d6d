@@ -1,0 +1,2102 @@
+{
+  "captured_at": "2026-10-31T23:45:37.0913226+08:00",
+  "endpoint": "ws://192.168.1.35:8000/ws",
+  "operation": "Read-only page subscription; heartbeat route /servos; no commands",
+  "messages": [
+    {
+      "t": "hello",
+      "version": "0.1.0-dev",
+      "duck": {
+        "label": "radxa-zero3",
+        "short": "radxa-zero3",
+        "color": "#0F7C80"
+      }
+    },
+    {
+      "t": "state",
+      "robotd_ok": true,
+      "robotd_age_ms": 54,
+      "health_age_ms": 1945,
+      "present": true,
+      "mode": "commissioning",
+      "phase": "ready",
+      "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+      "posture": "commissioning",
+      "start_error": null,
+      "start_wait": null,
+      "starting_s": null,
+      "starting_long": false,
+      "battery": {
+        "pct": null,
+        "mode": "no_data",
+        "level": null,
+        "warn": false,
+        "red": false,
+        "low_volt": false,
+        "volts": null,
+        "cls": null,
+        "why": "读不到电压",
+        "basis": null,
+        "rd_volts": 7.14,
+        "rd_pct": 34,
+        "spread": null,
+        "warn_pct": 30,
+        "red_pct": 15,
+        "load_floor_v": 6.9,
+        "cal_offset_v": 0.0,
+        "preset": "2s_liion",
+        "source": null,
+        "shutdown": null,
+        "estimating_left_s": null,
+        "detail": [
+          "读不到舵机电压：舵机没电（没接电池？）或者主程序没在跑",
+          "主程序自己的算法：34%（7.14 V，6.6–8.2 V 直线，低电量偏高）",
+          "只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）",
+          "放空了尽快充；长期不用存一半电（约 7.4–7.6 V）"
+        ]
+      },
+      "servos": {
+        "online": 15,
+        "total": 15,
+        "hottest": {
+          "name": "嘴",
+          "c": 41
+        },
+        "stale": []
+      },
+      "imu": {
+        "status": "unverified",
+        "source": "bus",
+        "configured_imu_profile": "legacy",
+        "context_current": true,
+        "generation": 6043.801566082,
+        "diagnostic": {
+          "status": "unknown",
+          "responding": null,
+          "info": null,
+          "age_ms": null,
+          "sample_valid": null,
+          "sensor_ready": null,
+          "sample_fresh": null,
+          "sequence": null,
+          "error": null
+        }
+      },
+      "pad": {
+        "known": false,
+        "connected": false,
+        "name": null,
+        "driver": null,
+        "estop_ok": false
+      },
+      "cpu": {
+        "c": 80.0,
+        "throttled": false,
+        "limited": false,
+        "khz": 1800000,
+        "max_khz": 1800000,
+        "level": 0,
+        "max_level": 6,
+        "hot": true,
+        "src": "studio",
+        "why": null
+      },
+      "loop": {
+        "hz": 49.98969332498903,
+        "target": 50.0,
+        "missed": 33
+      },
+      "joints": null,
+      "joints_age_ms": 54,
+      "state_t_ns": 778424010000,
+      "gravity": [
+        -0.9948458509119413,
+        0.10066734263569163,
+        -0.012150435898472308
+      ],
+      "tilt_deg": 89.30381410831194,
+      "guard": null,
+      "hold": null,
+      "estop": {
+        "state": "confirmed",
+        "why": "15 颗都已卸力"
+      },
+      "todo": [
+        {
+          "key": "imu_unverified",
+          "level": "warn",
+          "msg": "IMU 的安装方向还没确认",
+          "hint": "装歪了走路会往前冲；先去「IMU」页校准（fork 上没确认连站都不让）"
+        },
+        {
+          "key": "cpu",
+          "level": "warn",
+          "msg": "主板 80 °C，有点热",
+          "hint": "再热就会降频，控制会变慢；加散热片或小风扇"
+        }
+      ],
+      "onboarding": {
+        "header": {
+          "ok": false,
+          "kind": "commissioning",
+          "text": "标定模式：做完 IMU 粗校，第 3 步写完会自动切运动模式"
+        },
+        "rows": [
+          {
+            "key": "servo",
+            "n": 1,
+            "title": "舵机零位",
+            "tip": "两套零位会打架：用 Studio 的舵机页标（标完，主程序文件里 15 颗的 zero_raw 都要是 2048）",
+            "state": "no",
+            "text": "主程序说 15 颗还没标：左髋转向、左髋横滚、左髋俯仰、左膝…",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "servos",
+                "label": "去舵机页"
+              }
+            ],
+            "hard": "主程序说标定没做完：{v}鸭子也站不起来",
+            "found": null,
+            "ask": null,
+            "go": "servos",
+            "mark": {
+              "ack": [
+                "hard"
+              ],
+              "done": {
+                "confirm": true,
+                "ask": "确定标成已完成？主程序说标定没做完：标成已完成鸭子也站不起来"
+              },
+              "skip": {
+                "confirm": true,
+                "ask": "确定跳过？主程序说标定没做完：跳过了鸭子也站不起来"
+              }
+            },
+            "marked": null
+          },
+          {
+            "key": "imu",
+            "n": 2,
+            "title": "IMU 方向",
+            "tip": "装歪 8.5° 一走就往前冲（一号鸭 10-12）",
+            "state": "no",
+            "text": "标定模式下主程序说 IMU 方向没确认",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "imu",
+                "label": "去 IMU 页"
+              }
+            ],
+            "hard": "主程序没确认 IMU 方向：{v}鸭子也站不起来",
+            "found": null,
+            "ask": null,
+            "go": "imu",
+            "mark": {
+              "ack": [
+                "hard"
+              ],
+              "done": {
+                "confirm": true,
+                "ask": "确定标成已完成？主程序没确认 IMU 方向：标成已完成鸭子也站不起来"
+              },
+              "skip": {
+                "confirm": true,
+                "ask": "确定跳过？主程序没确认 IMU 方向：跳过了鸭子也站不起来"
+              }
+            },
+            "marked": null
+          },
+          {
+            "key": "commit",
+            "n": 3,
+            "title": "写进主程序",
+            "tip": "写的时候主程序会先卸力：扶好鸭子，别让它摔了",
+            "state": "todo",
+            "text": "还差舵机零位、IMU 方向：还有 15 颗没在一键中位校过：左髋转向、左髋横滚、左髋俯仰、左膝、左踝、脖子…",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "commit",
+                "label": "去写进主程序"
+              }
+            ],
+            "hard": null,
+            "found": null,
+            "ask": null,
+            "go": "commit",
+            "mark": {
+              "ack": [],
+              "done": {
+                "confirm": false,
+                "ask": null
+              },
+              "skip": {
+                "confirm": false,
+                "ask": null
+              }
+            },
+            "marked": null,
+            "desc": "把舵机零位、方向、IMU 方向写进主程序。出厂镜像是标定模式；写完会切到运动模式并重启（约 20 秒），以后开机直接就能站、能走，不开网页也行。",
+            "commit": {
+              "ready": false,
+              "items": [
+                {
+                  "key": "robotd",
+                  "label": "主程序",
+                  "ok": true,
+                  "text": "主程序在线",
+                  "action": null
+                },
+                {
+                  "key": "mode",
+                  "label": "主程序模式",
+                  "ok": true,
+                  "text": "标定模式：15 颗舵机都有新读数",
+                  "action": null,
+                  "mode": "commissioning",
+                  "phase": "ready"
+                },
+                {
+                  "key": "safety",
+                  "label": "鸭子姿势",
+                  "ok": true,
+                  "text": "没在走、没站着，可以写",
+                  "action": null
+                },
+                {
+                  "key": "servo",
+                  "label": "舵机零位",
+                  "ok": false,
+                  "text": "还有 15 颗没在一键中位校过：左髋转向、左髋横滚、左髋俯仰、左膝、左踝、脖子…",
+                  "action": {
+                    "do": "servos",
+                    "label": "去舵机页"
+                  },
+                  "missing": [
+                    "left_hip_yaw",
+                    "left_hip_roll",
+                    "left_hip_pitch",
+                    "left_knee",
+                    "left_ankle",
+                    "neck_pitch",
+                    "head_pitch",
+                    "head_yaw",
+                    "head_roll",
+                    "mouth",
+                    "right_hip_yaw",
+                    "right_hip_roll",
+                    "right_hip_pitch",
+                    "right_knee",
+                    "right_ankle"
+                  ],
+                  "done": 0,
+                  "by_mark": null
+                },
+                {
+                  "key": "directions",
+                  "label": "方向",
+                  "ok": true,
+                  "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+                  "action": null,
+                  "changed": []
+                },
+                {
+                  "key": "imu",
+                  "label": "IMU 方向",
+                  "ok": false,
+                  "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+                  "action": {
+                    "do": "imu",
+                    "label": "去 IMU 页"
+                  },
+                  "source": "bus",
+                  "default": false
+                },
+                {
+                  "key": "bus",
+                  "label": "舵机总线",
+                  "ok": true,
+                  "text": "舵机页没开着总线",
+                  "action": null
+                }
+              ],
+              "source": "bus",
+              "imu_default": null,
+              "pending": false,
+              "centered": 0,
+              "preview_ok": true,
+              "mode": "commissioning",
+              "phase": "ready",
+              "from_file": false,
+              "note": null,
+              "dirty": false,
+              "dirty_why": [],
+              "job": null,
+              "simulate": false
+            }
+          },
+          {
+            "key": "pad",
+            "n": 4,
+            "title": "配手柄",
+            "tip": "G50 Pro 先拨到 S 档",
+            "state": "unk",
+            "text": "读不到 configd 的手柄状态（有的鸭子关着它）",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "pad_wizard",
+                "label": "配对手柄"
+              }
+            ],
+            "hard": null,
+            "found": null,
+            "ask": null,
+            "go": "pad_wizard",
+            "mark": {
+              "ack": [
+                "unk"
+              ],
+              "done": {
+                "confirm": true,
+                "ask": "确定标成已完成？这一步现在读不到（读不到 configd 的手柄状态（有的鸭子关着它））：Studio 核对不了，就按你说的算"
+              },
+              "skip": {
+                "confirm": true,
+                "ask": "确定跳过？这一步现在读不到（读不到 configd 的手柄状态（有的鸭子关着它））：Studio 核对不了，就按你说的算"
+              }
+            },
+            "marked": null
+          },
+          {
+            "key": "estop",
+            "n": 5,
+            "title": "测急停",
+            "tip": "每次换手柄都测一次",
+            "state": "no",
+            "text": "还没真按一次 Select 测过（现在测不了：主程序在跑（运动模式）：调试模式：Select 不经过主程序）",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "estop",
+                "label": "去测急停"
+              }
+            ],
+            "hard": null,
+            "found": null,
+            "ask": "确定{q}？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：{v}也不会变好用",
+            "go": "estop",
+            "mark": {
+              "ack": [
+                "fp"
+              ],
+              "done": {
+                "confirm": true,
+                "ask": "确定标成已完成？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：标成已完成也不会变好用"
+              },
+              "skip": {
+                "confirm": true,
+                "ask": "确定跳过？急停现在不管用（主程序在跑（运动模式）：调试模式：Select 不经过主程序）：跳过了也不会变好用"
+              }
+            },
+            "marked": null
+          },
+          {
+            "key": "walk",
+            "n": 6,
+            "title": "站起来、走几步",
+            "tip": null,
+            "state": "no",
+            "text": "还没站起来过：托着它，点「站起来」，再点「开始走」、推左摇杆",
+            "when": null,
+            "note": null,
+            "actions": [
+              {
+                "do": "remote",
+                "label": "去遥控"
+              }
+            ],
+            "hard": null,
+            "found": null,
+            "ask": null,
+            "go": "remote",
+            "mark": {
+              "ack": [],
+              "done": {
+                "confirm": false,
+                "ask": null
+              },
+              "skip": {
+                "confirm": false,
+                "ask": null
+              }
+            },
+            "marked": null
+          }
+        ],
+        "next": "servo",
+        "all_done": false,
+        "skipped_n": 0,
+        "marked_n": 0,
+        "frozen": false
+      },
+      "commit": {
+        "ready": false,
+        "items": [
+          {
+            "key": "robotd",
+            "label": "主程序",
+            "ok": true,
+            "text": "主程序在线",
+            "action": null
+          },
+          {
+            "key": "mode",
+            "label": "主程序模式",
+            "ok": true,
+            "text": "标定模式：15 颗舵机都有新读数",
+            "action": null,
+            "mode": "commissioning",
+            "phase": "ready"
+          },
+          {
+            "key": "safety",
+            "label": "鸭子姿势",
+            "ok": true,
+            "text": "没在走、没站着，可以写",
+            "action": null
+          },
+          {
+            "key": "servo",
+            "label": "舵机零位",
+            "ok": false,
+            "text": "还有 15 颗没在一键中位校过：左髋转向、左髋横滚、左髋俯仰、左膝、左踝、脖子…",
+            "action": {
+              "do": "servos",
+              "label": "去舵机页"
+            },
+            "missing": [
+              "left_hip_yaw",
+              "left_hip_roll",
+              "left_hip_pitch",
+              "left_knee",
+              "left_ankle",
+              "neck_pitch",
+              "head_pitch",
+              "head_yaw",
+              "head_roll",
+              "mouth",
+              "right_hip_yaw",
+              "right_hip_roll",
+              "right_hip_pitch",
+              "right_knee",
+              "right_ankle"
+            ],
+            "done": 0,
+            "by_mark": null
+          },
+          {
+            "key": "directions",
+            "label": "方向",
+            "ok": true,
+            "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+            "action": null,
+            "changed": []
+          },
+          {
+            "key": "imu",
+            "label": "IMU 方向",
+            "ok": false,
+            "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+            "action": {
+              "do": "imu",
+              "label": "去 IMU 页"
+            },
+            "source": "bus",
+            "default": false
+          },
+          {
+            "key": "bus",
+            "label": "舵机总线",
+            "ok": true,
+            "text": "舵机页没开着总线",
+            "action": null
+          }
+        ],
+        "source": "bus",
+        "imu_default": null,
+        "pending": false,
+        "centered": 0,
+        "preview_ok": true,
+        "mode": "commissioning",
+        "phase": "ready",
+        "from_file": false,
+        "note": null,
+        "dirty": false,
+        "dirty_why": [],
+        "job": null,
+        "simulate": false
+      },
+      "servo_session": null,
+      "servo_handback_s": null,
+      "servo_helper": false,
+      "servo_handback_note": null,
+      "servo_giveback_error": null,
+      "servo_giveback_hint": null,
+      "servo_marker_error": null,
+      "servo_orphan": null,
+      "servo_conflict_s": null,
+      "net": {
+        "known": false
+      },
+      "auth": {
+        "has_password": false
+      },
+      "duck": {
+        "label": "radxa-zero3",
+        "short": "radxa-zero3",
+        "color": "#0F7C80"
+      },
+      "name_on_duck": null
+    },
+    {
+      "t": "imu",
+      "mode": "commissioning",
+      "source": "bus",
+      "chip_setting": null,
+      "mount": {
+        "quat": [
+          0.037577263,
+          0.701353391,
+          -0.035866967,
+          0.710918372
+        ],
+        "verified": false
+      },
+      "diagnostic": {
+        "status": "unknown",
+        "responding": null,
+        "info": null,
+        "age_ms": null,
+        "sample_valid": null,
+        "sensor_ready": null,
+        "sample_fresh": null,
+        "sequence": null,
+        "error": null
+      },
+      "imu_bus": {
+        "protocol": "feetech",
+        "board": "imu_to_dxl",
+        "identity": [
+          0,
+          2,
+          0,
+          68,
+          77
+        ],
+        "profile": "legacy",
+        "gyro_dps_per_lsb": 0.0175,
+        "identification": "legacy_identity"
+      },
+      "configured_imu_profile": "legacy",
+      "profile_error": null,
+      "metadata_error": null,
+      "profile_selection": {
+        "can_start": true,
+        "reason": null
+      },
+      "mount_protocol_mismatch": false,
+      "reader": {
+        "state": "streaming",
+        "errors": 0
+      },
+      "age_ms": 71.215,
+      "ready": true,
+      "valid": true,
+      "gravity": [
+        -0.9948458509119413,
+        0.10066734263569163,
+        -0.012150435898472308
+      ],
+      "hold": null,
+      "detected": null,
+      "stand_calib_at": null,
+      "job": null,
+      "redo": {
+        "active": false,
+        "phase": "idle",
+        "session_id": null,
+        "source": null,
+        "can_start": false,
+        "reason": "要在主程序运动模式的控制阶段重做；出厂标定模式直接做粗校"
+      }
+    },
+    {
+      "t": "state",
+      "robotd_ok": true,
+      "robotd_age_ms": 38,
+      "health_age_ms": 33,
+      "present": true,
+      "mode": "commissioning",
+      "phase": "ready",
+      "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+      "posture": "commissioning",
+      "start_error": null,
+      "start_wait": null,
+      "starting_s": null,
+      "starting_long": false,
+      "battery": {
+        "pct": null,
+        "mode": "no_data",
+        "level": null,
+        "warn": false,
+        "red": false,
+        "low_volt": false,
+        "volts": null,
+        "cls": null,
+        "why": "读不到电压",
+        "basis": null,
+        "rd_volts": 7.14,
+        "rd_pct": 34,
+        "spread": null,
+        "warn_pct": 30,
+        "red_pct": 15,
+        "load_floor_v": 6.9,
+        "cal_offset_v": 0.0,
+        "preset": "2s_liion",
+        "source": null,
+        "shutdown": null,
+        "estimating_left_s": null,
+        "detail": [
+          "读不到舵机电压：舵机没电（没接电池？）或者主程序没在跑",
+          "主程序自己的算法：34%（7.14 V，6.6–8.2 V 直线，低电量偏高）",
+          "只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）",
+          "放空了尽快充；长期不用存一半电（约 7.4–7.6 V）"
+        ]
+      },
+      "servos": {
+        "online": 15,
+        "total": 15,
+        "hottest": {
+          "name": "嘴",
+          "c": 40
+        },
+        "stale": []
+      },
+      "imu": {
+        "status": "unverified",
+        "source": "bus",
+        "configured_imu_profile": "legacy",
+        "context_current": true,
+        "generation": 6043.801566082,
+        "diagnostic": {
+          "status": "unknown",
+          "responding": null,
+          "info": null,
+          "age_ms": null,
+          "sample_valid": null,
+          "sensor_ready": null,
+          "sample_fresh": null,
+          "sequence": null,
+          "error": null
+        }
+      },
+      "pad": {
+        "known": false,
+        "connected": false,
+        "name": null,
+        "driver": null,
+        "estop_ok": false
+      },
+      "cpu": {
+        "c": 80.0,
+        "throttled": false,
+        "limited": false,
+        "khz": 1800000,
+        "max_khz": 1800000,
+        "level": 0,
+        "max_level": 6,
+        "hot": true,
+        "src": "studio",
+        "why": null
+      },
+      "loop": {
+        "hz": 49.991296665224475,
+        "target": 50.0,
+        "missed": 33
+      },
+      "joints": null,
+      "joints_age_ms": 38,
+      "state_t_ns": 778545106000,
+      "gravity": [
+        -0.9948530649967189,
+        0.10059739227875414,
+        -0.012146531559771745
+      ],
+      "tilt_deg": 89.30403788976885,
+      "guard": null,
+      "hold": null,
+      "estop": {
+        "state": "confirmed",
+        "why": "15 颗都已卸力"
+      },
+      "todo": [
+        {
+          "key": "imu_unverified",
+          "level": "warn",
+          "msg": "IMU 的安装方向还没确认",
+          "hint": "装歪了走路会往前冲；先去「IMU」页校准（fork 上没确认连站都不让）"
+        },
+        {
+          "key": "cpu",
+          "level": "warn",
+          "msg": "主板 80 °C，有点热",
+          "hint": "再热就会降频，控制会变慢；加散热片或小风扇"
+        }
+      ],
+      "commit": {
+        "ready": false,
+        "items": [
+          {
+            "key": "robotd",
+            "label": "主程序",
+            "ok": true,
+            "text": "主程序在线",
+            "action": null
+          },
+          {
+            "key": "mode",
+            "label": "主程序模式",
+            "ok": true,
+            "text": "标定模式：15 颗舵机都有新读数",
+            "action": null,
+            "mode": "commissioning",
+            "phase": "ready"
+          },
+          {
+            "key": "safety",
+            "label": "鸭子姿势",
+            "ok": true,
+            "text": "没在走、没站着，可以写",
+            "action": null
+          },
+          {
+            "key": "servo",
+            "label": "舵机零位",
+            "ok": false,
+            "text": "还有 15 颗没在一键中位校过：左髋转向、左髋横滚、左髋俯仰、左膝、左踝、脖子…",
+            "action": {
+              "do": "servos",
+              "label": "去舵机页"
+            },
+            "missing": [
+              "left_hip_yaw",
+              "left_hip_roll",
+              "left_hip_pitch",
+              "left_knee",
+              "left_ankle",
+              "neck_pitch",
+              "head_pitch",
+              "head_yaw",
+              "head_roll",
+              "mouth",
+              "right_hip_yaw",
+              "right_hip_roll",
+              "right_hip_pitch",
+              "right_knee",
+              "right_ankle"
+            ],
+            "done": 0,
+            "by_mark": null
+          },
+          {
+            "key": "directions",
+            "label": "方向",
+            "ok": true,
+            "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+            "action": null,
+            "changed": []
+          },
+          {
+            "key": "imu",
+            "label": "IMU 方向",
+            "ok": false,
+            "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+            "action": {
+              "do": "imu",
+              "label": "去 IMU 页"
+            },
+            "source": "bus",
+            "default": false
+          },
+          {
+            "key": "bus",
+            "label": "舵机总线",
+            "ok": true,
+            "text": "舵机页没开着总线",
+            "action": null
+          }
+        ],
+        "source": "bus",
+        "imu_default": null,
+        "pending": false,
+        "centered": 0,
+        "preview_ok": true,
+        "mode": "commissioning",
+        "phase": "ready",
+        "from_file": false,
+        "note": null,
+        "dirty": false,
+        "dirty_why": [],
+        "job": null,
+        "simulate": false
+      },
+      "servo_session": null,
+      "servo_handback_s": null,
+      "servo_helper": false,
+      "servo_handback_note": null,
+      "servo_giveback_error": null,
+      "servo_giveback_hint": null,
+      "servo_marker_error": null,
+      "servo_orphan": null,
+      "servo_conflict_s": null,
+      "net": {
+        "known": false
+      },
+      "auth": {
+        "has_password": false
+      },
+      "duck": {
+        "label": "radxa-zero3",
+        "short": "radxa-zero3",
+        "color": "#0F7C80"
+      },
+      "name_on_duck": null,
+      "onboarding_same": true
+    },
+    {
+      "t": "servo",
+      "state": "closed",
+      "error": null,
+      "sim": false,
+      "source": "robotd",
+      "port": "主程序",
+      "online": 15,
+      "total": 15,
+      "hz": null,
+      "avg_volts": 7.14,
+      "battery_pct": 33.75000000000001,
+      "drop_rate": null,
+      "bus": null,
+      "holding": 0,
+      "all_off": false,
+      "latched": false,
+      "relaxing": false,
+      "last_relax": null,
+      "rows": [
+        {
+          "id": 20,
+          "cn": "左髋偏航",
+          "en": "Left Hip Yaw",
+          "group": "L",
+          "dir": -1,
+          "raw": 2122,
+          "deg": -6.5,
+          "volt": 7.1000000000000005,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 21,
+          "cn": "左髋横滚",
+          "en": "Left Hip Roll",
+          "group": "L",
+          "dir": -1,
+          "raw": 2102,
+          "deg": -4.7,
+          "volt": 7.1000000000000005,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 22,
+          "cn": "左髋俯仰",
+          "en": "Left Hip Pitch",
+          "group": "L",
+          "dir": -1,
+          "raw": 2344,
+          "deg": -26.0,
+          "volt": 7.1000000000000005,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 23,
+          "cn": "左膝",
+          "en": "Left Knee",
+          "group": "L",
+          "dir": -1,
+          "raw": 2055,
+          "deg": -0.6,
+          "volt": 7.0,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 24,
+          "cn": "左踝",
+          "en": "Left Ankle",
+          "group": "L",
+          "dir": -1,
+          "raw": 1752,
+          "deg": 26.0,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 30,
+          "cn": "颈部俯仰",
+          "en": "Neck Pitch",
+          "group": "H",
+          "dir": -1,
+          "raw": 1813,
+          "deg": 20.7,
+          "volt": 7.1000000000000005,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 31,
+          "cn": "头部俯仰",
+          "en": "Head Pitch",
+          "group": "H",
+          "dir": -1,
+          "raw": 1828,
+          "deg": 19.3,
+          "volt": 7.2,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 32,
+          "cn": "头部偏航",
+          "en": "Head Yaw",
+          "group": "H",
+          "dir": -1,
+          "raw": 2049,
+          "deg": -0.1,
+          "volt": 7.300000000000001,
+          "temp": 38,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 33,
+          "cn": "头部横滚",
+          "en": "Head Roll",
+          "group": "H",
+          "dir": -1,
+          "raw": 2047,
+          "deg": 0.1,
+          "volt": 7.300000000000001,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 34,
+          "cn": "嘴巴",
+          "en": "Mouth",
+          "group": "H",
+          "dir": -1,
+          "raw": 2047,
+          "deg": 0.1,
+          "volt": 7.2,
+          "temp": 40,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 10,
+          "cn": "右髋偏航",
+          "en": "Right Hip Yaw",
+          "group": "R",
+          "dir": -1,
+          "raw": 2046,
+          "deg": 0.2,
+          "volt": 7.2,
+          "temp": 36,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 11,
+          "cn": "右髋横滚",
+          "en": "Right Hip Roll",
+          "group": "R",
+          "dir": -1,
+          "raw": 1990,
+          "deg": 5.1,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 12,
+          "cn": "右髋俯仰",
+          "en": "Right Hip Pitch",
+          "group": "R",
+          "dir": -1,
+          "raw": 1945,
+          "deg": 9.1,
+          "volt": 7.1000000000000005,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 13,
+          "cn": "右膝",
+          "en": "Right Knee",
+          "group": "R",
+          "dir": -1,
+          "raw": 2066,
+          "deg": -1.6,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 14,
+          "cn": "右踝",
+          "en": "Right Ankle",
+          "group": "R",
+          "dir": -1,
+          "raw": 2337,
+          "deg": -25.4,
+          "volt": 7.1000000000000005,
+          "temp": 32,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.459,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        }
+      ]
+    },
+    {
+      "t": "state",
+      "robotd_ok": true,
+      "robotd_age_ms": 43,
+      "health_age_ms": 149,
+      "present": true,
+      "mode": "commissioning",
+      "phase": "ready",
+      "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+      "posture": "commissioning",
+      "start_error": null,
+      "start_wait": null,
+      "starting_s": null,
+      "starting_long": false,
+      "battery": {
+        "pct": null,
+        "mode": "no_data",
+        "level": null,
+        "warn": false,
+        "red": false,
+        "low_volt": false,
+        "volts": null,
+        "cls": null,
+        "why": "读不到电压",
+        "basis": null,
+        "rd_volts": 7.14,
+        "rd_pct": 34,
+        "spread": null,
+        "warn_pct": 30,
+        "red_pct": 15,
+        "load_floor_v": 6.9,
+        "cal_offset_v": 0.0,
+        "preset": "2s_liion",
+        "source": null,
+        "shutdown": null,
+        "estimating_left_s": null,
+        "detail": [
+          "读不到舵机电压：舵机没电（没接电池？）或者主程序没在跑",
+          "主程序自己的算法：34%（7.14 V，6.6–8.2 V 直线，低电量偏高）",
+          "只警告：没电时鸭子不会自己停，用完关电源、拔电池（挂着卸力也在耗电）",
+          "放空了尽快充；长期不用存一半电（约 7.4–7.6 V）"
+        ]
+      },
+      "servos": {
+        "online": 15,
+        "total": 15,
+        "hottest": {
+          "name": "嘴",
+          "c": 41
+        },
+        "stale": []
+      },
+      "imu": {
+        "status": "unverified",
+        "source": "bus",
+        "configured_imu_profile": "legacy",
+        "context_current": true,
+        "generation": 6043.801566082,
+        "diagnostic": {
+          "status": "unknown",
+          "responding": null,
+          "info": null,
+          "age_ms": null,
+          "sample_valid": null,
+          "sensor_ready": null,
+          "sample_fresh": null,
+          "sequence": null,
+          "error": null
+        }
+      },
+      "pad": {
+        "known": false,
+        "connected": false,
+        "name": null,
+        "driver": null,
+        "estop_ok": false
+      },
+      "cpu": {
+        "c": 80.0,
+        "throttled": false,
+        "limited": false,
+        "khz": 1800000,
+        "max_khz": 1800000,
+        "level": 0,
+        "max_level": 6,
+        "hot": true,
+        "src": "studio",
+        "why": null
+      },
+      "loop": {
+        "hz": 49.991296665224475,
+        "target": 50.0,
+        "missed": 33
+      },
+      "joints": null,
+      "joints_age_ms": 43,
+      "state_t_ns": 778645654000,
+      "gravity": [
+        -0.9948556361074655,
+        0.10057321842013808,
+        -0.01214772543369835
+      ],
+      "tilt_deg": 89.30396957882348,
+      "guard": null,
+      "hold": null,
+      "estop": {
+        "state": "confirmed",
+        "why": "15 颗都已卸力"
+      },
+      "todo": [
+        {
+          "key": "imu_unverified",
+          "level": "warn",
+          "msg": "IMU 的安装方向还没确认",
+          "hint": "装歪了走路会往前冲；先去「IMU」页校准（fork 上没确认连站都不让）"
+        },
+        {
+          "key": "cpu",
+          "level": "warn",
+          "msg": "主板 80 °C，有点热",
+          "hint": "再热就会降频，控制会变慢；加散热片或小风扇"
+        }
+      ],
+      "commit": {
+        "ready": false,
+        "items": [
+          {
+            "key": "robotd",
+            "label": "主程序",
+            "ok": true,
+            "text": "主程序在线",
+            "action": null
+          },
+          {
+            "key": "mode",
+            "label": "主程序模式",
+            "ok": true,
+            "text": "标定模式：15 颗舵机都有新读数",
+            "action": null,
+            "mode": "commissioning",
+            "phase": "ready"
+          },
+          {
+            "key": "safety",
+            "label": "鸭子姿势",
+            "ok": true,
+            "text": "没在走、没站着，可以写",
+            "action": null
+          },
+          {
+            "key": "servo",
+            "label": "舵机零位",
+            "ok": false,
+            "text": "还有 15 颗没在一键中位校过：左髋转向、左髋横滚、左髋俯仰、左膝、左踝、脖子…",
+            "action": {
+              "do": "servos",
+              "label": "去舵机页"
+            },
+            "missing": [
+              "left_hip_yaw",
+              "left_hip_roll",
+              "left_hip_pitch",
+              "left_knee",
+              "left_ankle",
+              "neck_pitch",
+              "head_pitch",
+              "head_yaw",
+              "head_roll",
+              "mouth",
+              "right_hip_yaw",
+              "right_hip_roll",
+              "right_hip_pitch",
+              "right_knee",
+              "right_ankle"
+            ],
+            "done": 0,
+            "by_mark": null
+          },
+          {
+            "key": "directions",
+            "label": "方向",
+            "ok": true,
+            "text": "15 颗都是 −1（舵机页没改过方向，沿用主程序文件里的）",
+            "action": null,
+            "changed": []
+          },
+          {
+            "key": "imu",
+            "label": "IMU 方向",
+            "ok": false,
+            "text": "标定模式：先在 IMU 页粗校一次，交给主程序验证",
+            "action": {
+              "do": "imu",
+              "label": "去 IMU 页"
+            },
+            "source": "bus",
+            "default": false
+          },
+          {
+            "key": "bus",
+            "label": "舵机总线",
+            "ok": true,
+            "text": "舵机页没开着总线",
+            "action": null
+          }
+        ],
+        "source": "bus",
+        "imu_default": null,
+        "pending": false,
+        "centered": 0,
+        "preview_ok": true,
+        "mode": "commissioning",
+        "phase": "ready",
+        "from_file": false,
+        "note": null,
+        "dirty": false,
+        "dirty_why": [],
+        "job": null,
+        "simulate": false
+      },
+      "servo_session": null,
+      "servo_handback_s": null,
+      "servo_helper": false,
+      "servo_handback_note": null,
+      "servo_giveback_error": null,
+      "servo_giveback_hint": null,
+      "servo_marker_error": null,
+      "servo_orphan": null,
+      "servo_conflict_s": null,
+      "net": {
+        "known": false
+      },
+      "auth": {
+        "has_password": false
+      },
+      "duck": {
+        "label": "radxa-zero3",
+        "short": "radxa-zero3",
+        "color": "#0F7C80"
+      },
+      "name_on_duck": null,
+      "onboarding_same": true
+    },
+    {
+      "t": "servo",
+      "state": "closed",
+      "error": null,
+      "sim": false,
+      "source": "robotd",
+      "port": "主程序",
+      "online": 15,
+      "total": 15,
+      "hz": null,
+      "avg_volts": 7.13,
+      "battery_pct": 33.12500000000002,
+      "drop_rate": null,
+      "bus": null,
+      "holding": 0,
+      "all_off": false,
+      "latched": false,
+      "relaxing": false,
+      "last_relax": null,
+      "rows": [
+        {
+          "id": 20,
+          "cn": "左髋偏航",
+          "en": "Left Hip Yaw",
+          "group": "L",
+          "dir": -1,
+          "raw": 2122,
+          "deg": -6.5,
+          "volt": 7.1000000000000005,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 21,
+          "cn": "左髋横滚",
+          "en": "Left Hip Roll",
+          "group": "L",
+          "dir": -1,
+          "raw": 2102,
+          "deg": -4.7,
+          "volt": 7.1000000000000005,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 22,
+          "cn": "左髋俯仰",
+          "en": "Left Hip Pitch",
+          "group": "L",
+          "dir": -1,
+          "raw": 2344,
+          "deg": -26.0,
+          "volt": 7.1000000000000005,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 23,
+          "cn": "左膝",
+          "en": "Left Knee",
+          "group": "L",
+          "dir": -1,
+          "raw": 2055,
+          "deg": -0.6,
+          "volt": 7.0,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 24,
+          "cn": "左踝",
+          "en": "Left Ankle",
+          "group": "L",
+          "dir": -1,
+          "raw": 1752,
+          "deg": 26.0,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 30,
+          "cn": "颈部俯仰",
+          "en": "Neck Pitch",
+          "group": "H",
+          "dir": -1,
+          "raw": 1813,
+          "deg": 20.7,
+          "volt": 7.1000000000000005,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 31,
+          "cn": "头部俯仰",
+          "en": "Head Pitch",
+          "group": "H",
+          "dir": -1,
+          "raw": 1828,
+          "deg": 19.3,
+          "volt": 7.2,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 32,
+          "cn": "头部偏航",
+          "en": "Head Yaw",
+          "group": "H",
+          "dir": -1,
+          "raw": 2049,
+          "deg": -0.1,
+          "volt": 7.300000000000001,
+          "temp": 38,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 33,
+          "cn": "头部横滚",
+          "en": "Head Roll",
+          "group": "H",
+          "dir": -1,
+          "raw": 2047,
+          "deg": 0.1,
+          "volt": 7.300000000000001,
+          "temp": 35,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 34,
+          "cn": "嘴巴",
+          "en": "Mouth",
+          "group": "H",
+          "dir": -1,
+          "raw": 2047,
+          "deg": 0.1,
+          "volt": 7.2,
+          "temp": 41,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 10,
+          "cn": "右髋偏航",
+          "en": "Right Hip Yaw",
+          "group": "R",
+          "dir": -1,
+          "raw": 2046,
+          "deg": 0.2,
+          "volt": 7.2,
+          "temp": 36,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 11,
+          "cn": "右髋横滚",
+          "en": "Right Hip Roll",
+          "group": "R",
+          "dir": -1,
+          "raw": 1990,
+          "deg": 5.1,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 12,
+          "cn": "右髋俯仰",
+          "en": "Right Hip Pitch",
+          "group": "R",
+          "dir": -1,
+          "raw": 1945,
+          "deg": 9.1,
+          "volt": 7.0,
+          "temp": 34,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 13,
+          "cn": "右膝",
+          "en": "Right Knee",
+          "group": "R",
+          "dir": -1,
+          "raw": 2066,
+          "deg": -1.6,
+          "volt": 7.1000000000000005,
+          "temp": 33,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        },
+        {
+          "id": 14,
+          "cn": "右踝",
+          "en": "Right Ankle",
+          "group": "R",
+          "dir": -1,
+          "raw": 2337,
+          "deg": -25.4,
+          "volt": 7.1000000000000005,
+          "temp": 32,
+          "temp_limit": null,
+          "load": 0,
+          "current_ma": null,
+          "status": null,
+          "moving": null,
+          "torque": null,
+          "fresh": true,
+          "age_ms": 49.033,
+          "p": null,
+          "d": null,
+          "mode": null,
+          "offset": null,
+          "comm": {
+            "asked": null,
+            "ok": null,
+            "missed": 0,
+            "alarm": 0,
+            "streak": 0,
+            "max_streak": null
+          }
+        }
+      ]
+    }
+  ]
+}

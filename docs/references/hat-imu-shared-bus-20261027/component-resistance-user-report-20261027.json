@@ -1,0 +1,45 @@
+{
+  "received_date": "2026-10-27",
+  "source": "用户本轮测量口述及异步问题的直接回复；非仪器导出",
+  "device": "当前单3P GD32 IMU，位号对应已归档照片",
+  "measurement_method": {
+    "instrument": "万用表电阻测量，型号/量程/精度未在本次测量中记录",
+    "power": "断电",
+    "external_connections": "用户确认全部断开，包括3P及调试连接",
+    "component_state": "元件仍焊在板上，未抬脚",
+    "temperature_c": null,
+    "probe_polarity": null
+  },
+  "observations": [
+    {
+      "reference": "R31",
+      "reported_resistance_ohm": 100000
+    },
+    {
+      "reference": "R5",
+      "reported_resistance_ohm": 51
+    },
+    {
+      "reference": "F1",
+      "reported_resistance_ohm": 25
+    }
+  ],
+  "evidence_level": "用户实测口述；在板两端读数，不冒充脱板元件参数或带电动态阻抗",
+  "reference_design": {
+    "source": "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb",
+    "R31": "100k",
+    "R5": "51R",
+    "F1": "PTC(40R)"
+  },
+  "limitations": [
+    "没有照片/仪器导出、量程或公差信息",
+    "全部断开外接线不等于消除板内并联/半导体通路",
+    "F1具体型号、允许阻值范围及温度未确认",
+    "没有总线波形、动态电平或请求/应答方向定位"
+  ],
+  "interpretation": {
+    "R31_R5": "读数与公开修订值一致，旧版10k/100欧错料解释降权；不等于整板无问题",
+    "F1": "25欧本身不足以判损坏、合格或处于动作状态；不因与40R文字不同而短接"
+  },
+  "actions": "记录测量、更新现行排障入口；无设备操作，无改阻/短接/刷机，无新增提交或推送"
+}

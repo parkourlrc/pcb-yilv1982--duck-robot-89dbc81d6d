@@ -1,0 +1,298 @@
+{
+  "recorded_at_utc": "2026-11-01T14:44:10.895395+00:00",
+  "scope": "Read local fixed source and deployment snapshot; no new live robot query, motion, config change or restart.",
+  "firmware_root": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware",
+  "model_root": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60",
+  "policy_sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+  "model_metadata": {
+    "deployment-runtime.json": {
+      "schema": "microduck-runtime-commands/v1",
+      "model_sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+      "source_iteration": 9599,
+      "num_steps_per_env": 24,
+      "training_step": 230376,
+      "source_parameters_sha256": {
+        "upstream-params/env.yaml": "7dd666e4515ad91c1512ce2188152a34764830126dc0ede8145d768f851a6027",
+        "upstream-params/agent.yaml": "77e5c6ea815e24c8bab15f8d315a75c1c07e1936b29aabad152218e969fff0d3"
+      },
+      "commands": {
+        "head_pose": [
+          [
+            -1.1,
+            1.1
+          ],
+          [
+            -1.1,
+            1.1
+          ],
+          [
+            -1.4,
+            1.4
+          ],
+          [
+            -0.31,
+            0.31
+          ]
+        ],
+        "body_pose": [
+          [
+            -0.005,
+            0.005
+          ],
+          [
+            -0.005,
+            0.005
+          ],
+          [
+            -0.005,
+            0.005
+          ],
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.05,
+            0.05
+          ]
+        ]
+      }
+    },
+    "deployment-execution.json": {
+      "schema": "microduck-runtime-execution/v1",
+      "model_sha256": "1cbf8730eadd75a5704332c9f3c10f60bfa9412135b907831c9dbd731ce1795f",
+      "mode": "uniform",
+      "action_scale": 1.0,
+      "head_lowpass": 0.5,
+      "legs_lowpass": 0.7
+    }
+  },
+  "sources": [
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/config/r17-management.json",
+      "sha256": "e7b5c34b726b0707685b119333c5d2c9b57ecd378a52cafb18eed525a7470e97",
+      "excerpts": [
+        {
+          "start_line": 152,
+          "end_line": 170,
+          "text": "  \"retire_standalone_recovery\": {\n    \"skill\": \"stand_test\",\n    \"model_id\": \"a481d9f211f31d9476ab1a319fe362a2\",\n    \"remove_catalog_manual_recovery\": true,\n    \"pad_migration\": {\n      \"lb\": {\n        \"from\": \"stand_test\",\n        \"to\": \"kick_left\"\n      },\n      \"rb\": {\n        \"from\": \"\",\n        \"to\": \"kick_right\",\n        \"also_when_missing\": true\n      }\n    },\n    \"preserve_other_custom_bindings\": true\n  }\n}"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/packaging/configure.py",
+      "sha256": "530bc4da2744ea9e78b823b62b55fd51e892256672ca610fb268325398602397",
+      "excerpts": [
+        {
+          "start_line": 238,
+          "end_line": 248,
+          "text": "    # The joint Walk policy owns recovery; retire only the former standalone\n    # teacher name and its default pad bindings, preserving operator mappings.\n    if PROFILE.get('retire_standalone_recovery'):\n        policy['stand']='none'\n        policy['skill']=[skill for skill in policy.get('skill',[]) if skill.get('name')!='stand_test']\n        old_pad=source_pad\n        pad=data.setdefault('pad',{})\n        if old_pad.get('lb')=='stand_test':pad['lb']='kick_left'\n        elif 'lb' in old_pad and old_pad['lb'] not in removed:pad['lb']=old_pad['lb']\n        if not old_pad.get('rb'):pad['rb']='kick_right'\n        elif old_pad['rb'] not in removed:pad['rb']=old_pad['rb']"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/verification/kick154-input-audit.json",
+      "sha256": "f9537aba3b3a37fdeaa28fa9e7cba44fbb59e4a2322fa028bcadebe86f5ac41a",
+      "excerpts": [
+        {
+          "start_line": 288,
+          "end_line": 308,
+          "text": "      \"output_max\": 0.31200161576271057\n    }\n  ],\n  \"limits\": \"CPU inference and contract checks prove interface and finite outputs only; no real robot kicking or balance test performed.\",\n  \"real_pad_bindings\": {\n    \"a\": \"ground_pick\",\n    \"x\": \"roulade\",\n    \"lb\": \"kick_left\",\n    \"rb\": \"kick_right\",\n    \"dpad_down\": \"sit_toggle\"\n  },\n  \"standalone_recovery\": \"Retired stand_test runtime skill and catalog entry; joint walk policy handles recovery. Teacher source files retained only as regression fixtures.\",\n  \"retire_standalone_recovery\": {\n    \"skill\": \"stand_test\",\n    \"model_id\": \"a481d9f211f31d9476ab1a319fe362a2\",\n    \"remove_catalog_manual_recovery\": true,\n    \"pad_migration\": {\n      \"lb\": {\n        \"from\": \"stand_test\",\n        \"to\": \"kick_left\"\n      },"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/robotd/src/control.rs",
+      "sha256": "3c6b7a7453cb86cb255c3b1bf194b382d54a7eb0cc020a3f0ba7daf95168d4e2",
+      "excerpts": [
+        {
+          "start_line": 612,
+          "end_line": 638,
+          "text": "\n        let contract = self.policy.contract(net);\n        let home = contract.map_or(DEFAULT_POSITION, |c| c.home);\n        let contract_scale = contract.map_or(1.0, |c| c.scale);\n        let training_action_scale = contract.map_or(1.0, |c| c.training_action_scale);\n        let uses_global_scale = contract.is_some_and(|c| c.uses_global_action_scale());\n        let ema_old_weight = contract.map_or(0.0, |c| c.ema_old_weight);\n        let target_filter_passthrough = contract.is_some_and(|c| c.target_filter_passthrough);\n        let unfiltered_joint_walk =\n            net == Net::Walk && contract.is_some_and(|c| c.is_unfiltered_joint_walk());\n        let uniform = if net == Net::Walk {\n            contract\n                .and_then(|c| c.runtime_execution_profile.as_ref())\n                .map(|p| (p.action_scale, p.head_lowpass, p.legs_lowpass))\n        } else {\n            None\n        };\n        // Each roller network owns its exported runtime scale/filter. Crouch's\n        // deployment EMA differs from its unfiltered training data; switching back\n        // to swizzle or spin must immediately recover those models' coefficients.\n        let execution = uniform.or_else(|| contract.and_then(|c| c.roller_execution));\n        if self.last_net != Some(net) && contract.is_some_and(|c| c.roller_execution.is_some()) {\n            self.previous = None;\n            self.contract_previous = None;\n        }\n        let body_padding = contract.is_some_and(|c| c.body_padding);\n        let effective ="
+        },
+        {
+          "start_line": 708,
+          "end_line": 741,
+          "text": "        };\n        // The student's declared training mapping remains its no-override baseline.\n        // A separately declared uniform profile is the user's explicit runtime choice:\n        // walking, holding and recovery use the same arithmetic, without a phase gate.\n        let base_scale = execution.map_or_else(\n            || {\n                if unfiltered_joint_walk {\n                    training_action_scale\n                } else {\n                    scale\n                }\n            },\n            |(scale, _, _)| scale,\n        );\n        let (head_filter, legs_filter) = execution.map_or_else(\n            || {\n                if target_filter_passthrough {\n                    (1.0, 1.0)\n                } else {\n                    (\n                        self.tuning.head_lowpass.unwrap_or(1.0),\n                        self.tuning.legs_lowpass.unwrap_or(1.0),\n                    )\n                }\n            },\n            |(_, head, legs)| (head, legs),\n        );\n        let runtime_scale = base_scale * scale_mult;\n        self.applied_action_scale = Some(runtime_scale);\n        self.applied_target_filters = Some((head_filter, legs_filter));\n        let scale = contract_scale * runtime_scale;\n\n        let offsets = Observation::scatter_action(&action);\n        let mut targets = [0.0; NUM_JOINTS];"
+        },
+        {
+          "start_line": 745,
+          "end_line": 775,
+          "text": "\n        if ema_old_weight > 0.0 {\n            let previous = self.contract_previous.unwrap_or(home);\n            for joint in 0..NUM_JOINTS {\n                targets[joint] =\n                    ema_old_weight * previous[joint] + (1.0 - ema_old_weight) * targets[joint];\n            }\n        }\n        self.contract_previous = Some(targets);\n        if let Some(previous) = self.previous {\n            if head_filter < 1.0 {\n                let alpha = head_filter;\n                for joint in HEAD_JOINTS {\n                    targets[joint] = alpha * targets[joint] + (1.0 - alpha) * previous[joint];\n                }\n            }\n            if legs_filter < 1.0 {\n                let alpha = legs_filter;\n                for (joint, target) in targets.iter_mut().enumerate() {\n                    if HEAD_JOINTS.contains(&joint) || joint == duck_control::model::MOUTH_INDEX {\n                        continue;\n                    }\n                    *target = alpha * *target + (1.0 - alpha) * previous[joint];\n                }\n            }\n        }\n        self.previous = Some(targets);\n\n        // Advance the windows, after the tick that used them — the prototype advances its\n        // phase after the motor write.\n        if let Some(phase) = self.ground_pick.as_mut() {"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/robotd/src/home_start.rs",
+      "sha256": "29108e8596a2b5a1a74087ccbe759beb65e79683fab0f00c9507222966b98811",
+      "excerpts": [
+        {
+          "start_line": 7,
+          "end_line": 12,
+          "text": "use serde::Serialize;\n\npub const MAX_JOINT_ERROR_DEG: f64 = 5.0;\npub const MAX_TILT_DEG: f64 = 10.0;\nconst STABLE_SAMPLES: u32 = 3;\nconst MAX_AGE: Duration = Duration::from_millis(80);"
+        },
+        {
+          "start_line": 78,
+          "end_line": 98,
+          "text": "    all_joints_fresh\n        && imu_ready\n        && sensors.is_some_and(|s| {\n            let norm = s.imu.gravity.iter().map(|v| v * v).sum::<f64>();\n            s.positions\n                .iter()\n                .chain(&s.velocities)\n                .chain(&s.imu.gyro)\n                .all(|v| v.is_finite())\n                && norm.is_finite()\n                && norm > 0.25\n                && norm < 2.25\n        })\n}\n\n#[derive(Default)]\npub struct Guard {\n    stable: u32,\n    last_good: Option<Instant>,\n}\n"
+        },
+        {
+          "start_line": 105,
+          "end_line": 145,
+          "text": "\nimpl Guard {\n    pub fn observe(\n        &mut self,\n        at: Instant,\n        sensors: Option<&Sensors>,\n        home: &[f64; NUM_JOINTS],\n        conditions: Conditions,\n    ) -> Report {\n        let max_error = sensors.and_then(|s| {\n            // The independently controlled beak does not determine the HOME stance.\n            s.positions\n                .iter()\n                .zip(home)\n                .enumerate()\n                .filter(|(i, _)| *i != MOUTH_INDEX)\n                .try_fold(0.0_f64, |largest, (_, (actual, target))| {\n                    (actual.is_finite() && target.is_finite())\n                        .then(|| largest.max((actual - target).abs().to_degrees()))\n                })\n        });\n        let tilt = sensors.and_then(|s| tilt_deg(s.imu.gravity));\n        let reason = if !conditions.home_phase {\n            Some(\"尚未完成回 HOME，或正在卸力 / 关机\")\n        } else if sensors.is_none() || !conditions.all_joints_fresh {\n            Some(\"舵机反馈不完整或不新鲜\")\n        } else if !conditions.imu_ready {\n            Some(\"IMU 安装方向未确认或姿态尚未就绪\")\n        } else if !conditions.torque_confirmed {\n            Some(\"尚未确认所有关节已上力\")\n        } else if max_error.is_none_or(|v| v > MAX_JOINT_ERROR_DEG) {\n            Some(\"关节实际位置尚未到 HOME（允许误差 5°）\")\n        } else if tilt.is_none_or(|v| v > MAX_TILT_DEG) {\n            Some(\"机身未直立（倾斜超过 10° 或 IMU 无效）\")\n        } else {\n            None\n        };\n        if reason.is_none() {\n            if self\n                .last_good\n                .is_none_or(|last| at.saturating_duration_since(last) > MAX_AGE)"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/robotd/src/main.rs",
+      "sha256": "e305af68b72025426443335159e5206ea9fa9afa1f1671cff3237a8e210f4032",
+      "excerpts": [
+        {
+          "start_line": 2735,
+          "end_line": 2751,
+          "text": "        let recovery_request = intents.take_home_skill();\n        if home_recovery {\n            let finished = !controller\n                .as_ref()\n                .is_some_and(|c| c.skill_has_time(\"stand_test\"));\n            if !snapshot.enabled || bringup != Bringup::Ready || powered_off || finished {\n                intents.set_enabled(false);\n                snapshot.enabled = false;\n                home_recovery = false;\n                if let Some(controller) = controller.as_mut() {\n                    controller.reset_for_home();\n                }\n                hold = duck_control::deployment::home();\n                tracing::warn!(finished, \"manual recovery ended; returning HOME\");\n            }\n        }\n"
+        },
+        {
+          "start_line": 3113,
+          "end_line": 3274,
+          "text": "        // All R17 LB edges use the original named skill, including a fallen\n        // robot that is limp or mid-HOME. The torque-on backend first preloads\n        // measured goals and confirms torque, so no old HOME goal can fire.\n        if let Some(request) = recovery_request\n            && feetech\n        {\n            let start = (|| -> Result<bool, String> {\n                if power_request.is_some() || rebooting {\n                    return Err(\"LB 起身已被本轮 HOME / 卸力 / 舵机重启请求取消\".into());\n                }\n                if shutdown_sit.is_some() || powered_off {\n                    return Err(\"正在关机，不能启动 LB 起身\".into());\n                }\n                if mode_requested\n                    || policy_change_requested\n                    || mode_change.is_some()\n                    || pending_swap.is_some()\n                {\n                    return Err(\"正在切换模式或加载模型，请完成后重新按 LB\".into());\n                }\n                let native = safety.feetech_control_status();\n                let sensor_ready = |sample: Option<&duck_control::Sensors>,\n                                    native: Option<duck_control::feetech::FeetechControlStatus>,\n                                    warm: bool| {\n                    home_start::recovery_sensors_ready(\n                        sample,\n                        native.is_some_and(|d| d.all_joints_fresh && !d.joints_held),\n                        warm && native.is_some_and(|d| d.imu_mount_verified && d.imu_ready),\n                    )\n                };\n                if !sensor_ready(fresh.as_ref(), native, safety.imu_ready()) {\n                    return Err(\n                        \"LB 起身需要本轮新鲜、完整的关节反馈和就绪 IMU，请恢复后重新按键\".into(),\n                    );\n                }\n                let allow_upright = bringup == Bringup::Ready;\n                if !allow_upright && !safety.fallen() {\n                    return Err(\"卸力或回 HOME 途中，仅确认倒地后可按 LB 起身\".into());\n                }\n                let controller = controller.as_mut().ok_or(\"LB 起身模型未加载\")?;\n                if !controller\n                    .skill_names()\n                    .get(request.index)\n                    .is_some_and(|s| s == \"stand_test\")\n                {\n                    return Err(\"LB 起身模型未加载或已更换，请重新按键\".into());\n                }\n                if snapshot.enabled\n                    && bringup == Bringup::Ready\n                    && controller.skill_has_time(\"stand_test\")\n                {\n                    return Ok(false);\n                }\n                let return_home = home_recovery || !snapshot.enabled || bringup != Bringup::Ready;\n                if bringup != Bringup::Limp\n                    && native.and_then(|d| d.torque_state_confirmed) != Some(true)\n                {\n                    return Err(\"关节上力状态未确认，不能启动 LB 起身\".into());\n                }\n                if !intents.activate_home_skill(request) {\n                    return Err(\"LB 起身请求已取消，请重新按键\".into());\n                }\n                // A daemon restart can begin in software Limp while hardware\n                // still holds torque. Match Feetech's existing rollback rule:\n                // only an entry confirmed OFF may be made limp on entry failure.\n                let entry_torque_was_off =\n                    native.and_then(|d| d.torque_state_confirmed) == Some(false);\n                if bringup == Bringup::Limp {\n                    hold = fresh.as_ref().expect(\"entry checked the sample\").positions;\n                    if let Err(e) = safety.set_torque(true) {\n                        intents.set_enabled(false);\n                        snapshot.enabled = false;\n                        return Err(format!(\"LB 起身上力失败：{e}\"));\n                    }\n                    // Torque readback can outlast a control tick. The first model\n                    // observation must be from after that transaction, never from\n                    // the old pre-enable pose. This extra read exists only on LB's\n                    // explicit limp -> torque-on edge, not in the 50 Hz steady path.\n                    let read_at = proto::clock::monotonic_ns();\n                    let next = safety.read();\n                    let ready = next.as_ref().is_ok_and(|sample| {\n                        sensor_ready(\n                            Some(sample),\n                            safety.feetech_control_status(),\n                            safety.imu_ready(),\n                        )\n                    });\n                    if !ready {\n                        if entry_torque_was_off && let Err(e) = safety.set_torque(false) {\n                            tracing::warn!(error = %e, \"LB entry rollback could not confirm torque off\");\n                        }\n                        intents.set_enabled(false);\n                        snapshot.enabled = false;\n                        fresh = None;\n                        sensors = None;\n                        read_error =\n                            Some(\"LB torque-on completed without fresh entry sensors\".into());\n                        state.consecutive_errors.fetch_add(1, Ordering::Relaxed);\n                        return Err(if entry_torque_was_off {\n                            \"LB 上力后反馈未就绪，已请求卸力；恢复反馈后重新按键\"\n                        } else {\n                            \"LB 上力后反馈未就绪，已取消起身并保留原有上力；恢复反馈后重新按键\"\n                        }\n                        .into());\n                    }\n                    let next = next.expect(\"ready checked the sample\");\n                    safety.observe(&next, Duration::ZERO);\n                    state.fallen.store(safety.fallen(), Ordering::Relaxed);\n                    fresh = Some(next);\n                    sensors = coast.sample(fresh);\n                    sensors_read_ns = read_at;\n                    if !allow_upright && !safety.fallen() {\n                        if entry_torque_was_off && let Err(e) = safety.set_torque(false) {\n                            tracing::warn!(error = %e, \"LB posture-change rollback could not confirm torque off\");\n                        }\n                        intents.set_enabled(false);\n                        snapshot.enabled = false;\n                        return Err(\"上力期间姿态已改变，取消本次起身；确认倒地后重新按 LB\".into());\n                    }\n                }\n                if !intents.home_skill_current(request) {\n                    if bringup == Bringup::Limp\n                        && entry_torque_was_off\n                        && let Err(e) = safety.set_torque(false)\n                    {\n                        tracing::warn!(error = %e, \"cancelled LB entry could not confirm torque off\");\n                    }\n                    intents.set_enabled(false);\n                    snapshot = intents.snapshot();\n                    return Err(\"LB 起身已由 HOME / 停止 / 卸力请求取消\".into());\n                }\n                // A fallen recovery can take over a ground-pick, seat or another\n                // named skill. Upright policy-origin LB keeps the old arbitration.\n                if return_home || safety.fallen() {\n                    controller.reset_for_home();\n                }\n                controller\n                    .start_skill(request.index)\n                    .map_err(str::to_owned)?;\n                hold = fresh\n                    .as_ref()\n                    .expect(\"entry required a current sample\")\n                    .positions;\n                bringup = Bringup::Ready;\n                seated_boot = false;\n                limp_fall = LimpFall::Idle;\n                falling.reset();\n                home_recovery = return_home;\n                snapshot = intents.snapshot();\n                state.enable_refusal.store(None);\n                tracing::warn!(\n                    return_home,\n                    \"LB recovery started from the current measured pose\"\n                );\n                Ok(true)\n            })();\n            if let Err(reason) = start {\n                state.enable_refusal.store(Some(Arc::new(reason.clone())));\n                tracing::warn!(%reason, \"LB recovery refused\");\n            }\n        }\n        state.home_recovery.store(home_recovery, Ordering::Relaxed);"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/robotd/src/selftrained_checks.rs",
+      "sha256": "36b8f0560e4b192d5e596bc731e84ae6624f8de4278ba85e48132dd1d164d874",
+      "excerpts": [
+        {
+          "start_line": 102,
+          "end_line": 165,
+          "text": "}\n\n/// LB starts the teacher through the existing named-skill window, never the\n/// automatic Stand slot. It expires at six seconds and HOME cancels it early.\n#[test]\nfn lb_recovery_test_runs_official_skill_and_returns_to_original_walk() {\n    let root = std::path::Path::new(env!(\"CARGO_MANIFEST_DIR\")).join(\"../policies\");\n    let config: robotd_params::Params =\n        toml::from_str(include_str!(\"../../packaging/robotd-profile.toml\")).unwrap();\n    assert_eq!(config.pad.lb, \"stand_test\");\n    assert_eq!(config.policy.stand.as_ref().unwrap().to_str(), Some(\"none\"));\n    let mut skill = config\n        .policy\n        .skills\n        .into_iter()\n        .find(|s| s.name == \"stand_test\")\n        .unwrap();\n    skill.path = Some(root.join(\"stand/policy.onnx\"));\n    let p = Policy::load(\n        &PolicyPaths {\n            walk: root.join(\"../test-data/walk-teacher14000/policy.onnx\"),\n            skills: vec![skill.resolved_path().unwrap()],\n            ..Default::default()\n        },\n        0.05,\n    )\n    .unwrap();\n    let home = p.contract(Net::Walk).unwrap().home;\n    let mut c = Controller::new(\n        p,\n        Tuning {\n            action_scale: 0.63,\n            ..Tuning::default()\n        },\n        SkillTuning {\n            skills: vec![skill],\n            ..SkillTuning::default()\n        },\n    );\n    let sensors = Sensors {\n        positions: home,\n        ..Default::default()\n    };\n    let command = Command::default();\n    let first = c.step(&sensors, &command, false, 0.02, 1.0).unwrap();\n    assert_eq!(first.label, \"walk\");\n    assert!(c.start_skill(0).unwrap());\n    for _ in 0..300 {\n        let step = c.step(&sensors, &command, false, 0.02, 1.0).unwrap();\n        assert_eq!(step.label, \"stand_test\");\n        assert_eq!(\n            c.active_model().unwrap().sha256,\n            \"a481d9f211f31d9476ab1a319fe362a21ef0879d9fa59442a122845af598268c\"\n        );\n        assert_eq!(c.applied_action_scale, Some(1.0));\n        assert_eq!(c.active_target_filters(), (1.0, 1.0));\n        let home = c.policy.contract(Net::Skill(0)).unwrap().home;\n        let offsets = Observation::scatter_action(&c.last_action);\n        for joint in 0..NUM_JOINTS {\n            assert!((step.targets[joint] - home[joint] - offsets[joint]).abs() < 1e-6);\n        }\n    }\n    // The native window advances after inference; floating-point accumulation\n    // can leave the last frame in the window. It must return within one tick."
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/controller-preparation-20261031/controller-source/fanhao375-Microduck-kissqy-27d7921/microduck-hd1910/firmware/duck-control/src/safety.rs",
+      "sha256": "b90ccfe5cc945d1dfe0d69cb6e5fb9e372d0f268a1787e35d0a48422c5fab7cf",
+      "excerpts": [
+        {
+          "start_line": 215,
+          "end_line": 240,
+          "text": "    }\n\n    pub fn held_joint_positions(&self) -> [Option<f64>; NUM_JOINTS] {\n        self.io.held_joint_positions()\n    }\n\n    pub fn fallen(&self) -> bool {\n        self.fallen\n    }\n\n    /// Power the joints, so the positions this writes can actually be held.\n    ///\n    /// Through here because [`Safety`] owns the only [`RobotIo`] handle — the same reason\n    /// [`Self::slow_sensors`] is a passthrough. Unlike that one this *does* affect the robot, so it\n    /// is worth being explicit about what it is and is not:\n    ///\n    ///  - It is called when a human enables the policy on a limp robot, once, not per tick.\n    ///  - It is **not** called at startup. A `robotd` restarted by an update must leave a standing\n    ///    robot standing, and nothing here changes that.\n    ///  - It does not bypass anything. Torque decides whether the motors hold what\n    ///    [`Self::apply`] writes; every clamp, the fall gate and the limp gain still apply to *what*\n    ///    gets written. A fallen robot with torque on is still commanded `hold` at `gain_limp`.\n    pub fn set_torque(&mut self, on: bool) -> Result<(), IoError> {\n        tracing::warn!(on, \"torque\");\n        self.io.set_torque(on)\n    }"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/使用说明.md",
+      "sha256": "b9fb32c65ca4f73d8e919112598195608937fa9733eac9518185f88cfb3215ad",
+      "excerpts": [
+        {
+          "start_line": 15,
+          "end_line": 26,
+          "text": "- 必须使用 HD1910/IMU 适配驱动和当前机械装配的标定。包内标定只作来源记录，不覆盖实机零点。\n- 齿隙仿真：`{\"enabled\": true, \"joint_count\": 14, \"ranges_rad\": {\"passive_left_hip_yaw_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_left_hip_roll_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_left_hip_pitch_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_left_knee_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_left_ankle_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_neck_pitch_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_head_pitch_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_head_yaw_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_head_roll_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_right_hip_yaw_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_right_hip_roll_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_right_hip_pitch_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_right_knee_backlash\": [-0.017453292519943295, 0.017453292519943295], \"passive_right_ankle_backlash\": [-0.017453292519943295, 0.017453292519943295]}, \"encoder_position\": \"motor + passive backlash\", \"motor_velocity\": \"motor-side for friction and back-EMF\", \"policy_joint_velocity\": \"motor + passive backlash\"}`。被动齿隙关节不作为ONNX动作导出，实机使用真实编码器反馈。\n- 行走老师与联合模型都放 walk 槽；只有联合模型包含相应的倒地恢复训练。起身老师不是另一套“原地保持”策略。\n- 捡取使用相位指令，坐站使用姿态标志；前滚翻和左右脚踢球使用官方一次动作窗口。仿真回合长度不等于固件触发窗口。\n- 本包通过模型格式和有限输出检查，不代表已经通过你的机器人实机步态验证。\n\n动作、观测顺序、实际 Home、BAM 参数及训练快照见 `deployment-contract.json`、`training-config.json` 和 `upstream-params/`。"
+        }
+      ]
+    },
+    {
+      "path": "training/logs/b-feetech-walk-20261024/runtime-package-review/Microduck-Robotd-FT6-R17/models/1cbf8730eadd75a5704332c9f3c10f60/upstream-params/env.yaml",
+      "sha256": "7dd666e4515ad91c1512ce2188152a34764830126dc0ede8145d768f851a6027",
+      "excerpts": [
+        {
+          "start_line": 1697,
+          "end_line": 1707,
+          "text": "  random_prone_init:\n    func: !!python/name:mjlab_microduck.tasks.mdp.maybe_set_random_prone_orientation ''\n    params:\n      prone_prob: 0.0\n      face_down_prob: 1.0\n      side_prob: 0.5\n      prone_z_min: 0.05\n      prone_z_max: 0.09\n      crouch_prob: 0.0\n    mode: reset\n    interval_range_s: null"
+        },
+        {
+          "start_line": 2638,
+          "end_line": 2648,
+          "text": "      - feet_ground_contact\n    time_out: false\n  fallen_too_long:\n    func: !!python/name:mjlab_microduck.tasks.mdp.fallen_too_long ''\n    params:\n      gate_z_below: 0.08\n      gate_tilt_above_deg: 40.0\n      max_duration_s: 8.0\n    time_out: false\ncommands:\n  twist:"
+        },
+        {
+          "start_line": 2805,
+          "end_line": 2887,
+          "text": "        weight: 3.0\n  fell_over_disable:\n    func: !!python/name:mjlab_microduck.tasks.mdp.termination_param_curriculum ''\n    params:\n      term_name: fell_over\n      param_stages:\n      - step: 0\n        params:\n          limit_angle: 1.2217304763960306\n      - step: 3840\n        params:\n          limit_angle: 3.141592653589793\n  prone_init_prob:\n    func: !!python/name:mjlab_microduck.tasks.mdp.event_param_curriculum ''\n    params:\n      event_name: random_prone_init\n      param_stages:\n      - step: 0\n        params:\n          prone_prob: 0.0\n          face_down_prob: 1.0\n          side_prob: 0.5\n          crouch_prob: 0.0\n      - step: 5760\n        params:\n          prone_prob: 0.0\n          face_down_prob: 1.0\n          side_prob: 0.5\n          crouch_prob: 0.2\n      - step: 26880\n        params:\n          prone_prob: 0.15\n          face_down_prob: 0.8\n          side_prob: 0.5\n          crouch_prob: 0.2\n      - step: 38400\n        params:\n          prone_prob: 0.3\n          face_down_prob: 0.65\n          side_prob: 0.5\n          crouch_prob: 0.2\n      - step: 53760\n        params:\n          prone_prob: 0.45\n          face_down_prob: 0.5\n          side_prob: 0.5\n          crouch_prob: 0.2\n  fallen_tax_weight:\n    func: *id010\n    params:\n      reward_name: fallen_tax\n      weight_stages:\n      - step: 0\n        weight: 0.0\n      - step: 23040\n        weight: -0.5\n  recovery_success_weight:\n    func: *id010\n    params:\n      reward_name: recovery_success\n      weight_stages:\n      - step: 0\n        weight: 0.0\n      - step: 23040\n        weight: 10.0\n  topple_push_range:\n    func: !!python/name:mjlab_microduck.tasks.mdp.push_curriculum ''\n    params:\n      event_name: topple_push\n      push_stages:\n      - step: 0\n        velocity_range:\n          x: !!python/tuple\n          - -0.3\n          - 0.3\n          y: !!python/tuple\n          - -0.3\n          - 0.3\n      - step: 3840\n        velocity_range:\n          x: !!python/tuple\n          - -0.6\n          - 0.6"
+        }
+      ]
+    }
+  ],
+  "deployed_studio_source": [
+    {
+      "source_snapshot": "docs/references/b-feetech-policy-deployment-20261024/webpad-models-snapshot-20261101.json",
+      "path": "/home/radxa/studio-dev/studio/pad_drive.py",
+      "recorded_sha256": "4b73042ee7ea7b5c17de260c9f6a33439e4412e04863161134229ec35ac2b78f",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 15,
+          "text": "\"\"\"手柄页里「让鸭子动」的部分：谁在开（方向盘）、网页手柄（图上的键、摇杆）、站起来 / 开始走 / 坐下、技能、声音、\n动作和组合动作。\n\nPadOps（pad.py）继承这个类，共用锁、robotd 回读、日志。这里的规矩（安全优先）：\n- **方向盘**（审查 19、25）：推摇杆、按住扳机 / X、做动作的页面拿方向盘；别的页面要点「接管」才能抢。拿着的页面 6 秒\n  没推摇杆、没说「还按着」就自动松开（只开着手柄页不算：watch、drive open 都不续方向盘，审查二 I1、三 V5）。一次性的\n  命令（站、走、坐、技能、叫）不拿方向盘；别人正在推摇杆时不让点（「停下（站好）」除外，谁都能点、不排队）。\n- **页面在不在手柄区**（三 V5；总览重排审查 O1：手柄并进了总览，「在」= 路由是 / 或 /pad、页面可见、手柄那一块在\n  视口里）：进来发 drive {open, seq}，离开发 drive {on:false, seq}，seq 是页面的递增序号，按连接记最后一个，比它旧的丢掉\n  （线程池里会乱序）。离开的连接记进 closed：之后晚到的摇杆、按键、动作一律丢；再 open 才解开。**新连接一开始就在 closed\n  里**（new_conn），没发过 open 不算在。**断开的连接（gone）永远拿不回**：open 遇到 gone 直接拒。\n- **摇杆按住才动**：页面按住时 10 Hz 发 sticks（或旧的 move），松手发一次 stop；服务端不替页面重复发（断了靠 robotd 的\n  deadman 500 ms：duck-control safety.rs:226-237）。序号按连接存、换方向盘也不清；比这个连接最后一次 stop 旧的帧一律丢\n  （屏障三个通道共用）；「最新的那一帧」按通道分（move / head / body，三 V6）。检查和发送在同一把锁里。\n- **头、身体是锁存的**（三 V1）：robot.head、robot.pose 在 robotd 里都不过期（fork robotd intents.rs:327-341），"
+        },
+        {
+          "start_line": 85,
+          "end_line": 92,
+          "text": "HEAD_CHOICES = (0.5, 1.0, 2.5)   # --input-settings 文件里 head_rad 只认这三个（fork padd/src/input_settings.rs:16-21）\nBODY_Z_UP, BODY_Z_DOWN, BODY_ANGLE = 0.010, 0.025, 0.2618   # 身体模式满杆（fork padd:316-320）\nBODY_TRAIN_ANGLE = 0.26   # 训练范围 roll / pitch ±0.26 rad、z −0.025..+0.010 m（fork lib.rs:2320-2325）：发之前夹到这里\nDEADZONE = 0.1            # 摇杆死区，每个轴单独算、不重新缩放（fork padd:184-187、1342-1349）\nLEASE_S = 6.0             # 拿着方向盘的页面这么久没推摇杆、没说「还按着」：松开\nRELAX_GUARD_S = 2.0\nHOLD_S = 0.45             # 动作按住时页面每 0.15 秒说一次「还按着」；这么久没说就停\nKEYS_HOLD_S = 0.45        # 按住的键（LT / RT）：页面每 0.15 秒报一次，这么久没报当松开（三 V4）"
+        },
+        {
+          "start_line": 1591,
+          "end_line": 1608,
+          "text": "        # 技能\n        need_drive = None\n        if block:\n            need_drive = block\n        elif pose not in DRIVING:\n            need_drive = \"要「准备好走」（策略在跑）才能做：先点「开始走」\" if pose == \"holding\" else \\\n                f\"现在{POSTURE_CN.get(pose, pose)}：先站起来、点「开始走」\"\n        elif sitting is None:\n            need_drive = NO_SIT_INFO\n        elif sitting:\n            need_drive = \"坐着：先站起来\"\n        elif homed is False:\n            need_drive = \"它还在回站姿，等一秒\"\n        skills = []\n        for name in [n for n in (known or []) if n != \"sit_toggle\"]:\n            why = self._skill_why(name, need_drive, known, pol)\n            skills.append({\"name\": name, \"label\": C.SKILL_CN.get(name, name), \"ok\": why is None, \"why\": why})\n        skills_why = None if known is not None else \"读不到这只鸭子有哪些技能（robot.policies 只在运动模式下问）\""
+        },
+        {
+          "start_line": 1749,
+          "end_line": 1758,
+          "text": "    def _motion_cmd(self, op, args, conn, by, label=None):  # noqa: C901\n        \"\"\"一次性的命令：不拿方向盘（审查二 I1）。别人正在推摇杆时不让点（停下、叫一声除外）；一次只发一个\n        （停下、叫一声除外：声音不动关节，不占「上一个还没回话」，三 V15）。label：网页手柄图上按的，日志里写「网页手柄 A → …」。\"\"\"\n        now = self.clock()\n        what = {\"stand\": \"站起来\", \"walk\": \"开始走\", \"walk_stop\": \"停下（站好）\", \"sit\": \"坐下\"}.get(op)\n        urgent = op == \"walk_stop\"\n        exclusive = op not in (\"walk_stop\", \"sound\")\n        with self._lk:\n            if not self.motion_studio.request_current():\n                return {\"dropped\": \"动作会话已经改变，旧命令请求已丢弃\"}"
+        },
+        {
+          "start_line": 1817,
+          "end_line": 1824,
+          "text": "                    self._cancel_wait(0.05)\n                r = self._call(what, \"robot.enable\", {\"on\": False, \"toggle\": False}, by, ctx)\n            elif op == \"sit\":\n                r = self._call(what, \"robot.do\", {\"skill\": \"sit_toggle\"}, by, ctx, posture_target=\"sit\")\n            elif op == \"skill\":\n                r = self._call(what, \"robot.do\", {\"skill\": args.get(\"name\")}, by, ctx)\n            else:\n                r = self._call(what, \"robot.sound\", {\"tag\": args.get(\"tag\")}, by, ctx)"
+        }
+      ]
+    },
+    {
+      "source_snapshot": "docs/references/b-feetech-policy-deployment-20261024/webpad-models-snapshot-20261101.json",
+      "path": "/home/radxa/studio-dev/studio/pad.py",
+      "recorded_sha256": "795ef360dee481cf9e729e06d3f6229129ab1a8cee3a8101df8b03d15c7c7bd4",
+      "excerpts": [
+        {
+          "start_line": 50,
+          "end_line": 54,
+          "text": "CONNECT_WAIT_S = 10\nPADD_WAIT_S = 30          # 真机上内核出输入设备大约在配好以后 15 秒，留一倍余量\nPAD_PAIR_TIMEOUT_S = 60   # 小助手跑官方 robotctl pad pair 的 timeout（10–120）\nWATCH_LEASE_S = 6.0       # 页面每 2 秒说一次「我在看」，6 秒没说就当没人看\nKEYS_NEED = 4             # 按键测试：按过 4 个不同的键、两个摇杆都推过，就算完成"
+        },
+        {
+          "start_line": 562,
+          "end_line": 575,
+          "text": "            return self._start(args, conn, by)\n        if op == \"key\":\n            return self._key_press(args, conn, by)\n        if op == \"reboot\":\n            return self._reboot(args, conn, by)\n        if op == \"drive_mode\":\n            return self._drive_mode(args, conn, by)\n        if op in (\"stand\", \"walk\", \"walk_stop\", \"sit\", \"skill\", \"sound\"):\n            return self._motion_cmd(op, args, conn, by)\n        if op == \"action_start\":\n            return self._action_start(args, conn, by)\n        if op == \"action_hold\":\n            return self._action_hold(conn, args.get(\"press\"))\n        if op == \"action_stop\":"
+        }
+      ]
+    },
+    {
+      "source_snapshot": "docs/references/b-feetech-policy-deployment-20261024/webpad-models-snapshot-20261101.json",
+      "path": "/home/radxa/studio-dev/web/pad.js",
+      "recorded_sha256": "15ad7f5bf0ba8a4004e3d328b1cdf004f2fcc055dc3126e720f648e09580fb5e",
+      "excerpts": [
+        {
+          "start_line": 32,
+          "end_line": 39,
+          "text": "import { PadMapping } from './pad-mapping.js';\nimport { AudioInteraction } from './audio-interaction.js';\n\nconst SEND_MS = 100;        // 摇杆按住时每秒发 10 次；松手发一次 0，鸭子 0.5 秒收不到也会自己停（robotd 的 deadman）\nconst WATCH_MS = 2000;\nconst HOLD_MS = 150;        // 动作 / 按住的键每 0.15 秒说一次「还按着」；后端 0.45 秒没听到就停\nconst MODE_HB_MS = 1000;    // 头 / 身体模式每秒报一次「还在」\nconst MODE_GRACE_MS = 800;  // 刚按了 Y / B：这么久以内以页面自己的为准（后端的快照还没跟上）"
+        },
+        {
+          "start_line": 1286,
+          "end_line": 1304,
+          "text": "  }, []);\n\n  // 告诉后端「有人在看手柄这一块」：后端这时才订阅 padd 旁路（订阅了 padd 才打开手柄设备，平时不花钱）。\n  // 要连续在屏幕上 0.3 秒才开（一划而过别开旁路：审查 O1）；断线重连后马上补一次\n  useEffect(() => {\n    let since = ACT.active ? performance.now() : null;\n    let t0 = null;\n    const tick = () => {\n      if (ACT.active && since != null && performance.now() - since >= WATCH_SETTLE_MS) link.cmd('pad.op', { op: 'watch' }, 3000);\n    };\n    const arm = () => { clearTimeout(t0); t0 = setTimeout(tick, WATCH_SETTLE_MS + 20); };\n    const offAct = padActivity.subscribe(({ active, changed }) => {\n      if (!changed) return;\n      if (active) { since = performance.now(); arm(); } else { since = null; clearTimeout(t0); }\n    });\n    if (since != null) arm();\n    const iv = setInterval(tick, WATCH_MS);\n    const offLink = link.on((m) => { if (m.t === '_status' && m.status === 'open') arm(); });\n    return () => { offAct(); offLink(); clearInterval(iv); clearTimeout(t0); };"
+        }
+      ]
+    }
+  ],
+  "web_attempt": {
+    "url": "https://github.com/fanhao375/Microduck-kissqy",
+    "result": "web tool returned no readable body; not used as evidence"
+  },
+  "limits": [
+    "Training config and metadata are not real robot getup validation.",
+    "Legacy stand_test is retired; retained tests are teacher fixtures.",
+    "Current physical robot posture is not measured by this extraction."
+  ]
+}

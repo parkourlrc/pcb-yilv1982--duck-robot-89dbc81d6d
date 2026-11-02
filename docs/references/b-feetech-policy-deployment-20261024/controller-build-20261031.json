@@ -1,0 +1,26 @@
+{
+  "source_commit": "27d7921dbcb280bd7d6ba3e9937624f1e2e61d23",
+  "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+  "target": "aarch64-unknown-linux-gnu.2.31",
+  "rust": "1.99.0",
+  "cargo_zigbuild": "0.23.4",
+  "zig": "0.15.1",
+  "glibc_max_symbol": "2.30",
+  "patch_sha256": "74829eb519036d57a5c311f5082990e84868ca31db63145f9da02d507642d31d",
+  "binaries": {
+    "robotd": {
+      "sha256": "9f9fa71723339b80f97d7be065dec04855bb0d31a3ed7c5978e8605c22db3e5b",
+      "bytes": 7243832
+    },
+    "robotctl": {
+      "sha256": "f025e343fbcc44ff013dbd1a6ab4cefefd137e8453eedf12614214a2c521b649",
+      "bytes": 4456192
+    }
+  },
+  "patch_replay": {
+    "autocrlf": false,
+    "exact_file_hash_matches": 4,
+    "files": 4
+  },
+  "hardware_test": "board-v03-read-only-20261031.json"
+}

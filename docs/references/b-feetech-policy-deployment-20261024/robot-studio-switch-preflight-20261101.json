@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-01",
+  "request": "关闭 servo-web，启动 robotd 和 Studio",
+  "before": {
+    "servo_web": "active",
+    "robotd": "inactive",
+    "studio": "inactive",
+    "servo_torque": {
+      "20": 1,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "24": 1,
+      "30": 1,
+      "31": 1,
+      "32": 1,
+      "33": 1,
+      "34": 1,
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 1,
+      "14": 1
+    }
+  },
+  "configured_mode": "--commissioning",
+  "startup_source": "fixed control.47 robotd/src/feetech_commissioning.rs: run -> torque_off before identify_imu",
+  "status": "awaiting current support confirmation; services unchanged",
+  "planned_actions": [
+    "stop user duck-servo-web.service",
+    "start robotd.service",
+    "start microduck-studio.service",
+    "read back busStatus and HTTP 8000; no model or hold-home command"
+  ],
+  "service_enablement_changes": false
+}

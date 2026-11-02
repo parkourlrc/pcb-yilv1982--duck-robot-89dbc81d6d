@@ -1,20 +1,27 @@
 # BOM 采购清单（当前路线：C · 飞特）
 
+> **2026-11-01 替换板已到货／换装**：[用户确认] 新单 3P 口 IMU 已到货并换上。[实测] 主机通信已回滚为 IMU＋15 舵机同组 SYNC_READ；servo-web 30 秒 296/296 帧舵机完整、IMU 约 9.9 Hz，0 超时/坏校验/错 ID。robotd 已恢复原版；只读验收后已按用户要求切回 robotd/Studio（运行中），servo-web 已停止；此前助手只做过新板只读验收；此前两页站姿零位差已修正，用户已正式写入标定；模型已加载，用户已尝试动作，摔倒及恢复异常见最新排障记录。 新批次、价格未核；旧单口板损伤及双口 v0.3 库存分别保留。见[记录](docs/references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。
+
+> **2026-10-31 [用户确认]：硬件部分已完成。** 当前推进[已训练模型与真机接入准备](docs/references/b-feetech-policy-deployment-20261024/research.md)。下方物料数量/版本和旧测试记录用于追溯，不把历史未勾选项自动转成新增采购或重复硬件前置任务；维修经过和逐项参数未在本轮补测。
+
 > **2026-10-10 重写**：2026-10-09 路线定稿「主参考 = community-kit 飞特路线」（HD-1910-C001 + HAT + imu_to_dxl 总线从站，见 [PROGRESS](./PROGRESS.md)「方案方向」）。本文件替换原根目录 A 线清单（XL330 + OpenRB + Pi Zero，2026-09-28 编写），A 线清单原样存档于 [docs/bom-route-a-20260928.md](./docs/bom-route-a-20260928.md)——仅当回退 A 线时使用。
 >
-> 状态口径：`[x]` 到货并登记 · `[~]` 在途/已下单 · `[ ]` 未购或待定。供电口径按 [docs/power-architecture-v2.md](./docs/power-architecture-v2.md)：电池直通是设计动力母线，舵机、HAT 与**当前 IMU 板②**使用总线原电压，主控 5V 由 HAT 转换；**板①不得套用板②输入规格**，见 [flash/README](./flash/README.md)。
+> 状态口径：`[x]` 到货并登记 · `[~]` 在途/已下单 · `[ ]` 未购或待定。供电按 [v2 架构](docs/power-architecture-v2.md) 与实际板型区分：主控 5V 由 HAT 转换；2026-11-01 新单口板已换装，本轮没有变更供电或刷固件。下列旧 GD32 与 v0.3 参数仅适用于所标版本，新批次不能只按外形套用。
 
 > **当前执行决定（2026-10-12 更新）**：按 v2 推进，先做[基础测试](./docs/hat-v1.2-test.md)，实际问题再排查。暂不为理论风险新增 dxl_hub、独立动力配电或电子保护板采购；**不先购买独立主保险**，先核实已到货电池自身的短路/过流保护规格：若该保护足以保护外部取电线束，则不另加保险；若缺失或无法确认，再评估外置保险。正常整机不加入微雪板和独立稳压板。
 
 ## 核心件
 
+**2026-10-27 HAT 损伤历史**：用户拆下 R31 并在短接尝试中使两侧焊盘脱落。2026-10-31 已确认硬件完成，不再将该旧条目列为当前待修阻断；具体维修/替换经过尚未补齐，见[原始记录](docs/references/pcb-pad-repair-20261027/research.md)。
+
 | 状态 | 物料 | 数量 | 用途 | 状态说明 |
 | :---: | :--- | :---: | :--- | :--- |
-| [x] | 飞特舵机 HD-1910-C001 | 15（含嘴） | 关节 | 2026-10-17 已逐颗完成 ID 初始化（10–14 / 20–24 / 30–34）；机械零位尚未校准，见[装配与 CAL 调研](./docs/references/assembly-check-20261017/research.md)。另有一颗“嫌疑坏”舵机隔离，不计入装机批 |
-| [x] | 白色鸭图案 HAT | 1 | 主控适配 + 总线物理层（74LVC 半双工 + UART2/ttyS2） | 实物丝印 **V1.2**（10-10 照片确认）；存档原理图为 V1.0，图物有差异（背面多 MCU 类器件；圆柱电容不再认作超级电容），**V1.2 图纸待向板卡来源索取**；[共总线复核](./docs/references/hat-imu-shared-bus-20261027/research.md)发现 V1.0 DATA 串阻 1 kΩ、官方对应 150 Ω。2026-10-27 **[用户转述] ScrapMeta 建议圈选电阻非 0Ω 时更换或短接**；用户已确认圈选件为 HAT R31；实装阻值待核，尚未实施或验证效果，未新增采购，见[作者建议与检索](./docs/references/hat-imu-shared-bus-20261027/research.md#author-bug-search-20261027) |
-| [x] | IMU 板② imu_to_dxl（jyg9 GD32 单 3P 成品版，**整机优先**，当前使用） | 1 | 姿态总线从站（ID 200，双协议免刷） | 2026-10-14 照片判别 + 2026-10-26 官方 0.2 BOM/原理图析毕：GD32F303 + ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压），5V 必不启动（不损坏）**，7.4~8.4V 正常直挂链末；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；电源正极无保险，反接必烧（见 [电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。2026-10-25 晚移至 HAT 第二个 3P 口后短测 0/60、完整交错 2/360 仍严重缺答；**2026-10-27 支路 A/B：舵机接入时只查 IMU 6/475，拔支路后 500/500**；优先核 HAT V1.2 DATA 串阻及多节点电气交互，见[共总线分析](./docs/references/hat-imu-shared-bus-20261027/research.md)，H1 日志保留为需确认构建开关的后备项；此前微雪台架连独立舵机也无字节，不能据此判 IMU 坏，HAT 旧接法有自然请求 CRC 错误；远端真机丢包诊断与验证工作单另见 [imu-fw-v1-code-analysis-20261026](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)。此前回读镜像 **1.5.1 / CRC32 0xD9CA0DEF**，与官方包构建指纹未匹配，不等于 Flash 损坏。见[换口记录](./docs/references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)与[版本研究](./docs/references/imu-to-dxl-variants-20261009/research.md)。备件缺口保留，是否补购另行决定，不把换板作为已验证修复 |
-| [x] | ~~IMU 板① imu_to_dxl v0.3（备件）~~ **2026-10-25 测量短接致损** | 1 | ~~备用姿态总线从站~~ | ScrapMeta microduck-diy / STM32G031 双 3P 版；**2026-10-25 在 7.4V 分支上测电压时表笔短接烧损（用户确认；"过压烧毁"未证实，5V 供电红线继续按上游设计执行）**，若仅 LDO 损坏可换 AP2210K-3.3 修复；修复后再按 J2 焊接 → DAPLink 刷机 → imu200 验收（[flash/README](./flash/README.md) 固件包已备），实物料号/输入规格待核。flash/ 固件与刷机资料保留 |
-| [~] | imu_to_dxl v0.3 板（PCB+SMT 一体） | 5 | 板①补板/备件 | 裸板单 85849959 用户已取消（未支付）；改走 **PCB+SMT 一体单**（2026-10-25 定向，EDA 一键下单/JLC 网页，金额以订单页为准）：贴 19 个贴片件（含 J2 调试座），J1/J3 EH 插件到货自焊，Y1/C7/C8 维持 DNP。Gerber/BOM/CPL 三件套见[生产文件](./docs/schematics/imu-to-dxl-scrapmeta-v0.3/production/)，下单调研见 [imu-v03-jlc-order-20261025](./docs/references/imu-v03-jlc-order-20261025/research.md)。到货刷机按 [flash/README](./flash/README.md) |
+| [x] | 单 3P 口 IMU 替换板（用户称旧板同款；厂商/新批次待核） | 1 | 当前装机姿态从站 | 2026-11-01 用户确认已换上；软件身份 `06 00 00 00 f2` / ft6，原出厂固件。servo-web 混合 SYNC_READ 只读通过；用户反馈 Studio 两页站姿不同后，主程序零位已对齐 2048 并回读通过，用户随后正式标定完成并有站姿保持回读；新板历史 ID 200 缺答记录保留，用户已尝试模型动作，摔倒及恢复异常待查、价格未核 |
+| [x] | 飞特舵机 HD-1910-C001 | 15（含嘴） | 关节 | 2026-10-17 完成 ID 初始化，10-24 改号对齐上游；10-31 用户确认硬件完成。11-01 核对 Studio 已有 15 颗中位校准记录，经用户批准将 robotd 的参考机零位替换为 2048，其他标定与保护保留，本次未写 EEPROM、未试动作；见[零位修正](docs/references/b-feetech-policy-deployment-20261024/studio-home-target-mismatch-20261101.md)。历史方法见[装配与 CAL 调研](./docs/references/assembly-check-20261017/research.md)。另有一颗“嫌疑坏”舵机隔离，不计入装机批 |
+| [x] | 白色鸭图案 HAT | 1 | 主控适配 + 总线物理层（74LVC 半双工 + UART2/ttyS2） | 实物丝印 **V1.2**（10-10 照片确认）；存档原理图为 V1.0，图物有差异（背面多 MCU 类器件；圆柱电容不再认作超级电容），**V1.2 图纸待向板卡来源索取**；2026-10-27 [共总线复核](./docs/references/hat-imu-shared-bus-20261027/research.md)发现 V1.0 DATA 串阻 1 kΩ、官方对应 150 Ω；V1.2 实装待核。10-27 [用户转述] ScrapMeta 曾建议圈选电阻非 0Ω 时更换或短接，用户确认圈选件为 HAT R31；后续拆除时焊盘损伤已另行归档，不能将早期建议当作现行施工指令；见[作者记录](docs/references/hat-imu-shared-bus-20261027/research.md#author-bug-search-20261027) |
+| [x] | IMU 板② imu_to_dxl（jyg9 GD32 单 3P 成品版，**2026-10-31 已下线**） | 1 | 姿态总线从站（ID 200，双协议免刷） | 2026-10-14 照片判别 + 2026-10-26 官方 0.2 BOM/原理图析毕：GD32F303 + ETA2845S2G，**≥6.5V 冷启动 / ≈5.93V 维持（EN 分压），5V 必不启动（不损坏）**，7.4~8.4V 正常直挂链末；EH 座针序 1=GND 2=V+ 3=DATA 图纸确认；电源正极无保险，反接必烧（见 [电源分析](./docs/references/imu-jyg9-power-5v-20261026/research.md)）。2026-10-25 晚移至 HAT 第二个 3P 口后短测 0/60、完整交错 2/360 仍严重缺答；**2026-10-27 支路 A/B：舵机接入时只查 IMU 6/475，拔支路后 500/500**；示波器已于 2026-11-01 确认 SDS814X HD 到货并接入 USB，USB PnP 已正常，暂停前仪器通信尚未验收；以下为 10-27 历史排障，用户已断电、拔掉全部外接线在板测得 IMU R31=100kΩ、R5=51Ω、F1=25Ω；R31/R5 与公开修订值一致，暂不改阻，撤回孤立测阻；用户当时决定到货后先抓请求/RX/TX/回程波形（现行 v0.3 采集见根因任务），借板替换降为后备；IMU/HAT 动态交互仍未排除；见[共总线分析](./docs/references/hat-imu-shared-bus-20261027/research.md)，H1 日志保留为需确认构建开关的后备项；此前微雪台架连独立舵机也无字节，不能据此判 IMU 坏，HAT 旧接法有自然请求 CRC 错误；远端真机丢包诊断与验证工作单另见 [imu-fw-v1-code-analysis-20261026](./docs/references/imu-fw-v1-code-analysis-20261026/research.md)。此前回读镜像 **1.5.1 / CRC32 0xD9CA0DEF**，与官方包构建指纹未匹配，不等于 Flash 损坏。见[换口记录](./docs/references/servo-web-imu-3d-20261024/research.md#hat-port2-20261025)与[版本研究](./docs/references/imu-to-dxl-variants-20261009/research.md)。2026-10-31 已由新制 v0.3 替换；2026-11-01 用户补充旧单口板此前可用，后来人为损坏一颗电阻，现已损坏，位号/时间未核；上述历史缺答原因不据此全部归因。用户已换上新单口板，见新增替换板行 |
+| [x] | ~~IMU 板① imu_to_dxl v0.3（备件）~~ **2026-10-25 测量短接致损** | 1 | ~~备用姿态总线从站~~ | ScrapMeta microduck-diy / STM32G031 双 3P 版；**2026-10-25 在 7.4V 分支上测电压时表笔短接烧损（用户确认；2026-10-31 原厂复核已撤回“5.5V 上限/7.4V 超限”说法）**，若仅 LDO 损坏可换 AP2210K-3.3 修复；修复后再按 J2 焊接 → DAPLink 刷机 → imu200 验收（[flash/README](./flash/README.md) 固件包已备），实物料号/输入规格待核。flash/ 固件与刷机资料保留 |
+| [x] | imu_to_dxl v0.3 板（PCB+SMT 一体，已到货） | 5（订单数，余板状态未逐片登记） | 新制在用板/备件 | **2026-10-30/31 到货，至少 1 块 J1/J3 自焊、烧录 0.2.0 后上线替换板②**；用户确认 DATA/GND 不变，7.4V 正常；pin4 5V 时主控无法启动，DAPLink 5V 时 IMU 无 PING 且未接 DAPLink 自身 GND；两个故障分开分析，见[原厂复核](./docs/references/imu-v03-input-voltage-20261031/research.md)。以下为下单历史： 裸板单 85849959 用户已取消（未支付）；改走 **PCB+SMT 一体单**（2026-10-25 定向，EDA 一键下单/JLC 网页，金额以订单页为准）：贴 19 个贴片件（含 J2 调试座），J1/J3 EH 插件到货自焊，Y1/C7/C8 维持 DNP。Gerber/BOM/CPL 三件套见[生产文件](./docs/schematics/imu-to-dxl-scrapmeta-v0.3/production/)，下单调研见 [imu-v03-jlc-order-20261025](./docs/references/imu-v03-jlc-order-20261025/research.md)。到货刷机按 [flash/README](./flash/README.md) |
 | [x] | BUS SERVO POWER SUPPLY V1.3 降压板 | 1 | **可选**转接件：XT60 ↔ 螺丝端子 | 空载实测完成（6V 档/下限 ≈6.3V/直通可用）。架构 v2 后**降为可选**：VCC 稳压口闲置不动，拿掉它则自制线直连 HAT |
 | [x] | 微雪 Bus Servo Adapter (A) | 1 | 半双工总线转接（台架调试） | 2026-10-25 COM4、B 模式、外部 7.4V 下同口独立舵机 PING 仍全无字节，未证明正常；2026-10-26 主排障回到 HAT，微雪留独立支线，不重复扫描。USB 只供逻辑、3P V 取外部 DC。见[接入舵机记录](./docs/references/servo-web-imu-3d-20261024/research.md#waveshare-servo-ping-20261025)。无需因此加入整机 |
 | [~] | banana_pcb ×5 | 5 | 电池触点取电转接 | 订单 85078132，2026-10-12 到货；装配：焊 U6068（已到）→ locker 打印 → 核极性 → 主控支路验证 |
@@ -43,7 +50,9 @@
 | [x] | 无头电子线 | banana_pcb 拆电池焊接出线备选；线径须按 3-5A 核对 |
 | [x] | 电烙铁 + 焊锡/助焊剂 | IMU J2 焊接、banana_pcb 装配 |
 
-## 工具（已到位）
+## 工具（到位与在途）
+
+- [x] **示波器：鼎阳 SDS814X HD，2026-11-01 用户确认到货，USB 枚举型号已核对。** 厂家型号规格为 4 模拟通道／100 MHz；13:59 USB PnP 已恢复正常，暂停前 VISA 仍在安装、仪器查询尚未通过；尚未采波形，用户已确认探头未接。用于 IMU 请求／TX／回程定位，见[当前连接与测点记录](./docs/references/b-feetech-policy-deployment-20261024/root-cause-investigation-20261101.md)及[厂家规格来源](./docs/references/hat-imu-shared-bus-20261027/oscilloscope-sources-20261027.json)。
 
 万用表（10-09 到货）、直流电源、电烙铁——照片与用法存档见 [docs/photos/](./docs/photos/README.md)。
 
@@ -57,10 +66,10 @@
 
 ## 安全边界速记（C 线，按架构 v2）
 
-- **当前实物描述（2026-10-27，未作本轮验载）**：IMU 与舵机链分占 HAT 两个 3P 口，舵机支路接入触发 IMU 严重缺答、拔除恢复；分组实验以 PROGRESS 为准。动力入口与端点电压未由本次图纸复核重测，不能由 3P 插拔直接排除供电/地。见[原理图分析](./docs/references/hat-imu-shared-bus-20261027/research.md)；旧接线图仍为历史意向。
+- **旧单口板实物描述（2026-10-27，现已下线）**：IMU 与舵机链分占 HAT 两个 3P 口，舵机支路接入触发 IMU 严重缺答、拔除恢复；分组实验以 PROGRESS 为准。动力入口与端点电压未由本次图纸复核重测，不能由 3P 插拔直接排除供电/地。见[原理图分析](./docs/references/hat-imu-shared-bus-20261027/research.md)；旧接线图仍为历史意向。
 - **可省去的是独立模块；电池保护须闭环，但不预设要额外装保险**：HAT 电源/通信通过后微雪板与独立稳压板无需进入整机；取电板、适配线和匹配充电器仍需。电池内置保护足够时可不加外置主保险；依据尚未核实前，不使用电池进行整机供电。
 - **EH 座待核**：当前资料约 3A，社区常态 3–5A 不是本机波形，不能据此断言瞬时堵转会烧 HAT。先核实实际额定、电流及持续时间；确有不满足再改配电，不能靠 5A 保险或简单两口并接解决。
-- **电压分工**：舵机/当前 IMU 板②按总线电源工作，主控由 HAT 提供 5V；板②有自身降压前端。板①的 U3/AP2210K 仅属于 ScrapMeta 设计，不能写成当前板②器件。禁止电池原压接 DATA、J2 的 3V3 或 40P 的 5V。
+- **电压分工**：主控由 HAT 提供 5V，舵机接总线动力电源；新单口板本轮沿用已装接法，未做供电改动或核准其批次参数。已搁置 v0.3 的 AP2210 和旧 GD32 的降压前端分别属于对应历史板型，不能套给新板；禁止电池原压接 DATA、3V3 或 40P 的 5V。
 - **针序与上电**：两口同网需在 V1.2 实物核验；原理图 pin 编号不能直接当照片上下位置。先台架分板验证，再单节点，最后在核准额定内分级负载测试，不做整机堵转。
 - **主控对插**：断电、核方向、防错位；未核准防倒灌前不同时 USB/HAT 供电。
 - **舵机保护先读回**：C001 厂商规格注明过流卸载出厂默认关闭，社区工具初始化默认亦关闭。用户实物 19/28/38 及模式需核验，不能假定堵转立即断电；见[风险核查](./docs/references/stall-hat-risk-20261010/research.md)。

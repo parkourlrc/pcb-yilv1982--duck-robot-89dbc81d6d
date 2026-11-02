@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-11-01T02:49:10.227841+00:00",
+  "config_sha256": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+  "policy_enabled": false,
+  "config_paths": {},
+  "bus_held": false,
+  "servo_web_unit": "# /home/radxa/.config/systemd/user/duck-servo-web.service\n[Unit]\nDescription=duck servo-web 舵机调试台（常驻监控落盘；崩溃自动重启）\nAfter=network.target\n\n[Service]\nWorkingDirectory=%h/servo-web\nExecStart=/usr/bin/python3 %h/servo-web/server.py --port /dev/ttyS2 --host 0.0.0.0 --http-port 8080 --imu-bus\nRestart=always\nRestartSec=3\n\n[Install]\nWantedBy=default.target\n"
+}

@@ -1,7 +1,9 @@
 # imu_to_dxl v0.3（ScrapMeta）— 原理图存档
 
+> **2026-10-31 电压勘误**：已取得原厂 AP2210 DS37517 Rev.4-2，第 4/11/12 页核实 VIN/EN 推荐上限 13.2V、绝对最大 15V；旧“7.4V 超限”判断撤回。新 PCB+SMT 板已上线，旧 10-25 损伤板仍损伤。两路 5V 接法失败的原因尚未唯一定位，见[本次分析](../../references/imu-v03-input-voltage-20261031/research.md)。
+
 - **板上丝印**：`imu-to-dxl v0.3`，板框 32×22 mm，四角 φ2.2 孔距 29×19
-- **器件**：STM32G031F8P6（TSSOP-20）+ LSM6DSV16X（SPI，SFLP）+ SN74LVC1G125 半双工缓冲 + AP2210K-3.3（**输入上限 5.5V，只能 5V 供电**）
+- **器件**：STM32G031F8P6（TSSOP-20）+ LSM6DSV16X（SPI，SFLP）+ SN74LVC1G125 半双工缓冲 + AP2210K-3.3（**VIN/EN 推荐上限 13.2V、绝对最大 15V；3.3V 版的 5V/7.4V 输入均在手册工作范围内**，不是整板全工况验收）
 - **连接器**：J1/J3 = B3B-EH-A（总线，1=GND 2=VBATT 3=DATA）；J2 = BM07B-SRSS-TB（调试 7P：3V3/CLK/DIO/GND/TX/RX/RST）
 
 ## 文件
@@ -19,7 +21,7 @@
 | **`production/imu_to_dxl_v03_cpl_raw_20261025.xlsx`** | **坐标文件原件**：EDA 导出，24 行（含 3 个 DNP：C7/C8/Y1；2 个插件：J1/J3） |
 | **`production/imu_to_dxl_v03_cpl_jlc_20261025.csv`** | **JLC 贴片用清理版 CPL**：19 贴片件（Designator/Mid X/Mid Y/Layer/Rotation），与 BOM 一致，供 PCB+SMT 一体单上传 |
 
-两页图页共同确认的要点：标题栏写明 `DXL 2.0 · ID 200 · sync_read @124`（原设计是 Dynamixel 版，上飞特总线需刷 replica 0.2.0 固件，见 `flash/`）；VBATT → U3 AP2210K-3.3 直连（**5V 供电上限**）；LSE 32.768kHz 晶振为可选件（Y1）。
+两页图页共同确认的要点：标题栏写明 `DXL 2.0 · ID 200 · sync_read @124`（原设计是 Dynamixel 版，上飞特总线需刷 replica 0.2.0 固件，见 `flash/`）；VBATT → U3 AP2210K-3.3 直连（**不存在 5V/5.5V 的该 LDO 输入上限**；原厂复核见顶部链接）；LSE 32.768kHz 晶振为可选件（Y1）。
 
 ## 来源与版本
 

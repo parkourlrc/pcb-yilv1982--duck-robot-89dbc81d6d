@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-27",
+  "web_run_status": "search_query返回空；open Fluke及GitHub返回0行，没有取得可读正文",
+  "sources": [
+    {
+      "url": "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-measure-resistance",
+      "http_status": 200,
+      "file": "docs/references/hat-imu-shared-bus-20261027/sources/fluke-resistance-20261027.html",
+      "sha256": "9a3833943d5b35249ddcf337c7aa82d7704514372337128809968d5300d5147c",
+      "verification": "HTTPS直接获取；仅以下提取段落经过读取",
+      "passages": [
+        " results will be achieved if the component to be tested is removed from the circuit. If the component is left in the circuit, the readings could be affected by other components in parallel with the component to be tested. Graphic display of resistance results on a digital multimeter in various mode outputs Step 3. Insert the Leads into the Multimeter Insert the black test lead into the COM jack. Then insert the red lead into the VΩ jack. When finished, remove the leads in reverse order : red first, then black. Step 4. Connect Leads to Component Being Tested Conn",
+        "the display should show 0 Ω. Other factors that can affect resistance readings: Foreign substances (dirt, solder flux, oil), body contact with the metal ends of the test leads, or parallel circuit paths. The human body becomes a parallel resistance path, lowering total circuit resistance. Thus, avoid touching metal parts of test leads to avoid errors. Step 5. Read Resistance Measurements on Multimeter Display Step 6. Turn Multimeter OFF to Prevent Battery Drain Measuring Electrical Resistance Using Advanced Digital Multimeter Options Step 7. Select Specific Fixe",
+        "an affect resistance readings: Foreign substances (dirt, solder flux, oil), body contact with the metal ends of the test leads, or parallel circuit paths. The human body becomes a parallel resistance path, lowering total circuit resistance. Thus, avoid touching metal parts of test leads to avoid errors. Step 5. Read Resistance Measurements on Multimeter Display Step 6. Turn Multimeter OFF to Prevent Battery Drain Measuring Electrical Resistance Using Advanced Digital Multimeter Options Step 7. Select Specific Fixed Range Press the RANGE button to select a specif",
+        "eads of the resistor from the board to measure the correct resistance of the resistor. The resistance measurement displayed by a digital multimeter is the total resistance through all possible paths between the test lead probes. Caution is required when measuring resistance across a component that is part of a circuit. The resistance of all components connected in parallel with a component being tested affects the resistance reading, usually lowering it. Always check the circuit schematic for parallel paths. Featured products Fluke 87V Industrial Multimeter $ 579.99"
+      ],
+      "scope": "通用测量原理，不指定本机误差大小",
+      "original_sha256": "e5d603a33d8de5ab14c57605f1f90a1bb95f872a563597a31fb43156087f7d40",
+      "redaction_note": "2026-11-02 提交前移除网页嵌入的公开 Shopify storefront token；测量正文未改。下载原件仅保留在本机 .git/private-prepush-20261102/，不上传。"
+    },
+    {
+      "url": "https://github.com/jyg9/microduck-community-kit/commit/1d910b5a82c6c8028783a3ee9ede2515630766ab",
+      "verification": "本轮open返回0行；修订值依据此前归档作者提交JSON与只读PCB",
+      "local_evidence": "sources/imu-hardware-fix-1d910b5.json"
+    }
+  ],
+  "not_verified": "没有取得用户F1的厂商/具体型号/阻值范围；不引用其他系列PTC数值或未读取的厂商手册",
+  "processing_note": "HTML已下载成功；Python输出包含Ω时出现GBK编码错误，随后直接读取JSON核对正文，属于本地显示错误，不是网络获取失败。"
+}

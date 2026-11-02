@@ -1,0 +1,514 @@
+{
+  "utc": "2026-11-01T04:31:31.816454+00:00",
+  "scope": "Read-only RPC status, service state, HTTP health and file hashes; no UART open or motion",
+  "services": {
+    "robotd": {
+      "is-active": {
+        "returncode": 0,
+        "stdout": "active\n",
+        "stderr": ""
+      },
+      "is-enabled": {
+        "returncode": 0,
+        "stdout": "enabled\n",
+        "stderr": ""
+      }
+    },
+    "microduck-studio": {
+      "is-active": {
+        "returncode": 0,
+        "stdout": "active\n",
+        "stderr": ""
+      },
+      "is-enabled": {
+        "returncode": 0,
+        "stdout": "enabled\n",
+        "stderr": ""
+      }
+    }
+  },
+  "old_servo_web": {
+    "is-active": {
+      "returncode": 3,
+      "stdout": "inactive\n",
+      "stderr": ""
+    },
+    "is-enabled": {
+      "returncode": 1,
+      "stdout": "disabled\n",
+      "stderr": ""
+    }
+  },
+  "bus_status": {
+    "achieved_hz": 50.05495179828863,
+    "build": "0791fcd-feetech-qinmo-control.47+duck-v03.1",
+    "calibrated": false,
+    "configured_imu_profile": "legacy",
+    "device_communication": {
+      "by_id": {
+        "10": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "11": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "12": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "13": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "14": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "20": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "200": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": 12434,
+          "missing": 0,
+          "timeout": 8
+        },
+        "21": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "22": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "23": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "24": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "30": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "31": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "32": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "33": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        },
+        "34": {
+          "consecutive_missing": 0,
+          "consecutive_timeout": 0,
+          "last_missing_read": null,
+          "last_timeout_read": null,
+          "missing": 0,
+          "timeout": 0
+        }
+      },
+      "classification": "exclusive-v2",
+      "complete_but_late": 0,
+      "incomplete_timeout_reads": 8,
+      "last_trace": {
+        "address": 56,
+        "bad_checksums": 0,
+        "complete_but_late": false,
+        "deadline_exceeded": false,
+        "discarded": 0,
+        "elapsed_us": 5159,
+        "length": 15,
+        "missing_ids": [],
+        "partial_received": false,
+        "request_sent": true,
+        "rx_bytes": 336
+      },
+      "missing_reads": 0,
+      "session": "2046-1793507214407998047",
+      "total_reads": 13878,
+      "unsent_reads": 0
+    },
+    "errors_by_id": {
+      "200": 8
+    },
+    "imu_bus": {
+      "board": "imu_to_dxl",
+      "gyro_dps_per_lsb": 0.0175,
+      "identification": "legacy_identity",
+      "identity": [
+        0,
+        2,
+        0,
+        68,
+        77
+      ],
+      "profile": "legacy",
+      "protocol": "feetech"
+    },
+    "imu_mount_verified": true,
+    "last_cycle_error": null,
+    "last_failure": {
+      "cycle": 12434,
+      "error": "bus transaction failed: imu_to_dxl ID200 response timeout",
+      "missing_ids": [
+        200
+      ]
+    },
+    "last_sample": {
+      "at_us": 277572814,
+      "cycle": 13878,
+      "imu": {
+        "gravity": [
+          -0.9322102142355136,
+          -0.09149276329608387,
+          0.3501616637203803
+        ],
+        "gyro_rad_s": [
+          0.0008336350076249212,
+          -0.0024601045209316406,
+          -0.0021617646567305905
+        ],
+        "id": 200,
+        "mount_verified": true,
+        "quaternion_wxyz": [
+          0.570036385130901,
+          0.06887351024135858,
+          -0.8186882827863308,
+          -0.008028377314099822
+        ],
+        "ready": true,
+        "sequence": 70,
+        "source": "bus",
+        "valid": true
+      },
+      "servos": [
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 20,
+          "joint": "left_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2188,
+          "position_signed_raw": 2188,
+          "position_wire_raw": 2188,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 21,
+          "joint": "left_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2297,
+          "position_signed_raw": 2297,
+          "position_wire_raw": 2297,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 5,
+          "id": 22,
+          "joint": "left_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1608,
+          "position_signed_raw": 1608,
+          "position_wire_raw": 1608,
+          "speed_raw": 0,
+          "temperature_c": 31,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 23,
+          "joint": "left_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1893,
+          "position_signed_raw": 1893,
+          "position_wire_raw": 1893,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 24,
+          "joint": "left_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1242,
+          "position_signed_raw": 1242,
+          "position_wire_raw": 1242,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 30,
+          "joint": "neck_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2123,
+          "position_signed_raw": 2123,
+          "position_wire_raw": 2123,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 31,
+          "joint": "head_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1708,
+          "position_signed_raw": 1708,
+          "position_wire_raw": 1708,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 32,
+          "joint": "head_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1856,
+          "position_signed_raw": 1856,
+          "position_wire_raw": 1856,
+          "speed_raw": 0,
+          "temperature_c": 35,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 2,
+          "id": 33,
+          "joint": "head_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2059,
+          "position_signed_raw": 2059,
+          "position_wire_raw": 2059,
+          "speed_raw": 0,
+          "temperature_c": 32,
+          "voltage_v": 7.2
+        },
+        {
+          "calibrated": false,
+          "current_raw": 5,
+          "id": 34,
+          "joint": "mouth",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2012,
+          "position_signed_raw": 2012,
+          "position_wire_raw": 2012,
+          "speed_raw": 0,
+          "temperature_c": 37,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 2,
+          "id": 10,
+          "joint": "right_hip_yaw",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2022,
+          "position_signed_raw": 2022,
+          "position_wire_raw": 2022,
+          "speed_raw": 0,
+          "temperature_c": 32,
+          "voltage_v": 7.1000000000000005
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 11,
+          "joint": "right_hip_roll",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 1883,
+          "position_signed_raw": 1883,
+          "position_wire_raw": 1883,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 12,
+          "joint": "right_hip_pitch",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2645,
+          "position_signed_raw": 2645,
+          "position_wire_raw": 2645,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 4,
+          "id": 13,
+          "joint": "right_knee",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2448,
+          "position_signed_raw": 2448,
+          "position_wire_raw": 2448,
+          "speed_raw": 0,
+          "temperature_c": 30,
+          "voltage_v": 7.0
+        },
+        {
+          "calibrated": false,
+          "current_raw": 3,
+          "id": 14,
+          "joint": "right_ankle",
+          "load_raw": 0,
+          "moving": false,
+          "position_raw": 2876,
+          "position_signed_raw": 2876,
+          "position_wire_raw": 2876,
+          "speed_raw": 0,
+          "temperature_c": 29,
+          "voltage_v": 7.0
+        }
+      ]
+    },
+    "mode": "commissioning",
+    "motion": null,
+    "phase": "ready",
+    "policy_motion_enabled": false,
+    "port": "/dev/ttyS2",
+    "power_pending": false,
+    "session": 2046,
+    "target_hz": 50.0,
+    "torque_off_pending": null,
+    "torque_state": "off",
+    "total_communication_failures": 8,
+    "total_cycles": 13878,
+    "total_success": 13870,
+    "updated_at_us": 277572849
+  },
+  "studio_health": {
+    "status": 200,
+    "body": "{\"ok\":true,\"version\":\"0.1.0-dev\",\"suite_version\":null,\"runtime_root\":\"/home/radxa\"}"
+  },
+  "evidence_sha256": {
+    "hold-home-baseline3-20261101-r1.json": "e80d1bb02175d46124bbd6adf1df655a67f3f59d75633931c2423d04a479472c",
+    "hold-home-baseline3-20261101-r1.log": "0d4bc472fceffa67c5942fb85914459a01e8d7c61bb26db1cd219d835bdf1c7e",
+    "hold-home-baseline3-20261101-r2.json": "e8afc6e7e561a840f8f00ffc56eb882aa381de5f89478a4e36f5c1dc4a09b156",
+    "hold-home-baseline3-20261101-r2.log": "3c7249fa93dd90bc91aa0189b720f5f003e1824f4437d4085fb2dd34f38ac660",
+    "hold-home-baseline3-20261101-r3.json": "d3b6a64ef4b58d63c06903b0178e7dc56fd5c95c8bf2624569ee94fccc46eda4",
+    "hold-home-baseline3-20261101-r3.log": "fce7dab74d188e80190ee1edab49c2f7a7ccfef7e96d1b42329fc57d47e05a00",
+    "hold-home-baseline3-20261101.json": "3543288f8eb99a85edcdd2ee75f083cef64a321f985913303c2c6236b65da505",
+    "hold-home-servo-first-20261101.json": "13417bec67e9c95e18507ac0d021fd50b293991913fb0629a158459eff56b29c",
+    "hold-home-servo-first-20261101.log": "a2c97b60ee67eb62462fe283222bc112d9c3813a5f957b773a68bbf78710c20b",
+    "servo-first-deployment-20261101.json": "37e28f4f23e210e00704cc2a56aba74106393131e2c93336d7c17d733a2b2e26"
+  },
+  "installed_sha256": {
+    "/opt/robot/daemon/current/bin/robotd": "9f9fa71723339b80f97d7be065dec04855bb0d31a3ed7c5978e8605c22db3e5b",
+    "/etc/robot/feetech-ft5/robotd.toml": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+    "/etc/robot/feetech-ft5/hd1910-calibration.toml": "fddac3c792aba5a8260ca0ccd34e1cc91d3218ef1559df1c9301f42cbc93f1b3"
+  },
+  "ssh_stderr": "close - IO is still pending on closed socket. read:1, write:0, io:000001CD4D650EA0\n",
+  "local_evidence_match": {
+    "hold-home-baseline3-20261101-r1.json": true,
+    "hold-home-baseline3-20261101-r1.log": true,
+    "hold-home-baseline3-20261101-r2.json": true,
+    "hold-home-baseline3-20261101-r2.log": true,
+    "hold-home-baseline3-20261101-r3.json": true,
+    "hold-home-baseline3-20261101-r3.log": true,
+    "hold-home-baseline3-20261101.json": true,
+    "hold-home-servo-first-20261101.json": true,
+    "hold-home-servo-first-20261101.log": true,
+    "servo-first-deployment-20261101.json": true
+  }
+}

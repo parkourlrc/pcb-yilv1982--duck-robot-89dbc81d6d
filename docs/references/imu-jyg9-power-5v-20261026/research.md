@@ -176,7 +176,7 @@ FB 反推验证：0.8V×(1+75/24)=3.30V，与实测设计 3.3V 完全吻合，�
 
 与 0.2_10p 硬件**引脚级吻合**（本轮 PCB 网表对照固件 README）：USART1 电机总线 = PA2/PA3 ✓、LSM6DSV SPI = PA4~PA7 ✓、INT1/INT2 = PB0/PB1 ✓、调试口 USART0 = PB6/PB7 ✓、HSE = 12 MHz ✓。**按 0.2_10p 工程打的自产板可直接烧 v1 固件。**完整代码分析（架构/契约/bootloader/改板注意点，含安装矩阵 MOUNT_Q 朝向绑定警告）见[固件代码分析专题](../imu-fw-v1-code-analysis-20261026/research.md)。
 
-遗留适配：build.sh 的烧录脚本面向 J-Link；手头调试器是 DAPLink——换 OpenOCD 命令即可（`flash/` 板①脚本改目标复用）。注意 v1 是复刻固件而非 jyg9 成品板出厂固件，契约层两者均过真机验证，行为兼容。另：README"调试口是 CH340 的 ttyUSB*"指**台架外接 CH340 适配器**，非板载器件——"板上带 CH340"旧误读至此彻底闭环。
+遗留适配：build.sh 的烧录脚本面向 J-Link；手头调试器是 DAPLink，需按GD32目标、实际分区与镜像确认OpenOCD写入方案。**2026-10-27更正**：v1是jyg9已公开并带Apache-2.0许可的GD32固件工程，不能断言它与成品出厂固件是两套实现；本机镜像与发布包指纹不同，具体构建待匹配，上游真机验证不等于本机兼容已验。来源见[源码与调试能力核查](../hat-imu-shared-bus-20261027/oscilloscope-plan-20261027.md#firmware-source-debug-clarification-20261027)。README“调试口是CH340的ttyUSB*”指台架外接适配器，并非板上自带CH340。
 
 ### A. 需用户拍板的设计决策
 

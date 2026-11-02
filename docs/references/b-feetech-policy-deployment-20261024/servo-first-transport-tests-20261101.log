@@ -1,0 +1,21 @@
+   Compiling duck-control v0.15.1 (/root/duck-robot-control47/duck-control)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.29s
+     Running unittests src/lib.rs (target/debug/deps/duck_control-bed5b37ee9c912d5)
+
+running 7 tests
+test feetech::v03_transport_tests::v03_echo_is_not_a_status_error_or_noise ... ok
+test feetech::v03_transport_tests::v03_imu_failures_never_proceed_to_the_servo_request ... ok
+test feetech::v03_transport_tests::v03_partial_requires_a_clean_ready_imu_and_keeps_the_missing_servo ... ok
+test feetech::v03_transport_tests::v03_read_only_does_not_get_two_separate_telemetry_budgets ... ok
+test feetech::v03_transport_tests::v03_servo_first_still_rejects_every_imu_failure_and_keeps_servo_bytes ... ok
+test feetech::v03_transport_tests::v03_servo_first_stops_before_imu_when_servo_feedback_is_incomplete ... ok
+test feetech::v03_transport_tests::v03_strict_servo_first_keeps_partial_imu_first ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 272 filtered out; finished in 0.31s
+
+     Running tests/recurrent_policy.rs (target/debug/deps/recurrent_policy-eae3e88bd9ff145b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+

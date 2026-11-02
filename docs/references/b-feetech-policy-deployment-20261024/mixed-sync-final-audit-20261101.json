@@ -1,0 +1,175 @@
+{
+  "date_utc_board_clock": "2026-11-01T06:22:36.507118+00:00",
+  "services": {
+    "robotd.service": {
+      "is-active": {
+        "returncode": 3,
+        "stdout": "inactive",
+        "stderr": ""
+      },
+      "is-enabled": {
+        "returncode": 0,
+        "stdout": "enabled",
+        "stderr": ""
+      }
+    },
+    "microduck-studio.service": {
+      "is-active": {
+        "returncode": 3,
+        "stdout": "inactive",
+        "stderr": ""
+      },
+      "is-enabled": {
+        "returncode": 0,
+        "stdout": "enabled",
+        "stderr": ""
+      }
+    },
+    "duck-servo-web.service": {
+      "is-active": {
+        "returncode": 0,
+        "stdout": "active",
+        "stderr": ""
+      },
+      "is-enabled": {
+        "returncode": 1,
+        "stdout": "disabled",
+        "stderr": ""
+      }
+    }
+  },
+  "uart_holders": [
+    {
+      "pid": 819,
+      "fd": "3",
+      "command": "/usr/bin/python3 /home/radxa/servo-web/server.py --port /dev/ttyS2 --host 0.0.0.0 --http-port 8080 --imu-bus "
+    }
+  ],
+  "web_sha256": {
+    "server.py": "1885da8345abac5efb570faeb99409c84a795216f70f11b2ce6475d5a1716e7f",
+    "imu_bus.py": "d67d85445cb94f4e614de5bb33a0512549a6ce35dfd6919607be3428786cfa1c",
+    "index.html": "6ce2d1f868f83334688623f024d812de90e6553da8f90a69ab5fe9620bd1dae8",
+    "feetech.py": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d"
+  },
+  "robotd_sha256": "725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00",
+  "deployment_info": {
+    "returncode": 0,
+    "stdout": "{\"build\":\"0791fcd-feetech-qinmo-control.47\",\"model_api\":2,\"official_version\":\"0.15.1\"}",
+    "stderr": ""
+  },
+  "protected_sha256": {
+    "/etc/robot/feetech-ft5/robotd.toml": "f273339438860ef30acfa11525e05ad20132892c8ef902a8ea01860d28eeee79",
+    "/etc/robot/feetech-ft5/hd1910-calibration.toml": "fddac3c792aba5a8260ca0ccd34e1cc91d3218ef1559df1c9301f42cbc93f1b3",
+    "/home/radxa/servo-web/directions.json": "21ccd32d22a39dd0db90f6d85a5f9891137958860a81766e3471dc098ba7fe66",
+    "/home/radxa/servo-web/feetech.py": "f49d5926ba7a4f01e55ed2e32cc78797a92f084605790ffca18d35e937605c3d",
+    "/opt/robot/daemon/current/bin/robotctl": "f025e343fbcc44ff013dbd1a6ab4cefefd137e8453eedf12614214a2c521b649"
+  },
+  "protected_unchanged": true,
+  "api_info": {
+    "version": "0.15.3",
+    "present": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      30,
+      31,
+      32,
+      33,
+      34,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "fake": false,
+    "stats": {
+      "tx": 324,
+      "rx_ok": 4943,
+      "timeout": 0,
+      "bad_checksum": 0,
+      "bad_id": 0
+    }
+  },
+  "completed_capture_summary": {
+    "state_frames": 296,
+    "all_15_present_frames": 296,
+    "imu_messages": 564,
+    "imu_status_counts": {
+      "disconnected": 2,
+      "live": 562
+    },
+    "imu_status_bits_counts": {
+      "null": 2,
+      "8": 562
+    },
+    "last_imu": {
+      "type": "imu",
+      "service": "microduck-imu-viewer",
+      "mode": "live",
+      "status": "live",
+      "connected": true,
+      "live": true,
+      "quaternion_xyzw": [
+        -0.578125,
+        -0.748046875,
+        0.290771484375,
+        0.14713701455477987
+      ],
+      "accel_g": null,
+      "gyro_dps": [
+        0.31500000000000006,
+        0.14,
+        0.15750000000000003
+      ],
+      "sample_count": 118,
+      "gyro_count": null,
+      "accel_count": null,
+      "ready": 1,
+      "configured": 1,
+      "who_am_i": null,
+      "error": null,
+      "errors": {
+        "imu": 0,
+        "spi": null,
+        "fifo": null,
+        "quaternion": null,
+        "recovery": null
+      },
+      "voltage_mv": null,
+      "age_ms": null,
+      "hz": 9.9,
+      "coherence": "best_effort",
+      "message": "正在从舵机总线读 ID 200（跟主控同一条 sync_read）。",
+      "timestamp_ms": 1793514096457,
+      "backend": "bus",
+      "probe_name": "舵机总线 ID 200",
+      "raw_gyro": [
+        18,
+        8,
+        9
+      ],
+      "quat_fp16": [
+        47264,
+        47612,
+        13479
+      ],
+      "status_bits": 8,
+      "misses": 0
+    },
+    "stats_delta": {
+      "tx": 308,
+      "rx_ok": 4927,
+      "timeout": 0,
+      "bad_checksum": 0,
+      "bad_id": 0
+    },
+    "raw_trace_bytes": 765935
+  },
+  "ipv4_addresses": [
+    "192.168.1.35"
+  ],
+  "redaction": "公网 IPv6 已从仓库副本省略；板侧原件保留。"
+}
