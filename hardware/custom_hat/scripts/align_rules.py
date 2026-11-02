@@ -1,13 +1,4 @@
-"""Align the project's DRC rules with what the autorouter actually produces.
-
-The previous rounds kept fighting the rules: FreeRouting emitted 0.19 mm tracks
-and 0.15 mm gaps while the project demanded 0.2 mm, so every run needed a
-post-pass that then broke clearances. Setting the rules once, in the project
-file, removes that loop.
-
-Also writes a custom rule for the BMI088's 0.5 mm pitch pads, which cannot meet
-the global clearance/annular minimums.
-"""
+"""Historical rule-rewriting experiment; its command-line entry is disabled."""
 import json
 from pathlib import Path
 
@@ -17,7 +8,7 @@ DRU = Path("hardware/custom_hat/rev_a/custom_hat_rev_a.kicad_dru")
 POWER_NETS = ["+5V", "+3V3", "VBATT_2S_IN", "SERVO_VBAT", "BUCK_SW", "POWER_GND"]
 
 
-def main():
+def legacy_align_rules_unchecked():
     d = json.loads(PRO.read_text(encoding="utf-8"))
 
     rules = d["board"]["design_settings"]["rules"]
@@ -50,14 +41,18 @@ def main():
         "(version 1)\n"
         "(rule \"BMI088 fine pitch\"\n"
         "  (condition \"A.insideCourtyard('U501')\")\n"
-        "  (constraint clearance (min 0.12))\n"
-        "  (constraint annular_width (min 0.09))\n"
-        "  (constraint hole_clearance (min 0.15))\n"
+        "  (constraint clearance (min 0.12mm))\n"
+        "  (constraint annular_width (min 0.09mm))\n"
+        "  (constraint hole_clearance (min 0.15mm))\n"
         ")\n",
         encoding="utf-8",
     )
     print("project rules: Default clearance 0.15, track min 0.15, Power class 0.6")
     print("custom rule written for U501")
+
+
+def main():
+    raise SystemExit("Deprecated: do not rewrite manufacturing rules to fit router output. Use an isolated pipeline workspace and an explicitly reviewed process-rule change.")
 
 
 if __name__ == "__main__":

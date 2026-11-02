@@ -1,0 +1,42 @@
+{
+  "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T060851Z-db43ed96\\work",
+  "only_rule_change": [
+    "(condition \"A.insideCourtyard('U501')\")",
+    "(condition \"A.Type != 'Zone' && A.insideCourtyard('U501')\")"
+  ],
+  "measurements": [
+    {
+      "layer": "F.Cu",
+      "hole_edge_to_foreign_zone_mm": 0.3005
+    },
+    {
+      "layer": "In1.Cu",
+      "hole_edge_to_foreign_zone_mm": 0.3005
+    },
+    {
+      "layer": "B.Cu",
+      "hole_edge_to_foreign_zone_mm": 0.3005
+    }
+  ],
+  "drc_violations": [],
+  "source": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T055804Z-fc688617\\work",
+  "commands": [
+    {
+      "name": "bmi-scope-probe",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--save-board",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T060851Z-db43ed96\\scope-filled.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T060851Z-db43ed96\\work\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    }
+  ]
+}

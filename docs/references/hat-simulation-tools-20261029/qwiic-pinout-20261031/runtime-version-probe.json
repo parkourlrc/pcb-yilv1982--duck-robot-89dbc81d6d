@@ -1,0 +1,28 @@
+{
+  "attempted_at": "2026-10-31T13:53:30.810887+00:00",
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ForwardAgent=no",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=1",
+    "radxa",
+    "uname -r"
+  ],
+  "purpose": "Read current kernel version only; no deployment or hardware I/O",
+  "exit_code": 255,
+  "stdout": "",
+  "stderr": "ssh: connect to host 172.16.108.54 port 22: Connection timed out\n",
+  "terminal": true,
+  "kernel_version_obtained": false,
+  "expected_release": "6.1.84-10-rk2410-nocsf",
+  "kernel_version_matches_reference": false
+}

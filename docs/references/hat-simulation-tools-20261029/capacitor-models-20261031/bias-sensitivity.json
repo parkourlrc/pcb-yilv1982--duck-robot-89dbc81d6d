@@ -1,0 +1,523 @@
+{
+  "method": "Read the original 640x480 manufacturer DC-bias plots from per-part PDFs; grey major rows calibrated to 10-percentage-point spacing and blue curve interpolated.",
+  "not_hardware_measurement": true,
+  "manufacturer_model_is_typical_not_guaranteed": true,
+  "scenario_assumptions": "Multiply independent worst-direction tolerance,15% TCC,logarithmic aging referenced to48h, and an additional2-percentage-point retention allowance. Combined bias/temperature/process interactions are not modelled. The2-point allowance is a design sensitivity assumption, not a vendor guarantee or statistical confidence interval.",
+  "operating_lifetime_not_specified_by_user": "48h,1year and10year are sensitivity cases, not claimed service-life requirements or evidence of actual capacitor age.",
+  "unmodelled_effects": "Resistor TCR, AC-drive amplitude and frequency dependence are not combined with these DC-bias curves; the PDF does not enumerate every simulation setting.",
+  "models": {
+    "C1206C226M4PACTU": {
+      "profile": {
+        "nominal_uf": 22,
+        "rated_v": 16,
+        "tolerance": 0.2,
+        "aging_pct_per_decade": 5,
+        "voltages": [
+          4.852137,
+          4.984,
+          5.119211
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        81,
+        128,
+        175,
+        222,
+        269,
+        315,
+        362,
+        409
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 46.85,
+      "points": [
+        {
+          "dc_v": 4.852137,
+          "pixel_x": 225.56411,
+          "pixel_y": 262.346165,
+          "model_capacitance_change_pct": -48.68292387050871,
+          "typical_model_effective_uf": 11.289756748488085,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 7.377834588971898
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.11306314343962467,
+              "scenario_effective_uf": 6.5436734185651435
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.1630631434396247,
+              "scenario_effective_uf": 6.174781689116549
+            }
+          ]
+        },
+        {
+          "dc_v": 4.984,
+          "pixel_x": 229.52,
+          "pixel_y": 269.26,
+          "model_capacitance_change_pct": -50.158662397723226,
+          "typical_model_effective_uf": 10.96509427250089,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 7.157064105300604
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.11306314343962467,
+              "scenario_effective_uf": 6.347863939756413
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.1630631434396247,
+              "scenario_effective_uf": 5.990010734491383
+            }
+          ]
+        },
+        {
+          "dc_v": 5.119211,
+          "pixel_x": 233.57632999999998,
+          "pixel_y": 275.44082499999996,
+          "model_capacitance_change_pct": -51.47794201351831,
+          "typical_model_effective_uf": 10.674852757025972,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 6.9596998747776615
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.11306314343962467,
+              "scenario_effective_uf": 6.172814329538937
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.1630631434396247,
+              "scenario_effective_uf": 5.824829335800054
+            }
+          ]
+        }
+      ]
+    },
+    "C1206C106K3RACTU": {
+      "profile": {
+        "nominal_uf": 10,
+        "rated_v": 25,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          6.6,
+          7.4,
+          8.4
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        83,
+        131,
+        180,
+        228,
+        277,
+        325,
+        373,
+        422
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 48.45,
+      "points": [
+        {
+          "dc_v": 6.6,
+          "pixel_x": 206.72,
+          "pixel_y": 183.44,
+          "model_capacitance_change_pct": -30.77995642701525,
+          "typical_model_effective_uf": 6.922004357298475,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 5.142333333333333
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 4.793488310564715
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 4.639218310564716
+            }
+          ]
+        },
+        {
+          "dc_v": 7.4,
+          "pixel_x": 222.08,
+          "pixel_y": 219.16000000000003,
+          "model_capacitance_change_pct": -38.1525054466231,
+          "typical_model_effective_uf": 6.18474945533769,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 4.578333333333332
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 4.267748878304683
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 4.130398878304684
+            }
+          ]
+        },
+        {
+          "dc_v": 8.4,
+          "pixel_x": 241.28,
+          "pixel_y": 254.7,
+          "model_capacitance_change_pct": -45.48790276344455,
+          "typical_model_effective_uf": 5.451209723655545,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 4.0171754385964915
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 3.7446587488947882
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 3.6241434857368935
+            }
+          ]
+        }
+      ]
+    },
+    "C0805C105K5RACTU": {
+      "profile": {
+        "nominal_uf": 1,
+        "rated_v": 50,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          1.8,
+          3.3
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        87,
+        140,
+        193,
+        246,
+        299,
+        352,
+        405
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 53.0,
+      "points": [
+        {
+          "dc_v": 1.8,
+          "pixel_x": 97.28,
+          "pixel_y": 36.0,
+          "model_capacitance_change_pct": -0.37735849056603776,
+          "typical_model_effective_uf": 0.9962264150943396,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 0.7468132075471698
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 0.6961509782626627
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 0.6737465820362477
+            }
+          ]
+        },
+        {
+          "dc_v": 3.3,
+          "pixel_x": 111.68,
+          "pixel_y": 39.18000000000001,
+          "model_capacitance_change_pct": -0.9773584905660391,
+          "typical_model_effective_uf": 0.9902264150943396,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 0.7422232075471697
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 0.6918723541596954
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 0.6696056579332803
+            }
+          ]
+        }
+      ]
+    },
+    "C0805C225K5RACTU": {
+      "profile": {
+        "nominal_uf": 2.2,
+        "rated_v": 50,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          1.8,
+          3.3
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        78,
+        122,
+        166,
+        210,
+        254,
+        298,
+        342,
+        386
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 44.0,
+      "points": [
+        {
+          "dc_v": 1.8,
+          "pixel_x": 97.28,
+          "pixel_y": 42.28,
+          "model_capacitance_change_pct": -1.881818181818182,
+          "typical_model_effective_uf": 2.1586000000000003,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 1.617669
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 1.5079297546890995
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 1.4593996846890998
+            }
+          ]
+        },
+        {
+          "dc_v": 3.3,
+          "pixel_x": 111.68,
+          "pixel_y": 60.360000000000014,
+          "model_capacitance_change_pct": -5.990909090909094,
+          "typical_model_effective_uf": 2.0682,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 1.548513
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 1.4434651515377257
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 1.397009761537726
+            }
+          ]
+        }
+      ]
+    },
+    "C1210C226K3RACTU": {
+      "profile": {
+        "nominal_uf": 22,
+        "rated_v": 25,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          5.119211,
+          8.4
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        81,
+        128,
+        174,
+        221,
+        267,
+        314,
+        361,
+        407
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 46.61666666666667,
+      "points": [
+        {
+          "dc_v": 5.119211,
+          "pixel_x": 178.2888512,
+          "pixel_y": 157.65540480000004,
+          "model_capacitance_change_pct": -26.45926929329044,
+          "typical_model_effective_uf": 16.178960755476105,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 12.04030497793922
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 11.223516140672679
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 10.862306991334503
+            }
+          ]
+        },
+        {
+          "dc_v": 8.4,
+          "pixel_x": 241.28,
+          "pixel_y": 291.06,
+          "model_capacitance_change_pct": -55.076629722321535,
+          "typical_model_effective_uf": 9.883141461089263,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 7.224003217733285
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 6.733942110524352
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 6.517222013992354
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "output_cases": [
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 2,
+      "age_hours": 48,
+      "scenario_combined_uf": 13.919399749555323,
+      "eq17_crossover_hz_internal_parameters_typical": 44831.05551155442
+    },
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 2,
+      "age_hours": 8760,
+      "scenario_combined_uf": 12.345628659077875,
+      "eq17_crossover_hz_internal_parameters_typical": 50545.93816905239
+    },
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 2,
+      "age_hours": 87600,
+      "scenario_combined_uf": 11.649658671600108,
+      "eq17_crossover_hz_internal_parameters_typical": 53565.636595095246
+    },
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 3,
+      "age_hours": 48,
+      "scenario_combined_uf": 20.879099624332984,
+      "eq17_crossover_hz_internal_parameters_typical": 29887.37034103628
+    },
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 3,
+      "age_hours": 8760,
+      "scenario_combined_uf": 18.518442988616812,
+      "eq17_crossover_hz_internal_parameters_typical": 33697.29211270159
+    },
+    {
+      "part": "C1206C226M4PACTU",
+      "quantity": 3,
+      "age_hours": 87600,
+      "scenario_combined_uf": 17.47448800740016,
+      "eq17_crossover_hz_internal_parameters_typical": 35710.424396730166
+    },
+    {
+      "part": "C1210C226K3RACTU",
+      "quantity": 2,
+      "age_hours": 48,
+      "scenario_combined_uf": 24.08060995587844,
+      "eq17_crossover_hz_internal_parameters_typical": 25913.85284688349
+    },
+    {
+      "part": "C1210C226K3RACTU",
+      "quantity": 2,
+      "age_hours": 8760,
+      "scenario_combined_uf": 22.447032281345358,
+      "eq17_crossover_hz_internal_parameters_typical": 27799.72760044656
+    },
+    {
+      "part": "C1210C226K3RACTU",
+      "quantity": 2,
+      "age_hours": 87600,
+      "scenario_combined_uf": 21.724613982669005,
+      "eq17_crossover_hz_internal_parameters_typical": 28724.164367553305
+    }
+  ],
+  "eq17_minimum_effective_cout_for_45khz_uf": 13.867141841329586,
+  "equation17_limit": "AP64350 p18 first-order design equation with typical internal gm/Rt; 45kHz=10% of450kHz; not a stability or phase-margin verification.",
+  "eq12_note": "The archived manufacturer p17 visibly prints gm*R5 in Eq12. Figure27 passive-network derivation and Eq17 suggest an R2 prefactor instead; possible document inconsistency, no manufacturer correction obtained. Eq12 was not used to claim stability.",
+  "cad_values_changed": false
+}

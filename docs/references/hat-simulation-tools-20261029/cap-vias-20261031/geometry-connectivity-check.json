@@ -1,0 +1,103 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T170229Z-063f58cc\\work",
+      "pcb_sha256": "a96508311bfc66dbab1b94b54d0391a7552f8f979acbbe26603ca281171336dc",
+      "commands": [
+        {
+          "name": "filled-before-78c39bfb",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T170229Z-063f58cc\\cap-vias-filled-before-78c39bfb.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T170229Z-063f58cc\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T165601Z-e991b8f7\\work",
+      "pcb_sha256": "d0e549e27994542f50850702add9ddbb8fb4d80f2a5dee9ebf907d9754c03959",
+      "commands": [
+        {
+          "name": "filled-after-78c39bfb",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T165601Z-e991b8f7\\cap-vias-filled-after-78c39bfb.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T165601Z-e991b8f7\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "pad_geometry_unchanged": true,
+  "pad_nets_unchanged": true,
+  "changed_original_tracks": [
+    "21b4c24a-3d42-4139-89db-0401a0cc3a8f",
+    "3df6d50d-2d16-47ac-8a09-662eccba3b17",
+    "9fcde2d3-38b4-4693-b45c-747cb7f2d805",
+    "c3a3b7d1-7c38-49aa-9fda-d80991337d25"
+  ],
+  "allowed_changes": [
+    "21b4c24a-3d42-4139-89db-0401a0cc3a8f",
+    "3df6d50d-2d16-47ac-8a09-662eccba3b17",
+    "9fcde2d3-38b4-4693-b45c-747cb7f2d805",
+    "c3a3b7d1-7c38-49aa-9fda-d80991337d25"
+  ],
+  "lost_connections": {},
+  "via_to_pad_clearances": {
+    "C305": {
+      "nearest_pad_copper_bbox_gap_mm": [
+        0.325,
+        "L301",
+        "2"
+      ],
+      "nearest_mask_bbox_gap_mm": [
+        0.325,
+        "L301",
+        "2",
+        0.0
+      ]
+    },
+    "C309": {
+      "nearest_pad_copper_bbox_gap_mm": [
+        0.2786622503671723,
+        "C309",
+        "2"
+      ],
+      "nearest_mask_bbox_gap_mm": [
+        0.2786622503671723,
+        "C309",
+        "2",
+        0.0
+      ]
+    }
+  },
+  "production_ready": false,
+  "accepted": true
+}

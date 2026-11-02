@@ -1,0 +1,40 @@
+{
+  "built_at": "2026-10-31T10:41:10.692211+00:00",
+  "kernel": "6.1.84-10-rk2410-nocsf",
+  "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "kernel_source_commit": "e6d12a77c8bc0ea6decbd3e4604ec131d4032c30",
+  "headers_sha256": "7c6db6d5191dd9e4167afa54918eab5684394b4df324e213d368cc673b134700",
+  "source_hashes": {
+    "tlv320aic3x.c": "d828977826122524fa05e91dcb3c9597b876c60cfe3309254e0e571f24c60b80",
+    "tlv320aic3x.h": "0c1db577de263b7c8161ed9069973385fbf45a0b4a075a582d4dea21ccfde186",
+    "tlv320aic3x-i2c.c": "216466b6990ddb5a07f867053bb3d459a31152a4e6dd08585bbff4c149323955"
+  },
+  "modules": [
+    {
+      "file": "snd-soc-tlv320aic3x.ko",
+      "sha256": "08c7b9d6864223d854b4ee3d7ce744ac6339b18e28b6352c690ff6160d5238bd",
+      "size_bytes": 109672,
+      "elf_machine": 183,
+      "vermagic": "6.1.84-10-rk2410-nocsf SMP mod_unload modversions aarch64",
+      "imported_symbols": 44,
+      "symbol_crc_mismatches": [],
+      "accepted": true
+    },
+    {
+      "file": "snd-soc-tlv320aic3x-i2c.ko",
+      "sha256": "73eb487e62ad1afe53163828f55f43b4be83fd9df9b85d464cefb4e19a476a78",
+      "size_bytes": 10744,
+      "elf_machine": 183,
+      "vermagic": "6.1.84-10-rk2410-nocsf SMP mod_unload modversions aarch64",
+      "imported_symbols": 11,
+      "symbol_crc_mismatches": [],
+      "accepted": true
+    }
+  ],
+  "accepted_offline": true,
+  "compiler_difference_limit": "Architecture, vermagic and symbol CRC checks do not replace loading and functional validation on the actual kernel",
+  "installed": false,
+  "loaded": false,
+  "hardware_tested": false,
+  "current_runtime_verified": false
+}

@@ -1,0 +1,751 @@
+---PDF PAGE 1---
+TI Information – Selective Disclosure
+电源工程师培训授证项目
+PCB layout for SMPS
+Created by: Colin Gillmor
+Presented by: Brian King
+
+---PDF PAGE 2---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+What will I get out of this session?
+• The purpose of this session is 
+to introduce the concepts 
+needed to successfully layout 
+a PCB for a switched mode 
+power supply
+• This presentation is relevant 
+to all SMPS PCB layouts, 
+from 1W to 10kW
+• Part numbers mentioned:
+• UCC28180
+• UCC28950
+• UCC28742
+• UCC28710
+• UCC24612
+• UCC24610
+• Reference designs mentioned:
+• TIDA- 00443
+
+---PDF PAGE 3---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Why is layout important?
+• The best controller in the world cannot work well if 
+embedded in a poor layout
+• PCB layout for SMPS is extremely complicated!
+• Same principles govern low and high power layouts
+– The difficulty is how to apply the principles in practice
+• The PCB is often the most complex component in a 
+design 
+How to translate a 
+schematic into working 
+hardware
+
+---PDF PAGE 4---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+What are concerns for a power supply PCB layout?
+• Safety
+• EMI
+• Parasitic inductance
+• Parasitic capacitance
+• Parasitic resistance
+• Thermal performance
+• High dv/dt
+• High di/dt
+• Grounding
+• Noise
+
+---PDF PAGE 5---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Agenda
+• The schematic
+• Parasitics
+– Resistance
+– Inductance
+– Capacitance
+• EMI & safety
+• Grounding & signal routing
+• Thermal management
+• PCB layout example
+• Summary
+
+---PDF PAGE 6---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Question #1: How involved are you in the 
+design of the PCB for a SMPS?
+A) I do the entire layout myself.
+B) I work closely with a layout technician to make sure the layout is done correctly.
+C) I create the schematic and let somebody else worry about the layout.
+D) It’s not a key part of my job.
+
+---PDF PAGE 7---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+EMI
+di/dt
+Safety
+Thermal
+dv/dt
+High Current
+Grounding
+Understand the circuit, including the parasitic components! 
+The Schematic
+TIDA-00443 using UCC28180 PFC 
+controller
+
+---PDF PAGE 8---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Parasitic resistance
+Material
+mW-cm
+mW-in
+Copper
+1.70
+0.67
+Gold
+2.2
+0.87
+Lead
+22.0
+8.66
+Silver
+1.5
+0.59
+Silver (plated)
+1.8
+0.71
+Tin -lead
+15
+5.91
+Tin (plated)
+11
+4.33
+�= �∙�
+�
+�= �����������
+ρ(Cu) = 0.67 mΩ-in at 25°C
+Impacts:
+• Regulation
+• Efficiency
+• Temperature rise
+A
+Current Flow
+�
+You mean copper is not a perfect conductor?
+�����≈4000 ���
+℃   +40% ��� 100℃ ���� 
+
+---PDF PAGE 9---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Parasitic resistance
+�= �∙�
+�∙�= �
+�
+2 ������ �������  = ~1.0 �Ω
+2 �������� �������  = ~0.25 �Ω
+Assume 1 oz. Cu
+Counting squares
+t
+Current Flow 
+�
+�
+�
+Copper Weight (Oz.)
+Thickness (m/mils)
+m per square (25°C)
+m per square (125°C)
+1/2
+17.5/0.7
+1
+1.4
+1
+35/1.4
+0.5
+0.7
+2
+70/2.8
+0.25
+0.35
+
+---PDF PAGE 10---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Vias have resistance too
+Typical rule of thumb is 1 A to 3 A per 
+via
+Parasitic resistance
+5 mm
+(20 mils)
+4.5 mm
+(18 mils)
+1.5 mm
+(60 mils)
+Current
+Flow
+
+A
+�
+�= �∙�
+�
+�=
+�∙�
+�∙ ��2 −��2 
+�=
+ 0.67 �Ω ∙�� ∙ 0.06 �� 
+�∙  0.01 �� 2 − 0.009 �� 2 = 0.67 mΩ
+
+---PDF PAGE 11---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+How many mΩ between L2 and J3?
+Sensing at output connector
+Poor sense location
+Parasitic resistance
+
+---PDF PAGE 12---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Switched current loops
+O/P loop (blue/red)
+• Inductor current alternates between 
+MOSFET and diode paths 
+• Pulsating currents 
+• Stray inductance will cause voltage 
+spikes
+I/P loop (green)
+• di/dt rates much lower
+• Stray inductance is less critical
+• CIN provides local low impedance 
+source
+Diode current
+MOSFET 
+current
+Inductor 
+current
+I/P loop
+O/P loop
+High di/dt 
+Low di/dt 
+Identifying high di/dt
+Simplified PFC boost 
+schematic
+
+---PDF PAGE 13---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Reverse recovery
+Occurs when:
+• MOSFET turns ON during CCM 
+operation (nearly every topology)
+• Stray inductance will cause voltage 
+spikes
+Mitigation:
+• Minimize loop inductance
+• Use low QRR rectifiers – 
+−SiC for high VOUT
+−Schottky or ultra-fast diodes
+−Sync rectifiers with low QRR
+Identifying high di/dt
+Simplified PFC boost 
+schematic
+
+---PDF PAGE 14---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Gate drives
+VGATE
+IGATE
+Identifying high di/dt
+Simplified PFC boost 
+schematic
+High di/dt in loop (yellow)
+• Stray inductance:
+– Limits drive current
+– Can cause ringing
+• Minimize loop inductance
+High dv/dt on gate (blue)
+• Can couple to noise-sensitive 
+nodes
+• Minimize capacitance
+
+---PDF PAGE 15---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Self inductance of PWB traces
+w
+t
+Current Flow
+
+• Due to the natural logarithmic relationship, large changes in conductor 
+width have minimal impact on inductance
+W (mm/in)
+T(mm/in)
+Inductance 
+(nH/cm or nH/in)
+0.25/0.01
+0.07/0.0028
+10/24
+2.5/0.1
+0.07/0.0028
+6/14
+12.5/0.5
+0.07/0.0028
+2/6
+Parasitic inductance
+�
+�
+�= 2 ∙�∙ �� 
+�
+�+ � + 1
+2 ����
+�= 5 ∙�∙ �� 
+�
+�+ � + 1
+2 ����
+
+---PDF PAGE 16---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PWB traces over ground planes
+w
+h
+Current
+Flow
+• Substantial inductance reduction
+• Inductance inversely proportional to width
+Metric
+English
+h (cm)
+w (cm)
+Inductance 
+(nH/cm)
+h (in)
+w (in)
+Inductance
+(nH/in)
+0.25
+2.5
+0.2
+0.01
+0.1
+0.5
+1.5
+2.5
+1.2
+0.06
+0.1
+3.0
+Parasitic inductance
+�= 2 ∙ℎ∙�
+�
+����
+�= 5 ∙ℎ∙�
+�
+����
+
+---PDF PAGE 17---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Low series inductance
+High series inductance
+How much inductance in series with C39? (length ~ 1 in)
+Parasitic inductance
+
+---PDF PAGE 18---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Parasitic inductance
+How to improve the gate drive path?
+
+---PDF PAGE 19---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Parasitic inductance
+Improved gate drive layout
+
+---PDF PAGE 20---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Switched nodes
+High dv/dt at switched node (blue):
+• Switched between 0V and VOUT
+• Stray capacitance can cause:
+– EMI problems
+– Noise injected to internal circuits
+– Reduced efficiency
+Mitigation:
+• Minimize VSW surface area
+• Keep sensitive etch and components 
+away from VSW
+• Ground the heatsink!
+VSW
+The switched node paradox
+Lower resistance
+Increased surface area 
+Lower inductance
+Better cooling
+Decreased surface area
+Lower capacitance
+Identifying high dv/dt
+Simplified PFC Boost 
+Schematic
+
+---PDF PAGE 21---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Sample capacitance calculation
+Note: 10 mils = 0.00025 m
+A = 0.00025 m x 0.00025 m
+t
+Consider two 10 mil traces crossing with 10 mil PWB thickness
+Not much capacitance but consider the area of all components connected to the 
+summing node
+Parasitic capacitance
+�= ��∙�0 ∙�
+�
+�= 5 ∙ 8.85 × 10−12  �� ∙ 0.25 �� 2
+2.5 ��
+�= 0.01 ��
+
+---PDF PAGE 22---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Chaos created by 
+noise injection 
+Ten 0.05 x 0.02 in2 
+pads can increase 
+parasitic capacitance 
+to 2 pF
+Parasitic capacitance
+VSW
+Cparasitic
+Noise sensitive
+
+---PDF PAGE 23---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+At high frequency inductors turn into capacitors
+Don’t route planes under common mode inductors!
+CIND_PARASITIC
+23 pF
+CPWB_A
+50 pF
+Ground Plane
+CPWB_B
+50 pF
+L1
+28 mH
+3 cm2 (0.5 in2) area with
+0.25 mm (0.01 in) thickness or
+1 Layer of PWB
+Parasitic capacitance
+1 k
+1
+Impedance - k
+Frequency - Hz
+10
+100
+L = 28 mH
+C = 23 pF
+10 k
+100 k
+1 M
+
+---PDF PAGE 24---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Magnetic coupling
+• External fields couple between 
+inductors
+• Can cause EMI issues
+• Consider alternate orientation of 
+second inductor to minimize coupling
+• Use core shapes that provide better 
+shielding
+EMI considerations
+
+---PDF PAGE 25---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Input filter layout
+• Place components away from 
+noise sources
+• Common mode inductor T2 input 
+pins do not cross output pins
+• No GND plane under EMI filter
+• Wide, short etch used to minimize 
+losses
+• Wide spacing between etches 
+meets HV requirements and 
+minimizes coupling capacitance
+EMI considerations
+
+---PDF PAGE 26---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Safety
+Separate hazardous voltages from user accessible points
+• Consult your safety expert!
+• Create a very clear channel 
+between primary and secondary
+• Spacing depends on:
+– Type of insulation
+– Pollution degree
+– AC mains voltage
+– Working voltage
+• Types of insulation:
+– Functional
+– Basic/supplementary
+– Reinforced
+Partial Clearance Dimensions (mm) from UL60950-1, Section 2.10.3, Table 2H
+
+---PDF PAGE 27---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Ground planes provide:
+• Low resistance return paths
+• Low inductance return paths
+• Lateral heat spreading across board
+General ground plane tips:
+• Consider flooding empty areas with ground
+• Avoid putting slots in GND planes
+• Use jumpers on single layer boards to improve 
+GND planes 
+• Place as much GND under the IC as possible
+
+Ground planes
+
+---PDF PAGE 28---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Avoid coupling noise to sensitive nodes
+• Maximize the separation 
+– Move the source, reduce Cstray
+• Place capacitors and resistors near pins
+• Place GND vias near caps, resistors, and IC
+• Minimize the unfiltered track length
+Good
+Bad
+Signal routing/placement
+VSW
+VSW
+
+---PDF PAGE 29---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Signal routing/placement
+Data sheets normally 
+contain 
+PCB layout guidelines
+
+---PDF PAGE 30---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PWB cooling strategy
+• Have solid ground planes to 
+better spread heat across the layer
+• Avoid breaks in planes as they 
+substantially degrade lateral heat 
+flow
+• Use thermal vias to spread heat to 
+other layers
+• Thermal pads help to get the heat 
+out of the IC into the PCB
+• Use both sides of the board to cool  
+• Maximize the thermal paths with 
+partial pours wherever practical
+• DO NOT use switched node for 
+cooling
+Thermal management
+
+---PDF PAGE 31---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Why Is board A 10°C 
+hotter than B?
+•
+Traces on the bottom 
+layer prevent heat from 
+spreading effectively
+•
+Removing horizontal 
+trace for a more solid 
+bottom layer reduces IC 
+temp on board B
+ 
+•
+Hottest component on B 
+is the catch diode
+TOP
+BOTTOM
+Board A
+Board B
+Max IC Temp: 86C
+Max IC Temp: 66C
+Max Temp: 62.6C
+Max Temp: 52.2C
+Thermal management
+
+---PDF PAGE 32---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PCB layout example
+Useful information:
+– PCB size and (layers, layer spacing, material)
+– Position of inlet and outlet connections
+– Mechanical restraints (keep outs and height restrictions)
+– Manufacturing process constraints
+– Know the creepage and clearance requirements
+Understand the circuit:
+– High current paths
+– High di/dt paths
+– High dv/dt nodes
+– Hot parts
+Imagine a general ‘flow’
+– Trunk packing algorithm
+Gather information and place large components
+DC out
+AC in
+UCC28710/UCC24610 PSR flyback with SR
+
+---PDF PAGE 33---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PCB layout example
+• Place the large parts in the power path 
+first
+• Reserve a ‘quiet’ location for the controller
+– NOT under transformer or node with high 
+dv/dt
+– Place its associated parts nearby
+• Reserve an area for the input filter
+– Keep filter input away from output
+– Rotate, reposition, reassign pins, repeat
+PWM controller
+SR controller
+Place remaining components
+UCC28710/UCC24610 PSR flyback 
+with SR
+
+---PDF PAGE 34---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PCB layout example
+Two layers:
+– Bottom layer (red)
+– Top layer (blue)
+Route power path first
+– Use wide etch and polygon pours
+– Minimize high di/dt loop area
+– Minimize high dv/dt surface area
+Route signal etch last
+−Keep away from high dv/dt nodes
+−Keep noise sensitive etch short
+−Shorten return paths
+Input loop
+Output loop
+Route power and signal etch
+UCC28710/UCC24610 PSR flyback with SR
+
+---PDF PAGE 35---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PCB layout example
+Flood empty areas:
+– Primary GND
+– Secondary GND
+Use vias to connect to GND planes
+– Near caps/resistors
+– Near GND pins of ICs
+Check for blocked GND connections
+– Move parts/etch as necessary
+– Be mindful of parasitic resistance and 
+inductance
+Flood highlighted 
+areas with GND
+Pour ground planes
+UCC28710/UCC24610 PSR flyback with SR
+
+---PDF PAGE 36---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+• Understand your circuit: high current and di/dt paths, high dv/dt nodes
+• Understand how parasitic resistance, inductance, and capacitance are manifested
+• Understand how layout can significantly affect EMI
+• Understand the safety requirements for your product
+• Understand how heat is transferred through the PCB
+• Follow a logical procedure: 
+– Place large parts, place small parts, power routing, signal routing, pour planes
+• Have someone review your layout!
+Summary: keys to a successful SMPS layout
+
+---PDF PAGE 37---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+Summary: references
+• Constructing Your Power Supply - Layout Considerations; R. Kollman; 2004 TI 
+Power Supply Design Seminar; www.ti.com/seclit/ml/slup230/slup230.pdf 
+• Safety Considerations in Power Supply Design; B. Mammano and L. Bahra; 2004 TI 
+Power Supply Design Seminar; www.ti.com/seclit/ml/slup227/slup227.pdf 
+• Common Mistakes in DC/DC Converters and How to Fix Them; P. Shenoy and A. 
+Fagnani; 2018 TI Power Supply Design Seminar; www.ti.com/seclit/ml/slup384/slup384.pdf 
+• Grounding in Mixed-Signal Systems Demystified, Part 1 & Part 2; S. Pithadia and 
+S. More; 1Q 2013, TI Analog Applications Journal; www.ti.com/lit/an/slyt499/slyt499.pdf; 
+www.ti.com/lit/an/slyt512/slyt512.pdf
+• Why Should You Count Squares; Brigitte; 2016 TI Power House Blog; 
+http://e2e.ti.com/blogs_/b/powerhouse/archive/2016/10/03/why-should-i-count-squares 
+ 
+
+---PDF PAGE 38---
+TI Information – Selective Disclosure
+电源工程师培训授证项目
+Thank you
+
+---PDF PAGE 39---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+
+---PDF PAGE 40---
+TI Information – Selective Disclosure
+电源工程师技术培训项目
+PCB layout: flyback
+Low power but often used in off line 
+applications where Vin is high
+Input and output currents are pulsating
+Gate drive currents as before
+High dv/dt rates at the MOSFET drain – 
+red dot
+I_Dio
+I_MOS
+(& Vcs)
+I_gate
+High dv/dt
+SMPS characteristics
+
+---PDF PAGE 41---
+IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATA SHEETS), DESIGN RESOURCES (INCLUDING REFERENCE 
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS” 
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD 
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate 
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable 
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an 
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license 
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you 
+will fully indemnify TI and its representatives against, any claims, damages, costs, losses, and liabilities arising out of your use of these 
+resources.
+TI’s products are provided subject to TI’s Terms of Sale or other applicable terms available either on ti.com or provided in conjunction with 
+such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable warranties or warranty disclaimers for 
+TI products.
+TI objects to and rejects any additional or different terms you may have proposed. IMPORTANT NOTICE
+Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+Copyright © 2025, Texas Instruments Incorporated

@@ -1,0 +1,81 @@
+[
+  {
+    "mode": "missing_units",
+    "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052632Z-1f156550\\work",
+    "error": "Custom DRC rules did not produce the loading sentinel; refusing a report with unverified custom rules",
+    "rule_loading": {
+      "rules_sha256": "5e62009bd74f487976009a225fab58f3709bed578f043e1b4055dc8013a1a421",
+      "probe_report": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052632Z-1f156550\\reports\\60f60351433b\\rules-probe.json",
+      "sentinel_name": "CUSTOM_RULE_LOADING_SENTINEL",
+      "sentinel_violations": 0,
+      "custom_rules_loaded": false,
+      "probe_is_not_a_design_acceptance_report": true
+    },
+    "summary": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052632Z-1f156550\\reports\\60f60351433b\\summary.json",
+    "accepted_as_negative_control": true
+  },
+  {
+    "mode": "ordinary_ring_reduced",
+    "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052635Z-4281f00f\\work",
+    "target_uuid": "06ec9e57-b158-431d-a6e1-8bab2156ed4e",
+    "summary": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052635Z-4281f00f\\reports\\fd16042c61b5\\summary.json",
+    "rule_loading": {
+      "rules_sha256": "db195453799f305e9f29f829eccc06c3218a07383e48373e0dccce6bf5b2818a",
+      "probe_report": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052635Z-4281f00f\\reports\\fd16042c61b5\\rules-probe.json",
+      "sentinel_name": "CUSTOM_RULE_LOADING_SENTINEL",
+      "sentinel_violations": 163,
+      "custom_rules_loaded": true,
+      "probe_is_not_a_design_acceptance_report": true
+    },
+    "annular_violations": [
+      {
+        "description": "孔环宽度 (规则 'Manufacturing through-via annular ring' 最小孔环宽度 0.1250 mm; 实际 0.1000 mm)",
+        "items": [
+          {
+            "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+            "pos": {
+              "x": 131.252198,
+              "y": 123.8282
+            },
+            "uuid": "06ec9e57-b158-431d-a6e1-8bab2156ed4e"
+          }
+        ],
+        "severity": "error",
+        "type": "annular_width"
+      }
+    ],
+    "accepted_as_negative_control": true
+  },
+  {
+    "mode": "qualified_size_changed",
+    "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052643Z-7ea4feb3\\work",
+    "target_uuid": "c6ad78c2-361f-4c03-a650-a32f6c415d72",
+    "summary": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052643Z-7ea4feb3\\reports\\128d342f8365\\summary.json",
+    "rule_loading": {
+      "rules_sha256": "db195453799f305e9f29f829eccc06c3218a07383e48373e0dccce6bf5b2818a",
+      "probe_report": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T052643Z-7ea4feb3\\reports\\128d342f8365\\rules-probe.json",
+      "sentinel_name": "CUSTOM_RULE_LOADING_SENTINEL",
+      "sentinel_violations": 163,
+      "custom_rules_loaded": true,
+      "probe_is_not_a_design_acceptance_report": true
+    },
+    "annular_violations": [
+      {
+        "description": "孔环宽度 (规则 'Manufacturing through-via annular ring' 最小孔环宽度 0.1250 mm; 实际 0.0950 mm)",
+        "items": [
+          {
+            "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+            "pos": {
+              "x": 150.3625,
+              "y": 112.1
+            },
+            "uuid": "c6ad78c2-361f-4c03-a650-a32f6c415d72"
+          }
+        ],
+        "severity": "error",
+        "type": "annular_width"
+      }
+    ],
+    "accepted_as_negative_control": true
+  }
+]

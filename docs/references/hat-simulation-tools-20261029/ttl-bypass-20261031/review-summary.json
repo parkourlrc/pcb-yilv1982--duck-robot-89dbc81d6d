@@ -1,0 +1,530 @@
+{
+  "schematic": {
+    "findings": 44,
+    "severity_counts": {
+      "info": 41,
+      "warning": 3
+    },
+    "tool_summary": {
+      "total_findings": 44,
+      "by_severity": {
+        "error": 0,
+        "warning": 3,
+        "info": 41
+      }
+    }
+  },
+  "pcb": {
+    "findings": 58,
+    "severity_counts": {
+      "warning": 14,
+      "info": 41,
+      "error": 3
+    },
+    "tool_summary": {
+      "total_findings": 58,
+      "by_severity": {
+        "error": 3,
+        "warning": 14,
+        "info": 41
+      }
+    },
+    "new_findings": [
+      {
+        "net": "POWER_GND",
+        "net_number": 36,
+        "min_track_width_mm": 0.2,
+        "max_track_width_mm": 0.6,
+        "track_widths_used": [
+          0.2,
+          0.25,
+          0.3,
+          0.6
+        ],
+        "copper_layers": [
+          "B.Cu",
+          "F.Cu"
+        ],
+        "segment_count": 35,
+        "via_count": 17,
+        "via_drill_sizes_mm": [
+          0.3
+        ],
+        "zones": [
+          {
+            "layers": [
+              "F.Cu"
+            ],
+            "filled_area_mm2": 1389.43,
+            "min_thickness": 0.2
+          },
+          {
+            "layers": [
+              "B.Cu"
+            ],
+            "filled_area_mm2": 1290.4,
+            "min_thickness": 0.2
+          },
+          {
+            "layers": [
+              "In1.Cu"
+            ],
+            "filled_area_mm2": 1252.12,
+            "min_thickness": 0.2
+          }
+        ],
+        "detector": "analyze_current_capacity",
+        "rule_id": "CC-DET",
+        "category": "current_capacity",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "Power net POWER_GND: 0.2mm min trace",
+        "description": "Power/ground net POWER_GND: min trace 0.2mm, max 0.6mm, 35 segments.",
+        "components": [],
+        "nets": [
+          "POWER_GND"
+        ],
+        "pins": [],
+        "recommendation": "",
+        "report_context": {
+          "section": "Current Capacity",
+          "impact": "Power delivery",
+          "standard_ref": "IPC-2221"
+        },
+        "stages": [
+          "layout",
+          "pre_fab"
+        ],
+        "finding_id": "pcb:CC-DET-power_gnd"
+      },
+      {
+        "side": "B.Cu",
+        "total_passives": 24,
+        "majority_angle": 0,
+        "majority_count": 18,
+        "deviator_count": 6,
+        "deviator_refs": [
+          "C330",
+          "C308",
+          "R703",
+          "C327",
+          "R309",
+          "C329"
+        ],
+        "detector": "analyze_orientation_consistency",
+        "rule_id": "OR-001",
+        "category": "assembly",
+        "severity": "info",
+        "confidence": "heuristic",
+        "evidence_source": "topology",
+        "summary": "Orientation: 6 passives on B.Cu deviate from 0 deg majority",
+        "description": "6 of 24 passives on B.Cu are not at the majority 0 deg orientation.",
+        "components": [
+          "C308",
+          "C327",
+          "C329",
+          "C330",
+          "R309",
+          "R703"
+        ],
+        "nets": [],
+        "pins": [],
+        "recommendation": "Align passive component orientations for consistent pick-and-place.",
+        "report_context": {
+          "section": "Assembly",
+          "impact": "Pick-and-place efficiency",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:OR-001:c308"
+      },
+      {
+        "component": "C329",
+        "value": "100nF",
+        "package": "0402",
+        "layer": "B.Cu",
+        "risk_level": "medium",
+        "pad_1_net": "+3V3",
+        "pad_2_net": "POWER_GND",
+        "reasons": [
+          "pad 2 is GND (likely ground pour), other pad is signal — thermal asymmetry risk"
+        ],
+        "detector": "analyze_tombstoning_risk",
+        "rule_id": "TB-001",
+        "category": "dfm",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "C329 (0402) tombstoning risk: medium",
+        "description": "C329 (0402, 100nF) has medium tombstoning risk due to thermal asymmetry between pads.",
+        "components": [
+          "C329"
+        ],
+        "nets": [],
+        "pins": [],
+        "recommendation": "pad 2 is GND (likely ground pour), other pad is signal — thermal asymmetry risk",
+        "report_context": {
+          "section": "DFM",
+          "impact": "assembly",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:TB-001:c329"
+      },
+      {
+        "component": "C330",
+        "value": "100nF",
+        "package": "0402",
+        "layer": "B.Cu",
+        "risk_level": "medium",
+        "pad_1_net": "+3V3",
+        "pad_2_net": "POWER_GND",
+        "reasons": [
+          "pad 2 is GND (likely ground pour), other pad is signal — thermal asymmetry risk"
+        ],
+        "detector": "analyze_tombstoning_risk",
+        "rule_id": "TB-001",
+        "category": "dfm",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "C330 (0402) tombstoning risk: medium",
+        "description": "C330 (0402, 100nF) has medium tombstoning risk due to thermal asymmetry between pads.",
+        "components": [
+          "C330"
+        ],
+        "nets": [],
+        "pins": [],
+        "recommendation": "pad 2 is GND (likely ground pour), other pad is signal — thermal asymmetry risk",
+        "report_context": {
+          "section": "DFM",
+          "impact": "assembly",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:TB-001:c330"
+      },
+      {
+        "net": "POWER_GND",
+        "zone_layers": [
+          "B.Cu",
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "zone_area_mm2": 5623.9,
+        "via_count": 17,
+        "via_density_per_cm2": 0.3,
+        "drill_sizes_mm": [
+          0.3
+        ],
+        "detector": "analyze_thermal_vias",
+        "rule_id": "TS-DET",
+        "category": "thermal",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "Zone stitching: POWER_GND 17 vias",
+        "description": "Zone stitching on net POWER_GND: 17 vias across layers ['B.Cu', 'F.Cu', 'In1.Cu'].",
+        "components": [],
+        "nets": [
+          "POWER_GND"
+        ],
+        "pins": [],
+        "recommendation": "",
+        "report_context": {
+          "section": "Thermal",
+          "impact": "Thermal/ground plane connectivity",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:TS-DET-power_gnd"
+      }
+    ],
+    "removed_findings": [
+      {
+        "net": "POWER_GND",
+        "net_number": 36,
+        "min_track_width_mm": 0.25,
+        "max_track_width_mm": 0.6,
+        "track_widths_used": [
+          0.25,
+          0.3,
+          0.6
+        ],
+        "copper_layers": [
+          "B.Cu",
+          "F.Cu"
+        ],
+        "segment_count": 33,
+        "via_count": 15,
+        "via_drill_sizes_mm": [
+          0.3
+        ],
+        "zones": [
+          {
+            "layers": [
+              "F.Cu"
+            ],
+            "filled_area_mm2": 1389.43,
+            "min_thickness": 0.2
+          },
+          {
+            "layers": [
+              "B.Cu"
+            ],
+            "filled_area_mm2": 1287.82,
+            "min_thickness": 0.2
+          },
+          {
+            "layers": [
+              "In1.Cu"
+            ],
+            "filled_area_mm2": 1252.12,
+            "min_thickness": 0.2
+          }
+        ],
+        "detector": "analyze_current_capacity",
+        "rule_id": "CC-DET",
+        "category": "current_capacity",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "Power net POWER_GND: 0.25mm min trace",
+        "description": "Power/ground net POWER_GND: min trace 0.25mm, max 0.6mm, 33 segments.",
+        "components": [],
+        "nets": [
+          "POWER_GND"
+        ],
+        "pins": [],
+        "recommendation": "",
+        "report_context": {
+          "section": "Current Capacity",
+          "impact": "Power delivery",
+          "standard_ref": "IPC-2221"
+        },
+        "stages": [
+          "layout",
+          "pre_fab"
+        ],
+        "finding_id": "pcb:CC-DET-power_gnd"
+      },
+      {
+        "side": "B.Cu",
+        "total_passives": 22,
+        "majority_angle": 0,
+        "majority_count": 18,
+        "deviator_count": 4,
+        "deviator_refs": [
+          "C308",
+          "R703",
+          "C327",
+          "R309"
+        ],
+        "detector": "analyze_orientation_consistency",
+        "rule_id": "OR-001",
+        "category": "assembly",
+        "severity": "info",
+        "confidence": "heuristic",
+        "evidence_source": "topology",
+        "summary": "Orientation: 4 passives on B.Cu deviate from 0 deg majority",
+        "description": "4 of 22 passives on B.Cu are not at the majority 0 deg orientation.",
+        "components": [
+          "C308",
+          "C327",
+          "R309",
+          "R703"
+        ],
+        "nets": [],
+        "pins": [],
+        "recommendation": "Align passive component orientations for consistent pick-and-place.",
+        "report_context": {
+          "section": "Assembly",
+          "impact": "Pick-and-place efficiency",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:OR-001:c308"
+      },
+      {
+        "net": "POWER_GND",
+        "zone_layers": [
+          "B.Cu",
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "zone_area_mm2": 5623.9,
+        "via_count": 15,
+        "via_density_per_cm2": 0.3,
+        "drill_sizes_mm": [
+          0.3
+        ],
+        "detector": "analyze_thermal_vias",
+        "rule_id": "TS-DET",
+        "category": "thermal",
+        "severity": "info",
+        "confidence": "deterministic",
+        "evidence_source": "topology",
+        "summary": "Zone stitching: POWER_GND 15 vias",
+        "description": "Zone stitching on net POWER_GND: 15 vias across layers ['B.Cu', 'F.Cu', 'In1.Cu'].",
+        "components": [],
+        "nets": [
+          "POWER_GND"
+        ],
+        "pins": [],
+        "recommendation": "",
+        "report_context": {
+          "section": "Thermal",
+          "impact": "Thermal/ground plane connectivity",
+          "standard_ref": ""
+        },
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "pcb:TS-DET-power_gnd"
+      }
+    ]
+  },
+  "cross": {
+    "findings": 2,
+    "severity_counts": {
+      "warning": 2
+    },
+    "tool_summary": {
+      "total_findings": 2,
+      "by_severity": {
+        "error": 0,
+        "warning": 2,
+        "info": 0
+      }
+    }
+  },
+  "emc": {
+    "findings": 53,
+    "severity_counts": {
+      "error": 7,
+      "warning": 33,
+      "info": 13
+    },
+    "tool_summary": {
+      "total_findings": 53,
+      "categories_checked": 7,
+      "active": 53,
+      "suppressed": 0,
+      "by_severity": {
+        "error": 7,
+        "warning": 33,
+        "info": 13
+      },
+      "emc_risk_score": 11.5
+    },
+    "new_findings": [],
+    "removed_findings": [
+      {
+        "category": "decoupling",
+        "severity": "error",
+        "rule_id": "DC-002",
+        "confidence": "heuristic",
+        "title": "No decoupling cap found near U801",
+        "description": "U801 (SN74LVC1G126) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+        "components": [
+          "U801"
+        ],
+        "nets": [],
+        "recommendation": "Add 100nF X7R 0402 + 1µF X5R 0603 close to U801 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U801 with short, wide traces to vias.",
+        "detector": "emc_decoupling",
+        "summary": "No decoupling cap found near U801",
+        "pins": [],
+        "evidence_source": "heuristic_rule",
+        "report_context": {
+          "section": "Decoupling",
+          "impact": "",
+          "standard_ref": ""
+        },
+        "fix_params": {
+          "type": "add_component",
+          "components": [
+            {
+              "type": "capacitor",
+              "value": "100n"
+            }
+          ],
+          "basis": "Standard 100nF decoupling per IC"
+        },
+        "suppressed": false,
+        "suppression_reason": "",
+        "stages": [
+          "layout"
+        ],
+        "finding_id": "emc:DC-002:u801"
+      }
+    ]
+  },
+  "thermal": {
+    "findings": 0,
+    "severity_counts": {},
+    "tool_summary": {
+      "total_findings": 0,
+      "components_assessed": 2,
+      "components_skipped": 0,
+      "active": 0,
+      "suppressed": 0,
+      "by_severity": {
+        "error": 0,
+        "warning": 0,
+        "info": 0
+      },
+      "thermal_score": 100,
+      "total_board_dissipation_w": 0.028,
+      "hottest_component": {
+        "ref": "U301",
+        "tj_estimated_c": 26.3
+      },
+      "components_analyzed": 2,
+      "components_above_85c": 0,
+      "components_above_tjmax": 0,
+      "ambient_c": 25.0
+    }
+  },
+  "gerbers": {
+    "findings": 2,
+    "severity_counts": {
+      "warning": 2
+    },
+    "tool_summary": {
+      "total_findings": 2,
+      "by_severity": {
+        "error": 0,
+        "warning": 2,
+        "info": 0
+      }
+    }
+  },
+  "spice": {
+    "findings": 0,
+    "severity_counts": {},
+    "tool_summary": {
+      "total": 12,
+      "total_findings": 0,
+      "pass": 12,
+      "warn": 0,
+      "fail": 0,
+      "skip": 0,
+      "by_severity": {
+        "error": 0,
+        "warning": 0,
+        "info": 12
+      }
+    }
+  }
+}

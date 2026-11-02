@@ -1,0 +1,26 @@
+* Auto-generated testbench for decoupling analysis: +1V8_CODEC rail
+* 2 capacitor(s) in parallel, series R-L-C model
+* Model: ESR/ESL from pdn_impedance (package-based)
+
+R_esr_C309 rail n_esr_0 50m
+L_par_C309 n_esr_0 n_lpar_0 900p
+C309 n_lpar_0 0 1u
+R_esr_C311 rail n_esr_1 300m
+L_par_C311 n_esr_1 n_lpar_1 500p
+C311 n_lpar_1 0 1u
+
+* 1A AC current source into the rail node — V(rail) = Z(f)
+IAC 0 rail DC 0 AC 1
+
+.control
+ac dec 200 100 100Meg
+let z_mag = vm(rail)
+meas ac z_min min z_mag
+meas ac f_at_zmin when z_mag=z_min
+meas ac z_at_1M find vm(rail) at=1Meg
+meas ac z_at_100k find vm(rail) at=100k
+echo "z_min=$&z_min f_at_zmin=$&f_at_zmin z_at_1M=$&z_at_1M z_at_100k=$&z_at_100k n_caps=2" > E:/Projects/duck-robot/docs/references/hat-simulation-tools-20261029/buck-thermal-20261031/spice-work/decoupling_C309_C311.out
+quit
+.endc
+
+.end

@@ -1,0 +1,44 @@
+=== stdout ===
+
+Note: No compatibility mode selected!
+
+
+Circuit: * auto-generated testbench for decoupling analysis: +5v rail
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1201
+z_min               =  2.25029e-03 at=  9.77237e+05
+z_at_1m             =  2.25707e-03
+z_at_100k           =  2.92898e-02
+ngspice-47 done
+
+=== stderr ===
+Warning: singular matrix:  check node n_lpar_1
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started
+Note: Transient op finished successfully
+
+Error: measure  f_at_zmin  when(WHEN) : out of interval
+ meas ac f_at_zmin when z_mag=2.250285e-03 failed!
+
+Error: &f_at_zmin: no such variable.
+

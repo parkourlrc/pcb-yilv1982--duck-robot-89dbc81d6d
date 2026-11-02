@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\repair_qwiic_pinout.py", line 135, in <module>
+    main()
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\repair_qwiic_pinout.py", line 128, in main
+    reports, summary = pipeline.check(work)
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\pipeline.py", line 192, in check
+    run_command([cli, *args], report_dir, name, commands, expected_output)
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\pipeline.py", line 100, in run_command
+    raise RuntimeError(f"{name} failed: exit {process.returncode}; see {directory}")
+RuntimeError: netlist failed: exit 3; see E:\Projects\duck-robot\hardware\custom_hat\runs\20261031T124127Z-b2ea757b\reports\8925caa44965

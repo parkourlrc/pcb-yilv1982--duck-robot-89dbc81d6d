@@ -1,0 +1,74 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T095641Z-4ce96e72\\work",
+      "pcb_sha256": "70586fc6d5c68f322d49f56fa657ac89537fdf7702ad5e5261a5b253e5ca8fbe",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T095641Z-4ce96e72\\reset-filled-before-c906e0a8.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T095641Z-4ce96e72\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T094931Z-ae02aceb\\work",
+      "pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T094931Z-ae02aceb\\reset-filled-after-1df8e519.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T094931Z-ae02aceb\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "all_original_pad_geometry_unchanged": true,
+  "only_expected_header_net_change": true,
+  "all_original_copper_unchanged": true,
+  "unexpected_original_copper_changes": {},
+  "added_objects_match_contract": true,
+  "lost_original_connections": {},
+  "header_to_codec_and_pullup_connected": true,
+  "header_pin_type": "passive",
+  "new_via_checks": [],
+  "existing_fill_cap_requirements_unchanged": true,
+  "rules_unchanged": true,
+  "project_settings_unchanged": true,
+  "hardware_tested": false,
+  "production_ready": false,
+  "accepted": true,
+  "i2s_reference_samples_preserved": true
+}

@@ -1,0 +1,19 @@
+Isolated small-signal perturbation network, not a regulator model
+Vsignal out 0 DC 0 AC 1
+Rupper out fb 104600
+Rlower fb 0 20000
+Gerror comp 0 fb 0 0.00015
+Rcomp comp series 14000
+Ccomp series 0 3.3e-09
+Rdc comp 0 1e12
+.ac dec 50 10 10Meg
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+set numdgt=12
+run
+wrdata response.dat v(fb) v(comp)
+quit
+.endc
+.end

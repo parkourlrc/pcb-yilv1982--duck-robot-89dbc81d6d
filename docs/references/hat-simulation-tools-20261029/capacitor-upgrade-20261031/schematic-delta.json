@@ -1,0 +1,121 @@
+{
+  "diff_version": "1.0",
+  "analyzer_type": "schematic",
+  "base_file": "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\buck-control-20261031\\schematic.json",
+  "head_file": "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\capacitor-upgrade-20261031\\schematic.json",
+  "has_changes": true,
+  "summary": {
+    "total_changes": 4,
+    "added": 0,
+    "removed": 0,
+    "modified": 4,
+    "severity": "major"
+  },
+  "diff": {
+    "statistics": {
+      "statistics.unique_parts": {
+        "base": 38,
+        "head": 37,
+        "delta": -1
+      }
+    },
+    "components": {
+      "added": [],
+      "removed": [],
+      "modified": [
+        {
+          "reference": "C303",
+          "changes": [
+            {
+              "field": "value",
+              "base": "10uF",
+              "head": "22uF"
+            },
+            {
+              "field": "footprint",
+              "base": "Capacitor_SMD:C_1206_3216Metric",
+              "head": "Capacitor_SMD:C_1210_3225Metric"
+            },
+            {
+              "field": "mpn",
+              "base": "C1206C106K3RACTU",
+              "head": "C1210C226K3RACTU"
+            }
+          ]
+        },
+        {
+          "reference": "C304",
+          "changes": [
+            {
+              "field": "value",
+              "base": "10uF",
+              "head": "22uF"
+            },
+            {
+              "field": "footprint",
+              "base": "Capacitor_SMD:C_1206_3216Metric",
+              "head": "Capacitor_SMD:C_1210_3225Metric"
+            },
+            {
+              "field": "mpn",
+              "base": "C1206C106K3RACTU",
+              "head": "C1210C226K3RACTU"
+            }
+          ]
+        },
+        {
+          "reference": "C305",
+          "changes": [
+            {
+              "field": "footprint",
+              "base": "Capacitor_SMD:C_1206_3216Metric",
+              "head": "Capacitor_SMD:C_1210_3225Metric"
+            },
+            {
+              "field": "mpn",
+              "base": "C1206C226M4PACTU",
+              "head": "C1210C226K3RACTU"
+            }
+          ]
+        },
+        {
+          "reference": "C306",
+          "changes": [
+            {
+              "field": "footprint",
+              "base": "Capacitor_SMD:C_1206_3216Metric",
+              "head": "Capacitor_SMD:C_1210_3225Metric"
+            },
+            {
+              "field": "mpn",
+              "base": "C1206C226M4PACTU",
+              "head": "C1210C226K3RACTU"
+            }
+          ]
+        }
+      ]
+    },
+    "bom": {
+      "added": [
+        {
+          "value": "22uF",
+          "footprint": "Capacitor_SMD:C_1210_3225Metric",
+          "quantity": 4
+        }
+      ],
+      "removed": [
+        {
+          "value": "10uF",
+          "footprint": "Capacitor_SMD:C_1206_3216Metric",
+          "quantity": 2
+        },
+        {
+          "value": "22uF",
+          "footprint": "Capacitor_SMD:C_1206_3216Metric",
+          "quantity": 2
+        }
+      ],
+      "quantity_changes": []
+    }
+  }
+}

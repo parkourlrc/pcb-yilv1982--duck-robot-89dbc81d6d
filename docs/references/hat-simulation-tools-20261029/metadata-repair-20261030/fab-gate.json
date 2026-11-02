@@ -1,0 +1,174 @@
+{
+  "gate_version": "1.0",
+  "overall_status": "FAIL",
+  "summary": {
+    "total_checks": 12,
+    "pass": 7,
+    "warn": 3,
+    "fail": 2,
+    "skip": 0
+  },
+  "checks": [
+    {
+      "category": "routing",
+      "check_id": "routing_completeness",
+      "status": "pass",
+      "message": "All nets routed (73/73)",
+      "details": null
+    },
+    {
+      "category": "bom",
+      "check_id": "mpn_coverage",
+      "status": "fail",
+      "message": "45 component(s) missing MPN",
+      "details": {
+        "missing_mpn": [
+          "C301",
+          "C302",
+          "C303",
+          "C304",
+          "C305",
+          "C306",
+          "C308",
+          "C309",
+          "C310",
+          "C311",
+          "C312",
+          "C313",
+          "C315",
+          "C317",
+          "C318",
+          "C319",
+          "C320",
+          "C321",
+          "C322",
+          "C323"
+        ],
+        "coverage": "7/52"
+      }
+    },
+    {
+      "category": "bom",
+      "check_id": "footprint_assignment",
+      "status": "pass",
+      "message": "All components have footprints assigned",
+      "details": null
+    },
+    {
+      "category": "dfm",
+      "check_id": "fab_capability",
+      "status": "warn",
+      "message": "Design requires advanced process tier (18 violation(s))",
+      "details": {
+        "dfm_tier": "advanced",
+        "violations": [
+          {
+            "parameter": "annular_ring",
+            "actual_mm": 0.1,
+            "limit_mm": 0.125
+          },
+          {
+            "parameter": "via_drill",
+            "actual_mm": 0.15,
+            "limit_mm": 0.2
+          },
+          {
+            "parameter": "annular_ring_via",
+            "actual_mm": 0.1,
+            "limit_mm": null
+          },
+          {
+            "parameter": "TB-001",
+            "actual_mm": null,
+            "limit_mm": null
+          },
+          {
+            "parameter": "TB-001",
+            "actual_mm": null,
+            "limit_mm": null
+          }
+        ]
+      }
+    },
+    {
+      "category": "documentation",
+      "check_id": "revision_marking",
+      "status": "warn",
+      "message": "No revision marking found on silkscreen",
+      "details": null
+    },
+    {
+      "category": "documentation",
+      "check_id": "board_name",
+      "status": "warn",
+      "message": "No board name found on silkscreen",
+      "details": null
+    },
+    {
+      "category": "consistency",
+      "check_id": "component_count",
+      "status": "fail",
+      "message": "Component count mismatch: schematic 55 vs PCB 66 (diff 11, 20%)",
+      "details": {
+        "schematic_placeable": 55,
+        "pcb_footprints": 66,
+        "difference": 11
+      }
+    },
+    {
+      "category": "consistency",
+      "check_id": "net_count",
+      "status": "pass",
+      "message": "Net counts match (73)",
+      "details": null
+    },
+    {
+      "category": "gerbers",
+      "check_id": "layer_completeness",
+      "status": "pass",
+      "message": "All expected layers present",
+      "details": null
+    },
+    {
+      "category": "gerbers",
+      "check_id": "layer_alignment",
+      "status": "pass",
+      "message": "Layer coordinate ranges consistent",
+      "details": null
+    },
+    {
+      "category": "thermal",
+      "check_id": "thermal_risk",
+      "status": "pass",
+      "message": "Thermal score 100/100 \u2014 no critical/high findings",
+      "details": null
+    },
+    {
+      "category": "emc",
+      "check_id": "emc_risk",
+      "status": "pass",
+      "message": "EMC score 0/100 \u2014 no critical findings",
+      "details": null
+    }
+  ],
+  "elapsed_s": 0.0,
+  "trust_posture": {
+    "trust_level": "mixed",
+    "total_findings": 157,
+    "by_confidence": {
+      "deterministic": 110,
+      "heuristic": 47,
+      "datasheet_backed": 0
+    },
+    "provenance_coverage_pct": 29.8,
+    "per_analyzer": {
+      "schematic": "mixed",
+      "pcb": "high",
+      "thermal": "high",
+      "emc": "mixed"
+    },
+    "evidence_blockers": [
+      "Low MPN coverage (18%)"
+    ]
+  }
+}

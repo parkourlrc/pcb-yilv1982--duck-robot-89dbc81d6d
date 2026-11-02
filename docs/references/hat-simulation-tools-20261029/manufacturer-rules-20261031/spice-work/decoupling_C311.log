@@ -1,0 +1,40 @@
+=== stdout ===
+
+Note: No compatibility mode selected!
+
+
+Circuit: * auto-generated testbench for decoupling analysis: +1v8_codec rail
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1201
+z_min               =  3.00000e-01 at=  7.07946e+06
+f_at_zmin           =  7.07911e+06
+z_at_1m             =  3.38142e-01
+z_at_100k           =  1.61927e+00
+ngspice-47 done
+
+=== stderr ===
+Warning: singular matrix:  check node n_lpar_0
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: singular matrix:  check node n_lpar_0
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started
+Note: Transient op finished successfully
+

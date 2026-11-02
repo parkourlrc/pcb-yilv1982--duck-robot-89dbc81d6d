@@ -1,0 +1,275 @@
+{
+  "base": "818becfdb21d35b6ceacbe00b6e7837465292d696b56cc7991d4e7494704831f",
+  "removed_tracks": [
+    "155c8c16-f1a5-45d6-bbdb-dcdf1ad0bf34",
+    "19d8c8c5-156a-48ca-8ccc-6f7e2e1468d6",
+    "1bca3f0d-e02f-4076-90b1-92f66cb39e0a",
+    "351e2e37-bada-496d-b3f1-f809a052f21a",
+    "4dc06a06-77f9-481d-b892-94f0f0b68241",
+    "53f06b25-d441-491b-8a33-ecefc2680121",
+    "6305b861-749b-44c3-9827-b715077de931",
+    "6843663e-0bbd-45d5-80b5-a56a8d9323b6",
+    "744c354f-c327-4f96-b1f1-3c7f5b535cdf",
+    "794d9bf6-86cc-43a3-a439-656fe074f6b1",
+    "798566e6-843c-4be8-8826-200a3204647f",
+    "8c428ffb-1cfc-4493-8dbd-a0189eba285f",
+    "a61faace-07fa-4a54-8624-c8ba3df79dd8",
+    "abecfe90-8b75-48a7-b12f-beb68ba4cdc2",
+    "b7a7547c-c6f4-480c-a341-f189dee33ed8",
+    "ba78d8cd-163a-433c-b15d-d701c143b908",
+    "c1395c67-b19f-46ba-bfc6-79ab8e5c7986",
+    "c92fa2ca-57d5-470d-a1a3-4ca61e63c221",
+    "d9b4a8b8-bdfe-4452-acfe-509f215dda43"
+  ],
+  "capacitor_position": [
+    125.4,
+    124.2
+  ],
+  "resistor_position": [
+    122.8,
+    122.8
+  ],
+  "cap_fields": {
+    "Value": "2.2uF",
+    "MPN": "C0805C225K5RACTU",
+    "Manufacturer": "KEMET",
+    "Datasheet": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",
+    "Voltage Rating": "50V",
+    "Dielectric": "X7R",
+    "Tolerance": "10%",
+    "Assembly Height": "1.25mm nominal; 1.45mm maximum",
+    "BOM Comments": "Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass"
+  },
+  "res_fields": {
+    "Value": "0.047",
+    "MPN": "WSLP0603R0470FEA",
+    "Manufacturer": "Vishay",
+    "Datasheet": "https://www.vishay.com/docs/30122/wslp.pdf",
+    "Tolerance": "1%",
+    "Power Rating": "0.4W at70C; derate above70C",
+    "TCR": "110ppm/C",
+    "BOM Comments": "47mOhm capacitor-branch damping only; not in load ground; Vishay30122 p1-2 pad1.02x1.02mm gap0.50mm"
+  },
+  "routes": [
+    {
+      "net": "LDO_CAP_RETURN",
+      "width": 0.3,
+      "points": [
+        [
+          124.45,
+          124.2
+        ],
+        [
+          122.8,
+          123.56
+        ]
+      ],
+      "added_tracks": [
+        "527f6ab3-36d9-45b2-b949-9181e44a3aba"
+      ]
+    },
+    {
+      "net": "+1V8_CODEC",
+      "width": 0.3,
+      "points": [
+        [
+          126.35,
+          124.2
+        ],
+        [
+          126.17,
+          121.98
+        ]
+      ],
+      "added_tracks": [
+        "0dc99152-72a6-4073-adaf-10dd6383c2dc"
+      ]
+    },
+    {
+      "net": "POWER_GND",
+      "width": 0.3,
+      "points": [
+        [
+          122.8,
+          122.04
+        ],
+        [
+          125.25,
+          120.75
+        ]
+      ],
+      "added_tracks": [
+        "d70b8738-7870-4482-baca-e8aab3205d12"
+      ]
+    },
+    {
+      "net": "AUDIO_AMP_EN",
+      "width": 0.25,
+      "points": [
+        [
+          123.3713,
+          121.1586
+        ],
+        [
+          122.05,
+          121.05
+        ],
+        [
+          120.05,
+          121.05
+        ],
+        [
+          119.85,
+          121.275
+        ],
+        [
+          119.875,
+          123.275
+        ],
+        [
+          123.85,
+          125.225
+        ],
+        [
+          127.2,
+          126.175
+        ],
+        [
+          130.1677,
+          127.955
+        ]
+      ],
+      "added_tracks": [
+        "167b4773-7d93-4673-bb3c-d1962edb5df2",
+        "909dadad-b234-4910-9e72-118c14f14bac",
+        "0db0ac59-dd43-4184-8477-a98f8adc1abb",
+        "9d4f4fb3-07a6-4cfc-8280-790f835f3715",
+        "22e2a0fe-ef30-4fb3-a5fd-3dc749c3b2ed",
+        "94441ac9-db17-44e8-9233-e328a1727e0f",
+        "40b998a0-6d18-4b55-aefd-9cc57c207d02"
+      ]
+    }
+  ],
+  "original_net_change": {
+    "C309.2": [
+      "POWER_GND",
+      "LDO_CAP_RETURN"
+    ]
+  },
+  "added_pins": {
+    "R703.1": "LDO_CAP_RETURN",
+    "R703.2": "POWER_GND"
+  },
+  "initial_routes": [
+    {
+      "net": "+1V8_CODEC",
+      "width": 0.3,
+      "points": [
+        [
+          126.17,
+          121.98
+        ],
+        [
+          126.17,
+          122.32
+        ],
+        [
+          128.75,
+          124.9
+        ],
+        [
+          128.95,
+          124.9
+        ]
+      ],
+      "added_tracks": [
+        "4cb46d5d-d9aa-4638-b93f-33a719d2c393",
+        "0796459e-9aec-4374-9682-430fb8349d1f",
+        "bfca1da6-8507-47d7-b689-00b074035341"
+      ]
+    },
+    {
+      "net": "LDO_CAP_RETURN",
+      "width": 0.3,
+      "points": [
+        [
+          130.85,
+          124.9
+        ],
+        [
+          130.85,
+          125.5
+        ],
+        [
+          129.14,
+          125.5
+        ],
+        [
+          129.14,
+          126.9
+        ]
+      ],
+      "added_tracks": [
+        "b855e478-dbc6-4d5d-8b14-abc601ff2bb5",
+        "d8d733ce-9714-4b80-8819-28498004d8ef",
+        "d7955d8f-f314-4036-bcb1-2f87696b98d9"
+      ]
+    },
+    {
+      "net": "POWER_GND",
+      "width": 0.3,
+      "points": [
+        [
+          130.66,
+          126.9
+        ],
+        [
+          131.7,
+          126.9
+        ],
+        [
+          131.7,
+          123.8282
+        ],
+        [
+          131.252198,
+          123.8282
+        ]
+      ],
+      "added_tracks": [
+        "d413ab8e-cd6e-4d8d-8479-6cfe677f27a6",
+        "1c9e6d21-2219-4b4a-938c-5aae7dcaafed",
+        "c21d0bbf-1739-4a72-8913-45ebb05621d8"
+      ]
+    },
+    {
+      "net": "AUDIO_AMP_EN",
+      "width": 0.25,
+      "points": [
+        [
+          123.3713,
+          121.1586
+        ],
+        [
+          127.3,
+          125.0873
+        ],
+        [
+          127.3,
+          127.955
+        ],
+        [
+          130.1677,
+          127.955
+        ]
+      ],
+      "added_tracks": [
+        "817d6365-b867-476d-b107-36f0cb4ed4bf",
+        "da4d8744-c0fc-4f43-af38-1508e0c7dc6b",
+        "a4e320e2-59c6-4f44-ba8c-78bd7de58362"
+      ]
+    }
+  ],
+  "capacitor_angle": 180,
+  "resistor_angle": 90
+}

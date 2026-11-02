@@ -1,0 +1,1368 @@
+(kicad_sch
+  (version 20250114)
+  (generator "eeschema")
+  (uuid "bcd08810-b456-5716-b62e-01ebfb188302")
+  (paper "A3")
+  (title_block
+    (title "Half-duplex TTL servo bus - two 3P outlets")
+    (date "2026-10-28")
+    (rev "A schematic draft")
+    (company "duck-robot"))
+  (lib_symbols
+    (symbol "Connector_Generic:Conn_01x03"
+      (pin_names
+        (offset 1.016)
+        (hide yes))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "J"
+        (at 0 5.08 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "Conn_01x03"
+        (at 0 -5.08 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "connector"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "Connector*:*_1x??_*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "Conn_01x03_1_1"
+        (rectangle
+          (start -1.27 3.81)
+          (end 1.27 -3.81)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background)))
+        (rectangle
+          (start -1.27 2.667)
+          (end 0 2.413)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (rectangle
+          (start -1.27 0.127)
+          (end 0 -0.127)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (rectangle
+          (start -1.27 -2.413)
+          (end 0 -2.667)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (pin passive line
+          (at -5.08 2.54 0)
+          (length 3.81)
+          (name "Pin_1"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at -5.08 0 0)
+          (length 3.81)
+          (name "Pin_2"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at -5.08 -2.54 0)
+          (length 3.81)
+          (name "Pin_3"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no))
+    (symbol "74xGxx:74LVC1G126"
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "U"
+        (at 2.54 7.62 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "74LVC1G126"
+        (at 2.54 -7.62 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "Single Buffer Gate Tri-State, Low-Voltage CMOS"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "Single Gate Buff Tri-State LVC CMOS"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "SOT* SG-*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "74LVC1G126_0_1"
+        (polyline
+          (pts
+            (xy -7.62 6.35)
+            (xy -7.62 -6.35)
+            (xy 5.08 0)
+            (xy -7.62 6.35))
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "74LVC1G126_1_1"
+        (pin input line
+          (at 0 10.16 270)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -15.24 0 0)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 -10.16 90)
+          (length 5.08)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin tri_state line
+          (at 12.7 0 180)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 10.16 270)
+          (length 5.08)
+          (name "VCC"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no))
+    (symbol "74xGxx:74LVC1G125"
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "U"
+        (at -10.16 7.62 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "74LVC1G125"
+        (at 2.54 -7.62 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "Single Buffer Gate Tri-State, Low-Voltage CMOS"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "Single Gate Buff Tri-State LVC CMOS"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "SOT?23* Texas?R-PDSO-G5?DCK* Texas?R-PDSO-N5?DRL* Texas?X2SON*0.8x0.8mm*P0.48mm*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "74LVC1G125_0_1"
+        (polyline
+          (pts
+            (xy -7.62 6.35)
+            (xy -7.62 -6.35)
+            (xy 5.08 0)
+            (xy -7.62 6.35))
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background))))
+      (symbol "74LVC1G125_1_1"
+        (pin input inverted
+          (at 0 10.16 270)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin input line
+          (at -15.24 0 0)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 -10.16 90)
+          (length 5.08)
+          (name "GND"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin tri_state line
+          (at 12.7 0 180)
+          (length 7.62)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin power_in line
+          (at -5.08 10.16 270)
+          (length 5.08)
+          (name "VCC"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no))
+    (symbol "Device:R"
+      (pin_numbers
+        (hide yes))
+      (pin_names
+        (offset 0))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "R"
+        (at 2.032 0 90)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "R"
+        (at 0 0 90)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at -1.778 0 90)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "Resistor"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "R res resistor"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "R_*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "R_0_1"
+        (rectangle
+          (start -1.016 -2.54)
+          (end 1.016 2.54)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "R_1_1"
+        (pin passive line
+          (at 0 3.81 270)
+          (length 1.27)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at 0 -3.81 90)
+          (length 1.27)
+          (name ""
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no)))
+  (wire
+    (pts
+      (xy 95.25 72.39)
+      (xy 87.63 72.39))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "8ab96433-9a72-5e97-95db-a75629f2b23e"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 87.63 72.39 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "113ada7e-846a-5ae2-8053-9ccf7760f1ee")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 72.39 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 95.25 74.93)
+      (xy 87.63 74.93))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "bea593f8-f97f-5556-a375-59cb922b752b"))
+  (global_label "SERVO_VBAT"
+    (shape bidirectional)
+    (at 87.63 74.93 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "235755a8-41d1-5e4c-9bb4-a445694ba514")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 74.93 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 95.25 77.47)
+      (xy 87.63 77.47))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "600782df-b8df-551f-8872-749c8f476bcb"))
+  (global_label "DXL_DATA"
+    (shape bidirectional)
+    (at 87.63 77.47 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "db68f518-7444-5670-aa03-58c6dbed1be2")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 77.47 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x03")
+    (at 100.33 74.93 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "3111772f-1ba0-5a35-9769-1aeb8acd0aa5")
+    (property "Reference" "J401"
+      (at 100.33 69.85000000000001 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "DYNAMIXEL_TTL_1"
+      (at 100.33 72.39 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical"
+      (at 100.33 74.93 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "7347fade-e09c-51a9-bd39-fd84b7fe8b30"))
+    (pin "2"
+      (uuid "4e9e2c3b-b616-58d2-9f30-f6fc82aff14c"))
+    (pin "3"
+      (uuid "6c0a981a-bea3-53af-ae77-72fe5c9b2722"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "J401")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 95.25 113.03)
+      (xy 87.63 113.03))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "871a70e0-e158-562a-8b33-305b0294a617"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 87.63 113.03 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "13a0434b-a978-5149-b6b2-e5195ec1049a")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 113.03 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 95.25 115.57)
+      (xy 87.63 115.57))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "0db99c19-b4bf-5c06-a8ed-666729f3a928"))
+  (global_label "SERVO_VBAT"
+    (shape bidirectional)
+    (at 87.63 115.57 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "d0c5f57e-9658-56bd-b68a-be9ed682c5b7")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 115.57 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 95.25 118.11)
+      (xy 87.63 118.11))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "964726e0-2ca4-596e-a3d7-36577f257f4f"))
+  (global_label "DXL_DATA"
+    (shape bidirectional)
+    (at 87.63 118.11 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "d7d7a15d-f8f3-5287-a473-0bba95b10704")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 87.63 118.11 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x03")
+    (at 100.33 115.57000000000001 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1855801c-54f5-5869-a41b-8f608bfa3ade")
+    (property "Reference" "J402"
+      (at 100.33 110.49000000000001 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "DYNAMIXEL_TTL_2"
+      (at 100.33 113.03 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical"
+      (at 100.33 115.57000000000001 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "5c0c8ea1-e00d-5a17-8227-ab886e4194b0"))
+    (pin "2"
+      (uuid "d00006df-e0dc-555d-980d-4f424bf7b7cc"))
+    (pin "3"
+      (uuid "c6790772-db64-55d9-a198-e33fca814f78"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "J402")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 190.5 49.53)
+      (xy 190.5 41.91))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "3bca3e90-947f-5724-a407-732f4a78833e"))
+  (global_label "DXL_DIR"
+    (shape bidirectional)
+    (at 190.5 41.91 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "9f648823-7289-5a0e-9570-4d6f274e2eda")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 190.5 41.91 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 175.26 59.69)
+      (xy 167.64 59.69))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "66ca9482-35f8-566a-aa93-b0d77e7ed372"))
+  (global_label "UART2_TX"
+    (shape bidirectional)
+    (at 167.64 59.69 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "3d0f1dc7-35f0-593e-8455-b5669194f763")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 167.64 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 185.42 69.85)
+      (xy 185.42 77.47))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "bab0632d-318f-51a2-b976-681a8ee7569f"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 185.42 77.47 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "d3a3844a-d9fa-5f56-9464-a213f4c116f9")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 185.42 77.47 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 203.2 59.69)
+      (xy 210.82 59.69))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "a73235b9-65a4-5199-947c-de72fc7232af"))
+  (global_label "DXL_DATA"
+    (shape bidirectional)
+    (at 210.82 59.69 0)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify left))
+    (uuid "96ec02c0-4255-51a3-aa3f-1513a025e91f")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 210.82 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 185.42 49.53)
+      (xy 185.42 41.91))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f9e6fe1c-c254-5fc3-b0c6-d8b3fb61430a"))
+  (global_label "+3V3"
+    (shape bidirectional)
+    (at 185.42 41.91 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "0697d2f2-ca2c-5a58-8a89-67a8e011c001")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 185.42 41.91 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "74xGxx:74LVC1G126")
+    (at 190.5 59.69 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "cd317a3a-6ba5-5978-acb2-5841ef780562")
+    (property "Reference" "U801"
+      (at 190.5 54.61 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "SN74LVC1G126"
+      (at 190.5 57.15 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+      (at 190.5 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "5b2344c8-43f1-53ff-9df2-4f11deb6231e"))
+    (pin "2"
+      (uuid "62a5e45e-2481-548e-90fb-d951ed64996e"))
+    (pin "3"
+      (uuid "3e0632da-2a3c-50b8-9bca-7db6f41f5097"))
+    (pin "4"
+      (uuid "f7f3cad6-d1aa-526d-8cec-b7337de0ab66"))
+    (pin "5"
+      (uuid "34bca058-a476-5964-a11b-5ef9f419269f"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "U801")
+          (unit 1))))
+    (property "MPN" "SN74LVC1G126DBVR"
+      (at 190.5 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Manufacturer" "Texas Instruments"
+      (at 190.5 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g126.pdf"
+      (at 190.5 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "BOM Comments" "Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"
+      (at 190.5 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 240.03 49.53)
+      (xy 240.03 41.91))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "64375b1a-4a12-53fa-b593-9d27eba1da4f"))
+  (global_label "DXL_DIR"
+    (shape bidirectional)
+    (at 240.03 41.91 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "1ea8fb8b-a5f8-5322-baa7-04a38a13b1f0")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 240.03 41.91 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 224.79 59.69)
+      (xy 217.17 59.69))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "c2c4dddb-cbf8-588a-bc2c-ce994fb8d19a"))
+  (global_label "DXL_DATA"
+    (shape bidirectional)
+    (at 217.17 59.69 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "4d5293d6-e2fd-5805-9b23-f5009191770c")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 217.17 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 234.95 69.85)
+      (xy 234.95 77.47))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "cef94e9f-7d82-58a7-86fe-7863d0a33df9"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 234.95 77.47 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "9974669f-3bc4-53e7-8a7e-835034ab0ad5")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 234.95 77.47 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 252.73 59.69)
+      (xy 260.35 59.69))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "9a58929a-5576-5638-be26-696f66c588b6"))
+  (global_label "UART2_RX"
+    (shape bidirectional)
+    (at 260.35 59.69 0)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify left))
+    (uuid "7181e4bf-cd04-5b4f-8143-bfa8f31cc8fb")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 260.35 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 234.95 49.53)
+      (xy 234.95 41.91))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "8287931c-bd41-57fd-a085-86bb9b9c46ff"))
+  (global_label "+3V3"
+    (shape bidirectional)
+    (at 234.95 41.91 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "404450e4-6e04-5201-96f4-1e707a97e262")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 234.95 41.91 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "74xGxx:74LVC1G125")
+    (at 240.03 59.69 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "d53f5fcc-1630-5d66-8497-c978054ad38e")
+    (property "Reference" "U802"
+      (at 240.03 54.61 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "SN74LVC1G125"
+      (at 240.03 57.15 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+      (at 240.03 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "de81ac6a-7629-5dae-b4b2-3b761cb54bb7"))
+    (pin "2"
+      (uuid "1eab165e-090d-5207-b1a2-67d8a9e5d892"))
+    (pin "3"
+      (uuid "c2d4a84b-2c90-5f91-b512-5dba4ab5c3c2"))
+    (pin "4"
+      (uuid "42cd715e-b93f-5a84-adb2-80d5931a5868"))
+    (pin "5"
+      (uuid "57744f67-8532-5fed-a1ca-45fe60563893"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "U802")
+          (unit 1))))
+    (property "MPN" "SN74LVC1G125DBVT"
+      (at 240.03 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Manufacturer" "Texas Instruments"
+      (at 240.03 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf"
+      (at 240.03 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "BOM Comments" "Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"
+      (at 240.03 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 240.03 86.36)
+      (xy 240.03 78.74))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f3574ec0-a185-5697-bb7e-bc289710b294"))
+  (global_label "DXL_DIR"
+    (shape bidirectional)
+    (at 240.03 78.74 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "335e0419-0230-5809-a675-9217406bc3ca")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 240.03 78.74 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 240.03 93.98)
+      (xy 240.03 101.6))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "b8d6c2d8-854e-5787-825c-c7292e338dcf"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 240.03 101.6 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "cb21e9de-e913-5f21-b627-efb834392426")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 240.03 101.6 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Device:R")
+    (at 240.03 90.17 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "028aae32-2c46-56ff-befb-b865bd0c00bd")
+    (property "Reference" "R310"
+      (at 240.03 85.09 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "100k"
+      (at 240.03 87.63 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 240.03 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "dcaa20db-272e-5738-ba4d-b10f67b1f8a3"))
+    (pin "2"
+      (uuid "33c4678f-adc7-56f3-b444-b7f824c4dccb"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "R310")
+          (unit 1))))
+    (property "MPN" "CRCW0402100KFKED"
+      (at 240.03 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Manufacturer" "Vishay"
+      (at 240.03 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
+      (at 240.03 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "BOM Comments" "1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"
+      (at 240.03 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 59.69 55.88)
+      (xy 59.69 48.26))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "4212dffb-ed8c-534e-a7b3-8262031adc94"))
+  (global_label "VBATT_2S_IN"
+    (shape bidirectional)
+    (at 59.69 48.26 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "336eb38e-0c90-5b66-bec2-1a3ce81fd00a")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 59.69 48.26 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 59.69 63.5)
+      (xy 59.69 71.12))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "becf4c50-14f7-567b-9991-7face1deece8"))
+  (global_label "SERVO_VBAT"
+    (shape bidirectional)
+    (at 59.69 71.12 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "5a1a5558-87fe-5da2-851e-f479cd8dcc1a")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 59.69 71.12 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Device:R")
+    (at 59.69 59.69 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "91a2e831-1a51-576c-964a-3609a0ff8263")
+    (property "Reference" "R309"
+      (at 59.69 54.61 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "0R"
+      (at 59.69 57.15 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+      (at 59.69 59.69 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "ceba9f64-564f-55d0-b06a-ab9aee97a5fa"))
+    (pin "2"
+      (uuid "3b0c5041-73f1-5e65-b9a6-c06795fc2870"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "R309")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 185.42 92.71)
+      (xy 177.8 92.71))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "5f0c662c-cf3e-5f54-996b-8e3f06f0b106"))
+  (global_label "UART2_TX"
+    (shape bidirectional)
+    (at 177.8 92.71 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "12edf8ee-96e0-592e-ba92-fab14836d399")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 177.8 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 185.42 95.25)
+      (xy 177.8 95.25))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "b642d909-f4d2-5cd2-8905-6d340e3832f5"))
+  (global_label "UART2_RX"
+    (shape bidirectional)
+    (at 177.8 95.25 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "fd01a323-30b3-5d12-a4ee-aef0308af747")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 177.8 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 185.42 97.79)
+      (xy 177.8 97.79))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "b83b453e-aae3-57b4-87d4-2be59f679c19"))
+  (global_label "POWER_GND"
+    (shape bidirectional)
+    (at 177.8 97.79 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "08771cb2-db8c-55dd-add1-5b41e4d32f44")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 177.8 97.79 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x03")
+    (at 190.5 95.25 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "e1b08782-dead-5489-a3f8-53d3e2c45702")
+    (property "Reference" "J403"
+      (at 190.5 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "HOST_UART2"
+      (at 190.5 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "duck:Samtec_TSW103_07"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "c858ead1-99af-51d7-b029-dc732ad52ece"))
+    (pin "2"
+      (uuid "6a4cf032-3611-59be-9de3-40dcdd444bd2"))
+    (pin "3"
+      (uuid "f4b09773-7088-5595-a28c-83b18fecd62f"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302"
+          (reference "J403")
+          (unit 1))))
+    (property "MPN" "TSW-103-07-G-S"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Manufacturer" "Samtec"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Datasheet" "https://suddendocs.samtec.com/catalog_english/tsw_th.pdf"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Assembly Height" "2.54mm body; 5.84mm post; 2.54mm solder tail"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "BOM Comments" "Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (text "Half-duplex TTL: 1G126 drives DATA from UART2_TX (OE=DXL_DIR high), 1G125 reads DATA into UART2_RX (/OE=DXL_DIR low). R310 pulls DXL_DIR low at boot so the board listens. One bus, two EH sockets, no RS485."
+    (at 35 35 0)
+    (effects
+      (font
+        (size 1.3 1.3))
+      (justify left))
+    (uuid "4d193a5b-84f2-570c-99ac-394e20d1fa69"))
+  (text "EH pin order: 1=GND, 2=VBAT, 3=DATA. R309 (0R) is the battery-to-servo branch. UART2 is the boot console until disabled in software."
+    (at 35 145 0)
+    (effects
+      (font
+        (size 1.3 1.3))
+      (justify left))
+    (uuid "aed8f7c4-f029-50d8-a376-29622c73fb66"))
+  (embedded_fonts no))

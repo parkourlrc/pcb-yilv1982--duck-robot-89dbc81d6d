@@ -1,0 +1,96 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "radxa,zero3", "rockchip,rk3566";
+
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            hat_codec_1v8: regulator-hat-codec-1v8 {
+                compatible = "regulator-fixed";
+                regulator-name = "hat_codec_1v8";
+                regulator-min-microvolt = <1800000>;
+                regulator-max-microvolt = <1800000>;
+                regulator-always-on;
+                regulator-boot-on;
+                vin-supply = <&vcc3v3_sys>;
+            };
+
+            hat_sound: sound-duck-hat {
+                compatible = "simple-audio-card";
+                simple-audio-card,name = "DuckHAT";
+                simple-audio-card,format = "i2s";
+                simple-audio-card,mclk-fs = <256>;
+                simple-audio-card,bitclock-master = <&hat_cpu>;
+                simple-audio-card,frame-master = <&hat_cpu>;
+                simple-audio-card,widgets =
+                    "Speaker", "HAT Speaker",
+                    "Line", "HAT J504",
+                    "Microphone", "HAT Mic";
+                simple-audio-card,routing =
+                    "HAT Speaker", "LLOUT",
+                    "HAT J504", "HPLOUT",
+                    "HAT J504", "HPROUT",
+                    "LINE1L", "HAT Mic",
+                    "HAT Mic", "Mic Bias";
+
+                hat_cpu: simple-audio-card,cpu {
+                    sound-dai = <&i2s3_2ch>;
+                    system-clock-direction-out;
+                };
+
+                simple-audio-card,codec {
+                    sound-dai = <&hat_codec>;
+                };
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&pinctrl>;
+        __overlay__ {
+            duck-hat {
+                hat_codec_reset: codec-reset {
+                    rockchip,pins = <3 19 0 &pcfg_pull_none>;
+                };
+            };
+        };
+    };
+
+    fragment@2 {
+        target = <&i2c5>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+            clock-frequency = <100000>;
+            pinctrl-names = "default";
+            pinctrl-0 = <&i2c5m0_xfer>;
+
+            hat_codec: codec@18 {
+                compatible = "ti,tlv320aic3104";
+                reg = <0x18>;
+                #sound-dai-cells = <0>;
+                pinctrl-names = "default";
+                pinctrl-0 = <&hat_codec_reset>;
+                reset-gpios = <&gpio3 19 1>;
+                IOVDD-supply = <&vcc3v3_sys>;
+                AVDD-supply = <&vcc3v3_sys>;
+                DRVDD-supply = <&vcc3v3_sys>;
+                DVDD-supply = <&hat_codec_1v8>;
+                ai3x-micbias-vg = <1>;
+            };
+        };
+    };
+
+    fragment@3 {
+        target = <&i2s3_2ch>;
+        __overlay__ {
+            status = "okay";
+            rockchip,trcm-sync-tx-only;
+            pinctrl-names = "default";
+            pinctrl-0 = <&i2s3m0_mclk &i2s3m0_sclk &i2s3m0_lrck &i2s3m0_sdi &i2s3m0_sdo>;
+        };
+    };
+};

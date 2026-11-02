@@ -1,0 +1,1409 @@
+
+---PDF PAGE 1---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+1 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 2.5W FILTERLESS CLASS-D MONO AUDIO AMPLIFIER 
+ 
+Description 
+The PAM8302A is a 2.5W Class-D mono audio amplifier. Its low 
+THD+N feature offers high-quality sound reproduction. The new 
+filterless architecture allows the device to drive speakers directly 
+instead of using low-pass output filters thus saving system cost 
+and PCB area. 
+With the same number of external components, the efficiency of the
+PAM8302A is much better than that of Class-AB cousins. It can optimize
+battery life thus is ideal for portable applications. 
+The PAM8302A is available in MSOP-8, SO-8, and U-DFN3030-8
+(Type E) packages. 
+ 
+Features 
+ 
+2.5W Output at 10% THD with a 4Ω Load and 5V Power 
+Supply 
+ 
+Filterless, Low Quiescent Current and Low EMI  
+ 
+High Efficiency up to 88% 
+ 
+Superior Low Noise  
+ 
+Short Circuit Protection 
+ 
+Thermal Shutdown  
+ 
+Few External Components to Save Space and Cost  
+ 
+MSOP-8, SO-8 and U-DFN3030-8 (Type E) Packages 
+Available  
+ 
+Totally Lead-Free & Fully RoHS Compliant (Notes 1 & 2) 
+ 
+Halogen and Antimony Free. “Green” Device (Note 3) 
+ 
+For automotive applications requiring specific change 
+control (i.e. parts qualified to AEC-Q100/101/200, PPAP 
+capable, and manufactured in IATF 16949 certified 
+facilities), please contact us or your local Diodes 
+representative. 
+https://www.diodes.com/quality/product-definitions/ 
+ 
+Applications 
+ 
+PMP/MP4 
+ 
+GPS 
+ 
+Portable Speakers  
+ 
+2-Way Radios  
+ 
+Hands-Free Phones/Speaker Phones  
+ 
+Cellular Phones 
+ 
+ Pin Assignments 
+  
+Notes: 
+1. No purposely added lead. Fully EU Directive 2002/95/EC (RoHS), 2011/65/EU (RoHS 2) & 2015/863/EU (RoHS 3) compliant. 
+ 
+2. See https://www.diodes.com/quality/lead-free/ for more information about Diodes Incorporated’s definitions of Halogen- and Antimony-free, "Green" and 
+    Lead-free. 
+ 
+3. Halogen- and Antimony-free "Green” products are defined as those which contain <900ppm bromine, <900ppm chlorine (<1500ppm total Br + Cl) and 
+    <1000ppm antimony compounds. 
+ 
+ 
+ 
+ 
+
+
+---PDF PAGE 2---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+2 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Typical Applications Circuit 
+ 
+PAM8302A
+VDD
+1.8V to 5.5V
+10µF
+1µF
+6
+GND
+7
+VO+
+VO-
+5
+8
+IN+
+IN-
+SD
+3
+4
+1
+0.1µF
+0.1µF
+ 
+ 
+ 
+Functional Block Diagram 
+ 
+Driver
+Driver
++   -
+-   +
+10K
+IN+
+IN-
+SD
+VO+
+VO-
+PWM 
+Modulator
+10K
+150K
+150K
+Short Protection
+Thermal Protection
+Internal OSC
+ShutDown
+GND
+VDD
+ 
+ 
+ 
+Absolute Maximum Ratings (@TA = +25°C, unless otherwise specified.) 
+These are stress ratings only and functional operation is not implied. Exposure to absolute maximum ratings for prolonged time periods may affect 
+device reliability. All voltages are with respect to ground. 
+ 
+Parameter 
+Rating 
+Unit 
+Supply Voltage at No Input Signal 
+6.0 
+V 
+Input Voltage 
+-0.3 to VDD +0.3 
+Maximum Junction Temperature 
++150 
+°C 
+Storage Temperature 
+-65 to +150 
+Soldering Temperature 
++300, 5s 
+ 
+ 
+ 
+
+
+---PDF PAGE 3---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+3 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Recommended Operating Conditions (@TA = +25°C, unless otherwise specified.) 
+ 
+Parameter 
+Rating 
+Unit 
+Supply Voltage Range 
+2.0 to 5.5 
+V 
+Operation Temperature Range 
+-40 to +85 
+°C 
+Junction Temperature Range 
+-40 to +125 
+°C 
+ 
+ 
+ 
+Thermal Information 
+ 
+Parameter 
+Package 
+Symbol 
+Max 
+Unit 
+Thermal Resistance (Junction to Ambient) 
+SO-8 
+θJA 
+115 
+°C/W 
+MSOP-8 
+180 
+U-DFN3030-8 (Type E) 
+47.9 
+ 
+ 
+ 
+Electrical Characteristics (@TA = +25°C, VIN = 3.6V, VO = 1.8V, CIN = 10µF, COUT = 10µF, L = 4.7µH, unless otherwise specified.) 
+ 
+Parameter 
+Symbol 
+Test Conditions 
+Min 
+Typ 
+Max 
+Unit 
+Supply Voltage Range 
+VDD 
+— 
+2.0 
+— 
+5.5 
+V 
+Quiescent Current 
+IQ 
+No Load 
+— 
+4 
+8 
+mA 
+Shutdown Current 
+ISHDN 
+VSHDN = 0V 
+— 
+— 
+1 
+µA 
+Output Power 
+PO 
+f = 1kHz, RL = 4Ω, 
+THD+N = 10% 
+VDD = 5V 
+2.25 
+2.50 
+— 
+W 
+VDD = 3.6V 
+1.10 
+1.25 
+— 
+f = 1kHz, RL = 4Ω, 
+THD+N = 1% 
+VDD = 5V 
+1.80 
+2.00 
+— 
+VDD = 3.6V 
+0.86 
+0.95 
+— 
+f = 1kHz, RL = 8Ω, 
+THD+N = 10% 
+VDD = 5V 
+1.35 
+1.50 
+— 
+VDD = 3.6V 
+0.72 
+0.80 
+— 
+f = 1kHz, RL = 8Ω, 
+THD+N = 1% 
+VDD = 5V 
+1.15 
+1.30 
+— 
+VDD = 3.6V 
+0.6 
+0.65 
+— 
+Peak Efficiency 
+η 
+f = 1kHz 
+— 
+85 
+88 
+% 
+Total Harmonic 
+Distortion Plus Noise 
+THD+N 
+RL = 8Ω, PO = 0.1W, f = 1kHz 
+— 
+0.30 
+0.35 
+% 
+RL = 8Ω, PO = 0.5W, f = 1kHz 
+— 
+0.45 
+0.50 
+RL = 4Ω, PO = 0.1W, f = 1kHz 
+— 
+0.35 
+0.40 
+RL = 4Ω, PO = 0.5W, f = 1kHz 
+— 
+0.40 
+0.45 
+Gain 
+GV 
+— 
+— 
+23.5 
+— 
+dB 
+Power Supply Ripple 
+Rejection 
+PSRR 
+No Inputs, f = 1kHz, VPP = 200mV 
+45 
+50 
+— 
+dB 
+Dynamic Range 
+DYN 
+f = 20 to 20kHz 
+85 
+90 
+— 
+dB 
+Signal to Noise Ratio 
+SNR 
+f = 20 to 20kHz 
+75 
+80 
+— 
+dB 
+Noise 
+VN 
+No A-Weighting 
+— 
+180 
+300 
+µV 
+A-Weighting 
+— 
+120 
+200 
+Oscillator Frequency 
+fOSC 
+— 
+200 
+250 
+300 
+kHz 
+Drain-Source On-State 
+Resistance 
+RDS(ON) 
+IDS = 100mA 
+P MOSFET 
+— 
+0.45 
+0.50 
+Ω 
+N MOSFET 
+— 
+0.20 
+0.25 
+SHD Input High 
+VSH 
+— 
+1.2 
+— 
+— 
+V 
+SHD Input Low 
+VSL 
+— 
+— 
+— 
+0.4 
+Over Temperature 
+Protection 
+OTP 
+Junction Temperature 
++120 
++135 
+— 
+°C 
+Over Temperature 
+Hysteresis 
+OTH 
+— 
+— 
++30 
+— 
+°C 
+ 
+ 
+ 
+ 
+
+
+---PDF PAGE 4---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+4 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Typical Performance Characteristics (@TA = +25°C, unless otherwise specified.) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+20m               50m          100m        200m            500m           1               2        3 
+20m               50m          100m        200m            500m           1               2        3 
+20            50        100      200          500        1k        2k            5k        10k     20k 
+20            50        100      200          500        1k        2k            5k        10k     20k 
+20            50        100      200          500        1k        2k            5k        10k     20k 
+20            50        100      200          500        1k        2k            5k        10k     20k 
+
+
+---PDF PAGE 5---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+5 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+Typical Performance Characteristics (continued) (@TA = +25°C, unless otherwise specified.) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+μH
+μH 
+
+
+---PDF PAGE 6---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+6 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+Typical Performance Characteristics (continued) (@TA = +25°C, unless otherwise specified.) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+---PDF PAGE 7---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+7 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Application Information (Notes 4 & 5) 
+ 
+Test Setup for Performance Testing 
+ 
+ 
+ 
+Notes: 
+4. The AP AUX-0025 low pass filter is necessary for every class-D amplifier measurement with AP analyzer. 
+5. Two 22μH inductors are used in series with load resistor to emulate the small speaker for efficiency measurement. 
+ 
+Maximum Gain 
+As shown in block diagram (Page 2), the PAM8302A differential gain for the IC is: 
+A = 20*log (RF/RI) 
+The PAM8302A sets maximum RF = 150kΩ, minimum RI = 10kΩ, so the maximum closed-gain around 23.5dB. If need gain adjustment, you can put 
+external RIN at the input pin, and gain calculate as 20*log (150K/ (10K+RIN)). 
+ 
+Input Capacitor (CI) 
+In typical application, an input capacitor, CI is required to allow the amplifier to bias input signals to a proper DC level for optimum operation. In this 
+case, CI and the minimum input impedance RI (10k internal) form a high-pass filter with a corner frequency determined by the following equation: 
+ 
+ 
+ 
+ 
+It is important to choose the value of CI as it directly affects low-frequency performance of the circuit, for example, when an application requires a 
+flat bass response as low as 100Hz. Equation is reconfigured as follows: 
+ 
+ 
+ 
+ 
+As the input resistance is variable for the CI value of 0.16µF, one should actually choose the CI within the range of 0.1µF to 0.22µF. A further 
+consideration for this capacitor is the leakage path from the input source through the input network (RI, RF, CI) to the load. This leakage current 
+creates a DC offset voltage at the input to the amplifier that reduces useful headroom—especially in high-gain application. For this reason, a low 
+leakage tantalum or ceramic capacitor is the best choice. When a polarized capacitor is used, the positive side of the capacitor should face the 
+amplifier input in most applications as the DC level is held at VDD/2, which is likely higher than the source DC level. Please note that it is important 
+to confirm the capacitor polarity in the application. 
+ 
+ 
+ 
+
+
+---PDF PAGE 8---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+8 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Application Information (continued) 
+ 
+Power Supply Decoupling (CS) 
+The PAM8302A is a high-performance CMOS audio amplifier that requires adequate power supply decoupling to ensure the output THD and PSRR 
+as low as possible. Power supply decoupling affects low frequency response. Optimum decoupling is achieved by using two capacitors of different 
+types that target different types of noise on the power supply leads. For higher-frequency transients, spikes, or digital hash on the line, a good low 
+equivalent-series-resistance (ESR) ceramic capacitor, typical 1.0µF is good, placing it as close as possible to the device VDD terminal. For filtering 
+lower frequency noise signals, capacitor of 10µF or larger, closely located to near the audio power amplifier is recommended. 
+ 
+Shutdown Operation 
+In order to reduce shutdown power consumption, the PAM8032A contains shutdown circuitry for turn to turn off the amplifier. This shutdown feature 
+turns the amplifier off when a logic low is applied on the SD pin. By switching the shutdown pin over to GND, the PAM8302A supply current draw 
+will be minimized in idle mode.  
+ 
+Note: For the best power on/off pop performance, the amplifier should be set in the shutdown mode prior to power on/off operation. 
+ 
+Undervoltage Lockout (UVLO) 
+The PAM8302A incorporates circuitry to detect low on or off voltage. When the supply voltage drops to 2.1V or below, the PAM8302A goes into a 
+state of shutdown, and the device comes out of its shutdown state to normal operation by reset the power supply or SD pin. 
+ 
+How to Reduce EMI (Electro Magnetic Interference) 
+A simple solution is to put an additional capacitor 1000μF at power supply terminal for power line coupling if the traces from amplifier to speakers 
+are short (< 20CM). Most applications require a ferrite bead filter as shown in Figure 1. The ferrite filter depresses EMI of around 1MHz and higher. 
+When selecting a ferrite bead, choose one with high impedance at high frequencies and low impedance at low frequencies. 
+ 
+ 
+Figure 1 Ferrite Bead Filter to Reduce EMI 
+ 
+System Start-up Timing Recommendation 
+The start time for SD pin is recommended to delay after rising edge of VDD for 1ms ~100 ms (typically10ms is recommended), depending on customer’s 
+application condition. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+---PDF PAGE 9---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+9 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Ordering Information (Note 6) 
+ 
+ 
+ 
+ 
+Part Number 
+Package Type 
+Standard Package 
+PAM8302AASCR 
+MSOP-8 
+2500 Units/Tape & Reel 
+PAM8302AADCR 
+SO-8 
+2500 Units/Tape & Reel 
+PAM8302AAYCR 
+U-DFN3030-8 (Type E) 
+3000 Units/Tape & Reel 
+Note: 
+6. For packaging details, go to our website at https://www.diodes.com/design/support/packaging/diodes-packaging/.  
+ 
+ 
+ 
+ 
+ 
+Marking Information 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SO-8 
+U-DFN3030-8 (Type E) 
+
+
+---PDF PAGE 10---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+10 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Package Outline Dimensions 
+Please see http://www.diodes.com/package-outlines.html for the latest version. 
+ 
+MSOP-8 
+ 
+ 
+MSOP-8 
+Dim Min Max 
+Typ 
+A 
+— 
+1.10 
+— 
+A1 0.05 0.15 
+0.10 
+A2 0.75 0.95 
+0.86 
+A3 0.29 0.49 
+0.39 
+b 
+0.22 0.38 
+0.30 
+c 
+0.08 0.23 
+0.15 
+D 
+2.90 3.10 
+3.00 
+E 
+4.70 5.10 
+4.90 
+E1 2.90 3.10 
+3.00 
+E3 2.85 3.05 
+2.95 
+e 
+— 
+— 
+0.65 
+L 
+0.40 0.80 
+0.60 
+a 
+0° 
+8° 
+4° 
+x 
+— 
+— 
+0.750 
+y 
+— 
+— 
+0.750 
+All Dimensions in mm 
+ 
+ 
+ 
+ 
+ 
+ 
+SO-8 
+SO-8 
+Dim 
+Min 
+Max 
+Typ 
+A 
+1.40 
+1.50 
+1.45 
+A1 
+0.10 
+0.20 
+0.15 
+b 
+0.30 
+0.50 
+0.40 
+c 
+0.15 
+0.25 
+0.20 
+D 
+4.85 
+4.95 
+4.90 
+E 
+5.90 
+6.10 
+6.00 
+E1 
+3.80 
+3.90 
+3.85 
+E0 
+3.85 
+3.95 
+3.90 
+e 
+— 
+— 
+1.27 
+h 
+— 
+— 
+0.35 
+L  
+0.62 
+0.82 
+0.72 
+Q 
+0.60 
+0.70 
+0.65 
+All Dimensions in mm 
+ 
+ 
+ 
+ 
+ 
+A
+A1
+A2
+e
+Seating Plane
+Gauge Plane
+0.25
+L
+4X10°
+4X10°
+See Detail C
+Detail C
+c
+a
+E1
+E3
+A3
+1
+E
+y
+x
+D
+b
+1
+b
+e
+E
+A
+A1
+9° ( All sides)
+4°±3°
+c
+Q
+h
+45°
+R 0.1
+7°
+D
+E0
+E1
+L
+Seating Plane
+Gauge Plane
+
+
+---PDF PAGE 11---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+11 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Package Outline Dimensions (continued) 
+Please see http://www.diodes.com/package-outlines.html for the latest version. 
+ 
+ 
+U-DFN3030-8 (Type E) 
+ 
+ 
+ 
+ 
+ 
+ 
+U-DFN3030-8   
+(Type E) 
+Dim 
+Min 
+Max 
+Typ 
+A 
+0.57 
+0.63 
+0.60 
+A1 
+0.00 
+0.05 
+0.02 
+A3 
+- 
+- 
+0.15 
+b 
+0.20 
+0.30 
+0.25 
+D 
+2.95 
+3.05 
+3.00 
+D2 
+2.15 
+2.35 
+2.25 
+E 
+2.95 
+3.05 
+3.00 
+E2 
+1.40 
+1.60 
+1.50 
+e 
+- 
+- 
+0.65 
+L 
+0.30 
+0.60 
+0.45 
+z 
+- 
+- 
+0.40 
+All Dimensions in mm 
+ 
+ 
+ 
+Suggested Pad Layout 
+Please see http://www.diodes.com/package-outlines.html for the latest version. 
+ 
+ 
+MSOP-8 
+ 
+Dimensions 
+Value 
+(in mm) 
+C 
+0.650 
+X 
+0.450 
+Y 
+1.350 
+Y1 
+5.300 
+ 
+ 
+ 
+ 
+D
+D2
+E
+e
+b
+L
+E2
+A
+A3
+( Pin #1 ID)
+Seating Plane
+z
+A1
+R0.200
+X
+C
+Y
+Y1
+
+
+---PDF PAGE 12---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+12 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Suggested Pad Layout (continued) 
+Please see http://www.diodes.com/package-outlines.html for the latest version. 
+ 
+ 
+SO-8 
+ 
+ 
+ 
+Dimensions Value (in mm) 
+C 
+1.27 
+X 
+0.802 
+X1 
+4.612 
+Y 
+1.505 
+Y1 
+6.50 
+ 
+ 
+ 
+ 
+ 
+U-DFN3030-8 (Type E) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Dimensions Value (in mm) 
+C 
+0.650 
+X 
+0.350 
+X1 
+2.350 
+X2 
+2.300 
+Y 
+0.650 
+Y1 
+1.600 
+Y2 
+3.300 
+ 
+ 
+ 
+C
+X
+Y
+Y1
+X1
+Y2
+X2
+C
+Y1
+X1
+Y
+X
+
+
+---PDF PAGE 13---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+13 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+Mechanical Data 
+ 
+MSOP-8 
+ 
+Moisture Sensitivity: Level 1 per J-STD-020 
+ 
+Terminals: Finish – Matte Tin Plated Leads, Solderable per MIL-STD-202, Method 208   
+ 
+Weight: 0.0246 grams (Approximate) 
+ 
+ 
+SO-8 
+ 
+ 
+Moisture Sensitivity: Level 1 per J-STD-020 
+ 
+Terminals: Finish – Matte Tin Plated Leads, Solderable per MIL-STD-202, Method 208   
+ 
+Weight: 0.074 grams (Approximate) 
+ 
+U-DFN3030-8 (Type E) 
+ 
+ 
+Moisture Sensitivity: Level 1 per J-STD-020 
+ 
+Terminals: Finish – Matte Tin Plated Leads, Solderable per MIL-STD-202, Method 208   
+ 
+Weight: 0.018 grams (Approximate) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+---PDF PAGE 14---
+ 
+PAM8302A 
+Document number: DS41333 Rev. 6 - 2 
+14 of 14 
+www.diodes.com  
+May 2021 
+© Diodes Incorporated 
+ 
+PAM8302A 
+ 
+ 
+IMPORTANT NOTICE 
+ 
+1. 
+DIODES INCORPORATED AND ITS SUBSIDIARIES (“DIODES”) MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
+REGARDS TO ANY INFORMATION CONTAINED IN THIS DOCUMENT, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY 
+RIGHTS (AND THEIR EQUIVALENTS UNDER THE LAWS OF ANY JURISDICTION).   
+ 
+2. 
+The Information contained herein is for informational purpose only and is provided only to illustrate the operation of Diodes products 
+described herein and application examples. Diodes does not assume any liability arising out of the application or use of this document or any product 
+described herein. This document is intended for skilled and technically trained engineering customers and users who design with Diodes products. 
+Diodes products may be used to facilitate safety-related applications; however, in all instances customers and users are responsible for (a) selecting 
+the appropriate Diodes products for their applications, (b) evaluating the suitability of the Diodes products for their intended applications, (c) ensuring 
+their applications, which incorporate Diodes products, comply the applicable legal and regulatory requirements as well as safety and functional-
+safety related standards, and (d) ensuring they design with appropriate safeguards (including testing, validation, quality control techniques, 
+redundancy, malfunction prevention, and appropriate treatment for aging degradation) to minimize the risks associated with their applications.    
+ 
+3. 
+Diodes assumes no liability for any application-related information, support, assistance or feedback that may be provided by Diodes from 
+time to time. Any customer or user of this document or products described herein will assume all risks and liabilities associated with such use, and 
+will hold Diodes and all companies whose products are represented herein or on Diodes’ websites, harmless against all damages and liabilities.   
+ 
+4. 
+Products described herein may be covered by one or more United States, international or foreign patents and pending patent applications. 
+Product names and markings noted herein may also be covered by one or more United States, international or foreign trademarks and trademark 
+applications. Diodes does not convey any license under any of its intellectual property rights or the rights of any third parties (including third parties 
+whose products and services may be described in this document or on Diodes’ website) under this document.   
+ 
+5. 
+Diodes 
+products 
+are 
+provided 
+subject 
+to 
+Diodes’ 
+Standard 
+Terms 
+and 
+Conditions 
+of 
+Sale     
+(https://www.diodes.com/about/company/terms-and-conditions/terms-and-conditions-of-sales/) or other applicable terms. This document does not 
+alter or expand the applicable warranties provided by Diodes. Diodes does not warrant or accept any liability whatsoever in respect of any products 
+purchased through unauthorized sales channel.   
+ 
+6. 
+Diodes products and technology may not be used for or incorporated into any products or systems whose manufacture, use or sale is 
+prohibited under any applicable laws and regulations. Should customers or users use Diodes products in contravention of any applicable laws or 
+regulations, or for any unintended or unauthorized application, customers and users will (a) be solely responsible for any damages, losses or 
+penalties arising in connection therewith or as a result thereof, and (b) indemnify and hold Diodes and its representatives and agents harmless 
+against any and all claims, damages, expenses, and attorney fees arising out of, directly or indirectly, any claim relating to any noncompliance with 
+the applicable laws and regulations, as well as any unintended or unauthorized application. 
+ 
+7. 
+While efforts have been made to ensure the information contained in this document is accurate, complete and current, it may contain 
+technical inaccuracies, omissions and typographical errors. Diodes does not warrant that information contained in this document is error-free and 
+Diodes is under no obligation to update or otherwise correct this information. Notwithstanding the foregoing, Diodes reserves the right to make 
+modifications, enhancements, improvements, corrections or other changes without further notice to this document and any product described herein. 
+This document is written in English but may be translated into multiple languages for reference. Only the English version of this document is the final 
+and determinative format released by Diodes. 
+ 
+8. 
+Any unauthorized copying, modification, distribution, transmission, display or other use of this document (or any portion hereof) is 
+prohibited. Diodes assumes no responsibility for any losses incurred by the customers or users or any third parties arising from any such unauthorized 
+use. 
+ 
+Copyright © 2021 Diodes Incorporated 
+ 
+www.diodes.com 
+ 
+ 
+ 

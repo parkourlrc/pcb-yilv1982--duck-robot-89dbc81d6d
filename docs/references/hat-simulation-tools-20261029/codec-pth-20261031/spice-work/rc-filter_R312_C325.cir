@@ -1,0 +1,21 @@
+* Auto-generated testbench for RC filter: R312/C325
+* Type: RC-network, expected fc = 65.8 Hz
+* Model: ideal passives (exact for RC)
+
+
+R312 AUDIO_MIC AUDIO_MIC_BIAS 2.2k
+
+C325 AUDIO_MIC_BIAS 0 1.1u
+
+* AC stimulus
+VAC AUDIO_MIC 0 DC 0 AC 1
+
+.control
+ac dec 100 657.7m 6.577k
+meas ac fc_sim when vdb(AUDIO_MIC_BIAS)=-3
+meas ac phase_fc find vp(AUDIO_MIC_BIAS) at=fc_sim
+echo "fc_sim=$&fc_sim phase_fc=$&phase_fc has_parasitics=0" > E:/Projects/duck-robot/docs/references/hat-simulation-tools-20261029/codec-pth-20261031/spice-work/rc-filter_R312_C325.out
+quit
+.endc
+
+.end

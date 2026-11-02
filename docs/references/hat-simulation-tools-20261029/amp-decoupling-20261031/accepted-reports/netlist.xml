@@ -1,0 +1,3203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>E:\Projects\duck-robot\hardware\custom_hat\runs\20261031T005344Z-a6d5e2e7\work\custom_hat_rev_a.kicad_sch</source>
+    <date>2026-10-31T09:30:08</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Custom HAT Rev A - functional schematic</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>custom_hat_rev_a.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/radxa_40p/" tstamps="/2b68f9bc-99b0-5a2e-bebc-dfe7d4726c2c/">
+      <title_block>
+        <title>Radxa ZERO 3W - 40-pin interface / 3.3V logic</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>radxa_40p.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/">
+      <title_block>
+        <title>Power input and AP64350 5V buck - values from DS41976 and EVM BOM</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>power.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/">
+      <title_block>
+        <title>Half-duplex TTL servo bus - two 3P outlets</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>servo_ttl.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/">
+      <title_block>
+        <title>BMI088 + ToF on shared I2C5</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>imu_tof.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/">
+      <title_block>
+        <title>I2S codec interface - I2C5 and 1V8 codec rail</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>audio.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="7" name="/testpoints/" tstamps="/e5525fd2-ded6-5453-9282-594345dce0dc/">
+      <title_block>
+        <title>Bring-up test points</title>
+        <company>duck-robot</company>
+        <rev>A schematic draft</rev>
+        <date>2026-10-28</date>
+        <source>testpoints.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J101">
+      <value>RADXA_ZERO_3W_40P</value>
+      <footprint>duck:Radxa40P_Samtec_SSW120</footprint>
+      <datasheet>https://suddendocs.samtec.com/catalog_english/ssw_th.pdf</datasheet>
+      <fields>
+        <field name="MPN">SSW-120-01-G-D</field>
+        <field name="Manufacturer">Samtec</field>
+        <field name="Assembly Height">8.51mm body; 2.64mm solder tail</field>
+        <field name="BOM Comments">Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated</field>
+        <field name="Footprint">duck:Radxa40P_Samtec_SSW120</field>
+        <field name="Datasheet">https://suddendocs.samtec.com/catalog_english/ssw_th.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_02x20_Odd_Even" description="Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="SSW-120-01-G-D"/>
+      <property name="Manufacturer" value="Samtec"/>
+      <property name="Assembly Height" value="8.51mm body; 2.64mm solder tail"/>
+      <property name="BOM Comments" value="Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"/>
+      <property name="Sheetname" value="radxa_40p"/>
+      <property name="Sheetfile" value="radxa_40p.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_2x??_*"/>
+      <sheetpath names="/radxa_40p/" tstamps="/2b68f9bc-99b0-5a2e-bebc-dfe7d4726c2c/"/>
+      <tstamps>7ebd4906-727f-5f2e-854f-f56b4eb3640a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="5"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="11"/>
+            <pin num="13"/>
+            <pin num="15"/>
+            <pin num="17"/>
+            <pin num="19"/>
+            <pin num="21"/>
+            <pin num="23"/>
+            <pin num="25"/>
+            <pin num="27"/>
+            <pin num="29"/>
+            <pin num="31"/>
+            <pin num="33"/>
+            <pin num="35"/>
+            <pin num="37"/>
+            <pin num="39"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="8"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="14"/>
+            <pin num="16"/>
+            <pin num="18"/>
+            <pin num="20"/>
+            <pin num="22"/>
+            <pin num="24"/>
+            <pin num="26"/>
+            <pin num="28"/>
+            <pin num="30"/>
+            <pin num="32"/>
+            <pin num="34"/>
+            <pin num="36"/>
+            <pin num="38"/>
+            <pin num="40"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C301">
+      <value>3.3nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://datasheets.kyocera-avx.com/C0GNP0-Dielectric.pdf</datasheet>
+      <fields>
+        <field name="MPN">08055A332JAT2A</field>
+        <field name="Manufacturer">KYOCERA AVX</field>
+        <field name="Voltage Rating">50V</field>
+        <field name="Dielectric">C0G</field>
+        <field name="Tolerance">5%</field>
+        <field name="BOM Comments">Design selection, not procurement release; Rev4 p1 coding, p3 availability; compensation capacitor</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://datasheets.kyocera-avx.com/C0GNP0-Dielectric.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="08055A332JAT2A"/>
+      <property name="Manufacturer" value="KYOCERA AVX"/>
+      <property name="Voltage Rating" value="50V"/>
+      <property name="Dielectric" value="C0G"/>
+      <property name="Tolerance" value="5%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; Rev4 p1 coding, p3 availability; compensation capacitor"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>5f134a0d-1904-5023-887d-e20901f532eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C302">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0805C104K5RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">50V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2 coding, p5 availability; bootstrap capacitor voltage is BST minus SW</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0805C104K5RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="50V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2 coding, p5 availability; bootstrap capacitor voltage is BST minus SW"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>86bc5069-4f33-53fa-90cb-1e0d92185371</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C303">
+      <value>22uF</value>
+      <footprint>Capacitor_SMD:C_1210_3225Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</datasheet>
+      <fields>
+        <field name="MPN">C1210C226K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending</field>
+        <field name="Assembly Height">2.5mm nominal; 2.8mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_1210_3225Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1210C226K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending"/>
+      <property name="Assembly Height" value="2.5mm nominal; 2.8mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>0332adaf-631a-5159-a0ff-33f3796f969f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C304">
+      <value>22uF</value>
+      <footprint>Capacitor_SMD:C_1210_3225Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</datasheet>
+      <fields>
+        <field name="MPN">C1210C226K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending</field>
+        <field name="Assembly Height">2.5mm nominal; 2.8mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_1210_3225Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1210C226K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending"/>
+      <property name="Assembly Height" value="2.5mm nominal; 2.8mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>39c5662c-891a-5620-a419-9ae18e9ffef8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C305">
+      <value>22uF</value>
+      <footprint>Capacitor_SMD:C_1210_3225Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</datasheet>
+      <fields>
+        <field name="MPN">C1210C226K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending</field>
+        <field name="Assembly Height">2.5mm nominal; 2.8mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_1210_3225Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1210C226K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending"/>
+      <property name="Assembly Height" value="2.5mm nominal; 2.8mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>494a232d-eaaa-5420-83ae-491b7b05d41f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C306">
+      <value>22uF</value>
+      <footprint>Capacitor_SMD:C_1210_3225Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</datasheet>
+      <fields>
+        <field name="MPN">C1210C226K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending</field>
+        <field name="Assembly Height">2.5mm nominal; 2.8mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_1210_3225Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1210C226K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design-selected using archived per-part DC-bias model; nominal22uF is not effective capacitance; combined-condition and hardware verification pending"/>
+      <property name="Assembly Height" value="2.5mm nominal; 2.8mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>1fe85801-56de-58d5-b30f-1aa97a93189d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C307">
+      <value>22uF reserve</value>
+      <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C1206C226M4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">20%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p6; DNP reserve remains DNP</field>
+        <field name="Footprint">Capacitor_SMD:C_1206_3216Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1206C226M4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="20%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p6; DNP reserve remains DNP"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>0ca8a35d-b105-5b9e-b40b-af82669169ad</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C308">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</datasheet>
+      <fields>
+        <field name="MPN">C0805C225K5RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">50V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass</field>
+        <field name="Assembly Height">1.25mm nominal; 1.45mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0805C225K5RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="50V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass"/>
+      <property name="Assembly Height" value="1.25mm nominal; 1.45mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>14bd0e9a-e574-553c-8b4b-172ac1c76c35</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C309">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</datasheet>
+      <fields>
+        <field name="MPN">C0805C225K5RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">50V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass</field>
+        <field name="Assembly Height">1.25mm nominal; 1.45mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0805C225K5RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="50V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass"/>
+      <property name="Assembly Height" value="1.25mm nominal; 1.45mm maximum"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>4d503355-dd35-5c10-a641-352288bcc6a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D301">
+      <value>SMBJ12A (fitted)</value>
+      <footprint>Diode_SMD:D_SMB</footprint>
+      <datasheet>https://www.vishay.com/docs/88392/smbj.pdf</datasheet>
+      <fields>
+        <field name="MPN">SMBJ12A-E3/52</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="Voltage Rating">12V VRWM</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2 electrical, p3 ordering, p5 package; 19.9V clamp at 30.2A 10/1000us, not a general surge guarantee</field>
+        <field name="Footprint">Diode_SMD:D_SMB</field>
+        <field name="Datasheet">https://www.vishay.com/docs/88392/smbj.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="D_TVS" description="Bidirectional transient-voltage-suppression diode"/>
+      <property name="MPN" value="SMBJ12A-E3/52"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="Voltage Rating" value="12V VRWM"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2 electrical, p3 ordering, p5 package; 19.9V clamp at 30.2A 10/1000us, not a general surge guarantee"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="diode TVS thyrector"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>becdbc42-6eab-5127-a3b8-eeba0b51e5f6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="FLG1">
+      <value>+5V</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="power" part="PWR_FLAG" description="Special symbol for telling ERC where power comes from"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="flag power"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>fdca5cab-3c27-5188-baaf-d7cd4190d38a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="FLG2">
+      <value>+3V3</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="power" part="PWR_FLAG" description="Special symbol for telling ERC where power comes from"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="flag power"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>af8044f5-2a87-526d-a510-8d0dc6c61a80</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="FLG3">
+      <value>VBATT_2S_IN</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="power" part="PWR_FLAG" description="Special symbol for telling ERC where power comes from"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="flag power"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>738eebe8-bee0-5aaf-90df-e7ae7f642604</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="FLG4">
+      <value>POWER_GND</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="power" part="PWR_FLAG" description="Special symbol for telling ERC where power comes from"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_keywords" value="flag power"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>95e3286a-c916-5bd8-a7c7-7df7723ec6d6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J301">
+      <value>POWER_AND_RAILS</value>
+      <footprint>duck:Samtec_TSW108_07</footprint>
+      <datasheet>https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</datasheet>
+      <fields>
+        <field name="MPN">TSW-108-07-G-S</field>
+        <field name="Manufacturer">Samtec</field>
+        <field name="Assembly Height">2.54mm body; 5.84mm post; 2.54mm solder tail</field>
+        <field name="BOM Comments">Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated</field>
+        <field name="Footprint">duck:Samtec_TSW108_07</field>
+        <field name="Datasheet">https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x08" description="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="TSW-108-07-G-S"/>
+      <property name="Manufacturer" value="Samtec"/>
+      <property name="Assembly Height" value="2.54mm body; 5.84mm post; 2.54mm solder tail"/>
+      <property name="BOM Comments" value="Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>3974a8a3-8ea2-51dd-a28c-dbe895a2c2a9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L301">
+      <value>5.6uH</value>
+      <footprint>duck:IHLP4040DZ_5A_Above2u2</footprint>
+      <datasheet>https://www.vishay.com/docs/34315/ihlp-4040dz-5a.pdf</datasheet>
+      <fields>
+        <field name="MPN">IHLP4040DZER5R6M5A</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">Design-selected, not production released; 5.6uH 20%; DCR&lt;=17.6mOhm at25C; typical Isat20%=9A and heat current9.3A; 4mm max height; p1-2/4; circuit thermal validation pending</field>
+        <field name="Assembly Height">4.0mm max</field>
+        <field name="Footprint">duck:IHLP4040DZ_5A_Above2u2</field>
+        <field name="Datasheet">https://www.vishay.com/docs/34315/ihlp-4040dz-5a.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="MPN" value="IHLP4040DZER5R6M5A"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="Design-selected, not production released; 5.6uH 20%; DCR&lt;=17.6mOhm at25C; typical Isat20%=9A and heat current9.3A; 4mm max height; p1-2/4; circuit thermal validation pending"/>
+      <property name="Assembly Height" value="4.0mm max"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <property name="ki_fp_filters" value="Choke_* *Coil* Inductor_* L_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>3fbe911f-da27-5492-83b0-43c8372c711c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R301">
+      <value>52.3k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW080552K3FKEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW080552K3FKEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>7a6d4f0b-7cdb-5957-867f-3e8a8758314e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R302">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW080510K0FKEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW080510K0FKEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>5cc1b90a-5cf4-547c-ad36-b82630d1a366</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R303">
+      <value>200k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW0805200KFKEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW0805200KFKEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>bc990bab-63d5-5734-97ee-abd7a4f503de</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R304">
+      <value>14k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW080514K0FKEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW080514K0FKEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>45c3879d-c734-5f9c-95fb-a25c2c551bf6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R305">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW0805100KFKEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW0805100KFKEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>49375261-51ed-5af5-a27a-7e4e23558231</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R703">
+      <value>0.047</value>
+      <footprint>duck:Vishay_WSLP0603_Damping</footprint>
+      <datasheet>https://www.vishay.com/docs/30122/wslp.pdf</datasheet>
+      <fields>
+        <field name="MPN">WSLP0603R0470FEA</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="Tolerance">1%</field>
+        <field name="Power Rating">0.4W at70C; derate above70C</field>
+        <field name="TCR">110ppm/C</field>
+        <field name="BOM Comments">47mOhm capacitor-branch damping only; not in load ground; Vishay30122 p1-2 pad1.02x1.02mm gap0.50mm</field>
+        <field name="Footprint">duck:Vishay_WSLP0603_Damping</field>
+        <field name="Datasheet">https://www.vishay.com/docs/30122/wslp.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="WSLP0603R0470FEA"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="Tolerance" value="1%"/>
+      <property name="Power Rating" value="0.4W at70C; derate above70C"/>
+      <property name="TCR" value="110ppm/C"/>
+      <property name="BOM Comments" value="47mOhm capacitor-branch damping only; not in load ground; Vishay30122 p1-2 pad1.02x1.02mm gap0.50mm"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>c977dc7b-0f40-5a63-aa14-89bf988f5d32</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U301">
+      <value>AP64350</value>
+      <footprint>duck:SO-8EP_AP64350</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/AP64350.pdf</datasheet>
+      <fields>
+        <field name="MPN">AP64350SP-13</field>
+        <field name="Manufacturer">Diodes Incorporated</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">duck:SO-8EP_AP64350</field>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/AP64350.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="duck" part="AP64350" description="3.5A synchronous buck 3.8-40V in, SO-8EP, EP(pin9) must connect to GND"/>
+      <property name="MPN" value="AP64350SP-13"/>
+      <property name="Manufacturer" value="Diodes Incorporated"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>a3dacf18-e01f-509c-9858-04ee01c08cd8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="9"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U702">
+      <value>LP38691DT-1.8</value>
+      <footprint>Package_TO_SOT_SMD:TO-252-3_TabPin2</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/lp38691.pdf</datasheet>
+      <fields>
+        <field name="MPN">LP38691DT-1.8/NOPB</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_TO_SOT_SMD:TO-252-3_TabPin2</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/lp38691.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="duck" part="LP38691DT-1.8" description="TI LP38691 fixed 1.8V LDO, TO-252 NDP: 1 OUT, 2/TAB GND, 3 IN; no EN"/>
+      <property name="MPN" value="LP38691DT-1.8/NOPB"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="power"/>
+      <property name="Sheetfile" value="power.kicad_sch"/>
+      <property name="ki_keywords" value="LDO Linear Regulator"/>
+      <property name="ki_fp_filters" value="TO*252*"/>
+      <sheetpath names="/power/" tstamps="/f377eb11-e3a4-5ffa-b5df-4d147686d11d/"/>
+      <tstamps>a8481167-1512-5663-90d0-579bcfe32485</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J401">
+      <value>DYNAMIXEL_TTL_1</value>
+      <footprint>Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical</footprint>
+      <datasheet>https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf</datasheet>
+      <fields>
+        <field name="MPN">B3B-EH-A(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; EH 2.5mm top entry; catalog p35-36; 3A with AWG22 under manufacturer conditions</field>
+        <field name="Footprint">Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical</field>
+        <field name="Datasheet">https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="B3B-EH-A(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; EH 2.5mm top entry; catalog p35-36; 3A with AWG22 under manufacturer conditions"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>3111772f-1ba0-5a35-9769-1aeb8acd0aa5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J402">
+      <value>DYNAMIXEL_TTL_2</value>
+      <footprint>Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical</footprint>
+      <datasheet>https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf</datasheet>
+      <fields>
+        <field name="MPN">B3B-EH-A(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; EH 2.5mm top entry; catalog p35-36; 3A with AWG22 under manufacturer conditions</field>
+        <field name="Footprint">Connector_JST:JST_EH_B3B-EH-A_1x03_P2.50mm_Vertical</field>
+        <field name="Datasheet">https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="B3B-EH-A(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; EH 2.5mm top entry; catalog p35-36; 3A with AWG22 under manufacturer conditions"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>1855801c-54f5-5869-a41b-8f608bfa3ade</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J403">
+      <value>HOST_UART2</value>
+      <footprint>duck:Samtec_TSW103_07</footprint>
+      <datasheet>https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</datasheet>
+      <fields>
+        <field name="MPN">TSW-103-07-G-S</field>
+        <field name="Manufacturer">Samtec</field>
+        <field name="Assembly Height">2.54mm body; 5.84mm post; 2.54mm solder tail</field>
+        <field name="BOM Comments">Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated</field>
+        <field name="Footprint">duck:Samtec_TSW103_07</field>
+        <field name="Datasheet">https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="TSW-103-07-G-S"/>
+      <property name="Manufacturer" value="Samtec"/>
+      <property name="Assembly Height" value="2.54mm body; 5.84mm post; 2.54mm solder tail"/>
+      <property name="BOM Comments" value="Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>e1b08782-dead-5489-a3f8-53d3e2c45702</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R309">
+      <value>0R</value>
+      <footprint>duck:Vishay_WSL1206_Jumper</footprint>
+      <datasheet>https://www.vishay.com/docs/30192/wsl-9.pdf</datasheet>
+      <fields>
+        <field name="MPN">WSL120600000ZEA9</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">Design-selected, not production released; Solid copper jumper &lt;=0.2mOhm; p1-2; nominal zero-ohm; component current rating is not board/connector rating</field>
+        <field name="Assembly Height">0.635mm nominal; 0.889mm maximum</field>
+        <field name="Footprint">duck:Vishay_WSL1206_Jumper</field>
+        <field name="Datasheet">https://www.vishay.com/docs/30192/wsl-9.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="WSL120600000ZEA9"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="Design-selected, not production released; Solid copper jumper &lt;=0.2mOhm; p1-2; nominal zero-ohm; component current rating is not board/connector rating"/>
+      <property name="Assembly Height" value="0.635mm nominal; 0.889mm maximum"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>91a2e831-1a51-576c-964a-3609a0ff8263</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R310">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW0402100KFKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW0402100KFKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>028aae32-2c46-56ff-befb-b865bd0c00bd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U801">
+      <value>SN74LVC1G126</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/sn74lvc1g126.pdf</datasheet>
+      <fields>
+        <field name="MPN">SN74LVC1G126DBVR</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lvc1g126.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="74xGxx" part="74LVC1G126" description="Single Buffer Gate Tri-State, Low-Voltage CMOS"/>
+      <property name="MPN" value="SN74LVC1G126DBVR"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="Single Gate Buff Tri-State LVC CMOS"/>
+      <property name="ki_fp_filters" value="SOT* SG-*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>cd317a3a-6ba5-5978-acb2-5841ef780562</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U802">
+      <value>SN74LVC1G125</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf</datasheet>
+      <fields>
+        <field name="MPN">SN74LVC1G125DBVT</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="74xGxx" part="74LVC1G125" description="Single Buffer Gate Tri-State, Low-Voltage CMOS"/>
+      <property name="MPN" value="SN74LVC1G125DBVT"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="servo_ttl"/>
+      <property name="Sheetfile" value="servo_ttl.kicad_sch"/>
+      <property name="ki_keywords" value="Single Gate Buff Tri-State LVC CMOS"/>
+      <property name="ki_fp_filters" value="SOT?23* Texas?R-PDSO-G5?DCK* Texas?R-PDSO-N5?DRL* Texas?X2SON*0.8x0.8mm*P0.48mm*"/>
+      <sheetpath names="/servo_ttl/" tstamps="/bcd08810-b456-5716-b62e-01ebfb188302/"/>
+      <tstamps>d53f5fcc-1630-5d66-8497-c978054ad38e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C319">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C104K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C104K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>acc4a435-a4fa-5649-8df8-add937a9c5fa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C320">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C104K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C104K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>31f51930-ade5-5154-989e-12c6872200d3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J502">
+      <value>TOF_I2C5</value>
+      <footprint>Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical</footprint>
+      <datasheet>https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</datasheet>
+      <fields>
+        <field name="MPN">BM04B-SRSS-TB(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; SH 1.0mm 4P top entry; p1-2; 1A with AWG28; no 5V I2C pull-up</field>
+        <field name="Footprint">Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical</field>
+        <field name="Datasheet">https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="BM04B-SRSS-TB(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; SH 1.0mm 4P top entry; p1-2; 1A with AWG28; no 5V I2C pull-up"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>1b94a339-91c5-5182-9f4c-34f5876b7320</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R501">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW04024K70FKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">4.7kOhm 1% 100ppm/K; design selected; verify parallel external pull-ups</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW04024K70FKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="4.7kOhm 1% 100ppm/K; design selected; verify parallel external pull-ups"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>7df3a216-f5c9-58ca-ba3c-b84b9937554f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R502">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW04024K70FKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">4.7kOhm 1% 100ppm/K; design selected; verify parallel external pull-ups</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW04024K70FKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="4.7kOhm 1% 100ppm/K; design selected; verify parallel external pull-ups"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>4b1a3110-f453-5d61-bcc7-9cb9be7c73c5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U501">
+      <value>BMI088</value>
+      <footprint>Package_LGA:Bosch_LGA-16_4.5x3mm_P0.5mm_LayoutBorder7x1y_ClockwisePinNumbering</footprint>
+      <datasheet>https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf</datasheet>
+      <fields>
+        <field name="MPN">BMI088</field>
+        <field name="Manufacturer">Bosch Sensortec</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_LGA:Bosch_LGA-16_4.5x3mm_P0.5mm_LayoutBorder7x1y_ClockwisePinNumbering</field>
+        <field name="Datasheet">https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x16" description="Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="BMI088"/>
+      <property name="Manufacturer" value="Bosch Sensortec"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="imu_tof"/>
+      <property name="Sheetfile" value="imu_tof.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/imu_tof/" tstamps="/dc57e302-9f94-5148-9cb7-11d5b7cbe160/"/>
+      <tstamps>857653db-f70b-54ec-bf48-fe1880fd227a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C310">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C104K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C104K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>5e14bf35-60ad-52fa-b22e-4b708be07c08</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C311">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>04f4ce68-d714-5306-b098-67dd892433a3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C312">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C104K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C104K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>fe00b657-6963-5fdd-a9d0-fb3df720378d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C313">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>f2edabce-083c-5606-a544-c80808d25c00</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C315">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>845ba711-dfce-58da-aac6-b7d7c10f7453</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C317">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C106M9PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">6.3V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">20%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; AC audio coupling; low-impedance headphone bandwidth is not approved</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C106M9PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="6.3V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="20%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; AC audio coupling; low-impedance headphone bandwidth is not approved"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>022d1f5a-0e41-50d2-8260-0d2062c15148</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C318">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C106M9PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">6.3V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">20%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; AC audio coupling; low-impedance headphone bandwidth is not approved</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C106M9PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="6.3V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="20%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; AC audio coupling; low-impedance headphone bandwidth is not approved"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>99963aa5-cfde-57c2-8554-1e7ef34315e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C321">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>5f31654a-3085-5bf5-a955-060c51f77ab6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C322">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>1a8d01c0-2376-59b5-8a3a-ca8503e1b821</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C323">
+      <value>22uF</value>
+      <footprint>Capacitor_SMD:C_1210_3225Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</datasheet>
+      <fields>
+        <field name="MPN">C1210C226K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">PAM8302A local bulk capacitor; archived typical bias model,not a guaranteed minimum or hardware pass</field>
+        <field name="Assembly Height">2.5mm nominal; 2.8mm maximum</field>
+        <field name="Footprint">Capacitor_SMD:C_1210_3225Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C1210C226K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="PAM8302A local bulk capacitor; archived typical bias model,not a guaranteed minimum or hardware pass"/>
+      <property name="Assembly Height" value="2.5mm nominal; 2.8mm maximum"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>4e127560-1efa-5c69-a69e-c6dd7fc71819</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C325">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>f887806d-4b8f-5698-9ca5-739f68736bca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C326">
+      <value>1uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C105K4PACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Dielectric">X5R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C105K4PACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Dielectric" value="X5R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p1/p2/p5; decoupling or AC coupling; bias-dependent capacitance"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>4568767b-8c48-5065-a2f6-1ff2a199c388</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C327">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</datasheet>
+      <fields>
+        <field name="MPN">C0402C104K3RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">25V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="BOM Comments">Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0402C104K3RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="25V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="BOM Comments" value="Design selection, not procurement release; p2/p5; bypass/reset/mic-bias capacitors"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>46ca79f7-385e-5b4f-ba29-3b70da2c715f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C328">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</datasheet>
+      <fields>
+        <field name="MPN">C0805C225K5RACTU</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Voltage Rating">50V</field>
+        <field name="Dielectric">X7R</field>
+        <field name="Tolerance">10%</field>
+        <field name="Assembly Height">1.25mm nominal; 1.45mm maximum</field>
+        <field name="BOM Comments">PAM8302A local ceramic bypass;2.2uF nominal selected for bias margin;device recommends typical1uF close toVDD</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="C0805C225K5RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Voltage Rating" value="50V"/>
+      <property name="Dielectric" value="X7R"/>
+      <property name="Tolerance" value="10%"/>
+      <property name="Assembly Height" value="1.25mm nominal; 1.45mm maximum"/>
+      <property name="BOM Comments" value="PAM8302A local ceramic bypass;2.2uF nominal selected for bias margin;device recommends typical1uF close toVDD"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>8bc17fad-0a38-502f-a444-a68442f290b9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J504">
+      <value>AUDIO_OUT_SH</value>
+      <footprint>Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical</footprint>
+      <datasheet>https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</datasheet>
+      <fields>
+        <field name="MPN">BM03B-SRSS-TB(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; SH 1.0mm 3P top entry; p1-2; audio output load/bandwidth still requires validation</field>
+        <field name="Footprint">Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical</field>
+        <field name="Datasheet">https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="BM03B-SRSS-TB(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; SH 1.0mm 3P top entry; p1-2; audio output load/bandwidth still requires validation"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>5d3d5330-1f24-51b5-b375-bbeb50aca435</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J505">
+      <value>MIC_IN</value>
+      <footprint>Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical</footprint>
+      <datasheet>https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</datasheet>
+      <fields>
+        <field name="MPN">BM02B-SRSS-TB(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; SH 1.0mm 2P top entry; p1-2; electret microphone input</field>
+        <field name="Footprint">Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical</field>
+        <field name="Datasheet">https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="BM02B-SRSS-TB(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; SH 1.0mm 2P top entry; p1-2; electret microphone input"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>381f1e6c-4eac-5138-b96f-11bd32f01fdf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J506">
+      <value>SPEAKER</value>
+      <footprint>Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical</footprint>
+      <datasheet>https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</datasheet>
+      <fields>
+        <field name="MPN">BM02B-SRSS-TB(LF)(SN)</field>
+        <field name="Manufacturer">JST</field>
+        <field name="BOM Comments">Design-selected, not production released; SH 1.0mm 2P top entry; p1-2; 1A with AWG28; class-D speaker, neither pin is ground</field>
+        <field name="Footprint">Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical</field>
+        <field name="Datasheet">https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="BM02B-SRSS-TB(LF)(SN)"/>
+      <property name="Manufacturer" value="JST"/>
+      <property name="BOM Comments" value="Design-selected, not production released; SH 1.0mm 2P top entry; p1-2; 1A with AWG28; class-D speaker, neither pin is ground"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>09a3576f-9309-55b1-99e5-6d936d439a78</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R308">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW040210K0FKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW040210K0FKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>269656e2-e0da-5384-99c6-2972d79bfe9d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R311">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW0402100KFKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW0402100KFKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>5fb8f3ff-3a98-5b65-aa48-242aa9c802fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R312">
+      <value>2.2k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MPN">CRCW04022K20FKED</field>
+        <field name="Manufacturer">Vishay</field>
+        <field name="BOM Comments">1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://www.vishay.com/docs/20035/dcrcwe3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="CRCW04022K20FKED"/>
+      <property name="Manufacturer" value="Vishay"/>
+      <property name="BOM Comments" value="1% 100ppm/K; D/CRCW e3 ordering table p2-3; design selected, stock not released"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>c10d2998-05d9-5ad6-8d6a-3b4edfc0f43f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U701">
+      <value>TLV320AIC3104</value>
+      <footprint>Package_DFN_QFN:VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf</datasheet>
+      <fields>
+        <field name="MPN">TLV320AIC3104IRHBR</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_DFN_QFN:VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="duck" part="TLV320AIC3104" description="Stereo audio codec, I2S + I2C, 3.3V IO, 1.8V core"/>
+      <property name="MPN" value="TLV320AIC3104IRHBR"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>f00b77ba-6cd3-5b05-8180-7e7c42cca63f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="33"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U803">
+      <value>PAM8302A</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/PAM8302A.pdf</datasheet>
+      <fields>
+        <field name="MPN">PAM8302AADCR</field>
+        <field name="Manufacturer">Diodes Incorporated</field>
+        <field name="BOM Comments">Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released</field>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/PAM8302A.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Amplifier_Audio" part="PAM8302AAD" description="2.5W Filterless Class-D Mono Audio Amplifier, SOIC-8"/>
+      <property name="MPN" value="PAM8302AADCR"/>
+      <property name="Manufacturer" value="Diodes Incorporated"/>
+      <property name="BOM Comments" value="Design-selected MPN; manufacturer document reviewed; procurement and stock not yet released"/>
+      <property name="Sheetname" value="audio"/>
+      <property name="Sheetfile" value="audio.kicad_sch"/>
+      <property name="ki_keywords" value="audio amplifier class d"/>
+      <property name="ki_fp_filters" value="MSOP*3x3mm*P0.65mm* SOIC*3.9x4.9mm*P1.27mm*"/>
+      <sheetpath names="/audio/" tstamps="/636cda5a-0115-5833-9dc6-1a91c3d4b703/"/>
+      <tstamps>b1b3a76a-f7fb-551f-ace2-3cb35ad15f05</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J802">
+      <value>IMU_INT_TP</value>
+      <footprint>duck:Samtec_TSW102_07</footprint>
+      <datasheet>https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</datasheet>
+      <fields>
+        <field name="MPN">TSW-102-07-G-S</field>
+        <field name="Manufacturer">Samtec</field>
+        <field name="Assembly Height">2.54mm body; 5.84mm post; 2.54mm solder tail</field>
+        <field name="BOM Comments">Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated</field>
+        <field name="Footprint">duck:Samtec_TSW102_07</field>
+        <field name="Datasheet">https://suddendocs.samtec.com/catalog_english/tsw_th.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="TSW-102-07-G-S"/>
+      <property name="Manufacturer" value="Samtec"/>
+      <property name="Assembly Height" value="2.54mm body; 5.84mm post; 2.54mm solder tail"/>
+      <property name="BOM Comments" value="Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"/>
+      <property name="Sheetname" value="testpoints"/>
+      <property name="Sheetfile" value="testpoints.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/testpoints/" tstamps="/e5525fd2-ded6-5453-9282-594345dce0dc/"/>
+      <tstamps>1e89de63-ea22-595b-953a-b4409ed154ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP801">
+      <value>VBATT_2S_IN</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="testpoints"/>
+      <property name="Sheetfile" value="testpoints.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/testpoints/" tstamps="/e5525fd2-ded6-5453-9282-594345dce0dc/"/>
+      <tstamps>bfeafef6-d5e4-5d68-873a-fa50e6bc89e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP802">
+      <value>+5V</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="testpoints"/>
+      <property name="Sheetfile" value="testpoints.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/testpoints/" tstamps="/e5525fd2-ded6-5453-9282-594345dce0dc/"/>
+      <tstamps>a61e8c78-6430-5b80-b761-eb5211d8d578</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP803">
+      <value>+3V3</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="testpoints"/>
+      <property name="Sheetfile" value="testpoints.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/testpoints/" tstamps="/e5525fd2-ded6-5453-9282-594345dce0dc/"/>
+      <tstamps>2053408f-1760-5ba1-b21b-bfb8793e0f4f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="74xGxx" part="74LVC1G125">
+      <description>Single Buffer Gate Tri-State, Low-Voltage CMOS</description>
+      <docs>https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+        <fp>Texas?R-PDSO-G5?DCK*</fp>
+        <fp>Texas?R-PDSO-N5?DRL*</fp>
+        <fp>Texas?X2SON*0.8x0.8mm*P0.48mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LVC1G125</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf</field>
+        <field name="Description">Single Buffer Gate Tri-State, Low-Voltage CMOS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="" type="tri_state"/>
+        <pin num="5" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xGxx" part="74LVC1G126">
+      <description>Single Buffer Gate Tri-State, Low-Voltage CMOS</description>
+      <docs>http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf</docs>
+      <footprints>
+        <fp>SOT*</fp>
+        <fp>SG-*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LVC1G126</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf</field>
+        <field name="Description">Single Buffer Gate Tri-State, Low-Voltage CMOS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="" type="tri_state"/>
+        <pin num="5" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Amplifier_Audio" part="PAM8302AAD">
+      <description>2.5W Filterless Class-D Mono Audio Amplifier, SOIC-8</description>
+      <docs>https://www.diodes.com/assets/Datasheets/PAM8302A.pdf</docs>
+      <footprints>
+        <fp>MSOP*3x3mm*P0.65mm*</fp>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">PAM8302AAD</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/PAM8302A.pdf</field>
+        <field name="Description">2.5W Filterless Class-D Mono Audio Amplifier, SOIC-8</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~{SD}" type="input"/>
+        <pin num="2" name="NC" type="no_connect"/>
+        <pin num="3" name="IN+" type="input"/>
+        <pin num="4" name="IN-" type="input"/>
+        <pin num="5" name="OUT+" type="output"/>
+        <pin num="6" name="VDD" type="power_in"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="OUT-" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x08">
+      <description>Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x08</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x16">
+      <description>Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x16</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+        <pin num="9" name="Pin_9" type="passive"/>
+        <pin num="10" name="Pin_10" type="passive"/>
+        <pin num="11" name="Pin_11" type="passive"/>
+        <pin num="12" name="Pin_12" type="passive"/>
+        <pin num="13" name="Pin_13" type="passive"/>
+        <pin num="14" name="Pin_14" type="passive"/>
+        <pin num="15" name="Pin_15" type="passive"/>
+        <pin num="16" name="Pin_16" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x20_Odd_Even">
+      <description>Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x20_Odd_Even</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+        <pin num="9" name="Pin_9" type="passive"/>
+        <pin num="10" name="Pin_10" type="passive"/>
+        <pin num="11" name="Pin_11" type="passive"/>
+        <pin num="12" name="Pin_12" type="passive"/>
+        <pin num="13" name="Pin_13" type="passive"/>
+        <pin num="14" name="Pin_14" type="passive"/>
+        <pin num="15" name="Pin_15" type="passive"/>
+        <pin num="16" name="Pin_16" type="passive"/>
+        <pin num="17" name="Pin_17" type="passive"/>
+        <pin num="18" name="Pin_18" type="passive"/>
+        <pin num="19" name="Pin_19" type="passive"/>
+        <pin num="20" name="Pin_20" type="passive"/>
+        <pin num="21" name="Pin_21" type="passive"/>
+        <pin num="22" name="Pin_22" type="passive"/>
+        <pin num="23" name="Pin_23" type="passive"/>
+        <pin num="24" name="Pin_24" type="passive"/>
+        <pin num="25" name="Pin_25" type="passive"/>
+        <pin num="26" name="Pin_26" type="passive"/>
+        <pin num="27" name="Pin_27" type="passive"/>
+        <pin num="28" name="Pin_28" type="passive"/>
+        <pin num="29" name="Pin_29" type="passive"/>
+        <pin num="30" name="Pin_30" type="passive"/>
+        <pin num="31" name="Pin_31" type="passive"/>
+        <pin num="32" name="Pin_32" type="passive"/>
+        <pin num="33" name="Pin_33" type="passive"/>
+        <pin num="34" name="Pin_34" type="passive"/>
+        <pin num="35" name="Pin_35" type="passive"/>
+        <pin num="36" name="Pin_36" type="passive"/>
+        <pin num="37" name="Pin_37" type="passive"/>
+        <pin num="38" name="Pin_38" type="passive"/>
+        <pin num="39" name="Pin_39" type="passive"/>
+        <pin num="40" name="Pin_40" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_TVS">
+      <description>Bidirectional transient-voltage-suppression diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_TVS</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Bidirectional transient-voltage-suppression diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A1" type="passive"/>
+        <pin num="2" name="A2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="L">
+      <description>Inductor</description>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Inductor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="duck" part="AP64350">
+      <description>3.5A synchronous buck 3.8-40V in, SO-8EP, EP(pin9) must connect to GND</description>
+      <docs>https://www.diodes.com/assets/Datasheets/AP64350.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">AP64350</field>
+        <field name="Footprint">duck:SO-8EP_AP64350</field>
+        <field name="Datasheet">https://www.diodes.com/assets/Datasheets/AP64350.pdf</field>
+        <field name="Description">3.5A synchronous buck 3.8-40V in, SO-8EP, EP(pin9) must connect to GND</field>
+      </fields>
+      <pins>
+        <pin num="1" name="BST" type="input"/>
+        <pin num="2" name="VIN" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="RT/CLK" type="input"/>
+        <pin num="5" name="FB" type="input"/>
+        <pin num="6" name="COMP" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="SW" type="output"/>
+        <pin num="9" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="duck" part="LP38691DT-1.8">
+      <description>TI LP38691 fixed 1.8V LDO, TO-252 NDP: 1 OUT, 2/TAB GND, 3 IN; no EN</description>
+      <docs>https://www.ti.com/lit/ds/symlink/lp38691.pdf</docs>
+      <footprints>
+        <fp>TO*252*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LP38691DT-1.8</field>
+        <field name="Footprint">Package_TO_SOT_SMD:TO-252-3_TabPin2</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/lp38691.pdf</field>
+        <field name="Description">TI LP38691 fixed 1.8V LDO, TO-252 NDP: 1 OUT, 2/TAB GND, 3 IN; no EN</field>
+        <field name="MPN">LP38691DT-1.8/NOPB</field>
+        <field name="Manufacturer">Texas Instruments</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="power_out"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="IN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="duck" part="TLV320AIC3104">
+      <description>Stereo audio codec, I2S + I2C, 3.3V IO, 1.8V core</description>
+      <docs>https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TLV320AIC3104</field>
+        <field name="Footprint">Package_DFN_QFN:VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf</field>
+        <field name="Description">Stereo audio codec, I2S + I2C, 3.3V IO, 1.8V core</field>
+      </fields>
+      <pins>
+        <pin num="1" name="MCLK" type="input"/>
+        <pin num="2" name="BCLK" type="input"/>
+        <pin num="3" name="WCLK" type="input"/>
+        <pin num="4" name="DIN" type="input"/>
+        <pin num="5" name="DOUT" type="output"/>
+        <pin num="6" name="DVSS" type="power_in"/>
+        <pin num="7" name="IOVDD" type="power_in"/>
+        <pin num="8" name="SCL" type="bidirectional"/>
+        <pin num="9" name="SDA" type="bidirectional"/>
+        <pin num="10" name="MIC1LP/LINE1LP" type="input"/>
+        <pin num="11" name="MIC1LM/LINE1LM" type="input"/>
+        <pin num="12" name="MIC1RP/LINE1RP" type="input"/>
+        <pin num="13" name="MIC1RM/LINE1RM" type="input"/>
+        <pin num="14" name="MIC2L/LINE2L/MICDET" type="input"/>
+        <pin num="15" name="MICBIAS" type="output"/>
+        <pin num="16" name="MIC2R/LINE2R" type="input"/>
+        <pin num="17" name="AVSS1" type="power_in"/>
+        <pin num="18" name="DRVDD" type="power_in"/>
+        <pin num="19" name="HPLOUT" type="output"/>
+        <pin num="20" name="HPLCOM" type="output"/>
+        <pin num="21" name="DRVSS" type="power_in"/>
+        <pin num="22" name="HPRCOM" type="output"/>
+        <pin num="23" name="HPROUT" type="output"/>
+        <pin num="24" name="DRVDD" type="power_in"/>
+        <pin num="25" name="AVDD" type="power_in"/>
+        <pin num="26" name="AVSS2" type="power_in"/>
+        <pin num="27" name="LEFT_LOP" type="output"/>
+        <pin num="28" name="LEFT_LOM" type="output"/>
+        <pin num="29" name="RIGHT_LOP" type="output"/>
+        <pin num="30" name="RIGHT_LOM" type="output"/>
+        <pin num="31" name="~{RESET}" type="input"/>
+        <pin num="32" name="DVDD" type="power_in"/>
+        <pin num="33" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="power" part="PWR_FLAG">
+      <description>Special symbol for telling ERC where power comes from</description>
+      <fields>
+        <field name="Reference">#FLG</field>
+        <field name="Value">PWR_FLAG</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Special symbol for telling ERC where power comes from</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="power_out"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="74xGxx">
+      <uri>${KICAD10_SYMBOL_DIR}/74xGxx.kicad_sym</uri>
+    </library>
+    <library logical="Amplifier_Audio">
+      <uri>${KICAD10_SYMBOL_DIR}/Amplifier_Audio.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>${KICAD10_SYMBOL_DIR}/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>${KICAD10_SYMBOL_DIR}/Device.kicad_sym</uri>
+    </library>
+    <library logical="duck">
+      <uri>${KIPRJMOD}/duck.kicad_sym</uri>
+    </library>
+    <library logical="power">
+      <uri>${KICAD10_SYMBOL_DIR}/power.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+1V8_CODEC" class="Default">
+      <node ref="C309" pin="1" pintype="passive"/>
+      <node ref="C311" pin="1" pintype="passive"/>
+      <node ref="J301" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="U701" pin="32" pinfunction="DVDD_32" pintype="power_in"/>
+      <node ref="U702" pin="1" pinfunction="OUT_1" pintype="power_out"/>
+    </net>
+    <net code="2" name="+3V3" class="Power,Default">
+      <node ref="C308" pin="1" pintype="passive"/>
+      <node ref="C312" pin="1" pintype="passive"/>
+      <node ref="C313" pin="1" pintype="passive"/>
+      <node ref="C315" pin="1" pintype="passive"/>
+      <node ref="C319" pin="1" pintype="passive"/>
+      <node ref="C320" pin="1" pintype="passive"/>
+      <node ref="FLG2" pin="1" pintype="power_out"/>
+      <node ref="J101" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J101" pin="17" pinfunction="Pin_17_17" pintype="passive"/>
+      <node ref="J301" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="J502" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R308" pin="2" pintype="passive"/>
+      <node ref="R311" pin="2" pintype="passive"/>
+      <node ref="R501" pin="1" pintype="passive"/>
+      <node ref="R502" pin="1" pintype="passive"/>
+      <node ref="TP803" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U501" pin="11" pinfunction="Pin_11_11" pintype="passive"/>
+      <node ref="U501" pin="14" pinfunction="Pin_14_14" pintype="passive"/>
+      <node ref="U501" pin="15" pinfunction="Pin_15_15" pintype="passive"/>
+      <node ref="U501" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U501" pin="7" pinfunction="Pin_7_7" pintype="passive"/>
+      <node ref="U701" pin="18" pinfunction="DRVDD_18" pintype="power_in"/>
+      <node ref="U701" pin="24" pinfunction="DRVDD_24" pintype="power_in"/>
+      <node ref="U701" pin="25" pinfunction="AVDD_25" pintype="power_in"/>
+      <node ref="U701" pin="7" pinfunction="IOVDD_7" pintype="power_in"/>
+      <node ref="U702" pin="3" pinfunction="IN_3" pintype="power_in"/>
+      <node ref="U801" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+      <node ref="U802" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+    </net>
+    <net code="3" name="+5V" class="Power,Default">
+      <node ref="C305" pin="1" pintype="passive"/>
+      <node ref="C306" pin="1" pintype="passive"/>
+      <node ref="C307" pin="1" pintype="passive"/>
+      <node ref="C323" pin="1" pintype="passive"/>
+      <node ref="C328" pin="1" pintype="passive"/>
+      <node ref="FLG1" pin="1" pintype="power_out"/>
+      <node ref="J101" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J101" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="J301" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="L301" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R301" pin="1" pintype="passive"/>
+      <node ref="TP802" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U803" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+    </net>
+    <net code="4" name="+5V_FB" class="Default">
+      <node ref="R301" pin="2" pintype="passive"/>
+      <node ref="R302" pin="1" pintype="passive"/>
+      <node ref="U301" pin="5" pinfunction="FB_5" pintype="input"/>
+    </net>
+    <net code="5" name="AUDIO_AMP_EN" class="Default">
+      <node ref="R311" pin="1" pintype="passive"/>
+      <node ref="U803" pin="1" pinfunction="~{SD}_1" pintype="input"/>
+    </net>
+    <net code="6" name="AUDIO_AMP_INN" class="Default">
+      <node ref="C322" pin="1" pintype="passive"/>
+      <node ref="U803" pin="4" pinfunction="IN-_4" pintype="input"/>
+    </net>
+    <net code="7" name="AUDIO_AMP_INP" class="Default">
+      <node ref="C321" pin="2" pintype="passive"/>
+      <node ref="U803" pin="3" pinfunction="IN+_3" pintype="input"/>
+    </net>
+    <net code="8" name="AUDIO_HP_L" class="Default">
+      <node ref="C317" pin="1" pintype="passive"/>
+      <node ref="U701" pin="19" pinfunction="HPLOUT_19" pintype="output"/>
+    </net>
+    <net code="9" name="AUDIO_HP_R" class="Default">
+      <node ref="C318" pin="1" pintype="passive"/>
+      <node ref="U701" pin="23" pinfunction="HPROUT_23" pintype="output"/>
+    </net>
+    <net code="10" name="AUDIO_L" class="Default">
+      <node ref="C317" pin="2" pintype="passive"/>
+      <node ref="J504" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+    </net>
+    <net code="11" name="AUDIO_LINE_L" class="Default">
+      <node ref="C321" pin="1" pintype="passive"/>
+      <node ref="U701" pin="27" pinfunction="LEFT_LOP_27" pintype="output"/>
+    </net>
+    <net code="12" name="AUDIO_MIC" class="Default">
+      <node ref="C325" pin="1" pintype="passive"/>
+      <node ref="J505" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R312" pin="2" pintype="passive"/>
+    </net>
+    <net code="13" name="AUDIO_MIC_AC" class="Default">
+      <node ref="C325" pin="2" pintype="passive"/>
+      <node ref="U701" pin="10" pinfunction="MIC1LP/LINE1LP_10" pintype="input"/>
+    </net>
+    <net code="14" name="AUDIO_MIC_BIAS" class="Default">
+      <node ref="C327" pin="1" pintype="passive"/>
+      <node ref="R312" pin="1" pintype="passive"/>
+      <node ref="U701" pin="15" pinfunction="MICBIAS_15" pintype="output"/>
+    </net>
+    <net code="15" name="AUDIO_MIC_REF" class="Default">
+      <node ref="C326" pin="2" pintype="passive"/>
+      <node ref="U701" pin="11" pinfunction="MIC1LM/LINE1LM_11" pintype="input"/>
+    </net>
+    <net code="16" name="AUDIO_R" class="Default">
+      <node ref="C318" pin="2" pintype="passive"/>
+      <node ref="J504" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+    </net>
+    <net code="17" name="BMI_INT1_TP" class="Default">
+      <node ref="J802" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="U501" pin="16" pinfunction="Pin_16_16" pintype="passive"/>
+    </net>
+    <net code="18" name="BMI_INT3_TP" class="Default">
+      <node ref="J802" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U501" pin="12" pinfunction="Pin_12_12" pintype="passive"/>
+    </net>
+    <net code="19" name="BUCK_BST" class="Default">
+      <node ref="C302" pin="1" pintype="passive"/>
+      <node ref="U301" pin="1" pinfunction="BST_1" pintype="input"/>
+    </net>
+    <net code="20" name="BUCK_COMP" class="Default">
+      <node ref="R304" pin="1" pintype="passive"/>
+      <node ref="U301" pin="6" pinfunction="COMP_6" pintype="output"/>
+    </net>
+    <net code="21" name="BUCK_EN" class="Default">
+      <node ref="R305" pin="2" pintype="passive"/>
+      <node ref="U301" pin="3" pinfunction="EN_3" pintype="input"/>
+    </net>
+    <net code="22" name="BUCK_RT" class="Default">
+      <node ref="R303" pin="1" pintype="passive"/>
+      <node ref="U301" pin="4" pinfunction="RT/CLK_4" pintype="input"/>
+    </net>
+    <net code="23" name="BUCK_SW" class="Power,Default">
+      <node ref="C302" pin="2" pintype="passive"/>
+      <node ref="L301" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U301" pin="8" pinfunction="SW_8" pintype="output"/>
+    </net>
+    <net code="24" name="CODEC_RST" class="Default">
+      <node ref="C310" pin="1" pintype="passive"/>
+      <node ref="R308" pin="1" pintype="passive"/>
+      <node ref="U701" pin="31" pinfunction="~{RESET}_31" pintype="input"/>
+    </net>
+    <net code="25" name="COMP_RC" class="Default">
+      <node ref="C301" pin="1" pintype="passive"/>
+      <node ref="R304" pin="2" pintype="passive"/>
+    </net>
+    <net code="26" name="DXL_DATA" class="Default">
+      <node ref="J401" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J402" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U801" pin="4" pintype="tri_state"/>
+      <node ref="U802" pin="2" pintype="input"/>
+    </net>
+    <net code="27" name="DXL_DIR" class="Default">
+      <node ref="J101" pin="11" pinfunction="Pin_11_11" pintype="passive"/>
+      <node ref="R310" pin="1" pintype="passive"/>
+      <node ref="U801" pin="1" pintype="input"/>
+      <node ref="U802" pin="1" pintype="input"/>
+    </net>
+    <net code="28" name="I2C5_SCL" class="Default">
+      <node ref="J101" pin="29" pinfunction="Pin_29_29" pintype="passive"/>
+      <node ref="J502" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R501" pin="2" pintype="passive"/>
+      <node ref="U501" pin="8" pinfunction="Pin_8_8" pintype="passive"/>
+      <node ref="U701" pin="8" pinfunction="SCL_8" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="I2C5_SDA" class="Default">
+      <node ref="J101" pin="31" pinfunction="Pin_31_31" pintype="passive"/>
+      <node ref="J502" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R502" pin="2" pintype="passive"/>
+      <node ref="U501" pin="9" pinfunction="Pin_9_9" pintype="passive"/>
+      <node ref="U701" pin="9" pinfunction="SDA_9" pintype="bidirectional"/>
+    </net>
+    <net code="30" name="I2S_BCLK" class="Default">
+      <node ref="J101" pin="12" pinfunction="Pin_12_12" pintype="passive"/>
+      <node ref="U701" pin="2" pinfunction="BCLK_2" pintype="input"/>
+    </net>
+    <net code="31" name="I2S_LRCK" class="Default">
+      <node ref="J101" pin="35" pinfunction="Pin_35_35" pintype="passive"/>
+      <node ref="U701" pin="3" pinfunction="WCLK_3" pintype="input"/>
+    </net>
+    <net code="32" name="I2S_MCLK" class="Default">
+      <node ref="J101" pin="13" pinfunction="Pin_13_13" pintype="passive"/>
+      <node ref="U701" pin="1" pinfunction="MCLK_1" pintype="input"/>
+    </net>
+    <net code="33" name="I2S_SDI" class="Default">
+      <node ref="J101" pin="38" pinfunction="Pin_38_38" pintype="passive"/>
+      <node ref="U701" pin="5" pinfunction="DOUT_5" pintype="output"/>
+    </net>
+    <net code="34" name="I2S_SDO" class="Default">
+      <node ref="J101" pin="40" pinfunction="Pin_40_40" pintype="passive"/>
+      <node ref="U701" pin="4" pinfunction="DIN_4" pintype="input"/>
+    </net>
+    <net code="35" name="LDO_CAP_RETURN" class="Default">
+      <node ref="C309" pin="2" pintype="passive"/>
+      <node ref="R703" pin="1" pintype="passive"/>
+    </net>
+    <net code="36" name="POWER_GND" class="Power,Default">
+      <node ref="C301" pin="2" pintype="passive"/>
+      <node ref="C303" pin="2" pintype="passive"/>
+      <node ref="C304" pin="2" pintype="passive"/>
+      <node ref="C305" pin="2" pintype="passive"/>
+      <node ref="C306" pin="2" pintype="passive"/>
+      <node ref="C307" pin="2" pintype="passive"/>
+      <node ref="C308" pin="2" pintype="passive"/>
+      <node ref="C310" pin="2" pintype="passive"/>
+      <node ref="C311" pin="2" pintype="passive"/>
+      <node ref="C312" pin="2" pintype="passive"/>
+      <node ref="C313" pin="2" pintype="passive"/>
+      <node ref="C315" pin="2" pintype="passive"/>
+      <node ref="C319" pin="2" pintype="passive"/>
+      <node ref="C320" pin="2" pintype="passive"/>
+      <node ref="C322" pin="2" pintype="passive"/>
+      <node ref="C323" pin="2" pintype="passive"/>
+      <node ref="C326" pin="1" pintype="passive"/>
+      <node ref="C327" pin="2" pintype="passive"/>
+      <node ref="C328" pin="2" pintype="passive"/>
+      <node ref="D301" pin="2" pinfunction="A2_2" pintype="passive"/>
+      <node ref="FLG4" pin="1" pintype="power_out"/>
+      <node ref="J101" pin="14" pinfunction="Pin_14_14" pintype="passive"/>
+      <node ref="J101" pin="20" pinfunction="Pin_20_20" pintype="passive"/>
+      <node ref="J101" pin="25" pinfunction="Pin_25_25" pintype="passive"/>
+      <node ref="J101" pin="30" pinfunction="Pin_30_30" pintype="passive"/>
+      <node ref="J101" pin="34" pinfunction="Pin_34_34" pintype="passive"/>
+      <node ref="J101" pin="39" pinfunction="Pin_39_39" pintype="passive"/>
+      <node ref="J101" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="J101" pin="9" pinfunction="Pin_9_9" pintype="passive"/>
+      <node ref="J301" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J301" pin="8" pinfunction="Pin_8_8" pintype="passive"/>
+      <node ref="J401" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J402" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J403" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J502" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J504" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J505" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R302" pin="2" pintype="passive"/>
+      <node ref="R303" pin="2" pintype="passive"/>
+      <node ref="R310" pin="2" pintype="passive"/>
+      <node ref="R703" pin="2" pintype="passive"/>
+      <node ref="U301" pin="7" pinfunction="GND_7" pintype="power_in"/>
+      <node ref="U301" pin="9" pinfunction="EP_9" pintype="power_in"/>
+      <node ref="U501" pin="10" pinfunction="Pin_10_10" pintype="passive"/>
+      <node ref="U501" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U501" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U501" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="U701" pin="17" pinfunction="AVSS1_17" pintype="power_in"/>
+      <node ref="U701" pin="21" pinfunction="DRVSS_21" pintype="power_in"/>
+      <node ref="U701" pin="26" pinfunction="AVSS2_26" pintype="power_in"/>
+      <node ref="U701" pin="33" pinfunction="EP_33" pintype="power_in"/>
+      <node ref="U701" pin="6" pinfunction="DVSS_6" pintype="power_in"/>
+      <node ref="U702" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U801" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U802" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U803" pin="7" pinfunction="GND_7" pintype="power_in"/>
+    </net>
+    <net code="37" name="SERVO_VBAT" class="Power,Default">
+      <node ref="J301" pin="7" pinfunction="Pin_7_7" pintype="passive"/>
+      <node ref="J401" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J402" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R309" pin="2" pintype="passive"/>
+    </net>
+    <net code="38" name="SPK_N" class="Default">
+      <node ref="J506" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U803" pin="8" pinfunction="OUT-_8" pintype="output"/>
+    </net>
+    <net code="39" name="SPK_P" class="Default">
+      <node ref="J506" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="U803" pin="5" pinfunction="OUT+_5" pintype="output"/>
+    </net>
+    <net code="40" name="UART2_RX" class="Default">
+      <node ref="J101" pin="10" pinfunction="Pin_10_10" pintype="passive"/>
+      <node ref="J403" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U802" pin="4" pintype="tri_state"/>
+    </net>
+    <net code="41" name="UART2_TX" class="Default">
+      <node ref="J101" pin="8" pinfunction="Pin_8_8" pintype="passive"/>
+      <node ref="J403" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="U801" pin="2" pintype="input"/>
+    </net>
+    <net code="42" name="VBATT_2S_IN" class="Power,Default">
+      <node ref="C303" pin="1" pintype="passive"/>
+      <node ref="C304" pin="1" pintype="passive"/>
+      <node ref="D301" pin="1" pinfunction="A1_1" pintype="passive"/>
+      <node ref="FLG3" pin="1" pintype="power_out"/>
+      <node ref="J301" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R305" pin="1" pintype="passive"/>
+      <node ref="R309" pin="1" pintype="passive"/>
+      <node ref="TP801" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U301" pin="2" pinfunction="VIN_2" pintype="power_in"/>
+    </net>
+    <net code="43" name="unconnected-(J101-Pin_3-Pad3)" class="Default">
+      <node ref="J101" pin="3" pinfunction="Pin_3_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="44" name="unconnected-(J101-Pin_5-Pad5)" class="Default">
+      <node ref="J101" pin="5" pinfunction="Pin_5_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(J101-Pin_7-Pad7)" class="Default">
+      <node ref="J101" pin="7" pinfunction="Pin_7_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="46" name="unconnected-(J101-Pin_15-Pad15)" class="Default">
+      <node ref="J101" pin="15" pinfunction="Pin_15_15" pintype="passive+no_connect"/>
+    </net>
+    <net code="47" name="unconnected-(J101-Pin_16-Pad16)" class="Default">
+      <node ref="J101" pin="16" pinfunction="Pin_16_16" pintype="passive+no_connect"/>
+    </net>
+    <net code="48" name="unconnected-(J101-Pin_18-Pad18)" class="Default">
+      <node ref="J101" pin="18" pinfunction="Pin_18_18" pintype="passive+no_connect"/>
+    </net>
+    <net code="49" name="unconnected-(J101-Pin_19-Pad19)" class="Default">
+      <node ref="J101" pin="19" pinfunction="Pin_19_19" pintype="passive+no_connect"/>
+    </net>
+    <net code="50" name="unconnected-(J101-Pin_21-Pad21)" class="Default">
+      <node ref="J101" pin="21" pinfunction="Pin_21_21" pintype="passive+no_connect"/>
+    </net>
+    <net code="51" name="unconnected-(J101-Pin_22-Pad22)" class="Default">
+      <node ref="J101" pin="22" pinfunction="Pin_22_22" pintype="passive+no_connect"/>
+    </net>
+    <net code="52" name="unconnected-(J101-Pin_23-Pad23)" class="Default">
+      <node ref="J101" pin="23" pinfunction="Pin_23_23" pintype="passive+no_connect"/>
+    </net>
+    <net code="53" name="unconnected-(J101-Pin_24-Pad24)" class="Default">
+      <node ref="J101" pin="24" pinfunction="Pin_24_24" pintype="passive+no_connect"/>
+    </net>
+    <net code="54" name="unconnected-(J101-Pin_26-Pad26)" class="Default">
+      <node ref="J101" pin="26" pinfunction="Pin_26_26" pintype="passive+no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(J101-Pin_27-Pad27)" class="Default">
+      <node ref="J101" pin="27" pinfunction="Pin_27_27" pintype="passive+no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(J101-Pin_28-Pad28)" class="Default">
+      <node ref="J101" pin="28" pinfunction="Pin_28_28" pintype="passive+no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(J101-Pin_32-Pad32)" class="Default">
+      <node ref="J101" pin="32" pinfunction="Pin_32_32" pintype="passive+no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(J101-Pin_33-Pad33)" class="Default">
+      <node ref="J101" pin="33" pinfunction="Pin_33_33" pintype="passive+no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(J101-Pin_36-Pad36)" class="Default">
+      <node ref="J101" pin="36" pinfunction="Pin_36_36" pintype="passive+no_connect"/>
+    </net>
+    <net code="60" name="unconnected-(J101-Pin_37-Pad37)" class="Default">
+      <node ref="J101" pin="37" pinfunction="Pin_37_37" pintype="passive+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(J301-Pin_5-Pad5)" class="Default">
+      <node ref="J301" pin="5" pinfunction="Pin_5_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(U501-Pin_1-Pad1)" class="Default">
+      <node ref="U501" pin="1" pinfunction="Pin_1_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U501-Pin_5-Pad5)" class="Default">
+      <node ref="U501" pin="5" pinfunction="Pin_5_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(U501-Pin_13-Pad13)" class="Default">
+      <node ref="U501" pin="13" pinfunction="Pin_13_13" pintype="passive+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(U701-HPLCOM-Pad20)" class="Default">
+      <node ref="U701" pin="20" pinfunction="HPLCOM_20" pintype="output+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(U701-HPRCOM-Pad22)" class="Default">
+      <node ref="U701" pin="22" pinfunction="HPRCOM_22" pintype="output+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U701-LEFT_LOM-Pad28)" class="Default">
+      <node ref="U701" pin="28" pinfunction="LEFT_LOM_28" pintype="output+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U701-MIC1RM/LINE1RM-Pad13)" class="Default">
+      <node ref="U701" pin="13" pinfunction="MIC1RM/LINE1RM_13" pintype="input+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U701-MIC1RP/LINE1RP-Pad12)" class="Default">
+      <node ref="U701" pin="12" pinfunction="MIC1RP/LINE1RP_12" pintype="input+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U701-MIC2L/LINE2L/MICDET-Pad14)" class="Default">
+      <node ref="U701" pin="14" pinfunction="MIC2L/LINE2L/MICDET_14" pintype="input+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(U701-MIC2R/LINE2R-Pad16)" class="Default">
+      <node ref="U701" pin="16" pinfunction="MIC2R/LINE2R_16" pintype="input+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(U701-RIGHT_LOM-Pad30)" class="Default">
+      <node ref="U701" pin="30" pinfunction="RIGHT_LOM_30" pintype="output+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(U701-RIGHT_LOP-Pad29)" class="Default">
+      <node ref="U701" pin="29" pinfunction="RIGHT_LOP_29" pintype="output+no_connect"/>
+    </net>
+    <net code="74" name="unconnected-(U803-NC-Pad2)" class="Default">
+      <node ref="U803" pin="2" pinfunction="NC_2" pintype="no_connect"/>
+    </net>
+  </nets>
+</export>

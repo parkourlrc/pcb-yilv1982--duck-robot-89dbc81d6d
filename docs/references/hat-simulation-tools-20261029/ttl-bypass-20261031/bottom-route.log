@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\route_ttl_bottom_bypass.py", line 81, in <module>
+    main()
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\route_ttl_bottom_bypass.py", line 38, in main
+    selected[0]["routes"].append(route_layer(board, net, "B.Cu", .2, bypass.pad_position(board, "C329", cap_pin), bypass.pad_position(board, "U801", device_pin)))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\finish_ttl_local_bypass.py", line 33, in route_layer
+    plan = planner.solve(obstacles(board), net, start, end, [0], 0)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\plan_i2s_sdo.py", line 121, in solve
+    raise RuntimeError(f'No path in this conservative search region ({len(costs)} states); not proof of physical impossibility')
+RuntimeError: No path in this conservative search region (25997 states); not proof of physical impossibility

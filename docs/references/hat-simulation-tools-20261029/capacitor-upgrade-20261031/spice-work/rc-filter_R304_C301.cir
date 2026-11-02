@@ -1,0 +1,21 @@
+* Auto-generated testbench for RC filter: R304/C301
+* Type: low-pass, expected fc = 3444.9 Hz
+* Model: ideal passives (exact for RC)
+
+
+R304 BUCK_COMP COMP_RC 14k
+
+C301 COMP_RC 0 3.3n
+
+* AC stimulus
+VAC BUCK_COMP 0 DC 0 AC 1
+
+.control
+ac dec 100 34.45 344.5k
+meas ac fc_sim when vdb(COMP_RC)=-3
+meas ac phase_fc find vp(COMP_RC) at=fc_sim
+echo "fc_sim=$&fc_sim phase_fc=$&phase_fc has_parasitics=0" > E:/Projects/duck-robot/docs/references/hat-simulation-tools-20261029/capacitor-upgrade-20261031/spice-work/rc-filter_R304_C301.out
+quit
+.endc
+
+.end

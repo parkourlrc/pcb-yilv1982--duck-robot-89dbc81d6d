@@ -1,0 +1,101 @@
+{
+  "pcb_sha256": "a65f2ad8cab72721944b670dbdb6505533ae60988ce5bb3c6be51be81b3ab0a1",
+  "hole_counts": {
+    "pth": 59,
+    "npth": 4,
+    "via": 100
+  },
+  "evaluated_pairs": {
+    "pth:pth": {
+      "items": [
+        "J101.5",
+        "J101.7"
+      ],
+      "types": [
+        "pth",
+        "pth"
+      ],
+      "edge_gap_mm": 1.499999999999992,
+      "limit_mm": 0.5
+    },
+    "npth:pth": {
+      "items": [
+        "H1.",
+        "J101.1"
+      ],
+      "types": [
+        "npth",
+        "pth"
+      ],
+      "edge_gap_mm": 2.9527067088928396,
+      "limit_mm": 0.5
+    },
+    "pth:via": {
+      "items": [
+        "J401.2",
+        "cec4fd7d-0b7a-417e-8e7f-34d49249d364"
+      ],
+      "types": [
+        "pth",
+        "via"
+      ],
+      "edge_gap_mm": 1.1455610410262564,
+      "limit_mm": 0.2
+    },
+    "via:via": {
+      "items": [
+        "4b32cdf4-4c9f-4063-9192-5ed88caa54f3",
+        "cceaece6-1166-402b-9795-61219aaf3b0f"
+      ],
+      "types": [
+        "via",
+        "via"
+      ],
+      "edge_gap_mm": 0.45026661927610806,
+      "limit_mm": 0.254
+    }
+  },
+  "violations": [],
+  "excluded_shapes": [],
+  "pairs_without_a_cited_limit": {
+    "npth:npth": {
+      "items": [
+        "H1.",
+        "H3."
+      ],
+      "types": [
+        "npth",
+        "npth"
+      ],
+      "edge_gap_mm": 20.100000000000012,
+      "limit_mm": null
+    },
+    "npth:via": {
+      "items": [
+        "H3.",
+        "d1a67439-c385-440d-b262-86eca7cb8438"
+      ],
+      "types": [
+        "npth",
+        "via"
+      ],
+      "edge_gap_mm": 1.2784887978899686,
+      "limit_mm": null
+    }
+  },
+  "source_files": [
+    {
+      "path": "docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031/sources/jlc-capabilities.txt",
+      "sha256": "2d73dd8fcb2da320f0fa3a384e0d34282aa963a4110498b88cc8a82d403f3c11"
+    },
+    {
+      "path": "docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031/sources/jlc-hdi-faq.txt",
+      "sha256": "b3983905138295a7396d6fe506b162fedf598c966b6f6d405bb8c7c416f053e7"
+    }
+  ],
+  "threshold_attribution": "Conservative project screening thresholds, not all verbatim supplier limits. Archived PCB capability text lists via-to-via 0.2mm and pad-hole spacing 0.45mm; this screen retains 0.254mm/0.5mm margins. Mixed/HDI pairs retain the previously recorded review thresholds.",
+  "scope": "CAD nominal round-hole edge distances only; no drill compensation, slot screen, plating/tolerance, mask bridge or supplier acceptance claim",
+  "project_spacing_screen_passed": true,
+  "manufacturing_approved": false,
+  "hardware_tested": false
+}

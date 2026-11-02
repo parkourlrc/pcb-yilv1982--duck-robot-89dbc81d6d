@@ -1,0 +1,174 @@
+{
+  "models": {
+    "C323": {
+      "profile": {
+        "part": "C1210C226K3RACTU",
+        "nominal_uf": 22,
+        "rated_v": 25,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          4.984,
+          5.119211
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        81,
+        128,
+        174,
+        221,
+        267,
+        314,
+        361,
+        407
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 46.61666666666667,
+      "points": [
+        {
+          "dc_v": 4.984,
+          "pixel_x": 175.6928,
+          "pixel_y": 148.27120000000002,
+          "model_capacitance_change_pct": -24.446211416994405,
+          "typical_model_effective_uf": 16.62183348826123,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 12.379102618519843
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 11.539330465512919
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 11.167957386957324
+            }
+          ]
+        },
+        {
+          "dc_v": 5.119211,
+          "pixel_x": 178.2888512,
+          "pixel_y": 157.65540480000004,
+          "model_capacitance_change_pct": -26.45926929329044,
+          "typical_model_effective_uf": 16.178960755476105,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 12.04030497793922
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 11.223516140672679
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 10.862306991334503
+            }
+          ]
+        }
+      ],
+      "pdf_sha256": "cb41d2893bdeb6255ad2218aa7345a9ad8c41e708c7d4683f1507bf90726845c",
+      "plot_sha256": "e7c873462993ef44257ca31944c27ba9dcfa931bb227979effef1cd7a062a92c"
+    },
+    "C328": {
+      "profile": {
+        "part": "C0805C225K5RACTU",
+        "nominal_uf": 2.2,
+        "rated_v": 50,
+        "tolerance": 0.1,
+        "aging_pct_per_decade": 3,
+        "voltages": [
+          4.984,
+          5.119211
+        ]
+      },
+      "axis_major_rows": [
+        34,
+        78,
+        122,
+        166,
+        210,
+        254,
+        298,
+        342,
+        386
+      ],
+      "percent_per_major_grid": -10,
+      "x_axis_pixels": [
+        80,
+        560
+      ],
+      "linear_axis_fit_pixels_per_major": 44.0,
+      "points": [
+        {
+          "dc_v": 4.984,
+          "pixel_x": 127.8464,
+          "pixel_y": 91.7696,
+          "model_capacitance_change_pct": -13.129454545454543,
+          "typical_model_effective_uf": 1.9111520000000002,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 1.4283712800000001
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 1.331473591850592
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 1.288622453450592
+            }
+          ]
+        },
+        {
+          "dc_v": 5.119211,
+          "pixel_x": 129.1444256,
+          "pixel_y": 95.71663840000001,
+          "model_capacitance_change_pct": -14.026508727272729,
+          "typical_model_effective_uf": 1.891416808,
+          "sensitivity_cases": [
+            {
+              "age_hours_from_reference": 48,
+              "assumed_aging_loss_fraction": 0.0,
+              "scenario_effective_uf": 1.41327385812
+            },
+            {
+              "age_hours_from_reference": 8760,
+              "assumed_aging_loss_fraction": 0.0678378860637748,
+              "scenario_effective_uf": 1.317400347155944
+            },
+            {
+              "age_hours_from_reference": 87600,
+              "assumed_aging_loss_fraction": 0.0978378860637748,
+              "scenario_effective_uf": 1.275002131412344
+            }
+          ]
+        }
+      ],
+      "pdf_sha256": "2f6ecadbca144f556cbb6b63dcd6f3c218a0c075b18337b6272b56b06a44a64f",
+      "plot_sha256": "c90af31125e4c1630dc7d233f81fd2094a1bd8a934d6ebcb2aff11a955d61316"
+    }
+  },
+  "evidence_level": "Manufacturer typical simulations plus labelled sensitivity assumptions; not a guaranteed lower bound",
+  "assumptions": "Same prior cases:subtract2percentage points of capacitance retention,multiply0.9 tolerance,0.85 TCC,and3%/decade-hour aging referenced to48h.48h/1y/10y are sensitivity cases,not user-specified service life.",
+  "limits": "Combined voltage/temperature/process correlation,frequency/AC-amplitude dependency,closed-loop interaction andactual ripple have not been validated.",
+  "selection": "22uF bulk and2.2uF bypass use already documented MPNs; PAM8302A recommends nearby>=10uF bulk and a typical1uF low-ESR bypass,not these exact part numbers.",
+  "hardware_measured": false,
+  "production_ready": false
+}

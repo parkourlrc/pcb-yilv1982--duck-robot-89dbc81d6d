@@ -1,0 +1,503 @@
+{
+  "source_hashes": {
+    "audio.kicad_sch": "23ab03ceded1a89803cc7107c003c7b5b0190aa1eb7f9dc22683fbbddccf127a",
+    "custom_hat_rev_a.kicad_dru": "3bb3748c80f32d69efbf7c2911a07810f168fdd09d6edee988d5cd6888849db5",
+    "custom_hat_rev_a.kicad_pcb": "a65f2ad8cab72721944b670dbdb6505533ae60988ce5bb3c6be51be81b3ab0a1",
+    "custom_hat_rev_a.kicad_pro": "f83c8fa60df10f5e97c6ee44c98c3c568d4d3da5d09e1de8d5d739e856c05cd3",
+    "custom_hat_rev_a.kicad_sch": "798b63ba1192c4a86d9c7f70e29fd1d0b0e9796c994c33a6e59f9f200d9b4508",
+    "duck.kicad_sym": "d6af03b020247f1faca2659ea89dd3f940188009de555a805b349aabee5c8e17",
+    "duck.pretty/C_0805_2012Metric_LDO_ClearSilk.kicad_mod": "46c24a8ddb9bdc1c82e56bf32c544e681ec2572ef6d3b67c5cf93fb1c4357054",
+    "duck.pretty/DEPRECATED_Bosch_LGA-16_3x4.5mm_P0.5mm.kicad_mod": "2a6187566807c85f2f2df0e87a8a92902701c45a6e37eb4ce5204c257e5c2b64",
+    "duck.pretty/Fiducial_1mm_Mask2mm.kicad_mod": "deece00b1f18beb05b9a562b411d6fb9d82966666b41ab244b6a13ccb88cf084",
+    "duck.pretty/IHLP4040DZ_5A_Above2u2.kicad_mod": "21e58af0bdd87136d3c14b70eb81bb399c1fc7e2f23b7c491e8371769202d520",
+    "duck.pretty/MountingHole_2.7_M2.5_Head4.5.kicad_mod": "5735ac795626f520db175cc4d5780fd6cd96eadde5b0f318ed744c301806b230",
+    "duck.pretty/Radxa40P_ReversedRows_2x20.kicad_mod": "3d8ea5ea41bc3896d6334a4e076d61bba0e8c95606e330ace35025c8f47850ce",
+    "duck.pretty/Radxa40P_Samtec_SSW120.kicad_mod": "f093882887326c7c5bf8590f7ed12a51ba40a5bf1be630086395afc220bf1730",
+    "duck.pretty/Samtec_TSW102_07.kicad_mod": "d9c750c3df3c29d4b9f0605c2484572d4cb695056ea1bcd1becbe31c304c8232",
+    "duck.pretty/Samtec_TSW103_07.kicad_mod": "3ed4175745728b95cfc18131aeea6419b236ccc44f2e4657a68f7547ed7ecc56",
+    "duck.pretty/Samtec_TSW108_07.kicad_mod": "4eed96770818b0e079d0cf48c0ce33b787d3c42fc4c9a56287b2ff51fde3ed1d",
+    "duck.pretty/SO-8EP_AP64350.kicad_mod": "299659dda985d95cb5eeb510a8d5b1b5523b3a6ebb4d4bdc11625cfaccecafba",
+    "duck.pretty/Vishay_WSL1206_Jumper.kicad_mod": "a08325f8f050428d257f6e2ce0d6e2054739d8e8e72fb935ab4e7ba6e2311caa",
+    "duck.pretty/Vishay_WSLP0603_Damping.kicad_mod": "79a52d9aa516eb0fb398b3ca15ed8ad77cecb5263e419374ca4e96f2f3e5add7",
+    "fp-lib-table": "2208a33efa7872e9cddf95fda59d1e6d8784cafd110364b5a6c3970f48535bbe",
+    "imu_tof.kicad_sch": "c7d19a0deb23805394677d48b5e9f68efbababd2438e2457aabf593b7758f6ff",
+    "net-contract.json": "6d5b4740b3e1e02c2811432b350d9cfccfe5d88b4ad6223af838e83f504bb446",
+    "power.kicad_sch": "26fd4970c6f68f448b65d1e9c8e00bb0abdad72f3c71000cb4cf7043e3529f3a",
+    "radxa_40p.kicad_sch": "4d656fee1aed6fc7fad8f22db359c0b0e0473327b6d86e39f413772742ab53d8",
+    "servo_ttl.kicad_sch": "68f4cf5f0d30c55151717ae991932520d1041b7ae5c1ce6fbb741de1bd4cc8be",
+    "source-manifest.json": "5a4eec9c1bc8aef273fc6fe370635c942c97f2626ae5807f968f8b7e938ab567",
+    "sym-lib-table": "ccc3950c79c308bf22293891cb600afcb9b057635171e4043c8d554cff91b4cd",
+    "testpoints.kicad_sch": "79b8e0698e287a34aff5852c970f4f51597210f1d8ef7c58dd94972561b2764b"
+  },
+  "parts": {
+    "U301": {
+      "value": "AP64350",
+      "mpn": "AP64350SP-13",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "BUCK_BST",
+          "position_mm": [
+            124.095,
+            111.5025
+          ]
+        },
+        "2": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            125.365,
+            111.5025
+          ]
+        },
+        "3": {
+          "net": "BUCK_EN",
+          "position_mm": [
+            126.635,
+            111.5025
+          ]
+        },
+        "4": {
+          "net": "BUCK_RT",
+          "position_mm": [
+            127.905,
+            111.5025
+          ]
+        },
+        "5": {
+          "net": "+5V_FB",
+          "position_mm": [
+            127.905,
+            116.4975
+          ]
+        },
+        "6": {
+          "net": "BUCK_COMP",
+          "position_mm": [
+            126.635,
+            116.4975
+          ]
+        },
+        "7": {
+          "net": "POWER_GND",
+          "position_mm": [
+            125.365,
+            116.4975
+          ]
+        },
+        "8": {
+          "net": "BUCK_SW",
+          "position_mm": [
+            124.095,
+            116.4975
+          ]
+        },
+        "9": {
+          "net": "POWER_GND",
+          "position_mm": [
+            126.0,
+            114.0
+          ]
+        }
+      }
+    },
+    "R301": {
+      "value": "52.3k",
+      "mpn": "CRCW080552K3FKEA",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            130.199999,
+            109.2875
+          ]
+        },
+        "2": {
+          "net": "+5V_FB",
+          "position_mm": [
+            130.199999,
+            111.1125
+          ]
+        }
+      }
+    },
+    "R302": {
+      "value": "10k",
+      "mpn": "CRCW080510K0FKEA",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V_FB",
+          "position_mm": [
+            130.199999,
+            112.8375
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            130.199999,
+            114.6625
+          ]
+        }
+      }
+    },
+    "R303": {
+      "value": "200k",
+      "mpn": "CRCW0805200KFKEA",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "BUCK_RT",
+          "position_mm": [
+            125.0875,
+            122.5
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            126.9125,
+            122.5
+          ]
+        }
+      }
+    },
+    "R304": {
+      "value": "14k",
+      "mpn": "CRCW080514K0FKEA",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "BUCK_COMP",
+          "position_mm": [
+            130.199999,
+            116.7875
+          ]
+        },
+        "2": {
+          "net": "COMP_RC",
+          "position_mm": [
+            130.199999,
+            118.6125
+          ]
+        }
+      }
+    },
+    "R305": {
+      "value": "100k",
+      "mpn": "CRCW0805100KFKEA",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            114.5875,
+            116.5
+          ]
+        },
+        "2": {
+          "net": "BUCK_EN",
+          "position_mm": [
+            116.4125,
+            116.5
+          ]
+        }
+      }
+    },
+    "C301": {
+      "value": "3.3nF",
+      "mpn": "08055A332JAT2A",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "COMP_RC",
+          "position_mm": [
+            130.199999,
+            120.25
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            130.199999,
+            122.15
+          ]
+        }
+      }
+    },
+    "C302": {
+      "value": "100nF",
+      "mpn": "C0805C104K5RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "BUCK_BST",
+          "position_mm": [
+            125.05,
+            119.0
+          ]
+        },
+        "2": {
+          "net": "BUCK_SW",
+          "position_mm": [
+            126.95,
+            119.0
+          ]
+        }
+      }
+    },
+    "C303": {
+      "value": "22uF",
+      "mpn": "C1210C226K3RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            125.365,
+            108.5
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            128.315,
+            108.5
+          ]
+        }
+      }
+    },
+    "C304": {
+      "value": "22uF",
+      "mpn": "C1210C226K3RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            114.025,
+            123.0
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            116.975,
+            123.0
+          ]
+        }
+      }
+    },
+    "C305": {
+      "value": "22uF",
+      "mpn": "C1210C226K3RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            147.525,
+            114.5
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            150.475,
+            114.5
+          ]
+        }
+      }
+    },
+    "C306": {
+      "value": "22uF",
+      "mpn": "C1210C226K3RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            152.525,
+            114.0
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            155.475,
+            114.0
+          ]
+        }
+      }
+    },
+    "C307": {
+      "value": "22uF reserve",
+      "mpn": "C1206C226M4PACTU",
+      "attributes": 66,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            157.525,
+            114.0
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            160.475,
+            114.0
+          ]
+        }
+      }
+    },
+    "C323": {
+      "value": "22uF",
+      "mpn": "C1210C226K3RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            148.1,
+            124.325
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            148.1,
+            127.275
+          ]
+        }
+      }
+    },
+    "C328": {
+      "value": "2.2uF",
+      "mpn": "C0805C225K5RACTU",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "+5V",
+          "position_mm": [
+            150.8,
+            125.1
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            150.8,
+            127.0
+          ]
+        }
+      }
+    },
+    "L301": {
+      "value": "5.6uH",
+      "mpn": "IHLP4040DZER5R6M5A",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "BUCK_SW",
+          "position_mm": [
+            133.5295,
+            115.9
+          ]
+        },
+        "2": {
+          "net": "+5V",
+          "position_mm": [
+            142.4705,
+            115.9
+          ]
+        }
+      }
+    },
+    "D301": {
+      "value": "SMBJ12A (fitted)",
+      "mpn": "SMBJ12A-E3/52",
+      "attributes": 2,
+      "pads": {
+        "1": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            113.35,
+            111.5
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            117.65,
+            111.5
+          ]
+        }
+      }
+    },
+    "J301": {
+      "value": "POWER_AND_RAILS",
+      "mpn": "TSW-108-07-G-S",
+      "attributes": 1,
+      "pads": {
+        "1": {
+          "net": "VBATT_2S_IN",
+          "position_mm": [
+            126.13,
+            127.32
+          ]
+        },
+        "2": {
+          "net": "POWER_GND",
+          "position_mm": [
+            123.59,
+            127.32
+          ]
+        },
+        "3": {
+          "net": "+5V",
+          "position_mm": [
+            121.05,
+            127.32
+          ]
+        },
+        "4": {
+          "net": "+3V3",
+          "position_mm": [
+            118.51,
+            127.32
+          ]
+        },
+        "5": {
+          "net": "unconnected-(J301-Pin_5-Pad5)",
+          "position_mm": [
+            115.97,
+            127.32
+          ]
+        },
+        "6": {
+          "net": "+1V8_CODEC",
+          "position_mm": [
+            113.43,
+            127.32
+          ]
+        },
+        "7": {
+          "net": "SERVO_VBAT",
+          "position_mm": [
+            110.89,
+            127.32
+          ]
+        },
+        "8": {
+          "net": "POWER_GND",
+          "position_mm": [
+            108.35,
+            127.32
+          ]
+        }
+      }
+    }
+  }
+}

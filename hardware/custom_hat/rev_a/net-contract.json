@@ -228,7 +228,7 @@
     {
       "reference": "J101",
       "pin": "33",
-      "net": null,
+      "net": "CODEC_RST",
       "electrical_type": "passive",
       "lib_id": "Connector_Generic:Conn_02x20_Odd_Even"
     },
@@ -629,21 +629,21 @@
       "pin": "1",
       "net": "+1V8_CODEC",
       "electrical_type": "power_out",
-      "lib_id": "Regulator_Linear:LP38693DT-1.8"
+      "lib_id": "duck:LP38691DT-1.8"
     },
     {
       "reference": "U702",
       "pin": "2",
       "net": "POWER_GND",
       "electrical_type": "power_in",
-      "lib_id": "Regulator_Linear:LP38693DT-1.8"
+      "lib_id": "duck:LP38691DT-1.8"
     },
     {
       "reference": "U702",
       "pin": "3",
       "net": "+3V3",
       "electrical_type": "power_in",
-      "lib_id": "Regulator_Linear:LP38693DT-1.8"
+      "lib_id": "duck:LP38691DT-1.8"
     },
     {
       "reference": "C308",
@@ -669,7 +669,7 @@
     {
       "reference": "C309",
       "pin": "2",
-      "net": "POWER_GND",
+      "net": "LDO_CAP_RETURN",
       "electrical_type": "passive",
       "lib_id": "Device:C"
     },
@@ -977,28 +977,28 @@
     {
       "reference": "J502",
       "pin": "1",
-      "net": "+3V3",
-      "electrical_type": "passive",
-      "lib_id": "Connector_Generic:Conn_01x04"
-    },
-    {
-      "reference": "J502",
-      "pin": "2",
       "net": "POWER_GND",
       "electrical_type": "passive",
       "lib_id": "Connector_Generic:Conn_01x04"
     },
     {
       "reference": "J502",
+      "pin": "2",
+      "net": "+3V3",
+      "electrical_type": "passive",
+      "lib_id": "Connector_Generic:Conn_01x04"
+    },
+    {
+      "reference": "J502",
       "pin": "3",
-      "net": "I2C5_SCL",
+      "net": "I2C5_SDA",
       "electrical_type": "passive",
       "lib_id": "Connector_Generic:Conn_01x04"
     },
     {
       "reference": "J502",
       "pin": "4",
-      "net": "I2C5_SDA",
+      "net": "I2C5_SCL",
       "electrical_type": "passive",
       "lib_id": "Connector_Generic:Conn_01x04"
     },
@@ -1596,6 +1596,175 @@
       "net": "+3V3",
       "electrical_type": "passive",
       "lib_id": "Connector:TestPoint"
+    },
+    {
+      "reference": "R501",
+      "pin": "1",
+      "net": "+3V3",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "R501",
+      "pin": "2",
+      "net": "I2C5_SCL",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "R502",
+      "pin": "1",
+      "net": "+3V3",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "R502",
+      "pin": "2",
+      "net": "I2C5_SDA",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "R703",
+      "pin": "1",
+      "net": "LDO_CAP_RETURN",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "R703",
+      "pin": "2",
+      "net": "POWER_GND",
+      "electrical_type": "passive",
+      "lib_id": "Device:R"
+    },
+    {
+      "reference": "C328",
+      "pin": "1",
+      "net": "+5V",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
+    },
+    {
+      "reference": "C328",
+      "pin": "2",
+      "net": "POWER_GND",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
+    },
+    {
+      "reference": "C329",
+      "pin": "1",
+      "net": "+3V3",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
+    },
+    {
+      "reference": "C329",
+      "pin": "2",
+      "net": "POWER_GND",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
+    },
+    {
+      "reference": "C330",
+      "pin": "1",
+      "net": "+3V3",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
+    },
+    {
+      "reference": "C330",
+      "pin": "2",
+      "net": "POWER_GND",
+      "electrical_type": "passive",
+      "lib_id": "Device:C"
     }
-  ]
+  ],
+  "i2c5_pullups": {
+    "date": "2026-10-31",
+    "references": [
+      "R501",
+      "R502"
+    ],
+    "ohms": 4700,
+    "initial_clock_hz": 100000,
+    "bus_capacitance_limit_pf": 240
+  },
+  "ldo_damping": {
+    "reference": "R703",
+    "ohms": 0.047,
+    "capacitor_branch_only": true,
+    "output_branch": [
+      "U702.1",
+      "C309.1",
+      "C309.2",
+      "R703.1",
+      "R703.2",
+      "POWER_GND"
+    ],
+    "hardware_verified": false
+  },
+  "amp_local_decoupling": {
+    "bulk": "C323",
+    "bypass": "C328",
+    "device": "U803",
+    "hardware_verified": false
+  },
+  "ttl_local_bypass": {
+    "parts": {
+      "C329": "U801",
+      "C330": "U802"
+    },
+    "value_f": 1e-07,
+    "mpn": "C0402C104K3RACTU",
+    "hardware_verified": false
+  },
+  "qualified_codec_pth": {
+    "uuid": "c6ad78c2-361f-4c03-a650-a32f6c415d72",
+    "net": "+3V3",
+    "position_mm": [
+      150.3625,
+      112.1
+    ],
+    "copper_diameter_mm": 0.35,
+    "nominal_finished_hole_mm": 0.15,
+    "annular_ring_mm": 0.1,
+    "type": "through",
+    "required_filled": true,
+    "required_copper_capped": true,
+    "process_basis": "JLCPCB published small mechanical through-via capability and via-in-pad POFV guide; extra process selection required",
+    "supplier_job_acceptance": false,
+    "hardware_tested": false
+  },
+  "codec_hardware_reset": {
+    "header_pin": 33,
+    "soc_gpio": "GPIO3_C3",
+    "bank": 3,
+    "offset": 19,
+    "active_low": true,
+    "minimum_low_pulse_ns": 10,
+    "after_supplies_stable": true,
+    "runtime_verified": false
+  },
+  "j502_interface": {
+    "revision": "A.1",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "+3V3",
+      "3": "I2C5_SDA",
+      "4": "I2C5_SCL"
+    },
+    "voltage": "3.3V",
+    "pin_order": "Qwiic/STEMMA QT manufacturer pin numbering",
+    "previous_rev_a_pins": {
+      "1": "+3V3",
+      "2": "POWER_GND",
+      "3": "I2C5_SCL",
+      "4": "I2C5_SDA"
+    },
+    "hardware_tested": false,
+    "module_compatibility_not_universal": true
+  }
 }

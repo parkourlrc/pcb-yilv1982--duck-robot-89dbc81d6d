@@ -9,6 +9,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 import uuid
 import xml.etree.ElementTree as ET
 
@@ -43,6 +44,30 @@ def design_files(project):
 
 def fingerprints(project):
     return {path.relative_to(project).as_posix(): digest(path) for path in design_files(project)}
+
+
+def current_checkpoint():
+    binding_path = BASE / "current-review.json"
+    binding = json.loads(binding_path.read_text(encoding="utf-8"))
+    root = BASE.parents[1]
+    checkpoint_path = (root / binding["checkpoint"]).resolve()
+    summary_path = (root / binding["native_summary"]).resolve()
+    if not checkpoint_path.is_relative_to(root) or not summary_path.is_relative_to(root):
+        raise RuntimeError("Review binding points outside this repository")
+    if digest(checkpoint_path) != binding["checkpoint_sha256"] or digest(summary_path) != binding["native_summary_sha256"]:
+        raise RuntimeError("Review binding evidence changed")
+    checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    current = fingerprints(PRIMARY)
+    if checkpoint["design_hashes"] != current or summary["source_hashes"] != current:
+        raise RuntimeError("Current design no longer matches the reviewed checkpoint")
+    if summary["status"] != "checks_clean_not_manufacturing_release" or not summary["custom_rules_loading"]["custom_rules_loaded"]:
+        raise RuntimeError("Current checkpoint lacks clean native checks and rule-loading evidence")
+    if summary["custom_rules_loading"].get("rules_sha256") != current[STEM + ".kicad_dru"]:
+        raise RuntimeError("Rule-loading evidence does not match the current rules")
+    if checkpoint["pcb_sha256"] != binding["pcb_sha256"]:
+        raise RuntimeError("PCB review identity differs")
+    return {**checkpoint, "review_binding": binding}
 
 
 def find_cli():
@@ -129,10 +154,13 @@ def compare_netlist(project, netlist):
                 actual.setdefault((footprint.GetReference(), pad.GetNumber()), set()).add(pad.GetNetname())
     mismatches = []
     nc_empty = []
+    nc_escaped = []
     for key, value in expected.items():
         names = actual.get(key)
         if value["nc"] and names == {""}:
             nc_empty.append({"reference": key[0], "pin": key[1], "schematic_net": value["net"]})
+        elif value["nc"] and names == {value["net"].replace("/", "{slash}")} and names != {value["net"]}:
+            nc_escaped.append({"reference": key[0], "pin": key[1], "schematic_net": value["net"], "pcb_net": next(iter(names))})
         elif names != {value["net"]}:
             mismatches.append({"reference": key[0], "pin": key[1], "expected": value, "actual": sorted(names) if names is not None else None})
     for key, names in actual.items():
@@ -155,7 +183,7 @@ def compare_netlist(project, netlist):
                 contract_differences.append({"reference": key[0], "pin": key[1], "contract": pin["net"], "netlist": expected_name})
     tracks = board.GetTracks()
     return {
-        "mismatches": mismatches, "nc_empty": nc_empty, "contract_differences": contract_differences,
+        "mismatches": mismatches, "nc_empty": nc_empty, "nc_escaped": nc_escaped, "contract_differences": contract_differences,
         "footprints": len(board.GetFootprints()),
         "segments": sum(item.Type() != pcbnew.PCB_VIA_T for item in tracks),
         "vias": sum(item.Type() == pcbnew.PCB_VIA_T for item in tracks),
@@ -171,8 +199,14 @@ def check(project):
     before = fingerprints(project)
     result = {"status": "running", "production_ready": False, "source_hashes": before, "commands": commands}
     try:
+        manifest = json.loads((project.parent / "manifest.json").read_text(encoding="utf-8"))
+        expected_project_hash = manifest.get("approved_project_settings_sha256", manifest["source_hashes"][STEM + ".kicad_pro"])
+        result["project_settings_match_reviewed_hash"] = before[STEM + ".kicad_pro"] == expected_project_hash
+        if not result["project_settings_match_reviewed_hash"]:
+            raise RuntimeError("Project settings changed without a reviewed manifest hash; refusing an incomparable DRC run")
         cli = find_cli()
         result["kicad_version"] = run_command([cli, "--version"], report_dir, "version", commands)
+        result["custom_rules_loading"] = verify_rules_loading(project, report_dir, cli, commands)
         for name, args in [
             ("netlist", ["sch", "export", "netlist", "--format", "kicadxml", "--output", report_dir / "netlist.xml", project / (STEM + ".kicad_sch")]),
             ("erc", ["sch", "erc", "--format", "json", "--severity-all", "--output", report_dir / "erc.json", project / (STEM + ".kicad_sch")]),
@@ -200,6 +234,37 @@ def check(project):
     finally:
         write_json(report_dir / "summary.json", result)
     return report_dir, result
+
+
+def verify_rules_loading(project, report_dir, cli, commands):
+    rules_path = project / (STEM + ".kicad_dru")
+    if not rules_path.is_file():
+        raise RuntimeError("Missing required custom DRC rules file")
+    sentinel_name = "CUSTOM_RULE_LOADING_SENTINEL"
+    sentinel = '\n(rule "' + sentinel_name + '" (constraint hole_size (min 9mm)))\n'
+    original = rules_path.read_text(encoding="utf-8")
+    probe_rules = original.rstrip() + "\n" + sentinel
+    (report_dir / "rules-probe.kicad_dru").write_text(probe_rules, encoding="utf-8")
+    report_path = report_dir / "rules-probe.json"
+    with tempfile.TemporaryDirectory(prefix="rules-probe-", dir=report_dir) as temporary:
+        probe = Path(temporary).resolve()
+        if not probe.is_relative_to(report_dir.resolve()):
+            raise RuntimeError("Rule probe cleanup target is outside its report directory")
+        for source in design_files(project):
+            target = probe / source.relative_to(project)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+        (probe / rules_path.name).write_text(probe_rules, encoding="utf-8")
+        run_command([cli, "pcb", "drc", "--format", "json", "--severity-all", "--output", report_path, probe / (STEM + ".kicad_pcb")],
+                    report_dir, "rules-probe", commands, report_path)
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    matches = [item for item in report["violations"] if item["type"] == "drill_out_of_range" and sentinel_name in item["description"]]
+    outcome = {"rules_sha256": digest(rules_path), "probe_report": str(report_path), "sentinel_name": sentinel_name,
+               "sentinel_violations": len(matches), "custom_rules_loaded": bool(matches), "probe_is_not_a_design_acceptance_report": True}
+    write_json(report_dir / "rules-loading.json", outcome)
+    if not matches:
+        raise RuntimeError("Custom DRC rules did not produce the loading sentinel; refusing a report with unverified custom rules")
+    return outcome
 
 
 def main():

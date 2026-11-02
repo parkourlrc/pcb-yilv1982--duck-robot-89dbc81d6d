@@ -1,0 +1,31 @@
+* Auto-generated testbench for protection device: D301 (SMBJ12A (fitted))
+* Type: diode, protecting VBATT_2S_IN
+* Model: generic Zener diode ¡ª real TVS clamping may differ
+
+* Generic semiconductor models for Phase 1 simulation
+.model D_GENERIC D(IS=1e-14 N=1.05 BV=100 IBV=1e-10)
+.model D_SCHOTTKY D(IS=1e-6 N=1.05 BV=40 IBV=1e-8 RS=0.5)
+.model D_ZENER3V3 D(IS=1e-14 N=1.05 BV=3.3 IBV=5e-3)
+.model D_ZENER5V1 D(IS=1e-14 N=1.05 BV=5.1 IBV=5e-3)
+.model NPN_GENERIC NPN(IS=1e-14 BF=200 VAF=100 CJC=5p CJE=10p TF=0.3n)
+.model PNP_GENERIC PNP(IS=1e-14 BF=200 VAF=100 CJC=5p CJE=10p TF=0.6n)
+.model NMOS_GENERIC NMOS(VTO=1.5 KP=1e-2 LAMBDA=0.01)
+.model PMOS_GENERIC PMOS(VTO=-1.5 KP=5e-3 LAMBDA=0.01)
+
+
+* TVS/ESD diode: cathode to protected net, anode to clamp (GND)
+DD301 POWER_GND VBATT_2S_IN D_GENERIC
+
+* Voltage ramp on protected net to find clamping voltage
+Vramp VBATT_2S_IN 0 DC 0
+
+.control
+dc Vramp 0 11.1 55.5m
+let idiode = abs(i(Vramp))
+meas dc v_clamp_1mA when idiode=1m
+meas dc v_clamp_10mA when idiode=10m
+echo "v_clamp_1mA=$&v_clamp_1mA v_clamp_10mA=$&v_clamp_10mA rail_v=3.7" > docs/references/hat-simulation-tools-20261029/metadata-repair-20261030/spice-work/protection-device_idx0.out
+quit
+.endc
+
+.end

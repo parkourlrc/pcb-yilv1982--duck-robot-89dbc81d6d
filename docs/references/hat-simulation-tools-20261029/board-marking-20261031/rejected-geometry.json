@@ -1,0 +1,55 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040038Z-803ec08a\\work",
+      "pcb_sha256": "143a483d578822d332f4576c3eb01c66c11131f45257d675dd95d15c6c0e8985",
+      "command": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--schematic-parity",
+        "--refill-zones",
+        "--save-board",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040038Z-803ec08a\\metadata-filled-before.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040038Z-803ec08a\\work\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040031Z-07584912\\work",
+      "pcb_sha256": "4d6b9d3df82bbaf909d4eeae17c3f0e0bdb38e649d643fa33a5e3def051a5116",
+      "command": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--schematic-parity",
+        "--refill-zones",
+        "--save-board",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040031Z-07584912\\metadata-filled-after.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T040031Z-07584912\\work\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "violations": 1,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "functional_pad_geometry_unchanged": true,
+  "routing_unchanged": true,
+  "lost_connections": {},
+  "assigned_net_changes": {},
+  "u701_7_to_r308_2": true,
+  "functional_pad_count": 257,
+  "connected_pad_count_before": 237,
+  "production_ready": false,
+  "accepted": false
+}

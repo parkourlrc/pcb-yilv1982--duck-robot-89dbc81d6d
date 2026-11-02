@@ -1,0 +1,55 @@
+{
+  "pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+  "before": {
+    "pads": [
+      "C310.1",
+      "R308.1",
+      "U701.31"
+    ],
+    "all_in_one_group": true,
+    "R308": {
+      "value": "10k",
+      "pin2": "+3V3"
+    },
+    "C310": {
+      "value": "100nF",
+      "pin2": "POWER_GND"
+    },
+    "footprints": 72,
+    "tracks": 1106,
+    "vias": 100
+  },
+  "after": {
+    "pads": [
+      "C310.1",
+      "J101.33",
+      "R308.1",
+      "U701.31"
+    ],
+    "all_in_one_group": true,
+    "R308": {
+      "value": "10k",
+      "pin2": "+3V3"
+    },
+    "C310": {
+      "value": "100nF",
+      "pin2": "POWER_GND"
+    },
+    "footprints": 72,
+    "tracks": 1129,
+    "vias": 100
+  },
+  "old_rc_description_corrected": true,
+  "native_rc_unchanged": true,
+  "nominal_rc_time_constant_s": 0.001,
+  "pullup_static_low_current_a": 0.00033,
+  "calculation_limit": "Nominal RC and static pull-up only; not GPIO transient-current, threshold, ramp, reset-waveform or boot timing verification",
+  "i2s_reference_samples_preserved": true,
+  "source_matches_export": true,
+  "legacy_generator_refused": true,
+  "legacy_generator_left_sources_unchanged": true,
+  "schematic_delta_tool_scope": "Automatic delta returned zero findings changes; explicit native net audit records J101.33 addition and NC removal",
+  "hardware_tested": false,
+  "manufacturing_released": false,
+  "accepted": true
+}

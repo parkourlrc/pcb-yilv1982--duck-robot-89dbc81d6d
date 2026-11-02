@@ -1,0 +1,871 @@
+{
+  "basis": {
+    "regulator": "AP64350 DS41976 p1/p5: Vref0.8V+-1%, RT200k+-1% gives450-550kHz, HS peak limit minimum4.25A",
+    "inductor": "Vishay34315 p1:5.6uH+-20%, 20% L drop at9A typical25C, DCR17.6mOhm max25C",
+    "jumper": "Vishay30192 p1-2:0.2mOhm max, nominalTCR3900ppm/C",
+    "input_window": "6.6-8.4V is an analysis window, not a measured battery voltage or approved cutoff",
+    "bias_assumption": "Extra20% L derating is a conservative assumed scenario; manufacturer9A value is typical, not guaranteed over temperature",
+    "model": "Ideal continuous-conduction buck; excludes switch losses, switching/core loss, control-loop dynamics, thermal and input/output ripple feedback"
+  },
+  "feedback_range_including_reference_and_resistors_v": [
+    4.852137029702971,
+    5.119210505050505
+  ],
+  "assumed_minimum_inductance_uh": 3.5840000000000005,
+  "worst_peak_corner": {
+    "vin_v": 8.4,
+    "vout_v": 4.852137029702971,
+    "frequency_hz": 450000,
+    "load_a": 3.5,
+    "ripple_pp_a": 1.270691410272152,
+    "inductor_peak_a": 4.135345705136076,
+    "inductor_rms_a": 3.5191696068360057,
+    "dcr_loss_25c_w": 0.21796816310153785
+  },
+  "margin_to_minimum_ic_peak_limit_a": 0.1146542948639242,
+  "corners": [
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.796738839381993,
+      "inductor_peak_a": 1.3983694196909964,
+      "inductor_rms_a": 1.0261088627341872,
+      "dcr_loss_25c_w": 0.018531029407996988
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.796738839381993,
+      "inductor_peak_a": 2.3983694196909964,
+      "inductor_rms_a": 2.0131814121389175,
+      "dcr_loss_25c_w": 0.07133102940799697
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.796738839381993,
+      "inductor_peak_a": 3.8983694196909964,
+      "inductor_rms_a": 3.5075489160069666,
+      "dcr_loss_25c_w": 0.21653102940799698
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.7170649554437937,
+      "inductor_peak_a": 1.3585324777218968,
+      "inductor_rms_a": 1.0211995458905836,
+      "dcr_loss_25c_w": 0.01835413382047756
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.7170649554437937,
+      "inductor_peak_a": 2.358532477721897,
+      "inductor_rms_a": 2.010683593340119,
+      "dcr_loss_25c_w": 0.07115413382047754
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.7170649554437937,
+      "inductor_peak_a": 3.858532477721897,
+      "inductor_rms_a": 3.5061158726612467,
+      "dcr_loss_25c_w": 0.21635413382047758
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.6518772322216306,
+      "inductor_peak_a": 1.3259386161108153,
+      "inductor_rms_a": 1.0175519612403476,
+      "dcr_loss_25c_w": 0.018223251091303773
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.6518772322216306,
+      "inductor_peak_a": 2.3259386161108155,
+      "inductor_rms_a": 2.0088334908160204,
+      "dcr_loss_25c_w": 0.07102325109130378
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.6518772322216306,
+      "inductor_peak_a": 3.8259386161108155,
+      "inductor_rms_a": 3.5050552055315873,
+      "dcr_loss_25c_w": 0.21622325109130378
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.7566498316498315,
+      "inductor_peak_a": 1.3783249158249158,
+      "inductor_rms_a": 1.0235770190747624,
+      "dcr_loss_25c_w": 0.018439694486012386
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.7566498316498315,
+      "inductor_peak_a": 2.3783249158249156,
+      "inductor_rms_a": 2.0118921228480358,
+      "dcr_loss_25c_w": 0.07123969448601239
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.7566498316498315,
+      "inductor_peak_a": 3.8783249158249156,
+      "inductor_rms_a": 3.506809078632308,
+      "dcr_loss_25c_w": 0.21643969448601239
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.6809848484848483,
+      "inductor_peak_a": 1.340492424242424,
+      "inductor_rms_a": 1.019139357655351,
+      "dcr_loss_25c_w": 0.01828015253367004
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.6809848484848483,
+      "inductor_peak_a": 2.340492424242424,
+      "inductor_rms_a": 2.009638034652549,
+      "dcr_loss_25c_w": 0.07108015253367002
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.6809848484848483,
+      "inductor_peak_a": 3.840492424242424,
+      "inductor_rms_a": 3.5055163714240676,
+      "dcr_loss_25c_w": 0.21628015253367006
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.6190771349862257,
+      "inductor_peak_a": 1.3095385674931128,
+      "inductor_rms_a": 1.0158435123524503,
+      "dcr_loss_25c_w": 0.018162109531958705
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.6190771349862257,
+      "inductor_peak_a": 2.309538567493113,
+      "inductor_rms_a": 2.0079686356087745,
+      "dcr_loss_25c_w": 0.07096210953195871
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.6190771349862257,
+      "inductor_peak_a": 3.809538567493113,
+      "inductor_rms_a": 3.5045596073670313,
+      "dcr_loss_25c_w": 0.21616210953195866
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.7121506300273834,
+      "inductor_peak_a": 1.3560753150136917,
+      "inductor_rms_a": 1.0209129296797874,
+      "dcr_loss_25c_w": 0.018343832495777652
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.7121506300273834,
+      "inductor_peak_a": 2.3560753150136917,
+      "inductor_rms_a": 2.010538039925474,
+      "dcr_loss_25c_w": 0.07114383249577767
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.7121506300273834,
+      "inductor_peak_a": 3.8560753150136917,
+      "inductor_rms_a": 3.5060324028718513,
+      "dcr_loss_25c_w": 0.21634383249577765
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.6409355670246452,
+      "inductor_peak_a": 1.3204677835123226,
+      "inductor_rms_a": 1.016972566045794,
+      "dcr_loss_25c_w": 0.0182025043215799
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.6409355670246452,
+      "inductor_peak_a": 2.3204677835123224,
+      "inductor_rms_a": 2.0085400668370466,
+      "dcr_loss_25c_w": 0.07100250432157991
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.6409355670246452,
+      "inductor_peak_a": 3.8204677835123224,
+      "inductor_rms_a": 3.5048870452683305,
+      "dcr_loss_25c_w": 0.21620250432157992
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.5826686972951319,
+      "inductor_peak_a": 1.291334348647566,
+      "inductor_rms_a": 1.014047287309933,
+      "dcr_loss_25c_w": 0.018097937455851157
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.5826686972951319,
+      "inductor_peak_a": 2.291334348647566,
+      "inductor_rms_a": 2.0070605125159116,
+      "dcr_loss_25c_w": 0.07089793745585116
+    },
+    {
+      "vin_v": 6.6,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.5826686972951319,
+      "inductor_peak_a": 3.791334348647566,
+      "inductor_rms_a": 3.504039369199586,
+      "dcr_loss_25c_w": 0.21609793745585115
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.0358500463175688,
+      "inductor_peak_a": 1.5179250231587844,
+      "inductor_rms_a": 1.0437506614152041,
+      "dcr_loss_25c_w": 0.0191737118004023
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.0358500463175688,
+      "inductor_peak_a": 2.517925023158784,
+      "inductor_rms_a": 2.0222303140850886,
+      "dcr_loss_25c_w": 0.07197371180040231
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.0358500463175688,
+      "inductor_peak_a": 4.017925023158784,
+      "inductor_rms_a": 3.5127504100355145,
+      "dcr_loss_25c_w": 0.2171737118004023
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.932265041685812,
+      "inductor_peak_a": 1.4661325208429061,
+      "inductor_rms_a": 1.0355802764613602,
+      "dcr_loss_25c_w": 0.018874706558325856
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.932265041685812,
+      "inductor_peak_a": 2.466132520842906,
+      "inductor_rms_a": 2.0180253985011656,
+      "dcr_loss_25c_w": 0.07167470655832588
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.932265041685812,
+      "inductor_peak_a": 3.966132520842906,
+      "inductor_rms_a": 3.5103313958935254,
+      "dcr_loss_25c_w": 0.21687470655832586
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.847513674259829,
+      "inductor_peak_a": 1.4237568371299145,
+      "inductor_rms_a": 1.0294933797770547,
+      "dcr_loss_25c_w": 0.01865347649448418
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.847513674259829,
+      "inductor_peak_a": 2.4237568371299147,
+      "inductor_rms_a": 2.0149085882502917,
+      "dcr_loss_25c_w": 0.07145347649448419
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.847513674259829,
+      "inductor_peak_a": 3.9237568371299147,
+      "inductor_rms_a": 3.508540525489877,
+      "dcr_loss_25c_w": 0.21665347649448416
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.008933933933934,
+      "inductor_peak_a": 1.504466966966967,
+      "inductor_rms_a": 1.041551234259242,
+      "dcr_loss_25c_w": 0.019092989935130325
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.008933933933934,
+      "inductor_peak_a": 2.504466966966967,
+      "inductor_rms_a": 2.021095983269214,
+      "dcr_loss_25c_w": 0.07189298993513034
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.008933933933934,
+      "inductor_peak_a": 4.004466966966967,
+      "inductor_rms_a": 3.512097517664757,
+      "dcr_loss_25c_w": 0.2170929899351303
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.9080405405405406,
+      "inductor_peak_a": 1.4540202702702703,
+      "inductor_rms_a": 1.0337850204977,
+      "dcr_loss_25c_w": 0.018809321847455568
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.9080405405405406,
+      "inductor_peak_a": 2.4540202702702705,
+      "inductor_rms_a": 2.0171047242534113,
+      "dcr_loss_25c_w": 0.07160932184745558
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.9080405405405406,
+      "inductor_peak_a": 3.9540202702702705,
+      "inductor_rms_a": 3.5098021979315916,
+      "dcr_loss_25c_w": 0.21680932184745563
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.8254914004914005,
+      "inductor_peak_a": 1.4127457002457002,
+      "inductor_rms_a": 1.028001137008339,
+      "dcr_loss_25c_w": 0.018599439543351706
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.8254914004914005,
+      "inductor_peak_a": 2.4127457002457002,
+      "inductor_rms_a": 2.0141465531808844,
+      "dcr_loss_25c_w": 0.07139943954335169
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.8254914004914005,
+      "inductor_peak_a": 3.9127457002457002,
+      "inductor_rms_a": 3.5081029542603845,
+      "dcr_loss_25c_w": 0.21659943954335173
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.9783087950412149,
+      "inductor_peak_a": 1.4891543975206074,
+      "inductor_rms_a": 1.039113728875678,
+      "dcr_loss_25c_w": 0.019003729211067324
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.9783087950412149,
+      "inductor_peak_a": 2.4891543975206076,
+      "inductor_rms_a": 2.0198409198592637,
+      "dcr_loss_25c_w": 0.07180372921106734
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.9783087950412149,
+      "inductor_peak_a": 3.9891543975206076,
+      "inductor_rms_a": 3.5113754201933345,
+      "dcr_loss_25c_w": 0.21700372921106736
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.8804779155370935,
+      "inductor_peak_a": 1.4402389577685468,
+      "inductor_rms_a": 1.0317962234112472,
+      "dcr_loss_25c_w": 0.01873702066096454
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.8804779155370935,
+      "inductor_peak_a": 2.4402389577685466,
+      "inductor_rms_a": 2.0160861704415596,
+      "dcr_loss_25c_w": 0.07153702066096455
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.8804779155370935,
+      "inductor_peak_a": 3.9402389577685466,
+      "inductor_rms_a": 3.509216927840984,
+      "dcr_loss_25c_w": 0.2167370206609646
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 0.8004344686700849,
+      "inductor_peak_a": 1.4002172343350425,
+      "inductor_rms_a": 1.0263485169373983,
+      "dcr_loss_25c_w": 0.018539686496664907
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 0.8004344686700849,
+      "inductor_peak_a": 2.4002172343350425,
+      "inductor_rms_a": 2.013303573289333,
+      "dcr_loss_25c_w": 0.0713396864966649
+    },
+    {
+      "vin_v": 7.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 0.8004344686700849,
+      "inductor_peak_a": 3.9002172343350425,
+      "inductor_rms_a": 3.507619032651579,
+      "dcr_loss_25c_w": 0.21653968649666494
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.270691410272152,
+      "inductor_peak_a": 1.635345705136076,
+      "inductor_rms_a": 1.0651547876615333,
+      "dcr_loss_25c_w": 0.019968163101537838
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.270691410272152,
+      "inductor_peak_a": 2.635345705136076,
+      "inductor_rms_a": 2.0333604505050955,
+      "dcr_loss_25c_w": 0.07276816310153782
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.270691410272152,
+      "inductor_peak_a": 4.135345705136076,
+      "inductor_rms_a": 3.5191696068360057,
+      "dcr_loss_25c_w": 0.21796816310153785
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.143622269244937,
+      "inductor_peak_a": 1.5718111346224686,
+      "inductor_rms_a": 1.0530856207162889,
+      "dcr_loss_25c_w": 0.01951821211224564
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.143622269244937,
+      "inductor_peak_a": 2.5718111346224686,
+      "inductor_rms_a": 2.0270642132304078,
+      "dcr_loss_25c_w": 0.07231821211224565
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.143622269244937,
+      "inductor_peak_a": 4.071811134622468,
+      "inductor_rms_a": 3.5155354250184154,
+      "dcr_loss_25c_w": 0.21751821211224565
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.039656608404488,
+      "inductor_peak_a": 1.519828304202244,
+      "inductor_rms_a": 1.044066004594502,
+      "dcr_loss_25c_w": 0.019185299266318713
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.039656608404488,
+      "inductor_peak_a": 2.5198283042022442,
+      "inductor_rms_a": 2.022393092835794,
+      "dcr_loss_25c_w": 0.07198529926631873
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.852137029702971,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.039656608404488,
+      "inductor_peak_a": 4.019828304202244,
+      "inductor_rms_a": 3.5128441214989783,
+      "dcr_loss_25c_w": 0.21718529926631877
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.2567129629629628,
+      "inductor_peak_a": 1.6283564814814815,
+      "inductor_rms_a": 1.0637718846663489,
+      "dcr_loss_25c_w": 0.01991634695787609
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.2567129629629628,
+      "inductor_peak_a": 2.6283564814814815,
+      "inductor_rms_a": 2.0326363724499754,
+      "dcr_loss_25c_w": 0.07271634695787607
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.2567129629629628,
+      "inductor_peak_a": 4.1283564814814815,
+      "inductor_rms_a": 3.518751287403899,
+      "dcr_loss_25c_w": 0.2179163469578761
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.1310416666666665,
+      "inductor_peak_a": 1.5655208333333333,
+      "inductor_rms_a": 1.051952757642349,
+      "dcr_loss_25c_w": 0.019476241035879634
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.1310416666666665,
+      "inductor_peak_a": 2.5655208333333333,
+      "inductor_rms_a": 2.0264759076562795,
+      "dcr_loss_25c_w": 0.07227624103587962
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.1310416666666665,
+      "inductor_peak_a": 4.065520833333333,
+      "inductor_rms_a": 3.515196239801036,
+      "dcr_loss_25c_w": 0.21747624103587962
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.0282196969696968,
+      "inductor_peak_a": 1.5141098484848485,
+      "inductor_rms_a": 1.0431217468587761,
+      "dcr_loss_25c_w": 0.0191506124263468
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.0282196969696968,
+      "inductor_peak_a": 2.5141098484848485,
+      "inductor_rms_a": 2.0219057789050665,
+      "dcr_loss_25c_w": 0.07195061242634679
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 4.984,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.0282196969696968,
+      "inductor_peak_a": 4.014109848484848,
+      "inductor_rms_a": 3.512563590708317,
+      "dcr_loss_25c_w": 0.2171506124263468
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.2397141356797994,
+      "inductor_peak_a": 1.6198570678398996,
+      "inductor_rms_a": 1.0621084038444597,
+      "dcr_loss_25c_w": 0.019854107002699656
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.2397141356797994,
+      "inductor_peak_a": 2.6198570678398996,
+      "inductor_rms_a": 2.0317662910672145,
+      "dcr_loss_25c_w": 0.07265410700269964
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 450000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.2397141356797994,
+      "inductor_peak_a": 4.1198570678399,
+      "inductor_rms_a": 3.518248749238323,
+      "dcr_loss_25c_w": 0.2178541070026997
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.1157427221118195,
+      "inductor_peak_a": 1.5578713610559096,
+      "inductor_rms_a": 1.05059038251299,
+      "dcr_loss_25c_w": 0.01942582667218672
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.1157427221118195,
+      "inductor_peak_a": 2.5578713610559096,
+      "inductor_rms_a": 2.0257690272656435,
+      "dcr_loss_25c_w": 0.07222582667218673
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 500000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.1157427221118195,
+      "inductor_peak_a": 4.05787136105591,
+      "inductor_rms_a": 3.514788777697572,
+      "dcr_loss_25c_w": 0.21742582667218674
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 1.0,
+      "ripple_pp_a": 1.0143115655561994,
+      "inductor_peak_a": 1.5071557827780997,
+      "inductor_rms_a": 1.0419864023433425,
+      "dcr_loss_25c_w": 0.01910894766296423
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 2.0,
+      "ripple_pp_a": 1.0143115655561994,
+      "inductor_peak_a": 2.5071557827780997,
+      "inductor_rms_a": 2.021320277113061,
+      "dcr_loss_25c_w": 0.07190894766296423
+    },
+    {
+      "vin_v": 8.4,
+      "vout_v": 5.119210505050505,
+      "frequency_hz": 550000,
+      "load_a": 3.5,
+      "ripple_pp_a": 1.0143115655561994,
+      "inductor_peak_a": 4.007155782778099,
+      "inductor_rms_a": 3.5122265961450183,
+      "dcr_loss_25c_w": 0.21710894766296424
+    }
+  ],
+  "jumper_scenarios": [
+    {
+      "current_a": 1.0,
+      "drop_25c_v": 0.0002,
+      "loss_25c_w": 0.0002,
+      "loss_85c_w_nominal_tcr": 0.00024680000000000004
+    },
+    {
+      "current_a": 3.0,
+      "drop_25c_v": 0.0006000000000000001,
+      "loss_25c_w": 0.0018000000000000002,
+      "loss_85c_w_nominal_tcr": 0.0022212
+    },
+    {
+      "current_a": 5.0,
+      "drop_25c_v": 0.001,
+      "loss_25c_w": 0.005,
+      "loss_85c_w_nominal_tcr": 0.00617
+    },
+    {
+      "current_a": 8.0,
+      "drop_25c_v": 0.0016,
+      "loss_25c_w": 0.0128,
+      "loss_85c_w_nominal_tcr": 0.015795200000000002
+    }
+  ],
+  "speaker_2p5w_4ohm_rms_a_ideal": 0.7905694150420949,
+  "connector_limits": {
+    "EH": "3A withAWG22 at manufacturer conditions",
+    "SH": "1A withAWG28 at manufacturer conditions"
+  },
+  "production_ready": false,
+  "hardware_measured": false
+}

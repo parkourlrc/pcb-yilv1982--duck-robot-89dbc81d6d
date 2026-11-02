@@ -1,0 +1,41 @@
+{
+  "review_status": "Initial rejected C308 placement only; final placement/routes are in ldo-cap-routes.json and geometry-connectivity-check.json.",
+  "reference": "C308",
+  "from": [
+    126.13,
+    114.62,
+    0
+  ],
+  "to": [
+    123.7,
+    116.1,
+    90
+  ],
+  "moved_via": "3e74bf04-f4e0-4bfa-9e62-b26ff8b4ed4c",
+  "via_from": [
+    123.755,
+    114.62
+  ],
+  "via_to": [
+    122.3,
+    115.15
+  ],
+  "changed_track": "bce30e35-3e5a-4e8a-b5bc-e6d6e2860bb4",
+  "corrected_notes": [
+    {
+      "file": "power.kicad_sch",
+      "from": "SMBJ12A fitted: hot-plug sweep peaks 14-16V over 1-10uH cable, below the 35V abs-max; TVS is defensive.",
+      "to": "SMBJ12A: 19.9V clamp at 30.2A, 10/1000us (Vishay88392). AP64350 VIN max40V recommended,42V DC absolute max. Board transient coordination is unverified."
+    },
+    {
+      "file": "power.kicad_sch",
+      "from": "Vout=0.8V*(1+52.3k/10k)=4.98V; fsw=500kHz via RT=200k; C305+C306 fitted (44uF), C307 22uF reserved DNP.",
+      "to": "Vout nominal4.984V; fsw nominal500kHz via RT200k. C305+C306:22uF each NOMINAL; DC-biased capacitance and loop/transient validation pending. C307 is DNP."
+    },
+    {
+      "file": "audio.kicad_sch",
+      "from": "This page is a pin contract pending full C1 audio schematic re-implementation; no fabricated analog values are implied.",
+      "to": "Codec, electret microphone and mono amplifier are implemented in this design; driver/electrical validation is pending. J504 AC-coupled output is not qualified for low-impedance headphones."
+    }
+  ]
+}

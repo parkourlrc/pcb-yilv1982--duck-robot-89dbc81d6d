@@ -1,0 +1,21 @@
+make: Entering directory '/mnt/c/Users/yilv/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/duck-robot-tools/radxa-kernel/6.1.84-10/headers'
+  SYNC    include/config/auto.conf.cmd
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+  HOSTCC  scripts/kconfig/expr.o
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTLD  scripts/kconfig/conf
+make: Leaving directory '/mnt/c/Users/yilv/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/duck-robot-tools/radxa-kernel/6.1.84-10/headers'
+can't find file Kconfig
+make[2]: *** [scripts/kconfig/Makefile:77: syncconfig] Error 1
+make[1]: *** [Makefile:703: syncconfig] Error 2
+make: *** [Makefile:804: include/config/auto.conf.cmd] Error 2
+make: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/rustc_cfg'
+make: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/autoconf.h'

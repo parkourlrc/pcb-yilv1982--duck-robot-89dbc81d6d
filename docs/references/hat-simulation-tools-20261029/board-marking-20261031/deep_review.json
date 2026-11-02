@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "produced_for_run_id": "board-marking-20261031",
+  "produced_at": "2026-10-31T04:07:10.040714+00:00",
+  "review_scope": "Incremental TTL additions; unchanged ICs retain prior review limitations. This is not full electrical/manufacturing acceptance.",
+  "findings": [
+    {
+      "detector": "deep_review",
+      "category": "decoupling",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "U802\u5df2\u65b0\u589e\u540c\u9762100nF\u65c1\u8def\u53ca\u5c40\u90e8\u5730\u8fc7\u5b54\uff08\u6587\u4ef6\u6838\u5bf9\uff09",
+      "description": "\u6838\u5bf9\u539f\u5382\u5efa\u8bae\u3001VCC/GND\u8d4b\u7f51\u53ca\u5df2\u4fdd\u5b58\u586b\u94dc\u3002\u6240\u5217\u957f\u5ea6\u4ec5\u4e3a\u65b0\u589e\u5e73\u9762\u8d70\u7ebf\uff0c\u4e0d\u542b\u6574\u4e2a\u5730\u5e73\u9762\u7535\u6d41\u5206\u5e03\u3001\u5b54\u6876\u6216ESL\uff1b\u672a\u505a\u6ce2\u5f62\u3001\u6297\u6270\u5ea6\u6216\u5b9e\u7269\u9a8c\u6536\u3002",
+      "recommendation": "\u4fdd\u6301\u5b8c\u6574\u5c42\u53e0/\u9ad8\u9891\u56de\u6d41\u4e0e\u9996\u677f\u9a8c\u6536\u7684\u72ec\u7acb\u8fb9\u754c\uff0c\u4e0d\u5c06\u81ea\u52a8\u544a\u8b66\u6d88\u5931\u89e3\u91ca\u4e3a\u6027\u80fd\u901a\u8fc7\u3002",
+      "evidence": {
+        "components": [
+          "U802",
+          "C330"
+        ],
+        "nets": [
+          "+3V3",
+          "POWER_GND"
+        ],
+        "pins": [
+          "U802.5",
+          "U802.3"
+        ],
+        "datasheet": [
+          {
+            "mpn": "SN74LVC1G125",
+            "page": 14,
+            "quote": "Provide an electrically short ground return path"
+          }
+        ],
+        "computation": {
+          "description": "Native geometry/connectivity checks plus the marking-only invariants",
+          "script": "hardware/custom_hat/scripts/verify_ttl_local_bypass.py",
+          "result": "{\"value\": \"100nF\", \"routes\": [{\"net\": \"+3V3\", \"layer\": \"B.Cu\", \"width_mm\": 0.2, \"length_mm\": 1.4408179100774803}, {\"net\": \"POWER_GND\", \"layer\": \"B.Cu\", \"width_mm\": 0.2, \"length_mm\": 0.799999999999983}], \"via_contacts\": {\"F.Cu\": true, \"In1.Cu\": true, \"B.Cu\": true}, \"original_connections_preserved\": true, \"marking_preserves_routing\": true}"
+        }
+      },
+      "evidence_checked": "partial",
+      "components": [
+        "U802",
+        "C330"
+      ],
+      "nets": [
+        "+3V3",
+        "POWER_GND"
+      ],
+      "pins": [
+        "U802.5",
+        "U802.3"
+      ],
+      "finding_id": "deep_review:22f86259a214"
+    },
+    {
+      "detector": "deep_review",
+      "category": "decoupling",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "U801\u5df2\u65b0\u589e\u540c\u9762100nF\u65c1\u8def\u53ca\u5c40\u90e8\u5730\u8fc7\u5b54\uff08\u6587\u4ef6\u6838\u5bf9\uff09",
+      "description": "\u6838\u5bf9\u539f\u5382\u5efa\u8bae\u3001VCC/GND\u8d4b\u7f51\u53ca\u5df2\u4fdd\u5b58\u586b\u94dc\u3002\u6240\u5217\u957f\u5ea6\u4ec5\u4e3a\u65b0\u589e\u5e73\u9762\u8d70\u7ebf\uff0c\u4e0d\u542b\u6574\u4e2a\u5730\u5e73\u9762\u7535\u6d41\u5206\u5e03\u3001\u5b54\u6876\u6216ESL\uff1b\u672a\u505a\u6ce2\u5f62\u3001\u6297\u6270\u5ea6\u6216\u5b9e\u7269\u9a8c\u6536\u3002",
+      "recommendation": "\u4fdd\u6301\u5b8c\u6574\u5c42\u53e0/\u9ad8\u9891\u56de\u6d41\u4e0e\u9996\u677f\u9a8c\u6536\u7684\u72ec\u7acb\u8fb9\u754c\uff0c\u4e0d\u5c06\u81ea\u52a8\u544a\u8b66\u6d88\u5931\u89e3\u91ca\u4e3a\u6027\u80fd\u901a\u8fc7\u3002",
+      "evidence": {
+        "components": [
+          "U801",
+          "C329"
+        ],
+        "nets": [
+          "+3V3",
+          "POWER_GND"
+        ],
+        "pins": [
+          "U801.5",
+          "U801.3"
+        ],
+        "datasheet": [
+          {
+            "mpn": "SN74LVC1G126",
+            "page": 15,
+            "quote": "Provide an electrically short ground return path"
+          }
+        ],
+        "computation": {
+          "description": "Native geometry/connectivity checks plus the marking-only invariants",
+          "script": "hardware/custom_hat/scripts/verify_ttl_local_bypass.py",
+          "result": "{\"value\": \"100nF\", \"routes\": [{\"net\": \"+3V3\", \"layer\": \"B.Cu\", \"width_mm\": 0.2, \"length_mm\": 3.134840671018659}, {\"net\": \"POWER_GND\", \"layer\": \"B.Cu\", \"width_mm\": 0.2, \"length_mm\": 0.8062257748298479}], \"via_contacts\": {\"F.Cu\": true, \"In1.Cu\": true, \"B.Cu\": true}, \"original_connections_preserved\": true, \"marking_preserves_routing\": true}"
+        }
+      },
+      "evidence_checked": "partial",
+      "components": [
+        "U801",
+        "C329"
+      ],
+      "nets": [
+        "+3V3",
+        "POWER_GND"
+      ],
+      "pins": [
+        "U801.5",
+        "U801.3"
+      ],
+      "finding_id": "deep_review:64af9dd5481d"
+    }
+  ],
+  "quarantined": [],
+  "trust_summary": {
+    "native_file_checks": "passed",
+    "datasheet_pages": "manually checked against archived PDF",
+    "hardware_tested": false,
+    "full_ground_return_impedance_verified": false,
+    "whole_board_electrical_release": false
+  }
+}

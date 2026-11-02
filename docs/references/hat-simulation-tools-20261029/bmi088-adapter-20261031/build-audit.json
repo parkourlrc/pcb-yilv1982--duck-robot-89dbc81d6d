@@ -1,0 +1,45 @@
+{
+  "built_at": "2026-10-31T11:25:59.081119+00:00",
+  "sdk_commit": "c1ed227e7bb7da1fa600bbd4e5c82d0da1eb416a",
+  "source_hashes": {
+    "bmi08a.c": "969be7f8c4e1f3abffd31a11ea6c360d84fc58e1c7d4690b18c123d359271db5",
+    "bmi08g.c": "ba148d9c73c5750780323329e0b2561475cafb3f3b425ee0a3f77c0a5098d31a",
+    "bmi08xa.c": "b27166df2c8464722aef88e576d4dd82e7ba82f8439f03577567e4d612030d95",
+    "bmi08.h": "934341dc8cce663b82c2d4c29511b0af1fc9f4c51b57c47597b1a5e6fd96f8fb",
+    "bmi08_defs.h": "7176c7d6e4979901f0d2ef35ba83f5186c4a0d4e29abc081aece057fa478264b",
+    "bmi08x.h": "595b7597124e144d21a6487ac7f7ee42a7b0cbc3e483a7a616383f4e8cff7fb2",
+    "bmi088_i2c.c": "0ff954432652443b8214a765aa12a2ee44c0fce7827306eb2c36bfe9aaf78f4f"
+  },
+  "binary": "bmi088-i2c",
+  "binary_sha256": "cb801d516f36c880dd31aa9fc990f046ed171de72e07d61171f66c2769545c1f",
+  "binary_bytes": 709152,
+  "elf_machine": 183,
+  "static_linked": true,
+  "host_description": {
+    "sensor": "BMI088",
+    "sdk_commit": "c1ed227e7bb7da1fa600bbd4e5c82d0da1eb416a",
+    "accel_address": 25,
+    "gyro_address": 104,
+    "expected_accel_id": 30,
+    "expected_gyro_id": 15,
+    "profile_odr_hz": 100,
+    "hardware_accessed": false
+  },
+  "checks": [
+    "native and ARM64 builds with warnings as errors",
+    "describe without hardware",
+    "missing action/device and invalid count refused",
+    "non-I2C device refused before transfers",
+    "ARM64 static ELF"
+  ],
+  "hardware_exercised": false,
+  "transport_fault_injection_done": false,
+  "installed": false,
+  "limits": [
+    "No real I2C transfer or sensor sampling",
+    "Polling is not accel/gyro synchronization",
+    "No robot-frame transform or calibration",
+    "Static glibc build not yet run on the target"
+  ],
+  "accepted_offline": true
+}

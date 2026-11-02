@@ -1,0 +1,73 @@
+{
+  "verified_at": "2026-10-31T11:26:04.781521+00:00",
+  "production_source_sha256": "0ff954432652443b8214a765aa12a2ee44c0fce7827306eb2c36bfe9aaf78f4f",
+  "shim_sha256": "666982b4b238b3e732184f2b6c94e892ecd476d097ed278467763c87b10c67ce",
+  "cases": [
+    {
+      "scenario": "probe",
+      "exit_status": 0,
+      "reads": 2,
+      "writes": 0,
+      "malformed": 0,
+      "identity": true,
+      "accepted": true
+    },
+    {
+      "scenario": "wrong-accel",
+      "exit_status": 1,
+      "reads": 2,
+      "writes": 0,
+      "malformed": 0,
+      "identity": false,
+      "accepted": true
+    },
+    {
+      "scenario": "wrong-gyro",
+      "exit_status": 1,
+      "reads": 2,
+      "writes": 0,
+      "malformed": 0,
+      "identity": false,
+      "accepted": true
+    },
+    {
+      "scenario": "partial-accel",
+      "exit_status": 1,
+      "reads": 1,
+      "writes": 0,
+      "malformed": 0,
+      "identity": null,
+      "accepted": true
+    },
+    {
+      "scenario": "partial-gyro",
+      "exit_status": 1,
+      "reads": 2,
+      "writes": 0,
+      "malformed": 0,
+      "identity": null,
+      "accepted": true
+    },
+    {
+      "scenario": "read-nack",
+      "exit_status": 1,
+      "reads": 1,
+      "writes": 0,
+      "malformed": 0,
+      "identity": null,
+      "accepted": true
+    },
+    {
+      "scenario": "kernel-owned",
+      "exit_status": 1,
+      "reads": 0,
+      "writes": 0,
+      "malformed": 0,
+      "identity": null,
+      "accepted": true
+    }
+  ],
+  "accepted": true,
+  "hardware_accessed": false,
+  "scope": "Native-host source linked with fake device system calls; checks IDs and failed reads before any configuration write. Does not test successful configuration, sampling, ARM64 execution, or physical I2C."
+}

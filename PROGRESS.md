@@ -7,7 +7,39 @@
 - **[本机工具检查，非硬件实测]** 已安装 Seeed KiCad MCP 并注册 Codex `kicad`，使用本机 KiCad 10.0.7 的独立 Python 环境；stdio 握手、47 个工具枚举及 HAT 副本 PCB/原理图读取完成，源 PCB 校验值未变。
 - 退出时有 Windows asyncio 警告，持续运行稳定性与 Codex 当前聊天热加载尚未验收；未进行 PCB 写操作或完整 ERC/DRC，不改变 HAT 制造放行状态。安装路径、原始验证数据与失败记录见 [KiCad MCP 专题](docs/references/kicad-agent-skills-20261030/research.md)。未提交或推送。
 
-## 自设计 HAT：问题真实性复核与流程改进（2026-10-30）
+## 自设计 HAT：现状与历史检查点（2026-10-31 更新）
+
+**[现行文件/工具进展，Rev A.1，源90f27091…]** J502从旧V/G/SCL/SDA改为GND/3V3/SDA/SCL，按官方直角/垂直Qwiic原图核针号；5段局部线换6段、一枚3.3V via移0.1mm，接口位置/板框/器件/规则保持，原其它连接和I2S参考铜取样无损失。板面标A.1区分旧版；原生检查全0，72封装/1130线段/100贯通via。另修C307 DNP仍出锡膏的问题，F61→59、B128，拟装开口保持；58件BOM/163孔重新核对。kicad-happy同版复审已跑，软件只读审计按完整指纹重新绑定A.1。见[修复与审查](docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031/research.md)和[生产审查包](hardware/custom_hat/rev_a/production-20261031-qwiic-review/README.md)。本地CAM评审ZIP已准备但未发送；**[用户确认，2026-10-31] 尚未送厂、没有新板实物**。已完成[原目标核对](docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031/completion-audit.md)，补[最短首板草案](docs/specs/20261028-custom-hat/first-article-a1.md)，供电必要条件未落实前不可执行；实测安排在制造后，不作为“制板前已经通过”的要求。当前会话旧SSH别名地址和记录中的静态地址均只读连接超时，未取得当前内核，不能据此断言关机或故障原因。未下单/上电/提交。
+
+以下软件构建记录及此前PCB条目按各自源版本保留；其中“PCB保持6fe…”指当时的构建基线，不覆盖A.1现状。旧软件审计已保留，新适用性绑定和current-review指纹检查用于当前读取。
+
+**[嘉立创询评，2026-11-02更新]** 用户已授权仅向嘉立创询评、不下单/付款；本轮决定自行微信询问。已整理[微信正文](docs/references/hat-jlc-inquiry-20261031/wechat-message.txt)、[重点问题/包内索引/回复指南](docs/references/hat-jlc-inquiry-20261031/wechat-handoff.md)，沿用固定A.1 ZIP。此前10-31两条网页AI客服渠道询问已发送，11-01用户确认添加成功；助手未上传ZIP，没有人工工程回执。当前不再等待电脑解锁或会话同步，待用户提供实际发送/工艺反馈。详见[询评记录](docs/references/hat-jlc-inquiry-20261031/research.md)。此前[阻塞审计](docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031/external-dependencies.md)保留历史身份。新板功能仍待制造后验收，未建单、付款或上电，本轮未提交Git。
+
+**[音频路由代码/模拟核查]** 已从精确AIC3104源码提取78项控件，产出只默认预览、显式检查/应用的路由工具：主扬声器以两路各-6.5dB混合L/R，J504保持立体声，J505走左ADC差分输入。写前匹配70项必需控件，先静音/配置/再启用，逐项读回并保留日志；异常/Ctrl-C尝试静音且不掩盖静音失败。10项host模拟场景及8种组合通过，原生音频针网与源/模块/报告SHA绑定通过。未调用真实ALSA或播放录音，PCB保持6fe440f3…；见[路由记录](docs/references/hat-simulation-tools-20261029/audio-routing-20261031/research.md)及[调用说明](hardware/custom_hat/software/codec/AUDIO-ROUTING.md)。
+
+**[官方包/本机离线构建]** 找到本机10-24记录的6.1.84-10-rk2410-nocsf官方同版本包，SHA与发布digest一致；配置/模块清单显示codec与BMI088驱动未编入，不能只靠overlay实现功能。两个ARM64 codec模块通过vermagic及55项符号CRC核查，声卡overlay对两种官方Zero3W DTB离线合并核针序/供电。另已构建BMI088双端点I2C静态程序，核对真实PCB地址选择，7项host错误身份/部分传输/NACK/占用场景通过，均未触发配置写入。工具链在本机WSL，未改Radxa；当前内核/DT/占用和实际音频/IMU数据未验。PCB源6fe440f3…保持，见[驱动专项](docs/references/hat-simulation-tools-20261029/driver-compatibility-20261031/research.md)、[codec说明](hardware/custom_hat/software/codec/README.md)及[IMU适配记录](docs/references/hat-simulation-tools-20261029/bmi088-adapter-20261031/research.md)。
+
+**[文件/工具进展，源6fe440f3…]** J101.33/GPIO3_C3接入CODEC_RST，保留原R308/C310 RC；新增复位线与codec 3.3V支路，原铜/焊盘/连接及I2S参考铜取样保持，未加孔/扩大板框。撤回漏读C310的“只有上拉”描述，旧RC启动是否满足时序仍待验。40P/TTL图纸重叠已整理，原生检查全0；72封装、1129线段、100贯通via。kicad-happy同版复审及163孔核对完成，58拟装件/35唯一MPN保持。见[修复与勘误](docs/references/hat-simulation-tools-20261029/codec-reset-20261031/research.md)、[审查](docs/references/hat-simulation-tools-20261029/codec-reset-20261031/review.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-codec-reset-review/README.md)。主控只读连接超时，实际驱动/时序、制造接受与首板功能未验收；未提交或操作实物。下列均为历史检查点。
+
+**[历史文件/模型进展，源70586fc6…]** 补J301 2S+/GND丝印，图27理想反馈/补偿网络与3组ngspice对照一致；Eq12疑点不作为盲改14k/3.3n依据。输入并发预算和保护职责已明确但未定整板额定。该版已被codec复位版取代；电气模型仍按其假设保留，见[电源核对](docs/references/hat-simulation-tools-20261029/power-acceptance-20261031/research.md)与[接口说明](docs/references/hat-simulation-tools-20261029/power-acceptance-20261031/power-interface.md)。
+
+**[文件/工具进展，源a65f2ad8…]** 唯一微孔改为原尺寸机械贯通孔，现100个via均贯通，不扩大板框、不重排原线路。发现旧DRU缺单位且CLI仍出报告：已修复、加入哨兵加载证明和负对照，退役会影响整片zone的原型规则；现行全规则检查为0。163孔/652项孔铜距、原连接及I2S取样核对通过，PTH/NPTH钻孔分开。小孔POFV、实际制造参数、保护/电气及首板功能仍待接受/验证。见[现行复审](docs/references/hat-simulation-tools-20261029/npth-clearance-20261031/research.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-pth-clearance-review/README.md)。以下为历史；缺单位DRU阶段的“零违规”不能解释为全部自定义规则有效执行。
+
+**[文件/工具进展，源c6c09b33…]** 按公开制造文字要求加严工程内置字高/笔画/丝印间距并修对应图形，负对照确认小字会被DRC拒绝；全部原铜/焊盘/连接保持，原生检查全0。C309仅改丝印/Fab变体，58件/38组/35 MPN，52 SMT+6 THT。指定圆孔间距预核未见超限，制造参数提案已落盘、未发送。U701普通过孔局部改线候选未采用；新的普通0.15mm孔工艺分支待核其环宽规则与完整接受条件。见[现行复审](docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031/research.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-manufacturing-review/README.md)。以下均为历史检查点。
+
+**[文件/工具进展，源b06b1051…]** 新增TTL缓冲器本地100nF C329/C330及两个地孔，全部原铜/焊盘连接保留；另补DUCK HAT Rev A丝印，原生DRC/未连接/parity/ERC/netlist全0。现72封装、1106线段、100过孔、MPN58/58，52 SMT+6 THT。kicad-happy的U801去耦提示消失；制造门禁数量失败已核为10个board-only件+1个DNP统计差异，不能冒充制造放行。实际层叠/HDI、保护、热/控制环及实测仍待完成。见[现行最终复审](docs/references/hat-simulation-tools-20261029/board-marking-20261031/research.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-marking-review/README.md)。以下均为历史检查点，旧“下一步”不作现行待办。
+
+**[文件/工具进展，源d6c72fac…]** 功放就近去耦已改：C323移至F面并改22µF，新增C328=2.2µF及成对VDD/GND短回路；原连接保留，原生检查全0，U803的自动去耦提示消失。现70封装、1101线段、98过孔、MPN56/56；装配分为50贴装、6通孔、C307不装。修复了原理图显示缺项及阻容标注，并补装配图/分类BOM/坐标审计。实际音频、温升和制造未放行；下一步核U801/U802本地去耦。见[现行复审](docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031/research.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-amp-review/README.md)。以下为历史检查点。
+
+**[文件/工具进展，源0fd6c689…]** 主控5V公共主干、排母入口及pin2→pin4连接改为1.2mm，反馈和全部原连接保持，原生检查全0。69封装、1099线段、98过孔、BOM55/55。已按官方V1.11图明确本自设计HAT不支持带电USB源并供，未操作实物。复审澄清新增+5V断网info为近似图误判，并确认C323到U803 VDD约22.94mm，下一步优先修就近去耦。见[现行审查](docs/references/hat-simulation-tools-20261029/five-volt-paths-20261031/research.md)及[同版包](hardware/custom_hat/rev_a/production-20261031-five-volt-review/README.md)。下列为历史检查点。
+
+**[文件/工具进展]** 共用入口和全部SERVO_VBAT走线已改为1.2mm，局部避开接口地脚/喇叭via/板边；原焊盘和连接全部保留，原生检查全0。现69封装、1101线段、98过孔，BOM55/55不变。假设1oz/25°C及单口3A、5V负载2A的示例中，指定正极铜段压降0.218→0.111V，非板级实测/额定。见[现行审查](docs/references/hat-simulation-tools-20261029/power-paths-20261031/research.md)及[同版生产审查包](hardware/custom_hat/rev_a/production-20261031-power-paths-review/README.md)。下一步核5V主输出压降、保护及层叠/热条件；下列为历史检查点。
+
+**[文件/工具勘误及修复]** 原生+3V3焊盘全部同组，PS-002把U701.7误列孤岛。单网LRCK改线失败后，已用1个0.6/0.3mm地孔加单段音频绕行恢复1.35mm的相邻地铜；原I2S线路不变，全部原焊盘连接保留。69封装、1099线段、98过孔，原生检查全0。见[现行修复与复审](docs/references/hat-simulation-tools-20261029/i2s-reference-stitch-20261031/research.md)及[同版审查包](hardware/custom_hat/rev_a/production-20261031-reference-review/README.md)。其余高频回流/层叠、载流/热、控制环/HDI及实测仍未完成，下列LDO及更早条目只作历史检查点。
+
+- **[本机文件/工具检查]** 主工程现为DRC/未连接/parity/ERC/netlist mismatch全0，KiCad规则未放宽。U702改为有厂商三脚TO-252依据的LP38691DT-1.8/NOPB，7个IC料号写回原理图/PCB。fiducial移除Paste、补2mm Mask与courtyard并重排；C307 DNP、32个NC及项目库关联同步。原有功能铜几何和连接无丢失。
+- **[审查勘误]** ngspice理想子电路通过不等于真实电源验证，自动热模型0.043W不覆盖本板负载。原三个热焊盘同网孔为0的状态已被后续修复替代：现U301有5个；codec/TO-252仍按具体应用判断，不套通用孔数。I2C5本板上拉早已补齐，不再列缺项。
+- **[本轮进展/未完成]** Buck四颗1210升级保留；C308/C309改2.2µF、R703=47mΩ仅串电容回地支路，C309到LDO输出线2.227mm。原生检查全0，其他原连接保留；现69封装、1096线段、97过孔，MPN55/55、38有效分组、36唯一MPN。已计入C311并联模型并撤回“只凭C309可判输出容量不足”的推断；完整控制环、载流、热/回流、HDI及实测未验收。见[现行LDO审查](docs/references/hat-simulation-tools-20261029/ldo-capacitors-20261031/research.md)及[同版审查包](hardware/custom_hat/rev_a/production-20261031-ldo-review/README.md)。下列仅历史，不作当前计数。
 
 - **[文件/工具核对]** 供电/地检查点主板为65×30 mm、4层、60封装、615走线段、93过孔、4铜区。此前计数为历史版本；65.1×30.1为含线宽包围盒，不改变65×30板框。
 - **[已澄清/已修]** AP64350/BMI088旧封装、CSB2、TTL/动力分支、I2S方向、麦克风/功放、1.8V来源、TP802原点及内层铜区删除问题均有后续修复。pin1已有设计依据，不要求重复手量；屏幕/CSI已取消；“无空间/必须六层”的旧判断证据不足。
@@ -15,12 +47,12 @@
 - **[J301/J506局部修复]** J506保持型号/针序/朝向移动至(113.0,122.3)，两条喇叭线重接；前一斜线路径碰固定焊盘的候选已拒绝，折线路径通过后回写主板。普通DRC从24降至16项warning（原7个普通error消除），未连接23和一致性101不变；193个有网焊盘原连接保留。见[当前检查点](docs/references/hat-simulation-tools-20261029/j506-repair-20261030/research.md)。
 - **[I2S局部修复]** 已连接U701.4→J101.40，并联动重布SDI/LRCK/BCLK扇出；没有改变引脚/器件/其他网络或规则。重铺铜普通警告16→15、未连接23→22、parity101不变；193个有网焊盘原连接保留，审阅后已回写主板。见[现行检查点](docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030/research.md)。未验证实际音频功能。
 - **[供电/地修复]** 接受25个局部步骤：修4段旧电容短线、补供电扇出及地岛连接，必要时局部绕开时钟/+1V8短段。未连接22→1（剩U701.7 +3V3）、普通warning15→11、parity101不变；地焊盘连通组3→1，+3V3组21→2，193个有网焊盘原连接保留。最后codec引脚的失败方案未采用；已验证部分回写主板。见[当前检查点](docs/references/hat-simulation-tools-20261029/power-repair-20261030/research.md)。
-- **[未解决设计问题]** 仅 `U701.7 +3V3` 仍是 KiCad 未连接项；悬空孔和 U301 丝印问题已关闭。当前仍有 MPN、工艺环宽、热过孔、via-in-pad、I2C 上拉、+3V3 平面回流和硬件实测门，旧生产包仍不能下单。
-- **[最终清理与 kicad-happy 审查]** 当前完整副本复现：普通 DRC 0、未连接 1（U701.7）、ERC 0、网表 mismatch 0、parity 107；双面 fiducial 与 3 个板边地缝合过孔已加入并通过 DRC。MPN、环宽、热过孔、via-in-pad、I2C 上拉和 +3V3 平面回流仍未闭合。
-- **[kicad-happy 当前审查]** 已重新运行 schematic/PCB full/cross/thermal/Gerber/EMC/fab gate，并保留 raw netlist/PCB spot-check；报告见 [当前 review](docs/references/hat-simulation-tools-20261029/kicad-happy-review-20261030/review.md)。结论仍不可投板：唯一 DRC 未连接为 `R308.2 ↔ U701.7`，BOM MPN 为 0/52；fiducial 缺失项已关闭。
+- **[10-30旧问题清单勘误]** 后续已修U701.7连通、悬空孔/丝印、I2C5上拉、电容盘中孔、通孔环宽及MPN缺失；这些不再作为现行阻塞。剩余载流、有效电容、真实热/回流、微孔HDI和实物验收按本节现状执行。
+- **[10-30清理检查点]** 当时普通DRC/未连接/ERC/netlist均0、parity107；10-31已修正parity、关键IC MPN和fiducial，见本节现状。
+- **[kicad-happy阶段审查]** 原理图、PCB、cross、thermal、Gerber、EMC、SPICE、lifecycle和fab gate原始输出均已落盘。规则通过与制造放行分开，现行报告采用上述10-31入口。
 - **[流程实施]** 新pipeline只复制完整工程并输出独立报告/源摘要；自动路由只生成候选、验证本次输出；停止旧双来源生成器和DSN改写器直接执行，取消默认补孔及规则放宽。U501候选通过后由主会话审阅精确差异再更新主PCB；没有自动回写或改规则。
 - [逐项复核与证据](docs/references/hat-simulation-tools-20261029/audit-20261030/review.md) · [修复计划](docs/specs/20261028-custom-hat/recovery-plan.md) · [流程用法](hardware/custom_hat/scripts/README.md)。本轮未提交、未推送、未下单、未操作实物。历史过程仅供追溯。
-- 当前 HAT 问题矩阵见 [issue-matrix-20261030](docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md)；主板已加入 fiducial 与板边地缝合，但 `R308.2 ↔ U701.7`、MPN、工艺/热/上拉确认和硬件实测仍未闭合。
+- 当前 HAT 问题矩阵见 [issue-matrix-20261030](docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md)；`R308.2 ↔ U701.7`文件连接已复核，未完成项以本节10-31现状为准。
 
 ## HAT 双口原理图复核：共用 DATA 串阻存在设计差异，实物 V1.2 待核（2026-10-27）
 
@@ -192,8 +224,8 @@
 ## Radxa IP 固定为静态 192.168.1.35——DHCP 漂移遗留风险关闭（2026-10-25 上午，实测验收）
 
 - 背景：用户重启 radxa 后 DHCP 把板子租到 192.168.1.34，与本机（Windows）IP 冲突；再重启一次后 WiFi 未关联、全 /24 TCP 22 扫描找不到板子（仅 .9 一台 Linksys EA6700 路由器开着 SSH，非本板）；断电重新上电后板子自动回 192.168.1.35。
-- 修复（本机 SSH 实测执行）：板上 NetworkManager 固定静态——`sudo nmcli con mod 'CU_M9pw_5G' ipv4.method manual ipv4.addresses 192.168.1.35/24 ipv4.gateway 192.168.1.1 ipv4.dns 192.168.1.1` + `nmcli dev reapply wlan0`（radxa 用户改系统连接需 sudo，密码 radxa；reapply 不断链、SSH 会话存活）。
-- 验收（本机实测）：配置回读 manual/.35/24；默认路由从 `proto dhcp` 变 `proto static`；**下发 reboot 后板子自动回 .35，uptime 0 分钟时配置仍为 manual**。`ssh radxa` 别名与文档中 `http://192.168.1.35:8080` 等地址从此稳定。
+- 修复（本机 SSH 实测执行）：板上 NetworkManager 固定静态——`sudo nmcli con mod 'CU_M9pw_5G' ipv4.method manual ipv4.addresses 192.168.1.35/24 ipv4.gateway 192.168.1.1 ipv4.dns 192.168.1.1` + `nmcli dev reapply wlan0`（radxa 用户改系统连接需 sudo，密码已脱敏；reapply 不断链、SSH 会话存活）。
+- 验收（当日本机实测）：配置回读 manual/.35/24；默认路由从 `proto dhcp` 变 `proto static`；**下发 reboot 后板子自动回 .35，uptime 0 分钟时配置仍为 manual**。这只代表10-25当时验收，不保证所有后续执行环境的SSH别名。10-31当前会话有效别名指向旧172.16.108.54；一次性覆盖到记录的192.168.1.35也超时，未持久改配置，见[新只读记录](docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031/research.md)。
 - 残余：路由器 DHCP 池若含 .35 理论上仍可能租给其他设备（更彻底是路由器 MAC 绑定保留地址，暂无路由器管理权未做）；本次"重启后 WiFi 未关联"一次的原因未深究（与当日总线风暴/疑似供电波动背景同日），再现再查。详见 [radxa-env-check 2026-10-25 补充](./docs/references/radxa-env-check-20261014/research.md)。
 
 - **03:1x 用户修正与新事实**：①IMU 板②当前物理未接（"IMU 同因掉线"佐证收回）；②灵动非必要条件——整机横放、头脚悬空过一段时间同样风暴，**最终 Radxa 直接重启**（03:15 前后板子 ping 不通，与重启/断电一致）；③Radxa 重启=HAT 降压 5V 轨塌陷的终末表现。修正版根因：**输入电源（电池电量/出力 + 输入链路）持续负载下跌破系统阈值**（既有供电复核早已预警"6.6V 参考停机阈值、舵机冲击可使同源主控掉电"，且 HAT 5V 级带载从未实测）。灵动/站立只是加速器。电池 vs HAT 降压级/接线压降谁为主，待万用表分压实测。证据链与取证清单见 [总线风暴供电调研](docs/references/bus-storm-power-20261025/research.md)。

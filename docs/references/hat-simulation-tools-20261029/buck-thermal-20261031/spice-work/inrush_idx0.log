@@ -1,0 +1,37 @@
+=== stdout ===
+
+Note: No compatibility mode selected!
+
+
+Circuit: * auto-generated testbench for inrush analysis: u301 (switching)
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+ramp                                         0
+out                                          0
+vreg#branch                                  0
+
+
+No. of Data Rows : 1518
+v_settled           =  3.73800e+00
+ngspice-47 done
+
+=== stderr ===
+
+Error: no such function as i,
+    or i(rout) is not available.
+Error: RHS "abs(i(rout))" invalid
+Warning from checkvalid: vector i_out is not available or has zero length.
+Error: RHS "vecmax(i_out)" invalid
+Warning from checkvalid: vector i_out is not available or has zero length.
+Error: RHS "i_out[vecmin(abs(i_out - i_peak))]" invalid
+Error: &i_peak: no such variable.
+Error: &t_peak: no such variable.
+

@@ -1,0 +1,23 @@
+(version 1)
+(rule "prototype fine geometry"
+  (constraint annular_width (min 0.09mm))
+  (constraint hole_clearance (min 0.15mm))
+)
+(rule "BMI088 fine pitch"
+  (condition "A.insideCourtyard('U501')")
+  (constraint clearance (min 0.12mm))
+  (constraint annular_width (min 0.09mm))
+  (constraint hole_clearance (min 0.15mm))
+)
+(rule "Manufacturing through-via annular ring"
+  (condition "A.Type == 'Via' && A.Via_Type == 'Through'")
+  (constraint annular_width (min 0.125mm))
+)
+(rule "Qualified codec small mechanical via"
+  (condition "A.Type == 'Via' && A.Via_Type == 'Through' && A.NetName == '+3V3' && A.insideCourtyard('U701') && A.Diameter == 0.35mm && A.Hole == 0.15mm")
+  (constraint annular_width (min 0.10mm))
+  (constraint via_diameter (min 0.35mm))
+  (constraint hole_size (min 0.15mm))
+)
+
+(rule "CUSTOM_RULE_LOADING_SENTINEL" (constraint hole_size (min 9mm)))

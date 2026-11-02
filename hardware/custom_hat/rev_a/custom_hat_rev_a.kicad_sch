@@ -1,167 +1,167 @@
-(kicad_sch 
-  (version 20250114) 
-  (generator "eeschema") 
-  (uuid "b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02") 
-  (paper "A3") 
-  (title_block 
-    (title "Custom HAT Rev A - functional schematic") 
-    (date "2026-10-28") 
-    (rev "A schematic draft") 
-    (company "duck-robot")) 
-  (lib_symbols) 
-  (text "2S servo power / Radxa ZERO 3W / BMI088 + ToF / audio" 
-    (at 25 25 0) 
-    (effects 
-      (font 
-        (size 1.3 1.3)) 
-      (justify left)) 
-    (uuid "8dc06000-8c41-5a30-8cbb-10a8023fd569")) 
-  (text "Excluded: RS485, identification EEPROM, charging, UPS, camera and display. Not released for fabrication." 
-    (at 25 33 0) 
-    (effects 
-      (font 
-        (size 1.3 1.3)) 
-      (justify left)) 
-    (uuid "d5cf82cb-605c-5e13-8aaf-1a032f430211")) 
-  (sheet 
-    (at 35 65) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "2b68f9bc-99b0-5a2e-bebc-dfe7d4726c2c") 
-    (property "Sheetname" "radxa_40p" 
-      (at 80 63 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "radxa_40p.kicad_sch" 
-      (at 80 93 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "2"))))) 
-  (sheet 
-    (at 150 65) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "f377eb11-e3a4-5ffa-b5df-4d147686d11d") 
-    (property "Sheetname" "power" 
-      (at 195 63 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "power.kicad_sch" 
-      (at 195 93 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "3"))))) 
-  (sheet 
-    (at 265 65) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "bcd08810-b456-5716-b62e-01ebfb188302") 
-    (property "Sheetname" "servo_ttl" 
-      (at 310 63 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "servo_ttl.kicad_sch" 
-      (at 310 93 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "4"))))) 
-  (sheet 
-    (at 35 115) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "dc57e302-9f94-5148-9cb7-11d5b7cbe160") 
-    (property "Sheetname" "imu_tof" 
-      (at 80 113 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "imu_tof.kicad_sch" 
-      (at 80 143 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "5"))))) 
-  (sheet 
-    (at 150 115) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "636cda5a-0115-5833-9dc6-1a91c3d4b703") 
-    (property "Sheetname" "audio" 
-      (at 195 113 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "audio.kicad_sch" 
-      (at 195 143 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "6"))))) 
-  (sheet 
-    (at 265 115) 
-    (size 90 25) 
-    (stroke 
-      (width 0.1524) 
-      (type solid)) 
-    (fill 
-      (color 0 0 0 0)) 
-    (uuid "e5525fd2-ded6-5453-9282-594345dce0dc") 
-    (property "Sheetname" "testpoints" 
-      (at 310 113 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (property "Sheetfile" "testpoints.kicad_sch" 
-      (at 310 143 0) 
-      (effects 
-        (font 
-          (size 1.0 1.0)))) 
-    (instances 
-      (project "custom_hat_rev_a" 
-        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02" 
-          (page "7"))))) 
-  (sheet_instances 
-    (path "/" 
-      (page "1"))) 
+(kicad_sch
+  (version 20250114)
+  (generator "eeschema")
+  (uuid "b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02")
+  (paper "A3")
+  (title_block
+    (title "Custom HAT Rev A - functional schematic")
+    (date "2026-10-28")
+    (rev "A.1 design under review")
+    (company "duck-robot"))
+  (lib_symbols)
+  (text "2S servo power / Radxa ZERO 3W / BMI088 + ToF / audio"
+    (at 25 25 0)
+    (effects
+      (font
+        (size 1.3 1.3))
+      (justify left))
+    (uuid "8dc06000-8c41-5a30-8cbb-10a8023fd569"))
+  (text "Excluded: RS485, identification EEPROM, charging, UPS, camera and display. Not released for fabrication."
+    (at 25 33 0)
+    (effects
+      (font
+        (size 1.3 1.3))
+      (justify left))
+    (uuid "d5cf82cb-605c-5e13-8aaf-1a032f430211"))
+  (sheet
+    (at 35 65)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "2b68f9bc-99b0-5a2e-bebc-dfe7d4726c2c")
+    (property "Sheetname" "radxa_40p"
+      (at 80 63 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "radxa_40p.kicad_sch"
+      (at 80 93 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "2")))))
+  (sheet
+    (at 150 65)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "f377eb11-e3a4-5ffa-b5df-4d147686d11d")
+    (property "Sheetname" "power"
+      (at 195 63 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "power.kicad_sch"
+      (at 195 93 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "3")))))
+  (sheet
+    (at 265 65)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "bcd08810-b456-5716-b62e-01ebfb188302")
+    (property "Sheetname" "servo_ttl"
+      (at 310 63 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "servo_ttl.kicad_sch"
+      (at 310 93 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "4")))))
+  (sheet
+    (at 35 115)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "dc57e302-9f94-5148-9cb7-11d5b7cbe160")
+    (property "Sheetname" "imu_tof"
+      (at 80 113 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "imu_tof.kicad_sch"
+      (at 80 143 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "5")))))
+  (sheet
+    (at 150 115)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "636cda5a-0115-5833-9dc6-1a91c3d4b703")
+    (property "Sheetname" "audio"
+      (at 195 113 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "audio.kicad_sch"
+      (at 195 143 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "6")))))
+  (sheet
+    (at 265 115)
+    (size 90 25)
+    (stroke
+      (width 0.1524)
+      (type solid))
+    (fill
+      (color 0 0 0 0))
+    (uuid "e5525fd2-ded6-5453-9282-594345dce0dc")
+    (property "Sheetname" "testpoints"
+      (at 310 113 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Sheetfile" "testpoints.kicad_sch"
+      (at 310 143 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02"
+          (page "7")))))
+  (sheet_instances
+    (path "/"
+      (page "1")))
   (embedded_fonts no))

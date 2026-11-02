@@ -1,0 +1,236 @@
+{
+  "baseline": "0fd6c68918039867ef0d55a028844bbba7efaec68fe107d4a4b0a021ce7169c0",
+  "removed_objects": [
+    "0517fd7c-a4c8-421d-adc0-bfd7f112be4e",
+    "3c897dbe-7abb-47fc-b409-276420d29475",
+    "4294b220-cebb-4265-b857-b8b2e64e21e3",
+    "762fa157-7624-4e11-9a6b-7be0a81ccee7",
+    "7d9c6593-cf0e-49a9-a3ea-3500ddc47735",
+    "88ef0d8e-c128-44b1-ad9d-8bd89b203de9",
+    "d9547f97-7070-4105-a338-3266e01084b4"
+  ],
+  "bulk_position": [
+    148.1,
+    125.8
+  ],
+  "bypass_position": [
+    150.8,
+    126.05
+  ],
+  "cap_angle": -90,
+  "bulk_fields": {
+    "Value": "22uF",
+    "Footprint": "Capacitor_SMD:C_1210_3225Metric",
+    "MPN": "C1210C226K3RACTU",
+    "Manufacturer": "KEMET",
+    "Voltage Rating": "25V",
+    "Dielectric": "X7R",
+    "Tolerance": "10%",
+    "Datasheet": "https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU",
+    "Assembly Height": "2.5mm nominal; 2.8mm maximum",
+    "BOM Comments": "PAM8302A local bulk capacitor; archived typical bias model,not a guaranteed minimum or hardware pass"
+  },
+  "bypass_fields": {
+    "Value": "2.2uF",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "MPN": "C0805C225K5RACTU",
+    "Manufacturer": "KEMET",
+    "Voltage Rating": "50V",
+    "Dielectric": "X7R",
+    "Tolerance": "10%",
+    "Datasheet": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",
+    "Assembly Height": "1.25mm nominal; 1.45mm maximum",
+    "BOM Comments": "PAM8302A local ceramic bypass;2.2uF nominal selected for bias margin;device recommends typical1uF close toVDD"
+  },
+  "bulk_library_template": {
+    "path": "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\share\\kicad\\footprints\\Capacitor_SMD.pretty\\C_1210_3225Metric.kicad_mod",
+    "sha256": "c0c3dbbbe623e957a8ee6c0a36f432e06b10ff8bd79fc785bd13dea723a1f20c"
+  },
+  "moved_power_via": "d90d9315-7dfc-4e87-9112-0b48f92747f3",
+  "power_via_before": [
+    152.2586,
+    128.5972
+  ],
+  "power_via_after": [
+    151.95,
+    125.415
+  ],
+  "new_ground_via": "4b3c00b4-8c21-4ebc-b200-d98f34d9f49b",
+  "ground_position": [
+    151.95,
+    126.685
+  ],
+  "routes": [
+    {
+      "net": "+5V",
+      "layer": "B.Cu",
+      "points": [
+        [
+          150.195,
+          125.415
+        ],
+        [
+          151.95,
+          125.415
+        ]
+      ],
+      "width": 0.6,
+      "added_tracks": [
+        "1a6229d2-13a8-4a3a-b270-41ff68e384b1"
+      ]
+    },
+    {
+      "net": "POWER_GND",
+      "layer": "B.Cu",
+      "points": [
+        [
+          150.195,
+          126.685
+        ],
+        [
+          151.95,
+          126.685
+        ]
+      ],
+      "width": 0.6,
+      "added_tracks": [
+        "04cf4f46-d57f-449a-84b2-39520f818900"
+      ]
+    },
+    {
+      "net": "+5V",
+      "layer": "F.Cu",
+      "points": [
+        [
+          151.95,
+          125.415
+        ],
+        [
+          150.8,
+          125.1
+        ],
+        [
+          148.1,
+          124.325
+        ]
+      ],
+      "width": 0.6,
+      "added_tracks": [
+        "8b179c23-8fc7-4295-81fc-e855df868f5f",
+        "2a8765a5-9138-48d6-9149-91d5c698ef35"
+      ]
+    },
+    {
+      "net": "POWER_GND",
+      "layer": "F.Cu",
+      "points": [
+        [
+          151.95,
+          126.685
+        ],
+        [
+          150.8,
+          127.0
+        ],
+        [
+          148.1,
+          127.275
+        ]
+      ],
+      "width": 0.6,
+      "added_tracks": [
+        "61456dbf-bf6e-442f-8c2a-8bf6f8f663b5",
+        "bdc90c81-18c6-49de-aece-ab335cc53031"
+      ]
+    },
+    {
+      "net": "+5V",
+      "layer": "In2.Cu",
+      "points": [
+        [
+          151.0016,
+          127.3402
+        ],
+        [
+          151.2,
+          126.3
+        ],
+        [
+          151.95,
+          125.415
+        ]
+      ],
+      "width": 0.6,
+      "added_tracks": [
+        "1a4b808c-7993-4c08-97e2-188f2f59af09",
+        "419161aa-6974-4181-9c52-1869de77c0ae"
+      ],
+      "points_before_simplification": [
+        [
+          151.0016,
+          127.3402
+        ],
+        [
+          151.025,
+          127.325
+        ],
+        [
+          151.025,
+          126.55
+        ],
+        [
+          151.175,
+          126.4
+        ],
+        [
+          151.175,
+          126.35
+        ],
+        [
+          151.2,
+          126.325
+        ],
+        [
+          151.2,
+          126.3
+        ],
+        [
+          151.225,
+          126.275
+        ],
+        [
+          151.225,
+          126.25
+        ],
+        [
+          151.275,
+          126.2
+        ],
+        [
+          151.275,
+          126.175
+        ],
+        [
+          151.9,
+          125.55
+        ],
+        [
+          151.9,
+          125.5
+        ],
+        [
+          151.925,
+          125.475
+        ],
+        [
+          151.925,
+          125.45
+        ],
+        [
+          151.95,
+          125.415
+        ]
+      ]
+    }
+  ]
+}

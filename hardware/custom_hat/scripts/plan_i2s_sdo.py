@@ -18,6 +18,8 @@ SIZE = COLS*ROWS
 WIDTH = 0.15
 LAYERS = ['F.Cu','B.Cu','In1.Cu','In2.Cu']
 VIA_AVOID_RADIUS = 1.0
+VIA_PENALTY = 60.0
+VIA_BOUNDS = None
 POWER = {"POWER_GND", "+5V", "+3V3", "VBATT_2S_IN", "SERVO_VBAT", "BUCK_SW"}
 
 
@@ -44,7 +46,7 @@ def occupancy(items, radius, layers, target_net, forbid_terminal=False):
     for item in items:
         if item.get("net")==target_net and not forbid_terminal:
             continue
-        clearance=0.2 if item.get("net") in POWER else 0.15
+        clearance=0.2 if item.get("net") in POWER or target_net in POWER else 0.15
         margin=radius+clearance+0.015
         if item["kind"]=="pad" and (set(item["layers"]) & set(layers)):
             left,top,right,bottom=item["bounds"]
@@ -80,15 +82,17 @@ def coordinates(identifier):
 def solve(items,target_net,start_position,end_position,end_layers=None,start_layer=1):
     grids=[occupancy(items,WIDTH/2,[layer],target_net) for layer in LAYERS]
     vias=occupancy(items,VIA_AVOID_RADIUS,['F.Cu','B.Cu','In1.Cu','In2.Cu'],target_net,True)
-    start=node(*start_position,start_layer)
+    start_layers = [start_layer] if isinstance(start_layer, int) else list(start_layer)
+    starts = {node(*start_position, layer) for layer in start_layers if not grids[layer][node(*start_position, layer) % SIZE]}
     goals={node(*end_position,layer) for layer in (range(len(LAYERS)) if end_layers is None else end_layers)}
-    if grids[start_layer][start%SIZE]:
+    if not starts:
         raise RuntimeError('Starting pad blocked by conservative geometry')
     def heuristic(identifier):
         xpos,ypos,_=coordinates(identifier)
         return math.hypot(xpos-end_position[0],ypos-end_position[1])/STEP
-    queue=[(heuristic(start),0.0,start)]
-    costs={start:0.0}
+    queue=[(heuristic(start),0.0,start) for start in starts]
+    heapq.heapify(queue)
+    costs={start:0.0 for start in starts}
     parents={}
     goal=None
     while queue:
@@ -107,9 +111,10 @@ def solve(items,target_net,start_position,end_position,end_layers=None,start_lay
             if grids[layer][next_offset]:continue
             if delta_x and delta_y and (grids[layer][row*COLS+next_x] or grids[layer][next_y*COLS+column]):continue
             neighbors.append((layer*SIZE+next_offset,math.hypot(delta_x,delta_y)))
-        if not vias[offset]:
+        via_inside_bounds = VIA_BOUNDS is None or (VIA_BOUNDS[0] <= XMIN + column * STEP <= VIA_BOUNDS[2] and VIA_BOUNDS[1] <= YMIN + row * STEP <= VIA_BOUNDS[3])
+        if not vias[offset] and via_inside_bounds:
             for next_layer in range(len(LAYERS)):
-                if next_layer!=layer and not grids[next_layer][offset]:neighbors.append((next_layer*SIZE+offset,60.0))
+                if next_layer!=layer and not grids[next_layer][offset]:neighbors.append((next_layer*SIZE+offset,VIA_PENALTY))
         for neighbor,increment in neighbors:
             next_cost=cost+increment
             if next_cost<costs.get(neighbor,float('inf')):
@@ -120,7 +125,7 @@ def solve(items,target_net,start_position,end_position,end_layers=None,start_lay
         (EVIDENCE/('search-failure-'+target_net+'.json')).write_text(json.dumps({'width':WIDTH,'step':STEP,'states':len(costs),'reachable':[coordinates(identifier) for identifier in costs]},indent=2),encoding='utf-8')
         raise RuntimeError(f'No path in this conservative search region ({len(costs)} states); not proof of physical impossibility')
     route=[goal]
-    while route[-1]!=start:route.append(parents[route[-1]])
+    while route[-1] not in starts:route.append(parents[route[-1]])
     route.reverse()
     points=[coordinates(identifier) for identifier in route]
     compact=[points[0]]
@@ -130,7 +135,7 @@ def solve(items,target_net,start_position,end_position,end_layers=None,start_lay
         vector_after=tuple(round(next_point[axis]-current[axis],4) for axis in range(3))
         if vector_before!=vector_after:compact.append(current)
     compact.append(points[-1])
-    compact[0]=(*start_position,1)
+    compact[0]=(*start_position,compact[0][2])
     compact[-1]=(*end_position,compact[-1][2])
     return {'net':target_net,'width':WIDTH,'via_diameter':0.5,'via_drill':0.3,'points':compact,'states':len(costs),'cost_including_via_penalty':costs[goal]*STEP,'limitations':'Conservative pad bounding boxes; no zone polygons; final KiCad DRC and refill required'}
 

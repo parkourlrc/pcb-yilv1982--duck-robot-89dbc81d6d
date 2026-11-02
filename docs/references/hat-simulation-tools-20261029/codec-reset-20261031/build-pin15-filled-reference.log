@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\route_codec_reset_multilayer.py", line 177, in <module>
+    main()
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\route_codec_reset_multilayer.py", line 127, in main
+    plan = planner.solve(items, "CODEC_RST", start, (146.3246, 114.0141), available_layers, available_layers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\plan_i2s_sdo.py", line 126, in solve
+    raise RuntimeError(f'No path in this conservative search region ({len(costs)} states); not proof of physical impossibility')
+RuntimeError: No path in this conservative search region (10124 states); not proof of physical impossibility

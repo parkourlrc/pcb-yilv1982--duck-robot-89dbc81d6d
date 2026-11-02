@@ -1,0 +1,15 @@
+{
+  "added_rule": "(rule \"Mechanical NPTH copper clearance\"\n  (condition \"A.Type == 'Pad' && !A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.25mm))\n)\n(rule \"Mechanical via hole to copper\"\n  (condition \"A.Type == 'Via'\")\n  (constraint hole_clearance (min 0.20mm))\n)\n(rule \"Plated pad hole to copper\"\n  (condition \"A.Type == 'Pad' && A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.30mm))\n)\n",
+  "nominal_npth_copper_clearance_mm": 0.25,
+  "source_of_need": "The repaired 0.15mm prototype rule yielded 0.1505mm NPTH-to-zone clearance; separate mechanical-hole constraint required",
+  "geometry_changes_allowed": "Filled-zone clearances after retiring broad prototype rules and applying hole-type manufacturing limits; no pads, tracks, vias or holes moved",
+  "hole_to_copper_limits_mm": {
+    "npth": 0.25,
+    "via": 0.2,
+    "pth_pad": 0.3
+  },
+  "retired_rules": [
+    "prototype fine geometry",
+    "BMI088 fine pitch"
+  ]
+}

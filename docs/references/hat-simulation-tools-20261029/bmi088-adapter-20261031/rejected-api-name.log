@@ -1,0 +1,6 @@
+/mnt/c/Users/yilv/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/duck-robot-tools/bmi088-hat/c1ed227e7bb7/bmi088_i2c.c: In function ‘stream_samples’:
+/mnt/c/Users/yilv/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/LocalCache/Local/duck-robot-tools/bmi088-hat/c1ed227e7bb7/bmi088_i2c.c:213:40: error: implicit declaration of function ‘bmi08a_get_regs’; did you mean ‘bmi08g_get_regs’? [-Werror=implicit-function-declaration]
+  213 |         if (require_ok("accel status", bmi08a_get_regs(BMI08_REG_ACCEL_STATUS, &accel_status, 1, sensor)) ||
+      |                                        ^~~~~~~~~~~~~~~
+      |                                        bmi08g_get_regs
+cc1: all warnings being treated as errors

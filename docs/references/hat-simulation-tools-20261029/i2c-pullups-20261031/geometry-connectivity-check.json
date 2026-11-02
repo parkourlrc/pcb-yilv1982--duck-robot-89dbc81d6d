@@ -1,0 +1,165 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T164127Z-4d96a0d2\\work",
+      "pcb_sha256": "d4fc46fa5fe08beb8e48d91caef4b23493d8d54641a8e31108c0f968642f61e2",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T164127Z-4d96a0d2\\i2c-filled-before.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T164127Z-4d96a0d2\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T163448Z-a3b261ba\\work",
+      "pcb_sha256": "a96508311bfc66dbab1b94b54d0391a7552f8f979acbbe26603ca281171336dc",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T163448Z-a3b261ba\\i2c-filled-after.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T163448Z-a3b261ba\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "changed_original_pad_geometry": [],
+  "changed_original_tracks": [],
+  "changed_original_nets": [],
+  "lost_connections": {},
+  "new_pads": {
+    "6e812557-0022-4419-b5e9-52c111972227": {
+      "reference": "R501",
+      "pin": "1",
+      "position": [
+        145500000,
+        110510000
+      ],
+      "size": [
+        540000,
+        640000
+      ],
+      "drill": [
+        0,
+        0
+      ],
+      "shape": 4,
+      "orientation": 90.0,
+      "layers": "00000000_00000000_00000000_00002003"
+    },
+    "8c978357-de92-4d52-8e1b-c8f080f18bb5": {
+      "reference": "R501",
+      "pin": "2",
+      "position": [
+        145500000,
+        109490000
+      ],
+      "size": [
+        540000,
+        640000
+      ],
+      "drill": [
+        0,
+        0
+      ],
+      "shape": 4,
+      "orientation": 90.0,
+      "layers": "00000000_00000000_00000000_00002003"
+    },
+    "10f9629f-d63b-497f-a372-bd0174340558": {
+      "reference": "R502",
+      "pin": "1",
+      "position": [
+        147500000,
+        110510000
+      ],
+      "size": [
+        540000,
+        640000
+      ],
+      "drill": [
+        0,
+        0
+      ],
+      "shape": 4,
+      "orientation": 90.0,
+      "layers": "00000000_00000000_00000000_00002003"
+    },
+    "d241e37a-ab53-42f3-a488-bd7467ecf734": {
+      "reference": "R502",
+      "pin": "2",
+      "position": [
+        147500000,
+        109490000
+      ],
+      "size": [
+        540000,
+        640000
+      ],
+      "drill": [
+        0,
+        0
+      ],
+      "shape": 4,
+      "orientation": 90.0,
+      "layers": "00000000_00000000_00000000_00002003"
+    }
+  },
+  "target_checks": {
+    "R501.1": {
+      "net": "+3V3",
+      "expected_net": "+3V3",
+      "all_existing_same_net_pads_connected": true
+    },
+    "R501.2": {
+      "net": "I2C5_SCL",
+      "expected_net": "I2C5_SCL",
+      "all_existing_same_net_pads_connected": true
+    },
+    "R502.1": {
+      "net": "+3V3",
+      "expected_net": "+3V3",
+      "all_existing_same_net_pads_connected": true
+    },
+    "R502.2": {
+      "net": "I2C5_SDA",
+      "expected_net": "I2C5_SDA",
+      "all_existing_same_net_pads_connected": true
+    }
+  },
+  "u701_7_to_r308_2": true,
+  "production_ready": false,
+  "accepted": true
+}

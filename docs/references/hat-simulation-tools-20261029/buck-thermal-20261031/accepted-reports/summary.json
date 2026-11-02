@@ -1,0 +1,167 @@
+{
+  "status": "checks_clean_not_manufacturing_release",
+  "production_ready": false,
+  "source_hashes": {
+    "audio.kicad_sch": "92b2255411216d86489f8cecfd11073cd710d11f3b8aaba518c0bdbb9aca81aa",
+    "custom_hat_rev_a.kicad_dru": "5e62009bd74f487976009a225fab58f3709bed578f043e1b4055dc8013a1a421",
+    "custom_hat_rev_a.kicad_pcb": "6555f994e1ee6b99949df5ee4cfc35ce31169f6b0d01421cdd037f6736ec410d",
+    "custom_hat_rev_a.kicad_pro": "5e5d578b95dbd63c3f7a456a5a22b0623af912b9bea5c759a2afac833ee13b33",
+    "custom_hat_rev_a.kicad_sch": "798b63ba1192c4a86d9c7f70e29fd1d0b0e9796c994c33a6e59f9f200d9b4508",
+    "duck.kicad_sym": "d6af03b020247f1faca2659ea89dd3f940188009de555a805b349aabee5c8e17",
+    "duck.pretty/DEPRECATED_Bosch_LGA-16_3x4.5mm_P0.5mm.kicad_mod": "2a6187566807c85f2f2df0e87a8a92902701c45a6e37eb4ce5204c257e5c2b64",
+    "duck.pretty/Fiducial_1mm_Mask2mm.kicad_mod": "deece00b1f18beb05b9a562b411d6fb9d82966666b41ab244b6a13ccb88cf084",
+    "duck.pretty/IHLP4040DZ_5A_Above2u2.kicad_mod": "21e58af0bdd87136d3c14b70eb81bb399c1fc7e2f23b7c491e8371769202d520",
+    "duck.pretty/MountingHole_2.7_M2.5_Head4.5.kicad_mod": "5735ac795626f520db175cc4d5780fd6cd96eadde5b0f318ed744c301806b230",
+    "duck.pretty/Radxa40P_ReversedRows_2x20.kicad_mod": "3d8ea5ea41bc3896d6334a4e076d61bba0e8c95606e330ace35025c8f47850ce",
+    "duck.pretty/Radxa40P_Samtec_SSW120.kicad_mod": "f093882887326c7c5bf8590f7ed12a51ba40a5bf1be630086395afc220bf1730",
+    "duck.pretty/Samtec_TSW102_07.kicad_mod": "d9c750c3df3c29d4b9f0605c2484572d4cb695056ea1bcd1becbe31c304c8232",
+    "duck.pretty/Samtec_TSW103_07.kicad_mod": "3ed4175745728b95cfc18131aeea6419b236ccc44f2e4657a68f7547ed7ecc56",
+    "duck.pretty/Samtec_TSW108_07.kicad_mod": "4eed96770818b0e079d0cf48c0ce33b787d3c42fc4c9a56287b2ff51fde3ed1d",
+    "duck.pretty/SO-8EP_AP64350.kicad_mod": "299659dda985d95cb5eeb510a8d5b1b5523b3a6ebb4d4bdc11625cfaccecafba",
+    "duck.pretty/Vishay_WSL1206_Jumper.kicad_mod": "a08325f8f050428d257f6e2ce0d6e2054739d8e8e72fb935ab4e7ba6e2311caa",
+    "fp-lib-table": "2208a33efa7872e9cddf95fda59d1e6d8784cafd110364b5a6c3970f48535bbe",
+    "imu_tof.kicad_sch": "84fd1c8e9890c56b90cb599006a6a729d873a186972e5bc19fa36d0a740a6603",
+    "net-contract.json": "9259b1f84c9f9df6b67744f7033cfb4587f9654e349e11bc42b3869ca7bea4f3",
+    "power.kicad_sch": "25f48b791e10fea6118fbc8e22132063a2bd530f32b7b181e17c9e2c910dd2e3",
+    "radxa_40p.kicad_sch": "4d656fee1aed6fc7fad8f22db359c0b0e0473327b6d86e39f413772742ab53d8",
+    "servo_ttl.kicad_sch": "c20eb22a6d4dd26448e9ddfcda9dc1e5a1d3854fc7ed5c5fc5c9b91e4c1214b4",
+    "source-manifest.json": "5a4eec9c1bc8aef273fc6fe370635c942c97f2626ae5807f968f8b7e938ab567",
+    "sym-lib-table": "ccc3950c79c308bf22293891cb600afcb9b057635171e4043c8d554cff91b4cd",
+    "testpoints.kicad_sch": "79b8e0698e287a34aff5852c970f4f51597210f1d8ef7c58dd94972561b2764b"
+  },
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "--version"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "netlist",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "sch",
+        "export",
+        "netlist",
+        "--format",
+        "kicadxml",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\reports\\38659667df6a\\netlist.xml",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\work\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "erc",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "sch",
+        "erc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\reports\\38659667df6a\\erc.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\work\\custom_hat_rev_a.kicad_sch"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "drc",
+      "argv": [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--refill-zones",
+        "--schematic-parity",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\reports\\38659667df6a\\drc.json",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T192329Z-2619e6aa\\work\\custom_hat_rev_a.kicad_pcb"
+      ],
+      "returncode": 0
+    }
+  ],
+  "project_settings_match_reviewed_hash": true,
+  "kicad_version": "10.0.7",
+  "drc": {
+    "violations": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    },
+    "unconnected_items": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    },
+    "schematic_parity": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    }
+  },
+  "erc": {
+    "count": 0,
+    "types": {},
+    "severities": {}
+  },
+  "netlist_check": {
+    "mismatches": [],
+    "nc_empty": [],
+    "nc_escaped": [
+      {
+        "reference": "U701",
+        "pin": "13",
+        "schematic_net": "unconnected-(U701-MIC1RM/LINE1RM-Pad13)",
+        "pcb_net": "unconnected-(U701-MIC1RM{slash}LINE1RM-Pad13)"
+      },
+      {
+        "reference": "U701",
+        "pin": "12",
+        "schematic_net": "unconnected-(U701-MIC1RP/LINE1RP-Pad12)",
+        "pcb_net": "unconnected-(U701-MIC1RP{slash}LINE1RP-Pad12)"
+      },
+      {
+        "reference": "U701",
+        "pin": "14",
+        "schematic_net": "unconnected-(U701-MIC2L/LINE2L/MICDET-Pad14)",
+        "pcb_net": "unconnected-(U701-MIC2L{slash}LINE2L{slash}MICDET-Pad14)"
+      },
+      {
+        "reference": "U701",
+        "pin": "16",
+        "schematic_net": "unconnected-(U701-MIC2R/LINE2R-Pad16)",
+        "pcb_net": "unconnected-(U701-MIC2R{slash}LINE2R-Pad16)"
+      }
+    ],
+    "contract_differences": [],
+    "footprints": 68,
+    "segments": 1131,
+    "vias": 102,
+    "zones": [
+      {
+        "layer": "F.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "B.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "POWER_GND"
+      },
+      {
+        "layer": "In2.Cu",
+        "net": "+3V3"
+      }
+    ]
+  },
+  "workspace_unchanged": true,
+  "source_unchanged": true
+}

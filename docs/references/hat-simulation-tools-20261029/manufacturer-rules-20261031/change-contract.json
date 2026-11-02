@@ -1,0 +1,80 @@
+{
+  "text_changes": [
+    {
+      "uuid": "3e257232-059b-4688-a162-c7346208d3b1",
+      "text": "DUCK HAT Rev A",
+      "before_position_mm": [
+        141.0,
+        126.5
+      ],
+      "before_size_mm": [
+        0.8,
+        0.8
+      ],
+      "before_stroke_mm": 0.12,
+      "after_position_mm": [
+        140,
+        126.5
+      ],
+      "after_size_mm": [
+        1,
+        1
+      ],
+      "after_stroke_mm": 0.15
+    },
+    {
+      "uuid": "5947e2a9-a198-487b-9586-981b9efe27b4",
+      "text": "1",
+      "before_stroke_mm": 0.0,
+      "after_stroke_mm": 0.15
+    },
+    {
+      "uuid": "de783809-1cdb-4411-956a-c1390cbbbc34",
+      "text": "R501",
+      "before_layer": "F.Silkscreen",
+      "after_layer": "F.Fab"
+    },
+    {
+      "uuid": "66a2711e-249c-42fd-a081-cac1492b5226",
+      "text": "R502",
+      "before_layer": "F.Silkscreen",
+      "after_layer": "F.Fab"
+    }
+  ],
+  "basis": "JLCPCB PCB Capabilities: character height >=1.0mm, stroke >=0.15mm",
+  "copper_changes_allowed": false,
+  "rejected_custom_rule": "(rule \"JLC silkscreen text geometry\"\n  (condition \"A.Layer == 'F.Silkscreen' || A.Layer == 'B.Silkscreen'\")\n  (constraint text_height (min 1.0))\n  (constraint text_thickness (min 0.15))\n)\n",
+  "rule_storage": "Native project minimum text dimensions",
+  "additional_silkscreen_adjustments": [
+    {
+      "uuid": "8fa6d604-f4e3-4421-a7ab-ea3687528b71",
+      "text": "U803",
+      "before_mm": [
+        147.72,
+        129.45
+      ],
+      "after_mm": [
+        147.72,
+        129.2
+      ]
+    },
+    {
+      "uuid": "d5996cbf-e679-4804-b397-af8480a84bef",
+      "text": "J802",
+      "before_mm": [
+        160.42,
+        123.17
+      ],
+      "after_mm": [
+        160.12,
+        123.17
+      ]
+    },
+    {
+      "uuid": "9d5e185b-95ea-4a88-8a29-4bc9a25a726d",
+      "reference": "C309",
+      "before_layer": "B.Silkscreen",
+      "after_layer": "B.Fab"
+    }
+  ]
+}

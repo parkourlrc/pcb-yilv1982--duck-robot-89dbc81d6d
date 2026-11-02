@@ -1,0 +1,238 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T221837Z-a16f2645\\work",
+      "pcb_sha256": "818becfdb21d35b6ceacbe00b6e7837465292d696b56cc7991d4e7494704831f",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T221837Z-a16f2645\\ldo-filled-before-104a89b7.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T221837Z-a16f2645\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T220916Z-fa775b33\\work",
+      "pcb_sha256": "fda50c8019c3ab68c7c54228fc09fb36dd028e35b43afe26a7dc0f6c090b0771",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T220916Z-fa775b33\\ldo-filled-after-658b3444.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T220916Z-fa775b33\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "unexpected_original_pad_changes": [],
+  "lost_connections_except_c309_return": {},
+  "original_pad_net_changes": {
+    "bbeba64a-0a18-4b60-9472-737477d9cc7f": [
+      "POWER_GND",
+      "LDO_CAP_RETURN"
+    ]
+  },
+  "added_pad_keys": [
+    [
+      "R703",
+      "1"
+    ],
+    [
+      "R703",
+      "2"
+    ]
+  ],
+  "footprint_set_change": [
+    "R703"
+  ],
+  "removed_tracks": [
+    "155c8c16-f1a5-45d6-bbdb-dcdf1ad0bf34",
+    "19d8c8c5-156a-48ca-8ccc-6f7e2e1468d6",
+    "1bca3f0d-e02f-4076-90b1-92f66cb39e0a",
+    "351e2e37-bada-496d-b3f1-f809a052f21a",
+    "4dc06a06-77f9-481d-b892-94f0f0b68241",
+    "53f06b25-d441-491b-8a33-ecefc2680121",
+    "6305b861-749b-44c3-9827-b715077de931",
+    "6843663e-0bbd-45d5-80b5-a56a8d9323b6",
+    "744c354f-c327-4f96-b1f1-3c7f5b535cdf",
+    "794d9bf6-86cc-43a3-a439-656fe074f6b1",
+    "798566e6-843c-4be8-8826-200a3204647f",
+    "8c428ffb-1cfc-4493-8dbd-a0189eba285f",
+    "a61faace-07fa-4a54-8624-c8ba3df79dd8",
+    "abecfe90-8b75-48a7-b12f-beb68ba4cdc2",
+    "b7a7547c-c6f4-480c-a341-f189dee33ed8",
+    "ba78d8cd-163a-433c-b15d-d701c143b908",
+    "c1395c67-b19f-46ba-bfc6-79ab8e5c7986",
+    "c92fa2ca-57d5-470d-a1a3-4ca61e63c221",
+    "d9b4a8b8-bdfe-4452-acfe-509f215dda43"
+  ],
+  "added_tracks": [
+    "0db0ac59-dd43-4184-8477-a98f8adc1abb",
+    "0dc99152-72a6-4073-adaf-10dd6383c2dc",
+    "167b4773-7d93-4673-bb3c-d1962edb5df2",
+    "22e2a0fe-ef30-4fb3-a5fd-3dc749c3b2ed",
+    "40b998a0-6d18-4b55-aefd-9cc57c207d02",
+    "527f6ab3-36d9-45b2-b949-9181e44a3aba",
+    "909dadad-b234-4910-9e72-118c14f14bac",
+    "94441ac9-db17-44e8-9233-e328a1727e0f",
+    "9d4f4fb3-07a6-4cfc-8280-790f835f3715",
+    "d70b8738-7870-4482-baca-e8aab3205d12"
+  ],
+  "other_tracks_changed": [],
+  "return_isolated_to_cap_and_resistor": true,
+  "resistor_ground_connected_to_u702": true,
+  "values": {
+    "C308": {
+      "Value": {
+        "expected": "2.2uF",
+        "actual": "2.2uF"
+      },
+      "MPN": {
+        "expected": "C0805C225K5RACTU",
+        "actual": "C0805C225K5RACTU"
+      },
+      "Manufacturer": {
+        "expected": "KEMET",
+        "actual": "KEMET"
+      },
+      "Datasheet": {
+        "expected": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",
+        "actual": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU"
+      },
+      "Voltage Rating": {
+        "expected": "50V",
+        "actual": "50V"
+      },
+      "Dielectric": {
+        "expected": "X7R",
+        "actual": "X7R"
+      },
+      "Tolerance": {
+        "expected": "10%",
+        "actual": "10%"
+      },
+      "Assembly Height": {
+        "expected": "1.25mm nominal; 1.45mm maximum",
+        "actual": "1.25mm nominal; 1.45mm maximum"
+      },
+      "BOM Comments": {
+        "expected": "Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass",
+        "actual": "Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass"
+      }
+    },
+    "C309": {
+      "Value": {
+        "expected": "2.2uF",
+        "actual": "2.2uF"
+      },
+      "MPN": {
+        "expected": "C0805C225K5RACTU",
+        "actual": "C0805C225K5RACTU"
+      },
+      "Manufacturer": {
+        "expected": "KEMET",
+        "actual": "KEMET"
+      },
+      "Datasheet": {
+        "expected": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",
+        "actual": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU"
+      },
+      "Voltage Rating": {
+        "expected": "50V",
+        "actual": "50V"
+      },
+      "Dielectric": {
+        "expected": "X7R",
+        "actual": "X7R"
+      },
+      "Tolerance": {
+        "expected": "10%",
+        "actual": "10%"
+      },
+      "Assembly Height": {
+        "expected": "1.25mm nominal; 1.45mm maximum",
+        "actual": "1.25mm nominal; 1.45mm maximum"
+      },
+      "BOM Comments": {
+        "expected": "Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass",
+        "actual": "Typical biased model reviewed; capacitance and ESR with C311 require joint loop validation; not a hardware pass"
+      }
+    },
+    "R703": {
+      "Value": {
+        "expected": "0.047",
+        "actual": "0.047"
+      },
+      "MPN": {
+        "expected": "WSLP0603R0470FEA",
+        "actual": "WSLP0603R0470FEA"
+      },
+      "Manufacturer": {
+        "expected": "Vishay",
+        "actual": "Vishay"
+      },
+      "Datasheet": {
+        "expected": "https://www.vishay.com/docs/30122/wslp.pdf",
+        "actual": "https://www.vishay.com/docs/30122/wslp.pdf"
+      },
+      "Tolerance": {
+        "expected": "1%",
+        "actual": "1%"
+      },
+      "Power Rating": {
+        "expected": "0.4W at70C; derate above70C",
+        "actual": "0.4W at70C; derate above70C"
+      },
+      "TCR": {
+        "expected": "110ppm/C",
+        "actual": "110ppm/C"
+      },
+      "BOM Comments": {
+        "expected": "47mOhm capacitor-branch damping only; not in load ground; Vishay30122 p1-2 pad1.02x1.02mm gap0.50mm",
+        "actual": "47mOhm capacitor-branch damping only; not in load ground; Vishay30122 p1-2 pad1.02x1.02mm gap0.50mm"
+      }
+    }
+  },
+  "via_process_unchanged": true,
+  "native_route_lengths_mm": {
+    "LDO_CAP_RETURN": 1.7697739968707924,
+    "+1V8_CODEC": 2.2272853431924684,
+    "POWER_GND": 2.7688625823612174,
+    "AUDIO_AMP_EN": 16.997174563334063
+  },
+  "same_project_settings": true,
+  "same_design_rules": true,
+  "production_ready": false,
+  "accepted": true
+}

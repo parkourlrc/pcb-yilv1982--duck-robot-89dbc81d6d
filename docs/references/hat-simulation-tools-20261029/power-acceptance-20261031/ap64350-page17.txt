@@ -1,0 +1,107 @@
+ 
+AP64350 
+Document number: DS41976 Rev. 5 - 2 
+17 of 25 
+www.diodes.com 
+December 2024 
+©  2024 Copyright Diodes Incorporated. All Rights Reserved. 
+ 
+AP64350 
+ 
+ 
+Application Information (continued) 
+16 
+External Loop Compensation Design (continued) 
+ 
++
+–
+gm
+VOUT
+R1
+R2
+VREF
+C4
+R5
+C5
+C6
+Error 
+Amplifier
++
+–
++
+RT
+SE
+PWM 
+Comparator
+VSUM
+FB
+ 
+ Figure 27. Type ll Compensator 
+ 
+Figure 27 shows a Type ll compensator. Its transfer function is expressed in the following equation: 
+ 
+ 
+ 
+𝐀𝐯(𝐒) ∙𝐊(𝐒) =
+𝐠𝐦∙𝐑𝟓
+𝐒∙(𝐂𝟓+ 𝐂𝟔) ∙(𝐑𝟏+ 𝐑𝟐)
+(𝟏+
+𝐒
+𝛚𝐳𝟏) (𝟏+
+𝐒
+𝛚𝐳𝟐)
+(𝟏+
+𝐒
+𝛚𝐩𝟏) (𝟏+
+𝐒
+𝛚𝐩𝟐)
+ 
+Eq. 12 
+ 
+Where the poles and zeroes are: 
+ 
+ 
+𝛚𝐳𝟏=
+𝟏
+𝐑𝟓∙𝐂𝟓
+ 
+Eq. 13 
+ 
+ 
+ 
+ 
+  𝛚𝐳𝟐=
+𝟏
+𝐑𝟏∙𝐂𝟒
+ 
+Eq. 14 
+ 
+ 
+ 
+ 
+𝛚𝐩𝟏=
+𝐂𝟓+ 𝐂𝟔
+𝐑𝟓∙𝐂𝟓∙𝐂𝟔
+ 
+Eq. 15 
+ 
+ 
+ 
+ 
+𝛚𝐩𝟐=
+𝐑𝟏+ 𝐑𝟐
+𝐑𝟏∙𝐑𝟐∙𝐂𝟒
+ 
+Eq. 16 
+ 
+The goal of loop compensation design is to achieve: 
+• 
+High DC Gain 
+• 
+Gain Margin less than -10dB 
+• 
+Phase Margin greater than 45° 
+• 
+Loop Bandwidth Crossover Frequency (fc) less than 10% of fsw 
+ 
+ 

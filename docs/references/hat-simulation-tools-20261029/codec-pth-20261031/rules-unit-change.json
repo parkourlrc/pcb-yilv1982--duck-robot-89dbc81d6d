@@ -1,0 +1,6 @@
+{
+  "original_rules": "(version 1)\n(rule \"prototype fine geometry\"\n  (constraint annular_width (min 0.09))\n  (constraint hole_clearance (min 0.15))\n)\n(rule \"BMI088 fine pitch\"\n  (condition \"A.insideCourtyard('U501')\")\n  (constraint clearance (min 0.12))\n  (constraint annular_width (min 0.09))\n  (constraint hole_clearance (min 0.15))\n)\n(rule \"Manufacturing through-via annular ring\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through'\")\n  (constraint annular_width (min 0.125))\n)\n",
+  "fixed_rules": "(version 1)\n(rule \"prototype fine geometry\"\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"BMI088 fine pitch\"\n  (condition \"A.insideCourtyard('U501')\")\n  (constraint clearance (min 0.12mm))\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"Manufacturing through-via annular ring\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through'\")\n  (constraint annular_width (min 0.125mm))\n)\n",
+  "original_sha256": "5e62009bd74f487976009a225fab58f3709bed578f043e1b4055dc8013a1a421",
+  "fixed_units_sha256": "a982dbb21127118f790c440750a191c38e09ca5c8c727df6c816fd5db2c89f6d"
+}

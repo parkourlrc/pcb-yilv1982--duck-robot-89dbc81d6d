@@ -1,0 +1,17 @@
+{
+  "url": "https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_schematic_v1.11_20250116.pdf",
+  "file": "docs\\references\\hat-simulation-tools-20261029\\metadata-repair-20261030\\sources\\radxa_zero_3w_schematic_v1.11_20250116.pdf",
+  "sha256": "a0037e4aeaf720badd8301243d242fdc8725cd34a8ae825833be85ef0479cd7b",
+  "review_pages": [
+    20,
+    22
+  ],
+  "revision": "V1.11",
+  "image": "docs\\references\\hat-simulation-tools-20261029\\five-volt-paths-20261031\\sources\\radxa-v111-p22.png",
+  "board_revision_not_identified_from_this_review": true,
+  "visual_findings": {
+    "page20": "CON1 pins2/4 share+5V_INPUT; UART2_TX/RX arepins8/10, not column-aligned web-text guesses",
+    "page22": "USB-CJ2VBUS pinsA4/A9/B4/B9 share+5V_INPUT directly; R107FB120/3A is downstream toVCC_SYS, not an ORing element betweenUSB andGPIO",
+    "scope": "Archived RadxaV1.11 schematic,not a measurement or identification of the physical board; no GPIO5V voltage-acceptance window was found in the reviewed brief/sheets"
+  }
+}

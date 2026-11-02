@@ -1,0 +1,284 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T013001Z-de76a8ab\\work",
+      "pcb_sha256": "0fd6c68918039867ef0d55a028844bbba7efaec68fe107d4a4b0a021ce7169c0",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T013001Z-de76a8ab\\amp-filled-before-2a5a1717.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T013001Z-de76a8ab\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T005344Z-a6d5e2e7\\work",
+      "pcb_sha256": "d6c72facdd3b68fda23a7f09b557c01a5e9bf0eb06f7662aa46990d9bd7bb805",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T005344Z-a6d5e2e7\\amp-filled-after-18204329.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T005344Z-a6d5e2e7\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "unexpected_original_pad_changes": [],
+  "new_pad_keys": [
+    [
+      "C328",
+      "1"
+    ],
+    [
+      "C328",
+      "2"
+    ]
+  ],
+  "added_footprints": [
+    "C328"
+  ],
+  "original_pad_net_changes": {},
+  "lost_pad_connections": {},
+  "removed_objects": [
+    "0517fd7c-a4c8-421d-adc0-bfd7f112be4e",
+    "3c897dbe-7abb-47fc-b409-276420d29475",
+    "4294b220-cebb-4265-b857-b8b2e64e21e3",
+    "762fa157-7624-4e11-9a6b-7be0a81ccee7",
+    "7d9c6593-cf0e-49a9-a3ea-3500ddc47735",
+    "88ef0d8e-c128-44b1-ad9d-8bd89b203de9",
+    "d9547f97-7070-4105-a338-3266e01084b4"
+  ],
+  "added_objects": [
+    "04cf4f46-d57f-449a-84b2-39520f818900",
+    "1a4b808c-7993-4c08-97e2-188f2f59af09",
+    "1a6229d2-13a8-4a3a-b270-41ff68e384b1",
+    "2a8765a5-9138-48d6-9149-91d5c698ef35",
+    "419161aa-6974-4181-9c52-1869de77c0ae",
+    "4b3c00b4-8c21-4ebc-b200-d98f34d9f49b",
+    "61456dbf-bf6e-442f-8c2a-8bf6f8f663b5",
+    "8b179c23-8fc7-4295-81fc-e855df868f5f",
+    "bdc90c81-18c6-49de-aece-ab335cc53031"
+  ],
+  "modified_original_objects": [
+    "d90d9315-7dfc-4e87-9112-0b48f92747f3"
+  ],
+  "unexpected_original_track_changes": [],
+  "component_fields": {
+    "C323": {
+      "Value": {
+        "expected": "22uF",
+        "actual": "22uF"
+      },
+      "Footprint": {
+        "expected": "Capacitor_SMD:C_1210_3225Metric",
+        "actual": "Capacitor_SMD:C_1210_3225Metric"
+      },
+      "MPN": {
+        "expected": "C1210C226K3RACTU",
+        "actual": "C1210C226K3RACTU"
+      },
+      "Manufacturer": {
+        "expected": "KEMET",
+        "actual": "KEMET"
+      },
+      "Voltage Rating": {
+        "expected": "25V",
+        "actual": "25V"
+      },
+      "Dielectric": {
+        "expected": "X7R",
+        "actual": "X7R"
+      },
+      "Tolerance": {
+        "expected": "10%",
+        "actual": "10%"
+      },
+      "Datasheet": {
+        "expected": "https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU",
+        "actual": "https://search.kemet.com/component-documentation/download/specsheet/C1210C226K3RACTU"
+      },
+      "Assembly Height": {
+        "expected": "2.5mm nominal; 2.8mm maximum",
+        "actual": "2.5mm nominal; 2.8mm maximum"
+      },
+      "BOM Comments": {
+        "expected": "PAM8302A local bulk capacitor; archived typical bias model,not a guaranteed minimum or hardware pass",
+        "actual": "PAM8302A local bulk capacitor; archived typical bias model,not a guaranteed minimum or hardware pass"
+      }
+    },
+    "C328": {
+      "Value": {
+        "expected": "2.2uF",
+        "actual": "2.2uF"
+      },
+      "Footprint": {
+        "expected": "Capacitor_SMD:C_0805_2012Metric",
+        "actual": "Capacitor_SMD:C_0805_2012Metric"
+      },
+      "MPN": {
+        "expected": "C0805C225K5RACTU",
+        "actual": "C0805C225K5RACTU"
+      },
+      "Manufacturer": {
+        "expected": "KEMET",
+        "actual": "KEMET"
+      },
+      "Voltage Rating": {
+        "expected": "50V",
+        "actual": "50V"
+      },
+      "Dielectric": {
+        "expected": "X7R",
+        "actual": "X7R"
+      },
+      "Tolerance": {
+        "expected": "10%",
+        "actual": "10%"
+      },
+      "Datasheet": {
+        "expected": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",
+        "actual": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU"
+      },
+      "Assembly Height": {
+        "expected": "1.25mm nominal; 1.45mm maximum",
+        "actual": "1.25mm nominal; 1.45mm maximum"
+      },
+      "BOM Comments": {
+        "expected": "PAM8302A local ceramic bypass;2.2uF nominal selected for bias margin;device recommends typical1uF close toVDD",
+        "actual": "PAM8302A local ceramic bypass;2.2uF nominal selected for bias margin;device recommends typical1uF close toVDD"
+      }
+    }
+  },
+  "cap_mask_bbox_to_via_copper_gap_mm": {
+    "C323": 0.5427,
+    "C328": 0.125
+  },
+  "new_ground_via_contacts": {
+    "F.Cu": true,
+    "In1.Cu": true,
+    "B.Cu": true
+  },
+  "new_ground_via_valid": true,
+  "protected_vias_preserved": true,
+  "routes": [
+    {
+      "net": "+5V",
+      "layer": "B.Cu",
+      "planar_length_mm": 1.7549999999999955
+    },
+    {
+      "net": "POWER_GND",
+      "layer": "B.Cu",
+      "planar_length_mm": 1.7549999999999955
+    },
+    {
+      "net": "+5V",
+      "layer": "F.Cu",
+      "planar_length_mm": 4.001386734802591
+    },
+    {
+      "net": "POWER_GND",
+      "layer": "F.Cu",
+      "planar_length_mm": 3.9063295995230805
+    },
+    {
+      "net": "+5V",
+      "layer": "In2.Cu",
+      "planar_length_mm": 2.2190055294577924
+    }
+  ],
+  "vdd_to_bypass_planar_trace_mm": 2.9473611030220432,
+  "vdd_to_bulk_planar_trace_mm": 5.756386734802587,
+  "local_path_layer_transitions": "One through-via in VDD path and one in ground return; planar lengths exclude barrel length,ESL andparallel plane current paths",
+  "project_electrical_settings_preserved": true,
+  "project_presentation_review": {
+    "actual_setting": "net_settings.classes wire_width/line_style",
+    "changes": [
+      {
+        "class": "Default",
+        "key": "wire_width",
+        "before": null,
+        "after": 6
+      },
+      {
+        "class": "Default",
+        "key": "line_style",
+        "before": null,
+        "after": 0
+      },
+      {
+        "class": "Power",
+        "key": "wire_width",
+        "before": null,
+        "after": 6
+      },
+      {
+        "class": "Power",
+        "key": "line_style",
+        "before": null,
+        "after": 0
+      }
+    ],
+    "template": "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\share\\kicad\\template\\RaspberryPi-uHAT\\RaspberryPi-uHAT.kicad_pro",
+    "template_sha256": "3cb73809f46eefe984b66b864ff0d824695942c35d0f9dd3ef3a79b721178f5e",
+    "original_colors_and_global_drawing_restored": true,
+    "electrical_settings_equal": true,
+    "moved_note": [
+      {
+        "text": "C323=22uF bulk and C328=2.2uF ceramic bypass are local to U803 VDD/GND; nominal values are not guaranteed effective capacitance.",
+        "before": [
+          "35.56",
+          "191.77",
+          "0"
+        ],
+        "after": [
+          241.3,
+          148.59,
+          "0"
+        ]
+      }
+    ],
+    "before_project_sha256": "5e5d578b95dbd63c3f7a456a5a22b0623af912b9bea5c759a2afac833ee13b33",
+    "approved_project_sha256": "345f80b514df15c91232295cb0b804733062e65981cfd0d1a82fe272baa7bc69",
+    "prior_trials_rejected": [
+      "color_only",
+      "global_wire_thickness"
+    ]
+  },
+  "rules_preserved": true,
+  "production_ready": false,
+  "hardware_measured": false,
+  "accepted": true
+}

@@ -1,0 +1,134 @@
+{
+  "kernel": "6.1.84-10-rk2410-nocsf",
+  "overlay_source_sha256": "84ddd20810aa4757a385ba03905032fc5877a0227d07f974b9e450611dc8f8af",
+  "overlay_sha256": "debd8392fa66bd78d724bfed741a4de85d9ab6ac32429fea88d73356c8388f3a",
+  "net_contract_sha256": "22a4be65e142bf957163606913331f305dceb3e516e60caea4a89ebb26a310c3",
+  "base_checks": [
+    {
+      "variant": "ap6212",
+      "base_sha256": "b651b4bd8212abc7363af93f6e89175d41bd515feba9978ce84d03890d19cd4b",
+      "merged_sha256": "2fe88e6a18757077bc0dbd7f70efb0da92a8a5f25edc23233a95b1569c4f0cf7",
+      "i2c5_enabled": true,
+      "i2s3_enabled": true,
+      "i2c_frequency_hz": 100000,
+      "codec_address": 24,
+      "reset_gpio": [
+        129,
+        19,
+        1
+      ],
+      "reset_gpio_matches": true,
+      "reset_pinmux_matches": true,
+      "codec_selects_reset_pinmux": true,
+      "i2s_pinmux": [
+        [
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          4
+        ],
+        [
+          3,
+          6,
+          4
+        ],
+        [
+          3,
+          5,
+          4
+        ]
+      ],
+      "i2s_pinmux_matches": true,
+      "controller_selects_all_i2s_pins": true,
+      "i2c_m0_selected": true,
+      "i2c_pins_match_header": true,
+      "three_3v3_supplies_match": true,
+      "header_supply_is_3v3": true,
+      "core_1v8_supply_matches": true,
+      "core_microvolt": 1800000,
+      "core_supply_parent_matches": true,
+      "cpu_dai_matches": true,
+      "codec_dai_matches": true,
+      "cpu_is_clock_master": true,
+      "mclk_fs": 256,
+      "accepted": true
+    },
+    {
+      "variant": "aic8800ds2",
+      "base_sha256": "c48c04245869d6e8c1bc21608e450a209e08501bdfd8859277693a072de3ad9b",
+      "merged_sha256": "9bb5bee316f9b87c70bc0b6e846d9231831e49f0f669e573a3756da3e6c1d73a",
+      "i2c5_enabled": true,
+      "i2s3_enabled": true,
+      "i2c_frequency_hz": 100000,
+      "codec_address": 24,
+      "reset_gpio": [
+        129,
+        19,
+        1
+      ],
+      "reset_gpio_matches": true,
+      "reset_pinmux_matches": true,
+      "codec_selects_reset_pinmux": true,
+      "i2s_pinmux": [
+        [
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          4
+        ],
+        [
+          3,
+          6,
+          4
+        ],
+        [
+          3,
+          5,
+          4
+        ]
+      ],
+      "i2s_pinmux_matches": true,
+      "controller_selects_all_i2s_pins": true,
+      "i2c_m0_selected": true,
+      "i2c_pins_match_header": true,
+      "three_3v3_supplies_match": true,
+      "header_supply_is_3v3": true,
+      "core_1v8_supply_matches": true,
+      "core_microvolt": 1800000,
+      "core_supply_parent_matches": true,
+      "cpu_dai_matches": true,
+      "codec_dai_matches": true,
+      "cpu_is_clock_master": true,
+      "mclk_fs": 256,
+      "accepted": true
+    }
+  ],
+  "accepted_offline": true,
+  "deployed": false,
+  "hardware_tested": false,
+  "limits": [
+    "No live pinmux/overlay conflict check",
+    "No binding-schema validation",
+    "No ALSA registration, MCLK waveform, playback or capture test",
+    "J504 Line widget names a DAPM endpoint, not an approval of any external load",
+    "No microphone model or measured bias acceptance"
+  ]
+}

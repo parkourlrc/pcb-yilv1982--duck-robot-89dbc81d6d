@@ -24,7 +24,7 @@
 | [`docs/video-notes/`](docs/video-notes/) | 视频笔记、时间戳与核验材料，不能将讲解当作本机实测。 |
 | [`docs/specs/`](docs/specs/README.md) | 功能/修改任务的 spec 存档；每任务一个 `YYYYMMDD-主题/` 目录，流程见[简单 Spec 开发流程](docs/spec-process.md)。 |
 | [`hardware/banana_pcb/`](hardware/banana_pcb/README.md) | 本项目取电板工作副本、KiCad 工程和生产文件；来源见 `SOURCE.md` 与 `source-manifest.json`。 |
-| [`hardware/custom_hat/`](hardware/custom_hat/README.md) | 自主 HAT 工作目录；Rev A 多项旧电路/封装问题已修，当前布局/布线与一致性未完成；旧生产文件停用，2026-10-30 复核及新副本检查流程见目录入口。 |
+| [`hardware/custom_hat/`](hardware/custom_hat/README.md) | 自主HAT工作目录；现行主工程原生连通/一致性检查通过，仍有电气设计、制造条件与首板验收待完成；旧生产文件停用，最新源版本、问题矩阵和副本检查流程见目录入口。 |
 | [`flash/`](flash/README.md) | 本项目 IMU 固件、烧录脚本、HEX 校验及验收工具。 |
 | [`training/`](training/README.md) | 本项目 real2sim2real 学习工程：物理参数表、自建物理 MJCF/任务/PPO 入口与 MuJoCo 回放；显示层允许按来源许可复用精细网格，训练物理与任务不整包替换；产物仅仿真学习，不驱动实物。 |
 | [`scripts/`](scripts/) | 本项目辅助脚本：图片标注、历史训练启动等；复用前核对路径和环境。 |

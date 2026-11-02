@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "produced_for_run_id": "qwiic-pinout-20261031",
+  "produced_at": "2026-10-31T13:32:44Z",
+  "review_scope": "A.1\u5916\u90e8I2C\u63a5\u53e3\u9488\u5e8f\u4e0eDNP\u94a2\u7f51\u4fee\u6b63\uff1b\u65e0\u5236\u9020\u6216\u5b9e\u7269\u9a8c\u6536",
+  "findings": [
+    {
+      "detector": "deep_review",
+      "category": "assembly_stencil",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "C307 DNP\u7684\u4e24\u4e2aF.Paste\u5f00\u53e3\u5df2\u6392\u9664\uff0c\u5176\u5b83\u62df\u88c5\u5f00\u53e3\u4fdd\u6301",
+      "description": "\u540c\u4e00A.1\u57fa\u7ebf\u53ea\u5bf9\u7ed8\u56fe\u526f\u672c\u53bb\u9664DNP pad\u7684Paste\u5c42\u6210\u5458\uff1b\u539fPCB\u94dc/\u963b\u710a\u4fdd\u7559\u3002\u8be5\u6bd4\u8f83\u4e0d\u8868\u793aJ502\u6539\u7ebf\u6ca1\u6709\u6539\u53d8\u94dc\u3002",
+      "evidence": {
+        "components": [
+          "C307"
+        ],
+        "computation": {
+          "description": "\u539f\u59cb/\u5f53\u524dpaste\u6309\u7ec4\u4ef6\u3001\u5750\u6807\u3001aperture\u548c\u5b8f\u5b9a\u4e49\u9010\u9879\u6bd4\u8f83",
+          "script": "hardware/custom_hat/scripts/export_dnp_stencil.py",
+          "result": "F.Paste 61\u219259\uff0cB.Paste128\u4fdd\u6301\uff1b\u6240\u6709\u975eDNP\u5f00\u53e3\u53ca9\u4e2a\u975epaste\u5c42\u51e0\u4f55\u4fdd\u6301\uff1b\u4fdd\u7559\u539f\u59cb\u5bfc\u51fa"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "C307"
+      ],
+      "finding_id": "deep_review:916722b4cc7b"
+    },
+    {
+      "detector": "deep_review",
+      "category": "connector_pinout",
+      "severity": "info",
+      "confidence": "high",
+      "summary": "J502\u5df2\u66f4\u6b63\u4e3aGND/3V3/SDA/SCL\uff0c\u65e7Rev A\u4e0d\u80fd\u4f5c\u4e3a\u6807\u51c6Qwiic\u76f4\u63d2\u4f9d\u636e",
+      "description": "SparkFun\u5b98\u65b9\u539f\u56fe\u7b2c1/2\u9875\u5df2\u89c6\u89c9\u6838\u9488\u53f7\uff1bA.1\u56db\u9488\u4e0e\u539f\u751f\u7f51\u7edc\u5bf9\u7167\u901a\u8fc7\uff0c\u975eJ502\u8fde\u63a5\u548cI2S\u53c2\u8003\u94dc\u53d6\u6837\u4fdd\u6301\u3002\u5e76\u672a\u8bc1\u660e\u4efb\u610fSH4P\u5916\u8bbe\u90fd\u517c\u5bb9\u3002",
+      "evidence": {
+        "components": [
+          "J502",
+          "J101",
+          "U701",
+          "U501"
+        ],
+        "nets": [
+          "+3V3",
+          "POWER_GND",
+          "I2C5_SDA",
+          "I2C5_SCL"
+        ],
+        "computation": {
+          "description": "\u539f\u751f\u524d\u540e\u8fde\u63a5\u53ca\u660e\u786e\u9488\u7f51\u5408\u540c\u5bf9\u7167",
+          "script": "hardware/custom_hat/scripts/verify_qwiic_pinout.py",
+          "result": "J502 pins1/2/3/4=POWER_GND/+3V3/I2C5_SDA/I2C5_SCL\uff1b\u5176\u5b83\u8fde\u63a5\u65e0\u4e22\u5931\uff0cI2S\u65e7\u8986\u76d6\u53d6\u6837\u65e0\u635f\u5931\uff0c\u539f\u751f\u68c0\u67e5\u51680"
+        },
+        "reference_document": {
+          "file": "sources/sparkfun-qwiic-schematic.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "sha256": "52855fa85e848932ab7f316805ea676cf3b290c25b5f731706f49c2cbcf7866a"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "J502",
+        "J101",
+        "U701",
+        "U501"
+      ],
+      "nets": [
+        "+3V3",
+        "POWER_GND",
+        "I2C5_SDA",
+        "I2C5_SCL"
+      ],
+      "finding_id": "deep_review:6fba98b2b6e7"
+    }
+  ],
+  "quarantined": [],
+  "trust_summary": {
+    "hardware_tested": false,
+    "manufacturer_accepted": false,
+    "new_revision": "A.1"
+  }
+}

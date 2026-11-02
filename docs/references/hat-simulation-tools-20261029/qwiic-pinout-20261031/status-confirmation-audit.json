@@ -1,0 +1,278 @@
+{
+  "date": "2026-10-31",
+  "user_confirmed": {
+    "sent_to_fabricator": false,
+    "new_hat_exists": false,
+    "source": "Current conversation, explicit answer about custom rev_a rather than white HAT V1.2"
+  },
+  "pcb_sha256": "90f27091017525a22f45c8818c973c317ed6262387a98fdf06bdc26337dac2a6",
+  "source_file_count": 28,
+  "source_binding_valid": true,
+  "production_output_mismatches": [],
+  "old_zip_unchanged": true,
+  "new_zip_sha256": "f4a286d38c9645a15bb49e8a6bf0aec0796e2c5933ecc5dd7bc8968fe0d16676",
+  "zip_member_count": 26,
+  "changed_zip_members": [
+    "MANIFEST.json",
+    "MANUFACTURING-BRIEF.md"
+  ],
+  "unchanged_fabrication_files": 22,
+  "broken_current_links": [],
+  "git_diff_check_exit": 0,
+  "kicad_happy_commit": "2fd9aa0fe2d620f36627d9221e8b1393987ae38e",
+  "review_mode": "Reused same-source analyzers; CAD unchanged; no new hardware, simulation, or native DRC run",
+  "analyzers": {
+    "schematic": {
+      "sha256": "b7a58bea63fb096c54c899a5bd71f5fa9a4de67b2042eb399e373891e2dcdeae",
+      "summary": {
+        "total_findings": 44,
+        "by_severity": {
+          "error": 0,
+          "warning": 3,
+          "info": 41
+        }
+      },
+      "trust_summary": {
+        "total_findings": 44,
+        "trust_level": "mixed",
+        "by_confidence": {
+          "deterministic": 29,
+          "heuristic": 15,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 43,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 1,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": 90.9,
+        "bom_coverage": {
+          "total_components": 39,
+          "with_mpn": 39,
+          "with_datasheet": 39,
+          "mpn_pct": 100.0,
+          "datasheet_pct": 100.0
+        }
+      },
+      "reused": true
+    },
+    "pcb": {
+      "sha256": "825ab90bb83847644794f6fac89045d51e0739f1b9d3018edc2004a1b1751e92",
+      "summary": {
+        "total_findings": 59,
+        "by_severity": {
+          "error": 3,
+          "warning": 15,
+          "info": 41
+        }
+      },
+      "trust_summary": {
+        "total_findings": 59,
+        "trust_level": "high",
+        "by_confidence": {
+          "deterministic": 57,
+          "heuristic": 2,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 49,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 10,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": 0.0
+      },
+      "reused": true
+    },
+    "cross": {
+      "sha256": "b0bd59404fca732ac122431105965043dabd7a90daddcc575440176916a1914d",
+      "summary": {
+        "total_findings": 2,
+        "by_severity": {
+          "error": 0,
+          "warning": 2,
+          "info": 0
+        }
+      },
+      "trust_summary": {
+        "total_findings": 2,
+        "trust_level": "high",
+        "by_confidence": {
+          "deterministic": 2,
+          "heuristic": 0,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 2,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": 0.0
+      },
+      "reused": true
+    },
+    "emc": {
+      "sha256": "e21809c3565888aab39ec40902f7c574ccc6ec8a984d2dc23710703e39fed4d8",
+      "summary": {
+        "total_findings": 53,
+        "categories_checked": 7,
+        "active": 53,
+        "suppressed": 0,
+        "by_severity": {
+          "error": 7,
+          "warning": 33,
+          "info": 13
+        },
+        "emc_risk_score": 11.5
+      },
+      "trust_summary": {
+        "total_findings": 53,
+        "trust_level": "mixed",
+        "by_confidence": {
+          "deterministic": 30,
+          "heuristic": 23,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 30,
+          "heuristic_rule": 23,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": 0.0
+      },
+      "reused": true
+    },
+    "thermal": {
+      "sha256": "f5e84e220111e1f29fe87a1583260edea1f05ca9171084de85b77440f917d891",
+      "summary": {
+        "total_findings": 0,
+        "components_assessed": 2,
+        "components_skipped": 0,
+        "active": 0,
+        "suppressed": 0,
+        "by_severity": {
+          "error": 0,
+          "warning": 0,
+          "info": 0
+        },
+        "thermal_score": 100,
+        "total_board_dissipation_w": 0.028,
+        "hottest_component": {
+          "ref": "U301",
+          "tj_estimated_c": 26.3
+        },
+        "components_analyzed": 2,
+        "components_above_85c": 0,
+        "components_above_tjmax": 0,
+        "ambient_c": 25.0
+      },
+      "trust_summary": {
+        "total_findings": 0,
+        "trust_level": "high",
+        "by_confidence": {
+          "deterministic": 0,
+          "heuristic": 0,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 0,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": null
+      },
+      "reused": true
+    },
+    "gerbers": {
+      "sha256": "a488c3a908e63cae69e6d205f8b6f0c90608fbc5185437f9081444f6a7a7d395",
+      "summary": {
+        "total_findings": 2,
+        "by_severity": {
+          "error": 0,
+          "warning": 2,
+          "info": 0
+        }
+      },
+      "trust_summary": {
+        "total_findings": 2,
+        "trust_level": "low",
+        "by_confidence": {
+          "deterministic": 0,
+          "heuristic": 2,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 2,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": 0.0
+      },
+      "reused": true
+    },
+    "spice": {
+      "sha256": "64697b040cb79c19e329710df5dd49c8e179fa9317a731782d7929b824869a36",
+      "summary": {
+        "total": 12,
+        "total_findings": 0,
+        "pass": 12,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0,
+        "by_severity": {
+          "error": 0,
+          "warning": 0,
+          "info": 12
+        }
+      },
+      "trust_summary": {
+        "total_findings": 0,
+        "trust_level": "high",
+        "by_confidence": {
+          "deterministic": 0,
+          "heuristic": 0,
+          "datasheet_backed": 0
+        },
+        "by_evidence_source": {
+          "datasheet": 0,
+          "topology": 0,
+          "heuristic_rule": 0,
+          "symbol_footprint": 0,
+          "bom": 0,
+          "geometry": 0,
+          "api_lookup": 0
+        },
+        "provenance_coverage_pct": null
+      },
+      "reused": true
+    }
+  },
+  "manufacturing_released": false,
+  "hardware_tested": false,
+  "goal_complete": false,
+  "uploaded": false,
+  "committed": false
+}

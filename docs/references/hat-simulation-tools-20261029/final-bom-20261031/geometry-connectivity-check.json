@@ -1,0 +1,192 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T185458Z-095ed0c4\\work",
+      "pcb_sha256": "ac2df1571ac0fe778bbbf427bd90e8d548cdb644fca0e0728c79e034d6767abc",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T185458Z-095ed0c4\\bom-filled-before-11cef922.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T185458Z-095ed0c4\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T184834Z-37e5646a\\work",
+      "pcb_sha256": "335aea311c179be20bfd9f6531bdad8687ba58be211df88c81e49cd5f35471ca",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T184834Z-37e5646a\\bom-filled-after-8b349a55.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T184834Z-37e5646a\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "unexpected_pad_geometry": [],
+  "changed_pad_keys": [
+    [
+      "L301",
+      "1"
+    ],
+    [
+      "L301",
+      "2"
+    ],
+    [
+      "R309",
+      "1"
+    ],
+    [
+      "R309",
+      "2"
+    ]
+  ],
+  "pad_keys_unchanged": true,
+  "pad_nets_unchanged": true,
+  "changed_original_tracks": [
+    "104bb27b-b12f-4d04-bfad-96fad21bf845",
+    "2eeb5c7c-acae-4fab-9d1c-a7297c6c0d5d",
+    "3b7bfc4c-19d3-4d12-a505-cbebbc658da1",
+    "5ca45513-027c-490b-9874-9aaaf94f6fe5",
+    "a28231d7-6f9b-4e2d-9b49-e57ac7a2e97f",
+    "a4869a35-af09-4d27-b2d7-4b69e97caa5b",
+    "c1e10eb3-326a-4a09-9c55-5322c45938c8",
+    "e2205697-9fa5-483f-b2f6-58643a86132d",
+    "eed6cc8f-5b3f-4db7-803d-4ed0d386afc9"
+  ],
+  "allowed_changed_tracks": [
+    "104bb27b-b12f-4d04-bfad-96fad21bf845",
+    "2eeb5c7c-acae-4fab-9d1c-a7297c6c0d5d",
+    "3b7bfc4c-19d3-4d12-a505-cbebbc658da1",
+    "5ca45513-027c-490b-9874-9aaaf94f6fe5",
+    "a28231d7-6f9b-4e2d-9b49-e57ac7a2e97f",
+    "a4869a35-af09-4d27-b2d7-4b69e97caa5b",
+    "c1e10eb3-326a-4a09-9c55-5322c45938c8",
+    "e2205697-9fa5-483f-b2f6-58643a86132d",
+    "eed6cc8f-5b3f-4db7-803d-4ed0d386afc9"
+  ],
+  "added_tracks": [
+    "07c433b6-a75e-4f24-8eea-1a904d272404",
+    "0a197e77-81b2-49dc-b7d7-2830b2da416f",
+    "104e9639-57e1-4517-8ecb-facf56e66840",
+    "1b65a906-d359-45ee-a717-9b8c7705af2e",
+    "1f7ead2d-3be4-433a-8aaa-d6ffd8fecf1a",
+    "211e9ae5-af73-4187-a837-50038237b289",
+    "23c78a60-7670-4f26-98e5-0eb4dc83f445",
+    "32ffcbea-6b64-40d8-9133-cc4b589d0668",
+    "385a49d3-d814-4b9e-af85-90975c243729",
+    "3befaf82-5d86-4423-8567-6cd3062ed7ad",
+    "3cbdf446-dc34-4653-a048-ea8ffaf58f7f",
+    "42573565-c33c-43c6-98c7-6901ccc8e332",
+    "4b0fee98-bccb-4154-a71a-4aa4a9b99261",
+    "53eaf4ad-d349-4454-88cd-f629714031bd",
+    "665d8a44-908b-47ca-9d9b-8a80c46ab811",
+    "6687b904-f278-4e0d-abce-0e2440fe4de1",
+    "6b1542bf-e2f9-4090-93de-fec995cb3067",
+    "6baab242-a41e-415c-8aa2-3a955f845fbe",
+    "6f32ea10-6112-419c-b8d0-bd2a76e6bba7",
+    "71bc4bb8-aac6-43f7-a844-a6507eb9e9f2",
+    "8432cfb2-c7d9-45f5-83c0-0733d29fbb6f",
+    "84dd272a-de48-45eb-8246-bd23129b2c15",
+    "8f2ea925-f140-4748-90d8-f2856f539769",
+    "926891d7-c3ae-44eb-ba5f-9a1ba3b6e483",
+    "93033fea-77be-4a55-bd9f-a293ca21b672",
+    "a713ae54-63cc-4d56-ade9-01bdef769fe0",
+    "b8d73c78-c236-4661-8819-c807c0b89143",
+    "bcb8e2f7-23e8-4896-9632-6968a4f65e77",
+    "bda073f9-055e-4569-a6c8-40bc03213e7e",
+    "bdf589fc-6eeb-4627-b308-dd92183e87c1",
+    "c28a0e37-4a91-46ae-ba0c-11493f319552",
+    "c8d435bb-2794-429c-b9f9-c79bebb9c7ba",
+    "daebd1a1-43bb-4657-9aaf-ab461a65923f",
+    "e36590e1-8233-4988-b7e3-554829a5ab35",
+    "e6e8d135-2cf1-4faf-a45c-ae00a1d1773b",
+    "f2f8d519-d1c9-4efd-a04e-95ccfcbbf592"
+  ],
+  "expected_added_tracks": [
+    "0a197e77-81b2-49dc-b7d7-2830b2da416f",
+    "bcb8e2f7-23e8-4896-9632-6968a4f65e77",
+    "104e9639-57e1-4517-8ecb-facf56e66840",
+    "385a49d3-d814-4b9e-af85-90975c243729",
+    "a713ae54-63cc-4d56-ade9-01bdef769fe0",
+    "6b1542bf-e2f9-4090-93de-fec995cb3067",
+    "07c433b6-a75e-4f24-8eea-1a904d272404",
+    "71bc4bb8-aac6-43f7-a844-a6507eb9e9f2",
+    "1f7ead2d-3be4-433a-8aaa-d6ffd8fecf1a",
+    "926891d7-c3ae-44eb-ba5f-9a1ba3b6e483",
+    "e36590e1-8233-4988-b7e3-554829a5ab35",
+    "daebd1a1-43bb-4657-9aaf-ab461a65923f",
+    "f2f8d519-d1c9-4efd-a04e-95ccfcbbf592",
+    "3cbdf446-dc34-4653-a048-ea8ffaf58f7f",
+    "93033fea-77be-4a55-bd9f-a293ca21b672",
+    "6baab242-a41e-415c-8aa2-3a955f845fbe",
+    "32ffcbea-6b64-40d8-9133-cc4b589d0668",
+    "6f32ea10-6112-419c-b8d0-bd2a76e6bba7",
+    "b8d73c78-c236-4661-8819-c807c0b89143",
+    "6687b904-f278-4e0d-abce-0e2440fe4de1",
+    "c28a0e37-4a91-46ae-ba0c-11493f319552",
+    "bda073f9-055e-4569-a6c8-40bc03213e7e",
+    "e6e8d135-2cf1-4faf-a45c-ae00a1d1773b",
+    "211e9ae5-af73-4187-a837-50038237b289",
+    "42573565-c33c-43c6-98c7-6901ccc8e332",
+    "1b65a906-d359-45ee-a717-9b8c7705af2e",
+    "84dd272a-de48-45eb-8246-bd23129b2c15",
+    "3befaf82-5d86-4423-8567-6cd3062ed7ad",
+    "bdf589fc-6eeb-4627-b308-dd92183e87c1",
+    "c8d435bb-2794-429c-b9f9-c79bebb9c7ba",
+    "665d8a44-908b-47ca-9d9b-8a80c46ab811",
+    "23c78a60-7670-4f26-98e5-0eb4dc83f445",
+    "8432cfb2-c7d9-45f5-83c0-0733d29fbb6f",
+    "8f2ea925-f140-4748-90d8-f2856f539769",
+    "4b0fee98-bccb-4154-a71a-4aa4a9b99261",
+    "53eaf4ad-d349-4454-88cd-f629714031bd"
+  ],
+  "lost_connections": {},
+  "selected_mpns": {
+    "J401": "B3B-EH-A(LF)(SN)",
+    "J402": "B3B-EH-A(LF)(SN)",
+    "J502": "BM04B-SRSS-TB(LF)(SN)",
+    "J504": "BM03B-SRSS-TB(LF)(SN)",
+    "J505": "BM02B-SRSS-TB(LF)(SN)",
+    "J506": "BM02B-SRSS-TB(LF)(SN)",
+    "L301": "IHLP4040DZER5R6M5A",
+    "R309": "WSL120600000ZEA9"
+  },
+  "project_settings_unchanged": true,
+  "rules_unchanged": true,
+  "production_ready": false,
+  "accepted": true
+}

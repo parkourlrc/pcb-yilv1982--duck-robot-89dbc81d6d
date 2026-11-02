@@ -1,0 +1,1113 @@
+{
+  "basis": {
+    "copper": "TI SSZP640 p9: approximate sheet resistance at25C,0.5/1/2oz=1/0.5/0.25mOhm per square;125C=1.4/0.7/0.35mOhm per square",
+    "controller": "Radxa ZERO3W product brief RAD-DOC-0084 v1.12, PDFp6(section5.1):5V/2A adapter andGPIO pins2/4 power; adapter guidance is not measured operating current",
+    "connector": "Archived Samtec TSW catalogue:5.7A per pin when mated withSSW and2positions powered; not a universal header or assembled-board rating",
+    "efficiency_and_load": "Vin6.6/7.4/8.4V,efficiency85/90/95%,5V load2A andservo port0/3A are sensitivity cases,not measured consumption or approved operating limits"
+  },
+  "model_limits": "Drawn centerline length/width only; ignores pad shorting,via barrels,R309,connector/contact resistance,ground return,thermal coupling andextra5V peripheral loads. Mixed layer copper weights are not confirmed. Not an upper bound on complete board voltage drop or temperature.",
+  "geometry": {
+    "battery_shared_input": {
+      "before": {
+        "drawn_length_mm": 13.44998868151457,
+        "squares": 22.416647802524288,
+        "resistance_1oz_25c_ohm": 0.011208323901262144
+      },
+      "after": {
+        "drawn_length_mm": 13.44998868151457,
+        "squares": 11.208323901262144,
+        "resistance_1oz_25c_ohm": 0.005604161950631072
+      }
+    },
+    "battery_to_R309": {
+      "before": {
+        "drawn_length_mm": 2.0094686712022423,
+        "squares": 3.3491144520037377,
+        "resistance_1oz_25c_ohm": 0.0016745572260018688
+      },
+      "after": {
+        "drawn_length_mm": 2.0094686712022423,
+        "squares": 1.6745572260018688,
+        "resistance_1oz_25c_ohm": 0.0008372786130009344
+      }
+    },
+    "R309_to_J402_shared": {
+      "before": {
+        "drawn_length_mm": 8.986304653251747,
+        "squares": 14.977174422086243,
+        "resistance_1oz_25c_ohm": 0.007488587211043122
+      },
+      "after": {
+        "drawn_length_mm": 8.986304653251747,
+        "squares": 7.4885872110431215,
+        "resistance_1oz_25c_ohm": 0.003744293605521561
+      }
+    },
+    "J402_to_J401": {
+      "before": {
+        "drawn_length_mm": 54.81795924021788,
+        "squares": 91.36326540036315,
+        "resistance_1oz_25c_ohm": 0.04568163270018157
+      },
+      "after": {
+        "drawn_length_mm": 56.691757365539274,
+        "squares": 47.2431311379494,
+        "resistance_1oz_25c_ohm": 0.023621565568974698
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.7825311942959003,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.035613524045939565,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.035613524045939565,
+        "selected_tracks_drop_to_J401_v": 0.019979186989772094
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.017806762022969783,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.017806762022969783,
+        "selected_tracks_drop_to_J401_v": 0.009989593494886047
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.782531194295901,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.25636356109593145,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7499665553309705,
+        "selected_tracks_drop_to_J401_v": 0.21813849010523823
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.12818178054796572,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.3820100206354405,
+        "selected_tracks_drop_to_J401_v": 0.11141149270927084
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.782531194295901,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.25636356109593145,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.3388318610293364,
+        "selected_tracks_drop_to_J401_v": 0.0810935920046935
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.12818178054796572,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.1694159305146682,
+        "selected_tracks_drop_to_J401_v": 0.04054679600234675
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.782531194295901,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6788634283686419,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.4198713224038957,
+        "selected_tracks_drop_to_J401_v": 0.2792528951201596
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.33943171418432094,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.7169624041719032,
+        "selected_tracks_drop_to_J401_v": 0.14196869521673156
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.6835016835016836,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.03176638410270535,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.03176638410270535,
+        "selected_tracks_drop_to_J401_v": 0.018869232157006977
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.015883192051352676,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.015883192051352676,
+        "selected_tracks_drop_to_J401_v": 0.009434616078503488
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.683501683501683,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.2458566921561065,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7394596863911456,
+        "selected_tracks_drop_to_J401_v": 0.2170285352724731
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.12292834607805325,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.376756586165528,
+        "selected_tracks_drop_to_J401_v": 0.11085651529288829
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.683501683501683,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.2458566921561065,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.3283249920895114,
+        "selected_tracks_drop_to_J401_v": 0.07998363717192838
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.12292834607805325,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.1641624960447557,
+        "selected_tracks_drop_to_J401_v": 0.03999181858596419
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.683501683501683,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6616968304322262,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.40270472446748,
+        "selected_tracks_drop_to_J401_v": 0.2781429402873945
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.3308484152161131,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.7083791052036952,
+        "selected_tracks_drop_to_J401_v": 0.141413717800349
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.594896331738437,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.028510549720987623,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.028510549720987623,
+        "selected_tracks_drop_to_J401_v": 0.01787611467505924
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.014255274860493812,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.014255274860493812,
+        "selected_tracks_drop_to_J401_v": 0.00893805733752962
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.594896331738437,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.23664215288270235,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7302451471177414,
+        "selected_tracks_drop_to_J401_v": 0.21603541779052537
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11832107644135118,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.37214931652882594,
+        "selected_tracks_drop_to_J401_v": 0.11035995655191441
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.594896331738437,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.23664215288270235,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.3191104528161073,
+        "selected_tracks_drop_to_J401_v": 0.07899051968998065
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11832107644135118,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.15955522640805364,
+        "selected_tracks_drop_to_J401_v": 0.039495259844990326
+      }
+    },
+    {
+      "input_v": 6.6,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.594896331738437,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6465235862671357,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3875314803023895,
+        "selected_tracks_drop_to_J401_v": 0.27714982280544675
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.32326179313356784,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.70079248312115,
+        "selected_tracks_drop_to_J401_v": 0.14091715905937513
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.589825119236884,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.02832953081521416,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.02832953081521416,
+        "selected_tracks_drop_to_J401_v": 0.017819274882769704
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.01416476540760708,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.01416476540760708,
+        "selected_tracks_drop_to_J401_v": 0.008909637441384852
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.589825119236884,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.23612009522319166,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7297230894582307,
+        "selected_tracks_drop_to_J401_v": 0.21597857799823583
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11806004761159583,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.37188828769907056,
+        "selected_tracks_drop_to_J401_v": 0.11033153665576964
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.589825119236884,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.23612009522319166,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.31858839515659654,
+        "selected_tracks_drop_to_J401_v": 0.07893367989769111
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11806004761159583,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.15929419757829827,
+        "selected_tracks_drop_to_J401_v": 0.039466839948845554
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.589825119236884,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6456604898538877,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3866683838891414,
+        "selected_tracks_drop_to_J401_v": 0.2770929830131572
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.32283024492694384,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.7003609349145259,
+        "selected_tracks_drop_to_J401_v": 0.14088873916323036
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.5015015015015014,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.025269241992582996,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.025269241992582996,
+        "selected_tracks_drop_to_J401_v": 0.016829315167060276
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.012634620996291498,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.012634620996291498,
+        "selected_tracks_drop_to_J401_v": 0.008414657583530138
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.501501501501501,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.22712004810630387,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7207230423413429,
+        "selected_tracks_drop_to_J401_v": 0.21498861828252638
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11356002405315194,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.3673882641406267,
+        "selected_tracks_drop_to_J401_v": 0.10983655679791493
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.501501501501501,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.22712004810630387,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.3095883480397088,
+        "selected_tracks_drop_to_J401_v": 0.07794372018198167
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.11356002405315194,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.1547941740198544,
+        "selected_tracks_drop_to_J401_v": 0.03897186009099084
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.501501501501501,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6307206844427434,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3717285784779971,
+        "selected_tracks_drop_to_J401_v": 0.2761030232974478
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.3153603422213717,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.6928910322089539,
+        "selected_tracks_drop_to_J401_v": 0.14039375930537562
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.422475106685633,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.02267931968309388,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.02267931968309388,
+        "selected_tracks_drop_to_J401_v": 0.015943561737215
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.01133965984154694,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.01133965984154694,
+        "selected_tracks_drop_to_J401_v": 0.0079717808686075
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.422475106685633,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.21921560521774316,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7128185994527823,
+        "selected_tracks_drop_to_J401_v": 0.21410286485268112
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10960780260887158,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.36343604269634633,
+        "selected_tracks_drop_to_J401_v": 0.1093936800829923
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.422475106685633,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.21921560521774316,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.30168390515114807,
+        "selected_tracks_drop_to_J401_v": 0.07705796675213641
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10960780260887158,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.15084195257557403,
+        "selected_tracks_drop_to_J401_v": 0.03852898337606821
+      }
+    },
+    {
+      "input_v": 7.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.422475106685633,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6175017209751111,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3585096150103648,
+        "selected_tracks_drop_to_J401_v": 0.27521726986760253
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.30875086048755557,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.6862815504751376,
+        "selected_tracks_drop_to_J401_v": 0.13995088259045302
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.400560224089636,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.021985900048768815,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.021985900048768815,
+        "selected_tracks_drop_to_J401_v": 0.01569793263482093
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.010992950024384407,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.010992950024384407,
+        "selected_tracks_drop_to_J401_v": 0.007848966317410465
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.400560224089636,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.21704841096905372,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.7106514052040928,
+        "selected_tracks_drop_to_J401_v": 0.21385723575028703
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10852420548452686,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.36235244557200164,
+        "selected_tracks_drop_to_J401_v": 0.10927086553179527
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.400560224089636,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.21704841096905372,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.2995167109024586,
+        "selected_tracks_drop_to_J401_v": 0.07681233764974234
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10852420548452686,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.1497583554512293,
+        "selected_tracks_drop_to_J401_v": 0.03840616882487117
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.85,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.400560224089636,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6138607521120573,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.354868646147311,
+        "selected_tracks_drop_to_J401_v": 0.27497164076520847
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.30693037605602863,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.6844610660436108,
+        "selected_tracks_drop_to_J401_v": 0.13982806803925596
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.3227513227513226,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.01961087998177217,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.01961087998177217,
+        "selected_tracks_drop_to_J401_v": 0.014825825266219766
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.009805439990886086,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.009805439990886086,
+        "selected_tracks_drop_to_J401_v": 0.007412912633109883
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.322751322751323,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.20944074669045007,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.703043740925489,
+        "selected_tracks_drop_to_J401_v": 0.21298512838168587
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10472037334522503,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.3585486134326998,
+        "selected_tracks_drop_to_J401_v": 0.10883481184749469
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.322751322751323,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.20944074669045007,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.291909046623855,
+        "selected_tracks_drop_to_J401_v": 0.07594023028114118
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.10472037334522503,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.1459545233119275,
+        "selected_tracks_drop_to_J401_v": 0.03797011514057059
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.9,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.322751322751323,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.6010204436218466,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3420283376571003,
+        "selected_tracks_drop_to_J401_v": 0.2740995333966073
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.3005102218109233,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.6780409117985053,
+        "selected_tracks_drop_to_J401_v": 0.13939201435495538
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 1.2531328320802007,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.01760090059305869,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.01760090059305869,
+        "selected_tracks_drop_to_J401_v": 0.014045518673260834
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.008800450296529346,
+          "battery_to_R309": 0.0,
+          "R309_to_J402_shared": 0.0,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.008800450296529346,
+        "selected_tracks_drop_to_J401_v": 0.007022759336630417
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 0,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 4.253132832080201,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.202748927743983,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 0.696351921979022,
+        "selected_tracks_drop_to_J401_v": 0.21220482178872696
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.1013744638719915,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.35520270395946624,
+        "selected_tracks_drop_to_J401_v": 0.10844465855101522
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 0,
+      "calculated_shared_input_a": 4.253132832080201,
+      "exceeds_conditional_5p7a_contact_comparison": false,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.202748927743983,
+          "battery_to_R309": 0.015071015034016819,
+          "R309_to_J402_shared": 0.0673972848993881,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.2852172276773879,
+        "selected_tracks_drop_to_J401_v": 0.07515992368818225
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.1013744638719915,
+          "battery_to_R309": 0.0075355075170084095,
+          "R309_to_J402_shared": 0.03369864244969405,
+          "J402_to_J401": 0.0
+        },
+        "selected_positive_tracks_loss_w": 0.14260861383869394,
+        "selected_tracks_drop_to_J401_v": 0.037579961844091125
+      }
+    },
+    {
+      "input_v": 8.4,
+      "assumed_buck_efficiency": 0.95,
+      "5v_load_a": 2.0,
+      "J402_load_a": 3,
+      "J401_load_a": 3,
+      "calculated_shared_input_a": 7.253132832080201,
+      "exceeds_conditional_5p7a_contact_comparison": true,
+      "before": {
+        "path_losses_w": {
+          "battery_shared_input": 0.589646785117626,
+          "battery_to_R309": 0.060284060136067276,
+          "R309_to_J402_shared": 0.2695891395975524,
+          "J402_to_J401": 0.41113469430163413
+        },
+        "selected_positive_tracks_loss_w": 1.3306546791528797,
+        "selected_tracks_drop_to_J401_v": 0.2733192268036484
+      },
+      "after": {
+        "path_losses_w": {
+          "battery_shared_input": 0.294823392558813,
+          "battery_to_R309": 0.030142030068033638,
+          "R309_to_J402_shared": 0.1347945697987762,
+          "J402_to_J401": 0.2125940901207723
+        },
+        "selected_positive_tracks_loss_w": 0.6723540825463952,
+        "selected_tracks_drop_to_J401_v": 0.13900186105847592
+      }
+    }
+  ],
+  "design_constraints": {
+    "input_relation": "Iinput=I_J401+I_J402+P_5V/(Vin*efficiency),plus unmodelled input losses",
+    "each_EH_condition": "3A only under JST AWG22 and specified mating conditions; do not infer motor current from node count",
+    "not_all_outputs_at_catalog_max_simultaneously": true,
+    "recommended_copper_intent": "Use>=35um copper on these current-carrying layers for the1oz model; this is a design intent pending fabricator confirmation,not the present as-built stackup"
+  },
+  "hardware_measured": false,
+  "whole_board_current_rating_approved": false
+}

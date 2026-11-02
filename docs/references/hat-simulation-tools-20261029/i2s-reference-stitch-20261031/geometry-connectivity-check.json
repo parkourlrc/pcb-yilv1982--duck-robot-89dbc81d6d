@@ -1,0 +1,95 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225513Z-8d7f3ae6\\work",
+      "pcb_sha256": "fda50c8019c3ab68c7c54228fc09fb36dd028e35b43afe26a7dc0f6c090b0771",
+      "commands": [
+        {
+          "name": "native-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225513Z-8d7f3ae6\\reference-stitch-before-e9500730.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225513Z-8d7f3ae6\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225143Z-795b9d1c\\work",
+      "pcb_sha256": "70d00bf6b116b58cafe25cc86a31a63badb70d9f6436431ad7ae98fdb1d5d633",
+      "commands": [
+        {
+          "name": "native-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225143Z-795b9d1c\\reference-stitch-after-c2f95019.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261030T225143Z-795b9d1c\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "all_original_pad_geometry_equal": true,
+  "all_pad_nets_equal": true,
+  "lost_pad_connections": {},
+  "removed_tracks": [
+    "4743d96a-9a59-4e1f-9a8c-3e7eeb0d75d0"
+  ],
+  "added_tracks": [
+    "0ac7c75c-e411-409e-825d-3f9aba013d12",
+    "315f8863-d83d-4838-9a44-b90fd87902fa",
+    "3bc2b177-d072-43f3-9da1-8d6566c81670",
+    "d5972a31-1d76-40da-b740-63cdf4fd23b5",
+    "f652c1c6-2a35-41ad-b9f9-a4f4c20df4c8"
+  ],
+  "changed_other_tracks": [],
+  "new_audio_objects_valid": true,
+  "new_via_geometry_valid": true,
+  "new_via_ground_plane_contacts": {
+    "F.Cu": true,
+    "In1.Cu": true,
+    "B.Cu": true
+  },
+  "process_requirements_unchanged": true,
+  "coverage_before": {
+    "trace_mm": 10.129848480983497,
+    "ground_covered_mm": 4.648008656514615,
+    "coverage_pct": 45.88428608029233,
+    "ground_polygons": 1
+  },
+  "coverage_after": {
+    "trace_mm": 10.129848480983497,
+    "ground_covered_mm": 5.9980086565146244,
+    "coverage_pct": 59.21123763869254,
+    "ground_polygons": 2
+  },
+  "unchanged_other_design_files": true,
+  "production_ready": false,
+  "accepted": true
+}

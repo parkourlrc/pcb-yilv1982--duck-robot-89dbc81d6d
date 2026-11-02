@@ -1,0 +1,617 @@
+{
+  "design_hashes": {
+    "audio.kicad_sch": "23ab03ceded1a89803cc7107c003c7b5b0190aa1eb7f9dc22683fbbddccf127a",
+    "custom_hat_rev_a.kicad_dru": "3bb3748c80f32d69efbf7c2911a07810f168fdd09d6edee988d5cd6888849db5",
+    "custom_hat_rev_a.kicad_pcb": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+    "custom_hat_rev_a.kicad_pro": "f83c8fa60df10f5e97c6ee44c98c3c568d4d3da5d09e1de8d5d739e856c05cd3",
+    "custom_hat_rev_a.kicad_sch": "798b63ba1192c4a86d9c7f70e29fd1d0b0e9796c994c33a6e59f9f200d9b4508",
+    "duck.kicad_sym": "d6af03b020247f1faca2659ea89dd3f940188009de555a805b349aabee5c8e17",
+    "duck.pretty/C_0805_2012Metric_LDO_ClearSilk.kicad_mod": "46c24a8ddb9bdc1c82e56bf32c544e681ec2572ef6d3b67c5cf93fb1c4357054",
+    "duck.pretty/DEPRECATED_Bosch_LGA-16_3x4.5mm_P0.5mm.kicad_mod": "2a6187566807c85f2f2df0e87a8a92902701c45a6e37eb4ce5204c257e5c2b64",
+    "duck.pretty/Fiducial_1mm_Mask2mm.kicad_mod": "deece00b1f18beb05b9a562b411d6fb9d82966666b41ab244b6a13ccb88cf084",
+    "duck.pretty/IHLP4040DZ_5A_Above2u2.kicad_mod": "21e58af0bdd87136d3c14b70eb81bb399c1fc7e2f23b7c491e8371769202d520",
+    "duck.pretty/MountingHole_2.7_M2.5_Head4.5.kicad_mod": "5735ac795626f520db175cc4d5780fd6cd96eadde5b0f318ed744c301806b230",
+    "duck.pretty/Radxa40P_ReversedRows_2x20.kicad_mod": "3d8ea5ea41bc3896d6334a4e076d61bba0e8c95606e330ace35025c8f47850ce",
+    "duck.pretty/Radxa40P_Samtec_SSW120.kicad_mod": "f093882887326c7c5bf8590f7ed12a51ba40a5bf1be630086395afc220bf1730",
+    "duck.pretty/Samtec_TSW102_07.kicad_mod": "d9c750c3df3c29d4b9f0605c2484572d4cb695056ea1bcd1becbe31c304c8232",
+    "duck.pretty/Samtec_TSW103_07.kicad_mod": "3ed4175745728b95cfc18131aeea6419b236ccc44f2e4657a68f7547ed7ecc56",
+    "duck.pretty/Samtec_TSW108_07.kicad_mod": "4eed96770818b0e079d0cf48c0ce33b787d3c42fc4c9a56287b2ff51fde3ed1d",
+    "duck.pretty/SO-8EP_AP64350.kicad_mod": "299659dda985d95cb5eeb510a8d5b1b5523b3a6ebb4d4bdc11625cfaccecafba",
+    "duck.pretty/Vishay_WSL1206_Jumper.kicad_mod": "a08325f8f050428d257f6e2ce0d6e2054739d8e8e72fb935ab4e7ba6e2311caa",
+    "duck.pretty/Vishay_WSLP0603_Damping.kicad_mod": "79a52d9aa516eb0fb398b3ca15ed8ad77cecb5263e419374ca4e96f2f3e5add7",
+    "fp-lib-table": "2208a33efa7872e9cddf95fda59d1e6d8784cafd110364b5a6c3970f48535bbe",
+    "imu_tof.kicad_sch": "c7d19a0deb23805394677d48b5e9f68efbababd2438e2457aabf593b7758f6ff",
+    "net-contract.json": "22a4be65e142bf957163606913331f305dceb3e516e60caea4a89ebb26a310c3",
+    "power.kicad_sch": "26fd4970c6f68f448b65d1e9c8e00bb0abdad72f3c71000cb4cf7043e3529f3a",
+    "radxa_40p.kicad_sch": "d6844e7c86fe2039d944faf1d6324e88b77a27ac3c8df8c28dd54d3bbc4dc8fd",
+    "servo_ttl.kicad_sch": "f84d5399f3eb321a53809d6679a2e58782ff484a39e2ef2d15e3b494103d6add",
+    "source-manifest.json": "5a4eec9c1bc8aef273fc6fe370635c942c97f2626ae5807f968f8b7e938ab567",
+    "sym-lib-table": "ccc3950c79c308bf22293891cb600afcb9b057635171e4043c8d554cff91b4cd",
+    "testpoints.kicad_sch": "79b8e0698e287a34aff5852c970f4f51597210f1d8ef7c58dd94972561b2764b"
+  },
+  "outputs": {
+    "assembly-plan.csv": "95076f5440b7c4937b166d5bf7068f38771572eb28de06ce7eafced49042a0cd",
+    "bom-fitted.csv": "0e0c06bb90573c29e0f4d6ae01528444732c148507b2e14fbe9db13d5e9463f5",
+    "bom-smt.csv": "3f21315559b6a1a698ade338fbd24cc2e44983a1452d6277a1858596172173b3",
+    "bom-tracking.csv": "3f17aa16db8aabf7a0602e0feae7fb157228538c525dd0cc2ba8309748888deb",
+    "custom_hat_rev_a-B_Cu.gbl": "eca1da76cdd65ce3e4df7aa74a6bc48c161e9a64023aaba6370c974a64005714",
+    "custom_hat_rev_a-B_Mask.gbs": "8afb81e3f00e44d0c77fca19f4b0545698b8e18ee183abcc44e6bac4a6b94ec9",
+    "custom_hat_rev_a-B_Paste.gbp": "3347479115f3c9fcc6f142812a3c742f2749e014913f4fe8949dfaa78b67bf4a",
+    "custom_hat_rev_a-B_Silkscreen.gbo": "e7bd8e5b23051bcde2f139bd6fc828ce63a5cb9f069d02c1e9e6191a6642c11c",
+    "custom_hat_rev_a-Edge_Cuts.gm1": "f765182fa1fdd542dd25486bcc5dada07216f058ceda260c9d1ee238534f4047",
+    "custom_hat_rev_a-F_Cu.gtl": "c4c6408707ee66918325b5eb193d0630812c4f11d817d4b69f6ae5c7eb4135cd",
+    "custom_hat_rev_a-F_Mask.gts": "5ea688931b8a72b26f9091d210eaca0da82cda06074b94baf09924d98dac6608",
+    "custom_hat_rev_a-F_Paste.gtp": "9401f2b75e78c1f00a58d6fc6b605208244a96492425089d4e9cd87bb84257c7",
+    "custom_hat_rev_a-F_Silkscreen.gto": "1f73c3ef65771d7eba028a3471caf6c4aa6b541f468126bb438c29394b7dc488",
+    "custom_hat_rev_a-In1_Cu.g1": "49b3a7b9fd0b2a15e4078eda0f369a08ef1ed3e387819cc58e1f6a39a574556e",
+    "custom_hat_rev_a-In2_Cu.g2": "d41469191f55dd8843936f5ca2f1adcc144786273f84f6067e575fc3dab9b1dc",
+    "custom_hat_rev_a-NPTH.drl": "1497259c82c26b541d0922293c5e0762585e364397cc5bbb35df595d124a32e9",
+    "custom_hat_rev_a-PTH.drl": "4d4f10f3474f8f8a03357d9ba5957d49e67d9f7940b5eca3748a8b79cbcc7107",
+    "positions-smt.csv": "f8daf061a25b8be505fb69227af59f95c206845d2200eb49c073132ca351891a",
+    "positions.csv": "1762c8a05824e630f573c4ebed17d1a64be2aa8a3627c3ee02c5906d9022bdd6",
+    "assembly-front.svg": "53ca84f48e23cbdd492bde4cc3765fe392c4eec7d69cacd658adb37284e6b57f",
+    "assembly-back.svg": "1eabf5d52660a682c7e0224c00b3873bcc325aa736ccfc18738b695ff0022930"
+  },
+  "job_file_policy": {
+    "pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+    "explicit_stackup_in_pcb": false,
+    "generated_name": "custom_hat_rev_a-job.gbrjob",
+    "fabricator_approved": false,
+    "job_sha256": "299a02d01ae865e3bc5e3e9d587b35069ba610650d8c785dfc622c0ddf81b00c",
+    "generated_stackup": [
+      {
+        "Type": "Legend",
+        "Name": "Top Silk Screen"
+      },
+      {
+        "Type": "SolderPaste",
+        "Name": "Top Solder Paste"
+      },
+      {
+        "Type": "SolderMask",
+        "Thickness": 0.01,
+        "Name": "Top Solder Mask"
+      },
+      {
+        "Type": "Copper",
+        "Thickness": 0.035,
+        "Name": "F.Cu"
+      },
+      {
+        "Type": "Dielectric",
+        "Thickness": 0.48,
+        "Material": "FR4",
+        "Name": "F.Cu/In1.Cu",
+        "Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)"
+      },
+      {
+        "Type": "Copper",
+        "Thickness": 0.035,
+        "Name": "In1.Cu"
+      },
+      {
+        "Type": "Dielectric",
+        "Thickness": 0.48,
+        "Material": "FR4",
+        "Name": "In1.Cu/In2.Cu",
+        "Notes": "Type: dielectric layer 2 (from In1.Cu to In2.Cu)"
+      },
+      {
+        "Type": "Copper",
+        "Thickness": 0.035,
+        "Name": "In2.Cu"
+      },
+      {
+        "Type": "Dielectric",
+        "Thickness": 0.48,
+        "Material": "FR4",
+        "Name": "In2.Cu/B.Cu",
+        "Notes": "Type: dielectric layer 3 (from In2.Cu to B.Cu)"
+      },
+      {
+        "Type": "Copper",
+        "Thickness": 0.035,
+        "Name": "B.Cu"
+      },
+      {
+        "Type": "SolderMask",
+        "Thickness": 0.01,
+        "Name": "Bottom Solder Mask"
+      },
+      {
+        "Type": "SolderPaste",
+        "Name": "Bottom Solder Paste"
+      },
+      {
+        "Type": "Legend",
+        "Name": "Bottom Silk Screen"
+      }
+    ],
+    "generated_general_specs": {
+      "ProjectId": {
+        "Name": "custom_hat_rev_a",
+        "GUID": "63757374-6f6d-45f6-9861-745f7265765f",
+        "Revision": "rev?"
+      },
+      "Size": {
+        "X": 65.1,
+        "Y": 30.1
+      },
+      "LayerNumber": 4,
+      "BoardThickness": 1.6,
+      "Finish": "None"
+    },
+    "status": "withheld_default_stackup",
+    "archive_file": "unconfirmed-gerber-job.json",
+    "reason": "No explicit PCB stackup. KiCad synthesized layer thicknesses; these are not accepted manufacturing parameters."
+  },
+  "assembly_policy": {
+    "pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+    "native_positions_sha256": "1762c8a05824e630f573c4ebed17d1a64be2aa8a3627c3ee02c5906d9022bdd6",
+    "fitted_position_references_match_bom": true,
+    "smt_count": 52,
+    "tht_count": 6,
+    "dnp_references": [
+      "C307"
+    ],
+    "smt_references": [
+      "C301",
+      "C302",
+      "C303",
+      "C304",
+      "C305",
+      "C306",
+      "C308",
+      "C309",
+      "C310",
+      "C311",
+      "C312",
+      "C313",
+      "C315",
+      "C317",
+      "C318",
+      "C319",
+      "C320",
+      "C321",
+      "C322",
+      "C323",
+      "C325",
+      "C326",
+      "C327",
+      "C328",
+      "C329",
+      "C330",
+      "D301",
+      "J502",
+      "J504",
+      "J505",
+      "J506",
+      "L301",
+      "R301",
+      "R302",
+      "R303",
+      "R304",
+      "R305",
+      "R308",
+      "R309",
+      "R310",
+      "R311",
+      "R312",
+      "R501",
+      "R502",
+      "R703",
+      "U301",
+      "U501",
+      "U701",
+      "U702",
+      "U801",
+      "U802",
+      "U803"
+    ],
+    "tht_references": [
+      "J101",
+      "J301",
+      "J401",
+      "J402",
+      "J403",
+      "J802"
+    ],
+    "coordinate_policy": "Preserve native KiCad millimeter coordinates,rotation,andtop/bottom side; no manual mirror or origin conversion inCSV",
+    "assembly_service_selected": false,
+    "manufacturing_released": false
+  },
+  "stencil_policy": {
+    "source_pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+    "plot_copy_pcb_sha256": "fe1ddad02ca3cbc5519461813cd8912c5b76d35bd0213fa7ac65711bac841e5a",
+    "plot_work": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\work",
+    "policy": "Exclude DNP pad apertures from stencil only; keep original PCB copper/mask/pads",
+    "dnp_references": [
+      "C307"
+    ],
+    "changed_pads": [
+      {
+        "reference": "C307",
+        "pin": "1",
+        "uuid": "9efd4baa-485e-4bac-aef2-c34bfc78dfff",
+        "original_layers": [
+          "layers",
+          "F.Cu",
+          "F.Mask",
+          "F.Paste"
+        ],
+        "removed_layers": [
+          "F.Paste"
+        ]
+      },
+      {
+        "reference": "C307",
+        "pin": "2",
+        "uuid": "b56e3f0b-11da-4165-9046-29ea73fadd48",
+        "original_layers": [
+          "layers",
+          "F.Cu",
+          "F.Mask",
+          "F.Paste"
+        ],
+        "removed_layers": [
+          "F.Paste"
+        ]
+      }
+    ],
+    "changed_files": [
+      "custom_hat_rev_a-F_Paste.gtp"
+    ],
+    "comparisons": [
+      {
+        "file": "custom_hat_rev_a-F_Paste.gtp",
+        "before_sha256": "21bb4e96b354296903011ed934f9c81a3dac58ed352233e365440fc9914f8d4f",
+        "plotted_sha256": "9401f2b75e78c1f00a58d6fc6b605208244a96492425089d4e9cd87bb84257c7",
+        "before_flash_count": 61,
+        "after_flash_count": 59,
+        "removed_flashes": [
+          {
+            "reference": "C307",
+            "x_mm": 157.525,
+            "cam_y_mm": -114.0,
+            "aperture": "RoundRect,0.250000X-0.325000X-0.650000X0.325000X-0.650000X0.325000X0.650000X-0.325000X0.650000X0",
+            "count": 1
+          },
+          {
+            "reference": "C307",
+            "x_mm": 160.475,
+            "cam_y_mm": -114.0,
+            "aperture": "RoundRect,0.250000X-0.325000X-0.650000X0.325000X-0.650000X0.325000X0.650000X-0.325000X0.650000X0",
+            "count": 1
+          }
+        ],
+        "non_dnp_apertures_unchanged": true,
+        "macro_definitions_unchanged": true,
+        "changed_geometry": true,
+        "final_sha256": "9401f2b75e78c1f00a58d6fc6b605208244a96492425089d4e9cd87bb84257c7"
+      },
+      {
+        "file": "custom_hat_rev_a-B_Paste.gbp",
+        "before_sha256": "3347479115f3c9fcc6f142812a3c742f2749e014913f4fe8949dfaa78b67bf4a",
+        "plotted_sha256": "168e44414b424fd05e704dc5e543528b12c0980e827a8efc3b246683c81dce9f",
+        "before_flash_count": 128,
+        "after_flash_count": 128,
+        "removed_flashes": [],
+        "non_dnp_apertures_unchanged": true,
+        "macro_definitions_unchanged": true,
+        "changed_geometry": false,
+        "final_sha256": "3347479115f3c9fcc6f142812a3c742f2749e014913f4fe8949dfaa78b67bf4a"
+      }
+    ],
+    "non_paste_layers_equal_excluding_creation_metadata": true,
+    "non_paste_checked_files": [
+      "custom_hat_rev_a-B_Cu.gbl",
+      "custom_hat_rev_a-B_Mask.gbs",
+      "custom_hat_rev_a-B_Silkscreen.gbo",
+      "custom_hat_rev_a-Edge_Cuts.gm1",
+      "custom_hat_rev_a-F_Cu.gtl",
+      "custom_hat_rev_a-F_Mask.gts",
+      "custom_hat_rev_a-F_Silkscreen.gto",
+      "custom_hat_rev_a-In1_Cu.g1",
+      "custom_hat_rev_a-In2_Cu.g2"
+    ],
+    "only_paste_layer_memberships_changed": true,
+    "primary_unchanged": true,
+    "command": [
+      "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+      "pcb",
+      "export",
+      "gerbers",
+      "--output",
+      "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\dnp-stencil-plot",
+      "--layers",
+      "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+      "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\work\\custom_hat_rev_a.kicad_pcb"
+    ],
+    "accepted": true,
+    "fabricator_accepted": false,
+    "manufacturing_released": false
+  },
+  "production_ready": false,
+  "assembly_view_policy": {
+    "source_pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+    "temporary_display_copy_removed": true,
+    "source_values_unchanged": true,
+    "pad_net_track_geometry_equal": true,
+    "display_policy": "In a disposable complete project copy,suppress values and duplicate reference fields; show any otherwise missing reference. Ref strings,body/pad geometry andDNP crosses retained. Use BOM for values/MPNs.",
+    "reference_display_changes": [
+      {
+        "reference": "R501",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "D301",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J402",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C303",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R502",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C305",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U501",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J403",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C301",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C306",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R304",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R303",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C304",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R305",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C323",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J401",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U301",
+        "view_action": "show otherwise missing reference at component origin"
+      },
+      {
+        "reference": "R302",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R301",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J802",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C328",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J301",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "TP803",
+        "view_action": "move Fab label above test pad to avoid board-name overlap; source unchanged"
+      },
+      {
+        "reference": "C302",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "L301",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J101",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C317",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C319",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C330",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J502",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C325",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C308",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U701",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R703",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R308",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C320",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C310",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J506",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C321",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C322",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R310",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C327",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C313",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U803",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C318",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R311",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R309",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C315",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C326",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U702",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J504",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "R312",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C329",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C312",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U802",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C309",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "U801",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "C311",
+        "view_action": "use existing fabrication reference text"
+      },
+      {
+        "reference": "J505",
+        "view_action": "use existing fabrication reference text"
+      }
+    ],
+    "front_view_mirrored": false,
+    "back_view_mirrored": true,
+    "csv_coordinates_mirrored_again": false,
+    "commands": [
+      [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "export",
+        "svg",
+        "--layers",
+        "F.Fab,F.Silkscreen,Edge.Cuts",
+        "--crossout-DNP-footprints-on-fab-layers",
+        "--mode-single",
+        "--fit-page-to-board",
+        "--exclude-drawing-sheet",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\rev_a\\production-20261031-stencil-review\\assembly-front.svg",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\stencil-and-release-20261031\\assembly-display-only-q92wol8u\\custom_hat_rev_a.kicad_pcb"
+      ],
+      [
+        "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+        "pcb",
+        "export",
+        "svg",
+        "--layers",
+        "B.Fab,B.Silkscreen,Edge.Cuts",
+        "--crossout-DNP-footprints-on-fab-layers",
+        "--mode-single",
+        "--fit-page-to-board",
+        "--exclude-drawing-sheet",
+        "--output",
+        "E:\\Projects\\duck-robot\\hardware\\custom_hat\\rev_a\\production-20261031-stencil-review\\assembly-back.svg",
+        "--mirror",
+        "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\stencil-and-release-20261031\\assembly-display-only-q92wol8u\\custom_hat_rev_a.kicad_pcb"
+      ]
+    ],
+    "manufacturing_released": false
+  }
+}

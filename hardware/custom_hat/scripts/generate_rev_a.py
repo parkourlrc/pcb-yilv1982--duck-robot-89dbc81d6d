@@ -127,7 +127,9 @@ class Sheet:
             self.lib.append(symbol)
         symbol_id = uid(self.name + ":" + reference)
         footprint_prop = next((node[2] for node in children(symbol, "property") if node[1] == "Footprint"), "")
-        instance = ["symbol", ["lib_id", q(lib_id)], ["at", x, y, 0], ["unit", 1], ["in_bom", "yes"], ["on_board", "yes"], ["dnp", "yes" if dnp else "no"], ["uuid", symbol_id], prop("Reference", reference, x, y - 5.08), prop("Value", value, x, y - 2.54), prop("Footprint", footprint if footprint is not None else footprint_prop, x, y, True)]
+        reference_position = (x + 5.08, y - 1.27) if lib_id in {"Device:C", "Device:R", "Device:L"} else (x, y - 5.08)
+        value_position = (x + 5.08, y + 1.27) if lib_id in {"Device:C", "Device:R", "Device:L"} else (x, y - 2.54)
+        instance = ["symbol", ["lib_id", q(lib_id)], ["at", x, y, 0], ["unit", 1], ["in_bom", "yes"], ["on_board", "yes"], ["dnp", "yes" if dnp else "no"], ["uuid", symbol_id], prop("Reference", reference, *reference_position), prop("Value", value, *value_position), prop("Footprint", footprint if footprint is not None else footprint_prop, x, y, True)]
         for sub in children(symbol, "symbol"):
             for pin in children(sub, "pin"):
                 number = str(first(pin, "number")[1])
@@ -253,7 +255,7 @@ def interfaces():
     return [radxa, power, ttl, imu, audio, test]
 
 
-def main():
+def legacy_generate_unchecked():
     OUT.mkdir(parents=True, exist_ok=True)
     sheets = interfaces()
     root = Sheet(PROJECT, "Custom HAT Rev A - functional schematic")
@@ -269,6 +271,10 @@ def main():
     (OUT / (PROJECT + ".kicad_pro")).write_text(json.dumps({"meta":{"filename":PROJECT + ".kicad_pro","version":1},"net_settings":{"classes":[{"name":"Default","clearance":0.2,"track_width":0.25,"via_diameter":0.6,"via_drill":0.3}]},"schematic":{}}, indent=2), encoding="utf-8")
     (OUT / "net-contract.json").write_text(json.dumps({"date":"2026-10-28","pins":[pin for sheet in sheets for pin in sheet.contract]}, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Generated {len(sheets)} functional sheets in {OUT}")
+
+
+def main():
+    raise SystemExit("Deprecated: full regeneration would overwrite the reviewed HAT. Use an isolated pipeline workspace and scoped edits.")
 
 
 if __name__ == "__main__":

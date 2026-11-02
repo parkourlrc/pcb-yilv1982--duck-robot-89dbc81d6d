@@ -4,7 +4,7 @@ Microduck 小型双足机器人的个人复刻项目。**当前主线为方案 C
 
 进度流水、硬件到位记录与当前待办见 [PROGRESS.md](./PROGRESS.md)。
 
-**HAT 自主设计（2026-10-30）**：局部修复和生产审查已完成；普通DRC为0，仍有U701.7的+3V3未连接、101项一致性提示及MPN/fiducial/工艺/热/回流缺口，仍不可投板。最终审查见[kicad-happy review](./docs/references/hat-simulation-tools-20261029/kicad-happy-review-20261030/review.md)，生产审查包见[production-20261030-review](./hardware/custom_hat/rev_a/production-20261030-review/README.md)。
+**HAT自主设计**：现行Rev A.1已修J502标准针序和C307 DNP钢网，原生检查及kicad-happy同版复审完成；此前电源、codec复位、软件适配与音频路由工作保留。**[用户确认，2026-10-31] 尚未送厂、没有新板实物。** 制造/装配接受与供电条件仍待落实，实际功能留待制造后按[首板草案](./docs/specs/20261028-custom-hat/first-article-a1.md)验证。当前是送审资料，不是投板或上电放行。最新源与包集中在[Rev A.1入口](./hardware/custom_hat/rev_a/README.md)，剩余项见[问题矩阵](./docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md)；旧Rev A的J502不能按新针序使用。
 
 **项目规则与目录导航：[AGENTS.md](./AGENTS.md)**。协作前先读；调研/图片归档、中文沟通、过期信息清理及自动提交推送按此执行。
 

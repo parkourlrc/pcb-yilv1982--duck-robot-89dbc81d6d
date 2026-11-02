@@ -1,0 +1,83 @@
+{
+  "release_url": "https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/tag/6.1.84-10",
+  "tag": "6.1.84-10",
+  "kernel": "6.1.84-10-rk2410-nocsf",
+  "package_commit": "317ea1500020f5c3e7ecdebc77a672146a968ace",
+  "kernel_source_commit": "e6d12a77c8bc0ea6decbd3e4604ec131d4032c30",
+  "asset_url": "https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-10/linux-image-6.1.84-10-rk2410-nocsf_6.1.84-10_arm64.deb",
+  "cached_package": "C:\\Users\\yilv\\AppData\\Local\\duck-robot-tools\\radxa-kernel\\6.1.84-10\\linux-image-6.1.84-10-rk2410-nocsf_6.1.84-10_arm64.deb",
+  "package_size_bytes": 26889672,
+  "sha256": "9c685954f65735a2ee4f778984ff59014313a4b5a04b1e8a7dd7e1687cc9707b",
+  "upstream_digest": "sha256:9c685954f65735a2ee4f778984ff59014313a4b5a04b1e8a7dd7e1687cc9707b",
+  "upstream_digest_verified": true,
+  "extracted": [
+    {
+      "member": "boot/config-6.1.84-10-rk2410-nocsf",
+      "file": "runtime-config-6.1.84-10-rk2410-nocsf",
+      "bytes": 239254,
+      "sha256": "33ddb3ce2cd244161966fb59143e3c05e0fdd9ee25e894234588cd4e8ecd6260"
+    },
+    {
+      "member": "lib/modules/6.1.84-10-rk2410-nocsf/modules.alias",
+      "file": "runtime-modules.alias",
+      "bytes": 411756,
+      "sha256": "bfe336ad1a8d2bd038d178e6aaac690ad4c82f8699f9422cf095e279b7a84d6b"
+    },
+    {
+      "member": "lib/modules/6.1.84-10-rk2410-nocsf/modules.builtin",
+      "file": "runtime-modules.builtin",
+      "bytes": 21675,
+      "sha256": "35ec25eff3cf355e8d4515bbbc13a80d06a24aa724f798c9694e208e7b2eccd4"
+    },
+    {
+      "member": "lib/modules/6.1.84-10-rk2410-nocsf/modules.dep",
+      "file": "runtime-modules.dep",
+      "bytes": 92760,
+      "sha256": "e7aa32e41bcb2dbfcac8cf7a11ccdbf3850e1f2b4b378b3c19ba1d94be0255a9"
+    },
+    {
+      "member": "usr/lib/linux-image-6.1.84-10-rk2410-nocsf/rockchip/rk3566-radxa-zero-3e.dtb",
+      "file": "runtime-rk3566-radxa-zero-3e.dtb",
+      "bytes": 161702,
+      "sha256": "2d619eaee2c287be2a8d4fd364b20b87fdbbe0a9e2b5e76caed88db5283afd76"
+    },
+    {
+      "member": "usr/lib/linux-image-6.1.84-10-rk2410-nocsf/rockchip/rk3566-radxa-zero-3w-aic8800ds2.dtb",
+      "file": "runtime-rk3566-radxa-zero-3w-aic8800ds2.dtb",
+      "bytes": 163428,
+      "sha256": "c48c04245869d6e8c1bc21608e450a209e08501bdfd8859277693a072de3ad9b"
+    },
+    {
+      "member": "usr/lib/linux-image-6.1.84-10-rk2410-nocsf/rockchip/rk3566-radxa-zero-3w-ap6212.dtb",
+      "file": "runtime-rk3566-radxa-zero-3w-ap6212.dtb",
+      "bytes": 163798,
+      "sha256": "b651b4bd8212abc7363af93f6e89175d41bd515feba9978ce84d03890d19cd4b"
+    }
+  ],
+  "selected_config": {
+    "CONFIG_I2C_CHARDEV": "CONFIG_I2C_CHARDEV=y",
+    "CONFIG_I2C_RK3X": "CONFIG_I2C_RK3X=y",
+    "CONFIG_SND_SOC_ROCKCHIP_I2S": "CONFIG_SND_SOC_ROCKCHIP_I2S=y",
+    "CONFIG_SND_SOC_ROCKCHIP_I2S_TDM": "CONFIG_SND_SOC_ROCKCHIP_I2S_TDM=y",
+    "CONFIG_SND_SOC_ROCKCHIP_I2S_TDM_MULTI_LANES": "# CONFIG_SND_SOC_ROCKCHIP_I2S_TDM_MULTI_LANES is not set",
+    "CONFIG_SND_SOC_TLV320AIC3X_I2C": "# CONFIG_SND_SOC_TLV320AIC3X_I2C is not set",
+    "CONFIG_SND_SOC_TLV320AIC3X_SPI": "# CONFIG_SND_SOC_TLV320AIC3X_SPI is not set",
+    "CONFIG_SND_SIMPLE_CARD_UTILS": "CONFIG_SND_SIMPLE_CARD_UTILS=m",
+    "CONFIG_SND_SIMPLE_CARD": "CONFIG_SND_SIMPLE_CARD=m",
+    "CONFIG_BMI088_ACCEL": "# CONFIG_BMI088_ACCEL is not set",
+    "CONFIG_BMG160": "# CONFIG_BMG160 is not set",
+    "CONFIG_BMI160_I2C": "# CONFIG_BMI160_I2C is not set",
+    "CONFIG_BMI160_SPI": "# CONFIG_BMI160_SPI is not set"
+  },
+  "relevant_modules": [
+    "lib/modules/6.1.84-10-rk2410-nocsf/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-i2s-audio.ko.xz",
+    "lib/modules/6.1.84-10-rk2410-nocsf/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp-i2s-audio.ko.xz",
+    "lib/modules/6.1.84-10-rk2410-nocsf/kernel/sound/soc/generic/snd-soc-simple-card-utils.ko.xz",
+    "lib/modules/6.1.84-10-rk2410-nocsf/kernel/sound/soc/generic/snd-soc-simple-card.ko.xz"
+  ],
+  "total_module_files": 1204,
+  "installed_or_executed": false,
+  "current_runtime_verified": false,
+  "recorded_runtime_date": "2026-10-24",
+  "limit": "Official release artifact with the recorded kernel version; does not prove the board still runs it or uses unchanged DT/config"
+}

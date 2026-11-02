@@ -1,0 +1,111 @@
+{
+  "source_pcb_sha256": "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a",
+  "plot_copy_pcb_sha256": "fe1ddad02ca3cbc5519461813cd8912c5b76d35bd0213fa7ac65711bac841e5a",
+  "plot_work": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\work",
+  "policy": "Exclude DNP pad apertures from stencil only; keep original PCB copper/mask/pads",
+  "dnp_references": [
+    "C307"
+  ],
+  "changed_pads": [
+    {
+      "reference": "C307",
+      "pin": "1",
+      "uuid": "9efd4baa-485e-4bac-aef2-c34bfc78dfff",
+      "original_layers": [
+        "layers",
+        "F.Cu",
+        "F.Mask",
+        "F.Paste"
+      ],
+      "removed_layers": [
+        "F.Paste"
+      ]
+    },
+    {
+      "reference": "C307",
+      "pin": "2",
+      "uuid": "b56e3f0b-11da-4165-9046-29ea73fadd48",
+      "original_layers": [
+        "layers",
+        "F.Cu",
+        "F.Mask",
+        "F.Paste"
+      ],
+      "removed_layers": [
+        "F.Paste"
+      ]
+    }
+  ],
+  "changed_files": [
+    "custom_hat_rev_a-F_Paste.gtp"
+  ],
+  "comparisons": [
+    {
+      "file": "custom_hat_rev_a-F_Paste.gtp",
+      "before_sha256": "21bb4e96b354296903011ed934f9c81a3dac58ed352233e365440fc9914f8d4f",
+      "plotted_sha256": "9401f2b75e78c1f00a58d6fc6b605208244a96492425089d4e9cd87bb84257c7",
+      "before_flash_count": 61,
+      "after_flash_count": 59,
+      "removed_flashes": [
+        {
+          "reference": "C307",
+          "x_mm": 157.525,
+          "cam_y_mm": -114.0,
+          "aperture": "RoundRect,0.250000X-0.325000X-0.650000X0.325000X-0.650000X0.325000X0.650000X-0.325000X0.650000X0",
+          "count": 1
+        },
+        {
+          "reference": "C307",
+          "x_mm": 160.475,
+          "cam_y_mm": -114.0,
+          "aperture": "RoundRect,0.250000X-0.325000X-0.650000X0.325000X-0.650000X0.325000X0.650000X-0.325000X0.650000X0",
+          "count": 1
+        }
+      ],
+      "non_dnp_apertures_unchanged": true,
+      "macro_definitions_unchanged": true,
+      "changed_geometry": true,
+      "final_sha256": "9401f2b75e78c1f00a58d6fc6b605208244a96492425089d4e9cd87bb84257c7"
+    },
+    {
+      "file": "custom_hat_rev_a-B_Paste.gbp",
+      "before_sha256": "3347479115f3c9fcc6f142812a3c742f2749e014913f4fe8949dfaa78b67bf4a",
+      "plotted_sha256": "168e44414b424fd05e704dc5e543528b12c0980e827a8efc3b246683c81dce9f",
+      "before_flash_count": 128,
+      "after_flash_count": 128,
+      "removed_flashes": [],
+      "non_dnp_apertures_unchanged": true,
+      "macro_definitions_unchanged": true,
+      "changed_geometry": false,
+      "final_sha256": "3347479115f3c9fcc6f142812a3c742f2749e014913f4fe8949dfaa78b67bf4a"
+    }
+  ],
+  "non_paste_layers_equal_excluding_creation_metadata": true,
+  "non_paste_checked_files": [
+    "custom_hat_rev_a-B_Cu.gbl",
+    "custom_hat_rev_a-B_Mask.gbs",
+    "custom_hat_rev_a-B_Silkscreen.gbo",
+    "custom_hat_rev_a-Edge_Cuts.gm1",
+    "custom_hat_rev_a-F_Cu.gtl",
+    "custom_hat_rev_a-F_Mask.gts",
+    "custom_hat_rev_a-F_Silkscreen.gto",
+    "custom_hat_rev_a-In1_Cu.g1",
+    "custom_hat_rev_a-In2_Cu.g2"
+  ],
+  "only_paste_layer_memberships_changed": true,
+  "primary_unchanged": true,
+  "command": [
+    "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+    "pcb",
+    "export",
+    "gerbers",
+    "--output",
+    "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\dnp-stencil-plot",
+    "--layers",
+    "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+    "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T122059Z-9180cb39\\work\\custom_hat_rev_a.kicad_pcb"
+  ],
+  "accepted": true,
+  "fabricator_accepted": false,
+  "manufacturing_released": false
+}

@@ -1,0 +1,70 @@
+{
+  "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T064310Z-2ace9d8b\\work",
+  "primary_source_sha256": "a65f2ad8cab72721944b670dbdb6505533ae60988ce5bb3c6be51be81b3ab0a1",
+  "records": [
+    {
+      "phase": "broad_zone_match",
+      "pcb_sha256": "20abff0e44e48b5126ec37f174fea7ca93847b60b2b682cf961855f390d663c0",
+      "rules_text": "(version 1)\n(rule \"prototype fine geometry\"\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"BMI088 fine pitch\"\n  (condition \"A.insideCourtyard('U501')\")\n  (constraint clearance (min 0.12mm))\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"Manufacturing through-via annular ring\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through'\")\n  (constraint annular_width (min 0.125mm))\n)\n(rule \"Qualified codec small mechanical via\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through' && A.NetName == '+3V3' && A.insideCourtyard('U701') && A.Diameter == 0.35mm && A.Hole == 0.15mm\")\n  (constraint annular_width (min 0.10mm))\n  (constraint via_diameter (min 0.35mm))\n  (constraint hole_size (min 0.15mm))\n)\n(rule \"Mechanical NPTH copper clearance\"\n  (condition \"A.Type == 'Pad' && !A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.25mm))\n)\n(rule \"Mechanical via hole to copper\"\n  (condition \"A.Type == 'Via'\")\n  (constraint hole_clearance (min 0.20mm))\n)\n(rule \"Plated pad hole to copper\"\n  (condition \"A.Type == 'Pad' && A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.30mm))\n)\n",
+      "hole_edge_to_zone_mm": {
+        "F.Cu": 0.2205,
+        "In1.Cu": 0.2205,
+        "B.Cu": 0.2205
+      },
+      "drc_report": "scope-reproduction-broad_zone_match.json",
+      "violations": 0,
+      "commands": [
+        {
+          "name": "scope-reproduction-broad_zone_match",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\npth-clearance-20261031\\scope-reproduction-broad_zone_match.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T064310Z-2ace9d8b\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "phase": "zone_excluded",
+      "pcb_sha256": "0e83f8467cb660e922dbf828165b7dd3d4ddab9be6280d4cec0268144a8d0c21",
+      "rules_text": "(version 1)\n(rule \"prototype fine geometry\"\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"BMI088 fine pitch\"\n  (condition \"A.Type != 'Zone' && A.insideCourtyard('U501')\")\n  (constraint clearance (min 0.12mm))\n  (constraint annular_width (min 0.09mm))\n  (constraint hole_clearance (min 0.15mm))\n)\n(rule \"Manufacturing through-via annular ring\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through'\")\n  (constraint annular_width (min 0.125mm))\n)\n(rule \"Qualified codec small mechanical via\"\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through' && A.NetName == '+3V3' && A.insideCourtyard('U701') && A.Diameter == 0.35mm && A.Hole == 0.15mm\")\n  (constraint annular_width (min 0.10mm))\n  (constraint via_diameter (min 0.35mm))\n  (constraint hole_size (min 0.15mm))\n)\n(rule \"Mechanical NPTH copper clearance\"\n  (condition \"A.Type == 'Pad' && !A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.25mm))\n)\n(rule \"Mechanical via hole to copper\"\n  (condition \"A.Type == 'Via'\")\n  (constraint hole_clearance (min 0.20mm))\n)\n(rule \"Plated pad hole to copper\"\n  (condition \"A.Type == 'Pad' && A.isPlated() && A.Hole_Size_X > 0mm\")\n  (constraint hole_clearance (min 0.30mm))\n)\n",
+      "hole_edge_to_zone_mm": {
+        "F.Cu": 0.3005,
+        "In1.Cu": 0.3005,
+        "B.Cu": 0.3005
+      },
+      "drc_report": "scope-reproduction-zone_excluded.json",
+      "violations": 0,
+      "commands": [
+        {
+          "name": "scope-reproduction-zone_excluded",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\docs\\references\\hat-simulation-tools-20261029\\npth-clearance-20261031\\scope-reproduction-zone_excluded.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T064310Z-2ace9d8b\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ]
+    }
+  ],
+  "original_broad_stage_sha256": "20abff0e44e48b5126ec37f174fea7ca93847b60b2b682cf961855f390d663c0",
+  "reproduced_original_hash": true
+}

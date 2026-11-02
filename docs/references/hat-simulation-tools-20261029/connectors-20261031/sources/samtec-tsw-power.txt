@@ -1,0 +1,1801 @@
+---PDF PAGE 1---
+ 
+ 
+ 
+Project Number:  
+Tracking Code: TC0838--1970_ReportRev1 
+Requested by: Bryon Saylor 
+Date: 1/19/2009 
+Product Rev: BH 
+Part #: SSW-150-01-G-D/TSW-150-07-L-D 
+Lot #: 6/24/2008 
+Tech: Tony Wagoner 
+Eng: Dave Scopelliti 
+Part description: SSW/TSW 
+Qty to test: 25 
+Test Start: 12/09/2009 
+Test Completed: 1/2/2009 
+ 
+Power Test Template 11708 (MailMerge) 
+Page 1 of 21 
+1/19/2009 
+ 
+ 
+SAMTEC POWER CHARACTERIZATION 
+ 
+ 
+ 
+ 
+ 
+PART DESCRIPTION 
+ 
+SSW-150-01-G-D 
+  
+Mated with 
+ 
+TSW-150-07-L-D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 2---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+Page 2 of 21 
+1/19/2009 
+ 
+ 
+CERTIFICATION 
+ 
+ 
+All instruments and measuring equipment were calibrated to National Institute for Standards and Technology (NIST) 
+traceable standards according to IS0 10012-l and ANSI/NCSL 2540-1, as applicable. 
+ 
+All contents contained herein are the property of Samtec. No portion of this report, in part or in full shall be 
+reproduced without prior written approval of Samtec. 
+ 
+SCOPE 
+1. Temperature Rise/Current Carrying Capacity 
+1.1. To determine the amount of current the device under test (DUT) can safely carry over the operating 
+temperature range of the DUT.   
+1.2. Contact loading will also be addressed in this document which will determine how much current can be 
+carried as the number of energized contacts is varied. 
+ 
+2. Current Cycling 
+2.1. To determine the performance of the device under test (DUT) when subjected to the power-on/power-off 
+cycling that heats and cools the DUT in normal everyday use.   
+2.2. Contact loading will set to 100% throughout the test. 
+ 
+APPLICABLE DOCUMENTS 
+ 
+Standards:  EIA Publication 364-70 Temperature Rise 
+ 
+EIA Publication 364-06 Contact Resistance 
+ 
+EIA Publication 364-55 Current Cycling 
+ 
+TLPM-032 Current Carrying Capacity 
+ 
+TLPM-084 Current Cycling 
+ 
+IEC 512-3 Electromechanical Components for Electronic Equipment: Basic Testing Procedures 
+ 
+ 
+and Measuring Methods, Part 3: Current Carrying Capacity Tests 
+ 
+ 
+TEST SAMPLES AND PREPARATION 
+1) All materials shall be manufactured in accordance with the applicable product specification. 
+2) All test samples shall be identified and encoded to maintain traceability throughout the test sequences. 
+3) After soldering, the parts to be used shall be cleaned according to TLWI-0001. 
+4) All samples shall be visually inspected and cleaned as necessary. 
+5) Any additional preparation shall be noted in the individual test sequences. 
+6) Solder Information: Lead Free 
+7) Re-Flow Time/Temp: See accompanying profile. 
+8) All products designed to operate mounted on a printed circuits board shall be tested mounted to test boards in 
+accordance with EIA-364-70. 
+
+---PDF PAGE 3---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+3 of 21 
+1/19/2009 
+ 
+ 
+PREPARED TEST SAMPLE 
+ 
+ 
+Figure 1: Thermocouple placement shown; actual part not depicted. 
+ 
+9) The following loading configurations shall be tested for Temperature Rise/Current Carrying Capacity testing of 
+single row connector systems: 
+a. 
+One contact energized only 
+b. 
+Two contacts energized adjacent to each other 
+c. 
+Three contacts energized adjacent to each other 
+d. 
+Four contacts energized adjacent to each other 
+e. 
+All contacts energized 
+ 
+Test Condition as in 9.1 above 
+ 
+Indicates energized contacts 
+ 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+10) The following loading configurations shall be tested for Temperature Rise/Current Carrying Capacity testing of 
+two row connector systems: 
+a. 
+Two by One contact energized 
+b. 
+Two by Two contacts energized adjacent to each other 
+c. 
+Two by Three contacts energized adjacent to each other 
+d. 
+Two by Four contacts energized adjacent to each other 
+e. 
+All contacts energized 
+ 
+Test Condition as in 10.1 above 
+ 
+ 
+Indicates energized contacts 
+ 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+ 
+11) For Current Cycling, only 100 % loading will be tested. 
+
+---PDF PAGE 4---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+4 of 21 
+1/19/2009 
+ 
+ 
+OVEN PROFILE (Soldering Parts to Test Boards) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 5---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+5 of 21 
+1/19/2009 
+ 
+ 
+FLOWCHARTS 
+ 
+Current Carrying Capacity
+3 Mated Assemblies Each
+TEST
+GROUP A
+GROUP B
+GROUP C
+GROUP D
+GROUP E
+STEP
+3 Mated Assembies
+3 Mated Assembies
+3 Mated Assembies
+3 Mated Assembies
+3 Mated Assembies
+2 CONTACT POWERED
+4 CONTACTS POWERED
+6 CONTACTS POWERED
+8 CONTACTS POWERED
+ALL CONTACTS POWERED
+01
+CCC
+CCC
+CCC
+CCC
+CCC
+after derating 20% and based on 125° C
+CCC, Temp rise = EIA-364-70
+(TIN PLATING)  - Tabulate calculated current at RT, 65° C, 75° C and 95° C
+after derating 20% and based on 105° C
+(GOLD PLATING)  - Tabulate calculated current at RT, 85° C, 95° C and 115° C
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Current Cycling 
+GROUP A 
+TEST 
+8 Mated Assembies 
+STEP 
+ALL CONTACTS POWERED 
+01
+Current Cycle, 500 cycles at 
+125% of Rated current 
+Current Cycle = EIA 364-55, Condition "B", Method #4 
+Test at Current 125% of Rated Current 
+Measure at 45 minutes into ON time of cycle
+Measure Voltage Drop on 5 random contacts
+ 
+
+---PDF PAGE 6---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+6 of 21 
+1/19/2009 
+ 
+ 
+TEST PROCEDURES 
+ 
+TEMPERATURE RISE (Current Carrying Capacity, CCC): 
+ 
+1) Thermocouples shall be calibrated in accordance with Samtec documents; TLWI 0003, Thermocouple Welding 
+Procedure and TLWI 0005, Thermocouple Calibration 
+2) The thermocouples shall be placed at a location to sense the maximum temperature generated during testing. 
+3) Temperature stability shall be defined as the temperature at which three successive readings, 5 minutes apart, 
+differ not more than 1° C (computer controlled data acquisition). This is the Temperature Rise that the Current 
+Carrying Capacity and De-rating curves are based on. 
+4) The following loading configurations shall be tested (double for two row systems): 
+a. 
+One contact energized only 
+b. 
+Two contacts energized adjacent to each other 
+c. 
+Three contacts energized adjacent to each other 
+d. 
+Four contacts energized adjacent to each other 
+e. 
+All contacts energized 
+5) The following loading configurations shall be tested for Temperature Rise/Current Carrying Capacity testing of 
+two row connector systems: 
+a. 
+Two by One contact energized 
+b. 
+Two by Two contacts energized adjacent to each other 
+c. 
+Two by Three contacts energized adjacent to each other 
+d. 
+Two by Four contacts energized adjacent to each other 
+e. 
+All contacts energized 
+6) Three samples shall be tested for each of the above configurations for a total of eighteen assemblies. 
+7) Temperature Rise measurements shall be made at 5 different current levels yielding temperature rises in the 10 to 
+70°C range. 
+8) The base curve for the Current Rating chart will be derived from the average (maximum) value of three test 
+specimens in accordance with IEC 512-3, Test 5b. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Part No. 
+SSW-150-01-G-D 
+Mating Part No. 
+TSW-150-07-L-D 
+Sample Size 
+15 
+Technician 
+Tony Wagoner 
+Start Date 
+12/09/2008 
+Complete Date 
+12/09/2008 
+Room Ambient 
+24.5°C 
+Relative Humidity 
+27% 
+Equipment ID#: MO-04, PS-07, TC111307-(001 - 017) 
+
+---PDF PAGE 7---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+7 of 21 
+1/19/2009 
+ 
+ 
+ 
+CURRENT CYCLING 
+ 
+1. Samples shall be prepared and tested as above (paragraph 14.5). 
+2. Current Cycling shall be performed in accordance with EIA-364-55, Test Condition 
+3. Testing shall be as follows: 
+3.1. 
+Test Current: 
+2.6(125% of 30°C Rating) 
+3.2. 
+“ON” Time: 
+45 Minutes 
+3.3. 
+“OFF” Time: 
+15 Minutes 
+3.4. 
+Number of Cycles: 
+500 
+3.5. 
+Measurements: 
+40 minutes into ON cycle 
+3.5.1. 
+Temperature 
+3.5.2. 
+Voltage Drop/Contact Resistance 
+4. Temperature vs. Number of Cycles and Voltage Drop vs. Number of Cycles shall be measured and recorded. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Part No. 
+SSW-150-01-G-D 
+Mating Part No. 
+TSW-150-07-L-D 
+Sample Size 
+8 
+Technician 
+Tony Wagoner 
+Start Date 
+12/12/2008 
+Complete Date 
+01/2/2009 
+Room Ambient 
+25.7°C 
+Relative Humidity 
+25% 
+Equipment ID#: PS-01, MO-08, TC111307-(041 - 059) 
+
+---PDF PAGE 8---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+8 of 21 
+1/19/2009 
+ 
+ 
+TEST RESULTS 
+ 
+CURRENT CARRYING CAPACITY (CCC) RESULTS 
+• 
+There was no evidence of physical damage to the test samples as tested. 
+• 
+The following is a summary of the observed data: 
+ 
+  Temperature Rise, CCC at a 20% de-rating 
+• 
+CCC for a  30°C Temperature Rise-----------------------5.7A per contact with 2 contacts (2 x 1) powered 
+ 
+• 
+CCC for a  30°C Temperature Rise-----------------------4.0A per contact with 4 contacts (2 x 2) powered 
+ 
+• 
+CCC for a  30°C Temperature Rise-----------------------3.5A per contact with 6 contacts (2 x 3) powered 
+ 
+• 
+CCC for a  30°C Temperature Rise-----------------------3.3A per contact with 8 contacts (2 x 4) powered 
+ 
+• 
+CCC for a  30°C Temperature Rise-----------------------2.1A per contact with 100 contacts (2 x 50) powered 
+ 
+ 
+ 
+CURRENT CYCLING RESULTS 
+ 
+ Test Condition:    500 Cycles, 45 minutes ON and 15 minutes OFF 
+• 
+Test Current ------------------------------------------------ 2.6 Amps 
+ 
+• 
+Contact Resistances, Measured 40 minutes into the FIRST and LAST ON cycle 
+o 
+Initial 
+ 
+Min --------------------------------------- 3.45 mOhms 
+ 
+Max--------------------------------------- 4.39 mOhms 
+o 
+Final 
+ 
+Min --------------------------------------- 3.42 mOhms 
+ 
+Max--------------------------------------- 4.33 mOhms 
+ 
+• 
+Temperature Change, Measured 40 minutes into the FIRST and  LAST ON cycle 
+o 
+Initial Temperature Change ------------------34.8°C 
+o 
+Final Temperature Change -------------------34.8°C 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 9---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+9 of 21 
+1/19/2009 
+ 
+ 
+TEST DATA 
+ 
+CONTACT RESISTANCE @ RATED CURRENT 
+ 
+The following data represents the Voltage drop and Contact Resistance at Rated Current for the 100% energized 
+samples: 
+ 
+ 
+Contact Resistance @ Rated Current
+(milli-Ohms)
+3
+3.25
+3.5
+3.75
+4
+4.25
+4.5
+4.75
+5
+5.25
+5.5
+5.75
+6
+1.5
+2
+2.5
+3
+3.5
+Current (Amps)
+Resistance (mOhms)
+Max
+  
+ 
+ 
+ 
+CONTACT RESISTANCE DATA 
+ALL CONTACTS ENERGIZED 
+(mΩ) 
+ 
+TEST CURRENT 
+AMPS 
+1.57 
+2.22 
+2.72 
+3.14 
+3.52 
+Min 
+3.4 
+3.45 
+3.49 
+3.51 
+3.51 
+Max 
+4.27 
+4.34 
+4.41 
+4.44 
+4.45 
+Avg 
+3.66 
+3.71 
+3.75 
+3.77 
+3.77 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 10---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+Page 10 of 21 
+1/19/2009 
+ 
+ 
+TEST DATA 
+ 
+VOLTAGE DROP @ RATED CURRENT 
+ 
+The following data represents the Voltage drop at Rated Current for the 100% energized samples: 
+ 
+ 
+ 
+Voltage Drop @ Rated Current
+(milli-Volts)
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+1.5
+2
+2.5
+3
+3.5
+Current (Amps)
+Voltage Drop (milli-Volts)
+Max
+ 
+ 
+ 
+ 
+VOLTAGE DROP DATA 
+ALL CONTACTS ENERGIZED 
+(mV) 
+ 
+TEST CURRENT 
+AMPS 
+1.57 
+2.22 
+2.72 
+3.14 
+3.52 
+Min 
+5.34 
+7.67 
+9.49 
+11.02 
+12.35 
+Max 
+6.7 
+9.64 
+11.99 
+13.94 
+15.67 
+Avg 
+5.9 
+8.47 
+10.5 
+12.2 
+13.69 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 11---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+11 of 21 
+1/19/2009 
+ 
+ 
+CURRENT CARRYING CAPACITY DATA 
+ 
+TC0838--1970
+2 (2x1) Contacts in Linear series
+Part Numbers:SSW-150-01-G-D and TSW-150-07-L-D
+13.3
+13.3
+10.6
+10.6
+8.3
+8.3
+6.6
+6.6
+7.1
+7.1
+5.7
+5.7
+4.0
+4.0
+3.2
+3.2
+0.0
+2.0
+4.0
+6.0
+8.0
+10.0
+12.0
+14.0
+20
+40
+60
+80
+100
+120
+140
+Ambient Temperature,  ° C
+Maximum Current, Amp per Contact
+Base Curve
+Derated 20 %
+RT Peak Amp
+RT Derated Amp
+Measured Current
+85 ° C
+85  ° C Peak Amp
+85  ° C Derated Amp
+95  ° C
+95  ° C Peak Amp
+95  ° C Derated Amp
+Limit
+115  ° C Peak Amp
+115  ° C Derated Amp
+115  ° C
+Room Temp
+125° C
+Limit
+Useful    Range
+Room Temp= 24.5 C
+Current Rating per Contact (30 Deg. Rise, 20% Derated)  =  5.7 Amps
+ 
+ 
+TEMPERATURE RISE DATA 
+TWO CONTACT ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+TEST CURRENT 
+AMPS 
+3.85 
+5.44 
+6.67 
+7.7 
+8.61 
+Sample 1 
+4.8 
+17.9 
+26.3 
+34.5 
+41.9 
+Sample 2 
+5.3 
+20.7 
+30.2 
+40.2 
+49.6 
+Sample 3 
+3.9 
+15.4 
+22.7 
+30.5 
+38.1 
+ 
+  
+  
+  
+  
+  
+Min 
+3.9 
+15.4 
+22.7 
+30.5 
+38.1 
+Max 
+5.3 
+20.7 
+30.2 
+40.2 
+49.6 
+Avg 
+4.67 
+18 
+26.4 
+35.07 
+43.2 
+ 
+ 
+ 
+ 
+Indicates energized contacts 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+ 
+Double Row 
+Configuration 
+
+---PDF PAGE 12---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+12 of 21 
+1/19/2009 
+ 
+TC0838--1970
+4 (2x2) Contacts in Linear series
+Part Numbers:SSW-150-01-G-D and TSW-150-07-L-D
+9.3
+9.3
+7.5
+7.5
+5.8
+5.8
+4.6
+4.6
+5.0
+5.0
+4.0
+4.0
+2.7
+2.7
+2.2
+2.2
+0.0
+2.0
+4.0
+6.0
+8.0
+10.0
+20
+40
+60
+80
+100
+120
+140
+Ambient Temperature,  ° C
+Maximum Current, Amp per Contact
+Base Curve
+Derated 20 %
+RT Peak Amp
+RT Derated Amp
+Measured Current
+85 ° C
+85  ° C Peak Amp
+85  ° C Derated Amp
+95  ° C
+95  ° C Peak Amp
+95  ° C Derated Amp
+Limit
+115  ° C Peak Amp
+115  ° C Derated Amp
+115  ° C
+Room Temp
+125° C
+Limit
+Useful    Range
+Room Temp= 24.6 C
+Current Rating per Contact (30 Deg. Rise, 20% Derated)  = 4.0 Amps
+ 
+ 
+TEMPERATURE RISE DATA 
+FOUR CONTACTS ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+TEST CURRENT 
+AMPS 
+2.57 
+3.63 
+4.45 
+5.14 
+5.74 
+Sample 4 
+9.2 
+17 
+25.1 
+32.4 
+40 
+Sample 5 
+9 
+16.8 
+24.4 
+32.3 
+39.7 
+Sample 6 
+8.7 
+16.6 
+24.7 
+31.8 
+38.8 
+ 
+  
+  
+  
+  
+  
+Min 
+8.7 
+16.6 
+24.4 
+31.8 
+38.8 
+Max 
+9.2 
+17 
+25.1 
+32.4 
+40 
+Avg 
+8.97 
+16.8 
+24.73 
+32.17 
+39.5 
+ 
+ 
+ 
+ 
+ 
+ 
+Indicates energized contacts 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+ 
+ 
+
+---PDF PAGE 13---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+13 of 21 
+1/19/2009 
+ 
+TC0838--1970
+6 (2x3) Contacts in Linear series
+Part Numbers:SSW-150-01-G-D and TSW-150-07-L-D
+8.4
+8.4
+6.7
+6.7
+5.2
+5.2
+4.1
+4.1
+4.4
+4.4
+3.5
+3.5
+2.4
+2.4
+2.0
+2.0
+0.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+9.0
+10.0
+20
+40
+60
+80
+100
+120
+140
+Ambient Temperature,  ° C
+Maximum Current, Amp per Contact
+Base Curve
+Derated 20 %
+RT Peak Amp
+RT Derated Amp
+Measured Current
+85 ° C
+85  ° C Peak Amp
+85  ° C Derated Amp
+95  ° C
+95  ° C Peak Amp
+95  ° C Derated Amp
+Limit
+115  ° C Peak Amp
+115  ° C Derated Amp
+115  ° C
+Room Temp
+125° C
+Limit
+Useful    Range
+Room Temp= 24.6 C
+Current Rating per Contact (30 Deg. Rise, 20% Derated)  = 3.5 Amps
+ 
+ 
+TEMPERATURE RISE DATA 
+SIX CONTACTS ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+TEST CURRENT 
+AMPS 
+2.57 
+3.63 
+4.45 
+5.14 
+5.74 
+Sample 7 
+11.3 
+21.2 
+30.7 
+40.6 
+50 
+Sample 8 
+12 
+22.4 
+32.5 
+42.8 
+52.4 
+Sample 9 
+10 
+18.8 
+27.6 
+36.4 
+44.5 
+ 
+  
+  
+  
+  
+  
+Min 
+10 
+18.8 
+27.6 
+36.4 
+44.5 
+Max 
+12 
+22.4 
+32.5 
+42.8 
+52.4 
+Avg 
+11.1 
+20.8 
+30.27 
+39.93 
+48.97 
+ 
+ 
+ 
+ 
+ 
+ 
+Indicates energized contacts 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+ 
+
+---PDF PAGE 14---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+14 of 21 
+1/19/2009 
+ 
+TC0838--1970
+8 (2x4) Contacts in Linear series
+Part Numbers:SSW-150-01-G-D and TSW-150-07-L-D
+7.8
+7.8
+6.2
+6.2
+4.8
+4.8
+3.9
+3.9
+4.2
+4.2
+3.3
+3.3
+2.3
+2.3
+1.9
+1.9
+0.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+9.0
+20
+40
+60
+80
+100
+120
+140
+Ambient Temperature,  ° C
+Maximum Current, Amp per Contact
+Base Curve
+Derated 20 %
+RT Peak Amp
+RT Derated Amp
+Measured Current
+85 ° C
+85  ° C Peak Amp
+85  ° C Derated Amp
+95  ° C
+95  ° C Peak Amp
+95  ° C Derated Amp
+Limit
+115  ° C Peak Amp
+115  ° C Derated Amp
+115  ° C
+Room Temp
+125° C
+Limit
+Useful    Range
+Room Temp= 24.6 C
+Current Rating per Contact (30 Deg. Rise, 20% Derated)  = 3.3 Amps
+ 
+ 
+TEMPERATURE RISE DATA 
+EIGHT CONTACTS ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+TEST CURRENT 
+AMPS 
+2.57 
+3.63 
+4.45 
+5.14 
+5.74 
+Sample 10 
+12.7 
+24.7 
+36.2 
+47.7 
+58.3 
+Sample 11 
+11.7 
+22.3 
+32.5 
+43.1 
+52.8 
+Sample 12 
+11.9 
+22.7 
+33.4 
+44.4 
+54.8 
+ 
+  
+  
+  
+  
+  
+Min 
+11.7 
+22.3 
+32.5 
+43.1 
+52.8 
+Max 
+12.7 
+24.7 
+36.2 
+47.7 
+58.3 
+Avg 
+12.1 
+23.23 
+34.03 
+45.07 
+55.3 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Indicates energized contacts 
+ 
+Indicates thermocouple monitored, energized contacts 
+ 
+ 
+ 
+
+---PDF PAGE 15---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+15 of 21 
+1/19/2009 
+ 
+ 
+TC0838--1970
+100 (All Power) Contacts in Linear series
+Part Numbers:SSW-150-01-G-D and TSW-150-07-L-D
+5.1
+5.1
+4.1
+4.1
+3.1
+3.1
+2.5
+2.5
+2.6
+2.6
+2.1
+2.1
+1.4
+1.4
+1.1
+1.1
+0.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+20
+40
+60
+80
+100
+120
+140
+Ambient Temperature,  ° C
+Maximum Current, Amp per Contact
+Base Curve
+Derated 20 %
+RT Peak Amp
+RT Derated Amp
+Measured Current
+85 ° C
+85  ° C Peak Amp
+85  ° C Derated Amp
+95  ° C
+95  ° C Peak Amp
+95  ° C Derated Amp
+Limit
+115  ° C Peak Amp
+115  ° C Derated Amp
+115  ° C
+Room Temp
+125° C
+Limit
+Useful    Range
+Room Temp= 24.5 C
+Current Rating per Contact (30 Deg. Rise, 20% Derated)  = 2.1 Amps
+ 
+ 
+TEMPERATURE RISE DATA 
+ALL CONTACTS ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+TEST CURRENT 
+AMPS 
+1.57 
+2.22 
+2.72 
+3.14 
+3.52 
+Sample 13 
+12.3 
+23 
+32.8 
+41.8 
+50 
+Sample 14 
+12 
+22 
+31 
+39.2 
+47 
+Sample 15 
+12.9 
+24 
+34.4 
+44.3 
+53.3 
+ 
+  
+  
+  
+  
+  
+Min 
+12 
+22 
+31 
+39.2 
+47 
+Max 
+12.9 
+24 
+34.4 
+44.3 
+53.3 
+Avg 
+12.4 
+23 
+32.73 
+41.77 
+50.1 
+ 
+ 
+ 
+ 
+ 
+Indicates energized contacts 
+ 
+Indicates thermocouple monitored, energized contacts 
+
+---PDF PAGE 16---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+16 of 21 
+1/19/2009 
+ 
+ 
+ 
+CURRENT CYCLING VS. TEMPERATURE RISE
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+0
+100
+200
+300
+400
+500
+NUMBER OF CURRENT CYCLES
+TEMPERATURE RISE
+ (Degrees C above Ambient)
+Max Rise
+ 
+ 
+ 
+ 
+TEMPERATURE RISE DATA 
+ALL CONTACTS ENERGIZED 
+(Degrees Celsius above ambient) 
+ 
+ 
+INITIAL 
+50 CYCLES 
+100 CYCLES 
+200 CYCLES 
+500 CYCLES 
+Min 
+32.2 
+32.6 
+32.7 
+32.8 
+32.4 
+Max 
+37.4 
+37.3 
+37.3 
+37.4 
+37.3 
+Avg 
+34.8 
+34.8 
+34.8 
+34.9 
+34.8 
+ 
+ 
+ 
+
+---PDF PAGE 17---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+17 of 21 
+1/19/2009 
+ 
+ 
+ 
+  
+CURRENT CYCLING VS. CONTACT RESISTANCE
+3
+3.25
+3.5
+3.75
+4
+4.25
+4.5
+4.75
+5
+5.25
+5.5
+5.75
+6
+0
+100
+200
+300
+400
+500
+NUMBER OF CURRENT CYCLES
+CONTACT RESISTANCE @ RATED
+CURRENT (milli-Ohms)
+Max Res
+ 
+ 
+ 
+ 
+CONTACT RESISTANCE DATA 
+ALL CONTACTS ENERGIZED 
+(mΩ) 
+ 
+ 
+INITIAL 
+50 CYCLES 
+100 CYCLES 
+200 CYCLES 
+500 CYCLES 
+Min 
+3.45 
+3.42 
+3.41 
+3.41 
+3.42 
+Max 
+4.39 
+4.35 
+4.35 
+4.35 
+4.33 
+Avg 
+3.84 
+3.81 
+3.8 
+3.8 
+3.79 
+ 
+ 
+ 
+
+---PDF PAGE 18---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+18 of 21 
+1/19/2009 
+ 
+ 
+ 
+ 
+CURRENT CYCLING VS. VOLTAGE DROP
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+0
+100
+200
+300
+400
+500
+NUMBER OF CURRENT CYCLES
+VOLTAGE DROP @ RATED CURRENT (milli
+Volts)
+Max Volt
+ 
+ 
+ 
+ 
+VOLTAGE DROP DATA 
+ALL CONTACTS ENERGIZED 
+(MV) 
+ 
+ 
+INITIAL 
+50 CYCLES 
+100 CYCLES 
+200 CYCLES 
+500 CYCLES 
+Min 
+8.96 
+8.88 
+8.87 
+8.87 
+8.9 
+Max 
+11.41 
+11.32 
+11.31 
+11.3 
+11.27 
+Avg 
+9.98 
+9.9 
+9.88 
+9.87 
+9.86 
+ 
+
+---PDF PAGE 19---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+19 of 21 
+1/19/2009 
+ 
+ 
+EQUIPMENT AND CALIBRATION SCHEDULES 
+Equipment #: PS-01 
+Description: System Power Supply 
+Manufacturer:  Hewlett Packard 
+Model:  HP 6033A 
+Serial #:  (HP) 3329A-07330 
+Accuracy: See Manual  
+… Last Cal: 06/22/08, Next Cal: 06/22/09 
+ 
+Equipment #: PS-02 
+Description: System Power Supply, 0 - 20V/  0 - 30 amp, 200 Watts 
+Manufacturer:  Hewlett Packard 
+Model:  6033A 
+Serial #:  (HP) 2847A-04167 
+Accuracy: See Manual  
+… Last Cal: 03/08/2008, Next Cal: 03/08/2009 
+ 
+Equipment #: PS-03 
+Description: Power Supply, 50 amp 
+Manufacturer:  HP/Agilent 
+Model:  0-60V / 0 - 50 amps / 1000 Watts 
+Serial #:  2723A-02144 
+Accuracy: See Manual  
+… Last Cal: 06/22/2008, Next Cal: 06/22/09 
+ 
+Equipment #: PS-04 
+Description: 60 V, 50 A DC Power Supply - AutoRanging SO 
+Manufacturer:  Hewlett Packard / Agilent 
+Model:  AT-6032A 
+Serial #:  MY41001186 
+Accuracy: See Manual Current Cycle Chamber 2 - Lower Shelf 
+… Last Cal: 12/04/2008, Next Cal: 12/04/2009 
+ 
+Equipment #: PS-05 
+Description: 60 V, 50 A DC Power Supply - AutoRanging SO 
+Manufacturer:  Hewlett Packard / Agilent 
+Model:  AT-6032A 
+Serial #:  MY41001158 
+Accuracy: See Manual Current Cycle Chamber 2 - Lower Shelf 
+… Last Cal: 12/04/2008, Next Cal: 12/04/2009 
+ 
+
+---PDF PAGE 20---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+20 of 21 
+1/19/2009 
+ 
+Equipment #: PS-06 
+Description: 60 V, 50 A DC Power Supply - AutoRanging SO 
+Manufacturer:  Hewlett Packard / Agilent 
+Model:  AT-6032A 
+Serial #:  US35420827 
+Accuracy: See Manual Current Cycle Chamber 3 (This chamber only has 1 shelf) 
+… Last Cal: 10/25/2008, Next Cal: 10/25/2009 
+ 
+Equipment #: PS-07 
+Description: 20 V, 120 A DC Power Supply - AutoRanging SO/HPIB 
+Manufacturer:  Hewlett Packard / Agilent 
+Model:  AT-6031A 
+Serial #:  2721A00648 
+Accuracy: See Manual See Manual 
+… Last Cal: 10/25/2008, Next Cal: 10/25/2009 
+ 
+Equipment #: MO-02 
+Description: Multimeter /Data Acquisition System 
+Manufacturer:  Keithley 
+Model:  2700 
+Serial #:  0780546 
+Accuracy: See Manual  
+… Last Cal: 06/22/2008, Next Cal: 06/22/2009 
+ 
+Equipment #: PS-04 
+Description: 60 V, 50 A DC Power Supply - AutoRanging SO 
+Manufacturer:  Hewlett Packard / Agilent 
+Model:  AT-6032A 
+Serial #:  MY41001186 
+Accuracy: See Manual Current Cycle Chamber 2 - Lower Shelf 
+… Last Cal: 12/04/2008, Next Cal: 12/04/2009 
+ 
+Equipment #: MO-08 
+Description: Model 2750 Multimeter/Switch System (Integra Series) 
+Manufacturer:  Keithley 
+Model:  2750 
+Serial #:  WDC-875194 
+Accuracy: See Manual  
+… Last Cal: 10/25/2008, Next Cal: 10/27/2009 
+ 
+ 
+Equipment #: MO-08 
+Description: Model 2750 Multimeter/Switch System (Integra Series) 
+Manufacturer:  Keithley 
+Model:  2750 
+Serial #:  (HP) 3329A-07330 
+Accuracy: See Manual  
+… Last Cal: 10/25/2008, Next Cal: 10/27/2009 
+ 
+
+---PDF PAGE 21---
+TC0838-SSW-1970
+ 
+POWER INTEGRITY TEST 
+REPORT 
+INITIAL RELEASE
+ 
+Power Test Template 11708 (MailMerge) 
+21 of 21 
+1/19/2009 
+ 
+Equipment #: MO-09 
+Description: Model 2750 Multimeter/Switch System (Integra Series) 
+Manufacturer:  Keithley 
+Model:  2750 
+Serial #:  WDC-874817 
+Accuracy: See Manual  
+… Last Cal: 10/22/2008, Next Cal: 10/22/2009 
+ 
+Equipment #: TC111307-(001 - 017) 
+Description: CCC Chamber Thermocouples 
+Manufacturer:  Samtec 
+Model:   
+Serial #:  TC111307-(001 - 017) 
+Accuracy: +/- 1 Deg.  
+… Last Cal: 11/03/2008, Next Cal: 11/03/2009 
+ 
+Equipment #: TC111307-(041 - 059) 
+Description: Current Cycling Chamber #1 Thermcouples 
+Manufacturer:  Samtec 
+Model:   
+Serial #:  TC111307-(041 - 059) 
+Accuracy: +/- 1 Deg.  
+… Last Cal: 11/03/2008, Next Cal: 11/03/2009 
+ 
+Equipment #: TC010908-(060 - 077) 
+Description: Current Cycling Chamber # 2 Thermcouples 
+Manufacturer:  Samtec 
+Model:   
+Serial #:  TC010908-(060-077) 
+Accuracy: +/- 1 Deg.  
+… Last Cal: 11/03/2008, Next Cal: 11/03/2009 
+ 
+Equipment #: TC111307-(118 - 136) 
+Description: Current Cycling Chamber # 3 Thermcouples 
+Manufacturer:  Samtec 
+Model:   
+Serial #:  TC111307-(118 - 136) 
+Accuracy: +/- 1 Deg.  
+… Last Cal: 11/03/2008, Next Cal: 11/03/2009 
+ 
+Equipment #: TC120607-(101C - 109C), 110807-140 
+Description: Current Cycling Chamber # 4 Thermcouples 
+Manufacturer:  Samtec 
+Model:   
+Serial #:  TC120607-(101C - 109C), 110807-140 
+Accuracy: +/- 1 Deg.  
+… Last Cal: 12/06/2008 & 11/08/2008, Next Cal: 12/06/2009 & 11/08/2009
+ 

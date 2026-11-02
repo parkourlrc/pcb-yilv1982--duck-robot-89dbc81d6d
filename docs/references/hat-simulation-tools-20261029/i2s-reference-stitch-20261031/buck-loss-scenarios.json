@@ -1,0 +1,71 @@
+{
+  "source": "Diodes AP64350 DS41976 Rev5-2 p5: typical25C Rds(on) HS75mOhm/LS45mOhm",
+  "assumptions": "Nominal5.6uH,500kHz,4.984V, idealCCM; input6.6-8.4V is an analysis window, not a battery cutoff",
+  "limits": "Only a conduction-loss illustration; no guaranteed thermal bound; excludes switching/core/gate losses and temperature-dependent Rds. Datasheet45C/W is a reference-board condition, not measured for this board.",
+  "scenarios": [
+    {
+      "vin_v": 6.6,
+      "load_a": 1.0,
+      "nominal_duty": 0.7551515151515152,
+      "nominal_ripple_pp_a": 0.43583030303030296,
+      "typical_25c_conduction_only_w": 0.06872544955357565
+    },
+    {
+      "vin_v": 6.6,
+      "load_a": 2.0,
+      "nominal_duty": 0.7551515151515152,
+      "nominal_ripple_pp_a": 0.43583030303030296,
+      "typical_25c_conduction_only_w": 0.27168908591721197
+    },
+    {
+      "vin_v": 6.6,
+      "load_a": 3.5,
+      "nominal_duty": 0.7551515151515152,
+      "nominal_ripple_pp_a": 0.43583030303030296,
+      "typical_25c_conduction_only_w": 0.829839085917212
+    },
+    {
+      "vin_v": 7.4,
+      "load_a": 1.0,
+      "nominal_duty": 0.6735135135135135,
+      "nominal_ripple_pp_a": 0.581145945945946,
+      "typical_25c_conduction_only_w": 0.06704056051997014
+    },
+    {
+      "vin_v": 7.4,
+      "load_a": 2.0,
+      "nominal_duty": 0.6735135135135135,
+      "nominal_ripple_pp_a": 0.581145945945946,
+      "typical_25c_conduction_only_w": 0.2626567767361863
+    },
+    {
+      "vin_v": 7.4,
+      "load_a": 3.5,
+      "nominal_duty": 0.6735135135135135,
+      "nominal_ripple_pp_a": 0.581145945945946,
+      "typical_25c_conduction_only_w": 0.8006013713307809
+    },
+    {
+      "vin_v": 8.4,
+      "load_a": 1.0,
+      "nominal_duty": 0.5933333333333333,
+      "nominal_ripple_pp_a": 0.7238666666666667,
+      "typical_25c_conduction_only_w": 0.06554217744414814
+    },
+    {
+      "vin_v": 8.4,
+      "load_a": 2.0,
+      "nominal_duty": 0.5933333333333333,
+      "nominal_ripple_pp_a": 0.7238666666666667,
+      "typical_25c_conduction_only_w": 0.2539421774441481
+    },
+    {
+      "vin_v": 8.4,
+      "load_a": 3.5,
+      "nominal_duty": 0.5933333333333333,
+      "nominal_ripple_pp_a": 0.7238666666666667,
+      "typical_25c_conduction_only_w": 0.772042177444148
+    }
+  ],
+  "hardware_tested": false
+}

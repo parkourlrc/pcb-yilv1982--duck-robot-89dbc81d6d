@@ -1,0 +1,4327 @@
+
+---PDF PAGE 1---
+LP38693
+IN
+OUT
+SNS**
+GND
+1 µF *
+1 µF *
+VOUT
+VIN
+VEN
+EN
+LP38691
+IN
+OUT
+SNS**
+GND
+1 µF *
+1 µF *
+VOUT
+VIN
+Product
+Folder
+Sample &
+Buy
+Technical
+Documents
+Tools &
+Software
+Support &
+Community
+Reference
+Design
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+LP3869x/-Q1 500-mA Low-Dropout CMOS Linear Regulators
+Stable With Ceramic Output Capacitors
+1
+Features
+3
+Description
+The LP3869x low-dropout CMOS linear regulators
+1•
+Wide Input Voltage Range (2.7 V to 10 V)
+provide tight output tolerance (2% typical), extremely
+•
+All WSON Options are Available as AEC-Q100
+low dropout voltage (250 mV at 500-mA load current,
+Grade 1
+VOUT = 5 V), and excellent AC performance using
+•
+2% Output Accuracy (25°C)
+ultralow equivalent series resistance (ESR) ceramic
+output capacitors.
+•
+Low Dropout Voltage: 250 mV at 500 mA (Typical,
+5 V Out)
+The low thermal resistance of the WSON, SOT-223,
+and TO-252 packages allow use of the full operating
+•
+Precision (Trimmed) Bandgap Reference
+current
+even
+in
+high
+ambient
+temperature
+•
+Ensured Specifications for –40°C to 125°C
+environments.
+•
+1-µA Off-State Quiescent Current
+The use of a PMOS power transistor means that no
+•
+Thermal Overload Protection
+DC base-drive current is required to bias it, thus
+•
+Foldback Current Limiting
+allowing ground pin current to remain below 100 µA
+•
+Ground Pin Current: 55 µA (typical) at full load
+regardless of load current, input voltage, or operating
+temperature.
+•
+Enable Pin (LP38693)
+Device Information(1)
+2
+Applications
+PART NUMBER
+PACKAGE
+BODY SIZE (NOM)
+•
+Hard Disk Drives
+TO-252 (3)
+6.58 mm × 6.10 mm
+LP38691
+•
+Notebook Computers
+WSON (6)
+3.00 mm × 3.00 mm
+•
+Battery-Powered Devices
+SOT-223 (5)
+6.50 mm × 3.56 mm
+LP38693
+•
+Portable Instrumentation
+WSON (6)
+3.00 mm × 3.00 mm
+LP38691-Q1
+WSON (6)
+3.00 mm × 3.00 mm
+LP38693-Q1
+(1) For all available packages, see the orderable addendum at
+the end of the data sheet.
+4
+Typical Application Circuits
+* Minimum value required for stability
+* Minimum value required for stability
+** WSON package devices only
+** WSON package devices only
+1
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+
+
+---PDF PAGE 2---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Table of Contents
+8.4
+Device Functional Modes........................................ 13
+1
+Features.................................................................. 1
+9
+Application and Implementation ........................ 14
+2
+Applications ........................................................... 1
+9.1
+Application Information............................................ 14
+3
+Description ............................................................. 1
+9.2
+Typical Application ................................................. 14
+4
+Typical Application Circuits ................................. 1
+10
+Power Supply Recommendations ..................... 19
+5
+Revision History..................................................... 2
+11
+Layout................................................................... 19
+6
+Pin Configuration and Functions......................... 3
+11.1
+Layout Guidelines ................................................. 19
+7
+Specifications......................................................... 4
+11.2
+Layout Example .................................................... 19
+7.1
+Absolute Maximum Ratings ...................................... 4
+11.3
+WSON Mounting ................................................... 20
+7.2
+ESD Ratings: LP38691 and LP38693....................... 4
+12
+Device and Documentation Support ................. 21
+7.3
+ESD Ratings: LP38691-Q1 and LP38693-Q1........... 4
+12.1
+Documentation Support ........................................ 21
+7.4
+Recommended Operating Conditions....................... 4
+12.2
+Related Links ........................................................ 21
+7.5
+Thermal Information.................................................. 5
+12.3
+Community Resources.......................................... 21
+7.6
+Electrical Characteristics........................................... 5
+12.4
+Trademarks........................................................... 21
+7.7
+Typical Characteristics.............................................. 7
+12.5
+Electrostatic Discharge Caution............................ 21
+8
+Detailed Description ............................................ 11
+12.6
+Glossary................................................................ 21
+8.1
+Overview ................................................................. 11
+13
+Mechanical, Packaging, and Orderable
+8.2
+Functional Block Diagrams ..................................... 11
+Information ........................................................... 21
+8.3
+Feature Description................................................. 13
+5
+Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision N (March 2015) to Revision O
+Page
+•
+Added top navigator icon for TI Designs ............................................................................................................................... 1
+•
+Added Caution note to Foldback Current Limiting subsection ............................................................................................ 13
+Changes from Revision M (February 2015) to Revision N
+Page
+•
+Added "Cout = xx pF" to "Cout = µF" for Figures 4 through 6 in Typical Characteristics ...................................................... 1
+Changes from Revision L (December 2014) to Revision M
+Page
+•
+Changed wording of Description and added one item to Features; update Vin, Vout and Ven pin names to IN, OUT,
+and EN in text and graphics .................................................................................................................................................. 1
+•
+Added top navigator icon for TI Designs ............................................................................................................................... 1
+•
+Changed "PFM" to 'TO-252" .................................................................................................................................................. 4
+•
+Changed Handling Ratings to ESD Ratings format ............................................................................................................... 4
+Changes from Revision K (April 2013) to Revision L
+Page
+•
+Added Handling Rating table, Feature Description section, Device Functional Modes, Application and
+Implementation section, Power Supply Recommendations section, Layout section, Device and Documentation
+Support section, and Mechanical, Packaging, and Orderable Information section; update thermal values .......................... 1
+Changes from Revision J (April 2013) to Revision K
+Page
+•
+Changed layout of National Data Sheet to TI format ........................................................................................................... 18
+2
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 3---
+IN
+2
+3
+4
+5
+6
+1
+GND
+EN
+OUT
+SNS
+IN
+Exposed Pad
+on Bottom
+(DAP)
+IN
+2
+3
+4
+5
+6
+1
+GND
+N/C
+OUT
+SNS
+IN
+Exposed Pad
+on Bottom
+(DAP)
+N/C
+OUT
+GND
+EN
+IN
+1
+2
+4
+3
+5
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+6
+Pin Configuration and Functions
+NDP Package
+3-Pin TO-252
+Top View
+NDC Package
+5-Pin SOT-223
+Top View
+NC - No internal connection
+NGG Package
+6-Pin WSON With Exposed Thermal Pad
+LP38691SD Top View
+NC - No internal connection
+NGG Package
+6-Pin WSON With Exposed Thermal Pad
+LP38693SD Top View
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+3
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 4---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Pin Functions
+PIN
+I/O
+DESCRIPTION
+TO-
+SOT-
+NAME
+WSON
+252
+223
+WSON Only - The DAP (Exposed Pad) functions as a thermal connection when
+DAP
+—
+√
+√
+—
+—
+soldered to a copper plane. See WSON Mounting section for more information.
+The EN pin allows the part to be turned ON and OFF by pulling this pin high or
+EN
+—
+—
+3
+1
+I
+low.
+Circuit ground for the regulator. For the TO-252 and SOT-223 packages this is
+GND
+TAB
+2
+2
+5
+—
+thermally connected to the die and functions as a heat sink when the soldered
+down to a large copper plane.
+This is the input supply voltage to the regulator. For WSON devices, both IN
+IN
+3
+1, 6
+1, 6
+4
+I
+pins must be tied together for full current operation (250 mA maximum per pin).
+OUT
+1
+4
+4
+3
+O
+Regulated output voltage
+WSON Only - Output SNS pin allows remote sensing at the load which eliminate
+SNS
+—
+5
+5
+—
+I
+the error in output voltage due to voltage drops caused by the resistance in the
+traces between the regulator and the load. This pin must be tied to OUT.
+7
+Specifications
+7.1
+Absolute Maximum Ratings(1)(2)
+MIN
+MAX
+UNIT
+Lead temp. (Soldering, 5 seconds)
+260
+°C
+Power dissipation(3)
+Internally Limited
+V
+V(max) All pins (with respect to GND)
+–0.3
+12
+V
+IOUT(4)
+Internally Limited
+V
+Junction temperature
+–40
+150
+°C
+Storage temperature, Tstg
+−65
+150
+(1)
+Absolute maximum ratings indicate limits beyond which damage to the component may occur. Operating ratings indicate conditions for
+which the device is intended to be functional, but do not ensure specific performance limits. For ensured specifications, see Electrical
+Characteristics. Specifications do not apply when operating the device outside of its rated operating conditions.
+(2)
+If Military/Aerospace specified devices are required, contact the Texas Instruments Sales Office/ Distributors for availability and
+specifications.
+(3)
+At elevated temperatures, device power dissipation must be derated based on package thermal resistance and heatsink values (if a
+heatsink is used). When using the WSON package, refer to AN-1187 Leadless Leadframe Package (LLP), SNOA401, and the WSON
+Mounting section in this datasheet. If power dissipation causes the junction temperature to exceed specified limits, the device goes into
+thermal shutdown.
+(4)
+If used in a dual-supply system where the regulator load is returned to a negative supply, the output pin must be diode clamped to
+ground.
+7.2
+ESD Ratings: LP38691 and LP38693
+VALUE
+UNIT
+V(ESD)
+Electrostatic discharge
+Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)
+±2000
+V
+(1)
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+7.3
+ESD Ratings: LP38691-Q1 and LP38693-Q1
+VALUE
+UNIT
+V(ESD)
+Electrostatic discharge
+Human-body model (HBM), per AEC Q100-002(1)
+±2000
+V
+(1)
+AEC Q100-002 indicates that HBM stressing shall be in accordance with the ANSI/ESDA/JEDEC JS-001 specification.
+7.4
+Recommended Operating Conditions
+MIN
+NOM
+MAX
+UNIT
+VIN supply voltage
+2.7
+10
+V
+Operating junction temperature
+−40
+125
+°C
+4
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 5---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+7.5
+Thermal Information
+LP38691
+LP38693
+LP3869x
+THERMAL METRIC(1)
+TO-252
+WSON
+SOT-223
+UNIT
+3 PINS
+6 PINS
+5 PINS
+RθJA(2)
+Junction-to-ambient thermal resistance
+50.5
+50.6
+68.5
+°C/W
+RθJC(top)
+Junction-to-case (top) thermal resistance
+52.6
+44.4
+52.2
+°C/W
+RθJB
+Junction-to-board thermal resistance
+29.7
+24.9
+13.0
+°C/W
+ψJT
+Junction-to-top characterization parameter
+4.8
+0.4
+5.5
+°C/W
+ψJB
+Junction-to-board characterization parameter
+29.3
+25.1
+12.8
+°C/W
+RθJC(bot)
+Junction-to-case (bottom) thermal resistance
+1.5
+5.4
+n/a
+°C/W
+(1)
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+report, SPRA953.
+(2)
+Junction-to-ambient thermal resistance, High-K.
+7.6
+Electrical Characteristics
+Unless otherwise specified, limits apply for TJ = 25°C, VIN = VOUT + 1 V, CIN = COUT = 10 µF, ILOAD = 10 mA. Minimum and
+maximum limits are specified through testing, statistical correlation, or design.
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP(1)
+MAX
+UNIT
+–2
+2
+100 µA < IL < 0.5 A
+VO
+Output voltage tolerance
+%VOUT
+VO + 1 V ≤VIN ≤10 V
+–4
+4
+Full operating temperature range
+VO + 0.5 V ≤VIN ≤10 V
+0.03
+IL = 25 mA
+Output voltage line
+ΔVO/ΔVIN
+%/V
+VO + 0.5 V ≤VIN ≤10 V
+regulation(2)
+IL = 25 mA
+0.1
+Full operating temperature range
+1 mA < IL < 0.5 A
+1.8
+VIN = VO + 1 V
+Output voltage load
+ΔVO/ΔIL
+%/A
+1 mA < IL < 0.5 A
+regulation(3)
+VIN = VO + 1 V
+5
+Full operating temperature range
+IL = 0.1 A
+80
+(VO = 2.5 V)
+IL = 0.5 A
+430
+(VO = 2.5 V)
+IL = 0.1 A
+145
+Full operating temperature
+IL = 0.5 A
+725
+range
+IL = 0.1 A
+65
+(VO = 3.3 V)
+IL = 0.5 A
+330
+VIN – VOUT
+Dropout voltage(4)
+mV
+(VO = 3.3 V)
+IL = 0.1 A
+110
+Full operating temperature
+IL = 0.5 A
+550
+range
+IL = 0.1 A
+45
+(VO = 5 V)
+IL = 0.5 A
+250
+(VO = 5 V)
+IL = 0.1 A
+100
+Full operating temperature
+IL = 0.5 A
+450
+range
+(1)
+Typical numbers represent the most likely parametric norm for 25°C operation.
+(2)
+Output voltage line regulation is defined as the change in output voltage from nominal value resulting from a change in input voltage.
+(3)
+Output voltage load regulation is defined as the change in output voltage from nominal value as the load current increases from 1 mA to
+full load.
+(4)
+Dropout voltage is defined as the minimum input to output differential required to maintain the output within 100 mV of nominal value.
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+5
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 6---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Electrical Characteristics (continued)
+Unless otherwise specified, limits apply for TJ = 25°C, VIN = VOUT + 1 V, CIN = COUT = 10 µF, ILOAD = 10 mA. Minimum and
+maximum limits are specified through testing, statistical correlation, or design.
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP(1)
+MAX
+UNIT
+VIN ≤10 V, IL =100 µA - 0.5 A
+55
+VIN ≤10 V, IL =100 µA - 0.5 A
+IQ
+Quiescent current
+100
+Full operating temperature range
+µA
+VEN ≤0.4 V, (LP38693 Only)
+0.001
+1
+VIN – VO ≤4 V
+IL(MIN)
+Minimum load current
+100
+Full operating temperature range
+VIN – VO > 5 V
+350
+IFB
+Foldback current limit
+mA
+VIN – VO < 4 V
+850
+PSRR
+Ripple rejection
+VIN = VO + 2 V(DC), with 1 V(p-p) / 120-Hz Ripple
+55
+dB
+Thermal shutdown activation
+TSD
+160
+(junction temp)
+°C
+TSD
+Thermal shutdown hysteresis
+10
+(HYST)
+(junction temp)
+BW = 10 Hz to 10 kHz
+en
+Output noise
+0.7
+µV/√Hz
+VO = 3.3 V
+VO (LEAK)
+Output leakage current
+VO = VO(NOM) + 1 V at 10 VIN
+0.5
+12
+µA
+Output = OFF
+0.4
+Full operating temperature range
+Output = ON, VIN = 4 V
+1.8
+Full operating temperature range
+Enable voltage (LP38693
+VEN
+V
+Only)
+Output = ON, VIN = 6 V
+3
+Full operating temperature range
+Output = ON, VIN = 10 V
+4
+Full operating temperature range
+Enable pin leakage
+VEN = 0 V or 10 V, VIN = 10 V
+IEN
+–1
+0.001
+1
+µA
+(lLP38693 only)
+6
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 7---
+10
+100
+1k
+10k
+100k
+0
+10
+20
+30
+40
+50
+60
+FREQUENCY (Hz)
+RIPPLE REJECTION (dB)
+COUT = 100 PF
+VIN(DC) = 5.3V
+VIN(AC) = 1V(p-p)
+VOUT = 3.3V
+10
+100
+1k
+10k
+100k
+0
+10
+20
+30
+40
+50
+60
+FREQUENCY (Hz)
+RIPPLE REJECTION (dB)
+COUT = 1 PF
+VIN(DC) = 5.3V
+VIN(AC) = 1V(p-p)
+VOUT = 3.3V
+10
+100
+1k
+10k
+100k
+0
+10
+20
+30
+40
+50
+60
+FREQUENCY (Hz)
+RIPPLE REJECTION (dB)
+COUT = 10 PF
+VIN(DC) = 5.3V
+VIN(AC) = 1V(p-p)
+VOUT = 3.3V
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+7.7
+Typical Characteristics
+Unless otherwise specified: TJ = 25°C, CIN = COUT = 10 µF, EN pin is tied to IN (LP38693 only), VOUT = 1.8 V, VIN = VOUT 1 V,
+IL = 10 mA.
+Figure 2. Noise vs Frequency
+Figure 1. Noise vs Frequency
+Figure 3. Noise vs Frequency
+Figure 4. Ripple Rejection
+Figure 5. Ripple Rejection
+Figure 6. Ripple Rejection
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+7
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 8---
+ 
+20
+10
+0
+-10
+-20
+'VOUT (mV)
+3
+4
+5
+VIN (V)
+VIN
+VOUT
+VOUT = 3.3V
+COUT = 100 PF
+200 Ps/DIV
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Typical Characteristics (continued)
+Unless otherwise specified: TJ = 25°C, CIN = COUT = 10 µF, EN pin is tied to IN (LP38693 only), VOUT = 1.8 V, VIN = VOUT 1 V,
+IL = 10 mA.
+Figure 7. Line Transient Response
+Figure 8. Line Transient Response
+Figure 9. Line Transient Response
+Figure 10. Load Transient Response
+Figure 12. VOUT vs Temperature (5.0 V)
+Figure 11. Load Transient Response
+8
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 9---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+Typical Characteristics (continued)
+Unless otherwise specified: TJ = 25°C, CIN = COUT = 10 µF, EN pin is tied to IN (LP38693 only), VOUT = 1.8 V, VIN = VOUT 1 V,
+IL = 10 mA.
+Figure 14. VOUT vs Temperature (2.5 V)
+Figure 13. VOUT vs Temperature (3.3 V)
+Figure 15. VOUT vs Temperature (1.8 V)
+Figure 16. VOUT vs VIN (1.8 V)
+Figure 18. Enable Voltage vs Temperature
+Figure 17. VOUT vs VIN, Power-Up
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+9
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 10---
+0
+100
+200
+300
+400
+500
+2
+2.1
+2.2
+2.3
+2.4
+2.5
+2.6
+2.7
+MIN VIN (V)
+IOUT (mA)
+-40°C
+25°C
+125°C
+0
+100
+200
+300
+400
+500
+IOUT (mA)
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+VDROPOUT (mV)
+-40°C
+25°C
+125°C
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Typical Characteristics (continued)
+Unless otherwise specified: TJ = 25°C, CIN = COUT = 10 µF, EN pin is tied to IN (LP38693 only), VOUT = 1.8 V, VIN = VOUT 1 V,
+IL = 10 mA.
+Figure 19. Load Regulation vs Temperature
+Figure 20. Line Regulation vs Temperature
+Figure 22. Dropout Voltage vs IOUT
+Figure 21. MIN VIN vs IOUT
+10
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 11---
+ENABLE 
+LOGIC
+-
++
+MOSFET
+DRIVER
+FOLDBACK
+CURRENT
+LIMITING
+1.25-V
+REFERENCE
+THERMAL
+SHUTDOWN
+IN
+OUT
+GND
+P-FET
+P-FET
+R1
+R2
+ENABLE 
+LOGIC
+-
++
+MOSFET
+DRIVER
+FOLDBACK
+CURRENT
+LIMITING
+1.25-V
+REFERENCE
+THERMAL
+SHUTDOWN
+IN
+OUT
+GND
+P-FET
+P-FET
+N/C
+R1
+R2
+SNS
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+8
+Detailed Description
+8.1
+Overview
+The LP38691 and LP38693 are designed to meet the requirements of portable, battery-powered digital systems
+providing an accurate output voltage with fast start-up. When disabled via a low logic signal at the enable pin
+(EN), the power consumption is reduced to virtually zero (LP38693 only).
+The LP38691 and LP38693 perform well with a single 1-μF input capacitor and a single 1-μF ceramic output
+capacitor.
+8.2
+Functional Block Diagrams
+Figure 23. LP38691 Functional Diagram (WSON)
+Figure 24. LP38691 Functional Diagram (TO-252)
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+11
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 12---
+ENABLE 
+LOGIC
+-
++
+MOSFET
+DRIVER
+FOLDBACK
+CURRENT
+LIMITING
+1.25-V
+REFERENCE
+THERMAL
+SHUTDOWN
+IN
+OUT
+GND
+P-FET
+P-FET
+EN
+R1
+R2
+ENABLE 
+LOGIC
+-
++
+MOSFET
+DRIVER
+FOLDBACK
+CURRENT
+LIMITING
+1.25-V
+REFERENCE
+THERMAL
+SHUTDOWN
+IN
+OUT
+GND
+P-FET
+P-FET
+EN
+R1
+R2
+SNS
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Functional Block Diagrams (continued)
+Figure 25. LP38693 Functional Diagram (WSON)
+Figure 26. LP38693 Functional Diagram (SOT-223)
+12
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 13---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+8.3
+Feature Description
+8.3.1
+Enable (EN)
+The LP38693 has an Enable pin (EN) which allows an external control signal to turn the regulator output On and
+Off. The Enable On/Off threshold has no hysteresis. The voltage signal must rise and fall cleanly, and promptly,
+through the ON and OFF voltage thresholds. The EN pin voltage must be higher than the VEN(MIN) threshold to
+ensure that the device is fully enabled under all operating conditions. The EN pin voltage must be lower than the
+VEN(MAX) threshold to ensure that the device is fully disabled. The EN pin has no internal pullup or pulldown to
+establish a default condition and, as a result, this pin must be terminated either actively or passively. If the EN
+pin is driven from a source that actively pulls high and low, the drive voltage must not be allowed to go below
+ground potential or higher than VIN. If the application does not require the Enable function, the pin must be
+connected directly to the IN pin.
+8.3.2
+Thermal Overload Protection (TSD)
+Thermal Shutdown disables the output when the junction temperature rises to approximately 160°C which allows
+the device to cool. When the junction temperature cools to approximately 150°C, the output circuitry enables.
+Based on power dissipation, thermal resistance, and ambient temperature, the thermal protection circuit may
+cycle on and off. This thermal cycling limits the dissipation of the regulator and protects it from damage as a
+result of overheating. The Thermal Shutdown circuitry of the LP38693 has been designed to protect against
+temporary thermal overload conditions.
+The Thermal Shutdown circuitry was not intended to replace proper heat-sinking. Continuously running the
+LP38693 device into thermal shutdown degrades device reliability.
+8.3.3
+Foldback Current Limiting
+Foldback current limiting is built into the LP38691 and LP38693 devices which reduces the amount of output
+current the part can deliver as the output voltage is reduced. The amount of load current is dependent on the
+differential voltage between the IN and OUT pins. Typically, when this differential voltage exceeds 5 V, the load
+current limits at about 350 mA. When the VIN – VOUT differential is reduced below 4 V, load current is limited to
+about 850 mA.
+CAUTION
+When toggling the LP38693 Enable (EN) after the input voltage (VIN) is applied, the
+foldback current limit circuitry is functional the first time that the EN pin is taken high.
+The foldback current limit circuitry is non-functional the second, and subsequent, times
+that the EN pin is taken high. Depending on the input and output capacitance values
+the input inrush current may be higher than expected which can cause the input
+voltage to droop.
+If the EN pin is connected to the IN pin, the foldback current limit circuitry is functional
+when VIN is applied if VIN starts from less than 0.4 V.
+8.4
+Device Functional Modes
+8.4.1
+Enable (EN)
+The EN pin voltage must be higher than the VEN(MIN) threshold to ensure that the device is fully enabled under all
+operating conditions.
+8.4.2
+Minimum Operating Input Voltage (VIN)
+The LP38691 and LP38693 do not include any dedicated UVLO circuitry. Neither device internal circuitry is fully
+functional until VIN is at least 2.7 V. The output voltage is not regulated until VIN ≥(VOUT + VDO), or 2.7 V,
+whichever is higher.
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+13
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 14---
+LP38691
+IN
+OUT
+SNS**
+GND
+1 µF *
+1 µF *
+VOUT
+VIN
+LP38693
+IN
+OUT
+SNS**
+GND
+1 µF *
+1 µF *
+VOUT
+VIN
+VEN
+EN
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+9
+Application and Implementation
+NOTE
+Information in the following applications sections is not part of the TI component
+specification, and TI does not warrant its accuracy or completeness. TI’s customers are
+responsible for determining suitability of components for their purposes. Customers should
+validate and test their design implementation to confirm system functionality.
+9.1
+Application Information
+9.1.1
+Reverse Voltage
+A reverse voltage condition exists when the voltage at the output pin is higher than the voltage at the input pin.
+Typically this happens when VIN is abruptly taken low and COUT continues to hold a sufficient charge such that
+the input to output voltage becomes reversed. A less common condition is when an alternate voltage source is
+connected to the output.
+There are two possible paths for current to flow from the OUT pin back to IN during a reverse voltage condition.
+1. While VIN is high enough to keep the control circuity alive, and the EN pin (LP38693 only) is above the
+VEN(ON) threshold, the control circuitry attempts to regulate the output voltage. If the input voltage is less than
+the programmed output voltage, the control circuit drives the gate of the pass element to the full ON
+condition. In this condition, reverse current flows from the OUT to the IN pin, limited only by the RDS(ON) of
+the pass element and the output to input voltage differential. Discharging an output capacitor up to 1000 μF
+in this manner does not damage the device as the current rapidly decays. However, continuous reverse
+current must be avoided. When the EN pin is low, this condition is prevented.
+2. The internal PFET pass element has an inherent parasitic diode. During normal operation, the input voltage
+is higher than the output voltage and the parasitic diode is reverse biased. However, when VIN is below the
+value where the control circuity is alive, or the EN pin is low (LP38693 only), and the output voltage is more
+than 500 mV (typical) above the input voltage the parasitic diode becomes forward biased and current flows
+from the output pin to the input pin through the diode. The current in the parasitic diode must be limited to
+less than 1-A continuous and 5-A peak.
+If used in a dual-supply system where the regulator output load is returned to a negative supply, the output
+pin must be diode-clamped to ground to limit the negative voltage transition. A Schottky diode is
+recommended for this protective clamp.
+9.2
+Typical Application
+* Minimum value required for stability.
+**WSON package devices only.
+14
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 15---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+9.2.1
+Design Requirements
+Table 1. Design Parameters
+DESIGN PARAMETERS
+EXAMPLE VALUE
+Input voltage range
+2.7 V to 10 V
+Output range
+1.8 V
+Output current
+1 A
+Output capacitor range
+1 µF
+Input and output capacitor ESR range
+5 mΩ to 500 mΩ
+9.2.2
+Detailed Design Procedure
+9.2.2.1
+Power Dissipation and Device Operation
+The permissible power dissipation for any package is a measure of the capability of the device to pass heat from
+the power source, the junctions of the IC, to the ultimate heat sink, the ambient environment. Thus, the power
+dissipation is dependent on the ambient temperature and the thermal resistance across the various interfaces
+between the die junction and ambient air.
+The maximum allowable power dissipation for the device in a given package can be calculated using Equation 1:
+PD-MAX = ((TJ-MAX – TA) / RθJA)
+(1)
+The actual power being dissipated in the device can be represented by Equation 2:
+PD = (VIN – VOUT) × IOUT
+(2)
+These two equations establish the relationship between the maximum power dissipation allowed due to thermal
+consideration, the voltage drop across the device, and the continuous current capability of the device. These two
+equations must be used to determine the optimum operating conditions for the device in the application.
+In applications where lower power dissipation (PD) and/or excellent package thermal resistance (RθJA) is present,
+the maximum ambient temperature (TA-MAX) may be increased.
+In applications where high power dissipation and/or poor package thermal resistance is present, the maximum
+ambient temperature (TA-MAX) may have to be derated. TA-MAX is dependent on the maximum operating junction
+temperature (TJ-MAX-OP = 125°C), the maximum allowable power dissipation in the device package in the
+application (PD-MAX), and the junction-to ambient thermal resistance of the part/package in the application (RθJA),
+as given by Equation 3:
+TA-MAX = (TJ-MAX-OP – (RθJA × PD-MAX))
+(3)
+Alternately, if TA-MAX can not be derated, the PD value must be reduced. This can be accomplished by reducing
+VIN in the VIN – VOUT term as long as the minimum VIN is met, or by reducing the IOUT term, or by some
+combination of the two.
+9.2.2.2
+External Capacitors
+In common with most regulators, the LP38691 and LP38693 require an external capacitors for regulator stability.
+The devices are specifically designed for portable applications requiring minimum board space and smallest
+components. These capacitors must be correctly selected for good performance.
+9.2.2.3
+Input Capacitor
+An input capacitor is required for stability. TI recommends that a 1-µF capacitor be connected between the
+devices' IN pin and GND pin (this capacitance value may be increased without limit).
+This capacitor must be located a distance of not more than 1 cm from the IN pin and returned to a clean
+analogue ground. Any good quality ceramic, tantalum, or film capacitor may be used at the input.
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+15
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 16---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Important: To ensure stable operation it is essential that good PCB design practices are employed to minimize
+ground impedance and keep input inductance low. If these conditions cannot be met, or if long leads are used to
+connect the battery or other power source to the LP38691 or LP38693, then TI recommends that the input
+capacitor is increased. Also, tantalum capacitors can suffer catastrophic failures due to surge current when
+connected to a low-impedance source of power (like a battery or a very large capacitor). If a tantalum capacitor is
+used at the input, it must be ensured by the manufacturer to have a surge current rating sufficient for the
+application.
+There are no requirements for the equivalent series resistance (ESR) on the input capacitor, but tolerance and
+temperature coefficient must be considered when selecting the capacitor to ensure the capacitance remains
+approximately 1 µF over the entire operating temperature range.
+9.2.2.4
+Output Capacitor
+The LP3869x is designed specifically to work with very small ceramic output capacitors. A 1-µF ceramic
+capacitor (temperature types Z5U, Y5V or X7R/X5R) with ESR between 5 mΩto 500 mΩ, is suitable in the
+LP3869x application circuit.
+For this device the output capacitor must be connected between the OUT pin and GND pin.
+It is also possible to use tantalum or film capacitors at the device output, but these are not as attractive for
+reasons of size and cost.
+The output capacitor must meet the requirement for the minimum value of capacitance and also have an ESR
+value that is within the range 5 mΩto 500 mΩfor stability.
+9.2.2.5
+No-Load Stability
+The LP3869x remains stable and in regulation with no external load. This is an important consideration in some
+circuits, for example CMOS RAM keep-alive applications.
+9.2.2.6
+Capacitor Characteristics
+The LP3869x is designed to work with ceramic capacitors on the output to take advantage of the benefits they
+offer. For capacitance values in the range of 0.47 µF to 4.7 µF, ceramic capacitors are the smallest, least
+expensive and have the lowest ESR values, thus making them best for eliminating high frequency noise. The
+ESR of a typical 1-µF ceramic capacitor is in the range of 20 mΩto 40 mΩ, which easily meets the ESR
+requirement for stability for the LP3869x.
+For both input and output capacitors, careful interpretation of the capacitor specification is required to ensure
+correct device operation. The capacitor value can change greatly, depending on the operating conditions and
+capacitor type.
+In particular, the output capacitor selection must take account of all the capacitor parameters, to ensure that the
+specification is met within the application. The capacitance can vary with DC bias conditions as well as
+temperature and frequency of operation. Capacitor values also show some decrease over time due to aging. The
+capacitor parameters are also dependent on the particular case size, with smaller sizes giving poorer
+performance figures in general. As an example, Figure 27 shows a typical graph comparing different capacitor
+case sizes in a Capacitance vs. DC Bias plot. As shown in the graph, increasing the DC Bias condition can result
+in the capacitance value falling below the minimum value given in the recommended capacitor specifications
+table (0.7 µF in this case). Note that the graph shows the capacitance out of specification for the 0402 case size
+capacitor at higher bias voltages. It is therefore recommended that the capacitor manufacturers’ specifications for
+the nominal value capacitor are consulted for all conditions, as some capacitor sizes (for example, 0402) may not
+be suitable in the actual application.
+16
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 17---
+0402, 6.3V, X5R
+0603, 10V, X5R
+0
+1.0
+2.0
+3.0
+4.0
+5.0
+DC BIAS (V)
+20%
+40%
+60%
+80%
+100%
+CAP VALUE (% of NOMINAL 1 PF)
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+Figure 27. Typical Variation In Capacitance vs DC Bias
+The value of the ceramic capacitor can vary with temperature. The capacitor type X7R, which operates over a
+temperature range of –55°C to 125°C, only varies the capacitance to within ±15%. The capacitor type X5R has a
+similar tolerance over a reduced temperature range of –55°C to 85°C. Many large value ceramic capacitors,
+larger than 1 µF, are manufactured with Z5U or Y5V temperature characteristics. Their capacitance can drop by
+more than 50% as the temperature varies from 25°C to 85°C. Therefore, X7R and X5R types are recommended
+over Z5U and Y5V in applications where the ambient temperature changes significantly above or below 25°C.
+Tantalum capacitors are less desirable than ceramic for use as output capacitors because they are more costly
+when comparing equivalent capacitance and voltage ratings in the 0.47-µF to 4.7-µF range.
+Another important consideration is that tantalum capacitors have higher ESR values than equivalent size
+ceramics. This means that while it may be possible to find a tantalum capacitor with an ESR value within the
+stable range, it would have to be larger in capacitance (which means bigger and more costly) than a ceramic
+capacitor with the same ESR value. It mustalso be noted that the ESR of a typical tantalum increases about 2:1
+as the temperature goes from 25°C down to –40°C, so some guard band must be allowed.
+9.2.2.7
+RFI/EMI Susceptibility
+Radio frequency interference (RFI) and electromagnetic interference (EMI) can degrade any integrated circuit’s
+performance because of the small dimensions of the geometries inside the device. In applications where circuit
+sources are present which generate signals with significant high frequency energy content (> 1 MHz), care must
+be taken to ensure that this does not affect the device regulator.
+If RFI/EMI noise is present on the input side of the regulator (such as applications where the input source comes
+from the output of a switching regulator), good ceramic bypass capacitors must be used at the input pin of the
+device.
+If a load is connected to the device output which switches at high speed (such as a clock), the high-frequency
+current pulses required by the load must be supplied by the capacitors on the IC output. Because the bandwidth
+of the regulator loop is less than 100 kHz, the control circuitry cannot respond to load changes above that
+frequency. This means the effective output impedance of the device at frequencies above 100 kHz is determined
+only by the output capacitors.
+In applications where the load is switching at high speed, the output of the IC may need RF isolation from the
+load. TI recommends that some inductance be placed between the output capacitor and the load, and good RF
+bypass capacitors be placed directly across the load.
+PCB layout is also critical in high noise environments, because RFI/EMI is easily radiated directly into PC traces.
+Noisy circuitry must be isolated from clean circuits where possible, and grounded through a separate path. At
+MHz frequencies, ground planes begin to look inductive and RFI/ EMI can cause ground bounce across the
+ground plane. In multi-layer PCB applications, care must be taken in layout so that noisy power and ground
+planes do not radiate directly into adjacent layers which carry analog power and ground.
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+17
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 18---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+9.2.2.8
+Output Noise
+Noise is specified in two ways: Spot Noise or Output Noise Density is the RMS sum of all noise sources,
+measured at the regulator output, at a specific frequency (measured with a 1-Hz bandwidth). This type of noise is
+usually plotted on a curve as a function of frequency. Total Output Noise or Broad-Band Noise is the RMS sum
+of spot noise over a specified bandwidth, usually several decades of frequencies.
+Attention paid to the units of measurement. Spot noise is measured in units µV√Hz or nV√Hz, and total output
+noise is measured in µVRMS.
+The primary source of noise in low-dropout regulators is the internal reference. Noise can be reduced in two
+ways: by increasing the transistor area or by increasing the current drawn by the internal reference. Increasing
+the area decreases the chance of fitting the die into a smaller package. Increasing the current drawn by the
+internal reference increases the total supply current (GND pin current).
+9.2.3
+Application Curves
+Figure 28. VOUT vs VEN, ON (LP38693 Only)
+Figure 29. VOUT vs VEN, OFF (LP38693 Only)
+18
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 19---
+COUT
+VOUT
+CIN
+LP38691DT
+Power Ground
+VIN
+IN
+OUT
+GND
+VIN
+CIN
+COUT
+SNS
+OUT
+LP38691SD
+Power
+Ground
+1
+2
+3
+4
+5
+6
+Thermal
+Pad
+N/C
+IN
+IN
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+10
+Power Supply Recommendations
+The LP38691 and LP38693 are designed to operate from an input supply voltage range of 2.7 V to 10 V. The
+input supply must be well regulated and free of spurious noise. To ensure that the device output voltage is well
+regulated, input supply must be at least VOUT + 0.5 V, or 2.7 V, whichever is higher. A minimum capacitor value
+of 1-μF is required to be within 1 cm of the IN pin.
+11
+Layout
+11.1
+Layout Guidelines
+The dynamic performance of the LP38691 or LP38693 is dependent on the layout of the PCB. PCB layout
+practices that are adequate for typical LDOs may degrade the load regulation, PSRR, noise, or transient
+performance of the LP38691 or LP38693.
+Best performance is achieved by placing CIN and COUT on the same side of the PCB as the LP38691 or
+LP38693, and as close to the package as is practical. The ground connections for CIN and COUT must be back to
+the LP38691 or LP38693 GND pin using as wide, and as short, a copper trace as is practical.
+Connections using long trace lengths, narrow trace widths, or connections through vias must be avoided. These
+add parasitic inductances and resistance that result in inferior performance especially during transient conditions.
+A Ground Plane, either on the opposite side of a two-layer PCB, or embedded in a multi-layer PCB, is strongly
+recommended. This Ground Plane serves two purposes:
+•
+Provides a circuit reference plane to assure accuracy.
+•
+Provides a thermal plane to remove heat from the LP38691 or LP38693 WSON package through thermal vias
+under the package DAP.
+11.2
+Layout Example
+Figure 30. TO-252 Package
+Figure 31. WSON LP38691 Layout
+space
+space
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+19
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 20---
+COUT
+SNS
+OUT
+CIN
+LP38693SD
+Power
+Ground
+1
+2
+3
+4
+5
+6
+Thermal
+Pad
+EN
+IN
+IN
+COUT
+VOUT
+CIN
+LP38693MP
+Power
+Ground
+VIN
+EN
+NC
+OUT
+IN
+GND
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+www.ti.com
+Layout Example (continued)
+Figure 32. SOT-223 Layout
+Figure 33. WSON LP38693 Layout
+11.3
+WSON Mounting
+The NGG0006A (No Pullback) 6-Lead WSON package requires specific mounting techniques which are detailed
+in the TI AN-1187 Application Report SNOA401. Referring to the section PCB Design Recommendations, note
+that the pad style which must be used with the WSON package is the NSMD (non-solder mask defined) type.
+Additionally, TI recommends the PCB terminal pads to be 0.2 mm longer than the package pads to create a
+solder fillet to improve reliability and inspection.
+The input current is split between two IN pins, 1 and 6. The two IN pins must be connected together to ensure
+that the device can meet all specifications at the rated current.
+The thermal dissipation of the WSON package is directly related to the printed circuit board construction and the
+amount of additional copper area connected to the DAP.
+The DAP (exposed pad) on the bottom of the WSON package is connected to the die substrate with a conductive
+die attach adhesive. The DAP has no direct electrical (wire) connection to any of the pins. There is a parasitic PN
+junction between the die substrate and the device ground. As such, it is strongly recommend that the DAP be
+connected directly to the ground at device lead 2 (that is, GND). Alternately, but not recommended, the DAP may
+be left floating (that is, no electrical connection). The DAP must not be connected to any potential other than
+ground.
+20
+Submit Documentation Feedback
+Copyright © 2005–2015, Texas Instruments Incorporated
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 21---
+LP38691, LP38693, LP38691-Q1, LP38693-Q1
+www.ti.com
+SNVS321O –JANUARY 2005–REVISED DECEMBER 2015
+12
+Device and Documentation Support
+12.1
+Documentation Support
+12.1.1
+Related Documentation
+For related documentation see the following:
+Texas Instruments AN-1187 Leadless Leadframe Package (LLP) (SNOA401).
+12.2
+Related Links
+The table below lists quick access links. Categories include technical documents, support and community
+resources, tools and software, and quick access to sample or buy.
+Table 2. Related Links
+TECHNICAL
+TOOLS &
+SUPPORT &
+PARTS
+PRODUCT FOLDER
+SAMPLE & BUY
+DOCUMENTS
+SOFTWARE
+COMMUNITY
+LP38691
+Click here
+Click here
+Click here
+Click here
+Click here
+LP38693
+Click here
+Click here
+Click here
+Click here
+Click here
+LP38691-Q1
+Click here
+Click here
+Click here
+Click here
+Click here
+LP38693-Q1
+Click here
+Click here
+Click here
+Click here
+Click here
+12.3
+Community Resources
+The following links connect to TI community resources. Linked contents are provided "AS IS" by the respective
+contributors. They do not constitute TI specifications and do not necessarily reflect TI's views; see TI's Terms of
+Use.
+TI E2E™Online Community TI's Engineer-to-Engineer (E2E) Community. Created to foster collaboration
+among engineers. At e2e.ti.com, you can ask questions, share knowledge, explore ideas and help
+solve problems with fellow engineers.
+Design Support TI's Design Support Quickly find helpful E2E forums along with design support tools and
+contact information for technical support.
+12.4
+Trademarks
+E2E is a trademark of Texas Instruments.
+All other trademarks are the property of their respective owners.
+12.5
+Electrostatic Discharge Caution
+These devices have limited built-in ESD protection. The leads should be shorted together or the device placed in conductive foam
+during storage or handling to prevent electrostatic damage to the MOS gates.
+12.6
+Glossary
+SLYZ022 — TI Glossary.
+This glossary lists and explains terms, acronyms, and definitions.
+13
+Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+Copyright © 2005–2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+21
+Product Folder Links: LP38691 LP38693 LP38691-Q1 LP38693-Q1
+
+
+---PDF PAGE 22---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+PACKAGING INFORMATION
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+LP38691DT-1.8/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-1.8
+LP38691DT-1.8/NOPB.A
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-1.8
+LP38691DT-1.8/NOPB.B
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-1.8
+LP38691DT-2.5/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-2.5
+LP38691DT-2.5/NOPB.A
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-2.5
+LP38691DT-2.5/NOPB.B
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-2.5
+LP38691DT-3.3/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-3.3
+LP38691DT-3.3/NOPB.A
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-3.3
+LP38691DT-3.3/NOPB.B
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-3.3
+LP38691DT-5.0/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691DT-5.0/NOPB.A
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691DT-5.0/NOPB.B
+Active
+Production
+TO-252 (NDP) | 3
+75 | TUBE
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691DTX-1.8/NO.A
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-1.8
+LP38691DTX-1.8/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-1.8
+LP38691DTX-2.5/NO.A
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-2.5
+LP38691DTX-2.5/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-2.5
+Addendum-Page 1
+
+
+---PDF PAGE 23---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+LP38691DTX-3.3/NO.A
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-3.3
+LP38691DTX-3.3/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-3.3
+LP38691DTX-5.0/NO.A
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691DTX-5.0/NO.B
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691DTX-5.0/NOPB
+Active
+Production
+TO-252 (NDP) | 3
+2500 | LARGE T&R
+Yes
+SN
+Level-2-260C-1 YEAR
+-40 to 125
+LP38691
+DT-5.0
+LP38691QSD-1.8/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L256B
+LP38691QSD-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L256B
+LP38691QSD-2.5/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L257B
+LP38691QSD-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L257B
+LP38691QSD-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L258B
+LP38691QSD-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L258B
+LP38691QSD-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L259B
+LP38691QSD-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L259B
+LP38691QSDX-1.8/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L256B
+LP38691QSDX-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L256B
+LP38691QSDX-2.5/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L257B
+LP38691QSDX-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L257B
+LP38691QSDX-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L258B
+LP38691QSDX-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L258B
+LP38691QSDX-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L259B
+LP38691QSDX-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L259B
+LP38691SD-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L118B
+LP38691SD-1.8/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L118B
+LP38691SD-1.8/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L118B
+LP38691SD-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L119B
+LP38691SD-2.5/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L119B
+LP38691SD-2.5/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L119B
+Addendum-Page 2
+
+
+---PDF PAGE 24---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+LP38691SD-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L120B
+LP38691SD-3.3/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L120B
+LP38691SD-3.3/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L120B
+LP38691SD-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L121B
+LP38691SD-5.0/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L121B
+LP38691SD-5.0/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L121B
+LP38691SDX-1.8/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L118B
+LP38691SDX-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L118B
+LP38691SDX-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L120B
+LP38691SDX-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L120B
+LP38691SDX-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L121B
+LP38691SDX-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L121B
+LP38693MP-1.8/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJVB
+LP38693MP-1.8/NOPB.A
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-1.8/
+NOPB
+LJVB
+LP38693MP-1.8/NOPB.B
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-1.8/
+NOPB
+LJVB
+LP38693MP-2.5/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJXB
+LP38693MP-2.5/NOPB.A
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-2.5/
+NOPB
+LJXB
+LP38693MP-3.3/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJYB
+LP38693MP-3.3/NOPB.A
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-3.3/
+NOPB
+LJYB
+LP38693MP-3.3/NOPB.B
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-3.3/
+NOPB
+LJYB
+LP38693MP-5.0/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJZB
+LP38693MP-5.0/NOPB.A
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-5.0/
+NOPB
+LJZB
+LP38693MP-5.0/NOPB.B
+Active
+Production
+SOT-223 (NDC) | 5
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693MP-5.0/
+NOPB
+LJZB
+LP38693MPX-1.8/NO.A
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693MPX-1.8/NO
+LJVB
+LP38693MPX-1.8/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJVB
+Addendum-Page 3
+
+
+---PDF PAGE 25---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+LP38693MPX-2.5/NO.A
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693MPX-2.5/NO
+LJXB
+LP38693MPX-2.5/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJXB
+LP38693MPX-3.3/NO.A
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693MPX-3.3/NO
+LJYB
+LP38693MPX-3.3/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJYB
+LP38693MPX-5.0/NO.A
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693MPX-5.0/NO
+LJZB
+LP38693MPX-5.0/NO.B
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693MPX-5.0/NO
+LJZB
+LP38693MPX-5.0/NOPB
+Active
+Production
+SOT-223 (NDC) | 5
+2000 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+LJZB
+LP38693QSD-1.8/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L260B
+LP38693QSD-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L260B
+LP38693QSD-2.5/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L261B
+LP38693QSD-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L261B
+LP38693QSD-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L262B
+LP38693QSD-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L262B
+LP38693QSD-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L263B
+LP38693QSD-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L263B
+LP38693QSDX-1.8/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L260B
+LP38693QSDX-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L260B
+LP38693QSDX-2.5/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L261B
+LP38693QSDX-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L261B
+LP38693QSDX-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L262B
+LP38693QSDX-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L262B
+LP38693QSDX-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L263B
+LP38693QSDX-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L263B
+LP38693SD-1.8/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L128B
+LP38693SD-1.8/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-1.8/
+NOPB
+L128B
+LP38693SD-1.8/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-1.8/
+NOPB
+L128B
+Addendum-Page 4
+
+
+---PDF PAGE 26---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+LP38693SD-2.5/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L129B
+LP38693SD-2.5/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-2.5/
+NOPB
+L129B
+LP38693SD-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L130B
+LP38693SD-3.3/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-3.3/
+NOPB
+L130B
+LP38693SD-3.3/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-3.3/
+NOPB
+L130B
+LP38693SD-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L131B
+LP38693SD-5.0/NOPB.A
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-5.0/
+NOPB
+L131B
+LP38693SD-5.0/NOPB.B
+Active
+Production
+WSON (NGG) | 6
+1000 | SMALL T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See LP38693SD-5.0/
+NOPB
+L131B
+LP38693SDX-3.3/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693SDX-3.3/NO
+L130B
+LP38693SDX-3.3/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+NIPDAU | SN
+Level-1-260C-UNLIM
+-40 to 125
+L130B
+LP38693SDX-5.0/NO.A
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+See
+LP38693SDX-5.0/NO
+L131B
+LP38693SDX-5.0/NOPB
+Active
+Production
+WSON (NGG) | 6
+4500 | LARGE T&R
+Yes
+SN
+Level-1-260C-UNLIM
+-40 to 125
+L131B
+ 
+(1) Status:  For more details on status, see our product life cycle.
+ 
+(2) Material type:  When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+ 
+(3) RoHS values:  Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+ 
+(4) Lead finish/Ball material:  Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+ 
+(5) MSL rating/Peak reflow:  The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+ 
+Addendum-Page 5
+
+
+---PDF PAGE 27---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+28-Oct-2026
+(6) Part marking:  There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+ 
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+ 
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+ 
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+ 
+ OTHER QUALIFIED VERSIONS OF LP38691, LP38691-Q1, LP38693, LP38693-Q1 :
+• Catalog : LP38691, LP38693
+• Automotive : LP38691-Q1, LP38693-Q1
+ NOTE: Qualified Version Definitions:
+• Catalog - TI's standard catalog product
+• Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+Addendum-Page 6
+
+
+---PDF PAGE 28---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+10-Aug-2026
+TAPE AND REEL INFORMATION
+Reel Width (W1)
+REEL DIMENSIONS
+A0
+B0
+K0
+W
+Dimension designed to accommodate the component length
+Dimension designed to accommodate the component thickness
+Overall width of the carrier tape
+Pitch between successive cavity centers
+Dimension designed to accommodate the component width
+TAPE DIMENSIONS
+K0
+ P1
+B0 W
+A0
+Cavity
+QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+Pocket Quadrants
+Sprocket Holes
+Q1
+Q1
+Q2
+Q2
+Q3
+Q3
+Q4
+Q4
+User Direction of Feed
+P1
+Reel
+Diameter
+ 
+*All dimensions are nominal
+Device
+Package
+Type
+Package
+Drawing
+Pins
+SPQ
+Reel
+Diameter
+(mm)
+Reel
+Width
+W1 (mm)
+A0
+(mm)
+B0
+(mm)
+K0
+(mm)
+P1
+(mm)
+W
+(mm)
+Pin1
+Quadrant
+LP38691DTX-1.8/NOPB
+TO-252
+NDP
+3
+2500
+330.0
+16.4
+6.9
+10.5
+2.7
+8.0
+16.0
+Q2
+LP38691DTX-2.5/NOPB
+TO-252
+NDP
+3
+2500
+330.0
+16.4
+6.9
+10.5
+2.7
+8.0
+16.0
+Q2
+LP38691DTX-3.3/NOPB
+TO-252
+NDP
+3
+2500
+330.0
+16.4
+6.9
+10.5
+2.7
+8.0
+16.0
+Q2
+LP38691DTX-5.0/NOPB
+TO-252
+NDP
+3
+2500
+330.0
+16.4
+6.9
+10.5
+2.7
+8.0
+16.0
+Q2
+LP38691QSD-1.8/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSD-2.5/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSD-3.3/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSD-5.0/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSDX-2.5/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691QSDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+Pack Materials-Page 1
+
+
+---PDF PAGE 29---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+10-Aug-2026
+Device
+Package
+Type
+Package
+Drawing
+Pins
+SPQ
+Reel
+Diameter
+(mm)
+Reel
+Width
+W1 (mm)
+A0
+(mm)
+B0
+(mm)
+K0
+(mm)
+P1
+(mm)
+W
+(mm)
+Pin1
+Quadrant
+LP38691SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38691SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693MP-1.8/NOPB
+SOT-223
+NDC
+5
+1000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MP-2.5/NOPB
+SOT-223
+NDC
+5
+1000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MP-3.3/NOPB
+SOT-223
+NDC
+5
+1000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MP-5.0/NOPB
+SOT-223
+NDC
+5
+1000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MPX-1.8/NOPB SOT-223
+NDC
+5
+2000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MPX-2.5/NOPB SOT-223
+NDC
+5
+2000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MPX-3.3/NOPB SOT-223
+NDC
+5
+2000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693MPX-5.0/NOPB SOT-223
+NDC
+5
+2000
+330.0
+16.4
+7.0
+7.5
+2.2
+12.0
+16.0
+Q3
+LP38693QSD-1.8/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSD-2.5/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSD-3.3/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSD-5.0/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSDX-2.5/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693QSDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+180.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+177.8
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+LP38693SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+330.0
+12.4
+3.3
+3.3
+1.0
+8.0
+12.0
+Q1
+Pack Materials-Page 2
+
+
+---PDF PAGE 30---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+10-Aug-2026
+TAPE AND REEL BOX DIMENSIONS
+Width (mm)
+W
+L
+H
+ 
+*All dimensions are nominal
+Device
+Package Type
+Package Drawing
+Pins
+SPQ
+Length (mm)
+Width (mm)
+Height (mm)
+LP38691DTX-1.8/NOPB
+TO-252
+NDP
+3
+2500
+356.0
+356.0
+36.0
+LP38691DTX-2.5/NOPB
+TO-252
+NDP
+3
+2500
+356.0
+356.0
+36.0
+LP38691DTX-3.3/NOPB
+TO-252
+NDP
+3
+2500
+356.0
+356.0
+36.0
+LP38691DTX-5.0/NOPB
+TO-252
+NDP
+3
+2500
+356.0
+356.0
+36.0
+LP38691QSD-1.8/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691QSD-2.5/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691QSD-3.3/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691QSD-5.0/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691QSDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691QSDX-2.5/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691QSDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691QSDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38691SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38691SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+Pack Materials-Page 3
+
+
+---PDF PAGE 31---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+10-Aug-2026
+Device
+Package Type
+Package Drawing
+Pins
+SPQ
+Length (mm)
+Width (mm)
+Height (mm)
+LP38691SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38691SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38691SDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38691SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+346.0
+346.0
+35.0
+LP38693MP-1.8/NOPB
+SOT-223
+NDC
+5
+1000
+367.0
+367.0
+35.0
+LP38693MP-2.5/NOPB
+SOT-223
+NDC
+5
+1000
+367.0
+367.0
+35.0
+LP38693MP-3.3/NOPB
+SOT-223
+NDC
+5
+1000
+367.0
+367.0
+35.0
+LP38693MP-5.0/NOPB
+SOT-223
+NDC
+5
+1000
+367.0
+367.0
+35.0
+LP38693MPX-1.8/NOPB
+SOT-223
+NDC
+5
+2000
+367.0
+367.0
+35.0
+LP38693MPX-2.5/NOPB
+SOT-223
+NDC
+5
+2000
+367.0
+367.0
+35.0
+LP38693MPX-3.3/NOPB
+SOT-223
+NDC
+5
+2000
+367.0
+367.0
+35.0
+LP38693MPX-5.0/NOPB
+SOT-223
+NDC
+5
+2000
+367.0
+367.0
+35.0
+LP38693QSD-1.8/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693QSD-2.5/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693QSD-3.3/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693QSD-5.0/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693QSDX-1.8/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38693QSDX-2.5/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38693QSDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38693QSDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38693SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38693SD-1.8/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693SD-2.5/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38693SD-3.3/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+200.0
+183.0
+25.0
+LP38693SD-5.0/NOPB
+WSON
+NGG
+6
+1000
+208.0
+191.0
+35.0
+LP38693SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+346.0
+346.0
+35.0
+LP38693SDX-3.3/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+LP38693SDX-5.0/NOPB
+WSON
+NGG
+6
+4500
+367.0
+367.0
+35.0
+Pack Materials-Page 4
+
+
+---PDF PAGE 32---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+10-Aug-2026
+TUBE
+ 
+ 
+L - Tube length
+T - Tube  
+height
+W - Tube  
+width
+B - Alignment groove width
+ 
+ 
+*All dimensions are nominal
+Device
+Package Name
+Package Type
+Pins
+SPQ
+L (mm)
+W (mm)
+T (µm)
+B (mm)
+LP38691DT-1.8/NOPB
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-1.8/NOPB.A
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-1.8/NOPB.B
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-2.5/NOPB
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-2.5/NOPB.A
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-2.5/NOPB.B
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-3.3/NOPB
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-3.3/NOPB.A
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-3.3/NOPB.B
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-5.0/NOPB
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-5.0/NOPB.A
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+LP38691DT-5.0/NOPB.B
+NDP
+TO-252
+3
+75
+508
+20
+4165.6
+3.1
+Pack Materials-Page 5
+
+
+---PDF PAGE 33---
+MECHANICAL DATA
+NDC0005A
+www.ti.com
+
+
+---PDF PAGE 34---
+www.ti.com
+PACKAGE OUTLINE
+C
+10.42
+9.40
+6.73
+6.35
+6.22
+5.97
+1.27
+0.88
+5.46
+4.96
+2.285
+4.57
+1.02
+0.64
+3X 0.88
+0.64
+2.55 MAX
+0.88
+0.46
+8
+8
+1.14
+0.89
+0.60
+0.46
+0.17
+0.51 MIN
+4.32 MIN
+(2.345)
+(2.5)
+TO-252 - 2.55 mm max height
+NDP0003B
+TRANSISTOR OUTLINE
+4219870/A   03/2018
+NOTES:
+ 
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+    per ASME Y14.5M. 
+2. This drawing is subject to change without notice.
+3. Reference JEDEC registration TO-252.
+0.25
+C A B
+TOP & BOTTOM
+PKG
+1
+2
+3
+OPTIONAL
+SEATING PLANE
+4
+3
+2
+1
+SCALE  1.500
+A
+B
+
+
+---PDF PAGE 35---
+www.ti.com
+EXAMPLE BOARD LAYOUT
+0.07 MAX
+ALL AROUND
+0.07 MIN
+ALL AROUND
+(4.57)
+2X (1.3)
+2X (2.15)
+(5.7)
+(5.5)
+(2.285)
+(4.38)
+(R0.05) TYP
+TO-252 - 2.55 mm max height
+NDP0003B
+TRANSISTOR OUTLINE
+4219870/A   03/2018
+NOTES: (continued)
+ 
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature numbers
+    SLMA002(www.ti.com/lit/slm002) and SLMA004 (www.ti.com/lit/slma004).
+5. Vias are optional depending on application, refer to device data sheet. It is recommended that vias under paste be filled, plugged or tented.
+LAND PATTERN EXAMPLE
+EXPOSED METAL SHOWN
+SCALE: 8X
+SYMM
+PKG
+1
+3
+4
+SEE SOLDER MASK
+DETAIL
+EXPOSED
+METAL
+METAL EDGE
+SOLDER MASK
+OPENING
+NON SOLDER MASK
+DEFINED
+(PREFERRED)
+SOLDER MASK DETAIL
+EXPOSED
+METAL
+METAL UNDER
+SOLDER MASK
+SOLDER MASK
+OPENING
+SOLDER MASK DEFINED
+
+
+---PDF PAGE 36---
+www.ti.com
+EXAMPLE STENCIL DESIGN
+2X (2.15)
+2X (1.3)
+(4.57)
+(4.38)
+(1.32) TYP
+(1.35) TYP
+(0.26)
+(R0.05) TYP
+16X (1.12)
+16X (1.15)
+TO-252 - 2.55 mm max height
+NDP0003B
+TRANSISTOR OUTLINE
+4219870/A   03/2018
+NOTES: (continued)
+ 
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+    design recommendations.
+7. Board assembly site may have different recommendations for stencil design.
+PKG
+SOLDER PASTE EXAMPLE
+BASED ON 0.125 MM THICK STENCIL
+SCALE: 8X
+
+
+---PDF PAGE 37---
+MECHANICAL DATA
+NGG0006A
+www.ti.com
+SDE06A (Rev A)
+
+
+---PDF PAGE 38---
+IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE 
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS” 
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD 
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate 
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable 
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an 
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license 
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully 
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on 
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable 
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products 
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+Copyright © 2026, Texas Instruments Incorporated
+Last updated 10/2025

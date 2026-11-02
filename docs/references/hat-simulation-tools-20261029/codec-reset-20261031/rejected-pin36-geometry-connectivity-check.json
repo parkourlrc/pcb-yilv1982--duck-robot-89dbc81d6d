@@ -1,0 +1,82 @@
+{
+  "runs": {
+    "before": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T093105Z-29bd06bd\\work",
+      "pcb_sha256": "70586fc6d5c68f322d49f56fa657ac89537fdf7702ad5e5261a5b253e5ca8fbe",
+      "commands": [
+        {
+          "name": "filled-before",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T093105Z-29bd06bd\\reset-filled-before-6cd7a5c5.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T093105Z-29bd06bd\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    },
+    "after": {
+      "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T085814Z-89c600aa\\work",
+      "pcb_sha256": "ecb2982a143786cbff764002f41d29a454a6e13b24665c190fc20473b75775f1",
+      "commands": [
+        {
+          "name": "filled-after",
+          "argv": [
+            "C:\\Users\\yilv\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "pcb",
+            "drc",
+            "--format",
+            "json",
+            "--severity-all",
+            "--schematic-parity",
+            "--refill-zones",
+            "--save-board",
+            "--output",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T085814Z-89c600aa\\reset-filled-after-63be7d25.json",
+            "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261031T085814Z-89c600aa\\work\\custom_hat_rev_a.kicad_pcb"
+          ],
+          "returncode": 0
+        }
+      ],
+      "violations": 0,
+      "unconnected": 0,
+      "parity": 0
+    }
+  },
+  "all_original_pad_geometry_unchanged": true,
+  "only_expected_header_net_change": true,
+  "all_original_copper_unchanged": true,
+  "unexpected_original_copper_changes": {},
+  "added_objects_match_contract": true,
+  "lost_original_connections": {},
+  "header_to_codec_and_pullup_connected": true,
+  "header_pin_type": "passive",
+  "new_via_checks": [
+    {
+      "uuid": "d480d7c7-fe42-4d30-ae8c-e5687d6eb8e2",
+      "net": "CODEC_RST",
+      "through": true,
+      "diameter_mm": 0.55,
+      "drill_mm": 0.3,
+      "minimum_pad_mask_bbox_gap_mm": 1.494547964876906
+    }
+  ],
+  "existing_fill_cap_requirements_unchanged": true,
+  "rules_unchanged": true,
+  "project_settings_unchanged": true,
+  "hardware_tested": false,
+  "production_ready": false,
+  "accepted": true
+}

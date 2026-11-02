@@ -1,0 +1,3 @@
+Usage: bmi088-i2c --describe | --device /dev/i2c-N --probe | --device /dev/i2c-N --stream [--samples N]
+--probe reads only the two chip IDs; --stream resets/configures the two BMI088 endpoints.
+Addresses are fixed to this HAT: accel 0x19, gyro 0x68. Default stream: 100 samples at requested 100Hz.
