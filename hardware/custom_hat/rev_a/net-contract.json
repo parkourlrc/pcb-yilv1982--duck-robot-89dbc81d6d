@@ -1730,13 +1730,21 @@
     ],
     "copper_diameter_mm": 0.35,
     "nominal_finished_hole_mm": 0.15,
-    "annular_ring_mm": 0.1,
+    "annular_ring_mm": 0.05,
     "type": "through",
     "required_filled": true,
     "required_copper_capped": true,
-    "process_basis": "JLCPCB published small mechanical through-via capability and via-in-pad POFV guide; extra process selection required",
+    "process_basis": "JLC domestic published 0.15mm bore / 0.25mm via land minimum, filled/capped; solder-side circular land contained by the original 0.875x0.25mm QFN pad",
     "supplier_job_acceptance": false,
-    "hardware_tested": false
+    "hardware_tested": false,
+    "front_inner_annular_ring_mm": 0.1,
+    "solder_side_copper_diameter_mm": 0.25,
+    "per_layer_copper_diameter_mm": {
+      "F.Cu": 0.35,
+      "In1.Cu": 0.35,
+      "In2.Cu": 0.35,
+      "B.Cu": 0.25
+    }
   },
   "codec_hardware_reset": {
     "header_pin": 33,

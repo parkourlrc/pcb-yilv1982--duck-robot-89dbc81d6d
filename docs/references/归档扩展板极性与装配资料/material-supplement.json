@@ -1,0 +1,47 @@
+{
+  "IHLP4040DZER5R6M5A": {
+    "Thermal_basis": "Official34315 product page links34213 Rev22Apr2024: SnAgCu peak255+/-5C; <=30s within5C; above217C60-150s; preheat150-200C60-120s; rise<=3C/s; fall<=6C/s",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/vishay-34213.pdf",
+    "PDF_pages": "1-2",
+    "Status_note": "精确DZ-5A产品页关联原厂指南，不借用DZ-11。免清洗优先；清洗须材料相容性。MSL仍未取得，完整炉温需按实板质量/热容量调试。"
+  },
+  "AP64350SP-13": {
+    "Thermal_basis": "TN1 Rev3 Jul2016 p6 Fig10 Pb-free235-255C; preheat<=2.5C/s; soak<=120s; reflow section<=85s; cooldown<=4C/s; >260C violates specification",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/diodes-tn1.pdf",
+    "PDF_pages": "5-7; exact MSL remains AP64350p24",
+    "Status_note": "Diodes原厂通用装配指导；精确SO-8EP为MSL1。例图不是整板配方，JEDEC分级曲线也不是生产建议；需实际测温配套。"
+  },
+  "PAM8302AADCR": {
+    "Thermal_basis": "TN1 Rev3 Jul2016 p6 Fig10 Pb-free235-255C; preheat<=2.5C/s; soak<=120s; reflow section<=85s; cooldown<=4C/s; >260C violates specification",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/diodes-tn1.pdf",
+    "PDF_pages": "5-7; exact MSL remains PAM8302Ap13",
+    "Status_note": "Diodes原厂通用装配指导，精确SO-8为MSL1。旧300C/5s焊接条件不能当回流峰值；整板曲线需测温。"
+  },
+  "BM02B-SRSS-TB(LF)(SN)": {
+    "Thermal_basis": "Official SH catalogue p3: heat-resistant PA wafer; JST handling p5 requires assembly-specific reflow evaluation, no universal numeric profile",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/jst-handling.pdf",
+    "PDF_pages": "5; SH catalogue p3-4",
+    "Packaging_basis": "Official catalogue p3 visual table: embossed tape and reel, top-entry1500/reel; side-entry3000/reel is a different part",
+    "Status_note": "官方SH目录及操作规范已取得；BM型号为耐热PA板端，不混用PBT线端。仍缺精确峰温/耐时，按原厂要求结合锡膏/气氛/吸湿和实板评估，不能自行标MSL1。"
+  },
+  "BM03B-SRSS-TB(LF)(SN)": {
+    "Thermal_basis": "Official SH catalogue p3: heat-resistant PA wafer; JST handling p5 requires assembly-specific reflow evaluation, no universal numeric profile",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/jst-handling.pdf",
+    "PDF_pages": "5; SH catalogue p3-4",
+    "Packaging_basis": "Official catalogue p3 visual table: embossed tape and reel, top-entry1500/reel; side-entry3000/reel is a different part",
+    "Status_note": "官方SH目录及操作规范已取得；耐热PA板端。缺精确峰温/耐时，按原厂要求实板评估，不自行标MSL1。"
+  },
+  "BM04B-SRSS-TB(LF)(SN)": {
+    "Thermal_basis": "Official SH catalogue p3: heat-resistant PA wafer; JST handling p5 requires assembly-specific reflow evaluation, no universal numeric profile",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/jst-handling.pdf",
+    "PDF_pages": "5; SH catalogue p3-4",
+    "Packaging_basis": "Official catalogue p3 visual table: embossed tape and reel, top-entry1500/reel; side-entry3000/reel is a different part",
+    "Status_note": "官方SH目录及操作规范已取得；耐热PA板端。缺精确峰温/耐时，按原厂要求实板评估，不自行标MSL1。"
+  },
+  "08055A332JAT2A": {
+    "Thermal_basis": "AVX MLCC attachment p3 Table2: No-Lead convection/IR250-260C; preheat<=2C/s60-120s; soak<=4C/s60-120s; reflow30-60s; cooling<=4C/s60-120s",
+    "Source": "docs/references/归档扩展板极性与装配资料/sources/avx-attachment.pdf",
+    "PDF_pages": "2-4",
+    "Status_note": "Scope明确陶瓷chip电容；不是仅RF器件。正文另要求液相附近时间<=60s，出炉<=100C、清洗前<60C；不使用Hi-Temp330-340C栏。与其余器件整合仍需真实炉温。"
+  }
+}

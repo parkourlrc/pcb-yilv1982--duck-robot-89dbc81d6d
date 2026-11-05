@@ -1,0 +1,283 @@
+{
+  "analyzer_type": "spice",
+  "schema_version": "1.4.0",
+  "summary": {
+    "total": 10,
+    "total_findings": 0,
+    "pass": 10,
+    "warn": 0,
+    "fail": 0,
+    "skip": 0,
+    "by_severity": {
+      "error": 0,
+      "warning": 0,
+      "info": 10
+    }
+  },
+  "findings": [],
+  "simulation_results": [
+    {
+      "subcircuit_type": "rc_filter",
+      "components": [
+        "R301",
+        "C305"
+      ],
+      "filter_type": "low-pass",
+      "expected": {
+        "cutoff_hz": 15915.49,
+        "type": "low-pass"
+      },
+      "simulated": {
+        "cutoff_hz": 15877.7,
+        "phase_at_fc_deg": -0.784197
+      },
+      "delta": {
+        "fc_error_pct": 0.24
+      },
+      "status": "pass",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R301_C305.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R301_C305.log",
+      "elapsed_s": 0.328,
+      "reference": "R301/C305"
+    },
+    {
+      "subcircuit_type": "rc_filter",
+      "components": [
+        "R701",
+        "C701"
+      ],
+      "filter_type": "low-pass",
+      "expected": {
+        "cutoff_hz": 159.15,
+        "type": "low-pass"
+      },
+      "simulated": {
+        "cutoff_hz": 158.778,
+        "phase_at_fc_deg": -0.784179
+      },
+      "delta": {
+        "fc_error_pct": 0.23
+      },
+      "status": "pass",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R701_C701.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R701_C701.log",
+      "elapsed_s": 0.344,
+      "reference": "R701/C701"
+    },
+    {
+      "subcircuit_type": "rc_filter",
+      "components": [
+        "R721",
+        "C723"
+      ],
+      "filter_type": "RC-network",
+      "expected": {
+        "cutoff_hz": 65.77,
+        "type": "RC-network"
+      },
+      "simulated": {
+        "cutoff_hz": 65.6105,
+        "phase_at_fc_deg": -0.784198
+      },
+      "delta": {
+        "fc_error_pct": 0.24
+      },
+      "status": "pass",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R721_C723.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R721_C723.log",
+      "elapsed_s": 0.359,
+      "reference": "R721/C723"
+    },
+    {
+      "subcircuit_type": "rc_filter",
+      "components": [
+        "R722",
+        "C724"
+      ],
+      "filter_type": "RC-network",
+      "expected": {
+        "cutoff_hz": 65.77,
+        "type": "RC-network"
+      },
+      "simulated": {
+        "cutoff_hz": 65.6105,
+        "phase_at_fc_deg": -0.784198
+      },
+      "delta": {
+        "fc_error_pct": 0.24
+      },
+      "status": "pass",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R722_C724.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\rc-filter_R722_C724.log",
+      "elapsed_s": 0.344,
+      "reference": "R722/C724"
+    },
+    {
+      "subcircuit_type": "protection_device",
+      "components": [
+        "D301"
+      ],
+      "device_type": "diode",
+      "expected": {
+        "rail_voltage_V": 3.7
+      },
+      "simulated": {},
+      "delta": {},
+      "model_note": "generic diode model \u2014 real TVS has specific clamping characteristics",
+      "status": "pass",
+      "note": "Protection diode present \u2014 clamping voltage requires manufacturer model for accurate measurement",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\protection-device_idx0.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\protection-device_idx0.log",
+      "elapsed_s": 0.562,
+      "reference": "D301"
+    },
+    {
+      "subcircuit_type": "decoupling",
+      "components": [
+        "C401",
+        "C402",
+        "C702",
+        "C705",
+        "C706"
+      ],
+      "rail": "+3V3",
+      "cap_count": 13,
+      "expected": {},
+      "simulated": {
+        "z_min_ohms": 0.0145,
+        "z_at_1MHz_ohms": 0.0315,
+        "z_at_100kHz_ohms": 0.2748
+      },
+      "delta": {},
+      "model_note": "generic ESR + parasitic L from self-resonant frequency",
+      "status": "pass",
+      "note": "Z=0.031\u03a9 at 1MHz",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C401_C402_C702_C705_C706.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C401_C402_C702_C705_C706.log",
+      "elapsed_s": 0.579,
+      "reference": "C401/C402/C702/C705/C706"
+    },
+    {
+      "subcircuit_type": "decoupling",
+      "components": [
+        "C703",
+        "C704"
+      ],
+      "rail": "+1V8_CODEC",
+      "cap_count": 2,
+      "expected": {},
+      "simulated": {
+        "z_min_ohms": 0.0312,
+        "f_at_zmin_hz": 1949810.0,
+        "z_at_1MHz_ohms": 0.0333,
+        "z_at_100kHz_ohms": 0.1602
+      },
+      "delta": {},
+      "model_note": "generic ESR + parasitic L from self-resonant frequency",
+      "status": "pass",
+      "note": "Z=0.033\u03a9 at 1MHz",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C703_C704.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C703_C704.log",
+      "elapsed_s": 0.656,
+      "reference": "C703/C704"
+    },
+    {
+      "subcircuit_type": "decoupling",
+      "components": [
+        "C734",
+        "C735",
+        "C736",
+        "C737"
+      ],
+      "rail": "+5V",
+      "cap_count": 4,
+      "expected": {},
+      "simulated": {
+        "z_min_ohms": 0.0156,
+        "z_at_1MHz_ohms": 0.0166,
+        "z_at_100kHz_ohms": 0.0801
+      },
+      "delta": {},
+      "model_note": "generic ESR + parasitic L from self-resonant frequency",
+      "status": "pass",
+      "note": "Z=0.017\u03a9 at 1MHz",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C734_C735_C736_C737.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\decoupling_C734_C735_C736_C737.log",
+      "elapsed_s": 0.797,
+      "reference": "C734/C735/C736/C737"
+    },
+    {
+      "subcircuit_type": "inrush",
+      "components": [
+        "C734",
+        "C735",
+        "C736",
+        "C737"
+      ],
+      "regulator": "U302",
+      "expected": {
+        "v_target_V": 5.0,
+        "estimated_inrush_A": 0.202
+      },
+      "simulated": {
+        "v_settled_V": 5.0
+      },
+      "delta": {
+        "v_settle_error_pct": 0.0
+      },
+      "status": "pass",
+      "note": "Transient simulated",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\inrush_idx0.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\inrush_idx0.log",
+      "elapsed_s": 0.875,
+      "reference": "C734/C735/C736/C737"
+    },
+    {
+      "subcircuit_type": "inrush",
+      "components": [
+        "C703",
+        "C704"
+      ],
+      "regulator": "U702",
+      "expected": {
+        "v_target_V": 1.8,
+        "estimated_inrush_A": 0.036
+      },
+      "simulated": {
+        "v_settled_V": 1.8
+      },
+      "delta": {
+        "v_settle_error_pct": 0.0
+      },
+      "status": "pass",
+      "note": "Transient simulated",
+      "cir_file": "docs/references/扩展板乙版降本/spice-work\\inrush_idx1.cir",
+      "log_file": "docs/references/扩展板乙版降本/spice-work\\inrush_idx1.log",
+      "elapsed_s": 1.094,
+      "reference": "C703/C704"
+    }
+  ],
+  "trust_summary": {
+    "total_findings": 0,
+    "trust_level": "high",
+    "by_confidence": {
+      "deterministic": 0,
+      "heuristic": 0,
+      "datasheet_backed": 0
+    },
+    "by_evidence_source": {
+      "datasheet": 0,
+      "topology": 0,
+      "heuristic_rule": 0,
+      "symbol_footprint": 0,
+      "bom": 0,
+      "geometry": 0,
+      "api_lookup": 0
+    },
+    "provenance_coverage_pct": null
+  },
+  "workdir": "docs/references/扩展板乙版降本/spice-work",
+  "total_elapsed_s": 5.938,
+  "simulator": "C:/Users/yilv/AppData/Local/duck-robot-tools/ngspice-47/Spice64/bin\\ngspice.EXE",
+  "ngspice": "C:/Users/yilv/AppData/Local/duck-robot-tools/ngspice-47/Spice64/bin\\ngspice.EXE"
+}

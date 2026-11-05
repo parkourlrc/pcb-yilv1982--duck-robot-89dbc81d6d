@@ -10,7 +10,7 @@ import plan_i2s_sdo as planner
 from power_local_detour import route
 
 
-EVIDENCE=Path(__file__).resolve().parents[3]/'docs/references/hat-simulation-tools-20261029/codec-supply-20261030'
+EVIDENCE=Path(__file__).resolve().parents[3]/'docs/references/扩展板电路仿真工具/codec-supply-20261030'
 REMOVED={'4c3169ee-ed94-45ec-a287-d62c2d71b812','5ad54a15-7efc-4bc8-903e-b68115dd64f0',
          '32bcce4f-0c46-4431-ba9c-597ff40bef9a','a38ba9d2-6fa7-4b1e-ae9e-408a287d1ab0','e0b332c8-0fe0-4b98-ad36-a21defb7767a','e52a2ff9-5693-4118-9e2b-2851c63a964f',
          '10ae63f1-45a3-4521-bfae-6a7c0e1458f3','fff083ab-41be-4a01-a647-23c2126eec58'}

@@ -1,0 +1,21 @@
+* Auto-generated testbench for RC filter: R701/C701
+* Type: low-pass, expected fc = 159.2 Hz
+* Model: ideal passives (exact for RC)
+
+
+R701 _3V3 CODEC_RST 10k
+
+C701 CODEC_RST 0 100n
+
+* AC stimulus
+VAC _3V3 0 DC 0 AC 1
+
+.control
+ac dec 100 1.592 15.91k
+meas ac fc_sim when vdb(CODEC_RST)=-3
+meas ac phase_fc find vp(CODEC_RST) at=fc_sim
+echo "fc_sim=$&fc_sim phase_fc=$&phase_fc has_parasitics=0" > docs/references/hat-revb-cost-20261104/spice-work/rc-filter_R701_C701.out
+quit
+.endc
+
+.end

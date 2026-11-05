@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-03",
+  "pcb_sha256": "86654c03b6c1c8f51f7d5a4bef469aceed2ddfc73433b3e50426940c2a23164a",
+  "panel_sha256": "fd6cd170fc09848e37feb88e10dad3bbf1d21954a8139f7bb0f8a303e4ceb22c",
+  "source_binding_valid": true,
+  "zip_members_valid": true,
+  "archive": "hardware\\custom_hat\\release-review\\HAT-A1-JLC-PCBA-86654c03b6c1-20261103-assembly.zip",
+  "archive_sha256": "46413368d6837e2b7f131f91f67a7f359d85bd663f88ff39f4a52a3b3de24194",
+  "tht_process_addendum": {
+    "included": true,
+    "source_report_sha256": "9064b8477af63b145a634a69e71bdada4f23219efd826d19b1c8029f7377b188",
+    "overrides": [
+      "assembly-process-basis.md",
+      "manufacturing-spec.md",
+      "manufacturing-spec.json"
+    ]
+  },
+  "depanel_process_addendum": {
+    "included": true,
+    "source_report_sha256": "3b55f4031baf76fce4586f83274c8826e69e7403e4f2215f7052fb280ae90d35",
+    "tht_assembly_and_reference_map_process_labels_updated": true
+  },
+  "panel_rules_and_edge_audit_hashes_valid": true,
+  "native_drill_locations_match": true,
+  "holes": 370,
+  "matching_tolerance_mm": 0.001,
+  "maximum_drill_quantization_error_mm": 0.0006403124237445668,
+  "pth": 318,
+  "npth": 52,
+  "copper_pad_center_checks": [
+    {
+      "layer": "F.Cu",
+      "native_copper_pads_checked": 253,
+      "missing_center_flashes": []
+    },
+    {
+      "layer": "In1.Cu",
+      "native_copper_pads_checked": 118,
+      "missing_center_flashes": []
+    },
+    {
+      "layer": "In2.Cu",
+      "native_copper_pads_checked": 118,
+      "missing_center_flashes": []
+    },
+    {
+      "layer": "B.Cu",
+      "native_copper_pads_checked": 373,
+      "missing_center_flashes": []
+    }
+  ],
+  "counts": {
+    "smt": 104,
+    "tht": 12,
+    "fitted": 116,
+    "dnp": 2,
+    "pofv": 12
+  },
+  "software_audits": [
+    {
+      "file": "docs\\references\\扩展板电路仿真工具\\driver-compatibility-20261031\\offline-package-final-audit.json",
+      "sha256": "c6c487b3ff8f544559d85804506eaa7c4423d62c3a9ae46db93b4037a4f65776",
+      "accepted_offline": true
+    },
+    {
+      "file": "docs\\references\\扩展板电路仿真工具\\bmi088-adapter-20261031\\final-audit.json",
+      "sha256": "c207812033888c18b9aa508645ae700d53b6e0288f3a7f92c3de4b220c93bc4f",
+      "accepted_offline": true
+    },
+    {
+      "file": "docs\\references\\扩展板电路仿真工具\\audio-routing-20261031\\final-audit.json",
+      "sha256": "9d9058d4062adcbbbece9f41672473787e56e75256f9b7aae8ce865a9201cadb",
+      "accepted_offline": true
+    }
+  ],
+  "git_diff_check_pass": true,
+  "manufacturing_released": false,
+  "hardware_tested": false,
+  "committed": false,
+  "limits": [
+    "Copper center matching rejects systematic layer shifts but is not complete CAM geometry verification",
+    "Existing native/edge/paste audits remain separate evidence; automated warnings retained"
+  ]
+}

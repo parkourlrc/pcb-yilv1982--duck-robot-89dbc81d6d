@@ -1,0 +1,589 @@
+(kicad_sch 
+  (version 20250114) 
+  (generator "eeschema") 
+  (uuid "573b8ed2-a763-5357-9356-05293465f0b3") 
+  (paper "A2") 
+  (title_block 
+    (title "自主HAT B.0 / i2c_expansion") 
+    (date "2026-11-04") 
+    (rev "B.0 CANDIDATE - NOT FOR FAB") 
+    (company "duck-robot")) 
+  (lib_symbols 
+    (symbol "duck:QWIIC4_B" 
+      (pin_names 
+        (offset 0.508)) 
+      (in_bom yes) 
+      (on_board yes) 
+      (property "Reference" "J" 
+        (at 0 7.62 0) 
+        (effects 
+          (font 
+            (size 1.0 1.0)))) 
+      (property "Value" "QWIIC4_B" 
+        (at 0 -7.62 0) 
+        (effects 
+          (font 
+            (size 1.0 1.0)))) 
+      (symbol "QWIIC4_B_0_1" 
+        (rectangle 
+          (start -10.16 5.08) 
+          (end 10.16 -5.08) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type background)))) 
+      (symbol "QWIIC4_B_1_1" 
+        (pin passive line 
+          (at -12.7 2.54 0) 
+          (length 2.54) 
+          (name "GND" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin passive line 
+          (at -12.7 0.0 0) 
+          (length 2.54) 
+          (name "3V3" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin passive line 
+          (at -12.7 -2.54 0) 
+          (length 2.54) 
+          (name "SDA" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "3" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin passive line 
+          (at 12.7 2.54 180) 
+          (length 2.54) 
+          (name "SCL" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "4" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin passive line 
+          (at 12.7 0.0 180) 
+          (length 2.54) 
+          (name "MOUNT_GND" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "MP" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))))) 
+    (symbol "Device:R" 
+      (pin_numbers 
+        (hide yes)) 
+      (pin_names 
+        (offset 0)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (in_pos_files yes) 
+      (duplicate_pin_numbers_are_jumpers no) 
+      (property "Reference" "R" 
+        (at 2.032 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Value" "R" 
+        (at 0 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Footprint" "" 
+        (at -1.778 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Datasheet" "" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Description" "Resistor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_keywords" "R res resistor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_fp_filters" "R_*" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (symbol "R_0_1" 
+        (rectangle 
+          (start -1.016 -2.54) 
+          (end 1.016 2.54) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type none)))) 
+      (symbol "R_1_1" 
+        (pin passive line 
+          (at 0 3.81 270) 
+          (length 1.27) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27))))) 
+        (pin passive line 
+          (at 0 -3.81 90) 
+          (length 1.27) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no))) 
+  (text "B.0 开发候选；脚位已建立，制造/成本和首板验收尚未完成。" 
+    (at 25.4 20.32 0) 
+    (effects 
+      (font 
+        (size 1.3 1.3)) 
+      (justify left)) 
+    (uuid "2fbaa529-4b66-59c6-95ea-de6bee038626")) 
+  (wire 
+    (pts 
+      (xy 52.07 77.47) 
+      (xy 44.45 77.47)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "99e469ee-37a7-5a37-8b43-519773e04664")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 44.45 77.47 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "3a040969-ee77-5274-b071-cdc241413c6f") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 44.45 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 52.07 80.01) 
+      (xy 44.45 80.01)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "760b355c-a44b-55d5-92e4-e61b1a33cef9")) 
+  (global_label "+3V3" 
+    (shape bidirectional) 
+    (at 44.45 80.01 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "5c10d1eb-ee6e-5b71-a6e4-cb38065bcc37") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 44.45 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 52.07 82.55) 
+      (xy 44.45 82.55)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "71a67bed-2cbb-5918-a49c-bbcd350d1d38")) 
+  (global_label "I2C5_SDA" 
+    (shape bidirectional) 
+    (at 44.45 82.55 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "2ecabb5d-6c5c-59e5-aa98-67c342b9448d") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 44.45 82.55 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 77.47 77.47) 
+      (xy 85.09 77.47)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "284203d7-ff49-5f44-87dd-4763ca2f12bd")) 
+  (global_label "I2C5_SCL" 
+    (shape bidirectional) 
+    (at 85.09 77.47 0) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify left)) 
+    (uuid "527b46e7-8b5a-545c-84f9-5bfc1e9dec7a") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 85.09 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 77.47 80.01) 
+      (xy 85.09 80.01)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "06c20c5d-2b43-53a2-a5c2-f73d6ee858df")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 85.09 80.01 0) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify left)) 
+    (uuid "ee15884f-ad28-5743-95a9-a0a941d5593a") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 85.09 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "duck:QWIIC4_B") 
+    (at 64.77 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "0073cf32-444b-59fc-a6ac-47aa8eb9b8b1") 
+    (property "Reference" "J502" 
+      (at 64.77 74.93 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "QWIIC_3V3" 
+      (at 64.77 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical" 
+      (at 64.77 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "4b30f40a-41eb-5097-ac52-7ab24aa8cb9e")) 
+    (pin "2" 
+      (uuid "9763eeb5-ee45-533c-a140-c7930a01bde1")) 
+    (pin "3" 
+      (uuid "02194b60-b2eb-5dce-bcec-c1c5f60b84f9")) 
+    (pin "4" 
+      (uuid "73ac1468-e629-5bd0-992e-531d9e3faa47")) 
+    (pin "MP" 
+      (uuid "5f0a78d5-e163-504e-9da9-578ae1f0a0d7")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/573b8ed2-a763-5357-9356-05293465f0b3" 
+          (reference "J502") 
+          (unit 1)))) 
+    (property "MPN" "BM04B-SRSS-TB(LF)(SN)" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C160390" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "JST" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 76.2) 
+      (xy 204.47 68.58)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "7f346c81-675a-56d7-9f39-08359affdf2c")) 
+  (global_label "+3V3" 
+    (shape bidirectional) 
+    (at 204.47 68.58 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "0b88b523-81a1-5fd3-82cf-c229ea760913") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 68.58 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 83.82) 
+      (xy 204.47 91.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "28229835-29fc-5459-b0ed-b6e01a7553fb")) 
+  (global_label "I2C5_SDA" 
+    (shape bidirectional) 
+    (at 204.47 91.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "be48e59e-dea4-584f-9b78-33f0f79d0afd") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 91.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:R") 
+    (at 204.47 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "fb826d0f-4714-55e1-b853-2934c50b7844") 
+    (property "Reference" "R501" 
+      (at 209.55 78.74000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "10k" 
+      (at 209.55 81.28 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" 
+      (at 204.47 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "2c02bcbf-67f2-53f7-a617-26f81a0c36f0")) 
+    (pin "2" 
+      (uuid "52626003-0ec7-52a4-a27f-ca38d24b4d81")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/573b8ed2-a763-5357-9356-05293465f0b3" 
+          (reference "R501") 
+          (unit 1)))) 
+    (property "MPN" "0603WAF1002T5E" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C25804" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "UNI-ROYAL" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 76.2) 
+      (xy 345.44 68.58)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "be4dea4f-803f-5a49-a0c8-91f626652a35")) 
+  (global_label "+3V3" 
+    (shape bidirectional) 
+    (at 345.44 68.58 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "7121530c-0dcd-5ff8-b6ba-d38a9599bcd0") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 68.58 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 83.82) 
+      (xy 345.44 91.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "b599a21e-6ab8-5145-a6be-cd2b0650bd28")) 
+  (global_label "I2C5_SCL" 
+    (shape bidirectional) 
+    (at 345.44 91.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "89521f9d-413a-57c8-97e2-d50b4489eae5") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 91.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:R") 
+    (at 345.44 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "955df27b-4930-5bda-b06f-31f540c44b98") 
+    (property "Reference" "R502" 
+      (at 350.52 78.74000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "10k" 
+      (at 350.52 81.28 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" 
+      (at 345.44 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "0d85a2a1-a844-5318-96f0-ab77fbfcd822")) 
+    (pin "2" 
+      (uuid "179d6d7d-cf22-5250-8fa9-16d31dc13eae")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/573b8ed2-a763-5357-9356-05293465f0b3" 
+          (reference "R502") 
+          (unit 1)))) 
+    (property "MPN" "0603WAF1002T5E" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C25804" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "UNI-ROYAL" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (embedded_fonts no))

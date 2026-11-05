@@ -1,0 +1,72 @@
+{
+  "software/robotd-recovery/.work/firmware/duck-control/src/feetech.rs": {
+    "sha256": "b3b9342af9248f46833ad1fe8b592342f71e227b4464c7dab45849a568b02a48",
+    "excerpts": [
+      {
+        "first_line": 1226,
+        "last_line": 1237,
+        "text": "\n    pub fn is_fresh(&self, transaction_us: u64) -> bool {\n        self.ready\n            && if self.age_upper_bound_ms.is_none() {\n                transaction_us <= TELEMETRY_DEADLINE_MS * 1000\n            } else {\n                self.age_upper_bound_ms.is_some_and(|age| {\n                    transaction_us.saturating_add(u64::from(age) * 1000) <= 50_000\n                })\n            }\n    }\n"
+      },
+      {
+        "first_line": 1263,
+        "last_line": 1289,
+        "text": "    last_block: Option<[u8; 12]>,\n    pub stale: ImuStale,\n}\nimpl BusImuFreshness {\n    pub fn check(&mut self, sample: &ImuSample, transaction_us: u64) -> Result<()> {\n        let duplicate = match sample.sequence {\n            Some(seq) => self.last_sequence == Some(seq),\n            None => self.last_block == Some(sample.block),\n        };\n        self.stale.run = if duplicate {\n            self.stale.run.saturating_add(1)\n        } else {\n            0\n        };\n        self.stale.total = self.stale.total.saturating_add(u64::from(duplicate));\n        self.last_sequence = sample.sequence;\n        self.last_block = Some(sample.block);\n        let limit = if sample.sequence.is_some() { 3 } else { 24 };\n        if !sample.is_fresh(transaction_us) || self.stale.run >= limit {\n            return Err(error(\n                \"IMU not ready or stale (invalid reading / Feetech counter / DXL2 repeated core bytes)\",\n            ));\n        }\n        Ok(())\n    }\n}\n"
+      },
+      {
+        "first_line": 2497,
+        "last_line": 2508,
+        "text": "        self.torque_state_confirmed = Some(on);\n        if !on {\n            self.hd1910.disarm(&mut self.bus)?;\n        }\n        Ok(())\n    }\n    fn slow_sensors(&mut self) -> Result<SlowSensors> {\n        self.latest_slow\n            .ok_or_else(|| error(\"no completed Feetech Sync Read sample yet\"))\n    }\n    fn imu_stale(&self) -> ImuStale {\n        self.imu.stale()"
+      },
+      {
+        "first_line": 2258,
+        "last_line": 2269,
+        "text": "            } else {\n                f64::from(fb.speed_raw)\n                    * crate::hd1910::SPEED_RAD_S_PER_COUNT\n                    * f64::from(joint.direction)\n            };\n            out.currents_ma[i] = if self.calibration.units_verified {\n                f64::from(sample.current_raw.abs()) * self.calibration.current_ma_per_count\n            } else {\n                f64::NAN\n            };\n            volts += fb.volts;\n            temps[i] = f64::from(fb.temperature_c);"
+      },
+      {
+        "first_line": 2276,
+        "last_line": 2285,
+        "text": "                position_signed_raw: fb.position_signed_raw,\n                speed_raw: fb.speed_raw,\n                load_raw: fb.load_raw,\n                current_raw: sample.current_raw,\n                volts: fb.volts,\n                temperature_c: fb.temperature_c,\n                position_rad: out.positions[i].is_finite().then_some(out.positions[i]),\n                velocity_rad_s: None,\n                current_ma: out.currents_ma[i].is_finite().then_some(out.currents_ma[i]),\n                feedback_fresh: fresh[i],"
+      },
+      {
+        "first_line": 2558,
+        "last_line": 2568,
+        "text": "            motion_enabled: self.calibration.motion_enabled,\n            calibration_complete: self.calibration.joints.iter().all(|j| j.calibrated),\n            imu_mount_verified: self.imu_mount_verified(),\n            torque_enabled: self.torque_enabled,\n            torque_state_confirmed: self.torque_state_confirmed,\n            gain_mode: self.gain_mode(),\n            velocity_source: crate::hd1910::VELOCITY_SOURCE,\n            velocity_rad_s_per_count: self.calibration.feedback_speed_scale(),\n            current_available: self.calibration.units_verified,\n            sample_age_ms: self\n                .latest_sample_at"
+      }
+    ]
+  },
+  "software/robotd-recovery/.work/firmware/robotd/src/main.rs": {
+    "sha256": "16fa3397ee75bd0e7f56daabdfc79c6e4932cfe52f656d6d9ff172def2fb3058",
+    "excerpts": [
+      {
+        "first_line": 149,
+        "last_line": 163,
+        "text": "/// minute with a monitor attached, which is exactly the reported \"random tiny spasms\".\n///\n/// Coasting is safe because the observation is *already* a tick old by construction: at\n/// 50 Hz the policy is trained on data of exactly this age, and a second tick of it is\n/// inside that. Three ticks (60 ms) covers a drop, a retry and a slow tick; past that the\n/// robot genuinely cannot see, and holding still is the honest answer.\nconst COAST_TICKS: u32 = 3;\n\n/// How long driving must have been interrupted before the controller is reset.\n///\n/// The reset zeroes the action history the policy observes and drops the low-pass anchor,\n/// which is right after a real pause and is itself a discontinuity after a 20 ms hiccup —\n/// the very jolt it exists to prevent.\nconst RESET_AFTER_PAUSE: Duration = Duration::from_millis(200);\n"
+      },
+      {
+        "first_line": 2545,
+        "last_line": 2590,
+        "text": "            }\n            Err(e) => {\n                let n = state.consecutive_errors.fetch_add(1, Ordering::Relaxed) + 1;\n                bus_drops_window += 1;\n\n                // A run of them is a fault, and stays as loud as it was: every tenth, at once.\n                // An isolated drop is ordinary, and `consecutive` resets on the next good read —\n                // so `n == 1` was true of every drop on a bus that recovers each time, and\n                // logging on it filled the journal. One line per [`BUS_DROP_QUIET`], saying how\n                // many it stands for.\n                let a_run = n.is_multiple_of(10);\n                let due = last_bus_drop.is_none_or(|at| at.elapsed() >= BUS_DROP_QUIET);\n                if a_run || due {\n                    tracing::warn!(\n                        error = %e,\n                        consecutive = n,\n                        // Zero on a run, and on the first drop after a quiet spell. Non-zero is\n                        // the rate: that many more happened and were not worth their own lines.\n                        also = bus_drops_quiet,\n                        \"bus read failed\"\n                    );\n                    last_bus_drop = Some(Instant::now());\n                    bus_drops_quiet = 0;\n                } else {\n                    bus_drops_quiet += 1;\n                }\n                (None, Some(e.to_string()))\n            }\n        };\n\n        // Coast over a dropped read on the last good sample — see [`COAST_TICKS`]. The\n        // distinction between \"fresh\" and \"what the policy steps from\" matters twice below:\n        // safety only observes fresh samples, so a repeat cannot feed the fall debounce, and\n        // `known_positions` only advances on fresh ones, so a coasted tick cannot pretend to\n        // know where the joints have moved to.\n        let mut sensors = coast.sample(fresh);\n\n        if let Some(fresh) = fresh.as_ref() {\n            safety.observe(fresh, period);\n            // Only once the orientation filter has converged: seeding the anchor from a\n            // quaternion that is still swinging would put the world origin somewhere the\n            // robot never was. A coasted tick is skipped too — repeating a stale sample\n            // into the estimator would tell it the robot froze, which it did not.\n            if safety.imu_ready() {\n                odometry.update(&fresh.positions, fresh.imu.quat);\n            }"
+      },
+      {
+        "first_line": 3794,
+        "last_line": 3854,
+        "text": "        }\n\n        let driving = snapshot.enabled\n            && bringup == Bringup::Ready\n            && controller.is_some()\n            // The limp-fall sequence owns the robot for its duration: the whole point is\n            // that the policy is *not* driving while the robot falls, lands and is posed.\n            && !in_limp_fall\n            && sensors.is_some()\n            && imu_warm\n            && !powered_off;\n\n        if driving && !was_driving {\n            // Starting fresh: a stale previous action in the observation, or a filter\n            // anchored to where the robot was a minute ago, would both show up as a lurch.\n            //\n            // Only after a real pause, though. Past `COAST_TICKS` of a bad bus this edge\n            // fires again within a few ticks, and resetting then re-introduces exactly the\n            // discontinuity the reset is for: a zeroed action the policy observes, and a\n            // low-pass filter with no anchor.\n            if walk_recovery.is_none() && reset_on_resume(stopped_driving_at, tick_start)\n                && let Some(controller) = controller.as_mut()\n            {\n                controller.reset();\n            }\n        }\n        if was_driving && !driving {\n            stopped_driving_at = Some(tick_start);\n            if !snapshot.enabled {\n                // Even a brief explicit disable ends the recurrent episode. The resume\n                // grace period below is for dropped sensor reads, not a user's stop.\n                if let Some(controller) = controller.as_mut() {\n                    if feetech {\n                        controller.reset_for_home();\n                    } else {\n                        controller.reset();\n                    }\n                }\n                // A deliberate stop returns to the home pose — the prototype's Start-off\n                // (\"policy DISABLED - returning to default pose\"). Commanded directly, no\n                // ramp: the servos do the travel at their own speed, and the robot is\n                // standing at home when Start next hands it to the policy.\n                hold = duck_control::deployment::home();\n            } else {\n                // Any other stop — IMU cooling, a blind bus, the armed fall gate — freezes\n                // where the robot *is*, from the last sample that arrived. Captured once,\n                // not re-read each tick, or the hold target would sag under gravity.\n                //\n                // Deliberately not gated on a sample arriving this tick: the stop that\n                // matters most is the one caused by a read failing, and requiring a reading\n                // then is requiring the thing that just failed.\n                hold = coast.known_positions(hold);\n            }\n        }\n        was_driving = driving;\n        if !driving { roller_heading.reset(); }\n\n        let scale_mult = if policy_cfg.voltage_adapt && battery_v > 0.0 {\n            policy_cfg.nominal_voltage / battery_v.clamp(6.0, 9.5)\n        } else {\n            1.0"
+      },
+      {
+        "first_line": 4445,
+        "last_line": 4479,
+        "text": "/// the assignment needed a sample, which is the one thing a failed read does not have. Mid\n/// stride that meant one tick of \"snap to the home pose\" at full gain, then a controller\n/// reset on the way back in. Roughly eight times a minute on a loaded board.\nstruct Coast {\n    last: Option<duck_control::Sensors>,\n    ticks: u32,\n}\n\nimpl Coast {\n    fn new() -> Self {\n        Self {\n            last: None,\n            ticks: 0,\n        }\n    }\n\n    /// Feed a tick's read result; get back what the policy may step from.\n    fn sample(&mut self, fresh: Option<duck_control::Sensors>) -> Option<duck_control::Sensors> {\n        match fresh {\n            Some(sensors) => {\n                self.ticks = 0;\n                self.last = Some(sensors);\n                Some(sensors)\n            }\n            None if self.ticks < COAST_TICKS => {\n                self.ticks += 1;\n                self.last\n            }\n            None => None,\n        }\n    }\n\n    /// Where the joints were the last time anything was actually read — what a fallback\n    /// holds. `fallback` covers the ticks before the first successful read.\n    fn known_positions(&self, fallback: [f64; NUM_JOINTS]) -> [f64; NUM_JOINTS] {"
+      }
+    ]
+  },
+  "software/robotd-recovery/.work/firmware/duck-control/src/model.rs": {
+    "sha256": "98108bb15b9930c7096e5bfff032d7fb8effe6c39e8059d24f9a9ebed325df60",
+    "excerpts": [
+      {
+        "first_line": 6,
+        "last_line": 18,
+        "text": "pub const NUM_JOINTS: usize = 15;\n\n/// Dynamixel IDs, indexed as [`JOINT_NAMES`].\npub const JOINT_IDS: [u8; NUM_JOINTS] = [\n    20, 21, 22, 23, 24, // left leg\n    30, 31, 32, 33, 34, // neck, head, mouth\n    10, 11, 12, 13, 14, // right leg\n];\n\n/// Joint names, from the protocol crate — the wire indexes `joints` and `targets`\n/// positionally, so that order and this one cannot be allowed to drift apart. The\n/// assertion below is what makes \"cannot\" true.\npub use duck_ipc_proto::JOINT_NAMES;"
+      }
+    ]
+  }
+}

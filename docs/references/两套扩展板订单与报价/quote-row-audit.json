@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-04",
+  "basis": "visible webpage table cells versus archived source BOM",
+  "boards": {
+    "custom_a1": {
+      "source_parts": 58,
+      "matched_parts": 58,
+      "unique_refs": 58,
+      "matching_rows": 38,
+      "sides": {
+        "top": 24,
+        "bottom": 34
+      },
+      "tht_parts": 6,
+      "missing_refs": [],
+      "unexpected_refs": [],
+      "duplicate_refs": {},
+      "shortage_rows": [
+        {
+          "refs": [
+            "C301"
+          ],
+          "matched_code": "C2172813",
+          "required_with_loss": 9,
+          "stock": 0,
+          "private_stock": true,
+          "tht": false
+        },
+        {
+          "refs": [
+            "C317",
+            "C318"
+          ],
+          "matched_code": "C22400979",
+          "required_with_loss": 10,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "C303",
+            "C304",
+            "C305",
+            "C306",
+            "C323"
+          ],
+          "matched_code": "C22411650",
+          "required_with_loss": 29,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "R703"
+          ],
+          "matched_code": "C4023968",
+          "required_with_loss": 5,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "R304"
+          ],
+          "matched_code": "C2077254",
+          "required_with_loss": 9,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "U702"
+          ],
+          "matched_code": "C2864125",
+          "required_with_loss": 5,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "L301"
+          ],
+          "matched_code": "C2051862",
+          "required_with_loss": 5,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "U301"
+          ],
+          "matched_code": "C2071691",
+          "required_with_loss": 5,
+          "stock": 1,
+          "private_stock": false,
+          "tht": false
+        },
+        {
+          "refs": [
+            "U803"
+          ],
+          "matched_code": "C112137",
+          "required_with_loss": 5,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        }
+      ],
+      "code_differences": []
+    },
+    "kissqy": {
+      "source_parts": 86,
+      "matched_parts": 86,
+      "unique_refs": 86,
+      "matching_rows": 70,
+      "sides": {
+        "top": 85,
+        "bottom": 1
+      },
+      "tht_parts": 5,
+      "missing_refs": [],
+      "unexpected_refs": [],
+      "duplicate_refs": {},
+      "shortage_rows": [
+        {
+          "refs": [
+            "J13",
+            "J14"
+          ],
+          "matched_code": "C225336",
+          "required_with_loss": 13,
+          "stock": 1,
+          "private_stock": false,
+          "tht": true
+        },
+        {
+          "refs": [
+            "D1"
+          ],
+          "matched_code": "C78606",
+          "required_with_loss": 10,
+          "stock": 0,
+          "private_stock": false,
+          "tht": false
+        }
+      ],
+      "code_differences": [
+        {
+          "ref": "J1",
+          "expected_code": "C225090",
+          "matched_code": "C5333427",
+          "expected_mpn": "A1251WV-2P"
+        },
+        {
+          "ref": "J9",
+          "expected_code": "C225090",
+          "matched_code": "C5333427",
+          "expected_mpn": "A1251WV-2P"
+        },
+        {
+          "ref": "J2",
+          "expected_code": "C225090",
+          "matched_code": "C5333427",
+          "expected_mpn": "A1251WV-2P"
+        }
+      ]
+    }
+  },
+  "known_mapping_limitations": {
+    "custom_a1": "Historical source code map already contains rejected C377773 for C308/C309/C328; code equality does not validate the KEMET MPN.",
+    "kissqy": "J1/J2/J9 automatically map C225090 to C5333427; visible search verifies CJT A1251WV-2P on C5333427, same source manufacturer/MPN. Mechanical placement remains unreviewed."
+  }
+}

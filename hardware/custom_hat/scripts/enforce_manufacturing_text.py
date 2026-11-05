@@ -8,7 +8,7 @@ import pipeline
 from add_i2c_pullups import vector
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/manufacturer-rules-20261031"
 BASELINE = "b06b1051d84509c7434347d5889afb7908dffe1af99b67eea67eb4c3e33a9849"
 def expected_project_settings(original):
     expected = copy.deepcopy(original)

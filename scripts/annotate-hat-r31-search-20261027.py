@@ -70,7 +70,7 @@ def main():
         "evidence": "照片定位辅助；不能辨认 R31 单颗位号/阻值/网络", "outputs": []}
     for p in [OUT,CROP]:
         manifest["outputs"].append({"path":p.relative_to(ROOT).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest()})
-    (ROOT/"docs/references/hat-imu-shared-bus-20261027/photo-location-manifest.json").write_text(
+    (ROOT/"docs/references/扩展板双口惯性缺答复核/photo-location-manifest.json").write_text(
         json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(OUT)
 

@@ -10,7 +10,7 @@ from generate_rev_a import Sheet, children, dump, first, parse, q, uid
 from repair_release_metadata import child_spans, properties, replace_children, set_property
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/ldo-capacitors-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/ldo-capacitors-20261031"
 BASELINE = "818becfdb21d35b6ceacbe00b6e7837465292d696b56cc7991d4e7494704831f"
 CAP_FIELDS = {"Value": "2.2uF", "MPN": "C0805C225K5RACTU", "Manufacturer": "KEMET",
               "Datasheet": "https://search.kemet.com/component-documentation/download/specsheet/C0805C225K5RACTU",

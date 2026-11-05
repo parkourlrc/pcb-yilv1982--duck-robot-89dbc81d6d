@@ -9,7 +9,7 @@ from generate_rev_a import children, first, parse
 from repair_release_metadata import properties, replace_children
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/amp-decoupling-20261031"
 
 
 def without_label_positions(text):

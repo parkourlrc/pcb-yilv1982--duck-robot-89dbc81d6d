@@ -4,7 +4,7 @@
 - 状态：用户已确认“已托稳，按方案接通模型”；已部署，六模型及网页绑定验收通过，保持卸力，未运行动作。
 - 需求：使用现有 Studio 网页手柄，让已安装的六模型被 robotd 加载、现有五个技能绑定可识别；验收截至卸力状态的只读核对。
 - 范围：只改 `/etc/robot/feetech-ft5/robotd.toml` 的 `[policy] enabled=false` 为 `true`，并重启 robotd。保留六模型路径、已写本机标定、动作参数、通信方式、保护和按键映射；不改源码、不配实体蓝牙手柄、不自动站姿/行走/执行技能、不提交推送。
-- 依据：[当前实测、原生源码与网页状态](../../references/b-feetech-policy-deployment-20261024/webpad-models-check-20261101.md)。模型文件六个 SHA 全部一致；配置禁用使加载函数提前返回、技能列表为空。当前原生热加载命令因进程内启动字段 false 被拒绝。
+- 依据：[当前实测、原生源码与网页状态](../../references/飞特策略模型上机核对/webpad-models-check-20261101.md)。模型文件六个 SHA 全部一致；配置禁用使加载函数提前返回、技能列表为空。当前原生热加载命令因进程内启动字段 false 被拒绝。
 
 ## 修改与回退
 
@@ -34,6 +34,6 @@
 - 只将现行 robotd.toml 的 policy.enabled 改为 true，实际 diff 与方案相同；原生六模型加载成功、五绑定无错，实际网页状态同样通过。标定、模型及配套文件、基础服务和二进制 SHA 未变。
 - robotd PID 1567、Studio PID 973 均 active/enabled；Studio未重启。原生 motion/control、动态动作关闭，15颗已确认卸力；未发送站姿、行走或技能命令。
 - 首次验收错误地把 `torque_state_confirmed=false` 当成未确认，触发自动回退；源码实际定义 false=已确认关闭、null=未知。已严格按原生定义修正验收，在独立 attempt2 目录部署成功，保留首轮脚本和完整日志。两次安装及回退均在本次已确认的重启卸力范围内，无上力动作。
-- 最终备份 `/etc/robot/feetech-ft5/backup-before-webpad-policy-20261101T080359146909Z/`。证据见[完整研究](../../references/b-feetech-policy-deployment-20261024/webpad-models-check-20261101.md)，实施见[工作副本](../../../tools/robotd-v03/webpad-control/README.md)。动作效果和推理实时性能未验收。
+- 最终备份 `/etc/robot/feetech-ft5/backup-before-webpad-policy-20261101T080359146909Z/`。证据见[完整研究](../../references/飞特策略模型上机核对/webpad-models-check-20261101.md)，实施见[工作副本](../../../software/robotd-v03/webpad-control/README.md)。动作效果和推理实时性能未验收。
 
 提交：未提交，保留工作区。

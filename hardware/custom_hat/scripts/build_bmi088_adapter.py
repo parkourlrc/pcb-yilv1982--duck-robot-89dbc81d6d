@@ -13,7 +13,7 @@ from build_codec_module import linux_path, wsl
 from collect_radxa_driver_sources import ROOT, SOURCES
 
 
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/bmi088-adapter-20261031"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/bmi088-adapter-20261031"
 APP = ROOT / "hardware/custom_hat/software/imu"
 SDK_COMMIT = "c1ed227e7bb7da1fa600bbd4e5c82d0da1eb416a"
 VENDOR = ("bmi08a.c", "bmi08g.c", "bmi08xa.c", "bmi08.h", "bmi08_defs.h", "bmi08x.h")

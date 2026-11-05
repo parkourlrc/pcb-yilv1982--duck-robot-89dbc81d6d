@@ -1,18 +1,18 @@
 # 刷机指南：把飞特固件烧进 ScrapMeta imu_to_dxl 板
 
-> **2026-11-01 当前板型边界**：用户已换上新单 3P 口 IMU，保持原出厂固件；已恢复主机混读并通过 servo-web 只读验收，见[记录](../docs/references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。本目录 STM32 v0.3 固件不能用于新单口板，v0.3 排障暂缓。
+> **2026-11-01 当前板型边界**：用户已换上新单 3P 口 IMU，保持原出厂固件；已恢复主机混读并通过 servo-web 只读验收，见[记录](../docs/references/飞特策略模型上机核对/restore-mixed-sync-read-20261101.md)。本目录 STM32 v0.3 固件不能用于新单口板，v0.3 排障暂缓。
 
 > **🚨 2026-10-25 事故记录（当晚更正归因）**：一块 v0.3 备件在机器人 7.4V 分支上测量电压时
 > **表笔短接致损**（用户确认）。**"7.4V 过压直接烧毁"不成立为定论**。
 > 错误的“5.5V 输入上限”已于 2026-10-31 依据原厂手册撤回：VIN/EN 推荐上限 13.2V、绝对最大 15V。
-> 7.4V 没有超出该 LDO 推荐范围；不再要求因这个错误上限另建 5V 支路。见[电气复核](../docs/references/imu-v03-input-voltage-20261031/research.md)。
+> 7.4V 没有超出该 LDO 推荐范围；不再要求因这个错误上限另建 5V 支路。见[电气复核](../docs/references/惯性单元输入电压复核/research.md)。
 > 若仅 LDO 损坏可换料修复（AP2210K-3.3）。
 
 目标板：**ScrapMeta `microduck-diy` imu_to_dxl v0.3**（32×22mm，丝印 `imu-to-dxl v0.3`，STM32G031F8P6 + LSM6DSV16X）——2026-10-09 用户确认手上绿板即此板。
 
 要刷的固件：**replica 0.2.0 飞特版**（ID 200、@56 15 字节块、SCS/STS 协议）。预编译 HEX 已复制到本目录并通过作者公布的 SHA-256 校验（镜像 0x08000000 起 10,724 字节，`66bc7c53…938e`）。
 
-> 引脚兼容性已逐脚核实（详见 `../docs/references/imu-to-dxl-variants-20261009/research.md`）：两板 PA0/PA1/PA2/PA3/PA4-7/PA11/PA12/PA13/PA14 功能一一对应；固件未用 INT2（ScrapMeta 板悬空无风险）；PB7 回显抑制脚在 ScrapMeta 板上是无害空操作。
+> 引脚兼容性已逐脚核实（详见 `../docs/references/惯性单元三版来源对比/research.md`）：两板 PA0/PA1/PA2/PA3/PA4-7/PA11/PA12/PA13/PA14 功能一一对应；固件未用 INT2（ScrapMeta 板悬空无风险）；PB7 回显抑制脚在 ScrapMeta 板上是无害空操作。
 
 ---
 
@@ -98,7 +98,7 @@ URT-2 插电脑 USB，双击 **`2-查COM口.bat`** 找到它的 COM 号。
 
 | 症状 | 处理 |
 |---|---|
-| DAPLink 方式报 `no CMSIS-DAP device found` | 换 USB 线/口（有些线只充电）；设备管理器看有没有 HID 设备。本机这颗克隆的完整故障定性（不枚举/口被占/假在线/静默误判）见 [DAPLink 连接排障](../docs/references/daplink-connectivity-20261014/research.md) |
+| DAPLink 方式报 `no CMSIS-DAP device found` | 换 USB 线/口（有些线只充电）；设备管理器看有没有 HID 设备。本机这颗克隆的完整故障定性（不枚举/口被占/假在线/静默误判）见 [DAPLink 连接排障](../docs/references/调试器连接故障定性/research.md) |
 | ST-Link 报 `libusb_open() failed` / 找不到 | ST-Link 需要 WinUSB 驱动：装 [Zadig](https://zadig.akeo.ie/) → Options→List All Devices → 选 ST-Link → 目标驱动选 **WinUSB** → Replace Driver（约 30 秒）。换回 ST 官方软件时需重装 ST 驱动 |
 | 连上但 `target halted` 报错/读不到 IDCODE | 检查 SWDIO/SWCLK 有没有接反；把 J2-7 (RST) 也接到调试器 NRST；脚本已用低速 200kHz，仍不行降到 100（编辑 bat） |
 | `Programming Finished` 但 `Verified` 报错 | 重新烧一次；再不行把 bat 里 `verify` 后加 `reset halt` 前多等——一般不出现 |
@@ -114,7 +114,7 @@ URT-2 插电脑 USB，双击 **`2-查COM口.bat`** 找到它的 COM 号。
 | `2-查COM口.bat` | 列串口 |
 | `3-验收-imu200.bat` | 总线 13 项验收 |
 | `tools/xpack-openocd-0.12.0-7/` | OpenOCD（xpack 构建，内置 stm32g0x 支持，无需器件包） |
-| `tools/imu200/` + `tools/servo-web/` | 验收工具（来自 replica 仓库，复制出来用；`imu200.py demo` 可离线自测） |
+| `tools/imu200/` + `software/servo-web/` | 验收工具（来自 replica 仓库，复制出来用；`imu200.py demo` 可离线自测） |
 
 ## 边界（诚实清单）
 

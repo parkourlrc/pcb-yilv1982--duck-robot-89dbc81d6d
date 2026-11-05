@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-02",
+  "pcb_sha256": "b610f1dcd136f6266f21e1568da76f2457573475137de31431d06c72c5eafc3a",
+  "status": "design_manufacturing_choices_only_no_order_or_factory_acceptance",
+  "single_board_mm": [
+    65,
+    30
+  ],
+  "panel_mm": [
+    85,
+    82
+  ],
+  "units_per_panel": 2,
+  "copper_layers": 4,
+  "substrate": "FR-4",
+  "nominal_board_mm": 1.6,
+  "requested_stackup": "JLC041611-7628",
+  "published_stackup_copper_um": {
+    "F.Cu": 35,
+    "In1.Cu": 30,
+    "In2.Cu": 30,
+    "B.Cu": 35
+  },
+  "published_stackup_dielectrics_mm": [
+    0.203,
+    1.03,
+    0.203
+  ],
+  "published_finished_thickness_mm": 1.57,
+  "published_finished_tolerance_percent": 10,
+  "dk": null,
+  "df": null,
+  "finish_design_choice": "ENIG / 沉金",
+  "soldermask_design_choice": "green / 绿色",
+  "legend_design_choice": "white / 白色",
+  "surface_choice_basis": "Published JLC options; project choice for planar fine-pitch assembly, not a measured finish quality or guaranteed process result",
+  "via_process": "resin fill plus copper cap / 树脂塞孔+电镀盖帽",
+  "required_pofv_count_per_unit": 6,
+  "required_via_uuids": [
+    "c6ad78c2-361f-4c03-a650-a32f6c415d72",
+    "85108187-b92b-4578-a269-8496b438815e",
+    "86e8d20d-aa31-422f-9146-aaf79ea36189",
+    "c6a79af1-d58d-43d2-aedd-020b33211786",
+    "d939419a-89f7-49ac-ac9a-c55c58e3b250",
+    "ed8dde56-52d1-4401-afa6-2bae5275db58"
+  ],
+  "cap_copper_published_min_um": 10,
+  "other_vias": "Follow supplied mask layers; any batch-wide filling expansion needs manufacturing review",
+  "outline": "milled slots plus mouse-bite tabs; no V-score",
+  "castellated_holes": false,
+  "blind_or_buried_vias": false,
+  "plated_round_holes_per_unit": 159,
+  "nonplated_round_holes_per_unit": 4,
+  "smt_service": "standard dual-side",
+  "stencil_nominal_mm": 0.125,
+  "stencil_area_ratio_screen": 0.66,
+  "stencil_upper_thickness_for_current_minimum_aperture_mm": 0.12942059614205548,
+  "stencil_surface": "rounded laser-cut aperture design; actual wall process and thickness to be accepted by fabrication",
+  "paste_design_basis": "lead-free no-clean; Type3 or finer printing class per cited leaded-package guidance, actual alloy/flux not selected",
+  "assembly_sequence": [
+    "B-side SMT first",
+    "F-side SMT second",
+    "All six THT parts after both reflows"
+  ],
+  "tht_sides": {
+    "J301": "bottom",
+    "J101": "top",
+    "J401": "top",
+    "J402": "top",
+    "J403": "top",
+    "J802": "top"
+  },
+  "fitted_components_per_unit": 58,
+  "smt_per_unit": 52,
+  "tht_per_unit": 6,
+  "dnp": [
+    "C307"
+  ],
+  "functional_validation": "not performed; no new board exists",
+  "remaining_process_acceptance": [
+    "Specific SH reflow window or JST-required application evaluation",
+    "Actual paste/alloy/flux, stencil tolerance and SPI transfer",
+    "Second-side component retention and actual thermal profile",
+    "Actual laminate/material and order selections including fee-bearing0.15mm drill/POFV",
+    "Incoming parts/packing/MSL records; no substitution by footprint alone",
+    "Cable bends/chassis/accessories and actual board spacing",
+    "First-article electrical and functional acceptance after fabrication"
+  ],
+  "official_sources": [
+    {
+      "path": "docs\\references\\归档扩展板嘉立创规则自查\\sources\\pcb-capabilities.txt",
+      "sha256": "0561e3b377d529abea3604563f638e87454b9df47fd5dd1fb8db9223f8c2a95b"
+    },
+    {
+      "path": "docs\\references\\归档扩展板嘉立创规则自查\\sources\\smt-capabilities.txt",
+      "sha256": "4c1eea7687f9bbf9077fdd7825ea704b4f189c84e0fc4223307c96ae72c58c6c"
+    },
+    {
+      "path": "docs\\references\\归档扩展板嘉立创规则自查\\sources\\via-process.txt",
+      "sha256": "9f95375088e8ef3abcc7dec6365cfbabe8921adf8eafecfdb31374ec8ff410d1"
+    }
+  ],
+  "order_created": false,
+  "uploaded": false,
+  "paid": false,
+  "manufacturing_released": false
+}

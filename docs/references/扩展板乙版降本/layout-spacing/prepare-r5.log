@@ -1,0 +1,26 @@
+Adding duplicate image handler for 'PNG file'
+Adding duplicate image handler for 'JPEG file'
+Adding duplicate image handler for 'TIFF file'
+Adding duplicate image handler for 'GIF file'
+Adding duplicate image handler for 'PNM file'
+Adding duplicate image handler for 'PCX file'
+Adding duplicate image handler for 'IFF file'
+Adding duplicate image handler for 'Windows icon file'
+Adding duplicate image handler for 'Windows cursor file'
+Adding duplicate image handler for 'Windows animated cursor file'
+Adding duplicate image handler for 'TGA file'
+Adding duplicate image handler for 'XPM file'
+Adding duplicate image handler for 'WebP file'
+Traceback (most recent call last):
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\resume_rev_b_solder_access.py", line 118, in <module>
+    main()
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\resume_rev_b_solder_access.py", line 101, in main
+    assert signature(board) == signature(baseline), 'Component/pin contract changed'
+           ^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\resume_rev_b_solder_access.py", line 17, in signature
+    return {f.GetReference(): {
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\duck-robot\hardware\custom_hat\scripts\resume_rev_b_solder_access.py", line 18, in <dictcomp>
+    'value': f.GetValue(), 'footprint': f.GetFPID().GetLibNickname()+':'+f.GetFPID().GetLibItemName(),
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+TypeError: unsupported operand type(s) for +: 'UTF8' and 'str'

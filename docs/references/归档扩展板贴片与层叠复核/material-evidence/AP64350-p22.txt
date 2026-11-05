@@ -1,0 +1,59 @@
+ 
+AP64350 
+Document number: DS41976 Rev. 5 - 2 
+22 of 25 
+www.diodes.com 
+December 2024 
+©  2024 Copyright Diodes Incorporated. All Rights Reserved. 
+ 
+AP64350 
+ 
+ 
+Layout 
+PCB Layout 
+ 
+1. 
+The AP64350 works at 3.5A load current so heat dissipation is a major concern in the layout of the PCB. 2oz copper for both the top and bottom 
+layers is recommended. 
+2. 
+Place the input capacitors as closely across VIN and GND as possible. 
+3. 
+Place the inductor as close to SW as possible. 
+4. 
+Place the output capacitors as close to GND as possible. 
+5. 
+Place the feedback components as close to FB as possible. 
+6. 
+If using four or more layers, use at least the 2nd and 3rd layers as GND to maximize thermal performance. 
+7. 
+Add as many vias as possible around both the GND pin and under the GND plane for heat dissipation to all the GND layers. 
+8. 
+Add as many vias as possible around both the VIN pin and under the VIN plane for heat dissipation to all the VIN layers. 
+9. 
+See Figure 32 for more details. 
+ 
+C5
+EXPOSED PAD
+BST
+VIN
+EN
+RT/CLK
+FB
+COMP
+GND
+SW
+C1
+C2
+L
+C3
+R1
+R2
+R5
+RT
+VOUT
+GND
+SW
+VIN
+ 
+Figure 32. Recommended PCB Layout 
+ 

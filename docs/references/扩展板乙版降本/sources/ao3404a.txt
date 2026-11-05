@@ -1,0 +1,330 @@
+
+--- PAGE 1 ---
+Symbol
+VDS
+VGS
+IDM
+TJ, TSTG
+Symbol Typ Max
+65 90
+85 125
+RqJL 63 80
+AO3404A
+N-Channel Enhancement Mode Field Effect Transistor
+Maximum Junction-to-Lead C Steady-State ° C/W
+Thermal Characteristics
+Parameter Units
+Maximum Junction-to-Ambient A t  ≤ 10s RqJA
+° C/W
+° C/WMaximum Junction-to-Ambient A Steady-State
+Continuous Drain
+Current A,F
+Junction and Storage Temperature Range
+A
+PD
+°C
+1.4
+0.9
+-55 to 150
+TA=70° C
+ID
+TA=25° C
+TA=70° C
+Power Dissipation
+TA=25° C
+5.8
+Pulsed Drain Current B 64
+4.9
+W
+Absolute Maximum Ratings  TA=25° C unless otherwise noted
+V
+V± 20
+Maximum UnitsParameter
+30
+Gate-Source Voltage
+Drain-Source Voltage
+Features
+VDS (V) = 30V
+ID = 5.8A                     (VGS = 10V)
+RDS(ON) < 25mW            (VGS = 10V)
+RDS(ON) < 35mW          (VGS = 4.5V)
+General Description
+The AO3404A uses advanced trench technology to 
+provide excellent RDS(ON) and low gate charge. This 
+device is suitable for use as a load switch or in PWM 
+applications. 
+G 
+D 
+S 
+SOT23
+Top View                Bottom View 
+D
+G
+SG
+S
+D
+Rev.5.1: July 2023 www.aosmd.com Page 1 of 4   
+
+--- PAGE 2 ---
+AO3404A
+Symbol Min Typ Max Units
+BVDSS 30 V
+1
+TJ=55° C 5
+IGSS 100 nA
+VGS(th) 1.5 2.1 2.6 V
+ID(ON) 64 A
+18.4 25
+TJ=125° C 26.2 36
+24.5 35 mW
+gFS 22 S
+VSD 0.75 1 V
+IS 2.5 A
+Ciss 373 448 pF
+Coss 67 pF
+Crss 41 pF
+Rg 0.9 1.8 2.8 W
+Qg(10V) 7.1 11 nC
+Qg(4.5V) 3.3 nC
+Qgs 1.4 nC
+Qgd 1.7 nC
+tD(on) 4.5 6.5 ns
+tr 2.4 ns
+tD(off) 14.8 ns
+tf 2.5 ns
+trr 10.5 12.6 ns
+Qrr 4.5 nC
+On state drain current
+ID=250mA, VGS=0V
+VGS=4.5V, VDS=5V
+VGS=10V, ID=5.8A
+Reverse Transfer Capacitance
+Gate Threshold Voltage VDS=VGS  ID=250mA
+VDS=0V, VGS= ± 20VGate-Body leakage current
+Electrical Characteristics (TJ=25° C unless otherwise noted)
+STATIC PARAMETERS
+Parameter Conditions
+IDSS mA
+VDS=30V, VGS=0VZero Gate Voltage Drain Current
+Drain-Source Breakdown Voltage
+DYNAMIC PARAMETERS
+VGS=10V, VDS=15V, ID=5.8A
+Total Gate Charge
+Gate Drain Charge
+mW
+VGS=4.5V, ID=4.8A
+IS=1A, VGS=0V
+VDS=5V, ID=5.8A
+Total Gate Charge
+Gate Source Charge
+RDS(ON) Static Drain-Source On-Resistance
+Forward Transconductance
+Diode Forward Voltage
+Maximum Body-Diode Continuous Current
+APPLICATIONS OR USES AS CRITICAL COMPONENTS IN LIFE SUPPORT DEVICES OR SYSTEMS ARE NOT AUTHORIZED. AOS DOES NOT
+ASSUME ANY LIABILITY ARISING OUT OF SUCH APPLICATIONS OR USES OF ITS PRODUCTS.  AOS RESERVES THE RIGHT TO MAKE
+CHANGES TO PRODUCT SPECIFICATIONS WITHOUT NOTICE.  IT IS THE RESPONSIBILITY OF THE CUSTOMER TO EVALUATE SUITABILITY OF
+THE PRODUCT FOR THEIR INTENDED APPLICATION.  CUSTOMER SHALL COMPLY WITH APPLICABLE LEGAL REQUIREMENTS, INCLUDING
+ALL APPLICABLE EXPORT CONTROL RULES, REGULATIONS AND LIMITATIONS.
+ 
+AOS' products are provided subject to AOS' terms and conditions of sale which are set forth at:
+http://www.aosmd.com/terms_and_conditions_of_sale
+VGS=0V, VDS=15V, f=1MHz
+SWITCHING PARAMETERS
+Gate resistance VGS=0V, VDS=0V, f=1MHz
+Turn-On Rise Time
+Turn-Off DelayTime
+VGS=10V, VDS=15V, RL=2.6W,
+RGEN=3W
+Turn-Off Fall Time
+Input Capacitance
+Output Capacitance
+Turn-On DelayTime
+Body Diode Reverse Recovery Time
+Body Diode Reverse Recovery Charge IF=5.8A, di/dt=100A/ms
+IF=5.8A, di/dt=100A/ms
+A: The value of R qJA is measured with the device mounted on 1in 2 FR-4 board with 2oz. Copper, in a still air environment with T A=25°C. The value in 
+any  given application depends on the user's specific board design. The current rating is based on the t   ≤ 10s thermal resistance rating.
+B: Repetitive rating, pulse width limited by junction temperature.
+C. The R qJA is the sum of the thermal impedence from junction to lead RqJL and lead to ambient.
+D. The static characteristics in Figures 1 to 6 are obtained using <300 ms pulses, duty cycle 0.5% max.
+E. These tests are performed with the device mounted on 1 in 2 FR-4 board with 2oz. Copper, in a still air environment with T A=25°C. The SOA curve 
+provides a single pulse rating. 
+F.The current rating is based on the t≤ 10s thermal resistance rating.
+Rev.5.1: July 2023 www.aosmd.com Page 2 of 4   
+
+--- PAGE 3 ---
+AO3404A
+TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS
+373 448
+67
+41
+1.2 1.8
+10.5 12.6
+4.5
+FUNCTIONS AND RELIABILITY WITHOUT NOTICE.
+10
+17
+24
+31
+38
+45
+0 5 10 15 20
+RDS(ON) (mW)
+ID (A)
+Figure 3: On-Resistance vs. Drain Current and Gate 
+Voltage
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+0 25 50 75 100 125 150 175
+Normalized On-Resistance
+Temperature (°C)
+Figure 4: On-Resistance vs. Junction Temperature
+VGS=10V
+Id=5.8A
+VGS=4.5V
+Id=4.8A
+10
+20
+30
+40
+50
+60
+2 4 6 8 10
+RDS(ON) (mW)
+VGS (Volts)
+Figure 5: On-Resistance vs. Gate-Source Voltage
+25°C
+125°C
+VDS=5V
+VGS=4.5V
+VGS=10V
+ID=5.8A
+25°C
+125°C
+0
+10
+20
+30
+40
+50
+60
+0 1 2 3 4 5
+ID (A)
+VDS (Volts)
+Figure 1: On-Region Characteristics
+VGS=3.5V
+4.5V
+6V10V
+0
+3
+6
+9
+12
+15
+1.5 2 2.5 3 3.5 4 4.5
+ID (A)
+VGS (Volts)
+Figure 2: Transfer Characteristics
+25°C
+125°C
+VDS=5V
+1.0E-05
+1.0E-04
+1.0E-03
+1.0E-02
+1.0E-01
+1.0E+00
+1.0E+01
+0.0 0.2 0.4 0.6 0.8 1.0
+IS (A)
+VSD (Volts)
+Figure 6: Body-Diode Characteristics
+25°C
+125°C
+Rev.5.1: July 2023 www.aosmd.com Page 3 of 4   
+
+--- PAGE 4 ---
+AO3404A
+TYPICAL ELECTRICAL AND THERMAL CHARACTERISTICS
+0
+2
+4
+6
+8
+10
+0 2 4 6 8
+VGS (Volts)
+Qg (nC)
+Figure 7: Gate-Charge Characteristics
+0
+100
+200
+300
+400
+500
+600
+0 5 10 15 20 25 30
+Capacitance (pF)
+VDS (Volts)
+Figure 8: Capacitance Characteristics
+Ciss
+0
+10
+20
+30
+0.001 0.01 0.1 1 10 100 1000
+Power (W)
+Pulse Width (s)
+Figure 10: Single Pulse Power Rating Junction-to-
+Ambient (Note E)
+0.01
+0.1
+1
+10
+0.00001 0.0001 0.001 0.01 0.1 1 10 100 1000
+ZqJA Normalized Transient 
+Thermal Resistance
+Pulse Width (s)
+Figure 11: Normalized Maximum Transient Thermal Impedance
+Coss
+Crss
+VDS=15V
+ID=5.8A
+Single Pulse
+D=Ton/T
+TJ,PK=TA+PDM.ZqJA.RqJA
+RqJA=125°C/W
+Ton
+T
+PD
+In descending order
+D=0.5, 0.3, 0.1, 0.05, 0.02, 0.01, single pulse
+TJ(Max)=150°C
+TA=25°C
+0.0
+0.1
+1.0
+10.0
+100.0
+0.01 0.1 1 10 100
+ID (Amps)
+VDS (Volts)
+Figure 9: Maximum Forward Biased Safe 
+Operating Area (Note E)
+10ms
+10ms
+1ms
+0.1sDC
+RDS(ON) 
+limited
+TJ(Max)=150°C
+TA=25°C
+100ms
+10s
+Rev.5.1: July 2023 www.aosmd.com Page 4 of 4   

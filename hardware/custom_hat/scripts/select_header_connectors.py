@@ -9,7 +9,7 @@ from generate_rev_a import children, first, parse, q
 from repair_release_metadata import properties, replace_children, set_property
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/connectors-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/connectors-20261031"
 BASELINE = "a101bc83040836d1f130179b636896ece6fca460334afa4b39c861c329c97c93"
 PARTS = {
     "J101": {"mpn": "SSW-120-01-G-D", "footprint": "duck:Radxa40P_Samtec_SSW120", "drill": 1.04, "height": "8.51mm body; 2.64mm solder tail",

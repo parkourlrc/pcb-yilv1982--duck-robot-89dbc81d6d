@@ -2,7 +2,7 @@
   "kernel": "6.1.84-10-rk2410-nocsf",
   "overlay_source_sha256": "84ddd20810aa4757a385ba03905032fc5877a0227d07f974b9e450611dc8f8af",
   "overlay_sha256": "debd8392fa66bd78d724bfed741a4de85d9ab6ac32429fea88d73356c8388f3a",
-  "net_contract_sha256": "e26ad9f828d807bd33e2799c331329921dc96549b4a6b147803809b47318a4fc",
+  "net_contract_sha256": "c10474ec244acb20bcc84005a9dc104011ee1df3874fb7e111ee1a69d04a7de9",
   "base_checks": [
     {
       "variant": "ap6212",
@@ -130,5 +130,15 @@
     "No ALSA registration, MCLK waveform, playback or capture test",
     "J504 Line widget names a DAPM endpoint, not an approval of any external load",
     "No microphone model or measured bias acceptance"
-  ]
+  ],
+  "manufacturing_only_rebind": {
+    "old_contract_sha256": "e26ad9f828d807bd33e2799c331329921dc96549b4a6b147803809b47318a4fc",
+    "changed_keys": [
+      "qualified_codec_pth"
+    ],
+    "electrical_contract_equal": true,
+    "overlay_binary_recompiled": false,
+    "retested_on_hardware": false,
+    "source_pcb_sha256": "3b1d903c776ec0975a15524962775c9ae288800421b583ea9c7e7ae0e592f145"
+  }
 }

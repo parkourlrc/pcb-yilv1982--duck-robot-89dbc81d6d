@@ -2,11 +2,11 @@
 
 - 日期：2026-10-27
 - 状态：**待确定（未立项）**——用户指示先记录、暂不修复；排障期保持 feetech.py 与上游零行为差异以保留对照价值。若立项，在本文件继续走 [五阶段](../../spec-process.md)。
-- 关联证据：[servo-web IMU 调研·续 8/9](../../references/servo-web-imu-3d-20261024/research.md)、[四步实验数据](../../references/servo-web-imu-3d-20261024/imu-poll-exp-20261027.json)（servo-on / -servo-off 两组）
+- 关联证据：[servo-web IMU 调研·续 8/9](../../references/舵机网页工具惯性显示/research.md)、[四步实验数据](../../references/舵机网页工具惯性显示/imu-poll-exp-20261027.json)（servo-on / -servo-off 两组）
 
 ## 问题
 
-`tools/servo-web/feetech.py`（上游 v0.15.2 同源实现）的 `sync_read` 按**请求列表顺序逐个 expect** 读应答，而 `_read_status(expect_id)` 是**先消费完整帧、再校验应答 ID**：
+`software/servo-web/feetech.py`（上游 v0.15.2 同源实现）的 `sync_read` 按**请求列表顺序逐个 expect** 读应答，而 `_read_status(expect_id)` 是**先消费完整帧、再校验应答 ID**：
 
 ```python
 # 读 FF FF 帧头（60ms 窗口，来谁的帧头都算）→ 读完整帧 → 此后才检查：
@@ -35,7 +35,7 @@ if expect_id is not None and sid != expect_id:
 2. 按槽位时刻校验/推进：expect 前先按 n×槽宽推进时间窗，杜绝"谁的帧都消费"；
 3. 最小语义修正：缺席者只丢自己（读到错帧时直接跳过该 expect 而不消费后续）——不可行（帧已读入缓冲，不消费则下个 expect 读到半帧），仅列出说明为什么 1/2 才是有效方向。
 
-修改位置：`tools/servo-web/feetech.py`（工程工作副本 + 板侧部署；**上游参考库只读不改**）。上游同源存在此弱点，如修复需在本仓补丁脚本/副本差异中留痕。robotd 侧（收流 + BURST_IDLE 判停）是另一族实现、另有丢尾段缺陷，不在本任务范围。
+修改位置：`software/servo-web/feetech.py`（工程工作副本 + 板侧部署；**上游参考库只读不改**）。上游同源存在此弱点，如修复需在本仓补丁脚本/副本差异中留痕。robotd 侧（收流 + BURST_IDLE 判停）是另一族实现、另有丢尾段缺陷，不在本任务范围。
 
 ## 变更记录
 

@@ -5,7 +5,7 @@ import math
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/five-volt-paths-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/five-volt-paths-20261031"
 RIGHT = {"d3a0f827-09e1-455d-bb90-0f104cf7f343", "5de28ed8-9463-47dd-9b39-9ea257f3d33c", "aee6b79e-1168-4f9f-8d8b-551fb474e514"}
 BRIDGE = "281bcde8-5d04-4765-a26d-002d523b7e94"
 

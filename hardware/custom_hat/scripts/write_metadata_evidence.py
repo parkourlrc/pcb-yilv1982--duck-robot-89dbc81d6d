@@ -9,7 +9,7 @@ from repair_release_metadata import PARTS
 
 
 def main():
-    evidence = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/metadata-repair-20261030"
+    evidence = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/metadata-repair-20261030"
     board_path = pipeline.PRIMARY / (pipeline.STEM + ".kicad_pcb")
     board = pcbnew.LoadBoard(str(board_path))
     vias = [item for item in board.GetTracks() if item.Type() == pcbnew.PCB_VIA_T]

@@ -13,7 +13,7 @@ def point(xpos, ypos):
 
 
 def main():
-    evidence = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/j506-repair-20261030"
+    evidence = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/j506-repair-20261030"
     evidence.mkdir(exist_ok=True)
     if (evidence / "result.json").exists():
         raise FileExistsError("Existing repair record must be inspected first")

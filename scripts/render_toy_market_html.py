@@ -20,7 +20,7 @@ from markdown_it.token import Token
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / "docs/references/consumer-electronic-toys-market-20261010"
+REPORT = ROOT / "docs/references/消费电子玩具市场研究"
 PAGES = {
     "research": ("研究报告", "2026 滚动线索 · 商业机会", "先看国庆与近90天的实际线索，再看今年能力加持、逐款图鉴、机会、交付与持续价值。"),
     "competitors": ("竞品与案例", "30 个产品样本 · 10 个经营案例", "按产品、价格、服务生命周期和证据进行对照。"),

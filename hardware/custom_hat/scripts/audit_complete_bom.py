@@ -12,7 +12,7 @@ from repair_release_metadata import properties
 from export_dnp_stencil import audit_stencil_policy
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/final-bom-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/final-bom-20261031"
 OUTPUT = pipeline.PRIMARY / "production-20261031-bom-review"
 
 
@@ -106,8 +106,8 @@ def main():
     documents = [pipeline.BASE.parents[1] / name for name in (
         "README.md", "PROGRESS.md", "hardware/custom_hat/README.md", "hardware/custom_hat/rev_a/README.md", "docs/photos/README.md",
         "docs/specs/20261028-custom-hat/spec.md", "docs/specs/20261028-custom-hat/recovery-plan.md",
-        "docs/references/hat-simulation-tools-20261029/research.md", "docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md",
-        "docs/references/hat-simulation-tools-20261029/mpn-lock-20261030/research.md")] + [EVIDENCE/"research.md", OUTPUT/"README.md"]
+        "docs/references/扩展板电路仿真工具/research.md", "docs/references/扩展板电路仿真工具/issue-matrix-20261030.md",
+        "docs/references/扩展板电路仿真工具/mpn-lock-20261030/research.md")] + [EVIDENCE/"research.md", OUTPUT/"README.md"]
     broken = []
     for document in documents:
         for target in re.findall(r"\]\(([^)]+)\)", document.read_text(encoding="utf-8")):

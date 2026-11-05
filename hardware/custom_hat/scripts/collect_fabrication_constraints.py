@@ -8,7 +8,7 @@ from pathlib import Path
 import requests
 
 
-EVIDENCE = Path(__file__).resolve().parents[3] / "docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031"
+EVIDENCE = Path(__file__).resolve().parents[3] / "docs/references/扩展板电路仿真工具/manufacturer-rules-20261031"
 
 
 class VisibleText(HTMLParser):

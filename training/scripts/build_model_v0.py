@@ -179,7 +179,7 @@ def main():
     A('     质量与惯量来自 Pollen Microduck 官方 CAD（XL330 版，非 C 线 HD-1910 实测）；')
     A('     关节安装位形/限位来自同一 CAD；HOME 站姿来自上游 STAND2；')
     A('     joint armature/frictionloss 为 LuwuDynamics 公开 HD-1910 BAM M6 参数的简化映射；')
-    A('     全部数值溯源见 docs/references/c-motion-training-20261015/physical-params.md')
+    A('     全部数值溯源见 docs/references/动作训练软件研究/physical-params.md')
     A('     与 training/params/。生成脚本：training/scripts/build_model_v0.py。 -->')
     A('<mujoco model="duck_v0">')
     A('  <compiler angle="radian" autolimits="true"/>')

@@ -1,0 +1,102 @@
+{
+  "diff_version": "1.0",
+  "analyzer_type": "schematic",
+  "base_file": "E:\\Projects\\duck-robot\\docs\\references\\扩展板电路仿真工具\\capacitor-upgrade-20261031\\schematic.json",
+  "head_file": "E:\\Projects\\duck-robot\\docs\\references\\扩展板电路仿真工具\\ldo-capacitors-20261031\\schematic.json",
+  "has_changes": true,
+  "summary": {
+    "total_changes": 3,
+    "added": 1,
+    "removed": 0,
+    "modified": 2,
+    "severity": "major"
+  },
+  "diff": {
+    "statistics": {
+      "statistics.total_components": {
+        "base": 58,
+        "head": 59,
+        "delta": 1
+      },
+      "statistics.total_nets": {
+        "base": 73,
+        "head": 74,
+        "delta": 1
+      },
+      "statistics.unique_parts": {
+        "base": 37,
+        "head": 38,
+        "delta": 1
+      },
+      "statistics.total_wires": {
+        "base": 200,
+        "head": 202,
+        "delta": 2
+      }
+    },
+    "components": {
+      "added": [
+        {
+          "reference": "R703",
+          "value": "0.047",
+          "footprint": "duck:Vishay_WSLP0603_Damping"
+        }
+      ],
+      "removed": [],
+      "modified": [
+        {
+          "reference": "C308",
+          "changes": [
+            {
+              "field": "value",
+              "base": "1uF",
+              "head": "2.2uF"
+            },
+            {
+              "field": "mpn",
+              "base": "C0805C105K5RACTU",
+              "head": "C0805C225K5RACTU"
+            }
+          ]
+        },
+        {
+          "reference": "C309",
+          "changes": [
+            {
+              "field": "value",
+              "base": "1uF",
+              "head": "2.2uF"
+            },
+            {
+              "field": "mpn",
+              "base": "C0805C105K5RACTU",
+              "head": "C0805C225K5RACTU"
+            }
+          ]
+        }
+      ]
+    },
+    "bom": {
+      "added": [
+        {
+          "value": "2.2uF",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "quantity": 2
+        },
+        {
+          "value": "0.047",
+          "footprint": "duck:Vishay_WSLP0603_Damping",
+          "quantity": 1
+        }
+      ],
+      "removed": [
+        {
+          "value": "1uF",
+          "footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "quantity": 2
+        }
+      ],
+      "quantity_changes": []
+    }
+  }
+}

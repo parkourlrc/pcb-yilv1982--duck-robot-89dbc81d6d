@@ -1,0 +1,244 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T16:26:24",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4",
+            "violations": [
+                {
+                    "description": "在库 'duck' 中找不到封装 'Radxa40P_Zhouri_B'",
+                    "items": [
+                        {
+                            "description": "符号 J101 [Conn_02x20_Odd_Even]",
+                            "pos": {
+                                "x": 64.77,
+                                "y": 80.01
+                            },
+                            "uuid": "47eceed6-c8d6-50ac-a19c-6fff931da7b6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'A1251_2P_B'",
+                    "items": [
+                        {
+                            "description": "符号 J506 [Conn_01x02]",
+                            "pos": {
+                                "x": 485.14,
+                                "y": 304.8
+                            },
+                            "uuid": "7455c337-4b3d-5cf9-8501-252d5f05f216"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'AMP2007_3P_B'",
+                    "items": [
+                        {
+                            "description": "符号 J401 [Conn_01x03]",
+                            "pos": {
+                                "x": 64.77,
+                                "y": 80.01
+                            },
+                            "uuid": "a5007d97-bd22-5648-9896-4813bd42b317"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'AMP2007_3P_B'",
+                    "items": [
+                        {
+                            "description": "符号 J402 [Conn_01x03]",
+                            "pos": {
+                                "x": 204.47,
+                                "y": 80.01
+                            },
+                            "uuid": "dd592fc4-ad18-521c-9460-0343892c8569"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'LMA2718_B'",
+                    "items": [
+                        {
+                            "description": "符号 MK701 [LMA2718_B]",
+                            "pos": {
+                                "x": 64.77,
+                                "y": 80.01
+                            },
+                            "uuid": "d9b6f516-2418-5930-a990-38c8e767fb97"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'A1251_2P_B'",
+                    "items": [
+                        {
+                            "description": "符号 J507 [Conn_01x02]",
+                            "pos": {
+                                "x": 64.77,
+                                "y": 154.94
+                            },
+                            "uuid": "2f42fd96-2524-5281-a543-06250103c209"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "在库 'duck' 中找不到封装 'A1251_2P_B'",
+                    "items": [
+                        {
+                            "description": "符号 J505 [Conn_01x02]",
+                            "pos": {
+                                "x": 485.14,
+                                "y": 80.01
+                            },
+                            "uuid": "e513c987-6af9-522d-b740-9362d074e8d3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                }
+            ]
+        },
+        {
+            "path": "/radxa_40p/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/f3168062-a2db-52bd-83d6-eaed92e05437",
+            "violations": []
+        },
+        {
+            "path": "/power/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/3c2a48e2-e966-5325-bac6-ea78f1382483",
+            "violations": []
+        },
+        {
+            "path": "/servo_ttl/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/690a51b0-e1fc-5632-b80a-1c9cc677dca5",
+            "violations": []
+        },
+        {
+            "path": "/i2c_expansion/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/573b8ed2-a763-5357-9356-05293465f0b3",
+            "violations": []
+        },
+        {
+            "path": "/audio_codec/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/3aeb6ca7-828f-502f-b6e3-0c9aa8084071",
+            "violations": []
+        },
+        {
+            "path": "/audio_io/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d",
+            "violations": [
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol MK701 引脚 2 [GND, Power input, Line]",
+                            "pos": {
+                                "x": 52.07,
+                                "y": 80.01
+                            },
+                            "uuid": "c73ce7ba-3ee4-5b53-b2c4-665c3eef228c"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol MK701 引脚 4 [VDD, Power input, Line]",
+                            "pos": {
+                                "x": 77.47,
+                                "y": 80.01
+                            },
+                            "uuid": "04a559ac-a662-589a-86f8-105c9c7a837f"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                }
+            ]
+        },
+        {
+            "path": "/audio_amp/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/55b9c25b-b188-5077-b23d-047ebab91b70",
+            "violations": [
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol U803 引脚 6 [VDD, Power input, Line]",
+                            "pos": {
+                                "x": 59.69,
+                                "y": 64.77
+                            },
+                            "uuid": "119703f7-fabc-5300-803a-3b70352ab40f"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol U803 引脚 4 [PVDDL, Power input, Line]",
+                            "pos": {
+                                "x": 64.77,
+                                "y": 64.77
+                            },
+                            "uuid": "56080a2d-c819-5ac4-846a-b65f74e9f467"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                }
+            ]
+        },
+        {
+            "path": "/testpoints/",
+            "uuid_path": "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/6f531677-de86-5da2-92cb-a3ebcddf1b54",
+            "violations": []
+        }
+    ],
+    "source": "custom_hat_rev_b.kicad_sch"
+}

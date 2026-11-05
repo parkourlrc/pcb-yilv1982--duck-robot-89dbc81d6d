@@ -1,6 +1,6 @@
 # 舵机 ID 对照表：A 线视频（XL330） vs C 线本机（HD-1910）
 
-> **⚠️ 2026-10-24 重大更新：应用户指示，本机已通过 EEPROM 改号对齐上游 microduck_feetech（方案 B 飞特版）映射，左右腿整组互换、头颈 30/31 互换。以下"本机 C 线"列为最终生效版。** 改号执行记录见 [servo-id-align-20261024 调研](references/servo-id-align-20261024/research.md)；2026-10-17/10-22 的"本机与上游相反"定案已成为历史。
+> **⚠️ 2026-10-24 重大更新：应用户指示，本机已通过 EEPROM 改号对齐上游 microduck_feetech（方案 B 飞特版）映射，左右腿整组互换、头颈 30/31 互换。以下"本机 C 线"列为最终生效版。** 改号执行记录见 [舵机编号对齐上游 调研](references/舵机编号对齐上游/research.md)；2026-10-17/10-22 的"本机与上游相反"定案已成为历史。
 
 ## 本机现行映射（部署契约，2026-10-24 定案；与上游 microduck_feetech 一致）
 
@@ -61,7 +61,7 @@
 ## 其他差异（同样别照搬视频）
 
 - A 线视频用 Dynamixel Wizard 设 ID/参数——本机用 :8765 调试器（参数含义也不同，如 A 的 PWM Slope/Shutdown 是 Dynamixel 概念）；
-- A 线电气（OpenRB-150/USB）与 本机（HAT/UART2）不同，接线一切以本机 [HAT 接线意向](./photos/hat-v1.2-wiring-plan.png) 为准；
+- A 线电气（OpenRB-150/USB）与 本机（HAT/UART2）不同，接线一切以本机 [HAT 接线意向](photos/archive/hat-v1.2-white-20261010/hat-v1.2-wiring-plan.png) 为准；
 - A 线嘴部舵机"行走策略不使用"——本机 15 颗全编（34=mouth），上游飞特版包含嘴。
 
 ## 历史记录（勿用于现行部署，仅追溯）
@@ -70,4 +70,4 @@
 - **2026-10-22 补充（已作废）**：实物确认 30=head_pitch、31=neck_pitch（也与上游相反），按实物编号在软件层映射（未改 EEPROM）；`scripts/swap-hls-headneck.py`、`scripts/servo-web-local-idmap.py` 等把 servo-web/hls/viewer 改为本机映射。当日用户确认 3D 与实物方向位置全部对上（15 颗全 −1、回 2048 站立）。
 - **2026-10-24（现行）**：用户指示"ID 做一次对齐，和方案 B 的飞特版一致"，EEPROM 改号回上游排布，软件层全部回退。此后控制软件不再需要本机差异表。
 
-来源：A 线表 = [build-tutorial README「舵机 ID」](../references/microduck-build-tutorial/README.md)；上游关节表 = [hls_servo_debugger provision.py](../references/microduck-community-kit/software/hls_servo_debugger/hls_debugger/provision.py)（源自 microduck_feetech `model.rs`）；**本机现行映射 = 2026-10-24 EEPROM 改号对齐上游（执行记录见 [servo-id-align-20261024](references/servo-id-align-20261024/research.md)）**。
+来源：A 线表 = [build-tutorial README「舵机 ID」](../references/microduck-build-tutorial/README.md)；上游关节表 = [hls_servo_debugger provision.py](../references/microduck-community-kit/software/hls_servo_debugger/hls_debugger/provision.py)（源自 microduck_feetech `model.rs`）；**本机现行映射 = 2026-10-24 EEPROM 改号对齐上游（执行记录见 [舵机编号对齐上游](references/舵机编号对齐上游/research.md)）**。

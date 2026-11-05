@@ -19,4 +19,4 @@
 
 ## 交付结果
 
-本地/板侧恢复一致，robotd 原版 binary 与 WSL 原源码已恢复；第二轮 30 秒真实采集 296/296 帧舵机全在线、IMU live 约 9.9 Hz，0 超时/坏校验/错 ID。保留 servo-web 运行，Studio/robotd 停止，自启配置不变。完整统计边界、首轮 kitbits 误判、依赖不齐导致旧单测未能启动及未做动作的边界见[验收记录](../../references/b-feetech-policy-deployment-20261024/restore-mixed-sync-read-20261101.md)。
+本地/板侧恢复一致，robotd 原版 binary 与 WSL 原源码已恢复；第二轮 30 秒真实采集 296/296 帧舵机全在线、IMU live 约 9.9 Hz，0 超时/坏校验/错 ID。保留 servo-web 运行，Studio/robotd 停止，自启配置不变。完整统计边界、首轮 kitbits 误判、依赖不齐导致旧单测未能启动及未做动作的边界见[验收记录](../../references/飞特策略模型上机核对/restore-mixed-sync-read-20261101.md)。

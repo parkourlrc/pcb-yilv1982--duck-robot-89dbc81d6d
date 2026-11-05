@@ -17,7 +17,7 @@ from export_assembly_plan import write_assembly_plan
 from export_dnp_stencil import export_dnp_stencil
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/i2c-pullups-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/i2c-pullups-20261031"
 OUTPUT = pipeline.PRIMARY / "production-20261031-i2c-review"
 HAPPY = Path.home() / "AppData/Local/Temp/kicad-happy-review-20261030-new/skills"
 PREVIOUS = EVIDENCE.parent / "metadata-repair-20261030"
@@ -99,6 +99,7 @@ def export_checkpoint():
         "geometry": summary["netlist_check"], "summary": str(reports / "summary.json"), "production_ready": False})
     pipeline.write_json(OUTPUT / "manifest.json", {"design_hashes": export_source_hashes, "outputs": {path.name: pipeline.digest(path) for path in OUTPUT.iterdir() if path.is_file()}, "job_file_policy": job_policy, "assembly_policy": assembly_policy, "stencil_policy": stencil_policy, "production_ready": False})
     execute("export-assembly-views", [sys.executable, "-X", "utf8", Path(__file__).with_name("render_assembly_views.py"), "--output", OUTPUT, "--evidence", EVIDENCE])
+    execute("export-via-process", [sys.executable, "-X", "utf8", Path(__file__).with_name("export_buck_fabrication_requirements.py"), "--output", OUTPUT, "--evidence", EVIDENCE])
 
 
 def review():

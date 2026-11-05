@@ -1,0 +1,129 @@
+{
+  "schematic": {
+    "new": [],
+    "removed": [],
+    "summary": {
+      "total_findings": 44,
+      "by_severity": {
+        "error": 0,
+        "warning": 3,
+        "info": 41
+      }
+    }
+  },
+  "pcb": {
+    "new": [
+      [
+        "TV-001",
+        "Thermal vias: U701 insufficient (1/9 min)"
+      ]
+    ],
+    "removed": [
+      [
+        "TV-001",
+        "Thermal vias: U701 none (0/5 min)"
+      ]
+    ],
+    "summary": {
+      "total_findings": 59,
+      "by_severity": {
+        "error": 3,
+        "warning": 15,
+        "info": 41
+      }
+    }
+  },
+  "cross": {
+    "new": [],
+    "removed": [],
+    "summary": {
+      "total_findings": 4,
+      "by_severity": {
+        "error": 2,
+        "warning": 2,
+        "info": 0
+      }
+    }
+  },
+  "emc": {
+    "new": [],
+    "removed": [],
+    "summary": {
+      "total_findings": 54,
+      "categories_checked": 7,
+      "active": 54,
+      "suppressed": 0,
+      "by_severity": {
+        "error": 8,
+        "warning": 33,
+        "info": 13
+      },
+      "emc_risk_score": 7.0
+    }
+  },
+  "thermal": {
+    "new": [],
+    "removed": [],
+    "summary": {
+      "total_findings": 0,
+      "components_assessed": 2,
+      "components_skipped": 0,
+      "active": 0,
+      "suppressed": 0,
+      "by_severity": {
+        "error": 0,
+        "warning": 0,
+        "info": 0
+      },
+      "thermal_score": 100,
+      "total_board_dissipation_w": 0.028,
+      "hottest_component": {
+        "ref": "U702",
+        "tj_estimated_c": 26.8
+      },
+      "components_analyzed": 2,
+      "components_above_85c": 0,
+      "components_above_tjmax": 0,
+      "ambient_c": 25.0
+    }
+  },
+  "spice": {
+    "new": [],
+    "removed": [],
+    "summary": {
+      "total": 12,
+      "total_findings": 0,
+      "pass": 12,
+      "warn": 0,
+      "fail": 0,
+      "skip": 0,
+      "by_severity": {
+        "error": 0,
+        "warning": 0,
+        "info": 12
+      }
+    }
+  },
+  "gerbers": {
+    "new": [
+      [
+        "GR-004",
+        "B paste layer: 139 flashes vs 285 copper (49%)"
+      ]
+    ],
+    "removed": [
+      [
+        "GR-004",
+        "B paste layer: 128 flashes vs 285 copper (45%)"
+      ]
+    ],
+    "summary": {
+      "total_findings": 2,
+      "by_severity": {
+        "error": 0,
+        "warning": 2,
+        "info": 0
+      }
+    }
+  }
+}

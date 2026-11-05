@@ -1,0 +1,41 @@
+{
+  "baseline": "b369f9fc2cfbe7ff64dc2a4aa62fac9a6fa7a2c2f6c7bce5a0347e3479dbf738",
+  "project": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261102T074647Z-b7d78899\\work",
+  "summary": "E:\\Projects\\duck-robot\\hardware\\custom_hat\\runs\\20261102T074647Z-b7d78899\\reports\\93e3612099aa\\summary.json",
+  "status": "checks_clean_not_manufacturing_release",
+  "drc": {
+    "violations": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    },
+    "unconnected_items": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    },
+    "schematic_parity": {
+      "count": 0,
+      "types": {},
+      "severities": {}
+    }
+  },
+  "changed_via": "c6ad78c2-361f-4c03-a650-a32f6c415d72",
+  "diameters_mm": {
+    "F.Cu": 0.35,
+    "In1.Cu": 0.35,
+    "In2.Cu": 0.35,
+    "B.Cu": 0.25
+  },
+  "drill_mm": 0.15,
+  "original_qfn_pad_size_mm": [
+    0.875,
+    0.25
+  ],
+  "filled": true,
+  "capped": true,
+  "added_rule": "\n(rule \"Codec solder-side filled via land\"\n  (layer B.Cu)\n  (condition \"A.Type == 'Via' && A.Via_Type == 'Through' && A.NetName == '+3V3' && A.insideCourtyard('U701') && A.Hole == 0.15mm\")\n  (constraint annular_width (min 0.05mm))\n  (constraint via_diameter (min 0.25mm))\n  (constraint hole_size (min 0.15mm)))\n",
+  "promoted": true,
+  "manufacturer_job_acceptance": false,
+  "promoted_pcb_sha256": "3b1d903c776ec0975a15524962775c9ae288800421b583ea9c7e7ae0e592f145"
+}

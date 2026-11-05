@@ -6,7 +6,7 @@
 2026-10-24 用户指示「id 做一次对齐，和方案 B 的飞特版一致」，舵机 EEPROM 已由
 scripts/servo-id-align-upstream.py 改回上游排布，本脚本同步回退软件层：
 上游：20-24=左腿、10-14=右腿；30=neck_pitch、31=head_pitch。
-（见 docs/servo-id-mapping.md 与 docs/references/servo-id-align-20261024/research.md）
+（见 docs/servo-id-mapping.md 与 docs/references/舵机编号对齐上游/research.md）
 
 它是 scripts/servo-web-local-idmap.py 的逆向补丁：只把当年交换过的映射块换回
 上游原文，其后叠加的 model-cache / dirs-sync / row-cal / zero-offset / cal-fix /

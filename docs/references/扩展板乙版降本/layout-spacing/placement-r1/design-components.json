@@ -1,0 +1,1835 @@
+[
+  {
+    "sheet": "radxa_40p",
+    "ref": "J101",
+    "symbol": "Connector_Generic:Conn_02x20_Odd_Even",
+    "value": "RADXA_ZERO_3W",
+    "mpn": "2.54-2*20",
+    "code": "C2977589",
+    "footprint": "duck:Radxa40P_Zhouri_B",
+    "pins": {
+      "1": "+3V3",
+      "2": "+5V",
+      "3": null,
+      "4": "+5V",
+      "5": null,
+      "6": "POWER_GND",
+      "7": null,
+      "8": "UART2_TX",
+      "9": "POWER_GND",
+      "10": "UART2_RX",
+      "11": "DXL_DIR",
+      "12": "I2S_BCLK",
+      "13": null,
+      "14": "POWER_GND",
+      "15": null,
+      "16": null,
+      "17": "+3V3",
+      "18": null,
+      "19": null,
+      "20": "POWER_GND",
+      "21": null,
+      "22": null,
+      "23": null,
+      "24": null,
+      "25": "POWER_GND",
+      "26": null,
+      "27": null,
+      "28": null,
+      "29": "I2C5_SCL",
+      "30": "POWER_GND",
+      "31": "I2C5_SDA",
+      "32": null,
+      "33": "CODEC_RST",
+      "34": "POWER_GND",
+      "35": "I2S_LRCK",
+      "36": null,
+      "37": null,
+      "38": "I2S_SDI",
+      "39": "POWER_GND",
+      "40": "I2S_SDO"
+    },
+    "position": [
+      108.32,
+      104.59,
+      0
+    ],
+    "manufacturer": "ZHOURI",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20251121/B609B00D0B3EB92686A2D2733E4211A9.pdf",
+    "description": "2x20 PTH 8.5mm socket; physical pin coordinates retained",
+    "side": "B",
+    "uuid": "47eceed6-c8d6-50ac-a19c-6fff931da7b6",
+    "sheet_uuid": "f3168062-a2db-52bd-83d6-eaed92e05437"
+  },
+  {
+    "sheet": "power",
+    "ref": "U301",
+    "symbol": "duck:AP63205_B",
+    "value": "AP63205WU-7",
+    "mpn": "AP63205WU-7",
+    "code": "C2071056",
+    "footprint": "Package_TO_SOT_SMD:TSOT-23-6",
+    "pins": {
+      "1": "+5V_PRE_IDEAL",
+      "2": "VBATT_2S_IN",
+      "3": "VBATT_2S_IN",
+      "4": "POWER_GND",
+      "5": "BUCK_SW",
+      "6": "BUCK_BST"
+    },
+    "position": [
+      115,
+      120,
+      90
+    ],
+    "manufacturer": "Diodes",
+    "datasheet": "https://www.diodes.com/datasheet/download/AP63200-AP63201-AP63203-AP63205.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "4ce69d52-29a2-55eb-a775-b87499758841",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "L301",
+    "symbol": "Device:L",
+    "value": "6.8uH",
+    "mpn": "SWPA6045S6R8MT",
+    "code": "C57254",
+    "footprint": "Inductor_SMD:L_Sunlord_SWPA6045S",
+    "pins": {
+      "1": "BUCK_SW",
+      "2": "+5V_PRE_IDEAL"
+    },
+    "position": [
+      122,
+      122,
+      0
+    ],
+    "manufacturer": "Sunlord",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "91f164b0-28da-539b-a4f9-c0b0a8b4810a",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "C301",
+    "symbol": "Device:C",
+    "value": "10uF35V",
+    "mpn": "C3216X7R1V106KT000E",
+    "code": "C76666",
+    "footprint": "Capacitor_SMD:C_1206_3216Metric",
+    "pins": {
+      "1": "VBATT_2S_IN",
+      "2": "POWER_GND"
+    },
+    "position": [
+      112,
+      122,
+      90
+    ],
+    "manufacturer": "TDK",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "4200f14d-775d-599a-a48b-3eb2556463f1",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "C302",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "BUCK_BST",
+      "2": "BUCK_SW"
+    },
+    "position": [
+      115,
+      116.5,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "b532728d-86f7-5b76-8841-67d80e8250da",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "C303",
+    "symbol": "Device:C",
+    "value": "22uF25V",
+    "mpn": "GRM32ER71E226KE15L",
+    "code": "C21397",
+    "footprint": "Capacitor_SMD:C_1210_3225Metric",
+    "pins": {
+      "1": "+5V_PRE_IDEAL",
+      "2": "POWER_GND"
+    },
+    "position": [
+      127.5,
+      121,
+      90
+    ],
+    "manufacturer": "Murata",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "3c0a8257-a313-5561-ab3d-10b8ff44941e",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "C304",
+    "symbol": "Device:C",
+    "value": "22uF25V",
+    "mpn": "GRM32ER71E226KE15L",
+    "code": "C21397",
+    "footprint": "Capacitor_SMD:C_1210_3225Metric",
+    "pins": {
+      "1": "+5V_PRE_IDEAL",
+      "2": "POWER_GND"
+    },
+    "position": [
+      131,
+      121,
+      90
+    ],
+    "manufacturer": "Murata",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "064d2757-97aa-51d4-9ea7-2b936f3f0c6b",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "U302",
+    "symbol": "duck:LM5050_1_B",
+    "value": "LM5050-1",
+    "mpn": "LM5050MKX-1/NOPB",
+    "code": "C473393",
+    "footprint": "Package_TO_SOT_SMD:TSOT-23-6",
+    "pins": {
+      "1": "IDEAL_VS",
+      "2": "POWER_GND",
+      "3": "POWER_GND",
+      "4": "+5V_PRE_IDEAL",
+      "5": "IDEAL_GATE",
+      "6": "+5V"
+    },
+    "position": [
+      133,
+      115,
+      0
+    ],
+    "manufacturer": "Texas Instruments",
+    "datasheet": "https://www.ti.com/lit/ds/symlink/lm5050-1.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "a5c9dc40-439a-540f-b2c7-993a1b28a08d",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "Q301",
+    "symbol": "duck:AO3404A_B",
+    "value": "AO3404A",
+    "mpn": "AO3404A",
+    "code": "C30010",
+    "footprint": "Package_TO_SOT_SMD:SOT-23",
+    "pins": {
+      "1": "IDEAL_GATE",
+      "2": "+5V_PRE_IDEAL",
+      "3": "+5V"
+    },
+    "position": [
+      134,
+      121.5,
+      180
+    ],
+    "manufacturer": "AOS",
+    "datasheet": "https://www.aosmd.com/sites/default/files/res/datasheets/AO3404A.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "2cf1999d-9440-5f9a-bafb-f475c084918c",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "R301",
+    "symbol": "Device:R",
+    "value": "100R",
+    "mpn": "0603WAF1000T5E",
+    "code": "C22775",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "VBATT_2S_IN",
+      "2": "IDEAL_VS"
+    },
+    "position": [
+      129,
+      114.5,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "108b745b-e95e-5deb-a62d-78e67b509948",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "C305",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "IDEAL_VS",
+      "2": "POWER_GND"
+    },
+    "position": [
+      129,
+      112.5,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "61ae8cff-03dd-50b8-8818-c7318dd59355",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "power",
+    "ref": "D301",
+    "symbol": "Device:D_Zener",
+    "value": "SMBJ12A",
+    "mpn": "SMBJ12A-E3/52",
+    "code": "C1973121",
+    "footprint": "Diode_SMD:D_SMB",
+    "pins": {
+      "1": "VBATT_2S_IN",
+      "2": "POWER_GND"
+    },
+    "position": [
+      107.5,
+      120,
+      180
+    ],
+    "manufacturer": "Vishay",
+    "datasheet": "https://www.vishay.com/docs/88392/smbj.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "fdb2ecce-5716-53c4-9da2-d52e2550921c",
+    "sheet_uuid": "3c2a48e2-e966-5325-bac6-ea78f1382483"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "J401",
+    "symbol": "Connector_Generic:Conn_01x03",
+    "value": "SERVO_AMP2",
+    "mpn": "CNJM A2007WV-3P",
+    "code": "C5151076",
+    "footprint": "duck:AMP2007_3P_B",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "VBATT_2S_IN",
+      "3": "DXL_DATA"
+    },
+    "position": [
+      106.5,
+      110.5,
+      90
+    ],
+    "manufacturer": "CNJM",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20220909/93F02259E7146615AAD747544D994A1F.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "a5007d97-bd22-5648-9896-4813bd42b317",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "J402",
+    "symbol": "Connector_Generic:Conn_01x03",
+    "value": "SERVO_AMP2",
+    "mpn": "CNJM A2007WV-3P",
+    "code": "C5151076",
+    "footprint": "duck:AMP2007_3P_B",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "VBATT_2S_IN",
+      "3": "DXL_DATA"
+    },
+    "position": [
+      113.8,
+      110.5,
+      90
+    ],
+    "manufacturer": "CNJM",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20220909/93F02259E7146615AAD747544D994A1F.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "dd592fc4-ad18-521c-9460-0343892c8569",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "U801",
+    "symbol": "74xGxx:74LVC1G126",
+    "value": "SN74LVC1G126DBVR",
+    "mpn": "SN74LVC1G126DBVR",
+    "code": "C7834",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "pins": {
+      "1": "DXL_DIR",
+      "2": "UART2_TX",
+      "3": "POWER_GND",
+      "4": "DXL_DATA_INT",
+      "5": "+3V3"
+    },
+    "position": [
+      121,
+      110,
+      0
+    ],
+    "manufacturer": "Texas Instruments",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "94e36562-fd28-5dd0-8229-89ed4167c78c",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "U802",
+    "symbol": "74xGxx:74LVC1G125",
+    "value": "SN74LVC1G125DBVR",
+    "mpn": "SN74LVC1G125DBVR",
+    "code": "C23654",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "pins": {
+      "1": "DXL_DIR",
+      "2": "DXL_DATA_INT",
+      "3": "POWER_GND",
+      "4": "UART2_RX",
+      "5": "+3V3"
+    },
+    "position": [
+      126,
+      110,
+      180
+    ],
+    "manufacturer": "Texas Instruments",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "682a7d80-ef5b-5268-873d-b72e0d6d4f14",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "R401",
+    "symbol": "Device:R",
+    "value": "100k",
+    "mpn": "0603WAF1003T5E",
+    "code": "C25803",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "DXL_DIR",
+      "2": "POWER_GND"
+    },
+    "position": [
+      123.5,
+      106.5,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "24bc4ef4-518b-5f59-860c-c88c4e682540",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "R402",
+    "symbol": "Device:R",
+    "value": "10k",
+    "mpn": "0603WAF1002T5E",
+    "code": "C25804",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "UART2_TX",
+      "2": "+3V3"
+    },
+    "position": [
+      119.5,
+      106.5,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "925ae7aa-6864-56e9-91f4-769eacc88399",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "R403",
+    "symbol": "Device:R",
+    "value": "10k",
+    "mpn": "0603WAF1002T5E",
+    "code": "C25804",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "DXL_DATA_INT",
+      "2": "+3V3"
+    },
+    "position": [
+      120,
+      114,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "1b0c177b-88a1-50c1-abe6-950895907120",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "R404",
+    "symbol": "Device:R",
+    "value": "0R",
+    "mpn": "0603WAF0000T5E",
+    "code": "C21189",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "DXL_DATA_INT",
+      "2": "DXL_DATA"
+    },
+    "position": [
+      117,
+      110,
+      90
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "e23e3454-a137-58eb-938c-a577497fe2d8",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "D401",
+    "symbol": "Device:D_Zener",
+    "value": "5.1V",
+    "mpn": "BZT52C5V1S-7-F",
+    "code": "C151348",
+    "footprint": "Diode_SMD:D_SOD-323",
+    "pins": {
+      "1": "DXL_DATA",
+      "2": "POWER_GND"
+    },
+    "position": [
+      117.2,
+      113.5,
+      0
+    ],
+    "manufacturer": "Diodes",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "c30d490b-e755-53b6-9a41-f3a8d8ada40f",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "C401",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      121,
+      112.8,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "b4c277e9-ccb1-51cb-94f5-1ba3073e0725",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "servo_ttl",
+    "ref": "C402",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      126,
+      112.8,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "1fa7ffeb-a683-504e-a977-7348401efa4f",
+    "sheet_uuid": "690a51b0-e1fc-5632-b80a-1c9cc677dca5"
+  },
+  {
+    "sheet": "i2c_expansion",
+    "ref": "J502",
+    "symbol": "duck:QWIIC4_B",
+    "value": "QWIIC_3V3",
+    "mpn": "BM04B-SRSS-TB(LF)(SN)",
+    "code": "C160390",
+    "footprint": "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "+3V3",
+      "3": "I2C5_SDA",
+      "4": "I2C5_SCL",
+      "MP": "POWER_GND"
+    },
+    "position": [
+      160,
+      112,
+      90
+    ],
+    "manufacturer": "JST",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "0073cf32-444b-59fc-a6ac-47aa8eb9b8b1",
+    "sheet_uuid": "573b8ed2-a763-5357-9356-05293465f0b3"
+  },
+  {
+    "sheet": "i2c_expansion",
+    "ref": "R501",
+    "symbol": "Device:R",
+    "value": "10k",
+    "mpn": "0603WAF1002T5E",
+    "code": "C25804",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "I2C5_SDA"
+    },
+    "position": [
+      156,
+      108.5,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "fb826d0f-4714-55e1-b853-2934c50b7844",
+    "sheet_uuid": "573b8ed2-a763-5357-9356-05293465f0b3"
+  },
+  {
+    "sheet": "i2c_expansion",
+    "ref": "R502",
+    "symbol": "Device:R",
+    "value": "10k",
+    "mpn": "0603WAF1002T5E",
+    "code": "C25804",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "I2C5_SCL"
+    },
+    "position": [
+      156,
+      110.5,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "955df27b-4930-5bda-b06f-31f540c44b98",
+    "sheet_uuid": "573b8ed2-a763-5357-9356-05293465f0b3"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "U701",
+    "symbol": "duck:TLV320AIC3104",
+    "value": "TLV320AIC3104",
+    "mpn": "TLV320AIC3104IRHBR",
+    "code": "C181753",
+    "footprint": "duck:TI_RHB0032E_AIC3104_EP345",
+    "pins": {
+      "1": "AUDIO_MCLK",
+      "2": "I2S_BCLK",
+      "3": "I2S_LRCK",
+      "4": "I2S_SDO",
+      "5": "I2S_SDI",
+      "6": "POWER_GND",
+      "7": "+3V3",
+      "8": "I2C5_SCL",
+      "9": "I2C5_SDA",
+      "10": "MIC_EXT_L_AC",
+      "11": "POWER_GND",
+      "12": "MIC_EXT_R_AC",
+      "13": "POWER_GND",
+      "14": "POWER_GND",
+      "15": "MICBIAS",
+      "16": "MIC_ONBOARD_AC",
+      "17": "POWER_GND",
+      "18": "+3V3",
+      "19": null,
+      "20": null,
+      "21": "POWER_GND",
+      "22": null,
+      "23": null,
+      "24": "+3V3",
+      "25": "+3V3",
+      "26": "POWER_GND",
+      "27": "CODEC_LEFT_LOP",
+      "28": null,
+      "29": "CODEC_RIGHT_LOP",
+      "30": null,
+      "31": "CODEC_RST",
+      "32": "+1V8_CODEC",
+      "33": "POWER_GND"
+    },
+    "position": [
+      143,
+      115,
+      0
+    ],
+    "manufacturer": "Texas Instruments",
+    "datasheet": "https://www.ti.com/lit/ds/symlink/tlv320aic3104.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "44210ef5-7ebd-5bfa-ab60-dccef9fa23b5",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "U702",
+    "symbol": "duck:XC6206_18_B",
+    "value": "XC6206P182MR",
+    "mpn": "XC6206P182MR",
+    "code": "C347373",
+    "footprint": "duck:UMW_XC6206_SOT23_B",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "+3V3",
+      "3": "+1V8_CODEC"
+    },
+    "position": [
+      136,
+      109,
+      180
+    ],
+    "manufacturer": "UMW",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20260423/ACBED32A813F1E5C9C286FBFCFC9B7FD.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "07011e48-b469-5225-8760-b83cc3c0aa72",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "Y701",
+    "symbol": "duck:OSC2520_B",
+    "value": "12MHz",
+    "mpn": "OT3EL89CJI-111YLC-12M",
+    "code": "C7425459",
+    "footprint": "duck:YXC_2520_YSO110TR_B",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND",
+      "3": "AUDIO_MCLK",
+      "4": "+3V3"
+    },
+    "position": [
+      141,
+      108,
+      0
+    ],
+    "manufacturer": "YXC",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20260116/277ADDA9FE6BD42D3AF503786E6466E2.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "50fae392-7efc-5c2a-a486-6c2c4e3b9858",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "R701",
+    "symbol": "Device:R",
+    "value": "10k",
+    "mpn": "0603WAF1002T5E",
+    "code": "C25804",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "CODEC_RST"
+    },
+    "position": [
+      147,
+      108,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "8542e33f-3f96-5874-9849-61baa810a9ea",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C701",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "CODEC_RST",
+      "2": "POWER_GND"
+    },
+    "position": [
+      149.5,
+      108,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "bd84bffd-d97e-5d0e-b80e-f4ba22f2dbec",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C702",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      133.5,
+      108,
+      90
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "d15b81e0-42c9-5d04-a8e3-3d83c31ac5ac",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C703",
+    "symbol": "Device:C",
+    "value": "10uF",
+    "mpn": "C1608X5R1A106KT000E",
+    "code": "C76608",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+1V8_CODEC",
+      "2": "POWER_GND"
+    },
+    "position": [
+      136,
+      112,
+      90
+    ],
+    "manufacturer": "TDK",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "a2330fce-f516-5ad8-ae07-1de2297c95f8",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C704",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+1V8_CODEC",
+      "2": "POWER_GND"
+    },
+    "position": [
+      139,
+      111,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "ddac6840-e05a-581c-918d-ea35072ab9c2",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C705",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      147.5,
+      112,
+      90
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "ccef15c1-953c-5cd3-aaa7-18d021c6cf41",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C706",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      149.5,
+      112,
+      90
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "b29da7de-87b5-5258-97fb-e505973ce039",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C707",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      143,
+      119.2,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "9dec3836-7966-59de-a9fb-e07cf2847e94",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C708",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      143,
+      121.3,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "d7551311-ffbb-5bb4-87b6-a372ffe0462b",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C709",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      139,
+      115,
+      90
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "8adadc71-f18d-5f52-ac86-d8e47ebfe0a5",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C710",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      136.8,
+      115,
+      90
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "4ba3cb72-e4e9-59bb-9aa4-2b152fd894a9",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C711",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      145.5,
+      110,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "4f6515e0-4cca-50ef-b560-fb40ccaaee1b",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C712",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      145.5,
+      108,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "d9c1cc81-091f-53e7-853a-ee2d8ef0de66",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_codec",
+    "ref": "C713",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      140,
+      105.8,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "ddaf948a-30c5-563b-9825-214704ce4d46",
+    "sheet_uuid": "3aeb6ca7-828f-502f-b6e3-0c9aa8084071"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "MK701",
+    "symbol": "duck:LMA2718_B",
+    "value": "MEMS_MIC",
+    "mpn": "LMA2718T421-OA5-2",
+    "code": "C7587901",
+    "footprint": "duck:LMA2718_B",
+    "pins": {
+      "1": "MIC_ONBOARD_OUT",
+      "2": "POWER_GND",
+      "3": "POWER_GND",
+      "4": "+3V3"
+    },
+    "position": [
+      137.5,
+      123,
+      0
+    ],
+    "manufacturer": "LinkMems",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20230901/7575319F733F22ECE149FBB07CD99356.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "d9b6f516-2418-5930-a990-38c8e767fb97",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "C721",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "POWER_GND"
+    },
+    "position": [
+      137.5,
+      120.4,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "e11a0368-e4b7-5e27-91b8-fae0ac5f36e6",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "C722",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "MIC_ONBOARD_OUT",
+      "2": "MIC_ONBOARD_AC"
+    },
+    "position": [
+      140,
+      123,
+      90
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "a1b0f719-af44-5363-b9aa-ff2e2f9b907a",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "J505",
+    "symbol": "Connector_Generic:Conn_01x02",
+    "value": "J505_MIC",
+    "mpn": "A1251WV-2P",
+    "code": "C5333427",
+    "footprint": "duck:A1251_2P_B",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "MIC_EXT_L"
+    },
+    "position": [
+      144,
+      127,
+      0
+    ],
+    "manufacturer": "CJT",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20180913/C273009_2E94D2EE16A658F8B593BE6904D224FC.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "e513c987-6af9-522d-b740-9362d074e8d3",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "J507",
+    "symbol": "Connector_Generic:Conn_01x02",
+    "value": "J507_MIC",
+    "mpn": "A1251WV-2P",
+    "code": "C5333427",
+    "footprint": "duck:A1251_2P_B",
+    "pins": {
+      "1": "POWER_GND",
+      "2": "MIC_EXT_R"
+    },
+    "position": [
+      151,
+      127,
+      0
+    ],
+    "manufacturer": "CJT",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20180913/C273009_2E94D2EE16A658F8B593BE6904D224FC.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "2f42fd96-2524-5281-a543-06250103c209",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "R721",
+    "symbol": "Device:R",
+    "value": "2.2k",
+    "mpn": "0603WAF2201T5E",
+    "code": "C4190",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "MICBIAS",
+      "2": "MIC_EXT_L"
+    },
+    "position": [
+      142,
+      125,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "7959876b-8ecd-5054-9ea3-5c83f67c0e3f",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "R722",
+    "symbol": "Device:R",
+    "value": "2.2k",
+    "mpn": "0603WAF2201T5E",
+    "code": "C4190",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "MICBIAS",
+      "2": "MIC_EXT_R"
+    },
+    "position": [
+      148.5,
+      125,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "26cecd55-c757-5932-8902-566ac701ebf1",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "C723",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "MIC_EXT_L",
+      "2": "MIC_EXT_L_AC"
+    },
+    "position": [
+      144.5,
+      123,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "b7ec74ee-2eec-5f3f-a3b7-eb43995e67ed",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "C724",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "MIC_EXT_R",
+      "2": "MIC_EXT_R_AC"
+    },
+    "position": [
+      147,
+      123,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "5fac0757-a84d-5f98-b46b-cfd7381ed035",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_io",
+    "ref": "C725",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "MICBIAS",
+      "2": "POWER_GND"
+    },
+    "position": [
+      146,
+      120.5,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "7407ea7f-467f-5375-bc8c-584bd8b943a5",
+    "sheet_uuid": "87a31829-0801-5027-bd7a-b9d70005e22d"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "U803",
+    "symbol": "Amplifier_Audio:PAM8406D",
+    "value": "PAM8406DR",
+    "mpn": "PAM8406DR",
+    "code": "C86270",
+    "footprint": "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",
+    "pins": {
+      "1": null,
+      "2": "POWER_GND",
+      "3": null,
+      "4": "+5V",
+      "5": "+3V3",
+      "6": "AMP_VDD_FILT",
+      "7": "AMP_LEFT_INPUT",
+      "8": "AMP_VREF",
+      "9": "+3V3",
+      "10": "AMP_RIGHT_INPUT",
+      "11": "POWER_GND",
+      "12": "AUDIO_AMP_EN",
+      "13": "+5V",
+      "14": "AMP_R_N_RAW",
+      "15": "POWER_GND",
+      "16": "AMP_R_P_RAW"
+    },
+    "position": [
+      155,
+      118,
+      180
+    ],
+    "manufacturer": "Diodes",
+    "datasheet": "https://www.diodes.com/assets/Datasheets/PAM8406.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "4aaed747-a21b-548d-b04f-6368cf95b200",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C731",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "CODEC_LEFT_LOP",
+      "2": "AMP_LEFT_INPUT"
+    },
+    "position": [
+      150,
+      115,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "fdf2e7d4-d90e-5d38-b0e6-a1d8d2178737",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C732",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "CODEC_RIGHT_LOP",
+      "2": "AMP_RIGHT_INPUT"
+    },
+    "position": [
+      150,
+      117,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "19fc269a-3625-5b0e-9113-2c8a1bed778a",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C733",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "AMP_VREF",
+      "2": "POWER_GND"
+    },
+    "position": [
+      150,
+      119,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "77807cf1-c745-5c39-9ee1-9c4ff2341e2d",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C734",
+    "symbol": "Device:C",
+    "value": "10uF",
+    "mpn": "C1608X5R1A106KT000E",
+    "code": "C76608",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+5V",
+      "2": "POWER_GND"
+    },
+    "position": [
+      152,
+      112,
+      0
+    ],
+    "manufacturer": "TDK",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "e61dd046-b88f-5eb1-b09e-1bde3d63e630",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C735",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+5V",
+      "2": "POWER_GND"
+    },
+    "position": [
+      155,
+      111.5,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "abcf657c-876c-55f0-8861-d4d9a91302ee",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C736",
+    "symbol": "Device:C",
+    "value": "10uF",
+    "mpn": "C1608X5R1A106KT000E",
+    "code": "C76608",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+5V",
+      "2": "POWER_GND"
+    },
+    "position": [
+      158,
+      124,
+      0
+    ],
+    "manufacturer": "TDK",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "2e4a3933-c1f3-5c74-8bda-ed731d982889",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C737",
+    "symbol": "Device:C",
+    "value": "100nF",
+    "mpn": "CC0603KRX7R9BB104",
+    "code": "C14663",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "+5V",
+      "2": "POWER_GND"
+    },
+    "position": [
+      156,
+      124,
+      0
+    ],
+    "manufacturer": "YAGEO",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "c2428384-79ec-5f52-8d7f-54c056a99025",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C738",
+    "symbol": "Device:C",
+    "value": "1uF",
+    "mpn": "CL10A105KB8NNNC",
+    "code": "C15849",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "AMP_VDD_FILT",
+      "2": "POWER_GND"
+    },
+    "position": [
+      151,
+      110,
+      0
+    ],
+    "manufacturer": "SAMSUNG",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "0b1e37c9-514b-54de-a563-cce59a2e751e",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "FB701",
+    "symbol": "Device:FerriteBead",
+    "value": "600R@100MHz",
+    "mpn": "BLM18KG601SN1D",
+    "code": "C85833",
+    "footprint": "Inductor_SMD:L_0603_1608Metric",
+    "pins": {
+      "1": "+5V",
+      "2": "AMP_VDD_FILT"
+    },
+    "position": [
+      153.5,
+      108,
+      0
+    ],
+    "manufacturer": "Murata",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "5d75db2e-0e14-5d03-8548-b652de2aa4a7",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "R731",
+    "symbol": "Device:R",
+    "value": "100k",
+    "mpn": "0603WAF1003T5E",
+    "code": "C25803",
+    "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "pins": {
+      "1": "+3V3",
+      "2": "AUDIO_AMP_EN"
+    },
+    "position": [
+      150,
+      121,
+      0
+    ],
+    "manufacturer": "UNI-ROYAL",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "391a226e-2acf-5b21-8688-57ffd164e106",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "FB702",
+    "symbol": "Device:FerriteBead",
+    "value": "120R@100MHz",
+    "mpn": "PE-0603PFB121ST",
+    "code": "C2661472",
+    "footprint": "Inductor_SMD:L_0603_1608Metric",
+    "pins": {
+      "1": "AMP_R_N_RAW",
+      "2": "SPK_N"
+    },
+    "position": [
+      160,
+      118,
+      90
+    ],
+    "manufacturer": "Power Ever",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "4ea32c72-374a-5419-aa67-35528a99a94d",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "FB703",
+    "symbol": "Device:FerriteBead",
+    "value": "120R@100MHz",
+    "mpn": "PE-0603PFB121ST",
+    "code": "C2661472",
+    "footprint": "Inductor_SMD:L_0603_1608Metric",
+    "pins": {
+      "1": "AMP_R_P_RAW",
+      "2": "SPK_P"
+    },
+    "position": [
+      160,
+      121,
+      90
+    ],
+    "manufacturer": "Power Ever",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "6633aadd-9dab-50a5-8bba-fa70e26e6496",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C739",
+    "symbol": "Device:C",
+    "value": "220pF",
+    "mpn": "0603CG221J500NT",
+    "code": "C156398",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "SPK_N",
+      "2": "POWER_GND"
+    },
+    "position": [
+      162.5,
+      118,
+      90
+    ],
+    "manufacturer": "FH",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "37b6abd5-0ed2-5602-82fd-6d453dd9b764",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "C740",
+    "symbol": "Device:C",
+    "value": "220pF",
+    "mpn": "0603CG221J500NT",
+    "code": "C156398",
+    "footprint": "Capacitor_SMD:C_0603_1608Metric",
+    "pins": {
+      "1": "SPK_P",
+      "2": "POWER_GND"
+    },
+    "position": [
+      162.5,
+      121,
+      90
+    ],
+    "manufacturer": "FH",
+    "datasheet": "",
+    "description": "",
+    "side": "F",
+    "uuid": "d5353f45-ec6c-54e4-9166-175833e60f81",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "audio_amp",
+    "ref": "J506",
+    "symbol": "Connector_Generic:Conn_01x02",
+    "value": "SPEAKER",
+    "mpn": "A1251WV-2P",
+    "code": "C5333427",
+    "footprint": "duck:A1251_2P_B",
+    "pins": {
+      "1": "SPK_P",
+      "2": "SPK_N"
+    },
+    "position": [
+      158,
+      127,
+      0
+    ],
+    "manufacturer": "CJT",
+    "datasheet": "https://atta.szlcsc.com/upload/public/pdf/source/20180913/C273009_2E94D2EE16A658F8B593BE6904D224FC.pdf",
+    "description": "",
+    "side": "F",
+    "uuid": "7455c337-4b3d-5cf9-8501-252d5f05f216",
+    "sheet_uuid": "55b9c25b-b188-5077-b23d-047ebab91b70"
+  },
+  {
+    "sheet": "testpoints",
+    "ref": "TP801",
+    "symbol": "Connector:TestPoint",
+    "value": "VBATT_2S_IN",
+    "mpn": "",
+    "code": "",
+    "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+    "pins": {
+      "1": "VBATT_2S_IN"
+    },
+    "position": [
+      104,
+      116,
+      0
+    ],
+    "manufacturer": "",
+    "datasheet": "",
+    "description": "bare test pad; not a purchased component",
+    "side": "F",
+    "uuid": "d6abdae9-87f8-53bc-8ed9-c035f921fc03",
+    "sheet_uuid": "6f531677-de86-5da2-92cb-a3ebcddf1b54"
+  },
+  {
+    "sheet": "testpoints",
+    "ref": "TP802",
+    "symbol": "Connector:TestPoint",
+    "value": "+5V",
+    "mpn": "",
+    "code": "",
+    "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+    "pins": {
+      "1": "+5V"
+    },
+    "position": [
+      131,
+      124.5,
+      0
+    ],
+    "manufacturer": "",
+    "datasheet": "",
+    "description": "bare test pad; not a purchased component",
+    "side": "F",
+    "uuid": "6e20de69-ee73-52c7-a632-8a04ee34efed",
+    "sheet_uuid": "6f531677-de86-5da2-92cb-a3ebcddf1b54"
+  },
+  {
+    "sheet": "testpoints",
+    "ref": "TP803",
+    "symbol": "Connector:TestPoint",
+    "value": "+3V3",
+    "mpn": "",
+    "code": "",
+    "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+    "pins": {
+      "1": "+3V3"
+    },
+    "position": [
+      149,
+      106,
+      0
+    ],
+    "manufacturer": "",
+    "datasheet": "",
+    "description": "bare test pad; not a purchased component",
+    "side": "F",
+    "uuid": "6e3ef1ad-a0bc-51c4-b853-d343bd34ef02",
+    "sheet_uuid": "6f531677-de86-5da2-92cb-a3ebcddf1b54"
+  }
+]

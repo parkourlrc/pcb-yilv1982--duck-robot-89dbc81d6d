@@ -18,7 +18,7 @@ from pathlib import Path
 import serial
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_LOG = (REPO_ROOT / "docs" / "references" / "emmc-flash-radxa-zero3w-20261013"
+DEFAULT_LOG = (REPO_ROOT / "docs" / "references" / "瑞莎开发板存储线刷"
                / "serial-logs" / f"login-test-{datetime.datetime.now():%Y%m%d-%H%M%S}.log")
 
 

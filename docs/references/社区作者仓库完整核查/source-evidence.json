@@ -1,0 +1,262 @@
+{
+  "microduck-hd1910/firmware/tof/src/imu.rs": [
+    {
+      "line": 1,
+      "text": "//! The head IMU (BMI088 on the HAT), read by `tofd` because `tofd` owns this I²C bus."
+    },
+    {
+      "line": 3,
+      "text": "//! The BMI088 sits on the same bus as the ToF (accel `0x19`, gyro `0x68` per the HAT schematic —"
+    },
+    {
+      "line": 11,
+      "text": "//! retry with backoff on error — so a BMI088 fitted later needs no reconnect."
+    },
+    {
+      "line": 62,
+      "text": "/// What the `head_imu.stream` answer reports — whether a BMI088 was found and at what rate."
+    },
+    {
+      "line": 100,
+      "text": "            \"the head IMU is off — `[head_imu] enabled = true` in robotd.toml, then restart tofd\""
+    },
+    {
+      "line": 122,
+      "text": "/// Read the BMI088 forever, broadcasting [`proto::HeadImuFrame`]. Returns only at shutdown."
+    },
+    {
+      "line": 139,
+      "text": "                tracing::info!(\"head IMU found: BMI088\");"
+    },
+    {
+      "line": 140,
+      "text": "                status.found(\"BMI088\");"
+    },
+    {
+      "line": 210,
+      "text": "/// the same answer `head_imu.stream` gives on a board whose HAT has no BMI088 fitted, which is the"
+    },
+    {
+      "line": 223,
+      "text": "/// Open the BMI088 on the first bus that answers. The `bmi088` crate hardwires accel `0x19` /"
+    },
+    {
+      "line": 224,
+      "text": "/// gyro `0x68` (the HAT's addresses), so there is nothing to sweep — a failure to read the"
+    },
+    {
+      "line": 225,
+      "text": "/// chip-id in `Bmi088::new` is the \"not fitted / bus glitch\" signal."
+    },
+    {
+      "line": 245,
+      "text": "        match Bmi088::new(i2c, Config::default()) {"
+    },
+    {
+      "line": 247,
+      "text": "                tracing::info!(bus = %bus.display(), \"BMI088 answered\");"
+    },
+    {
+      "line": 250,
+      "text": "            Err(e) => last = Some(anyhow::anyhow!(\"BMI088 init on {}: {e:?}\", bus.display())),"
+    },
+    {
+      "line": 288,
+      "text": "        assert!(why.contains(\"[head_imu] enabled\"), \"{why}\");"
+    },
+    {
+      "line": 297,
+      "text": "        assert!(!why.contains(\"[head_imu]\"), \"{why}\");"
+    }
+  ],
+  "microduck-hd1910/firmware/tof/Cargo.toml": [
+    {
+      "line": 26,
+      "text": "# `[head_imu]` lives in `robotd.toml`, and this crate is the schema for that file — the same"
+    },
+    {
+      "line": 36,
+      "text": "# The head IMU (`src/imu.rs`) reaches the BMI088 through `/dev/i2c-*`, which exists on no other"
+    },
+    {
+      "line": 39,
+      "text": "# serves depth from `--fake` or `--sim`, and answers `head_imu.stream` with why it has no sensor."
+    },
+    {
+      "line": 41,
+      "text": "# The BMI088 driver and its Madgwick fusion, ours because the crates.io ones stop at the raw"
+    },
+    {
+      "line": 45,
+      "text": "bmi088 = { git = \"https://github.com/pollen-robotics/bmi088-rs\", tag = \"v0.1.2\" }"
+    }
+  ],
+  "microduck-hd1910/firmware/tof/src/main.rs": [
+    {
+      "line": 143,
+      "text": "    /// Head-IMU (BMI088) sample rate, Hz. The chip's default bandwidth is 100 Hz."
+    },
+    {
+      "line": 147,
+      "text": "    /// Read the head IMU for this session, whatever `[head_imu] enabled` says."
+    },
+    {
+      "line": 159,
+      "text": "    /// Params file. `[head_imu]` is read from it; everything else here is a flag."
+    },
+    {
+      "line": 236,
+      "text": "    // **Off unless `[head_imu] enabled` says otherwise**, and that default is the measurement in"
+    },
+    {
+      "line": 248,
+      "text": "        .head_imu"
+    },
+    {
+      "line": 253,
+      "text": "        // frames, because \"no samples\" and \"no BMI088 fitted\" are different answers and only one"
+    },
+    {
+      "line": 258,
+      "text": "                \"the head IMU is off; set [head_imu] enabled = true to read it\""
+    },
+    {
+      "line": 685,
+      "text": "/// count connections rather than interest: a client asking for `head_imu.stream` held a depth"
+    },
+    {
+      "line": 742,
+      "text": "                        \"tofd serves tof.stream and head_imu.stream and nothing else\","
+    },
+    {
+      "line": 795,
+      "text": "                let notification = proto::Request::notify_head_imu_frame(&frame);"
+    }
+  ],
+  "microduck-hd1910/firmware/robotd-params/src/lib.rs": [
+    {
+      "line": 73,
+      "text": "    pub head_imu: HeadImuParams,"
+    },
+    {
+      "line": 86,
+      "text": "    /// Named for what it is, in full, because `[head_imu]` is two sections up and is the IMU *in*"
+    },
+    {
+      "line": 87,
+      "text": "    /// the robot's head: the two were `imu_head` and `head_imu` for a while, and that is a name"
+    },
+    {
+      "line": 710,
+      "text": "/// `[head_imu]` — the BMI088 on the head module, read by `tofd` and served as"
+    },
+    {
+      "line": 711,
+      "text": "/// `head_imu.stream`."
+    },
+    {
+      "line": 725,
+      "text": "pub struct HeadImuParams {"
+    }
+  ],
+  "microduck-hd1910/firmware/deploy/robotd.toml": [
+    {
+      "line": 5,
+      "text": "# always robotd: [media] and [duck_detector] are mediad's and [head_imu] is tofd's. The two"
+    },
+    {
+      "line": 392,
+      "text": "[head_imu]"
+    },
+    {
+      "line": 393,
+      "text": "# The BMI088 on the head module, read by tofd and served as `head_imu.stream` — gyro,"
+    },
+    {
+      "line": 399,
+      "text": "# sample takes — which is what a gyro and an accelerometer sample *is*. Nothing subscribes to"
+    },
+    {
+      "line": 406,
+      "text": "# A subscriber to `head_imu.stream` while this is off gets the reason, naming this key, rather"
+    },
+    {
+      "line": 491,
+      "text": "# Not [head_imu], which is the IMU in the robot's head. This section was [imu_head] once; a file"
+    }
+  ],
+  "microduck-hd1910/firmware/duck-control/src/imu.rs": [
+    {
+      "line": 1,
+      "text": "//! The `imu_to_dxl` v2 board (LSM6DSV16X), decoded."
+    },
+    {
+      "line": 173,
+      "text": "/// IEEE 754 binary16 → f64. The LSM6DSV16X ships quaternion components in this format."
+    }
+  ],
+  "microduck-hd1910/firmware/docs/project/tof-on-demand.md": [
+    {
+      "line": 55,
+      "text": "**Nothing subscribes to it.** `head_imu.stream` has no consumer in this tree: `btd` declines to"
+    },
+    {
+      "line": 67,
+      "text": "**`[head_imu] enabled`, default off.** Nothing in the loop paid off, so the switch is the answer:"
+    },
+    {
+      "line": 74,
+      "text": "**The redundant third read went anyway**, as bmi088-rs#1 and a `tofd` that takes the sample from"
+    },
+    {
+      "line": 96,
+      "text": "asked for `head_imu.stream` holds a depth receiver, and one that connects and says nothing holds"
+    },
+    {
+      "line": 118,
+      "text": "  and `head_imu.stream`'s answer is written before the first sample. Cold, that answer would read"
+    },
+    {
+      "line": 119,
+      "text": "  as \"no BMI088 fitted\", which is the one thing it must not say on a board that has one. So the"
+    }
+  ],
+  "microduck-hd1910/firmware/deploy/audio/i2c3-pihat.dts": [
+    {
+      "line": 11,
+      "text": " * (codec 0x18, dormant BMI088 0x19/0x68, ToF via Stemma J5), but the"
+    },
+    {
+      "line": 31,
+      "text": " * (unused but still connected) BMI088. The VL53L5CX would take 1 MHz,"
+    }
+  ],
+  "hardware/README.md": [
+    {
+      "line": 99,
+      "text": "PCB无券按每种 ¥20/5张；U2 LSM6DSV16XTR 按 ¥13.80/个，其余器件沿用历史分摊成本。钢网已列入工具预算，运费另计。"
+    },
+    {
+      "line": 151,
+      "text": "| LSM6DSV16XTR<br>LSM6DSV16XTR | 1 | ¥13.80 | ¥13.800000 | 0 / ¥0.000000 | 1 / ¥13.800000 |"
+    },
+    {
+      "line": 228,
+      "text": "| [LSM6DSV16XTR](https://item.szlcsc.com/5993815.html)<br>LGA-14(2.5x3)；传感器类型:IMU(加速度计+陀螺仪)；接口类型:I2C；SPI | **LSM6DSV16XTR**<br>LSM6DSV16XTR / LGA-14；指定购买 LSM6DSV16XTR，参考单价 ¥13.80/个。 | — | **1**<br>U2 | 1个 / 拍<br>最少 **1拍** | 淘宝<br>[购买商品](https://e.tb.cn/h.j3ZZ8HNmUBbhzqy?tk=jMe5TxTIPLE) |"
+    },
+    {
+      "line": 362,
+      "text": "| **U2**<br>LSM6DSV16XTR | LSM6DSV16XTR<br>C5267406 | LGA-14(2.5x3)<br>传感器类型:IMU(加速度计+陀螺仪)；接口类型:I2C；SPI | LSM6DSV16XTR<br>LSM6DSV16XTR / LGA-14；指定购买 LSM6DSV16XTR，参考单价 ¥13.80/个。 | [商品](https://e.tb.cn/h.j3ZZ8HNmUBbhzqy?tk=jMe5TxTIPLE) · [工程型号](https://item.szlcsc.com/5993815.html) |"
+    }
+  ],
+  "microduck-hd1910/README.md": [
+    {
+      "line": 5,
+      "text": "基于 Microduck 官方 **0.15.1** 的飞特 HD1910 适配，包含机器人固件、R17 机器人中控和独立训练中控。参考硬件：Radxa ZERO 3W、官方骨架、15 个 HD1910。社区个人项目，与 Pollen Robotics 无官方隶属关系。"
+    },
+    {
+      "line": 17,
+      "text": "| 机器人固件与设备服务 | 官方 0.15.1 · control.43 · API40 | [firmware/](firmware/) |"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T17:09:30",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "custom_hat_rev_b.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 150.6093,
+                        "y": 106.3818
+                    },
+                    "uuid": "414aa5ab-4490-49f9-a0bf-c5cee30ad866"
+                },
+                {
+                    "description": "F.Cu 上 U701 的焊盘 3 [I2S_LRCK]",
+                    "pos": {
+                        "x": 136.5625,
+                        "y": 114.25
+                    },
+                    "uuid": "ef260961-4109-415e-9370-1af22b87519d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U701 的焊盘 4 [I2S_SDO]",
+                    "pos": {
+                        "x": 136.5625,
+                        "y": 114.75
+                    },
+                    "uuid": "6543027d-bf4c-46c4-a95d-4b6549e83436"
+                },
+                {
+                    "description": "J101 的PTH 焊盘 40 [I2S_SDO]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 102.05
+                    },
+                    "uuid": "61c1bdd1-da1c-4be8-bde3-1e47518afeed"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U701 的焊盘 29 [CODEC_RIGHT_LOP]",
+                    "pos": {
+                        "x": 138.75,
+                        "y": 112.5625
+                    },
+                    "uuid": "931d7ffa-e46b-470a-b75d-191e8ce1476a"
+                },
+                {
+                    "description": "走线 [CODEC_RIGHT_LOP] (F.Cu), 长度: 1.0252 mm",
+                    "pos": {
+                        "x": 147.1999,
+                        "y": 117.7751
+                    },
+                    "uuid": "12e2d1d8-50f5-49e4-84d3-0002cd2d8873"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [MIC_EXT_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 140.7366,
+                        "y": 123.7989
+                    },
+                    "uuid": "d6420f3a-302b-4034-92ed-99235ca02a3e"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [MICBIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 144.4641,
+                        "y": 123.7891
+                    },
+                    "uuid": "ad133f65-3eb7-4d29-95c6-8fc982530237"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 150.6093,
+                        "y": 106.3818
+                    },
+                    "uuid": "414aa5ab-4490-49f9-a0bf-c5cee30ad866"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RIGHT_LOP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 147.1999,
+                        "y": 117.7751
+                    },
+                    "uuid": "6aaecb86-4430-4225-8ac3-673dcd0015d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

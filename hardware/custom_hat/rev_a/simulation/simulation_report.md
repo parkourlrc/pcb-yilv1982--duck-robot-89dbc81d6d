@@ -26,6 +26,6 @@
 - 电源没有建模电感、补偿网络、开关节点、环路稳定性、启动过冲、热和 PCB 寄生参数。
 - TTL 没有建模具体收发器 IBIS/SPICE、3P 舵机线缆阻抗、连接器反射、方向切换时序或总线争用。
 - CSI、SPI 屏、BMI088、音频 Codec、Linux 驱动无法由本脚本证明功能。
-- 2026-10-29 模型查找结果：AP64501 与 PAM8406 无公开 SPICE 模型；TPS565201 备选模型在 ngspice 47 不收敛。电源/功放的器件级仿真当前不可行，见[模型记录](../../../../docs/references/hat-simulation-tools-20261029/research.md)。
+- 2026-10-29 模型查找结果：AP64501 与 PAM8406 无公开 SPICE 模型；TPS565201 备选模型在 ngspice 47 不收敛。电源/功放的器件级仿真当前不可行，见[模型记录](../../../../docs/references/扩展板电路仿真工具/research.md)。
 
 完整输入假设及每个扫描点见 `simulation_report.json`。

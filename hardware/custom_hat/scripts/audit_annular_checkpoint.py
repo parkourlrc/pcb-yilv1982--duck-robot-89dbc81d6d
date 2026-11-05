@@ -32,8 +32,8 @@ def main():
         pipeline.BASE.parents[1] / name for name in
         ("README.md", "PROGRESS.md", "hardware/custom_hat/README.md", "hardware/custom_hat/rev_a/README.md",
          "docs/photos/README.md", "docs/specs/20261028-custom-hat/spec.md", "docs/specs/20261028-custom-hat/recovery-plan.md",
-         "docs/references/hat-simulation-tools-20261029/issue-matrix-20261030.md",
-         "docs/references/hat-simulation-tools-20261029/mpn-lock-20261030/research.md")
+         "docs/references/扩展板电路仿真工具/issue-matrix-20261030.md",
+         "docs/references/扩展板电路仿真工具/mpn-lock-20261030/research.md")
     ] + [EVIDENCE / "research.md", output / "README.md"]
     broken = []
     for document in documents:

@@ -9,7 +9,7 @@
 - `manifest.json`：精确内核版本、源码/headers/模块SHA、ARM64 ELF与导入符号CRC检查结果。
 - `duck-hat-audio.dts`及同版本目录的`.dtbo`/`overlay-manifest.json`：I2C5、I2S3 M0、MCLK、Pin33复位、供电模型及声卡端点的候选配置。
 - [音频路由工具](AUDIO-ROUTING.md)：`hat_audio.py`与精确源码控件目录，提供主扬声器L+R混音、J504立体声、J505左ADC录音的预览/检查/应用；仅离线验证，未操作真实声卡。
-- [完整证据](../../../../docs/references/hat-simulation-tools-20261029/driver-compatibility-20261031/research.md)：官方资产SHA、配置/模块索引、两种Zero3W官方DTB、失败记录和未验证条件。
+- [完整证据](../../../../docs/references/扩展板电路仿真工具/driver-compatibility-20261031/research.md)：官方资产SHA、配置/模块索引、两种Zero3W官方DTB、失败记录和未验证条件。
 
 模块源来自radxa/kernel提交`e6d12a77c8bc0ea6decbd3e4604ec131d4032c30`的三个原文件，原文保存在证据目录`sources/exact-sound__soc__codecs__tlv320aic3x*`，遵循其原GPL许可；没有把厂商驱动改写为本项目原创。离线构建使用官方同版本headers及Module.symvers，未重建整套内核。Ubuntu gcc13与官方构建所用Debian gcc12.2存在版本差异，ABI文件核对不能替代实际加载验证。
 

@@ -1,0 +1,2483 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T18:33:51",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "custom_hat_rev_a.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 1 [POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 120.97
+                    },
+                    "uuid": "0ea581f5-5c7f-4cd6-b155-a2836e8228dd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 2 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 118.47
+                    },
+                    "uuid": "4a0083f7-3a0b-4c6e-a5a7-875aa0692b5c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 3 [DXL_DATA]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 115.97
+                    },
+                    "uuid": "868ca9f9-be2f-4bfa-8ec2-0bcdcb3cb074"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H1 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 103.6
+                    },
+                    "uuid": "afe6bf84-a6a9-4e25-9aff-32c8bbd74441"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H3 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 126.4
+                    },
+                    "uuid": "2ffacf9c-f5e3-45d9-9991-ff0aed5bec3a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 1 [UART2_TX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 117.16
+                    },
+                    "uuid": "ba8dd221-2473-40fd-b29c-b1e816cf6884"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 3 [POWER_GND]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 122.24
+                    },
+                    "uuid": "3052590c-25a8-4661-9f84-c672ecae63f5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 1 [POWER_GND]",
+                    "pos": {
+                        "x": 148.99,
+                        "y": 119.7
+                    },
+                    "uuid": "58752ddf-6486-4857-a4af-5f608d6f40b9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 2 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 151.49,
+                        "y": 119.7
+                    },
+                    "uuid": "a3a34c19-75ad-49b2-aba5-a7511de0b86a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 3 [DXL_DATA]",
+                    "pos": {
+                        "x": 153.99,
+                        "y": 119.7
+                    },
+                    "uuid": "d67a630e-3339-4bc6-bdb8-d12a159054d6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J802 的PTH 焊盘 1 [BMI_INT1_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 120.97
+                    },
+                    "uuid": "0e822763-08dd-4bb6-af0a-cccc865999ac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J802 的PTH 焊盘 2 [BMI_INT3_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 118.43
+                    },
+                    "uuid": "d6d76125-88c7-4fff-98b9-3fad5687219f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H2 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 103.6
+                    },
+                    "uuid": "18d3a65e-5acb-46c2-b9f5-300200a91def"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 104.59
+                    },
+                    "uuid": "a10ca244-0652-4f16-aa9d-bd74933cddb2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 2 [+5V]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 102.05
+                    },
+                    "uuid": "899e2721-65c5-4dc9-9e57-e3410033296c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 3 [unconnected-(J101-Pin_3-Pad3)]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 104.59
+                    },
+                    "uuid": "c8e9d8d1-17e6-4684-8007-1ab6e48483ae"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 4 [+5V]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 102.05
+                    },
+                    "uuid": "9e9f82a1-8f4f-44cc-a3aa-022d1c875295"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 5 [unconnected-(J101-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 104.59
+                    },
+                    "uuid": "9a54567a-f02c-404a-924a-fba9eb3cf305"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 102.05
+                    },
+                    "uuid": "c419d153-a940-422a-b4f5-720294eeaf21"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 7 [unconnected-(J101-Pin_7-Pad7)]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 104.59
+                    },
+                    "uuid": "490d794e-5465-4f36-8743-4b3a12195910"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 8 [UART2_TX]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 102.05
+                    },
+                    "uuid": "2863ad0d-d5ed-4b0e-adaa-0d36e5544ea8"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 9 [POWER_GND]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 104.59
+                    },
+                    "uuid": "106ab06b-4021-471f-ac57-18c3597066dc"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 10 [UART2_RX]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 102.05
+                    },
+                    "uuid": "8fb26703-14cf-46ec-acb4-d7cf82ec8d6f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 11 [DXL_DIR]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 104.59
+                    },
+                    "uuid": "c158d093-3f7b-444d-8bdf-789f512793b9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 12 [I2S_BCLK]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 102.05
+                    },
+                    "uuid": "f69f7511-c99b-4d80-9c9b-2bd0fc56c6f7"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 13 [I2S_MCLK]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 104.59
+                    },
+                    "uuid": "f3c2d270-2dca-45a3-8fa5-84de16f43fed"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 14 [POWER_GND]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 102.05
+                    },
+                    "uuid": "4d57d17a-cbc5-4196-a708-2ba7439f0332"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 15 [unconnected-(J101-Pin_15-Pad15)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 104.59
+                    },
+                    "uuid": "eef8fc48-5313-4160-8b14-1a7bcb163076"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 16 [unconnected-(J101-Pin_16-Pad16)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 102.05
+                    },
+                    "uuid": "b852ef33-160b-4ccf-b681-a02d77b2f566"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 17 [+3V3]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 104.59
+                    },
+                    "uuid": "5f9353cf-393e-4703-be54-755b86e0d88f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 18 [unconnected-(J101-Pin_18-Pad18)]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 102.05
+                    },
+                    "uuid": "26b3161a-8ad1-4943-a4ab-24c712210454"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 19 [unconnected-(J101-Pin_19-Pad19)]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 104.59
+                    },
+                    "uuid": "c5edc9d0-8daa-4d83-a664-ef8b22f14d9a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 20 [POWER_GND]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 102.05
+                    },
+                    "uuid": "fcd1fdfa-961e-479f-8c12-a5174a74d91a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 21 [unconnected-(J101-Pin_21-Pad21)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 104.59
+                    },
+                    "uuid": "97c10e42-4394-46a1-9a79-9c24d1f1e432"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 22 [unconnected-(J101-Pin_22-Pad22)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 102.05
+                    },
+                    "uuid": "a81ab8ee-22b8-4f20-aad3-bb9713e5d9f1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 23 [unconnected-(J101-Pin_23-Pad23)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 104.59
+                    },
+                    "uuid": "a8e41f22-9cab-493b-9505-3be34a5357c2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 24 [unconnected-(J101-Pin_24-Pad24)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 102.05
+                    },
+                    "uuid": "b6f67e8b-7f49-4c4f-8963-86f3faa5846d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 25 [POWER_GND]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 104.59
+                    },
+                    "uuid": "d9f2f92a-e2a1-4782-a904-03de52e70707"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 26 [unconnected-(J101-Pin_26-Pad26)]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 102.05
+                    },
+                    "uuid": "8c2769a9-ef46-43b2-9285-35644eb30cd6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 27 [unconnected-(J101-Pin_27-Pad27)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 104.59
+                    },
+                    "uuid": "9d768c70-9e79-41a3-a67d-a32a9ba22ce5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 28 [unconnected-(J101-Pin_28-Pad28)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 102.05
+                    },
+                    "uuid": "874b0a92-afa4-42dd-9819-d8df734e5a61"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 29 [I2C5_SCL]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 104.59
+                    },
+                    "uuid": "4e2ed2d7-f14a-488a-8688-a58c48d3504f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 30 [POWER_GND]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 102.05
+                    },
+                    "uuid": "261067b4-60e0-4576-b338-472b4af307d0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 31 [I2C5_SDA]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 104.59
+                    },
+                    "uuid": "a0a98133-a4c9-4f93-b507-0a5027157acd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 32 [unconnected-(J101-Pin_32-Pad32)]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 102.05
+                    },
+                    "uuid": "93e20304-aa81-43b4-b2b0-4461f3fc4330"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 33 [CODEC_RST]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 104.59
+                    },
+                    "uuid": "d27cd119-6ad8-48e1-a11c-a5dd949220c6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 34 [POWER_GND]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 102.05
+                    },
+                    "uuid": "46ef401f-d836-4099-86a6-b586a0ca3b2e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 35 [I2S_LRCK]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 104.59
+                    },
+                    "uuid": "bb52529a-2747-44c6-99d5-545753b5f57e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 36 [unconnected-(J101-Pin_36-Pad36)]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 102.05
+                    },
+                    "uuid": "bc46bd1b-e5e6-49f0-979a-61023beefbac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 37 [unconnected-(J101-Pin_37-Pad37)]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 104.59
+                    },
+                    "uuid": "1f0fcf4c-0af8-4b82-9e3d-91202070e73b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 38 [I2S_SDI]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 102.05
+                    },
+                    "uuid": "978ee515-3360-4d54-9f0c-ee5a8fa819f4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 39 [POWER_GND]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 104.59
+                    },
+                    "uuid": "f4c699e5-5e6c-4a11-ac62-c0d2cc8376fb"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 40 [I2S_SDO]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 102.05
+                    },
+                    "uuid": "83fd5c19-d6c6-4bc9-9884-d14a21a55130"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H4 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 126.4
+                    },
+                    "uuid": "f5e871da-34d4-41a4-9081-e6acff5a02d5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 1 [VBATT_2S_IN]",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 127.32
+                    },
+                    "uuid": "bb8108f3-c1c8-4870-ade2-0fdaedffc233"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 2 [POWER_GND]",
+                    "pos": {
+                        "x": 123.59,
+                        "y": 127.32
+                    },
+                    "uuid": "d1b80c8c-6059-494b-95e7-043aa27bef7f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 3 [+5V]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 127.32
+                    },
+                    "uuid": "9439f2fe-ca35-4947-b907-af741ab330e1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 4 [+3V3]",
+                    "pos": {
+                        "x": 118.51,
+                        "y": 127.32
+                    },
+                    "uuid": "974569bd-71f2-4cf5-9dd7-cf6f8d7ac6bc"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 5 [unconnected-(J301-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 115.97,
+                        "y": 127.32
+                    },
+                    "uuid": "510a7896-bc60-4fda-9d32-3ab2a329fb5d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 6 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 113.43,
+                        "y": 127.32
+                    },
+                    "uuid": "6244419b-1b23-49f8-b2e2-261e00a03c4f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 7 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 110.89,
+                        "y": 127.32
+                    },
+                    "uuid": "a3fe180e-9adf-40f2-bbac-7e4601e2cefb"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 8 [POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 127.32
+                    },
+                    "uuid": "858a9b33-12bf-4383-b8b0-b97cb0ae1f4d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.46,
+                        "y": 110.06
+                    },
+                    "uuid": "12880710-bab6-4e39-98e5-9f5aaef16253"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.25,
+                        "y": 111.175
+                    },
+                    "uuid": "15479ab6-0a73-467d-a50a-0030c46c6a7b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 155.79,
+                        "y": 115.85
+                    },
+                    "uuid": "261e72e2-ae51-47fb-b308-c53781be42d3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.51,
+                        "y": 121.45
+                    },
+                    "uuid": "30f95fc4-cfd4-4fab-954e-a6666f0ae2f0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 156.04,
+                        "y": 110.9
+                    },
+                    "uuid": "393fbae3-44e6-4c60-9ad6-8a0c19acafc5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.92,
+                        "y": 112.1
+                    },
+                    "uuid": "4b32cdf4-4c9f-4063-9192-5ed88caa54f3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 163.19,
+                        "y": 106.8
+                    },
+                    "uuid": "567743f7-50e3-400e-9c6f-bfd4cba17e30"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.155,
+                        "y": 116.715
+                    },
+                    "uuid": "6161460d-8bde-4d36-ba25-d09cee34ae39"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.84,
+                        "y": 117.34
+                    },
+                    "uuid": "6bb881f8-1cfe-4896-9f9b-4a0097817be2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 154.55,
+                        "y": 116.69
+                    },
+                    "uuid": "75745baa-554c-46e7-88ac-552be3d07c28"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 156.13,
+                        "y": 124.06
+                    },
+                    "uuid": "79563332-1b6a-46f1-81c8-166e2b43f50e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.125,
+                        "y": 111.425
+                    },
+                    "uuid": "9d54e9f2-7bb6-4842-a0fc-0779b259bb34"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 160.69,
+                        "y": 112.2
+                    },
+                    "uuid": "b15f9a36-696f-4efb-8ecc-719c2eabf017"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 147.24,
+                        "y": 116.44
+                    },
+                    "uuid": "b98e5f46-8603-4b3d-a227-00fc19658471"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "c6ad78c2-361f-4c03-a650-a32f6c415d72"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 127.83,
+                        "y": 121.43
+                    },
+                    "uuid": "c6c9e478-bbdc-4453-bd32-c353d46e8c29"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 162.19,
+                        "y": 114.4
+                    },
+                    "uuid": "c6f5af1b-74ba-4cc9-afec-304bffac0c9c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 161.19,
+                        "y": 107.43
+                    },
+                    "uuid": "cb23a7cc-459c-4a88-a0bf-2731b18265c6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.94,
+                        "y": 112.75
+                    },
+                    "uuid": "cceaece6-1166-402b-9795-61219aaf3b0f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.83,
+                        "y": 112.475
+                    },
+                    "uuid": "d46452ac-678c-47fe-b1d7-29bb76cf403a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 140.39,
+                        "y": 116.49
+                    },
+                    "uuid": "e2205697-9fa5-483f-b2f6-58643a86132d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 124.57,
+                        "y": 120.32
+                    },
+                    "uuid": "eb735ea3-6278-4224-b374-b13370420d94"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.565,
+                        "y": 126.55
+                    },
+                    "uuid": "f3849800-324c-43b2-8323-3665a35e68ba"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.2357,
+                        "y": 109.3896
+                    },
+                    "uuid": "0db5fe12-ed79-46c7-8c94-f4e140925022"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 164.215,
+                        "y": 106.612
+                    },
+                    "uuid": "187d8f95-f467-464d-9e2b-799123d77ce9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 134.6936,
+                        "y": 126.0231
+                    },
+                    "uuid": "1b2f976b-25fe-4183-85a7-09eafc0b8f86"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.025,
+                        "y": 117.5
+                    },
+                    "uuid": "3df6d50d-2d16-47ac-8a09-662eccba3b17"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8126,
+                        "y": 115.015
+                    },
+                    "uuid": "70b940b5-36d8-494f-bff3-d6d0bfed6d55"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.1278,
+                        "y": 106.838
+                    },
+                    "uuid": "c954f5d5-b051-447d-a48a-797c1f399a9a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.95,
+                        "y": 125.415
+                    },
+                    "uuid": "d90d9315-7dfc-4e87-9112-0b48f92747f3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 131.252198,
+                        "y": 123.8282
+                    },
+                    "uuid": "06ec9e57-b158-431d-a6e1-8bab2156ed4e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 160.0,
+                        "y": 124.0
+                    },
+                    "uuid": "0ac4bbbd-e2ab-42c9-8184-81bebd409d70"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 150.4,
+                        "y": 109.85
+                    },
+                    "uuid": "0ac7c75c-e411-409e-825d-3f9aba013d12"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.85,
+                        "y": 119.375
+                    },
+                    "uuid": "21b4c24a-3d42-4139-89db-0401a0cc3a8f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.25,
+                        "y": 120.75
+                    },
+                    "uuid": "33b7fb98-4a84-49f7-8ded-5d79f8a07da6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.95,
+                        "y": 126.685
+                    },
+                    "uuid": "4b3c00b4-8c21-4ebc-b200-d98f34d9f49b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.0405,
+                        "y": 112.6
+                    },
+                    "uuid": "551c1c13-edcd-4430-94db-e5ba82866a3a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.524,
+                        "y": 113.9935
+                    },
+                    "uuid": "85108187-b92b-4578-a269-8496b438815e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 125.499,
+                        "y": 114.7935
+                    },
+                    "uuid": "86e8d20d-aa31-422f-9146-aaf79ea36189"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 115.0
+                    },
+                    "uuid": "b2b7b8e5-7044-4792-884e-77c7cd2498ac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 129.5,
+                        "y": 108.2
+                    },
+                    "uuid": "bf1ccb7d-f148-4f19-878d-d829807d2116"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.7,
+                        "y": 126.22
+                    },
+                    "uuid": "c4f1e659-453e-4a9c-9f1a-2ddb79c5900d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 126.749,
+                        "y": 113.9935
+                    },
+                    "uuid": "c6a79af1-d58d-43d2-aedd-020b33211786"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 124.0
+                    },
+                    "uuid": "d1a67439-c385-440d-b262-86eca7cb8438"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 124.799,
+                        "y": 114.3435
+                    },
+                    "uuid": "d939419a-89f7-49ac-ac9a-c55c58e3b250"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 144.7,
+                        "y": 119.32
+                    },
+                    "uuid": "eaf4466d-6b66-463a-89a4-4911b1baa505"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [POWER_GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 126.774,
+                        "y": 114.7935
+                    },
+                    "uuid": "ed8dde56-52d1-4401-afa6-2bae5275db58"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [VBATT_2S_IN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 115.5088,
+                        "y": 120.4907
+                    },
+                    "uuid": "22a9b746-b005-4bd8-9895-f0bdb4020a82"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [DXL_DATA] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 136.9258,
+                        "y": 122.5882
+                    },
+                    "uuid": "e15b713e-992d-4d2d-a978-98ff28afbeea"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SDA] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 163.8776,
+                        "y": 111.5927
+                    },
+                    "uuid": "7cffa986-82b2-46c1-a43f-2b3a7d0c2cbf"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BMI_INT3_TP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 161.558,
+                        "y": 113.4107
+                    },
+                    "uuid": "12f97784-ee1b-45b5-bc59-fae13509f931"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BMI_INT1_TP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 157.5149,
+                        "y": 111.5927
+                    },
+                    "uuid": "4763c175-9cbe-4d52-b18e-72ce4dd493b2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [UART2_TX] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 129.2256,
+                        "y": 123.586
+                    },
+                    "uuid": "ac26908d-6e0e-455e-ad85-44fa9887a140"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [UART2_RX] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 139.5934,
+                        "y": 117.5013
+                    },
+                    "uuid": "b96e9ad9-8f1f-4296-a546-33aafcde859e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_RT] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.4803,
+                        "y": 114.6485
+                    },
+                    "uuid": "44f77d4b-e8be-4954-b9ab-facb85803db3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_RT] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 127.2021,
+                        "y": 120.8971
+                    },
+                    "uuid": "9adfac9b-2d28-4ba8-ab82-c6768457a534"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_EN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 119.1375,
+                        "y": 116.3038
+                    },
+                    "uuid": "136740a1-172e-453d-9221-a7a234bee48b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_EN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.8,
+                        "y": 110.4
+                    },
+                    "uuid": "f47fafc7-5fe7-4c36-93b1-acaee80ababf"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_BST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 121.6103,
+                        "y": 112.3135
+                    },
+                    "uuid": "80ec1d00-e103-4329-a95d-c3bb5d928c77"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_BST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.772,
+                        "y": 117.7452
+                    },
+                    "uuid": "ac4ac4a5-2a77-45c6-95cc-3c56b4d2f842"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_SW] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 130.1788,
+                        "y": 115.7065
+                    },
+                    "uuid": "0f7ed942-84db-4e80-a3e4-ca7857923fa1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [BUCK_SW] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 124.1209,
+                        "y": 117.8248
+                    },
+                    "uuid": "f69cd901-b719-4e8a-8b64-569f29240915"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.9743,
+                        "y": 117.4857
+                    },
+                    "uuid": "02430f16-a08a-4b41-8a16-2d9066e6d035"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 159.55,
+                        "y": 108.66
+                    },
+                    "uuid": "2467ba15-95e7-4a07-9dd3-f3474e7a6ce6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+1V8_CODEC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.1187,
+                        "y": 123.8848
+                    },
+                    "uuid": "874e3bff-eaa3-4d70-9bca-b847f9f85975"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 134.4573,
+                        "y": 123.7151
+                    },
+                    "uuid": "f26c87e7-3752-4c0f-bb35-896a7e596d6c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [DXL_DIR] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1851,
+                        "y": 122.0829
+                    },
+                    "uuid": "f68d6ed3-539e-4983-9ab3-6a56253f47ee"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_MCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.8077,
+                        "y": 115.2271
+                    },
+                    "uuid": "c951fd7d-8c8f-4346-8ca6-98bebde08310"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.3246,
+                        "y": 114.0141
+                    },
+                    "uuid": "2170e829-3845-4993-8e9e-f8ed39bc111d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.7261,
+                        "y": 117.6977
+                    },
+                    "uuid": "3cb824af-60b5-4c23-8cff-315edb604ae5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_LRCK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.4,
+                        "y": 113.85
+                    },
+                    "uuid": "0717a997-8c03-499e-98ea-36f573eb63e4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDI] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.55,
+                        "y": 111.25
+                    },
+                    "uuid": "10ae63f1-45a3-4521-bfae-6a7c0e1458f3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2S_SDO] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 149.1,
+                        "y": 111.95
+                    },
+                    "uuid": "f1d6fcd1-f8d6-4abc-870e-838590222a6e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.8374,
+                        "y": 112.11
+                    },
+                    "uuid": "8fdcfe2e-8052-47d4-94a6-2037f8880a59"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 156.6751,
+                        "y": 111.5105
+                    },
+                    "uuid": "e0ef7d93-135d-4491-8a64-e979641a233c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 135.1947,
+                        "y": 113.7772
+                    },
+                    "uuid": "2eeb5c7c-acae-4fab-9d1c-a7297c6c0d5d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 137.2642,
+                        "y": 126.3165
+                    },
+                    "uuid": "958f689f-ca9c-43d7-b362-f05a0ba40610"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 119.7693,
+                        "y": 112.4559
+                    },
+                    "uuid": "d9a1de5c-39d7-4687-9bd8-a290d1b6ff26"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_AC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 139.91,
+                        "y": 126.1668
+                    },
+                    "uuid": "8c48503d-c36d-48e3-9be4-bb26c0985864"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_AC] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.0213,
+                        "y": 108.363
+                    },
+                    "uuid": "ca94166d-7b98-4fd3-9acd-dae72adc8125"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.9087,
+                        "y": 108.3631
+                    },
+                    "uuid": "165a6f2d-dc08-45e7-83a8-3cabc46c10f9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_REF] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 152.5508,
+                        "y": 121.1176
+                    },
+                    "uuid": "cec4fd7d-0b7a-417e-8e7f-34d49249d364"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_BIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 128.9818,
+                        "y": 111.3569
+                    },
+                    "uuid": "3c63049f-8997-4bc0-ab48-4f45cd6e2f3d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_BIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.7648,
+                        "y": 106.8255
+                    },
+                    "uuid": "4b514da0-0099-4a8e-92f3-11aa3b9a6e94"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_MIC_BIAS] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 154.7285,
+                        "y": 126.2027
+                    },
+                    "uuid": "d5ecd74c-bcdc-4fa6-8463-8cc12285ee84"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.2469,
+                        "y": 116.0482
+                    },
+                    "uuid": "274f2509-c255-4f0c-8027-e381f82caa88"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_HP_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.7088,
+                        "y": 114.6704
+                    },
+                    "uuid": "e632f935-8855-4e2f-8dcd-412eebce052e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_LINE_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 136.9546,
+                        "y": 115.0494
+                    },
+                    "uuid": "5ca45513-027c-490b-9874-9aaaf94f6fe5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_LINE_L] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.769,
+                        "y": 117.5444
+                    },
+                    "uuid": "c070e001-fbbf-4e05-abdd-549fd998417e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 116.7154,
+                        "y": 125.4845
+                    },
+                    "uuid": "7da6f675-ada4-4df1-97d0-11ae8a4e66b7"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_P] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.7579,
+                        "y": 125.7427
+                    },
+                    "uuid": "975800e1-5d14-4511-91f4-2dbd4debe2c2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.0256,
+                        "y": 128.9472
+                    },
+                    "uuid": "9cef2a6c-2ea2-4e9d-8a68-acb8b5a92cd0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [SPK_N] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 117.3031,
+                        "y": 124.9428
+                    },
+                    "uuid": "a05995b6-6ce3-4e37-8046-6c99b1344199"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_AMP_INP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 136.1429,
+                        "y": 114.9263
+                    },
+                    "uuid": "918c5beb-6359-4ffa-946c-525446bfe165"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_AMP_INP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 143.2323,
+                        "y": 122.6171
+                    },
+                    "uuid": "fe8f567b-538b-4629-9b39-fb23a56b81c4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_AMP_INN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 143.8256,
+                        "y": 121.1374
+                    },
+                    "uuid": "7dbeb96b-68d0-47e8-a328-8dfd68dcf0fa"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_AMP_INN] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.9897,
+                        "y": 118.4971
+                    },
+                    "uuid": "e3b62b32-8778-415c-a969-71ed4c8f269d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 137.8171,
+                        "y": 113.0594
+                    },
+                    "uuid": "7de7526a-c9b0-417b-a76e-d33e8889ff70"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'CUSTOM_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [AUDIO_R] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.9116,
+                        "y": 112.216
+                    },
+                    "uuid": "c1fead31-66ac-410d-9281-a4ab8df58fd5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        }
+    ]
+}

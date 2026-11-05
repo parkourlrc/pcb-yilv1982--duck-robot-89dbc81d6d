@@ -22,7 +22,7 @@ def partitions(board):
 
 
 def main():
-    evidence = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/u501-repair-20261030"
+    evidence = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/u501-repair-20261030"
     result = json.loads((evidence / "result.json").read_text(encoding="utf-8"))
     work = pipeline.managed(Path(result["work"]))
     if pipeline.digest(pipeline.PRIMARY / (pipeline.STEM + ".kicad_pcb")) != result["before_hash"]:

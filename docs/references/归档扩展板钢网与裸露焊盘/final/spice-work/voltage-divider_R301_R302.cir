@@ -1,0 +1,17 @@
+* Auto-generated testbench for voltage divider: R301/R302
+* Expected Vout = 5.0 * 0.160514 = 0.8026 V
+* Model: ideal passives (exact, unloaded)
+
+VIN _5V 0 DC 5.0
+R301 _5V _5V_FB 52.3k
+R302 _5V_FB 0 10k
+
+.control
+op 
+let vout_sim = v(_5V_FB)
+let error_pct = abs(vout_sim - 0.80257) / 0.80257 * 100
+echo "vout_sim=$&vout_sim error_pct=$&error_pct expected=0.80257" > E:/Projects/duck-robot/docs/references/hat-stencil-20261102/final/spice-work/voltage-divider_R301_R302.out
+quit
+.endc
+
+.end

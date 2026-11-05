@@ -9,7 +9,7 @@ import pipeline
 
 
 def main():
-    evidence = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/fiducials-20261030"
+    evidence = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/fiducials-20261030"
     evidence.mkdir(parents=True, exist_ok=True)
     if (evidence / "result.json").exists():
         raise FileExistsError("Existing fiducial record")

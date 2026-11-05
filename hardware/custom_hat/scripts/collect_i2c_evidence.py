@@ -8,7 +8,7 @@ import requests
 
 
 ROOT = Path(__file__).resolve().parents[3]
-DESTINATION = ROOT / "docs/references/hat-simulation-tools-20261029/i2c-pullups-20261031/sources"
+DESTINATION = ROOT / "docs/references/扩展板电路仿真工具/i2c-pullups-20261031/sources"
 SOURCES = {
     "vishay-dcrcwe3.pdf": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
     "ti-slva689.pdf": "https://www.ti.com/lit/an/slva689/slva689.pdf",

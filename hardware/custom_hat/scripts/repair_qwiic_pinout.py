@@ -13,7 +13,7 @@ from generate_rev_a import Sheet, children, dump, first, parse, q
 from repair_release_metadata import properties, replace_children
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/qwiic-pinout-20261031"
 BASELINE = "6fe440f3cfcd9a30550299258cba5bf9355d888b0c166f62919a21adfc5de82a"
 OLD_NETS = {"1": "+3V3", "2": "POWER_GND", "3": "I2C5_SCL", "4": "I2C5_SDA"}
 NEW_NETS = {"1": "POWER_GND", "2": "+3V3", "3": "I2C5_SDA", "4": "I2C5_SCL"}

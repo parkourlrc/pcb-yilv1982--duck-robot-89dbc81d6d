@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[3]
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/power-paths-20261031"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/power-paths-20261031"
 
 
 def main():

@@ -10,4 +10,4 @@
 - Fiducial无锡膏，Mask开口2mm；前轮有fiducial Paste的包停用。
 - U701.7采用0.35/0.15mm B.Cu–In2微孔；HDI层叠、填孔、热布局、I2C5上拉和实物验证尚未完成。
 
-**仅供审查，不可下单。** 现行详细依据见[元数据与BOM阶段审查](../../../../docs/references/hat-simulation-tools-20261029/metadata-repair-20261030/research.md)。
+**仅供审查，不可下单。** 现行详细依据见[元数据与BOM阶段审查](../../../../docs/references/扩展板电路仿真工具/metadata-repair-20261030/research.md)。

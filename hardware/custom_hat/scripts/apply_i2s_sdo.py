@@ -17,7 +17,7 @@ def point(position):
 
 
 def main():
-    evidence=pipeline.BASE.parents[1]/'docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030'
+    evidence=pipeline.BASE.parents[1]/'docs/references/扩展板电路仿真工具/i2s-sdo-repair-20261030'
     if (evidence/'result.json').exists():raise FileExistsError('Existing result must be reviewed first')
     plan=json.loads((evidence/'route-plan.json').read_text(encoding='utf-8'))
     nets={route['net'] for route in plan['plans']}

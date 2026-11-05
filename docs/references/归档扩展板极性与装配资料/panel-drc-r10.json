@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T17:51:28",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "hat_a1_smt_2up.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "丝印间距 (<电路板配置> 中的 \"丝印\" 约束 间距 0.1500 mm; 实际 0.1101 mm)",
+            "items": [
+                {
+                    "description": "F.Silkscreen 上的 PCB 文本 'J301'",
+                    "pos": {
+                        "x": 128.51,
+                        "y": 159.32
+                    },
+                    "uuid": "1138fe39-a327-4b06-a1a6-a09cc45ae38e"
+                },
+                {
+                    "description": "F.Silkscreen 上的 PCB 文本 '1'",
+                    "pos": {
+                        "x": 129.53,
+                        "y": 159.02
+                    },
+                    "uuid": "2b238140-24b3-4623-8c10-22f5b866d8b7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        }
+    ]
+}

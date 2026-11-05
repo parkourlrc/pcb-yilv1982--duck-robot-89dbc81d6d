@@ -15,7 +15,7 @@ from repair_release_metadata import child_spans, properties, replace_children, s
 from repair_u501 import geometry
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/i2c-pullups-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/i2c-pullups-20261031"
 BASELINE = "d4fc46fa5fe08beb8e48d91caef4b23493d8d54641a8e31108c0f968642f61e2"
 FOOTPRINT = "Resistor_SMD:R_0402_1005Metric"
 ATTRIBUTES = {

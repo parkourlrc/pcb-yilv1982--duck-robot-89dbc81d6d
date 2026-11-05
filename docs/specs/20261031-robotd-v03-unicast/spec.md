@@ -20,13 +20,13 @@
 - [源码核验] Studio 固定修订 `2026.10.3101`、提交 `3952471a8394c8b720817d2160ffd95ce5a54456`；原生公开源码固定提交 `27d7921dbcb280bd7d6ba3e9937624f1e2e61d23`，配套 robotd `0791fcd-feetech-qinmo-control.47`。
 - [源码核验] `duck-control/src/feetech.rs` 中 `telemetry` / `telemetry_partial` 仍将 `ImuToDxl` 加入混合 SYNC_READ。现有 DXL2 独立读路径可作为共享时限与诊断合并的参考。
 - [源码核验] `ImuSample::decode` 已以 `status & 0x07 == 0` 判就绪，允许 `0x08`；与当前 replica 0.2.0 已知状态语义相容，不直接复制 servo-web 为 kit v1 添加的 bit7 分流。
-- [本机历史实测] servo-web 0.15.4 已切换单播 READ，记录见 [IMU 专题](../../references/servo-web-imu-3d-20261024/research.md)。不能把该结果写成 robotd 已验收。
+- [本机历史实测] servo-web 0.15.4 已切换单播 READ，记录见 [IMU 专题](../../references/舵机网页工具惯性显示/research.md)。不能把该结果写成 robotd 已验收。
 - [待确认] 新二进制尚未构建；控制环两次事务合并的实际时延和读取成功率须在本机读取窗口确认。第 3 项尚未完成，不宣称可运行策略。
 
 ## 具体方案（用户已批准）
 
 1. 安装独立 ARM64 Python 3.13，保留系统 Python；安装固定版 Studio 和原生程序及 ONNX Runtime。Studio 使用明确的 Python 3.13 路径。robotd 配置与服务先安装为停用状态，避免抢占 servo-web 串口或套用上游另一台机器的标定。
-2. 在 `tools/robotd-v03/` 建带来源说明的可部署补丁工作区；固定原生源码在独立缓存/工作副本中构建。原始来源快照及 `references/` 三个上游目录保持只读。
+2. 在 `software/robotd-v03/` 建带来源说明的可部署补丁工作区；固定原生源码在独立缓存/工作副本中构建。原始来源快照及 `references/` 三个上游目录保持只读。
 3. 仅对 `BusImuBoard::ImuToDxl` 改遥测：先对 ID 200 单播 READ 地址 56、长度 15；成功后对原 15 颗舵机 SYNC_READ 56/15，再合并返回。FT6、Qinmo、DXL2 分支保留。
 4. 两次读取共用现有遥测 deadline；单播读取保留 ID、长度、校验、状态、回显过滤与迟到帧检查。记录单播请求/应答时间，合并收包字节、校验错误、缺失 ID 等诊断，不延长控制周期掩盖超时。
 5. IMU 缺答、报错或逾时仍使该帧失败；只有 IMU 有效时才允许既有 partial servo 规则。严格与 partial 两入口都接入新路径。不改 IMU 四元数、陀螺比例、安装方向、关节映射或策略参数。
@@ -35,13 +35,13 @@
 
 ## 影响文档、风险与回退
 
-更新本 spec、[模型/控制器研究](../../references/b-feetech-policy-deployment-20261024/research.md)、根 README 和 PROGRESS，以及新增工作副本来源/部署说明；模型内容和 BOM 不因纯软件安装变更。
+更新本 spec、[模型/控制器研究](../../references/飞特策略模型上机核对/research.md)、根 README 和 PROGRESS，以及新增工作副本来源/部署说明；模型内容和 BOM 不因纯软件安装变更。
 
 主要风险是两次事务增加读取耗时、失效应答污染后续请求、错误放宽 partial 条件；用共享时限和针对性传输检查约束，真机结果按实际记录。新程序安装不自动开启策略；失败时停用新运行端并恢复 servo-web 和保存的原版文件。
 
 ## 实施记录
 
-- 用户确认方案后，已完成 `ImuToDxl` 单播读取、传输测试与 `control.47+duck-v03.1` 标识；原生代码改动完整保存在 `tools/robotd-v03/patches/v03-unicast.patch`，未改只读参考库。
+- 用户确认方案后，已完成 `ImuToDxl` 单播读取、传输测试与 `control.47+duck-v03.1` 标识；原生代码改动完整保存在 `software/robotd-v03/patches/v03-unicast.patch`，未改只读参考库。
 - 已安装独立 Python 3.13.18、Studio 2026.10.3101、补丁 robotd/robotctl、原配套 padd、ONNX Runtime 1.28.0、服务与 helper；Studio HTTP 200，模型预检固定路径指向同一补丁程序。
 - 单播新增 5 项通过。相关回归首次 95/97 通过；缺 ONNX 测试资源的用例补齐同源模型后通过，时间戳精确比较用例单独复查通过。原始失败保留，不写成首次全部通过。
 - ARM64 release 构建成功，最高 glibc 符号 2.30。本机只读约 30 秒：1500 周期、1497 成功、2 次 IMU 超时、1 次舵机校验失败；平均读取 6.123 ms，最终 50.0048 Hz。所有快照 `motor_writes_blocked=true`，有效 IMU 帧故障/重复为 0；不宣称零错误或完成运动验收。

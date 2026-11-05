@@ -9,7 +9,7 @@ import pipeline
 from add_i2c_pullups import vector
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/board-marking-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/board-marking-20261031"
 BASELINE = "143a483d578822d332f4576c3eb01c66c11131f45257d675dd95d15c6c0e8985"
 
 

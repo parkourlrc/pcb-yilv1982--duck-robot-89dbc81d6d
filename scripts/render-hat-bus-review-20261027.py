@@ -5,7 +5,7 @@ import pypdfium2 as pdfium
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "docs/references/hat-imu-shared-bus-20261027"
+OUT = ROOT / "docs/references/扩展板双口惯性缺答复核"
 SOURCES = OUT / "sources"
 LOCAL = ROOT / "docs/schematics/microduck-hat-v1.0-sch/SCH_Microduck-Hat-for-Radxa-Zero_2026-10-06.pdf"
 FONT = "C:/Windows/Fonts/msyh.ttc"

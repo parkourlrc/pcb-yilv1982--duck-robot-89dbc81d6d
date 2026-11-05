@@ -17,7 +17,7 @@ PHOTO = ROOT / "docs/photos/imu-board-b-20261014-b.jpg"
 PCB = ROOT / "references/microduck-community-kit/hardware/imu_to_dxl/imu_to_dxl.kicad_pcb"
 OUT = ROOT / "docs/photos/imu-single-port-r31-r5-f1-location-20261027.png"
 CROP_OUT = ROOT / "docs/photos/imu-single-port-data-front-end-crop-20261027.png"
-MANIFEST = ROOT / "docs/references/hat-imu-shared-bus-20261027/imu-photo-components-20261027.json"
+MANIFEST = ROOT / "docs/references/扩展板双口惯性缺答复核/imu-photo-components-20261027.json"
 DETAIL = (475, 655, 755, 850)
 BOXES = {
     "R31": (596, 804, 617, 839),

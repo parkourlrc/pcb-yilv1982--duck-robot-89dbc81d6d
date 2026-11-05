@@ -1,6 +1,6 @@
 # Rev A 剩余未连接清单（自动生成）
 
-> 历史实验快照，已失效，不逐项照修。当前完整工程为23项未连接（含I2S_SDO），详见 [2026-10-30 原始报告](../../references/hat-simulation-tools-20261029/audit-20261030/drc-refilled.json)及[现行清单](../../references/hat-simulation-tools-20261029/audit-20261030/review.md)。以下24对仅保留追溯。
+> 历史实验快照，已失效，不逐项照修。当前完整工程为23项未连接（含I2S_SDO），详见 [2026-10-30 原始报告](../../references/扩展板电路仿真工具/audit-20261030/drc-refilled.json)及[现行清单](../../references/扩展板电路仿真工具/audit-20261030/review.md)。以下24对仅保留追溯。
 
 共 24 对，坐标为板内 mm（原点 = 板左上角）。
 

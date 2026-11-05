@@ -8,7 +8,7 @@ import pcbnew
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/five-volt-paths-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/five-volt-paths-20261031"
 BASELINE = "af8da97fb052d1f55de10772e62a1a64559df7c82223fcad50c8c0b6d1114562"
 
 

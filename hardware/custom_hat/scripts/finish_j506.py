@@ -14,7 +14,7 @@ from verify_u501_connectivity import partitions
 
 
 def main():
-    evidence = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/j506-repair-20261030"
+    evidence = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/j506-repair-20261030"
     result = json.loads((evidence / "result.json").read_text(encoding="utf-8"))
     work = pipeline.managed(Path(result["work"]))
     board_path = work / (pipeline.STEM + ".kicad_pcb")

@@ -10,7 +10,7 @@ import fitz
 
 
 ROOT = Path(__file__).resolve().parents[3]
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/qwiic-pinout-20261031"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/qwiic-pinout-20261031"
 
 
 def render_schematic(path, source_dir):

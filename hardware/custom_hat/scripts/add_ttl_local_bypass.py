@@ -12,7 +12,7 @@ from generate_rev_a import Sheet, children, dump, first, parse, uid
 from repair_release_metadata import properties, replace_children, set_property
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/ttl-bypass-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/ttl-bypass-20261031"
 BASELINE = "d6c72facdd3b68fda23a7f09b557c01a5e9bf0eb06f7662aa46990d9bd7bb805"
 PARTS = {"C329": "U801", "C330": "U802"}
 FIELDS = {"MPN": "C0402C104K3RACTU", "Manufacturer": "KEMET", "Voltage Rating": "25V", "Dielectric": "X7R", "Tolerance": "10%",

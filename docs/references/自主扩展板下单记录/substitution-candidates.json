@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "pcb_sha256": "86654c03b6c1c8f51f7d5a4bef469aceed2ddfc73433b3e50426940c2a23164a",
+  "status": "historical_superseded_by_20261104_jlc_stock_redesign_plan",
+  "superseded_by": "../../specs/20261104-hat-jlc-stock-redesign/spec.md",
+  "external_sourcing_route_rejected_by_user": true,
+  "applied_to_cad": false,
+  "applied_to_smt_order": false,
+  "proposed_substitutions": [
+    {"refs": ["C301"], "original": "08055A332JAT2A", "candidate": "C0805C332J5GACTU", "c_number": "C2181569", "smt_stock_observed": 33, "condition": "Same nominal C0G specifications and 0805 envelope"},
+    {"refs": ["R304"], "original": "CRCW080514K0FKEA", "candidate": "ERJ6ENF1402V", "c_number": "C2077244", "smt_stock_observed": 9153, "condition": "Same resistance, tolerance, TCR and power; retain current IPC lands with documented terminal overlap, not identical to vendor example"},
+    {"refs": ["C303", "C304", "C305", "C306", "C323"], "original": "C1210C226K3RACTU", "candidate": "GRM32ER71E226KE15L", "c_number": "C21397", "smt_stock_observed": 76215, "condition": "Same nominal voltage, dielectric, tolerance and case; bias curves reviewed, no full loop or joint aging guarantee"},
+    {"refs": ["L301"], "original": "IHLP4040DZER5R6M5A", "candidate": "IHLP4040DZER5R6M01", "c_number": "C845079", "smt_stock_observed": 55, "condition": "Same land pattern; component temperature limit becomes 125C, DCR max 19.3mohm; no board-current increase"},
+    {"refs": ["U702"], "original": "LP38691DT-1.8/NOPB", "candidate": "LP38690DT-1.8/NOPB", "c_number": "C2862452", "smt_stock_observed": 17, "condition": "Same NDP0003B pinout and 1.8V; codec-only budget retained, higher fault-current limit and existing dynamic validation limits remain"},
+    {"refs": ["R703"], "original": "WSLP0603R0470FEA", "candidate": "WSLP0603R0500FEB", "c_number": "C2094520", "smt_stock_observed": 100, "new_value_ohm": 0.05, "condition": "Same construction and footprint, +3mohm capacitor-branch damping; update schematic value, not only MPN"},
+    {"refs": ["C317", "C318"], "original": "C0402C106M9PACTU", "candidate": "GRJ155R60J106ME11D", "c_number": "C469527", "smt_stock_observed": 17762, "condition": "Same 10uF 6.3V X5R 0402; high-impedance audio line-output use only"}
+  ],
+  "retain_original_external_supply": [
+    {"refs": ["U301"], "mpn": "AP64350SP-13", "source": "https://www.lcsc.com/product-detail/C2071691.html", "external_supplier_availability_observed": 73, "minimum_quantity": 5, "estimated_days_to_lcsc": "3-5 business days", "price_5plus_usd_each": 2.4352, "not_jlc_smt_in_stock": true},
+    {"refs": ["U803"], "mpn": "PAM8302AADCR", "source": "https://www.digikey.cn/zh/products/detail/diodes-incorporated/PAM8302AADCR/4033280", "stock_observed": 58687, "price_1plus_cny_each": 5.54, "price_10_cny_total": 38.87, "stock_reserved": false}
+  ],
+  "not_selected": [
+    {"mpn": "AP64500SP-13", "reason": "Maximum peak-current limit changes from 5.75A to 9.2A; original IC supply preferred"},
+    {"mpn": "PAM8302AASCR", "reason": "MSOP-8 is not drop-in for current SOIC-8; original SOIC external stock exists"},
+    {"mpn": "MDA1040-5R6M", "reason": "Land pattern differs; exact-land Vishay M01 candidate available"},
+    {"mpn": "MFL0603R0470FA", "reason": "Different metal-film construction/land pattern and 3oz rating condition; same-family Vishay 50mohm candidate preferred"}
+  ],
+  "remaining": ["user adoption decision", "procurement and mail-in stock quantities including attrition", "supplier/channel validation for AP64350", "final PCB plus SMT plus external-parts quote", "factory panel and stencil review"],
+  "hardware_verified": false,
+  "full_design_review_repeated": false
+}

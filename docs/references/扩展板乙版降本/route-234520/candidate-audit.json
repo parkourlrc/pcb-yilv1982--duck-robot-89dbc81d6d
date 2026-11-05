@@ -1,0 +1,73 @@
+{
+  "pcb_sha256": "84362651a5dc57338a24f6b0d7a642267d32f4bc81888ccc2809bb129fc1bcf0",
+  "baseline_sha256": "99ecc45dc5ac4f582c1ed5a1d24f732a8f4a1be8a2bd49e81f36294826f167da",
+  "checks": {
+    "same_parts_and_nets": true,
+    "same_local_pad_geometry": true,
+    "same_schematic_rules_and_symbols": true,
+    "fixed_header_and_holes": true,
+    "same_board_outline": true,
+    "same_two_layer_stack": true,
+    "native_clean": true,
+    "spacing_hash_matches": true,
+    "spacing_clear": true,
+    "no_via_drill_in_exposed_smd": true,
+    "tht_mask_openings_preserved": true,
+    "via_drills_at_least_0_3": true,
+    "specified_wide_power_paths_intact": true
+  },
+  "changed_local_pads": [],
+  "fixed_coordinates": {
+    "J101": true,
+    "H1": true,
+    "H2": true,
+    "H3": true,
+    "H4": true
+  },
+  "unchanged_files": {
+    "audio_amp.kicad_sch": true,
+    "audio_codec.kicad_sch": true,
+    "audio_io.kicad_sch": true,
+    "custom_hat_rev_b.kicad_dru": true,
+    "custom_hat_rev_b.kicad_pro": true,
+    "custom_hat_rev_b.kicad_sch": true,
+    "duck.kicad_sym": true,
+    "i2c_expansion.kicad_sch": true,
+    "power.kicad_sch": true,
+    "radxa_40p.kicad_sch": true,
+    "servo_ttl.kicad_sch": true,
+    "testpoints.kicad_sch": true
+  },
+  "via_in_exposed_smd": [],
+  "missing_tht_masks": [],
+  "via_sizes": {
+    "(0.6, 0.3)": 137,
+    "(1.0, 0.3)": 2
+  },
+  "native_violations": {},
+  "power_paths": [
+    {
+      "net": "VBATT_2S_IN",
+      "width_mm": 1.6,
+      "continuous_specified_path": true
+    },
+    {
+      "net": "POWER_GND",
+      "width_mm": 1.6,
+      "continuous_specified_path": true
+    },
+    {
+      "net": "+5V",
+      "width_mm": 1.0,
+      "continuous_specified_path": true
+    }
+  ],
+  "trust_summary": {
+    "CAD": "native rules, exact geometry and source hashes",
+    "physical_test": "not performed",
+    "factory_approval": "pending"
+  },
+  "confidence": "native CAD and immutable-baseline comparison; not a hardware measurement",
+  "production_release": false,
+  "factory_quote_obtained": false
+}

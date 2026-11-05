@@ -53,7 +53,7 @@ def main():
             if pair in limits and clearance + 1e-6 < limits[pair]:
                 violations.append(row)
     source_root = Path(__file__).resolve().parents[3]
-    source_paths = [source_root / "docs/references/hat-simulation-tools-20261029/manufacturer-rules-20261031/sources" / name
+    source_paths = [source_root / "docs/references/扩展板电路仿真工具/manufacturer-rules-20261031/sources" / name
                     for name in ("jlc-capabilities.txt", "jlc-hdi-faq.txt")]
     result = {"pcb_sha256": pipeline.digest(board_path), "hole_counts": dict(Counter(row["type"] for row in holes)),
               "evaluated_pairs": minima, "violations": violations, "excluded_shapes": excluded,

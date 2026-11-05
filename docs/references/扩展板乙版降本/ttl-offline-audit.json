@@ -1,0 +1,88 @@
+{
+  "source_sha256": "26c5dcabe4966b8e7d8f669081206da21e9b3a8f0f3d06a52a3ad96583961347",
+  "overlay_sha256": "4cecdf5ca8a85945c3128228f69402c67155b56c9d519b90ad431e683f4354c3",
+  "kernel_config_sha256": "33ddb3ce2cd244161966fb59143e3c05e0fdd9ee25e894234588cd4e8ecd6260",
+  "kernel_source_commit": "e6d12a77c8bc0ea6decbd3e4604ec131d4032c30",
+  "required_config": [
+    "CONFIG_ARCH_ROCKCHIP=y",
+    "CONFIG_NO_GKI=y",
+    "CONFIG_SERIAL_8250_DW=y",
+    "CONFIG_SERIAL_MCTRL_GPIO=y"
+  ],
+  "checks": [
+    {
+      "variant": "ap6212",
+      "uart": "/serial@fe660000",
+      "enabled": true,
+      "de_gpio": [
+        129,
+        1,
+        0
+      ],
+      "de_gpio_matches": true,
+      "gpio3_a1": true,
+      "pinmux_matches": true,
+      "uart_pins": [
+        0,
+        24,
+        1,
+        278,
+        0,
+        25,
+        1,
+        278
+      ],
+      "rts_delay": [
+        0,
+        0
+      ],
+      "merged_sha256": "95196ecbcbe0e4aa8f28ede427cb97590ee1767708544bebd5e36d2377052233",
+      "accepted_offline": true
+    },
+    {
+      "variant": "aic8800ds2",
+      "uart": "/serial@fe660000",
+      "enabled": true,
+      "de_gpio": [
+        129,
+        1,
+        0
+      ],
+      "de_gpio_matches": true,
+      "gpio3_a1": true,
+      "pinmux_matches": true,
+      "uart_pins": [
+        0,
+        24,
+        1,
+        273,
+        0,
+        25,
+        1,
+        273
+      ],
+      "rts_delay": [
+        0,
+        0
+      ],
+      "merged_sha256": "7bf5aed1408266600776dc209719109c9ad9752eec73bdfc60daa12e1698d8a4",
+      "accepted_offline": true
+    }
+  ],
+  "accepted_offline": true,
+  "driver_specific_polarity": {
+    "rs485_rts_active_low": true,
+    "gpio_active_low": false,
+    "SER_RS485_RTS_ON_SEND": false,
+    "SER_RS485_RTS_AFTER_SEND": true,
+    "physical_tx_dir": 1,
+    "physical_rx_dir": 0
+  },
+  "deployed": false,
+  "hardware_validated": false,
+  "limits": [
+    "Specific to archived Radxa vendor kernel polarity; not generic upstream Linux",
+    "Target kernel/boot console/DMA and actual pinmux must match",
+    "No serial traffic or robot motion performed"
+  ]
+}

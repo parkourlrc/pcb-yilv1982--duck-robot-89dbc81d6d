@@ -9,4 +9,4 @@
 - 两颗4.7kΩ I2C5上拉已加入；初始100kHz/总线电容240pF为设计条件，未实测。
 - DRC普通违规/未连接/parity/ERC/netlist mismatch全0；热布局、HDI/盘中孔、剩余物料未完成。
 
-**仅供审查，不可下单。** [kicad-happy阶段报告及原始数据](../../../../docs/references/hat-simulation-tools-20261029/i2c-pullups-20261031/research.md)。本包替代旧production-20261031-review的现行审查地位。
+**仅供审查，不可下单。** [kicad-happy阶段报告及原始数据](../../../../docs/references/扩展板电路仿真工具/i2c-pullups-20261031/research.md)。本包替代旧production-20261031-review的现行审查地位。

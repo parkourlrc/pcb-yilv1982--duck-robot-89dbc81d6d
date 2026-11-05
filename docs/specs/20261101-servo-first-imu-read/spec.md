@@ -14,9 +14,9 @@
 
 ## 文档与现行事实
 
-- [研究记录](../../references/b-feetech-policy-deployment-20261024/research.md)：11:51 一次原生动作在两次插值后，收到 21 字节坏帧，0.867 ms 内已到主机，最终等待超时卸力；取消回复计数无增量。
-- [原生补丁](../../../tools/robotd-v03/patches/v03-unicast.patch)：当前 IMU 先读、舵机后读；同一 control 线程，20 ms 共用截止。
-- [servo-web](../../../tools/servo-web/feetech.py)、[轮询实现](../../../tools/servo-web/server.py)：逐事务 `_io` 锁、舵机先读、IMU 后读；每次底层读取有独立 timeout，坏校验即报错，外围记录缺失。
+- [研究记录](../../references/飞特策略模型上机核对/research.md)：11:51 一次原生动作在两次插值后，收到 21 字节坏帧，0.867 ms 内已到主机，最终等待超时卸力；取消回复计数无增量。
+- [原生补丁](../../../software/robotd-v03/patches/v03-unicast.patch)：当前 IMU 先读、舵机后读；同一 control 线程，20 ms 共用截止。
+- [servo-web](../../../software/servo-web/feetech.py)、[轮询实现](../../../software/servo-web/server.py)：逐事务 `_io` 锁、舵机先读、IMU 后读；每次底层读取有独立 timeout，坏校验即报错，外围记录缺失。
 - 原安装 SHA256 `9f9fa71723339b80f97d7be065dec04855bb0d31a3ed7c5978e8605c22db3e5b`；参考库只读，构建使用既有可写 WSL 副本与固定依赖。
 
 ## 修改方案
@@ -33,5 +33,5 @@
 - 三次基线已完成：分别在第 2、3、2 次起身插值目标后收到坏帧，实收 checksum 为 4C、41、56；完整数据见关联研究。顺序试验仅覆盖当前实际严格读取路径，是为避免修改未启用的部分反馈策略逻辑而做的实现收窄。
 - 改序对照已执行一次：15 颗舵机反馈先完整收齐，随后 IMU READ 在第一次插值目标后收到 21 字节坏帧（checksum 期望 8C、实收 0C），原生报超时并卸力。只改变顺序未解决此次故障，没有继续动作尝试。
 - 验证：传输测试 7/7 通过，arm64 编译通过；全部四次都有 15 颗卸力回读。12:31 最终只读核对两服务 active/enabled、Studio health 200、commissioning/ready/off；配置和标定 SHA 前后不变，10 份远端原始记录与本地一致。服务在线不代表通信零错误，后台仍有失败。
-- 交付：[实验增量补丁](../../../tools/robotd-v03/patches/v03-servo-first-experiment.patch)、[部署与回退记录](../../references/b-feetech-policy-deployment-20261024/servo-first-deployment-20261101.json)、[对比汇总](../../references/b-feetech-policy-deployment-20261024/hold-repetitions-comparison-20261101.json)、[最终状态](../../references/b-feetech-policy-deployment-20261024/hold-repetitions-final-20261101.json)。WSL 可写源码保留实验，板上已回退；实验补丁不作为生产修复。
+- 交付：[实验增量补丁](../../../software/robotd-v03/patches/v03-servo-first-experiment.patch)、[部署与回退记录](../../references/飞特策略模型上机核对/servo-first-deployment-20261101.json)、[对比汇总](../../references/飞特策略模型上机核对/hold-repetitions-comparison-20261101.json)、[最终状态](../../references/飞特策略模型上机核对/hold-repetitions-final-20261101.json)。WSL 可写源码保留实验，板上已回退；实验补丁不作为生产修复。
 - 提交：默认保留工作区，不 commit/push。

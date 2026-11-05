@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 MODELS = ROOT / "training" / "models"
-EVIDENCE = ROOT / "docs" / "references" / "mujoco-viewer-optimization-20261021"
+EVIDENCE = ROOT / "docs" / "references" / "物理仿真查看工具优化"
 
 
 def names(model, kind, count):

@@ -19,7 +19,7 @@ def sig(item):
 
 
 def main():
-    evidence = Path(__import__('os').environ.get('U701_EVIDENCE', str(pipeline.BASE.parents[1] / 'docs/references/hat-simulation-tools-20261029/u701-power-20261030')))
+    evidence = Path(__import__('os').environ.get('U701_EVIDENCE', str(pipeline.BASE.parents[1] / 'docs/references/扩展板电路仿真工具/u701-power-20261030')))
     evidence.mkdir(parents=True, exist_ok=True)
     if (evidence / "result.json").exists():
         raise FileExistsError("Existing U701 power record must be reviewed first")

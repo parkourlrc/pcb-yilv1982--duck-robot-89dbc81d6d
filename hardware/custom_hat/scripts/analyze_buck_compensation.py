@@ -12,7 +12,7 @@ import pcbnew
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/power-acceptance-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/power-acceptance-20261031"
 BASELINE = "a65f2ad8cab72721944b670dbdb6505533ae60988ce5bb3c6be51be81b3ab0a1"
 GM = .00015
 CURRENT_SENSE = .089

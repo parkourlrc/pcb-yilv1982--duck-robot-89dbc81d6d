@@ -6,7 +6,7 @@ from pathlib import Path
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/power-paths-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/power-paths-20261031"
 
 
 def main():

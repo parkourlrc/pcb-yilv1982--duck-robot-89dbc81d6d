@@ -3,7 +3,7 @@
 """把 servo-web 部署副本的 IMU miss 文案从「连接中断」改为「应答率过低（附近期成功数）」。
 
 背景（2026-10-26 定案）：本机 IMU 板②在 HAT 第二 3P 口支路上应答率仅 0–27%（干净总线
-实测，见 docs/references/servo-web-imu-3d-20261024/research.md round3-20261026），但链路
+实测，见 docs/references/舵机网页工具惯性显示/research.md round3-20261026），但链路
 并没有"断"——应答帧 0.28ms 正常返回、内容有效，只是多数请求无应答帧。imu_bus.py 的 miss
 状态字是 disconnected，前端标签映射成「连接中断」，措辞与真实状态不符。
 

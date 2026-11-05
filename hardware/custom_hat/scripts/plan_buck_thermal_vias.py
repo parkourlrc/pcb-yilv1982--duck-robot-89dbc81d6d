@@ -10,7 +10,7 @@ from repair_u501 import geometry
 from plan_i2s_sdo import distance_segment
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/buck-thermal-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/buck-thermal-20261031"
 BASELINE = "335aea311c179be20bfd9f6531bdad8687ba58be211df88c81e49cd5f35471ca"
 
 

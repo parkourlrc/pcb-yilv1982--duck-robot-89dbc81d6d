@@ -7,7 +7,7 @@ import pipeline
 from generate_rev_a import parse
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/npth-clearance-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/npth-clearance-20261031"
 OUTPUT = pipeline.PRIMARY / "production-20261031-pth-clearance-review"
 
 

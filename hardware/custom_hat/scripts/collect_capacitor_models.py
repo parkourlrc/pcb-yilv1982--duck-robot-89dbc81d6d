@@ -7,7 +7,7 @@ import fitz
 import collect_bom_sources as collector
 
 
-EVIDENCE=Path(__file__).resolve().parents[3]/"docs/references/hat-simulation-tools-20261029/capacitor-models-20261031"
+EVIDENCE=Path(__file__).resolve().parents[3]/"docs/references/扩展板电路仿真工具/capacitor-models-20261031"
 PARTS=("C1206C226M4PACTU","C1206C106K3RACTU","C0805C105K5RACTU","C0402C105K4PACTU","C0805C225K5RACTU",
        "C1206C106K5RACTU","C1206C226M3PACTU","C1210C226K3RACTU","C0805C125K5RACTU")
 SOURCES={part+".pdf":"https://search.kemet.com/component-documentation/download/specsheet/"+part for part in PARTS}

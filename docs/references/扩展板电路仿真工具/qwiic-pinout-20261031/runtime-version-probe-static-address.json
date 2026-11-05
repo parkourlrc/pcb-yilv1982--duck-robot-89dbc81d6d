@@ -1,0 +1,31 @@
+{
+  "attempted_at": "2026-10-31T13:56:28.880883+00:00",
+  "command": [
+    "ssh",
+    "-o",
+    "HostName=192.168.1.35",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ForwardAgent=no",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=1",
+    "radxa",
+    "uname -r"
+  ],
+  "address_basis": "Project static-address record 2026-10-25 and software/servo-web/SOURCE.md 2026-10-27",
+  "persistent_ssh_config_changed": false,
+  "exit_code": 255,
+  "stdout": "",
+  "stderr": "ssh: connect to host 192.168.1.35 port 22: Connection timed out\n",
+  "terminal": true,
+  "kernel_version_obtained": false,
+  "expected_release": "6.1.84-10-rk2410-nocsf",
+  "kernel_version_matches_reference": false
+}

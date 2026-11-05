@@ -1,0 +1,1523 @@
+(kicad_sch 
+  (version 20250114) 
+  (generator "eeschema") 
+  (uuid "87a31829-0801-5027-bd7a-b9d70005e22d") 
+  (paper "A2") 
+  (title_block 
+    (title "自主HAT B.0 / audio_io") 
+    (date "2026-11-04") 
+    (rev "B.0 CANDIDATE - NOT FOR FAB") 
+    (company "duck-robot")) 
+  (lib_symbols 
+    (symbol "duck:LMA2718_B" 
+      (pin_names 
+        (offset 0.508)) 
+      (in_bom yes) 
+      (on_board yes) 
+      (property "Reference" "MK" 
+        (at 0 7.62 0) 
+        (effects 
+          (font 
+            (size 1.0 1.0)))) 
+      (property "Value" "LMA2718_B" 
+        (at 0 -7.62 0) 
+        (effects 
+          (font 
+            (size 1.0 1.0)))) 
+      (symbol "LMA2718_B_0_1" 
+        (rectangle 
+          (start -10.16 5.08) 
+          (end 10.16 -5.08) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type background)))) 
+      (symbol "LMA2718_B_1_1" 
+        (pin output line 
+          (at -12.7 2.54 0) 
+          (length 2.54) 
+          (name "OUT" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin power_in line 
+          (at -12.7 0.0 0) 
+          (length 2.54) 
+          (name "GND" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin power_in line 
+          (at 12.7 2.54 180) 
+          (length 2.54) 
+          (name "GND" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "3" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))) 
+        (pin power_in line 
+          (at 12.7 0.0 180) 
+          (length 2.54) 
+          (name "VDD" 
+            (effects 
+              (font 
+                (size 0.9 0.9)))) 
+          (number "4" 
+            (effects 
+              (font 
+                (size 0.9 0.9))))))) 
+    (symbol "Device:C" 
+      (pin_numbers 
+        (hide yes)) 
+      (pin_names 
+        (offset 0.254)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (in_pos_files yes) 
+      (duplicate_pin_numbers_are_jumpers no) 
+      (property "Reference" "C" 
+        (at 0.635 2.54 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (justify left))) 
+      (property "Value" "C" 
+        (at 0.635 -2.54 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (justify left))) 
+      (property "Footprint" "" 
+        (at 0.9652 -3.81 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Datasheet" "" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Description" "Unpolarized capacitor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_keywords" "cap capacitor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_fp_filters" "C_*" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (symbol "C_0_1" 
+        (polyline 
+          (pts 
+            (xy -2.032 0.762) 
+            (xy 2.032 0.762)) 
+          (stroke 
+            (width 0.508) 
+            (type default)) 
+          (fill 
+            (type none))) 
+        (polyline 
+          (pts 
+            (xy -2.032 -0.762) 
+            (xy 2.032 -0.762)) 
+          (stroke 
+            (width 0.508) 
+            (type default)) 
+          (fill 
+            (type none)))) 
+      (symbol "C_1_1" 
+        (pin passive line 
+          (at 0 3.81 270) 
+          (length 2.794) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27))))) 
+        (pin passive line 
+          (at 0 -3.81 90) 
+          (length 2.794) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no)) 
+    (symbol "Connector_Generic:Conn_01x02" 
+      (pin_names 
+        (offset 1.016) 
+        (hide yes)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (in_pos_files yes) 
+      (duplicate_pin_numbers_are_jumpers no) 
+      (property "Reference" "J" 
+        (at 0 2.54 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Value" "Conn_01x02" 
+        (at 0 -5.08 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Footprint" "" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Datasheet" "" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_keywords" "connector" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_fp_filters" "Connector*:*_1x??_*" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (symbol "Conn_01x02_1_1" 
+        (rectangle 
+          (start -1.27 1.27) 
+          (end 1.27 -3.81) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type background))) 
+        (rectangle 
+          (start -1.27 0.127) 
+          (end 0 -0.127) 
+          (stroke 
+            (width 0.1524) 
+            (type default)) 
+          (fill 
+            (type none))) 
+        (rectangle 
+          (start -1.27 -2.413) 
+          (end 0 -2.667) 
+          (stroke 
+            (width 0.1524) 
+            (type default)) 
+          (fill 
+            (type none))) 
+        (pin passive line 
+          (at -5.08 0 0) 
+          (length 3.81) 
+          (name "Pin_1" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27))))) 
+        (pin passive line 
+          (at -5.08 -2.54 0) 
+          (length 3.81) 
+          (name "Pin_2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no)) 
+    (symbol "Device:R" 
+      (pin_numbers 
+        (hide yes)) 
+      (pin_names 
+        (offset 0)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (in_pos_files yes) 
+      (duplicate_pin_numbers_are_jumpers no) 
+      (property "Reference" "R" 
+        (at 2.032 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Value" "R" 
+        (at 0 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Footprint" "" 
+        (at -1.778 0 90) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Datasheet" "" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Description" "Resistor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_keywords" "R res resistor" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "ki_fp_filters" "R_*" 
+        (at 0 0 0) 
+        (show_name no) 
+        (do_not_autoplace no) 
+        (hide yes) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (symbol "R_0_1" 
+        (rectangle 
+          (start -1.016 -2.54) 
+          (end 1.016 2.54) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type none)))) 
+      (symbol "R_1_1" 
+        (pin passive line 
+          (at 0 3.81 270) 
+          (length 1.27) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27))))) 
+        (pin passive line 
+          (at 0 -3.81 90) 
+          (length 1.27) 
+          (name "" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no))) 
+  (text "B.0 开发候选；脚位已建立，制造/成本和首板验收尚未完成。" 
+    (at 25.4 20.32 0) 
+    (effects 
+      (font 
+        (size 1.3 1.3)) 
+      (justify left)) 
+    (uuid "f9d54cf2-06b1-58f4-b90b-b9019a3516dc")) 
+  (wire 
+    (pts 
+      (xy 52.07 77.47) 
+      (xy 44.45 77.47)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "0fca2edd-5795-53a0-ae5e-8f1e687cde6e")) 
+  (global_label "MIC_ONBOARD_OUT" 
+    (shape bidirectional) 
+    (at 44.45 77.47 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "4db8524f-48e5-51c5-b7ad-8c0819140370") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 44.45 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 52.07 80.01) 
+      (xy 44.45 80.01)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "2eafccc1-37fc-53ac-9984-2ae34cdc1283")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 44.45 80.01 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "4d68248d-fe7e-5ac5-a105-64fa222bfb05") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 44.45 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 77.47 77.47) 
+      (xy 85.09 77.47)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "2a2106b8-f487-5b4f-8576-b1be5e00d6a9")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 85.09 77.47 0) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify left)) 
+    (uuid "f7f362f6-e622-5720-a907-cd7237f469bd") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 85.09 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 77.47 80.01) 
+      (xy 85.09 80.01)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "a510e42b-a447-58d8-8fc0-47c6de738221")) 
+  (global_label "+3V3" 
+    (shape bidirectional) 
+    (at 85.09 80.01 0) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify left)) 
+    (uuid "fc7a719c-0bf3-59de-8acd-7c662987aaf5") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 85.09 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "duck:LMA2718_B") 
+    (at 64.77 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "d9b6f516-2418-5930-a990-38c8e767fb97") 
+    (property "Reference" "MK701" 
+      (at 64.77 74.93 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "MEMS_MIC" 
+      (at 64.77 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "duck:LMA2718_B" 
+      (at 64.77 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "740484eb-3edb-564f-9578-b84a7e16d5ba")) 
+    (pin "2" 
+      (uuid "c73ce7ba-3ee4-5b53-b2c4-665c3eef228c")) 
+    (pin "3" 
+      (uuid "6c1762ff-27d4-5b15-b92f-c16f60f4af77")) 
+    (pin "4" 
+      (uuid "04a559ac-a662-589a-86f8-105c9c7a837f")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "MK701") 
+          (unit 1)))) 
+    (property "MPN" "LMA2718T421-OA5-2" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C7587901" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "LinkMems" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "https://atta.szlcsc.com/upload/public/pdf/source/20230901/7575319F733F22ECE149FBB07CD99356.pdf" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 65 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 76.2) 
+      (xy 204.47 68.58)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "fda71ba3-1d95-5c90-9d25-be868be79b48")) 
+  (global_label "+3V3" 
+    (shape bidirectional) 
+    (at 204.47 68.58 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "f954ba70-aa11-570b-8505-f57dc1a149b1") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 68.58 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 83.82) 
+      (xy 204.47 91.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "5b263569-bae2-5a22-8a46-d00fc6552c8e")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 204.47 91.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "11d3147b-b60c-5e1e-8c09-b194abd90a15") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 91.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:C") 
+    (at 204.47 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "e11a0368-e4b7-5e27-91b8-fae0ac5f36e6") 
+    (property "Reference" "C721" 
+      (at 209.55 78.74000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "100nF" 
+      (at 209.55 81.28 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" 
+      (at 204.47 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "66eb4837-1e90-5f9e-8116-474c5e3ed05e")) 
+    (pin "2" 
+      (uuid "7a890c5e-917a-5ecb-9e24-3e13afbc584a")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "C721") 
+          (unit 1)))) 
+    (property "MPN" "CC0603KRX7R9BB104" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C14663" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "YAGEO" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 205 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 76.2) 
+      (xy 345.44 68.58)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "65b7c8d7-3036-5b5d-9a3a-7b13f2f718c8")) 
+  (global_label "MIC_ONBOARD_OUT" 
+    (shape bidirectional) 
+    (at 345.44 68.58 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "957ab136-075a-58d9-a634-dccda8456406") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 68.58 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 83.82) 
+      (xy 345.44 91.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "6b99f546-4405-58fa-9f63-feb768e4165b")) 
+  (global_label "MIC_ONBOARD_AC" 
+    (shape bidirectional) 
+    (at 345.44 91.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "0144b1fe-7bc4-52cb-aee1-c0cceb167bfc") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 91.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:C") 
+    (at 345.44 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "a1b0f719-af44-5363-b9aa-ff2e2f9b907a") 
+    (property "Reference" "C722" 
+      (at 350.52 78.74000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "1uF" 
+      (at 350.52 81.28 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" 
+      (at 345.44 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "51c56eb5-e20c-5f1e-9bde-cc312b58c8eb")) 
+    (pin "2" 
+      (uuid "8379585f-e1c3-5a80-95f1-e8dfdaf2b955")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "C722") 
+          (unit 1)))) 
+    (property "MPN" "CL10A105KB8NNNC" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C15849" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "SAMSUNG" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 345 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 480.06 80.01) 
+      (xy 472.44 80.01)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "0536529c-7bb3-5a70-90ab-60d6f0d43a62")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 472.44 80.01 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "f86a03e6-21c3-5bfc-b5e9-3fae80b6d00f") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 472.44 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 480.06 82.55) 
+      (xy 472.44 82.55)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "bad59054-d929-59c8-adaf-19bc9c7e49af")) 
+  (global_label "MIC_EXT_L" 
+    (shape bidirectional) 
+    (at 472.44 82.55 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "865f3883-cc2c-52ad-b304-2edbe6dab87c") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 472.44 82.55 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Connector_Generic:Conn_01x02") 
+    (at 485.14 80.01 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "e513c987-6af9-522d-b740-9362d074e8d3") 
+    (property "Reference" "J505" 
+      (at 485.14 74.93 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "J505_MIC" 
+      (at 485.14 77.47 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "duck:A1251_2P_B" 
+      (at 485.14 80.01 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "ee9dbc05-6e63-5c68-a0f2-13c72f2d8c04")) 
+    (pin "2" 
+      (uuid "2b800d6c-5896-5fd4-a662-ffd5f6ac73ba")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "J505") 
+          (unit 1)))) 
+    (property "MPN" "A1251WV-2P" 
+      (at 485 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C5333427" 
+      (at 485 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "CJT" 
+      (at 485 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "https://atta.szlcsc.com/upload/public/pdf/source/20180913/C273009_2E94D2EE16A658F8B593BE6904D224FC.pdf" 
+      (at 485 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 485 80 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 59.69 154.94) 
+      (xy 52.07 154.94)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "d9a8908c-f2e2-5ccc-8a5f-adbdf7d7e484")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 52.07 154.94 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "78cc1174-7be8-51a9-b926-ecc6fd075f6a") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 52.07 154.94 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 59.69 157.48) 
+      (xy 52.07 157.48)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "a801a71d-29e1-5292-a814-a990a97fcdc5")) 
+  (global_label "MIC_EXT_R" 
+    (shape bidirectional) 
+    (at 52.07 157.48 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "44109108-6c41-5395-9fd3-a37ea87a44ec") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 52.07 157.48 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Connector_Generic:Conn_01x02") 
+    (at 64.77 154.94 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "2f42fd96-2524-5281-a543-06250103c209") 
+    (property "Reference" "J507" 
+      (at 64.77 149.85999999999999 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "J507_MIC" 
+      (at 64.77 152.4 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "duck:A1251_2P_B" 
+      (at 64.77 154.94 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "831e17d0-dc24-55ea-8530-4feb845126ed")) 
+    (pin "2" 
+      (uuid "31359f90-71e8-5bda-b7cb-e95f836f3c08")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "J507") 
+          (unit 1)))) 
+    (property "MPN" "A1251WV-2P" 
+      (at 65 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C5333427" 
+      (at 65 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "CJT" 
+      (at 65 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "https://atta.szlcsc.com/upload/public/pdf/source/20180913/C273009_2E94D2EE16A658F8B593BE6904D224FC.pdf" 
+      (at 65 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 65 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 151.13) 
+      (xy 204.47 143.51)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "cef30579-fb9c-50aa-a3fc-54fd705ebe41")) 
+  (global_label "MICBIAS" 
+    (shape bidirectional) 
+    (at 204.47 143.51 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "569e54e9-6126-5942-a6ae-2648d8fe05f8") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 143.51 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 158.75) 
+      (xy 204.47 166.37)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "a8c69985-1147-5d6d-a66c-2aab9c2c7dec")) 
+  (global_label "MIC_EXT_L" 
+    (shape bidirectional) 
+    (at 204.47 166.37 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "d14cce5b-900c-5d14-8626-0cec61ce85cb") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 166.37 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:R") 
+    (at 204.47 154.94 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "7959876b-8ecd-5054-9ea3-5c83f67c0e3f") 
+    (property "Reference" "R721" 
+      (at 209.55 153.67 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "2.2k" 
+      (at 209.55 156.21 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" 
+      (at 204.47 154.94 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "21552ff4-95ac-526a-8d34-d4a89136e0eb")) 
+    (pin "2" 
+      (uuid "35ff510a-3987-5aa1-9512-02d3f30f61de")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "R721") 
+          (unit 1)))) 
+    (property "MPN" "0603WAF2201T5E" 
+      (at 205 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C4190" 
+      (at 205 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "UNI-ROYAL" 
+      (at 205 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 205 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 205 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 151.13) 
+      (xy 345.44 143.51)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "21347fcf-297e-5680-b487-317bd4bacf9f")) 
+  (global_label "MICBIAS" 
+    (shape bidirectional) 
+    (at 345.44 143.51 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "6e2c634e-5dbb-52f5-9724-ff4d4276e1d6") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 143.51 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 345.44 158.75) 
+      (xy 345.44 166.37)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "65b122d4-72c2-5f20-9a88-9c5666422b1b")) 
+  (global_label "MIC_EXT_R" 
+    (shape bidirectional) 
+    (at 345.44 166.37 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "6046f564-d829-523d-8e57-d477bedbe0a7") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 345.44 166.37 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:R") 
+    (at 345.44 154.94 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "26cecd55-c757-5932-8902-566ac701ebf1") 
+    (property "Reference" "R722" 
+      (at 350.52 153.67 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "2.2k" 
+      (at 350.52 156.21 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" 
+      (at 345.44 154.94 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "7a36af78-41df-55de-9abe-47cdb7f909bf")) 
+    (pin "2" 
+      (uuid "14e75f25-bc7b-5f77-8c71-42675e36717a")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "R722") 
+          (unit 1)))) 
+    (property "MPN" "0603WAF2201T5E" 
+      (at 345 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C4190" 
+      (at 345 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "UNI-ROYAL" 
+      (at 345 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 345 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 345 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 485.14 151.13) 
+      (xy 485.14 143.51)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "c34e0055-cdb4-5699-813f-2b4cfb37b966")) 
+  (global_label "MIC_EXT_L" 
+    (shape bidirectional) 
+    (at 485.14 143.51 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "c4ae96ed-fd64-58b8-9345-8abf44752745") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 485.14 143.51 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 485.14 158.75) 
+      (xy 485.14 166.37)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "5cfe38cb-850b-58be-9ad2-003e005512e7")) 
+  (global_label "MIC_EXT_L_AC" 
+    (shape bidirectional) 
+    (at 485.14 166.37 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "4e614135-1515-5e02-9411-7203653179b7") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 485.14 166.37 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:C") 
+    (at 485.14 154.94 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "b7ec74ee-2eec-5f3f-a3b7-eb43995e67ed") 
+    (property "Reference" "C723" 
+      (at 490.21999999999997 153.67 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "1uF" 
+      (at 490.21999999999997 156.21 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" 
+      (at 485.14 154.94 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "9c282ae4-eb19-5f0a-b635-72ec7e73dc64")) 
+    (pin "2" 
+      (uuid "94b2b195-8bb2-586c-a1d4-0a31485acd39")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "C723") 
+          (unit 1)))) 
+    (property "MPN" "CL10A105KB8NNNC" 
+      (at 485 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C15849" 
+      (at 485 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "SAMSUNG" 
+      (at 485 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 485 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 485 155 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 64.77 226.06) 
+      (xy 64.77 218.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "b0ae1dd3-52c5-5bd7-b62c-dbfd25ae80e3")) 
+  (global_label "MIC_EXT_R" 
+    (shape bidirectional) 
+    (at 64.77 218.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "f7dfd8c5-77ba-5919-bf7e-249a2eb97c44") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 64.77 218.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 64.77 233.68) 
+      (xy 64.77 241.3)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "f005e38c-902b-5cf4-b309-9113957f2175")) 
+  (global_label "MIC_EXT_R_AC" 
+    (shape bidirectional) 
+    (at 64.77 241.3 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "72c15c23-aa71-55a2-aa58-2b13d8f5f82c") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 64.77 241.3 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:C") 
+    (at 64.77 229.87 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "5fac0757-a84d-5f98-b46b-cfd7381ed035") 
+    (property "Reference" "C724" 
+      (at 69.85 228.6 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "1uF" 
+      (at 69.85 231.14000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" 
+      (at 64.77 229.87 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "4e673c05-d204-59b0-845d-2fc83a6560b7")) 
+    (pin "2" 
+      (uuid "ac48456a-7a7b-58a4-8f9f-4c3f41a730d9")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "C724") 
+          (unit 1)))) 
+    (property "MPN" "CL10A105KB8NNNC" 
+      (at 65 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C15849" 
+      (at 65 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "SAMSUNG" 
+      (at 65 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 65 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 65 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 226.06) 
+      (xy 204.47 218.44)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "6407a5a4-e04b-5ffe-889c-b55e924d8a08")) 
+  (global_label "MICBIAS" 
+    (shape bidirectional) 
+    (at 204.47 218.44 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "5d025f68-7a6d-564d-936b-d881289986ff") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 218.44 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (wire 
+    (pts 
+      (xy 204.47 233.68) 
+      (xy 204.47 241.3)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "9b16598f-75bd-5aad-bc3d-256f15c9779a")) 
+  (global_label "POWER_GND" 
+    (shape bidirectional) 
+    (at 204.47 241.3 180) 
+    (effects 
+      (font 
+        (size 0.85 0.85)) 
+      (justify right)) 
+    (uuid "86b95bff-3a82-5118-bda2-521e64d1b931") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 204.47 241.3 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Device:C") 
+    (at 204.47 229.87 0) 
+    (unit 1) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "7407ea7f-467f-5375-bc8c-584bd8b943a5") 
+    (property "Reference" "C725" 
+      (at 209.55 228.6 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Value" "100nF" 
+      (at 209.55 231.14000000000001 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)))) 
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" 
+      (at 204.47 229.87 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "3be776fc-8f37-5a07-83dd-901e9410cbe3")) 
+    (pin "2" 
+      (uuid "ad521428-1aef-5580-9730-b3bf68188aa3")) 
+    (instances 
+      (project "custom_hat_rev_b" 
+        (path "/faa3e18f-5f45-5c9f-a9be-c055fde4c4a4/87a31829-0801-5027-bd7a-b9d70005e22d" 
+          (reference "C725") 
+          (unit 1)))) 
+    (property "MPN" "CC0603KRX7R9BB104" 
+      (at 205 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "LCSC" "C14663" 
+      (at 205 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Manufacturer" "YAGEO" 
+      (at 205 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 205 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes))) 
+    (property "Description" "" 
+      (at 205 230 0) 
+      (effects 
+        (font 
+          (size 1.0 1.0)) 
+        (hide yes)))) 
+  (embedded_fonts no))

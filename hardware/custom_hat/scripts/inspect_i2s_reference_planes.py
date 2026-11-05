@@ -13,7 +13,7 @@ from generate_rev_a import first, parse
 from verify_release_metadata import snapshot
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/i2s-reference-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/i2s-reference-20261031"
 PREVIOUS = EVIDENCE.parent / "ldo-capacitors-20261031"
 PLANES = [(pcbnew.F_Cu, "POWER_GND"), (pcbnew.In1_Cu, "POWER_GND"), (pcbnew.In2_Cu, "+3V3"), (pcbnew.B_Cu, "POWER_GND")]
 STEP_MM = 0.025

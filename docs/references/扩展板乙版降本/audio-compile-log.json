@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "dtc",
+      "-@",
+      "-I",
+      "dts",
+      "-O",
+      "dtb",
+      "-o",
+      "/mnt/e/Projects/duck-robot/hardware/custom_hat/software/codec/rev_b/duck-hat-revb-audio.dtbo",
+      "/mnt/e/Projects/duck-robot/hardware/custom_hat/software/codec/rev_b/duck-hat-revb-audio.dts"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "arguments": [
+      "fdtoverlay",
+      "-i",
+      "/mnt/e/Projects/duck-robot/docs/references/扩展板电路仿真工具/driver-compatibility-20261031/sources/runtime-rk3566-radxa-zero-3w-ap6212.dtb",
+      "-o",
+      "/mnt/e/Projects/duck-robot/docs/references/扩展板乙版降本/revb-audio-ap6212.dtb",
+      "/mnt/e/Projects/duck-robot/hardware/custom_hat/software/codec/rev_b/duck-hat-revb-audio.dtbo"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "arguments": [
+      "fdtoverlay",
+      "-i",
+      "/mnt/e/Projects/duck-robot/docs/references/扩展板电路仿真工具/driver-compatibility-20261031/sources/runtime-rk3566-radxa-zero-3w-aic8800ds2.dtb",
+      "-o",
+      "/mnt/e/Projects/duck-robot/docs/references/扩展板乙版降本/revb-audio-aic8800ds2.dtb",
+      "/mnt/e/Projects/duck-robot/hardware/custom_hat/software/codec/rev_b/duck-hat-revb-audio.dtbo"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

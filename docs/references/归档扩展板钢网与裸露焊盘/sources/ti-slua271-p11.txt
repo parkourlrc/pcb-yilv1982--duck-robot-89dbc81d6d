@@ -1,0 +1,54 @@
+aperture by 20% to prevent shorting beneath the QFN, paying special attention that the area or aspect ratios are 
+not exceeded. This reduction is recommended in cases where the SMT equipment placement force is not well 
+regulated, leading to shorting from excessive solder-paste squeeze out. For 0,4-mm pitch components, a pad 
+width of 0,2 mm is recommended to aid solder-paste printing and to achieve a gap of 0,2 mm between pads.
+Lead finger stencil dimensions depend on the specific QFN and SON lead finger dimensions. For example, 
+on a 0,5-mm pitch device with 0,85-mm x 0,28-mm wide pads, a stencil aperture of 0,23 mm x 0,8 mm and 
+thickness of 0,125 mm should be used to achieve adequate print volume and area ratio requirements as outlined 
+in IPC-7525 (see Figure 4-2). In cases where the board land pattern must be minimized, the stencil aspect and 
+area ratios should be considered before board design.
+The area ratio of the stencil is critical for the printing to get good paste release. For very small apertures 
+where the area ratio is less than 0.66, the stencil must be nickel formed. This type of stencil has superior 
+release characteristics over stencils that have been produced by laser. Experiments have shown that nickel-
+formed stencils print with area ratios down to 0.57. Check with your stencil supplier for recommendations when 
+designing an aperture with a challenging area ratio.
+The aspect ratio relates to the manufacture of stencils. Stencil manufacturers require the aspect ratios (see 
+Figure 4-2) to be greater than 1.5 (see IPC-7525).
+The higher the area ratio, the better the solder paste releases, in addition to depositing more volume. Stencil 
+thickness is inversely proportional to the area ratio. So the thinner the stencil, the higher the area ratio will be, 
+ultimately resulting in a robust solder-paste release (see IPC-7525).
+W
+L
+T
+T
+W
+=
+Stencil Foil Thickness
+Width of Aperture Opening
+Aspect Ratio =
+2 x (L + W) x T
+W x L
+=
+Area of Aperture Walls
+Area of Aperture Opening
+Area Ratio =
+Figure 4-2. Aspect and Area Ratio Illustration
+4.4 Exposed-Pad Stencil Design
+The QFN and SON package is thermally and electrically efficient due to the exposed die attach pad on the under 
+side of the package. The exposed die must be soldered to the PCB or motherboard substrate.
+It is good practice to minimize the presence of voids within the exposed pad interconnection. Total elimination is 
+difficult, but the design of the exposed pad stencil is crucial. The proposed stencil design enables out-gassing 
+of the solder paste during reflow and also regulates the finished solder thickness. Typically, the solder-paste 
+coverage is approximately 50% to 70% of the pad area (see Figure 4-3). Designing an aperture that prints solder 
+1:1 with the exposed pad results in excessive metal volume that can "float" the part and cause opens and other 
+manufacturing defects. In addition, the amount of voiding post reflow in the thermal pad solder joint should not 
+exceed 50% in high-power applications (to be verified using an x-ray). Based on a JEDEC High K board stackup, 
+25% has been determined to be a point of diminishing thermal performance returns, but TI prefers a limit of 50% 
+to be set (reference JESD51-7).
+www.ti.com
+Solder Paste Screen Printing Process
+SLUA271C – JUNE 2002 – REVISED DECEMBER 2023
+Submit Document Feedback
+QFN and SON PCB Attachment
+11
+Copyright © 2023 Texas Instruments Incorporated

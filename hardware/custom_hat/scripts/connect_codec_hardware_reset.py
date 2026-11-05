@@ -13,7 +13,7 @@ from repair_release_metadata import child_spans, properties
 from finish_ttl_local_bypass import route_layer
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/codec-reset-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/codec-reset-20261031"
 BASELINE = "70586fc6d5c68f322d49f56fa657ac89537fdf7702ad5e5261a5b253e5ca8fbe"
 
 

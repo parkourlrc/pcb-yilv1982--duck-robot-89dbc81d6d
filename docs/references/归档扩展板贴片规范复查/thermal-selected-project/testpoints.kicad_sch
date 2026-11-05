@@ -1,0 +1,483 @@
+(kicad_sch
+  (version 20250114)
+  (generator "eeschema")
+  (uuid "e5525fd2-ded6-5453-9282-594345dce0dc")
+  (paper "A3")
+  (title_block
+    (title "Bring-up test points")
+    (date "2026-10-28")
+    (rev "A.1 design under review")
+    (company "duck-robot"))
+  (lib_symbols
+    (symbol "Connector_Generic:Conn_01x02"
+      (pin_names
+        (offset 1.016)
+        (hide yes))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "J"
+        (at 0 2.54 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "Conn_01x02"
+        (at 0 -5.08 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" ""
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "connector"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "Connector*:*_1x??_*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "Conn_01x02_1_1"
+        (rectangle
+          (start -1.27 1.27)
+          (end 1.27 -3.81)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background)))
+        (rectangle
+          (start -1.27 0.127)
+          (end 0 -0.127)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (rectangle
+          (start -1.27 -2.413)
+          (end 0 -2.667)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (pin passive line
+          (at -5.08 0 0)
+          (length 3.81)
+          (name "Pin_1"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))
+        (pin passive line
+          (at -5.08 -2.54 0)
+          (length 3.81)
+          (name "Pin_2"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no))
+    (symbol "Connector:TestPoint"
+      (pin_numbers
+        (hide yes))
+      (pin_names
+        (offset 0.762)
+        (hide yes))
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (in_pos_files yes)
+      (duplicate_pin_numbers_are_jumpers no)
+      (property "Reference" "TP"
+        (at 0 6.858 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "TestPoint"
+        (at 0 5.08 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 5.08 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Datasheet" ""
+        (at 5.08 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Description" "test point"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_keywords" "test point tp"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "ki_fp_filters" "Pin* Test*"
+        (at 0 0 0)
+        (show_name no)
+        (do_not_autoplace no)
+        (hide yes)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (symbol "TestPoint_0_1"
+        (circle
+          (center 0 3.302)
+          (radius 0.762)
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "TestPoint_1_1"
+        (pin passive line
+          (at 0 0 90)
+          (length 2.54)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27))))))
+      (embedded_fonts no)))
+  (wire
+    (pts
+      (xy 185.42 95.25)
+      (xy 177.8 95.25))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "42cc3006-4cfe-5c47-bab7-a7f4930dbca3"))
+  (global_label "BMI_INT1_TP"
+    (shape bidirectional)
+    (at 177.8 95.25 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "1b988f96-7ccf-5605-b8c5-ddeade8ebc12")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 177.8 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 185.42 97.79)
+      (xy 177.8 97.79))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "60d1248c-77e1-5f64-9a14-cf1284cb9506"))
+  (global_label "BMI_INT3_TP"
+    (shape bidirectional)
+    (at 177.8 97.79 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "420f0b98-cab4-5792-9997-e3b19e2e0b03")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 177.8 97.79 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x02")
+    (at 190.5 95.25 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1e89de63-ea22-595b-953a-b4409ed154ca")
+    (property "Reference" "J802"
+      (at 190.5 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "IMU_INT_TP"
+      (at 190.5 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "duck:Samtec_TSW102_07"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "fcd70777-d353-5984-a0bc-726045eaf2d0"))
+    (pin "2"
+      (uuid "12141467-bccc-5c8f-ade5-1bc9a8956710"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/e5525fd2-ded6-5453-9282-594345dce0dc"
+          (reference "J802")
+          (unit 1))))
+    (property "MPN" "TSW-102-07-G-S"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Manufacturer" "Samtec"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Datasheet" "https://suddendocs.samtec.com/catalog_english/tsw_th.pdf"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "Assembly Height" "2.54mm body; 5.84mm post; 2.54mm solder tail"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (property "BOM Comments" "Design selection from manufacturer catalog/drawing; final mating/header current and installed height remain to be validated"
+      (at 190.5 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (wire
+    (pts
+      (xy 77.47 95.25)
+      (xy 77.47 102.87))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "9bbe0096-b559-5c93-997d-2d83fce6fccf"))
+  (global_label "VBATT_2S_IN"
+    (shape bidirectional)
+    (at 77.47 102.87 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "261a6bc9-97b2-5ed7-a228-11425a4eba37")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 77.47 102.87 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 77.47 95.25 0)
+    (unit 1)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "bfeafef6-d5e4-5d68-873a-fa50e6bc89e6")
+    (property "Reference" "TP801"
+      (at 77.47 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "VBATT_2S_IN"
+      (at 77.47 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+      (at 77.47 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "ddc59fc6-39ee-5ffd-860b-e481fed257e0"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/e5525fd2-ded6-5453-9282-594345dce0dc"
+          (reference "TP801")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 96.52 95.25)
+      (xy 96.52 102.87))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "38aa37f1-29c0-59fd-a038-4d2e42433ba8"))
+  (global_label "+5V"
+    (shape bidirectional)
+    (at 96.52 102.87 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "bbbf41fe-25d1-56ae-a004-2742b900d5db")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 96.52 102.87 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 96.52 95.25 0)
+    (unit 1)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "a61e8c78-6430-5b80-b761-eb5211d8d578")
+    (property "Reference" "TP802"
+      (at 96.52 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "+5V"
+      (at 96.52 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+      (at 96.52 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "318fc063-6b16-53b1-ad49-f45dec2c5e23"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/e5525fd2-ded6-5453-9282-594345dce0dc"
+          (reference "TP802")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 114.3 95.25)
+      (xy 114.3 102.87))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "9919dec7-cfa3-5f2a-99c4-57e505ca36c7"))
+  (global_label "+3V3"
+    (shape bidirectional)
+    (at 114.3 102.87 180)
+    (effects
+      (font
+        (size 0.85 0.85))
+      (justify right))
+    (uuid "94b25b92-f402-54b2-a3fd-8bc096791425")
+    (property "Intersheetrefs" "${INTERSHEET_REFS}"
+      (at 114.3 102.87 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes))))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 114.3 95.25 0)
+    (unit 1)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "2053408f-1760-5ba1-b21b-bfb8793e0f4f")
+    (property "Reference" "TP803"
+      (at 114.3 90.17 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Value" "+3V3"
+      (at 114.3 92.71 0)
+      (effects
+        (font
+          (size 1.0 1.0))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+      (at 114.3 95.25 0)
+      (effects
+        (font
+          (size 1.0 1.0))
+        (hide yes)))
+    (pin "1"
+      (uuid "8aa46f68-8c44-5f1f-ae75-922d79bc2aa2"))
+    (instances
+      (project "custom_hat_rev_a"
+        (path "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/e5525fd2-ded6-5453-9282-594345dce0dc"
+          (reference "TP803")
+          (unit 1)))))
+  (text "Six rails only (VBATT, SERVO_VBAT, +5V, +3V3, I2C5 SCL/SDA). Measurement access only; no load or protection function."
+    (at 35 35 0)
+    (effects
+      (font
+        (size 1.3 1.3))
+      (justify left))
+    (uuid "ea3d05a8-99d2-506f-b1b2-e27600a4136b"))
+  (embedded_fonts no))

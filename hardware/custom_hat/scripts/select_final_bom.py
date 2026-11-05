@@ -10,7 +10,7 @@ from repair_release_metadata import properties, replace_children, set_property
 from select_header_connectors import rectangle, line
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/final-bom-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/final-bom-20261031"
 BASELINE = "ac2df1571ac0fe778bbbf427bd90e8d548cdb644fca0e0728c79e034d6767abc"
 JST_CATALOGUE = "https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf"
 JST_SH = "https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf"

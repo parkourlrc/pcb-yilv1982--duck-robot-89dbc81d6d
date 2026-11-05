@@ -13,7 +13,7 @@ from generate_rev_a import Sheet, children, dump, first, parse, q, uid
 from repair_release_metadata import properties, replace_children, set_property
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/amp-decoupling-20261031"
 BASELINE = "0fd6c68918039867ef0d55a028844bbba7efaec68fe107d4a4b0a021ce7169c0"
 BULK_POSITION = (148.1, 125.8)
 BYPASS_POSITION = (150.8, 126.05)

@@ -8,7 +8,7 @@
 - **供电执行决定（2026-10-10）**：用户确认按 v2 单链路线继续，先按 HAT 测试单做基础检查，实测问题再决定调整；不把未证实的风险自动转成配电改造/新增采购。针序、极性和分阶段限流等基础安全检查仍保留，路线确认不等于实物验收。
 - **本项目记录不等于上游作者记录**：上游的到货、实测、整机运行及训练结果，不能写成本机已经完成。
 - **仿真显示边界（2026-10-21 用户确认）**：训练物理模型、任务与训练入口继续自建；显示层可按来源和许可复用上游精细网格、材质及挂接变换，保留来源说明和清单。显示资产不得参与碰撞或改变质量/惯量、关节与策略接口；不将外观复用写成已完成实物对齐，不修改只读参考库。
-- 推荐阅读顺序：本文件 → [项目概览](README.md) → [进度与待办](PROGRESS.md) → [现行 BOM](BOM.md) → 本次涉及的专题文档、证据和原理图。
+- 推荐阅读顺序：本文件 → [项目概览](README.md) → [里程碑](MILESTONES.md) → [进度与待办](PROGRESS.md) → [现行 BOM](BOM.md) → 本次涉及的专题文档、证据和原理图。
 - 文档冲突时按**实物版本、原始证据、验证条件及勘误记录**核对；不能仅凭文件名中的“现行”“定稿”或最后修改时间决定真伪。无法裁决则明确标记“待确认”，暂停依赖该结论的接线/上电操作。
 
 ## 二、主要目录
@@ -16,22 +16,26 @@
 | 目录 | 用途与使用边界 |
 |---|---|
 | 仓库根目录 | 本项目规则、总览、当前采购清单和进度入口。 |
-| [`docs/`](docs/) | 本项目方案、测试操作单、训练存档与技术文档。 |
+| [`docs/`](docs/README.md) | 本项目方案、测试操作单、训练存档与技术文档；入口见 docs 索引。 |
 | [`references/`](references/README.md) | 三个上游参考库的统一入口；子库只读，移动目录不授权修改其内部内容。 |
-| [`docs/references/`](docs/references/) | 调研记录和证据；按 `主题-YYYYMMDD/` 建专题，入口为 `research.md`。 |
+| [`docs/references/`](docs/references/) | 调研记录和证据；按纯中文主题名建专题（不加日期），入口为 `research.md`；分类索引见 [README](docs/references/README.md)，旧目录名见[对照表](docs/references/目录改名对照.md)。 |
+| [`docs/archive/`](docs/archive/README.md) | 已移出入口的历史事件与过期指南；归档不删除原始证据。 |
 | [`docs/photos/`](docs/photos/README.md) | 用户硬件原始照片、硬件标注图及索引。 |
 | [`docs/schematics/`](docs/schematics/README.md) | 原理图、设计源文件、网表及来源/版本说明；图纸与实物对应关系必须写明。 |
 | [`docs/video-notes/`](docs/video-notes/) | 视频笔记、时间戳与核验材料，不能将讲解当作本机实测。 |
 | [`docs/specs/`](docs/specs/README.md) | 功能/修改任务的 spec 存档；每任务一个 `YYYYMMDD-主题/` 目录，流程见[简单 Spec 开发流程](docs/spec-process.md)。 |
+| [`hardware/replica/`](hardware/replica/README.md) | 复刻整机基线入口（索引层）；不替代 BOM、PROGRESS、照片和原理图。 |
 | [`hardware/banana_pcb/`](hardware/banana_pcb/README.md) | 本项目取电板工作副本、KiCad 工程和生产文件；来源见 `SOURCE.md` 与 `source-manifest.json`。 |
 | [`hardware/custom_hat/`](hardware/custom_hat/README.md) | 自主HAT工作目录；现行主工程原生连通/一致性检查通过，仍有电气设计、制造条件与首板验收待完成；旧生产文件停用，最新源版本、问题矩阵和副本检查流程见目录入口。 |
 | [`flash/`](flash/README.md) | 本项目 IMU 固件、烧录脚本、HEX 校验及验收工具。 |
 | [`training/`](training/README.md) | 本项目 real2sim2real 学习工程：物理参数表、自建物理 MJCF/任务/PPO 入口与 MuJoCo 回放；显示层允许按来源许可复用精细网格，训练物理与任务不整包替换；产物仅仿真学习，不驱动实物。 |
-| [`scripts/`](scripts/) | 本项目辅助脚本：图片标注、历史训练启动等；复用前核对路径和环境。 |
+| [`scripts/`](scripts/README.md) | 本项目辅助脚本：图片标注、诊断、训练启动等；复用前核对路径和环境。 |
+| [`software/`](software/README.md) | 本机运行软件适配、补丁与部署索引；补丁目录不等于完整源码。 |
+| [`tools/`](tools/README.md) | 采购、烧录依赖与开发辅助；运行软件已迁 `software/`。 |
 | [`tools/jlc-order/`](tools/jlc-order/README.md) | 嘉立创 API 下单/查询工具、测试与示例配置；真实配置和调用台账不提交。 |
-| [`tools/servo-web/`](tools/servo-web/SOURCE.md) | 本项目 servo-web **可部署工作副本**（主控 Radxa `~/servo-web` 的工程同步版，含来源与差异说明，2026-10-27 建）；servo-web 修改在本副本/板侧进行后同步回此，上游 `references/microduck-replica/tools/servo-web/` 保持只读。 |
-| [`tools/robotd-recovery/`](tools/robotd-recovery/README.md) | 网页调用联合 walk 模型从躺姿恢复的补丁、产物和验收；2026-11-01 已部署，用户随后尝试恢复及行走并报告停机，原因和日志限制见进度及排障记录，尚无成功起身验收。 |
-| [`tools/robotd-v03/`](tools/robotd-v03/README.md) | 本机飞特 robotd 的 v0.3 补丁与安装历史；2026-11-01 通信补丁已撤回，当前新单口板恢复原版混读；来源档案、Studio 显示适配与参考数据保留，状态见目录 README。 |
+| [`software/servo-web/`](software/servo-web/SOURCE.md) | 本项目 servo-web **可部署工作副本**（主控 Radxa `~/servo-web` 的工程同步版，含来源与差异说明，2026-10-27 建）；servo-web 修改在本副本/板侧进行后同步回此，上游 `references/microduck-replica/tools/servo-web/` 保持只读。 |
+| [`software/robotd-recovery/`](software/robotd-recovery/README.md) | 网页调用联合 walk 模型从躺姿恢复的补丁、产物和验收；2026-11-01 已部署，用户随后尝试恢复及行走并报告停机，原因和日志限制见进度及排障记录，尚无成功起身验收。 |
+| [`software/robotd-v03/`](software/robotd-v03/README.md) | 本机飞特 robotd 的 v0.3 补丁与安装历史；2026-11-01 通信补丁已撤回，当前新单口板恢复原版混读；来源档案、Studio 显示适配与参考数据保留，状态见目录 README。 |
 | [`references/microduck-community-kit/`](references/microduck-community-kit/README.md) | **C 线主参考，只读**：取电/配电/IMU 板、固件、飞特补丁、舵机调试器。 |
 | [`references/microduck-replica/`](references/microduck-replica/README.md) | **B 线参考，只读**：机械、电控、舵机资料、部署及训练研究。各子目录许可不同。 |
 | [`references/microduck-build-tutorial/`](references/microduck-build-tutorial/README.md) | **A 线参考，只读**：Pi Zero 2 W / OpenRB / XL330 教程；不是当前 C 线施工依据。 |
@@ -50,24 +54,25 @@
 | [README.md](README.md) | 项目总览、当前路线及参考库关系。 |
 | [PROGRESS.md](PROGRESS.md) | 本机进展、已到货/在途、未解决事项与后续步骤。 |
 | [BOM.md](BOM.md) | C 线物料、数量、状态及采购缺口。 |
+| [MILESTONES.md](MILESTONES.md) | 7 个里程碑、验收标准、当前状态与依赖顺序；完成需用户确认。 |
 | [real2sim2real 工具链计划](docs/real2sim2real-toolchain-plan.md) | 自建工具链总体规划：real2sim 参数管线、训练管线、sim2real 部署与回灌闭环、分阶段计划（2026-10-22 立项，计划非完成记录）。 |
 | [简单 Spec 开发流程](docs/spec-process.md) | 功能开发五阶段（需求确认 → 文档确认 → 修改方案 → 编码 → 提交）与 spec 落盘模板（2026-10-23 立项）。 |
 | [供电架构 v2](docs/power-architecture-v2.md) | 当前供电架构讨论基线，**不代表 HAT V1.2 或整机带载已验证**；须结合下面的复核记录。 |
-| [供电与 HAT 实物复核](docs/references/power-review-20261010/research.md) | 电流预算、分支前提、两口/八焊盘识别、LDO 标注及尚未验证的风险。 |
-| [堵转是否会烧 HAT：风险核查](docs/references/stall-hat-risk-20261010/research.md) | 区分电流路径、短时/持续堵转、保护默认关闭与实际耐受；先核验，不将配电改造预设为结论。 |
-| [EH 与其他配电方案比较](docs/references/power-distribution-comparison-20261010/research.md) | 社区 dxl_hub 输入焊盘/分支、无 HAT 动力独立配线、OpenRB 总额定与剩余验证风险。 |
+| [供电与 HAT 实物复核](docs/references/供电与扩展板实物复核/research.md) | 电流预算、分支前提、两口/八焊盘识别、LDO 标注及尚未验证的风险。 |
+| [堵转是否会烧 HAT：风险核查](docs/references/舵机堵转烧板风险/research.md) | 区分电流路径、短时/持续堵转、保护默认关闭与实际耐受；先核验，不将配电改造预设为结论。 |
+| [EH 与其他配电方案比较](docs/references/配电与保护方案对比/research.md) | 社区 dxl_hub 输入焊盘/分支、无 HAT 动力独立配线、OpenRB 总额定与剩余验证风险。 |
 | [过流保护方案](docs/overcurrent-protection.md) | 电池正极保险/总开关、额定协调与电子保护边界；保险安数及实际入口能力尚未核准。 |
-| [HAT V1.2 接线意向图](docs/photos/hat-v1.2-wiring-plan.png) | 用户底图派生：A 两线进电 / B 舵机+末端 IMU / C 主控对插；未核准针序与载流，不作上电放行。 |
-| [HAT V1.2 测试单](docs/hat-v1.2-test.md) | 断电核对、分阶段上电与总线验证；入口未知时不可照猜测接电。 |
+| [HAT V1.2 接线意向图（历史归档）](docs/photos/archive/hat-v1.2-white-20261010/hat-v1.2-wiring-plan.png) | 旧白色 V1.2 底图派生：A 两线进电 / B 舵机+末端 IMU / C 主控对插；2026-11-02 归档，不代表当前 kissqy HAT，未核准针序与载流，不作上电放行。 |
+| [HAT V1.2 测试单（历史版）](docs/hat-v1.2-test.md) | 旧白色 V1.2 的断电核对/分阶段上电/总线验证记录；2026-11-02 确认当前 HAT 为 kissqy REVA，本单不用于当前板接线。 |
 | [台架/装机工具索引](docs/bench-tools.md) | 改号（hls_servo_debugger）、IMU/舵机测试工具清单与部署方式；参考工程工具复用入口。 |
-| [IMU 板②台架验收单](docs/imu-gd32-bench-test.md) | jyg9 GD32 版（单 3P、免刷、6~24V）核针序、限流上电与 imu200 验收；勿套用板①的 5V 供电习惯。 |
+| [IMU 板②台架验收单（历史版）](docs/imu-gd32-bench-test.md) | jyg9 GD32 单口板（已下线）的台架验收记录；当前 IMU 为 kissqy STM32G031 板，勿套用本单电气参数。 |
 | [降压模块测试单](docs/buck-module-test.md) | 原始空载测量与操作过程；不是整机带载验收，历史错误要求应按勘误清除。 |
 | [照片索引](docs/photos/README.md) | 实物照片、标注图、版本、来源及关联任务。 |
 | [原理图索引](docs/schematics/README.md) | 设计文件与实物对应关系总入口。 |
 | [IMU v0.3 网表](docs/schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md) | J1/J3/J2 引脚及 VBATT → U3 → 3.3V 网络。 |
-| [IMU 版本调研](docs/references/imu-to-dxl-variants-20261009/research.md) | 不同 IMU 板来源与固件兼容边界。 |
-| [HAT 原理图查证](docs/references/microduck-hat-20261006/research.md) | V1.0 图纸来源与早期分析；不是 V1.2 实物定论，错误结论以复核记录为准。 |
-| [电池取电调研](docs/references/microduck-battery-20261008/research.md) | NP-F550、banana_pcb、插针和机械配合证据。 |
+| [IMU 版本调研](docs/references/惯性单元三版来源对比/research.md) | 不同 IMU 板来源与固件兼容边界。 |
+| [HAT 原理图查证](docs/references/白色扩展板原理图查证/research.md) | V1.0 图纸来源与早期分析；不是 V1.2 实物定论，错误结论以复核记录为准。 |
+| [电池取电调研](docs/references/电池取电结构查证/research.md) | NP-F550、banana_pcb、插针和机械配合证据。 |
 | [banana_pcb 来源](hardware/banana_pcb/SOURCE.md) | 工作副本来源、工程版本、许可及使用边界。 |
 | [IMU 烧录入口](flash/README.md) | 固件包、DAPLink/STLink 操作与 imu200 验收。 |
 | [PCB 下单工具](tools/jlc-order/README.md) | API 使用、安全机制、参数模板和测试。 |
@@ -90,7 +95,7 @@
 ### 1. 所有调研结果都记录下来
 
 - 调研结果不得只留在聊天、工具输出或临时缓存中。**当轮结束前落盘**，包括查到的结论、反证、未查到的内容、失败原因和未解决问题。
-- 默认写入 `docs/references/<主题>-YYYYMMDD/research.md`；同一主题继续追加/修订，不重复建立相互矛盾的“现行结论”。测试原始数据放专题目录或对应测试文档。
+- 默认写入 `docs/references/<中文主题名>/research.md`；同一主题继续追加/修订，不重复建立相互矛盾的“现行结论”。测试原始数据放专题目录或对应测试文档。
 - 至少记录：日期、问题与范围、来源 URL/本地路径、原文页码或定位、版本/型号、证据、结论、验证状态、限制与下一步。网页受限或手册未取得时明确说明，不能伪称已经核验。
 - 区分 **本机实测 / 用户确认 / 原理图或厂商规格 / 上游实测 / 照片推断 / 待确认**。推算写明公式和假设，不能升级为实测。
 - 结论影响路线、采购、接线、固件或任务状态时，同步更新相关现行入口及 `PROGRESS.md`，并互相链接。旧判断被推翻时记录原因与替代依据。

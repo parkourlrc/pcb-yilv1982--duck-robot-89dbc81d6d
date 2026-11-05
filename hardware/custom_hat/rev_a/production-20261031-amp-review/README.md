@@ -16,4 +16,4 @@ PCB SHA256：d6c72facdd3b68fda23a7f09b557c01a5e9bf0eb06f7662aa46990d9bd7bb805。
 
 装配图只由显示副本生成，源设计值、网络和几何未改；不能拿显示副本或历史Job替代本包数据。装配服务、库存、替代料与工艺尚未确认，不自动下单。
 
-详见[同版审查与限制](../../../../docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031/research.md)。TTL本地去耦、保护、层叠/HDI、热/控制环及实物验收仍需继续；本设计不支持带电USB源与HAT并供。未制造、未上电、未提交。
+详见[同版审查与限制](../../../../docs/references/扩展板电路仿真工具/amp-decoupling-20261031/research.md)。TTL本地去耦、保护、层叠/HDI、热/控制环及实物验收仍需继续；本设计不支持带电USB源与HAT并供。未制造、未上电、未提交。

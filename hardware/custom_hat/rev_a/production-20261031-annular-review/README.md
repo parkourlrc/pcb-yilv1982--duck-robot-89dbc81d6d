@@ -6,4 +6,4 @@
 
 MPN46/54，余8件；DNP/裸铜测点处理同manifest/BOM。完整DRC、未连接、一致性、ERC、网表检查全0，原连接保留。H1/H2排母侧须用≤4.5mm M2.5圆柱头且无垫圈/六角隔离柱，长度及实装待核。
 
-**仅供审查，不可下单。** [现行kicad-happy报告及限制](../../../../docs/references/hat-simulation-tools-20261029/annular-rings-20261031/research.md)。此前生产包均退为历史。
+**仅供审查，不可下单。** [现行kicad-happy报告及限制](../../../../docs/references/扩展板电路仿真工具/annular-rings-20261031/research.md)。此前生产包均退为历史。

@@ -9,7 +9,7 @@ from generate_rev_a import children, first, parse, q
 from repair_release_metadata import properties, replace_children, set_property
 
 
-EVIDENCE=pipeline.BASE.parents[1]/"docs/references/hat-simulation-tools-20261029/capacitor-upgrade-20261031"
+EVIDENCE=pipeline.BASE.parents[1]/"docs/references/扩展板电路仿真工具/capacitor-upgrade-20261031"
 BASELINE="09f1d958da205e4707848f6fb08b4cddaf02255d2f333e774bc5bb97b277f4fe"
 MPN="C1210C226K3RACTU"
 FOOTPRINT="Capacitor_SMD:C_1210_3225Metric"

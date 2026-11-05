@@ -1,0 +1,807 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T21:05:15",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "hat_a1_smt_2up.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 104.59
+                    },
+                    "uuid": "a10ca244-0652-4f16-aa9d-bd74933cddb2"
+                },
+                {
+                    "description": "走线 [+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.0
+                    },
+                    "uuid": "056d4b9b-0e3d-4dc2-ade9-74eecf7925fb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.375
+                    },
+                    "uuid": "9587a3d9-7518-4da9-b155-b50206cf40a5"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 2.2274 mm",
+                    "pos": {
+                        "x": 145.5,
+                        "y": 108.55
+                    },
+                    "uuid": "0c83c33c-bcf2-4597-a229-cb702f2b0f12"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [B2/+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.0
+                    },
+                    "uuid": "cb72cd54-967f-4422-81ea-876ac996fa3f"
+                },
+                {
+                    "description": "B2_J101 的PTH 焊盘 1 [B2/+3V3]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 136.59
+                    },
+                    "uuid": "8cbc55a0-d9e8-4126-ad53-ea6f551c414f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [B2/I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.375
+                    },
+                    "uuid": "554fe2d3-cfa7-4298-8872-bc41bf7fedc0"
+                },
+                {
+                    "description": "B2_J101 的PTH 焊盘 29 [B2/I2C5_SCL]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 136.59
+                    },
+                    "uuid": "cca3bc14-df14-44d6-99a9-d1b4a3eeb886"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.0
+                    },
+                    "uuid": "056d4b9b-0e3d-4dc2-ade9-74eecf7925fb"
+                },
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.375
+                    },
+                    "uuid": "9587a3d9-7518-4da9-b155-b50206cf40a5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+            "items": [
+                {
+                    "description": "走线 [B2/I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.375
+                    },
+                    "uuid": "554fe2d3-cfa7-4298-8872-bc41bf7fedc0"
+                },
+                {
+                    "description": "走线 [B2/+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.0
+                    },
+                    "uuid": "cb72cd54-967f-4422-81ea-876ac996fa3f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.0
+                    },
+                    "uuid": "056d4b9b-0e3d-4dc2-ade9-74eecf7925fb"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 118.375
+                    },
+                    "uuid": "9587a3d9-7518-4da9-b155-b50206cf40a5"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [B2/+3V3] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.0
+                    },
+                    "uuid": "cb72cd54-967f-4422-81ea-876ac996fa3f"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [B2/I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 122.375
+                    },
+                    "uuid": "554fe2d3-cfa7-4298-8872-bc41bf7fedc0"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 H1",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 103.6
+                    },
+                    "uuid": "30fd9943-9dcf-4bcc-9a75-0e460abf1b73"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J802",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 152.97
+                    },
+                    "uuid": "33405b01-9cd4-4809-b0da-2f781456482d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID1",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 142.0
+                    },
+                    "uuid": "50b330d9-9162-469e-a40a-0d5f2f96b191"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID2",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 148.0
+                    },
+                    "uuid": "57cd0ca2-15bb-4eb1-a54e-a1c86c76b94d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J403",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 117.16
+                    },
+                    "uuid": "59506270-eea4-4dc2-b5f4-fc77d119be95"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_U301",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 146.0
+                    },
+                    "uuid": "5c7d413a-cb95-4b20-b4bb-30abb57d5b6d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_L301",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 147.9
+                    },
+                    "uuid": "a3f35bed-7085-4dc3-a6f4-70bcdc19e863"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID3",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 160.5
+                    },
+                    "uuid": "a7fc1a7a-ba6a-487c-bc59-18c1838adad4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 U301",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 114.0
+                    },
+                    "uuid": "abbbfd53-3051-4863-8737-437e92ac61f2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID1",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 110.0
+                    },
+                    "uuid": "b07f437b-e3ee-4828-9222-39be712c9c6b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J403",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 149.16
+                    },
+                    "uuid": "b1bd68f0-4d15-4f3f-9566-972354615e86"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J802",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 120.97
+                    },
+                    "uuid": "b5aa74b4-1cff-4c97-9c49-d9840d120378"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_H2",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 135.6
+                    },
+                    "uuid": "c37d440a-51aa-4bff-b306-ca07a7e59b00"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 H2",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 103.6
+                    },
+                    "uuid": "d8bba836-bc17-4aca-bd4a-f034eb5484e0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_H1",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 135.6
+                    },
+                    "uuid": "e05cd8ca-1ee6-4e39-9e6a-564afbfb0288"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 L301",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 115.9
+                    },
+                    "uuid": "e6008961-ab94-4411-9e55-dbcde921d944"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID2",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 116.0
+                    },
+                    "uuid": "ea0a506a-d5ef-41e7-adb9-0afb845cd32c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID3",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 128.5
+                    },
+                    "uuid": "ea389c01-703a-4a8c-b4c4-d8c58b69b703"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J101",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 136.59
+                    },
+                    "uuid": "f05a7c83-bb13-4f62-a6b9-3269e98e84b7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J101",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 104.59
+                    },
+                    "uuid": "f71e5942-c923-403d-93ea-ba4f9874b455"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID5",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 116.0
+                    },
+                    "uuid": "0a301996-594e-40d4-8687-3436028e8548"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID5",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 148.0
+                    },
+                    "uuid": "12ff535e-d1dc-4e00-b59d-e04a5675737f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID6",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 154.0
+                    },
+                    "uuid": "171638a4-5862-4c4a-b12b-7b4a9637d707"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_R703",
+                    "pos": {
+                        "x": 122.8,
+                        "y": 154.8
+                    },
+                    "uuid": "2966fa30-d0be-4395-a5f1-81aee63af74c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 U701",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 113.35
+                    },
+                    "uuid": "3c2c7f53-ee8b-4515-8964-6d8c3c1bd8a8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_C309",
+                    "pos": {
+                        "x": 125.4,
+                        "y": 156.2
+                    },
+                    "uuid": "3f6dbcff-023d-491d-a663-943707b9db38"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 R703",
+                    "pos": {
+                        "x": 122.8,
+                        "y": 122.8
+                    },
+                    "uuid": "46d09b90-a1df-4bed-b535-ab20ea5b07f5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_U702",
+                    "pos": {
+                        "x": 131.21,
+                        "y": 151.7
+                    },
+                    "uuid": "4ac8800c-a30b-4497-a7e9-dafdf3542c06"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID6",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 122.0
+                    },
+                    "uuid": "50b98a7a-8336-4e81-bad0-3b485c0d28bf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID4",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 110.0
+                    },
+                    "uuid": "66af446f-84aa-4d8e-800f-ffcc2962b4c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_U701",
+                    "pos": {
+                        "x": 152.8,
+                        "y": 145.35
+                    },
+                    "uuid": "84a1d3b1-ea0a-45ab-a53e-ee5b2603519f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_R309",
+                    "pos": {
+                        "x": 117.24,
+                        "y": 151.7
+                    },
+                    "uuid": "85ce6c91-202e-4e38-a006-4cc6857a2b0e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 R309",
+                    "pos": {
+                        "x": 117.24,
+                        "y": 119.7
+                    },
+                    "uuid": "b32da29b-e714-4ae0-94b0-2abdd030c874"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 U702",
+                    "pos": {
+                        "x": 131.21,
+                        "y": 119.7
+                    },
+                    "uuid": "bc430208-7ec5-451b-9c88-c245fd4355fd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J301",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 127.32
+                    },
+                    "uuid": "d03128b7-447b-4704-b311-fd188127e1a5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 C309",
+                    "pos": {
+                        "x": 125.4,
+                        "y": 124.2
+                    },
+                    "uuid": "d5d493c4-6d14-4d93-b330-692cfa49cdf2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J301",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 159.32
+                    },
+                    "uuid": "d96194bd-c129-4275-8a4f-3039f217a2e7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID4",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 142.0
+                    },
+                    "uuid": "f742d532-ef91-442e-b3ff-a49e7bd55ab4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        }
+    ]
+}

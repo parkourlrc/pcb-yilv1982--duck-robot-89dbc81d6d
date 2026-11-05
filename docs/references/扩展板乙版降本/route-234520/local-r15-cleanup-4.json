@@ -1,0 +1,91 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-05T00:52:40",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "custom_hat_rev_b.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 0.3536 mm",
+                    "pos": {
+                        "x": 137.325,
+                        "y": 111.4125
+                    },
+                    "uuid": "caf81c9e-2edc-406e-965d-b845da826322"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 0.0750 mm",
+                    "pos": {
+                        "x": 137.125,
+                        "y": 106.6125
+                    },
+                    "uuid": "3529ba8d-e4e4-4c18-8f44-9fda09fbe9df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 0.0750 mm",
+                    "pos": {
+                        "x": 137.125,
+                        "y": 106.6125
+                    },
+                    "uuid": "3529ba8d-e4e4-4c18-8f44-9fda09fbe9df"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.0354 mm",
+                    "pos": {
+                        "x": 140.825,
+                        "y": 108.9
+                    },
+                    "uuid": "13342ee0-d6bb-4714-91ba-5d7448d07375"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

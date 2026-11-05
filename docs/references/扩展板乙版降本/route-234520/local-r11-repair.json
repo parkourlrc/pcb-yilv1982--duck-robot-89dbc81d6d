@@ -1,0 +1,78 @@
+{
+  "removed": [
+    {
+      "uuid": "57bdcc8f-2b72-4e23-b0f7-2cd31c7e7b35",
+      "net": "POWER_GND"
+    },
+    {
+      "uuid": "7ba4898b-98dd-4f8e-b9ab-3b0946f901ba",
+      "net": "+5V_PRE_IDEAL"
+    },
+    {
+      "uuid": "b5ae7e81-8df6-487b-8c14-293618b06f06",
+      "net": "+5V_PRE_IDEAL"
+    }
+  ],
+  "plans": [
+    {
+      "net": "VBATT_2S_IN",
+      "width": 0.6,
+      "via_diameter": 0.6,
+      "via_drill": 0.3,
+      "points": [
+        [
+          105.5,
+          113.0,
+          1
+        ],
+        [
+          105.5,
+          114.6,
+          1
+        ],
+        [
+          106.65,
+          115.75,
+          1
+        ],
+        [
+          106.65,
+          118.125,
+          1
+        ],
+        [
+          106.65,
+          118.125,
+          0
+        ],
+        [
+          106.65,
+          119.5,
+          0
+        ]
+      ],
+      "states": 77699,
+      "cost_including_via_penalty": 9.476345596729056,
+      "limitations": "Conservative pad bounding boxes; no zone polygons; final KiCad DRC and refill required"
+    }
+  ],
+  "failed": [
+    {
+      "net": "+5V_PRE_IDEAL",
+      "start": [
+        118.75,
+        120.0
+      ],
+      "end": [
+        109.3625,
+        119.05
+      ],
+      "error": "No path in this conservative search region (195218 states); not proof of physical impossibility"
+    }
+  ],
+  "violations": {
+    "tracks_crossing": 3
+  },
+  "unconnected": 8,
+  "parity": 0
+}

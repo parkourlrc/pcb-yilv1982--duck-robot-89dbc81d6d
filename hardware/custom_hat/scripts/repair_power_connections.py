@@ -11,7 +11,7 @@ import repair_u501
 from verify_u501_connectivity import partitions
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/power-repair-20261030"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/power-repair-20261030"
 
 
 def main():

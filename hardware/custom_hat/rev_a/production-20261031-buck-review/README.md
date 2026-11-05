@@ -8,4 +8,4 @@ U301.9新增5个0.55/0.3mm地热孔；C303靠近VIN，C308直接接LDO输入。*
 
 HDI层叠/介质、填充材料/盖铜平整度、钢网及热/电气/载流条件尚未核准；普通无填孔四层工艺不能直接代用。H1/H2排母侧≤4.5mm圆柱头且无垫圈要求继续有效。
 
-**仅供审查，不可下单。** [完整报告及标注图](../../../../docs/references/hat-simulation-tools-20261029/buck-thermal-20261031/research.md)。各输出含CSV的哈希见manifest.json，旧阶段包不混用。
+**仅供审查，不可下单。** [完整报告及标注图](../../../../docs/references/扩展板电路仿真工具/buck-thermal-20261031/research.md)。各输出含CSV的哈希见manifest.json，旧阶段包不混用。

@@ -1,0 +1,49 @@
+{
+  "diff_version": "1.0",
+  "analyzer_type": "schematic",
+  "base_file": "E:\\Projects\\duck-robot\\docs\\references\\归档扩展板钢网与裸露焊盘\\final\\schematic.json",
+  "head_file": "E:\\Projects\\duck-robot\\docs\\references\\归档扩展板钢网分窗审查\\schematic.json",
+  "has_changes": true,
+  "summary": {
+    "total_changes": 1,
+    "added": 0,
+    "removed": 0,
+    "modified": 1,
+    "severity": "major"
+  },
+  "diff": {
+    "components": {
+      "added": [],
+      "removed": [],
+      "modified": [
+        {
+          "reference": "U301",
+          "changes": [
+            {
+              "field": "footprint",
+              "base": "duck:SO-8EP_AP64350",
+              "head": "duck:SO8EP_AP64350_Paste4_Project"
+            }
+          ]
+        }
+      ]
+    },
+    "bom": {
+      "added": [
+        {
+          "value": "AP64350",
+          "footprint": "duck:SO8EP_AP64350_Paste4_Project",
+          "quantity": 1
+        }
+      ],
+      "removed": [
+        {
+          "value": "AP64350",
+          "footprint": "duck:SO-8EP_AP64350",
+          "quantity": 1
+        }
+      ],
+      "quantity_changes": []
+    }
+  }
+}

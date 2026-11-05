@@ -7,7 +7,7 @@ import pcbnew
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/codec-pth-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/codec-pth-20261031"
 BASELINE = "c6c09b3306832200c0c723443a350882a816cb00a92d79b10551363b588d35df"
 IDENTIFIER = "c6ad78c2-361f-4c03-a650-a32f6c415d72"
 RULE = '''(rule "Qualified codec small mechanical via"

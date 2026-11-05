@@ -1,0 +1,154 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T20:49:48",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "hat_a1_smt_2up.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [+3V3] (F.Cu), 长度: 0.2975 mm",
+                    "pos": {
+                        "x": 160.19,
+                        "y": 110.8025
+                    },
+                    "uuid": "d31dc1cc-a210-418b-8e6d-3bdf7f3b5e83"
+                },
+                {
+                    "description": "走线 [+3V3] (F.Cu), 长度: 1.3975 mm",
+                    "pos": {
+                        "x": 160.69,
+                        "y": 110.8025
+                    },
+                    "uuid": "982c96ed-244e-45d6-864a-7a7b5465fd2d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "孔间距违规 (规则 'Mechanical NPTH copper clearance' 间距 0.2500 mm; 实际 0.2277 mm)",
+            "items": [
+                {
+                    "description": "走线 [B2/SERVO_VBAT] (In1.Cu), 长度: 29.4700 mm",
+                    "pos": {
+                        "x": 112.645,
+                        "y": 161.074999
+                    },
+                    "uuid": "64aff448-af29-4961-b362-0255380b4cf9"
+                },
+                {
+                    "description": "MB18 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 162.0
+                    },
+                    "uuid": "a3a3afcb-9955-493b-b88f-a31e18cbc1f0"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (规则 'Mechanical NPTH copper clearance' 间距 0.2500 mm; 实际 0.2277 mm)",
+            "items": [
+                {
+                    "description": "走线 [B2/SERVO_VBAT] (In1.Cu), 长度: 2.4819 mm",
+                    "pos": {
+                        "x": 110.89,
+                        "y": 159.32
+                    },
+                    "uuid": "1986ea47-e307-4388-b8be-ebe9db7ad5f9"
+                },
+                {
+                    "description": "MB18 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 162.0
+                    },
+                    "uuid": "a3a3afcb-9955-493b-b88f-a31e18cbc1f0"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (规则 'Mechanical NPTH copper clearance' 间距 0.2500 mm; 实际 0.2277 mm)",
+            "items": [
+                {
+                    "description": "走线 [SERVO_VBAT] (In1.Cu), 长度: 2.4819 mm",
+                    "pos": {
+                        "x": 110.89,
+                        "y": 127.32
+                    },
+                    "uuid": "9096a290-f2f0-49eb-85d9-fa6b1c9c1197"
+                },
+                {
+                    "description": "MB8 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 130.0
+                    },
+                    "uuid": "773c90ff-4f92-41fa-9f2f-f11699807e99"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "孔间距违规 (规则 'Mechanical NPTH copper clearance' 间距 0.2500 mm; 实际 0.0250 mm)",
+            "items": [
+                {
+                    "description": "走线 [SERVO_VBAT] (In1.Cu), 长度: 29.4700 mm",
+                    "pos": {
+                        "x": 112.645,
+                        "y": 129.074999
+                    },
+                    "uuid": "b4abce8d-34f5-4500-9d72-f1f97b33218f"
+                },
+                {
+                    "description": "MB10 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 114.0,
+                        "y": 130.0
+                    },
+                    "uuid": "b9ab7b3a-8a1a-4afa-a686-4c3bf804e23c"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        }
+    ]
+}

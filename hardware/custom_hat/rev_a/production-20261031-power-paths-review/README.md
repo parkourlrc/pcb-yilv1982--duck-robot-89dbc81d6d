@@ -10,4 +10,4 @@ PCB SHA256：af8da97fb052d1f55de10772e62a1a64559df7c82223fcad50c8c0b6d1114562。
 
 本包有意不含自动生成的.gbrjob：PCB没有明确stackup，该文件会填入未经确认的0.48mm×3介质层。原件及SHA已在审查专题归档，manifest列job_file_policy；实际Gerber/钻孔完整保留。不能用历史包的默认Job补回当前包。
 
-加宽不构成整板额定电流或温升验收，+5V主输出压降、连接器/线束/保护及控制环仍待核。详见[同版审查](../../../../docs/references/hat-simulation-tools-20261029/power-paths-20261031/research.md)。仅供审查，未制造、未上电、未提交。
+加宽不构成整板额定电流或温升验收，+5V主输出压降、连接器/线束/保护及控制环仍待核。详见[同版审查](../../../../docs/references/扩展板电路仿真工具/power-paths-20261031/research.md)。仅供审查，未制造、未上电、未提交。

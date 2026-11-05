@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-10",
+  "method": "Local source review; pypdf extraction with PDFium full-page visual verification for manufacturer pages 3 and 5. Existing HAT schematic page images reviewed. No online search or hardware operation this turn.",
+  "sources": [
+    {
+      "path": "references/microduck-replica/tools/FeeTech_HD1910M_Servo/HD-1910-C001串型规格书20260907.pdf",
+      "sha256": "aafd3b6a03f4902f74164bf49091d88c01418b12ddf7d5f8118cbc763f03f9a9"
+    },
+    {
+      "path": "docs/references/白色扩展板原理图查证/page2.png",
+      "sha256": "4bbe46314c1c78cbda50151a558889e53fd61dc576dff5e5eb44d8652dc6c2b3"
+    },
+    {
+      "path": "docs/references/白色扩展板原理图查证/page4.png",
+      "sha256": "da5d79c50968b89894e8ac25ef4bd3f1e7448cbbc3d968002cbeb4649edb414b"
+    },
+    {
+      "path": "references/microduck-community-kit/software/hls_servo_debugger/README.md",
+      "sha256": "20ca8fa45f17942b2c271750c933c2f0ac3d550b662bfb2b5fb5f885431c40f5"
+    },
+    {
+      "path": "references/microduck-community-kit/software/hls_servo_debugger/hls_debugger/provision.py",
+      "sha256": "e7666655ccd05bf68967db173d8b9abc10175fc14db4c938502f8934292d7102"
+    },
+    {
+      "path": "references/microduck-community-kit/docs/飞特通讯协议说明.md",
+      "sha256": "aae259943ab075e124b0f14dfd2031e4efc95cfc314d85f9a816badf1cb98a06"
+    }
+  ],
+  "manufacturer_findings": {
+    "model": "HD-1910-C001",
+    "edition": "A/0",
+    "date": "2026-09-07",
+    "stall_current_at_7_4_v_a": 2,
+    "stall_current_tolerance_percent": 10,
+    "overcurrent_description": "Current greater than 0.5A for 2s, output disabled; threshold and duration configurable; new position command clears protection flag; factory default disabled. This is a datasheet description, NOT a recommended setting or a readback of user hardware.",
+    "overtemperature_description": "Greater than 80C disables torque; factory default enabled; monitors servo, not HAT."
+  },
+  "user_hardware_validation": false
+}

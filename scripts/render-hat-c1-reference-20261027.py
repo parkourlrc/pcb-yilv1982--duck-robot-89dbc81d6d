@@ -6,7 +6,7 @@ import json
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/references/hat-imu-shared-bus-20261027/pcb-search/scrapmeta-wiki--assets--pcb--hat-3d-back-2026-09-04.png"
+SOURCE = ROOT / "docs/references/扩展板双口惯性缺答复核/pcb-search/scrapmeta-wiki--assets--pcb--hat-3d-back-2026-09-04.png"
 OUTPUT = ROOT / "docs/photos/hat-c1-r33-reference-20261027.png"
 FONT = "C:/Windows/Fonts/msyh.ttc"
 
@@ -68,7 +68,7 @@ def main():
         "th1_box_source_xyxy": [742, 299, 757, 329],
         "limit": "未核对到用户白色 V1.2；不能据此拆焊用户板",
     }
-    (ROOT / "docs/references/hat-imu-shared-bus-20261027/c1-image-manifest.json").write_text(
+    (ROOT / "docs/references/扩展板双口惯性缺答复核/c1-image-manifest.json").write_text(
         json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(OUTPUT)
 

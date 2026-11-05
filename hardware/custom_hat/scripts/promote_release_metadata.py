@@ -4,7 +4,27 @@ import json
 from pathlib import Path
 import shutil
 
+import pcbnew
 import pipeline
+
+
+def unfilled_via_smd_contacts(path):
+    board = pcbnew.LoadBoard(str(path))
+    contacts = set()
+    vias = [item for item in board.GetTracks() if item.Type() == pcbnew.PCB_VIA_T
+            and not (item.GetFillingMode() == pcbnew.FILLING_MODE_FILLED
+                     and item.GetCappingMode() == pcbnew.CAPPING_MODE_CAPPED)]
+    for footprint in board.GetFootprints():
+        for pad in footprint.Pads():
+            if pad.GetAttribute() != pcbnew.PAD_ATTRIB_SMD:
+                continue
+            for layer, paste in ((pcbnew.F_Cu, pcbnew.F_Paste), (pcbnew.B_Cu, pcbnew.B_Paste)):
+                if not pad.IsOnLayer(paste):
+                    continue
+                for via in vias:
+                    if via.IsOnLayer(layer) and pad.GetEffectiveShape(paste).Collide(via.GetPosition(), via.GetDrill() // 2):
+                        contacts.add((footprint.GetReference(), pad.GetNumber() or '<paste-window>', via.m_Uuid.AsString(), board.GetLayerName(layer)))
+    return contacts
 
 
 def main():
@@ -30,6 +50,16 @@ def main():
         raise RuntimeError("Fresh proof of custom-rule loading is required before promotion")
     if pipeline.digest(work / (pipeline.STEM + ".kicad_pcb")) != geometry["runs"]["after"]["pcb_sha256"]:
         raise RuntimeError("Candidate no longer matches filled-geometry check")
+    source_contacts = unfilled_via_smd_contacts(pipeline.PRIMARY / (pipeline.STEM + '.kicad_pcb'))
+    candidate_contacts = unfilled_via_smd_contacts(work / (pipeline.STEM + '.kicad_pcb'))
+    new_contacts = candidate_contacts - source_contacts
+    pipeline.write_json(evidence / 'pre-promotion-via-contact-check.json', {
+        'before': sorted(source_contacts), 'after': sorted(candidate_contacts),
+        'new_unfilled_via_contacts': sorted(new_contacts), 'accepted': not new_contacts,
+        'scope': 'Geometric hole-to-actual-paste aperture intersection, including independent exposed-pad windows; mask clearance and transfer checks remain separate',
+    })
+    if new_contacts:
+        raise RuntimeError('New unfilled via hole overlaps a pasted SMD pad; native same-net DRC is insufficient')
     backup = evidence / "before-metadata"
     if backup.exists():
         raise FileExistsError("Promotion snapshot already exists")

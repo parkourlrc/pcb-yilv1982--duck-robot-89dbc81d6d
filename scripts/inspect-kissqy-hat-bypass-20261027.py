@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/schematics/kissqy-hat-reva-reference"
-OUT = ROOT / "docs/references/pcb-pad-repair-20261027"
+OUT = ROOT / "docs/references/扩展板焊盘脱落修复"
 PHOTO = ROOT / "docs/photos/kissqy-hat-r33-bypass-reference-20261027.png"
 NETS = {"DXL_DATA_INT", "DXL_DATA_CLAMPED", "DXL_DATA"}
 FOCUS_REFS = {"R31", "R32", "R33", "TH1", "D4", "U5", "U6", "U7"}

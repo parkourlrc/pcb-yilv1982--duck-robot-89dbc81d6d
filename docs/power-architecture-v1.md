@@ -1,6 +1,6 @@
 # 整机供电架构（飞特路线，2026-10-10 定稿）
 
-> 依据：imu_to_dxl v0.3 网表（[docs/schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md](./schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md)）、HAT V1.1 查证记录（[docs/references/microduck-hat-20261006/research.md](./references/microduck-hat-20261006/research.md)）、community-kit 各板 README、电源板空载实测（[buck-module-test.md](./buck-module-test.md)）。
+> 依据：imu_to_dxl v0.3 网表（[docs/schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md](./schematics/imu-to-dxl-scrapmeta-v0.3/hardware-netlist.md)）、HAT V1.1 查证记录（[docs/references/白色扩展板原理图查证/research.md](./references/白色扩展板原理图查证/research.md)）、community-kit 各板 README、电源板空载实测（[buck-module-test.md](./buck-module-test.md)）。
 
 ## 一句话结论
 

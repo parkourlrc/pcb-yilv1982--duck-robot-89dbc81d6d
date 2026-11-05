@@ -10,7 +10,7 @@ import pipeline
 from digitize_capacitor_bias import decode_curve
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/ldo-capacitors-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/ldo-capacitors-20261031"
 SOURCES = EVIDENCE.parent / "capacitor-models-20261031/sources"
 PARTS = {"C0805C105K5RACTU": {"nominal_uf": 1, "rated_v": 50, "tolerance": 0.10, "aging_pct_per_decade": 3, "voltages": [1.8, 3.3]},
          "C0805C225K5RACTU": {"nominal_uf": 2.2, "rated_v": 50, "tolerance": 0.10, "aging_pct_per_decade": 3, "voltages": [1.8, 3.3]},

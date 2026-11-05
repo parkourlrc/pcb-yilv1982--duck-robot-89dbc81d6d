@@ -1,7 +1,7 @@
 """duck v0.8 速度命令与相位任务：历史站立任务的扩展，保留推扰。
 
 3N×0.3s 满额率≥80% 尚未达到；旧“站立物理不可达”归因已于 2026-10-19 撤回，
-见 docs/references/c-motion-training-20261015/failure-analysis-20261019.md。
+见 docs/references/动作训练软件研究/failure-analysis-20261019.md。
 观测 49 维：重力方向(3) + 关节角(14) + 关节速度(14) + 动作状态(14) + [vx_cmd, vx_actual]
 + [sin(φ), cos(φ)]（步态相位）。
 v0.8 同时修复命令采样并引入相位辅助，不是单项因果对照。相位 φ 随时间循环，

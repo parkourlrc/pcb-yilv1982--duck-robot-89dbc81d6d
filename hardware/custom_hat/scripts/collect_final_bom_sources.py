@@ -7,7 +7,7 @@ import fitz
 import collect_bom_sources as collector
 
 
-EVIDENCE = Path(__file__).resolve().parents[3] / "docs/references/hat-simulation-tools-20261029/final-bom-20261031"
+EVIDENCE = Path(__file__).resolve().parents[3] / "docs/references/扩展板电路仿真工具/final-bom-20261031"
 SOURCES = {
     "jst-sh-sparkfun.pdf": "https://cdn.sparkfun.com/assets/0/e/1/5/8/JST-SH_right_angle_PRT-25271.pdf",
     "jst-catalogue-120.pdf": "https://www.jst.fr/doc/jst/pdf/jst-connector-catalogue-vol-120e.pdf",

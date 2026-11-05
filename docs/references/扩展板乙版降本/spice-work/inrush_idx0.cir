@@ -1,0 +1,26 @@
+* Auto-generated testbench for inrush analysis: U302 (LDO)
+* Output: 5.0V, 20.2µF total capacitance
+* Soft-start: 0.5ms ramp
+
+* Voltage source with linear ramp (soft-start) — 10us delay before ramp
+Vreg ramp 0 PWL(0 0 10u 0 510u 5.0)
+* Regulator output impedance
+Rout ramp out 100m
+
+* Output capacitors
+C734 out 0 10u
+C735 out 0 100n
+C736 out 0 10u
+C737 out 0 100n
+
+.control
+tran 1u 1.5m
+let i_out = abs(i(Rout))
+let i_peak = vecmax(i_out)
+let t_peak = i_out[vecmin(abs(i_out - i_peak))]
+meas tran v_settled find v(out) at=1.35m
+echo "i_peak=$&i_peak t_peak=$&t_peak v_settled=$&v_settled v_target=5.0 r_out=0.1" > docs/references/hat-revb-cost-20261104/spice-work/inrush_idx0.out
+quit
+.endc
+
+.end

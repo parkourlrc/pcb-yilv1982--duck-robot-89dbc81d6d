@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw
 
 
 ROOT=Path(__file__).resolve().parents[1]
-EVIDENCE=ROOT/'docs/references/hat-simulation-tools-20261029/power-repair-20261030'
+EVIDENCE=ROOT/'docs/references/扩展板电路仿真工具/power-repair-20261030'
 
 
 def main():

@@ -1,0 +1,45 @@
+{
+  "revision": "B.0 candidate",
+  "overlay_sha256": "7683f753ec80faabed8830aafe9098376f6aa53e9c83d55be7ea91b49cbbd730",
+  "source_sha256": "1fbe1316fb2828180e7932aa919b990bb2441ceadaef9150fe4a3ff7829c89fd",
+  "checks": [
+    {
+      "variant": "ap6212",
+      "base_sha256": "b651b4bd8212abc7363af93f6e89175d41bd515feba9978ce84d03890d19cd4b",
+      "merged_sha256": "f52a2bb63d3388b7e2593cf6149d03ba9ccf84d038240ef08432cc0078ad7e0b",
+      "i2c_hz": 100000,
+      "codec_address": 24,
+      "reset_matches": true,
+      "codec_is_clock_master": true,
+      "codec_clock_hz": 12000000,
+      "four_i2s_pins_only": true,
+      "codec_supply_microvolt": 1800000,
+      "audio_routing": "HAT Speaker RLOUT MIC2R HAT Onboard Mic LINE1L HAT External Left LINE1R HAT External Right HAT External Left Mic Bias HAT External Right Mic Bias",
+      "accepted_offline": true
+    },
+    {
+      "variant": "aic8800ds2",
+      "base_sha256": "c48c04245869d6e8c1bc21608e450a209e08501bdfd8859277693a072de3ad9b",
+      "merged_sha256": "5e7d6642ce18f53aea0b1df8ac945c5bafe421b7f6b28980e27a58cdcdbe1ac2",
+      "i2c_hz": 100000,
+      "codec_address": 24,
+      "reset_matches": true,
+      "codec_is_clock_master": true,
+      "codec_clock_hz": 12000000,
+      "four_i2s_pins_only": true,
+      "codec_supply_microvolt": 1800000,
+      "audio_routing": "HAT Speaker RLOUT MIC2R HAT Onboard Mic LINE1L HAT External Left LINE1R HAT External Right HAT External Left Mic Bias HAT External Right Mic Bias",
+      "accepted_offline": true
+    }
+  ],
+  "accepted_offline": true,
+  "deployed": false,
+  "hardware_tested": false,
+  "initial_sample_rate_hz": 48000,
+  "limits": [
+    "No live pinmux conflict check",
+    "No ALSA card registration or waveform test",
+    "No full devicetree schema validation",
+    "Other sample rates have not been accepted"
+  ]
+}

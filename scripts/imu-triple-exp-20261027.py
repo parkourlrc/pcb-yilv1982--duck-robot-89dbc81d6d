@@ -3,7 +3,7 @@
 """三组对照实验脚本（2026-10-27 深夜系列，固化存档）。
 
 板上实际执行时为 ssh heredoc 内联（各轮输出摘要见
-docs/references/servo-web-imu-3d-20261024/research.md 续 11 的表格；本文件为同逻辑固化版，
+docs/references/舵机网页工具惯性显示/research.md 续 11 的表格；本文件为同逻辑固化版，
 含 IMU 在线探测行）。口径：50Hz（20ms tick）、地址 56 长 15、1 Mbps；须停 servo-web 独占。
 
 用法（板上）：systemctl --user stop duck-servo-web && python3 imu-triple-exp-20261027.py [秒数，默认 30]

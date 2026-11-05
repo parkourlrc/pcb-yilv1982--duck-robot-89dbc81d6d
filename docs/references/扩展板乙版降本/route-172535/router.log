@@ -1,0 +1,73 @@
+2026-11-04 17:25:35.849 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-04 17:25:36.117 INFO   Hardware: 20 CPU cores, 589 CPU score, 16344 MB RAM
+2026-11-04 17:25:37.549 INFO   Opening 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-172535\custom_hat_rev_b.dsn'...
+2026-11-04 17:25:38.064 INFO   [680CB6\D31A99] Loading board file 'custom_hat_rev_b.dsn'...
+2026-11-04 17:25:38.189 INFO   Layer 'F.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-04 17:25:38.190 INFO   Layer 'B.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-04 17:25:38.190 WARN   DSN file 'custom_hat_rev_b.dsn' was loaded with 11 warning(s).
+2026-11-04 17:25:49.880 INFO   [680CB6\D31A99] Starting routing of 'custom_hat_rev_b' on 19 threads...
+2026-11-04 17:25:49.920 INFO   [680CB6\D31A99] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=19.
+2026-11-04 17:25:50.296 INFO   [680CB6\D31A99] Fanout stage started on board '39526368722034a8f7a6d82fecf9d7b2' with 119 of 198 SMD pins needing fanout (79 already connected, 0 netless).
+2026-11-04 17:25:51.486 INFO   [680CB6\D31A99] Fanout pass #1 on board '80b96fbeb4ebd2eb3aeb3637960bd149' completed in 1.01 seconds with 54 SMD pins fanouted, 0 not routed, 0 insert errors, +1 extra via (0 SMD pins still to check in pass, ripup costs=100).
+2026-11-04 17:25:52.315 INFO   [680CB6\D31A99] Fanout pass #2 on board '4be554afeddf65b0e0f18464709eac17' completed in 0.82 seconds with 34 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=200).
+2026-11-04 17:25:53.171 INFO   [680CB6\D31A99] Fanout pass #3 on board 'a37a042394467634e03cd00cc07af8a7' completed in 0.85 seconds with 34 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=300).
+2026-11-04 17:25:53.999 INFO   [680CB6\D31A99] Fanout pass #4 on board '4be554afeddf65b0e0f18464709eac17' completed in 0.82 seconds with 34 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=400).
+2026-11-04 17:25:54.780 INFO   [680CB6\D31A99] Fanout pass #5 on board '25e090f24f27b80ad82f1a863b260d8f' completed in 0.77 seconds with 34 SMD pins fanouted, 0 not routed, 0 insert errors, +0 extra vias (0 SMD pins still to check in pass, ripup costs=500).
+2026-11-04 17:25:54.780 INFO   Fanout stopped after 5 passes: no progress for 3 consecutive passes.
+2026-11-04 17:25:54.952 INFO   [680CB6\D31A99] Fanout stage completed: started with 198 total SMD pins, completed in 4.50 seconds, escaped pins: 164/198 (82.8%), using 4.84 total CPU seconds, 2.89 GB total allocated, and 386.7 MB peak heap usage.
+2026-11-04 17:25:55.540 INFO   [680CB6\D31A99] Auto-routing stage started on board '25e090f24f27b80ad82f1a863b260d8f' with baseline score 776.58 for 31 unrouted items.
+2026-11-04 17:25:58.036 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 17:25:59.838 INFO   [680CB6\D31A99] Auto-routing pass #1 on board '25e090f24f27b80ad82f1a863b260d8f' was completed in 4.09 seconds with score 913.51 (12 unrouted and 0 violations), using 8.64 CPU seconds and the job allocated 5.59 GB of memory so far.
+2026-11-04 17:26:02.299 INFO   [680CB6\D31A99] Auto-routing pass #2 on board 'c4cde697b0ed4c68a91e9f84cbab5aac' was completed in 2.17 seconds with score 913.51 (12 unrouted and 0 violations), using 11.42 CPU seconds and the job allocated 7.14 GB of memory so far.
+2026-11-04 17:26:03.286 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 17:26:04.978 INFO   [680CB6\D31A99] Auto-routing pass #3 on board '170e9df36476068a3840612d7e4e5951' was completed in 2.38 seconds with score 913.51 (12 unrouted and 0 violations), using 14.58 CPU seconds and the job allocated 8.71 GB of memory so far.
+2026-11-04 17:26:06.746 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 17:26:07.693 INFO   [680CB6\D31A99] Auto-routing pass #4 on board 'a296f60be5770bde90dcc087d7eee25b' was completed in 2.42 seconds with score 913.51 (12 unrouted and 0 violations), using 16.69 CPU seconds and the job allocated 9.99 GB of memory so far.
+2026-11-04 17:26:09.911 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 17:26:10.382 INFO   [680CB6\D31A99] Auto-routing pass #5 on board '1f40f42fdaad25a797366c62f892437b' was completed in 2.45 seconds with score 906.31 (13 unrouted and 0 violations), using 19.83 CPU seconds and the job allocated 12.17 GB of memory so far.
+2026-11-04 17:26:12.912 INFO   [680CB6\D31A99] Auto-routing pass #6 on board '0ef4ffe578145d9ccc5031a11d7d8ebd' was completed in 2.28 seconds with score 913.51 (12 unrouted and 0 violations), using 22.81 CPU seconds and the job allocated 14.49 GB of memory so far.
+2026-11-04 17:26:13.586 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 17:26:14.854 INFO   [680CB6\D31A99] Auto-routing pass #7 on board '6ccf082d6371ccd3139bd51b72e0848d' was completed in 1.72 seconds with score 913.51 (12 unrouted and 0 violations), using 23.78 CPU seconds and the job allocated 15.28 GB of memory so far.
+2026-11-04 17:26:16.012 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 17:26:16.787 INFO   [680CB6\D31A99] Auto-routing pass #8 on board '9b3d95966e727d674dc0a0b8cc927f6f' was completed in 1.71 seconds with score 920.72 (11 unrouted and 0 violations), using 25.61 CPU seconds and the job allocated 16.65 GB of memory so far.
+2026-11-04 17:26:18.450 INFO   [680CB6\D31A99] Auto-routing pass #9 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.44 seconds with score 920.72 (11 unrouted and 0 violations), using 27.53 CPU seconds and the job allocated 17.99 GB of memory so far.
+2026-11-04 17:26:19.898 INFO   [680CB6\D31A99] Auto-routing pass #10 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.43 seconds with score 920.72 (11 unrouted and 0 violations), using 28.52 CPU seconds and the job allocated 18.67 GB of memory so far.
+2026-11-04 17:26:21.378 INFO   [680CB6\D31A99] Auto-routing pass #11 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.46 seconds with score 920.72 (11 unrouted and 0 violations), using 30.70 CPU seconds and the job allocated 19.99 GB of memory so far.
+2026-11-04 17:26:23.046 INFO   [680CB6\D31A99] Auto-routing pass #12 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.45 seconds with score 920.72 (11 unrouted and 0 violations), using 32.69 CPU seconds and the job allocated 21.30 GB of memory so far.
+2026-11-04 17:26:24.497 INFO   [680CB6\D31A99] Auto-routing pass #13 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.43 seconds with score 920.72 (11 unrouted and 0 violations), using 33.67 CPU seconds and the job allocated 21.94 GB of memory so far.
+2026-11-04 17:26:25.977 INFO   [680CB6\D31A99] Auto-routing pass #14 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.46 seconds with score 920.72 (11 unrouted and 0 violations), using 35.50 CPU seconds and the job allocated 23.27 GB of memory so far.
+2026-11-04 17:26:27.494 INFO   [680CB6\D31A99] Auto-routing pass #15 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.50 seconds with score 920.72 (11 unrouted and 0 violations), using 36.55 CPU seconds and the job allocated 23.91 GB of memory so far.
+2026-11-04 17:26:29.035 INFO   [680CB6\D31A99] Auto-routing pass #16 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.52 seconds with score 920.72 (11 unrouted and 0 violations), using 38.34 CPU seconds and the job allocated 25.17 GB of memory so far.
+2026-11-04 17:26:30.523 INFO   [680CB6\D31A99] Auto-routing pass #17 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.47 seconds with score 920.72 (11 unrouted and 0 violations), using 39.38 CPU seconds and the job allocated 25.82 GB of memory so far.
+2026-11-04 17:26:31.988 INFO   [680CB6\D31A99] Auto-routing pass #18 on board 'c77f1da5d23c3d658398bd1bfe142483' was completed in 1.45 seconds with score 920.72 (11 unrouted and 0 violations), using 41.22 CPU seconds and the job allocated 27.14 GB of memory so far.
+2026-11-04 17:26:32.018 INFO   [680CB6\D31A99] The router's best score (920.72) has not improved by more than 0.5 points since pass #8. Stopping the auto-router after 18 passes (11 items still unconnected).
+The following connections could not be routed -- please review your design (e.g. check pad clearances, trace width rules, and available routing space):
+  Net '+1V8_CODEC' (1 unrouted connection):
+    - U702-3  ->  C703-1
+  Net 'UART2_TX' (1 unrouted connection):
+    - U801-2  ->  R402-1
+  Net '+5V' (1 unrouted connection):
+    - C735-1  ->  C734-1
+  Net 'SPK_N' (1 unrouted connection):
+    - C739-1  ->  FB702-2
+  Net 'VBATT_2S_IN' (1 unrouted connection):
+    - via  ->  J401-2
+  Net 'IDEAL_GATE' (1 unrouted connection):
+    - U302-5  ->  Q301-1
+  Net '+5V_PRE_IDEAL' (1 unrouted connection):
+    - C304-1  ->  L301-2
+  Net 'IDEAL_VS' (1 unrouted connection):
+    - U302-1  ->  C305-1
+  Net 'DXL_DIR' (1 unrouted connection):
+    - via  ->  J101-11
+  Net 'BUCK_BST' (1 unrouted connection):
+    - U301-6  ->  C302-1
+  Net 'UART2_RX' (1 unrouted connection):
+    - U802-4  ->  via
+2026-11-04 17:26:32.629 INFO   [680CB6\D31A99] Auto-routing stage completed: started with 51 unrouted nets, completed in 42.75 seconds, final score: 920.72 (11 unrouted and 0 violations), using 41.22 total CPU seconds, 27.14 GB total allocated, and 527.0 MB peak heap usage.
+2026-11-04 17:26:32.734 INFO   [680CB6\D31A99] Starting optimization on 19 threads...
+2026-11-04 17:26:32.932 INFO   [680CB6\D31A99] Skipping optimization stage: the board has 11 unrouted connection(s) (optimizer only runs on completely routed boards).
+2026-11-04 17:26:33.129 INFO   [680CB6\D31A99] Optimization was completed in 0.40 seconds with the score of 920.72 (11 unrouted and 0 violations).
+2026-11-04 17:26:33.136 WARN   [680CB6\D31A99] Invalid traces after autoroute: 75 traces not 45 degree
+2026-11-04 17:26:33.548 INFO   Saving 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-172535\custom_hat_rev_b.ses'...
+2026-11-04 17:26:33.562 INFO   Saved 136037 bytes to 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-172535\custom_hat_rev_b.ses'.

@@ -8,7 +8,7 @@ import fitz
 
 
 ROOT = Path(__file__).resolve().parents[3]
-BASE = ROOT / "docs/references/hat-simulation-tools-20261029"
+BASE = ROOT / "docs/references/扩展板电路仿真工具"
 EVIDENCE = BASE / "board-marking-20261031"
 
 

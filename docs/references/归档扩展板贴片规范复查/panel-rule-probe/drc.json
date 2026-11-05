@@ -1,0 +1,3533 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T15:16:03",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "hat_a1_smt_2up.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB1 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 110.0,
+                        "y": 99.75
+                    },
+                    "uuid": "a76ca67d-0238-4039-81e6-95887b3e85f6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB7 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 111.0,
+                        "y": 130.25
+                    },
+                    "uuid": "6b027958-2ff4-4c57-96b6-e0119b6473dd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 1 [B2/+3V3]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 136.59
+                    },
+                    "uuid": "d5cfb7a4-ff13-4122-8d4d-d3ba0f72a3a8"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 2 [B2/+5V]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 134.05
+                    },
+                    "uuid": "adb98de7-810e-498a-9b3f-c8e8ae373a06"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 3 [B2/unconnected-(J101-Pin_3-Pad3)]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 136.59
+                    },
+                    "uuid": "7ba5cb1f-cf6e-4504-b9f6-6ae1d7ea2ad3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 4 [B2/+5V]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 134.05
+                    },
+                    "uuid": "42e5b284-00c9-4c8d-bdc5-8cebb35e59ac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 5 [B2/unconnected-(J101-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 136.59
+                    },
+                    "uuid": "d2af28b2-ce65-49ff-ba3d-594d0c3908a7"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 6 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 134.05
+                    },
+                    "uuid": "44edb413-5cca-449c-8513-d35ffa243d26"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 7 [B2/unconnected-(J101-Pin_7-Pad7)]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 136.59
+                    },
+                    "uuid": "1bbc71e5-c79c-45e8-9288-7402d947d1ff"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 8 [B2/UART2_TX]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 134.05
+                    },
+                    "uuid": "729a68df-42ab-4e5d-b7f1-8ec99f232656"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 9 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 136.59
+                    },
+                    "uuid": "821f105e-2ef3-4564-b336-aef5115998c0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 10 [B2/UART2_RX]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 134.05
+                    },
+                    "uuid": "f98320b6-64a0-4333-991a-7a4f11053e90"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 11 [B2/DXL_DIR]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 136.59
+                    },
+                    "uuid": "063ea5dd-b596-42b1-9313-c442f5b0b004"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 12 [B2/I2S_BCLK]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 134.05
+                    },
+                    "uuid": "646becc1-b228-4039-b47d-5be2857b37bd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 13 [B2/I2S_MCLK]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 136.59
+                    },
+                    "uuid": "eb309560-390a-41d5-81cc-9a27d65f5172"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 14 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 134.05
+                    },
+                    "uuid": "1950cab6-40bb-417d-982a-8175eca01637"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 15 [B2/unconnected-(J101-Pin_15-Pad15)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 136.59
+                    },
+                    "uuid": "8c9d8cf2-bbeb-48cb-9b02-e5f0b9f6c8e6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 16 [B2/unconnected-(J101-Pin_16-Pad16)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 134.05
+                    },
+                    "uuid": "ba2f9db5-2a02-4207-8254-c69e0ae00756"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 17 [B2/+3V3]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 136.59
+                    },
+                    "uuid": "a1af8a4e-4c2c-4038-9b4c-48d8a09f2349"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 18 [B2/unconnected-(J101-Pin_18-Pad18)]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 134.05
+                    },
+                    "uuid": "bdff3f94-7302-4df7-8d40-7de3a0ea0b2d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 19 [B2/unconnected-(J101-Pin_19-Pad19)]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 136.59
+                    },
+                    "uuid": "458c58a1-a25c-4c75-b30a-07a447d2ad89"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 20 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 134.05
+                    },
+                    "uuid": "b11f3374-2052-42ac-883c-2823410d73a3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 21 [B2/unconnected-(J101-Pin_21-Pad21)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 136.59
+                    },
+                    "uuid": "073b2704-eed3-4f17-828f-4219137bd369"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 22 [B2/unconnected-(J101-Pin_22-Pad22)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 134.05
+                    },
+                    "uuid": "c581985a-a5b7-4470-93fe-8675c713d5eb"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 23 [B2/unconnected-(J101-Pin_23-Pad23)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 136.59
+                    },
+                    "uuid": "cd03fbc1-85f9-4a9a-b903-4307097cebb6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 24 [B2/unconnected-(J101-Pin_24-Pad24)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 134.05
+                    },
+                    "uuid": "23a9870e-5874-46ce-9ee4-df9086447a44"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 25 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 136.59
+                    },
+                    "uuid": "f691b66d-bb74-4455-9736-e4be0d870f1c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 26 [B2/unconnected-(J101-Pin_26-Pad26)]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 134.05
+                    },
+                    "uuid": "f9a3266b-f885-4f2f-b997-d2c782fddd94"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 27 [B2/unconnected-(J101-Pin_27-Pad27)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 136.59
+                    },
+                    "uuid": "fab5797c-69fd-4882-aca0-be2c16b3f77d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 28 [B2/unconnected-(J101-Pin_28-Pad28)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 134.05
+                    },
+                    "uuid": "116528b4-6228-40c4-8fec-d4198ab5c190"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 29 [B2/I2C5_SCL]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 136.59
+                    },
+                    "uuid": "d1f1bcd9-4420-498a-bd6a-7844b48c817a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 30 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 134.05
+                    },
+                    "uuid": "2db0b7e3-640d-44d5-9773-db9014ea56dd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 31 [B2/I2C5_SDA]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 136.59
+                    },
+                    "uuid": "13f70ccd-2dd8-407f-906b-a5aefe5729d1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 32 [B2/unconnected-(J101-Pin_32-Pad32)]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 134.05
+                    },
+                    "uuid": "d55c9db5-854f-45e4-8cda-6495f393d8f0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 33 [B2/CODEC_RST]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 136.59
+                    },
+                    "uuid": "52fcded9-1f2a-44d2-8923-07e482ddaec3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 34 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 134.05
+                    },
+                    "uuid": "b57abeef-ae7c-4cd7-8096-1b2e11f7e1de"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 35 [B2/I2S_LRCK]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 136.59
+                    },
+                    "uuid": "285f336c-ce99-4af3-b40b-bb5e68e03091"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 36 [B2/unconnected-(J101-Pin_36-Pad36)]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 134.05
+                    },
+                    "uuid": "cc0c1782-5b6d-4b63-867b-c5cac871cc8d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 37 [B2/unconnected-(J101-Pin_37-Pad37)]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 136.59
+                    },
+                    "uuid": "94f3f0a6-dfce-43f1-812b-6543456ce139"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 38 [B2/I2S_SDI]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 134.05
+                    },
+                    "uuid": "a353d4c6-eeae-487e-91ae-413b0e30730b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 39 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 136.59
+                    },
+                    "uuid": "0a4ddb97-3336-4890-a49a-269e1d41473f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "B2_J101 的PTH 焊盘 40 [B2/I2S_SDO]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 134.05
+                    },
+                    "uuid": "447bf199-e2f2-434e-aa7b-a5525a775948"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB31 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 131.75
+                    },
+                    "uuid": "223582f4-012a-4551-bfb7-fb6b0a15c243"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.0000 mm)",
+            "items": [
+                {
+                    "description": "PH1 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 110.0
+                    },
+                    "uuid": "02388456-4222-4589-94c9-092ce8cb1af4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 1 [POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 120.97
+                    },
+                    "uuid": "0ea581f5-5c7f-4cd6-b155-a2836e8228dd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 2 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 118.47
+                    },
+                    "uuid": "4a0083f7-3a0b-4c6e-a5a7-875aa0692b5c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J402 的PTH 焊盘 3 [DXL_DATA]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 115.97
+                    },
+                    "uuid": "868ca9f9-be2f-4bfa-8ec2-0bcdcb3cb074"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB12 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 111.0,
+                        "y": 131.75
+                    },
+                    "uuid": "b9bdc755-372f-45d2-87e3-0d5c4f8fcb31"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB20 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 114.0,
+                        "y": 162.25
+                    },
+                    "uuid": "bfe29a7d-3c83-45be-bd6e-c432a0559520"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB27 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 130.25
+                    },
+                    "uuid": "6756b4a5-2fa9-4984-afe1-dbb5f3710d56"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J402 的PTH 焊盘 1 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 152.97
+                    },
+                    "uuid": "b62a8f86-9ecf-4234-86b1-9104cce4666e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J402 的PTH 焊盘 2 [B2/SERVO_VBAT]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 150.47
+                    },
+                    "uuid": "d496ac4d-fa94-48ad-b8ba-a67b861ea245"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J402 的PTH 焊盘 3 [B2/DXL_DATA]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 147.97
+                    },
+                    "uuid": "eb50e0c3-f48c-4e24-b7e8-c3573ba99182"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB4 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 113.0,
+                        "y": 99.75
+                    },
+                    "uuid": "80d04fe1-5ccd-444b-836b-c9485751c261"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H1 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 103.6
+                    },
+                    "uuid": "afe6bf84-a6a9-4e25-9aff-32c8bbd74441"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB23 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 153.0,
+                        "y": 99.75
+                    },
+                    "uuid": "a2eb02c9-282c-483e-bf28-250bf7a562e9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB17 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 111.0,
+                        "y": 162.25
+                    },
+                    "uuid": "8eaa4aef-6c4c-44d9-86f0-9195003beda5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB9 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 113.0,
+                        "y": 130.25
+                    },
+                    "uuid": "131e3d1a-d2a1-4eca-902f-17a902e521e5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H3 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 126.4
+                    },
+                    "uuid": "2ffacf9c-f5e3-45d9-9991-ff0aed5bec3a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "B2_H4 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 158.4
+                    },
+                    "uuid": "2c093ea2-8463-4efb-96a9-5a01923499cc"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB14 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 113.0,
+                        "y": 131.75
+                    },
+                    "uuid": "01c54b1f-7c2b-4e08-973b-fb97cfd8a091"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB37 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 162.25
+                    },
+                    "uuid": "957b2a30-4683-4d70-889b-719927ee10c9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB8 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 130.25
+                    },
+                    "uuid": "32c20fdd-c1b4-4283-a323-95e608d64931"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB15 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 114.0,
+                        "y": 131.75
+                    },
+                    "uuid": "8948f7ff-94fb-4036-a3c1-065ecae32624"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.0000 mm)",
+            "items": [
+                {
+                    "description": "PH3 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 171.0,
+                        "y": 110.0
+                    },
+                    "uuid": "d290676a-d573-4093-9035-f8cf957aae94"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 1 [UART2_TX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 117.16
+                    },
+                    "uuid": "ba8dd221-2473-40fd-b29c-b1e816cf6884"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 2 [UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 119.7
+                    },
+                    "uuid": "b4b8a62d-765c-4975-8c59-1c5091c42a12"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J403 的PTH 焊盘 3 [POWER_GND]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 122.24
+                    },
+                    "uuid": "3052590c-25a8-4661-9f84-c672ecae63f5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB3 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 99.75
+                    },
+                    "uuid": "992a7643-3b72-4522-9034-2998b1f2bd99"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB6 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 110.0,
+                        "y": 130.25
+                    },
+                    "uuid": "dc89b1fc-382f-4bd3-91c1-dafc43c63c88"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.0000 mm)",
+            "items": [
+                {
+                    "description": "PH2 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 154.0
+                    },
+                    "uuid": "3fd7e338-36b1-4440-a97e-bac18442a4c4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB28 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 153.0,
+                        "y": 130.25
+                    },
+                    "uuid": "ddf3617c-5e4f-4cf0-87e4-492a75cd8c90"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB26 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 130.25
+                    },
+                    "uuid": "f963aa7c-4760-4563-8c86-d1d2e55e20cf"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB10 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 114.0,
+                        "y": 130.25
+                    },
+                    "uuid": "ecd35177-3f34-4749-ba9b-8549c4eefdef"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB36 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 162.25
+                    },
+                    "uuid": "2325b1fb-0a19-438c-a83d-b00db91b544a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB22 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 99.75
+                    },
+                    "uuid": "5f9634f0-54ab-4502-bf37-5843dea9f71a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 1 [B2/VBATT_2S_IN]",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 159.32
+                    },
+                    "uuid": "cfeb9085-414a-4bbf-84d5-f39994b1fd7e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 2 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 123.59,
+                        "y": 159.32
+                    },
+                    "uuid": "9b8f0b80-012b-4920-9353-71768627a66d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 3 [B2/+5V]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 159.32
+                    },
+                    "uuid": "35e7bf62-28cf-4bba-9783-023f31755781"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 4 [B2/+3V3]",
+                    "pos": {
+                        "x": 118.51,
+                        "y": 159.32
+                    },
+                    "uuid": "45131b26-299f-4e60-ada5-ecca8aeab512"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 5 [B2/unconnected-(J301-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 115.97,
+                        "y": 159.32
+                    },
+                    "uuid": "4b9188e3-6a16-4ec7-8016-be4f06c0bd68"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 6 [B2/+1V8_CODEC]",
+                    "pos": {
+                        "x": 113.43,
+                        "y": 159.32
+                    },
+                    "uuid": "eb39dec5-d1f6-4efa-a18f-59e718918b12"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 7 [B2/SERVO_VBAT]",
+                    "pos": {
+                        "x": 110.89,
+                        "y": 159.32
+                    },
+                    "uuid": "dc9f07aa-0191-43a1-903b-1501ef0b35a0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J301 的PTH 焊盘 8 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 159.32
+                    },
+                    "uuid": "e64a1ab6-c454-4030-9144-42a60dc4461b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB2 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 111.0,
+                        "y": 99.75
+                    },
+                    "uuid": "30ed442f-f904-4663-a7ef-fd5ded5018dd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.0000 mm)",
+            "items": [
+                {
+                    "description": "PH4 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 171.0,
+                        "y": 154.0
+                    },
+                    "uuid": "c99cb5e1-301c-42f2-94b6-7281ad091305"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB18 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 162.25
+                    },
+                    "uuid": "3f49ebd5-1156-4f45-9e39-fd454347f06c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB33 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 153.0,
+                        "y": 131.75
+                    },
+                    "uuid": "50bd3397-e3b7-4e41-b5c8-68d4751354f9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 1 [POWER_GND]",
+                    "pos": {
+                        "x": 148.99,
+                        "y": 119.7
+                    },
+                    "uuid": "58752ddf-6486-4857-a4af-5f608d6f40b9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 2 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 151.49,
+                        "y": 119.7
+                    },
+                    "uuid": "a3a34c19-75ad-49b2-aba5-a7511de0b86a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "J401 的PTH 焊盘 3 [DXL_DATA]",
+                    "pos": {
+                        "x": 153.99,
+                        "y": 119.7
+                    },
+                    "uuid": "d67a630e-3339-4bc6-bdb8-d12a159054d6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB5 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 114.0,
+                        "y": 99.75
+                    },
+                    "uuid": "0c159245-a2cf-485f-a445-992a444f204f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB25 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 99.75
+                    },
+                    "uuid": "c7055d98-fd35-455c-ba7c-52bc85ae1e16"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "B2_H3 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 158.4
+                    },
+                    "uuid": "05c767d4-0380-424c-a31e-0d95d834bbe4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB40 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 162.25
+                    },
+                    "uuid": "cf6a01ee-5294-4d0e-8816-3760209e326e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB21 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 99.75
+                    },
+                    "uuid": "f8630bfb-f216-4967-8a15-968e86c73e3e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J802 的PTH 焊盘 1 [BMI_INT1_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 120.97
+                    },
+                    "uuid": "0e822763-08dd-4bb6-af0a-cccc865999ac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J802 的PTH 焊盘 2 [BMI_INT3_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 118.43
+                    },
+                    "uuid": "d6d76125-88c7-4fff-98b9-3fad5687219f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB19 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 113.0,
+                        "y": 162.25
+                    },
+                    "uuid": "3473309c-9518-4bed-a14b-2d163219ab30"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "B2_H1 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 135.6
+                    },
+                    "uuid": "2af47d99-0395-4ee3-bab1-d21bb69d80bf"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB13 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 112.0,
+                        "y": 131.75
+                    },
+                    "uuid": "a6d7b9bc-b176-44bd-b388-c9f3738ddc57"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB39 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 162.25
+                    },
+                    "uuid": "d3ffcd88-d313-4bc2-9c69-f2f5f25bf84a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "B2_H2 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 135.6
+                    },
+                    "uuid": "b5c4ee71-7bac-470e-8190-b13f40d1906f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB38 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 153.0,
+                        "y": 162.25
+                    },
+                    "uuid": "e0fef2bc-4ae8-4937-8753-b258930abf4f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB29 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 130.25
+                    },
+                    "uuid": "945ef548-ef29-4901-9206-25578b3a7be8"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB24 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 99.75
+                    },
+                    "uuid": "7538923d-d5dc-4387-9d84-773646c35c12"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB34 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 154.0,
+                        "y": 131.75
+                    },
+                    "uuid": "a0d4faf0-22a4-477e-ae4c-dd3bd9178c87"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J802 的PTH 焊盘 1 [B2/BMI_INT1_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 152.97
+                    },
+                    "uuid": "4d6d4d18-9997-4482-b99f-6087871cb13d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J802 的PTH 焊盘 2 [B2/BMI_INT3_TP]",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 150.43
+                    },
+                    "uuid": "c495c67a-c4f2-44b6-a1cd-4edff2da6d96"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 1 [VBATT_2S_IN]",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 127.32
+                    },
+                    "uuid": "bb8108f3-c1c8-4870-ade2-0fdaedffc233"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 2 [POWER_GND]",
+                    "pos": {
+                        "x": 123.59,
+                        "y": 127.32
+                    },
+                    "uuid": "d1b80c8c-6059-494b-95e7-043aa27bef7f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 3 [+5V]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 127.32
+                    },
+                    "uuid": "9439f2fe-ca35-4947-b907-af741ab330e1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 4 [+3V3]",
+                    "pos": {
+                        "x": 118.51,
+                        "y": 127.32
+                    },
+                    "uuid": "974569bd-71f2-4cf5-9dd7-cf6f8d7ac6bc"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 5 [unconnected-(J301-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 115.97,
+                        "y": 127.32
+                    },
+                    "uuid": "510a7896-bc60-4fda-9d32-3ab2a329fb5d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 6 [+1V8_CODEC]",
+                    "pos": {
+                        "x": 113.43,
+                        "y": 127.32
+                    },
+                    "uuid": "6244419b-1b23-49f8-b2e2-261e00a03c4f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 7 [SERVO_VBAT]",
+                    "pos": {
+                        "x": 110.89,
+                        "y": 127.32
+                    },
+                    "uuid": "a3fe180e-9adf-40f2-bbac-7e4601e2cefb"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "J301 的PTH 焊盘 8 [POWER_GND]",
+                    "pos": {
+                        "x": 108.35,
+                        "y": 127.32
+                    },
+                    "uuid": "858a9b33-12bf-4383-b8b0-b97cb0ae1f4d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H2 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 103.6
+                    },
+                    "uuid": "18d3a65e-5acb-46c2-b9f5-300200a91def"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB30 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 130.25
+                    },
+                    "uuid": "aa9cce3b-5572-410e-aa8e-e1da57f9a41b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB35 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 155.0,
+                        "y": 131.75
+                    },
+                    "uuid": "b9f65584-d396-464e-b308-9b6d083615bd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB16 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 110.0,
+                        "y": 162.25
+                    },
+                    "uuid": "2ac827e2-414e-4852-9496-c185751e83d1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J401 的PTH 焊盘 1 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 148.99,
+                        "y": 151.7
+                    },
+                    "uuid": "ed51fd66-d65b-4554-8c6a-ab87db8f0bab"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J401 的PTH 焊盘 2 [B2/SERVO_VBAT]",
+                    "pos": {
+                        "x": 151.49,
+                        "y": 151.7
+                    },
+                    "uuid": "5fb70885-d7af-4796-bfc7-4992f2cfe29b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.9500 mm)",
+            "items": [
+                {
+                    "description": "B2_J401 的PTH 焊盘 3 [B2/DXL_DATA]",
+                    "pos": {
+                        "x": 153.99,
+                        "y": 151.7
+                    },
+                    "uuid": "25ed452f-e6c6-4cba-8c69-97b2e234e18f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB32 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 152.0,
+                        "y": 131.75
+                    },
+                    "uuid": "718dd1e0-eab4-4558-a441-f63d2f6be058"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J403 的PTH 焊盘 1 [B2/UART2_TX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 149.16
+                    },
+                    "uuid": "d3589318-33c5-4f25-9b70-ea4e897389f7"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J403 的PTH 焊盘 2 [B2/UART2_RX]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 151.7
+                    },
+                    "uuid": "ae2e5616-21f2-46b3-b68e-ccbf62a374cf"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0200 mm)",
+            "items": [
+                {
+                    "description": "B2_J403 的PTH 焊盘 3 [B2/POWER_GND]",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 154.24
+                    },
+                    "uuid": "1326e1e1-8132-4ed7-a259-bfa0a4759632"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 1 [+3V3]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 104.59
+                    },
+                    "uuid": "a10ca244-0652-4f16-aa9d-bd74933cddb2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 2 [+5V]",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 102.05
+                    },
+                    "uuid": "899e2721-65c5-4dc9-9e57-e3410033296c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 3 [unconnected-(J101-Pin_3-Pad3)]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 104.59
+                    },
+                    "uuid": "c8e9d8d1-17e6-4684-8007-1ab6e48483ae"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 4 [+5V]",
+                    "pos": {
+                        "x": 110.86,
+                        "y": 102.05
+                    },
+                    "uuid": "9e9f82a1-8f4f-44cc-a3aa-022d1c875295"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 5 [unconnected-(J101-Pin_5-Pad5)]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 104.59
+                    },
+                    "uuid": "9a54567a-f02c-404a-924a-fba9eb3cf305"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 6 [POWER_GND]",
+                    "pos": {
+                        "x": 113.4,
+                        "y": 102.05
+                    },
+                    "uuid": "c419d153-a940-422a-b4f5-720294eeaf21"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 7 [unconnected-(J101-Pin_7-Pad7)]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 104.59
+                    },
+                    "uuid": "490d794e-5465-4f36-8743-4b3a12195910"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 8 [UART2_TX]",
+                    "pos": {
+                        "x": 115.94,
+                        "y": 102.05
+                    },
+                    "uuid": "2863ad0d-d5ed-4b0e-adaa-0d36e5544ea8"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 9 [POWER_GND]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 104.59
+                    },
+                    "uuid": "106ab06b-4021-471f-ac57-18c3597066dc"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 10 [UART2_RX]",
+                    "pos": {
+                        "x": 118.48,
+                        "y": 102.05
+                    },
+                    "uuid": "8fb26703-14cf-46ec-acb4-d7cf82ec8d6f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 11 [DXL_DIR]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 104.59
+                    },
+                    "uuid": "c158d093-3f7b-444d-8bdf-789f512793b9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 12 [I2S_BCLK]",
+                    "pos": {
+                        "x": 121.02,
+                        "y": 102.05
+                    },
+                    "uuid": "f69f7511-c99b-4d80-9c9b-2bd0fc56c6f7"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 13 [I2S_MCLK]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 104.59
+                    },
+                    "uuid": "f3c2d270-2dca-45a3-8fa5-84de16f43fed"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 14 [POWER_GND]",
+                    "pos": {
+                        "x": 123.56,
+                        "y": 102.05
+                    },
+                    "uuid": "4d57d17a-cbc5-4196-a708-2ba7439f0332"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 15 [unconnected-(J101-Pin_15-Pad15)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 104.59
+                    },
+                    "uuid": "eef8fc48-5313-4160-8b14-1a7bcb163076"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 16 [unconnected-(J101-Pin_16-Pad16)]",
+                    "pos": {
+                        "x": 126.1,
+                        "y": 102.05
+                    },
+                    "uuid": "b852ef33-160b-4ccf-b681-a02d77b2f566"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 17 [+3V3]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 104.59
+                    },
+                    "uuid": "5f9353cf-393e-4703-be54-755b86e0d88f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 18 [unconnected-(J101-Pin_18-Pad18)]",
+                    "pos": {
+                        "x": 128.64,
+                        "y": 102.05
+                    },
+                    "uuid": "26b3161a-8ad1-4943-a4ab-24c712210454"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 19 [unconnected-(J101-Pin_19-Pad19)]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 104.59
+                    },
+                    "uuid": "c5edc9d0-8daa-4d83-a664-ef8b22f14d9a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 20 [POWER_GND]",
+                    "pos": {
+                        "x": 131.18,
+                        "y": 102.05
+                    },
+                    "uuid": "fcd1fdfa-961e-479f-8c12-a5174a74d91a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 21 [unconnected-(J101-Pin_21-Pad21)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 104.59
+                    },
+                    "uuid": "97c10e42-4394-46a1-9a79-9c24d1f1e432"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 22 [unconnected-(J101-Pin_22-Pad22)]",
+                    "pos": {
+                        "x": 133.72,
+                        "y": 102.05
+                    },
+                    "uuid": "a81ab8ee-22b8-4f20-aad3-bb9713e5d9f1"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 23 [unconnected-(J101-Pin_23-Pad23)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 104.59
+                    },
+                    "uuid": "a8e41f22-9cab-493b-9505-3be34a5357c2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 24 [unconnected-(J101-Pin_24-Pad24)]",
+                    "pos": {
+                        "x": 136.26,
+                        "y": 102.05
+                    },
+                    "uuid": "b6f67e8b-7f49-4c4f-8963-86f3faa5846d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 25 [POWER_GND]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 104.59
+                    },
+                    "uuid": "d9f2f92a-e2a1-4782-a904-03de52e70707"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 26 [unconnected-(J101-Pin_26-Pad26)]",
+                    "pos": {
+                        "x": 138.8,
+                        "y": 102.05
+                    },
+                    "uuid": "8c2769a9-ef46-43b2-9285-35644eb30cd6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 27 [unconnected-(J101-Pin_27-Pad27)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 104.59
+                    },
+                    "uuid": "9d768c70-9e79-41a3-a67d-a32a9ba22ce5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 28 [unconnected-(J101-Pin_28-Pad28)]",
+                    "pos": {
+                        "x": 141.34,
+                        "y": 102.05
+                    },
+                    "uuid": "874b0a92-afa4-42dd-9819-d8df734e5a61"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 29 [I2C5_SCL]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 104.59
+                    },
+                    "uuid": "4e2ed2d7-f14a-488a-8688-a58c48d3504f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 30 [POWER_GND]",
+                    "pos": {
+                        "x": 143.88,
+                        "y": 102.05
+                    },
+                    "uuid": "261067b4-60e0-4576-b338-472b4af307d0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 31 [I2C5_SDA]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 104.59
+                    },
+                    "uuid": "a0a98133-a4c9-4f93-b507-0a5027157acd"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 32 [unconnected-(J101-Pin_32-Pad32)]",
+                    "pos": {
+                        "x": 146.42,
+                        "y": 102.05
+                    },
+                    "uuid": "93e20304-aa81-43b4-b2b0-4461f3fc4330"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 33 [CODEC_RST]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 104.59
+                    },
+                    "uuid": "d27cd119-6ad8-48e1-a11c-a5dd949220c6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 34 [POWER_GND]",
+                    "pos": {
+                        "x": 148.96,
+                        "y": 102.05
+                    },
+                    "uuid": "46ef401f-d836-4099-86a6-b586a0ca3b2e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 35 [I2S_LRCK]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 104.59
+                    },
+                    "uuid": "bb52529a-2747-44c6-99d5-545753b5f57e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 36 [unconnected-(J101-Pin_36-Pad36)]",
+                    "pos": {
+                        "x": 151.5,
+                        "y": 102.05
+                    },
+                    "uuid": "bc46bd1b-e5e6-49f0-979a-61023beefbac"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 37 [unconnected-(J101-Pin_37-Pad37)]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 104.59
+                    },
+                    "uuid": "1f0fcf4c-0af8-4b82-9e3d-91202070e73b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 38 [I2S_SDI]",
+                    "pos": {
+                        "x": 154.04,
+                        "y": 102.05
+                    },
+                    "uuid": "978ee515-3360-4d54-9f0c-ee5a8fa819f4"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 39 [POWER_GND]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 104.59
+                    },
+                    "uuid": "f4c699e5-5e6c-4a11-ac62-c0d2cc8376fb"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 1.0400 mm)",
+            "items": [
+                {
+                    "description": "J101 的PTH 焊盘 40 [I2S_SDO]",
+                    "pos": {
+                        "x": 156.58,
+                        "y": 102.05
+                    },
+                    "uuid": "83fd5c19-d6c6-4bc9-9884-d14a21a55130"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 2.7000 mm)",
+            "items": [
+                {
+                    "description": "H4 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 126.4
+                    },
+                    "uuid": "f5e871da-34d4-41a4-9081-e6acff5a02d5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.6000 mm)",
+            "items": [
+                {
+                    "description": "MB11 的 NPTH 焊盘",
+                    "pos": {
+                        "x": 110.0,
+                        "y": 131.75
+                    },
+                    "uuid": "df4ede48-992f-4853-b72f-f5c08ec6d19b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 146.46,
+                        "y": 110.06
+                    },
+                    "uuid": "12880710-bab6-4e39-98e5-9f5aaef16253"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.25,
+                        "y": 111.175
+                    },
+                    "uuid": "15479ab6-0a73-467d-a50a-0030c46c6a7b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 155.79,
+                        "y": 115.85
+                    },
+                    "uuid": "261e72e2-ae51-47fb-b308-c53781be42d3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.51,
+                        "y": 121.45
+                    },
+                    "uuid": "30f95fc4-cfd4-4fab-954e-a6666f0ae2f0"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 156.04,
+                        "y": 110.9
+                    },
+                    "uuid": "393fbae3-44e6-4c60-9ad6-8a0c19acafc5"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.92,
+                        "y": 112.1
+                    },
+                    "uuid": "4b32cdf4-4c9f-4063-9192-5ed88caa54f3"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 163.19,
+                        "y": 106.8
+                    },
+                    "uuid": "567743f7-50e3-400e-9c6f-bfd4cba17e30"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.155,
+                        "y": 116.715
+                    },
+                    "uuid": "6161460d-8bde-4d36-ba25-d09cee34ae39"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.84,
+                        "y": 117.34
+                    },
+                    "uuid": "6bb881f8-1cfe-4896-9f9b-4a0097817be2"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 154.55,
+                        "y": 116.69
+                    },
+                    "uuid": "75745baa-554c-46e7-88ac-552be3d07c28"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 156.13,
+                        "y": 124.06
+                    },
+                    "uuid": "79563332-1b6a-46f1-81c8-166e2b43f50e"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.125,
+                        "y": 111.425
+                    },
+                    "uuid": "9d54e9f2-7bb6-4842-a0fc-0779b259bb34"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 160.69,
+                        "y": 112.2
+                    },
+                    "uuid": "b15f9a36-696f-4efb-8ecc-719c2eabf017"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 147.24,
+                        "y": 116.44
+                    },
+                    "uuid": "b98e5f46-8603-4b3d-a227-00fc19658471"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.1500 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 150.3625,
+                        "y": 112.1
+                    },
+                    "uuid": "c6ad78c2-361f-4c03-a650-a32f6c415d72"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 127.83,
+                        "y": 121.43
+                    },
+                    "uuid": "c6c9e478-bbdc-4453-bd32-c353d46e8c29"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 162.19,
+                        "y": 114.4
+                    },
+                    "uuid": "c6f5af1b-74ba-4cc9-afec-304bffac0c9c"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 161.19,
+                        "y": 107.43
+                    },
+                    "uuid": "cb23a7cc-459c-4a88-a0bf-2731b18265c6"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.94,
+                        "y": 112.75
+                    },
+                    "uuid": "cceaece6-1166-402b-9795-61219aaf3b0f"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 122.83,
+                        "y": 112.475
+                    },
+                    "uuid": "d46452ac-678c-47fe-b1d7-29bb76cf403a"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 140.39,
+                        "y": 116.49
+                    },
+                    "uuid": "e2205697-9fa5-483f-b2f6-58643a86132d"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 124.57,
+                        "y": 120.32
+                    },
+                    "uuid": "eb735ea3-6278-4224-b374-b13370420d94"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [+3V3] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 142.565,
+                        "y": 126.55
+                    },
+                    "uuid": "f3849800-324c-43b2-8323-3665a35e68ba"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 158.2357,
+                        "y": 109.3896
+                    },
+                    "uuid": "0db5fe12-ed79-46c7-8c94-f4e140925022"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 164.215,
+                        "y": 106.612
+                    },
+                    "uuid": "187d8f95-f467-464d-9e2b-799123d77ce9"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [I2C5_SCL] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 148.7442,
+                        "y": 109.5837
+                    },
+                    "uuid": "76b18a71-178a-4584-bc89-974cb75ba9ab"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [B2/+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 134.6936,
+                        "y": 158.0231
+                    },
+                    "uuid": "020d4191-87bf-4e48-be93-ce752e7d967b"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [B2/+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 151.95,
+                        "y": 157.415
+                    },
+                    "uuid": "3fd3240a-a459-4bb4-ad7b-f8382feba408"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "孔径超出范围 (规则 'PANEL_RULE_LOADING_SENTINEL' 最小孔径 9.0000 mm; 实际 0.3000 mm)",
+            "items": [
+                {
+                    "description": "过孔 [B2/+5V] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 145.025,
+                        "y": 149.5
+                    },
+                    "uuid": "ab445203-83b1-4735-97bd-421faf7a7282"
+                }
+            ],
+            "severity": "error",
+            "type": "drill_out_of_range"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J101",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 136.59
+                    },
+                    "uuid": "15e66f57-429c-4e4a-adc8-88b5c270e8f3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID1",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 142.0
+                    },
+                    "uuid": "22676d01-5e3f-449f-88aa-8788443b7f51"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 H1",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 103.6
+                    },
+                    "uuid": "30fd9943-9dcf-4bcc-9a75-0e460abf1b73"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J403",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 117.16
+                    },
+                    "uuid": "59506270-eea4-4dc2-b5f4-fc77d119be95"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID2",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 148.0
+                    },
+                    "uuid": "60a30d40-19d6-484d-932a-74943dababa2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID3",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 160.5
+                    },
+                    "uuid": "6256c1c5-a5f0-4550-bd76-90faf4be9838"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_L301",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 147.9
+                    },
+                    "uuid": "7dd13d3f-43df-468f-a226-d7ab19b471a7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J301",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 159.32
+                    },
+                    "uuid": "9543d1ed-1e42-40f3-80ce-2452e4e296b8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 U301",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 114.0
+                    },
+                    "uuid": "abbbfd53-3051-4863-8737-437e92ac61f2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID1",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 110.0
+                    },
+                    "uuid": "b07f437b-e3ee-4828-9222-39be712c9c6b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J802",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 120.97
+                    },
+                    "uuid": "b5aa74b4-1cff-4c97-9c49-d9840d120378"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_U301",
+                    "pos": {
+                        "x": 126.0,
+                        "y": 146.0
+                    },
+                    "uuid": "b76f9a0e-3ad9-459d-8a35-7a23fdcfaa2a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_H1",
+                    "pos": {
+                        "x": 103.6,
+                        "y": 135.6
+                    },
+                    "uuid": "b92aecd2-8f6f-41f9-ba58-23756102a57c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_H2",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 135.6
+                    },
+                    "uuid": "bfe70395-dfd5-49f2-9fca-98bfc7e4ed5a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J802",
+                    "pos": {
+                        "x": 160.42,
+                        "y": 152.97
+                    },
+                    "uuid": "cd816a78-dc66-4782-a672-6877147bf6ab"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J301",
+                    "pos": {
+                        "x": 126.13,
+                        "y": 127.32
+                    },
+                    "uuid": "d03128b7-447b-4704-b311-fd188127e1a5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 H2",
+                    "pos": {
+                        "x": 161.4,
+                        "y": 103.6
+                    },
+                    "uuid": "d8bba836-bc17-4aca-bd4a-f034eb5484e0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 L301",
+                    "pos": {
+                        "x": 138.0,
+                        "y": 115.9
+                    },
+                    "uuid": "e6008961-ab94-4411-9e55-dbcde921d944"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID2",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 116.0
+                    },
+                    "uuid": "ea0a506a-d5ef-41e7-adb9-0afb845cd32c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID3",
+                    "pos": {
+                        "x": 139.0,
+                        "y": 128.5
+                    },
+                    "uuid": "ea389c01-703a-4a8c-b4c4-d8c58b69b703"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_J403",
+                    "pos": {
+                        "x": 121.05,
+                        "y": 149.16
+                    },
+                    "uuid": "f6f7a47b-1b22-4d01-9d83-26859f15abdf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 J101",
+                    "pos": {
+                        "x": 108.32,
+                        "y": 104.59
+                    },
+                    "uuid": "f71e5942-c923-403d-93ea-ba4f9874b455"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID5",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 116.0
+                    },
+                    "uuid": "0a301996-594e-40d4-8687-3436028e8548"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_R703",
+                    "pos": {
+                        "x": 122.8,
+                        "y": 154.8
+                    },
+                    "uuid": "3191b8e3-a46e-4504-9933-23ceae980b1a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 R703",
+                    "pos": {
+                        "x": 122.8,
+                        "y": 122.8
+                    },
+                    "uuid": "46d09b90-a1df-4bed-b535-ab20ea5b07f5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID6",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 122.0
+                    },
+                    "uuid": "50b98a7a-8336-4e81-bad0-3b485c0d28bf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 FID4",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 110.0
+                    },
+                    "uuid": "66af446f-84aa-4d8e-800f-ffcc2962b4c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID6",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 154.0
+                    },
+                    "uuid": "9426fc14-72b5-4f43-9850-571b29b2b1ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 R309",
+                    "pos": {
+                        "x": 117.24,
+                        "y": 119.7
+                    },
+                    "uuid": "b32da29b-e714-4ae0-94b0-2abdd030c874"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID4",
+                    "pos": {
+                        "x": 101.5,
+                        "y": 142.0
+                    },
+                    "uuid": "b9120922-ca5d-43ed-9e39-4fc7b5e89fc7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_R309",
+                    "pos": {
+                        "x": 117.24,
+                        "y": 151.7
+                    },
+                    "uuid": "b9476de8-df5b-4753-b7ef-573e72220127"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 C309",
+                    "pos": {
+                        "x": 125.4,
+                        "y": 124.2
+                    },
+                    "uuid": "d5d493c4-6d14-4d93-b330-692cfa49cdf2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_FID5",
+                    "pos": {
+                        "x": 163.5,
+                        "y": 148.0
+                    },
+                    "uuid": "e0c2d4a2-4a91-4341-998c-469e16672236"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'duck'",
+            "items": [
+                {
+                    "description": "封装 B2_C309",
+                    "pos": {
+                        "x": 125.4,
+                        "y": 156.2
+                    },
+                    "uuid": "fbdba64c-6c34-45f7-8842-9cdbe9f8dda3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        }
+    ]
+}

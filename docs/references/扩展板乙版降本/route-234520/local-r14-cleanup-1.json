@@ -1,0 +1,167 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-05T00:45:33",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "custom_hat_rev_b.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 0.1061 mm",
+                    "pos": {
+                        "x": 139.15,
+                        "y": 107.5875
+                    },
+                    "uuid": "18bb98eb-84d9-458e-88b6-3a4e20510b0e"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (B.Cu), 长度: 0.4750 mm",
+                    "pos": {
+                        "x": 137.15,
+                        "y": 108.6375
+                    },
+                    "uuid": "199c5273-b192-45da-94d1-069c7a540e05"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U701 的焊盘 1 [AUDIO_MCLK]",
+                    "pos": {
+                        "x": 136.5625,
+                        "y": 113.25
+                    },
+                    "uuid": "06e8d20d-9a1d-401e-a6f9-95eac97c5ece"
+                },
+                {
+                    "description": "F.Cu 上 Y701 的焊盘 3 [AUDIO_MCLK]",
+                    "pos": {
+                        "x": 137.875,
+                        "y": 109.425
+                    },
+                    "uuid": "a0d1bb42-8c0d-4beb-a8b0-0399eae57d5e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "过孔 [I2S_BCLK] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 135.1,
+                        "y": 113.45
+                    },
+                    "uuid": "1cae0efe-d536-4475-a1a8-7191283945ce"
+                },
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 132.25,
+                        "y": 107.15
+                    },
+                    "uuid": "86b4c842-c94d-472e-9aca-ba02cc9f17c2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 0.1061 mm",
+                    "pos": {
+                        "x": 139.15,
+                        "y": 107.5875
+                    },
+                    "uuid": "18bb98eb-84d9-458e-88b6-3a4e20510b0e"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 137.15,
+                        "y": 108.6375
+                    },
+                    "uuid": "3a030103-a078-49cf-a7d5-50cf89d8db76"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.1000 mm",
+                    "pos": {
+                        "x": 140.475,
+                        "y": 107.2
+                    },
+                    "uuid": "06128173-9357-4325-919d-61d4f366c5e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "走线 [I2S_BCLK] (B.Cu), 长度: 0.0500 mm",
+                    "pos": {
+                        "x": 132.25,
+                        "y": 107.15
+                    },
+                    "uuid": "86b4c842-c94d-472e-9aca-ba02cc9f17c2"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}

@@ -49,7 +49,7 @@ def signature(violation):
 def main():
     import json
     root = pipeline.BASE.parents[1]
-    evidence = root / "docs/references/hat-simulation-tools-20261029/u501-repair-20261030"
+    evidence = root / "docs/references/扩展板电路仿真工具/u501-repair-20261030"
     evidence.mkdir(parents=True, exist_ok=True)
     if (evidence / "result.json").exists():
         raise FileExistsError("Repair already recorded; inspect the existing checkpoint before rerunning")

@@ -1,0 +1,32 @@
+* Auto-generated testbench for decoupling analysis: +5V rail
+* 4 capacitor(s) in parallel, series R-L-C model
+* Model: ESR/ESL from pdn_impedance (package-based)
+
+R_esr_C305 rail n_esr_0 5m
+L_par_C305 n_esr_0 n_lpar_0 1.2n
+C305 n_lpar_0 0 22u
+R_esr_C306 rail n_esr_1 5m
+L_par_C306 n_esr_1 n_lpar_1 1.2n
+C306 n_lpar_1 0 22u
+R_esr_C323 rail n_esr_2 5m
+L_par_C323 n_esr_2 n_lpar_2 1.2n
+C323 n_lpar_2 0 22u
+R_esr_C328 rail n_esr_3 33.7m
+L_par_C328 n_esr_3 n_lpar_3 900p
+C328 n_lpar_3 0 2.2u
+
+* 1A AC current source into the rail node — V(rail) = Z(f)
+IAC 0 rail DC 0 AC 1
+
+.control
+ac dec 200 100 100Meg
+let z_mag = vm(rail)
+meas ac z_min min z_mag
+meas ac f_at_zmin when z_mag=z_min
+meas ac z_at_1M find vm(rail) at=1Meg
+meas ac z_at_100k find vm(rail) at=100k
+echo "z_min=$&z_min f_at_zmin=$&f_at_zmin z_at_1M=$&z_at_1M z_at_100k=$&z_at_100k n_caps=4" > E:/Projects/duck-robot/docs/references/hat-buck-stencil-20261102/spice-work/decoupling_C305_C306_C323_C328.out
+quit
+.endc
+
+.end

@@ -12,7 +12,7 @@ import repair_u501
 from finish_u701_power import sig
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/u701-power-shift-20261030"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/u701-power-shift-20261030"
 OLD_VIA = (149.1, 111.95)
 F_SEG = "c5d4af8b-f46e-441b-a03e-d844543e0c80"
 B_SEG = "2a881d9d-5f8c-48c5-a258-c55298ef4351"

@@ -6,7 +6,7 @@ import pcbnew
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/annular-rings-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/annular-rings-20261031"
 BASELINE = "3bbf6ca679d413b12d89482cecacd7c7ba7e2b5cf2b146daf43bc1be3a96dc70"
 
 

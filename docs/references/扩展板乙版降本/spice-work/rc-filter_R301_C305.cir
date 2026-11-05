@@ -1,0 +1,21 @@
+* Auto-generated testbench for RC filter: R301/C305
+* Type: low-pass, expected fc = 15915.5 Hz
+* Model: ideal passives (exact for RC)
+
+
+R301 VBATT_2S_IN IDEAL_VS 100
+
+C305 IDEAL_VS 0 100n
+
+* AC stimulus
+VAC VBATT_2S_IN 0 DC 0 AC 1
+
+.control
+ac dec 100 159.2 1.592Meg
+meas ac fc_sim when vdb(IDEAL_VS)=-3
+meas ac phase_fc find vp(IDEAL_VS) at=fc_sim
+echo "fc_sim=$&fc_sim phase_fc=$&phase_fc has_parasitics=0" > docs/references/hat-revb-cost-20261104/spice-work/rc-filter_R301_C305.out
+quit
+.endc
+
+.end

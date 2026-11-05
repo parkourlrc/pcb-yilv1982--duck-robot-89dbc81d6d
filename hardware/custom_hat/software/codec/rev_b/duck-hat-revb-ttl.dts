@@ -1,0 +1,30 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "radxa,zero3", "rockchip,rk3566";
+
+    fragment@0 {
+        target = <&pinctrl>;
+        __overlay__ {
+            duck-hat-revb-ttl {
+                hat_revb_dir: direction-control {
+                    rockchip,pins = <3 1 0 &pcfg_pull_down>;
+                };
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&uart2>;
+        __overlay__ {
+            status = "okay";
+            pinctrl-names = "default";
+            pinctrl-0 = <&uart2m0_xfer &hat_revb_dir>;
+            rs485-de-gpios = <&gpio3 1 0>;
+            rs485-rts-active-low;
+            rs485-rts-delay = <0 0>;
+            linux,rs485-enabled-at-boot-time;
+        };
+    };
+};

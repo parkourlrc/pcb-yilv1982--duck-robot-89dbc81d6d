@@ -4,7 +4,7 @@ import json
 import pipeline
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/npth-clearance-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/npth-clearance-20261031"
 BASELINE = "9eaffba7b27272c2fcab16560dc50ad3e6bab830aa566b35d7d1b257bdf48ab4"
 RULE = '''(rule "Mechanical NPTH copper clearance"
   (condition "A.Type == 'Pad' && !A.isPlated() && A.Hole_Size_X > 0mm")

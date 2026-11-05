@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/u501-repair-20261030"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/u501-repair-20261030"
 REGION = (158.7, 106.9, 164.9, 112.2)
 SCALE = 112
 WIDTH, HEIGHT = 820, 710

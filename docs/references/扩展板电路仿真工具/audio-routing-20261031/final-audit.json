@@ -1,0 +1,65 @@
+{
+  "pcb_sha256": "86654c03b6c1c8f51f7d5a4bef469aceed2ddfc73433b3e50426940c2a23164a",
+  "review_binding": {
+    "revision": "A.1",
+    "pcb_sha256": "86654c03b6c1c8f51f7d5a4bef469aceed2ddfc73433b3e50426940c2a23164a",
+    "checkpoint": "docs/references/扩展板邮票孔与电源修复/checkpoint.json",
+    "checkpoint_sha256": "15a9482158bcc40207c08cc3bd2ef6ba4f4ee3842e8af17f3801f3273a79e576",
+    "native_summary": "docs/references/扩展板邮票孔与电源修复/post-promotion-summary.json",
+    "native_summary_sha256": "6c3073aa0f4e7d75fbdc59d6d03ea3b11afe7bdd2cc9f5684bb1c9257231f523",
+    "production_package": "hardware/custom_hat/rev_a/production-20261102-panel-edge-review",
+    "production_ready": false,
+    "hardware_tested": false,
+    "purpose": "Identity binding for current read-only checks; no manufacturing or real-hardware release"
+  },
+  "pcb_review_identity_preserved": true,
+  "native_pin_mismatches": [],
+  "codec_source_and_modules_match": true,
+  "tool_and_fixture_report_match": true,
+  "source_control_count": 78,
+  "used_control_count": 70,
+  "operation_count": 74,
+  "simulated_scenarios": 10,
+  "simulated_profiles": 8,
+  "calculations": {
+    "alsa_output_raw_value": 105,
+    "inverted_register_code": 13,
+    "datasheet_table_10_51_gain_db": -6.5,
+    "coherent_two_channel_linear_sum": 0.9463025179229609,
+    "coherent_sum_db": -0.47940008672037626,
+    "default_pcm_raw": [
+      47,
+      47
+    ],
+    "default_pcm_nominal_db": -40.0,
+    "limit": "Ideal nominal gain arithmetic, not measured audio level, output power or distortion"
+  },
+  "manual_datasheet_basis": {
+    "tlv320aic3104": {
+      "file": "../metadata-repair-20261030/sources/tlv320aic3104.pdf",
+      "pages": [
+        5,
+        65
+      ],
+      "sections": [
+        "Table7-1",
+        "Table10-51"
+      ],
+      "sha256": "17ce38b2b2b35e44fedaad6c44fcb9c2133722dccfd5ef80e9ec2e3b8f281e9a"
+    },
+    "pam8302a": {
+      "file": "../metadata-repair-20261030/sources/PAM8302A.pdf",
+      "pages": [
+        2
+      ],
+      "version": "DS41333 Rev6-2 May2021",
+      "sha256": "fb2ab762c31b5fd45f352b116a5e528fa434e9f46aebbee2582e362fc64ef516"
+    }
+  },
+  "broken_links": [],
+  "real_alsa_accessed": false,
+  "hardware_tested": false,
+  "manufacturing_released": false,
+  "goal_complete": false,
+  "accepted_offline": true
+}

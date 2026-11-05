@@ -2,7 +2,7 @@
 
 历史检查点：现行使用[pth-clearance-review](../production-20261031-pth-clearance-review/README.md)。后续已修制造规则及加载问题，本包不再作为发布入口，原数据保留。
 
-源PCB SHA256：`b06b1051d84509c7434347d5889afb7908dffe1af99b67eea67eb4c3e33a9849`。包含TTL本地旁路及`DUCK HAT Rev A`丝印，详细结论见[最终文件复审](../../../../docs/references/hat-simulation-tools-20261029/board-marking-20261031/research.md)。
+源PCB SHA256：`b06b1051d84509c7434347d5889afb7908dffe1af99b67eea67eb4c3e33a9849`。包含TTL本地旁路及`DUCK HAT Rev A`丝印，详细结论见[最终文件复审](../../../../docs/references/扩展板电路仿真工具/board-marking-20261031/research.md)。
 
 - 同版Gerber/钻孔、58件完整坐标、52件SMT坐标、拟装/SMT/追踪BOM、逐件装配意向和双面定位SVG。
 - 6个THT器件为J101/J301/J401/J402/J403/J802，装配方式待选；C307 DNP。

@@ -18,8 +18,8 @@
 - [实测] robotd `control.47+duck-v03.1`，API 42，`commissioning/ready`，15 颗扭矩已关闭。Studio 源包修订 `2026.10.3101`，运行目录 `/home/radxa/studio-dev`；网页自报应用内部版本 `0.1.0-dev`，不与源包修订混用。
 - [实测] 实际网页接口已收到 IMU 动态重力、电压和循环频率；总览 `servos.online=null`，舵机表 `online=0`，原生 `last_sample.servos` 有 15 颗数据。
 - [源码核验] `studio/state.py:191` 与 `studio/servo.py:667` 读取 `native.joints`；`state.py:239` 已单独从 commissioning 的 `last_sample.imu` 取重力。`startup_status.py` 的诊断输入主要为启动模式 `native` 观察值，不覆盖这一调试格式。
-- 原始证据、安装状态与失败记录：[统一研究](../../references/b-feetech-policy-deployment-20261024/research.md)、[网页接口](../../references/b-feetech-policy-deployment-20261024/studio-commissioning-websocket-20261031.json)、[原生回读](../../references/b-feetech-policy-deployment-20261024/studio-commissioning-final-20261031.json)。
-- 受影响入口：根 README、PROGRESS、`tools/robotd-v03/README.md`、本 Spec 索引与统一研究。BOM/接线/参考库无需修改。
+- 原始证据、安装状态与失败记录：[统一研究](../../references/飞特策略模型上机核对/research.md)、[网页接口](../../references/飞特策略模型上机核对/studio-commissioning-websocket-20261031.json)、[原生回读](../../references/飞特策略模型上机核对/studio-commissioning-final-20261031.json)。
+- 受影响入口：根 README、PROGRESS、`software/robotd-v03/README.md`、本 Spec 索引与统一研究。BOM/接线/参考库无需修改。
 
 ## 已批准修改方案
 
@@ -37,9 +37,9 @@
 
 ## 实施与验收
 
-- 持久成果：[工具目录](../../../tools/robotd-v03/studio-display/README.md)，含四个上游原件、五个部署文件、补丁、SHA 清单与安装脚本。三个只读参考库未修改。
-- [实测] 6 项针对性检查通过；有效反馈、过期、重复旧帧、读错/断连、会话更换及非 commissioning 分支均已覆盖。见[日志](../../references/b-feetech-policy-deployment-20261024/studio-display-tests-20261031.log)。
-- [实测] 23:44:52 备份后部署，23:45:16 仅重启 Studio。robotd PID 4092 保持不变、扭矩关闭、策略关闭；配置和标定 SHA 未变。备份目录 `/home/radxa/studio-display-backups/20261031T154452988692Z/`，见[安装报告](../../references/b-feetech-policy-deployment-20261024/studio-display-install-20261031.json)。
-- [实测] 实际 `/ws` 至少 3 帧总览与 2 帧舵机表均显示 15/15，全部位置/电压/温度有效；IMU 重力持续更新、安装方向标为未验证。见[网页验收](../../references/b-feetech-policy-deployment-20261024/studio-display-websocket-20261031.json)。未发送硬件控制命令，也未做浏览器画面验收。
+- 持久成果：[工具目录](../../../software/robotd-v03/studio-display/README.md)，含四个上游原件、五个部署文件、补丁、SHA 清单与安装脚本。三个只读参考库未修改。
+- [实测] 6 项针对性检查通过；有效反馈、过期、重复旧帧、读错/断连、会话更换及非 commissioning 分支均已覆盖。见[日志](../../references/飞特策略模型上机核对/studio-display-tests-20261031.log)。
+- [实测] 23:44:52 备份后部署，23:45:16 仅重启 Studio。robotd PID 4092 保持不变、扭矩关闭、策略关闭；配置和标定 SHA 未变。备份目录 `/home/radxa/studio-display-backups/20261031T154452988692Z/`，见[安装报告](../../references/飞特策略模型上机核对/studio-display-install-20261031.json)。
+- [实测] 实际 `/ws` 至少 3 帧总览与 2 帧舵机表均显示 15/15，全部位置/电压/温度有效；IMU 重力持续更新、安装方向标为未验证。见[网页验收](../../references/飞特策略模型上机核对/studio-display-websocket-20261031.json)。未发送硬件控制命令，也未做浏览器画面验收。
 - 遗留边界：3D 标定关节弧度、缺少的 IMU 原生诊断字段、本机标定与动作验收仍不在此次显示修复完成声明内；原生偶发通信失败仍有记录。
 - 未提交、未推送，工作区保留。

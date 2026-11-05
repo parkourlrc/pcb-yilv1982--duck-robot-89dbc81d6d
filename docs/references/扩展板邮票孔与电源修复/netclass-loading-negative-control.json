@@ -1,0 +1,111 @@
+{
+  "results": [
+    {
+      "revision": "r17",
+      "unit": "A1",
+      "edge_gap_mm": 0.175,
+      "power_clearance_expected_mm": 0.2,
+      "targeted_clearance_findings": [
+        {
+          "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+          "items": [
+            {
+              "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 118.375
+              },
+              "uuid": "bfbdd76f-af1e-429b-a32e-f9ddfad93856"
+            },
+            {
+              "description": "走线 [+3V3] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 118.0
+              },
+              "uuid": "d55aa022-4a1f-47e6-ad8f-7493d8c95b84"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "rejected_as_power": true
+    },
+    {
+      "revision": "r17",
+      "unit": "B2/",
+      "edge_gap_mm": 0.175,
+      "power_clearance_expected_mm": 0.2,
+      "targeted_clearance_findings": [],
+      "rejected_as_power": false
+    },
+    {
+      "revision": "r18",
+      "unit": "A1",
+      "edge_gap_mm": 0.175,
+      "power_clearance_expected_mm": 0.2,
+      "targeted_clearance_findings": [
+        {
+          "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+          "items": [
+            {
+              "description": "走线 [+3V3] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 118.0
+              },
+              "uuid": "056d4b9b-0e3d-4dc2-ade9-74eecf7925fb"
+            },
+            {
+              "description": "走线 [I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 118.375
+              },
+              "uuid": "9587a3d9-7518-4da9-b155-b50206cf40a5"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "rejected_as_power": true
+    },
+    {
+      "revision": "r18",
+      "unit": "B2/",
+      "edge_gap_mm": 0.175,
+      "power_clearance_expected_mm": 0.2,
+      "targeted_clearance_findings": [
+        {
+          "description": "间距违规 (网络类 'Power' 间距 0.2000 mm; 实际 0.1750 mm)",
+          "items": [
+            {
+              "description": "走线 [B2/I2C5_SCL] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 122.375
+              },
+              "uuid": "554fe2d3-cfa7-4298-8872-bc41bf7fedc0"
+            },
+            {
+              "description": "走线 [B2/+3V3] (F.Cu), 长度: 1.0000 mm",
+              "pos": {
+                "x": 95.0,
+                "y": 122.0
+              },
+              "uuid": "cb72cd54-967f-4422-81ea-876ac996fa3f"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ],
+      "rejected_as_power": true
+    }
+  ],
+  "matches_expected_failure_and_repair": true,
+  "source_files_unchanged": true,
+  "probe_drc_is_not_design_acceptance": true
+}

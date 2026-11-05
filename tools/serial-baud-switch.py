@@ -23,7 +23,7 @@ from pathlib import Path
 import serial
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LOG_DIR = (REPO_ROOT / "docs" / "references" / "emmc-flash-radxa-zero3w-20261013" / "serial-logs")
+LOG_DIR = (REPO_ROOT / "docs" / "references" / "瑞莎开发板存储线刷" / "serial-logs")
 USER, PASS = "radxa", "radxa"
 EXTLINUX = "/boot/extlinux/extlinux.conf"
 GETTY_TPL = "/lib/systemd/system/serial-getty@.service"

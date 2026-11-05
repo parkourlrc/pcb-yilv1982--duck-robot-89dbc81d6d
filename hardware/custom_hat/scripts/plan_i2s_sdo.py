@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/i2s-sdo-repair-20261030"
 STEP = 0.05
 XMIN, YMIN, XMAX, YMAX = 119.0, 100.5, 164.4, 121.0
 COLS = round((XMAX-XMIN)/STEP)+1

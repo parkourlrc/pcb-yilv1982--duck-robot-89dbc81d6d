@@ -56,4 +56,4 @@ python3 hat_audio.py apply --output none --report muted.json
 - 扬声器/J504负载、音量、麦克风类型/2.0V偏置适配与实际播放/录音。J504低阻耳机条件仍未解决，不能因已有aux配置就放行低阻负载。
 - J505是单路模拟麦克风，当前配置选择左ADC。若PCM录音使用两个时隙，右侧静音属于此配置，不能作为第二路麦克风或丢帧故障的证据。
 
-源码/原厂资料、模拟场景和PCB对应关系见[审查记录](../../../../docs/references/hat-simulation-tools-20261029/audio-routing-20261031/research.md)。模块及overlay说明见[codec入口](README.md)。
+源码/原厂资料、模拟场景和PCB对应关系见[审查记录](../../../../docs/references/扩展板电路仿真工具/audio-routing-20261031/research.md)。模块及overlay说明见[codec入口](README.md)。

@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT/'docs/schematics/imu-to-dxl-scrapmeta-v0.3/production/imu_to_dxl_v03_gerber.zip'
-OUT = ROOT/'docs/references/b-feetech-policy-deployment-20261024'
+OUT = ROOT/'docs/references/飞特策略模型上机核对'
 FONT = Path('C:/Windows/Fonts/msyh.ttc')
 COLORS = {'A': '#006da8', 'B': '#a45b00', 'C': '#d04b26', 'D': '#7845ad', 'G': '#168447'}
 POINTS = {

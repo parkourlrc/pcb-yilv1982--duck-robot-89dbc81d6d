@@ -6,7 +6,7 @@ import pipeline
 from digitize_capacitor_bias import decode_curve
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/amp-decoupling-20261031"
 MODELS = EVIDENCE.parent / "capacitor-models-20261031"
 
 

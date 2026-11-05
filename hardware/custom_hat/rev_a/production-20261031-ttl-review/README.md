@@ -6,4 +6,4 @@
 
 6处填孔盖铜要求见via-process-requirements.csv。未经确认的默认介质层叠Job已移出本包，归档于对应证据目录。真实层叠/HDI、保护、热/控制环和硬件功能未放行。
 
-详情见[修复与复审](../../../../docs/references/hat-simulation-tools-20261029/ttl-bypass-20261031/research.md)。manifest.json绑定源和输出，文件检查通过不等于制造批准。
+详情见[修复与复审](../../../../docs/references/扩展板电路仿真工具/ttl-bypass-20261031/research.md)。manifest.json绑定源和输出，文件检查通过不等于制造批准。

@@ -20,7 +20,7 @@ import serial.tools.list_ports
 
 RADXA_BAUD = 1500000
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_OUT = REPO_ROOT / "docs" / "references" / "emmc-flash-radxa-zero3w-20261013" / "serial-logs"
+DEFAULT_OUT = REPO_ROOT / "docs" / "references" / "瑞莎开发板存储线刷" / "serial-logs"
 
 
 def ts() -> str:

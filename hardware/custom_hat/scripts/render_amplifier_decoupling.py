@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[3]
-EVIDENCE = ROOT / "docs/references/hat-simulation-tools-20261029/amp-decoupling-20261031"
+EVIDENCE = ROOT / "docs/references/扩展板电路仿真工具/amp-decoupling-20261031"
 BOUNDS = (143.8, 122.6, 154.6, 129.4)
 
 

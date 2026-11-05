@@ -1,10 +1,10 @@
 # Spec：网页手柄调用联合模型从躺姿起身
 
 - 日期：2026-11-01。
-- 状态：实现与离线验收完成后，用户明确要求“部署”；已安装并通过只读验收。部署时未动作；用户随后尝试恢复和行走，报告自动翻身后停机，尚无成功起身验收。见[11-02 日志调查](../../references/b-feetech-policy-deployment-20261024/walk-crash-investigation-20261101.md)。2026-11-02 用户要求全量提交并推送。
+- 状态：实现与离线验收完成后，用户明确要求“部署”；已安装并通过只读验收。部署时未动作；用户随后尝试恢复和行走，报告自动翻身后停机，尚无成功起身验收。见[11-02 日志调查](../../references/飞特策略模型上机核对/walk-crash-investigation-20261101.md)。2026-11-02 用户要求全量提交并推送。
 - 需求：用户在 Studio 网页手柄明确点击“躺姿起身”，使策略关闭、倒地的机器人尝试调用现有 walk 联合模型恢复直立；恢复后保持零速度，开始行走仍由用户明确操作。
 - 负面范围：不实现开机自动起身／无人值守自动重试，不补回已退役 stand_test，不换模型、不改标定、通信和现有动作滤波；不改普通行走的起步保护，不自动 commit/push。
-- 依据：[现状、训练来源与勘误](../../references/b-feetech-policy-deployment-20261024/getup-availability-20261101.md)。本机起身效果尚未验证；当前静态 entry_pose 仍为 standing，这次增加的是本项目实验恢复入口，不改写模型作者的部署声明。
+- 依据：[现状、训练来源与勘误](../../references/飞特策略模型上机核对/getup-availability-20261101.md)。本机起身效果尚未验证；当前静态 entry_pose 仍为 standing，这次增加的是本项目实验恢复入口，不改写模型作者的部署声明。
 
 ## 现状与文档确认
 
@@ -37,7 +37,7 @@
 
 ## 修改范围与实现顺序
 
-工作副本计划置于 `tools/robotd-recovery/`，注明固定来源与完整哈希；不编辑只读 `references/` 或历史归档源码。实现保留可重放补丁和部署／回退说明，不提交构建缓存。下表为相对工作副本对应上游路径：
+工作副本计划置于 `software/robotd-recovery/`，注明固定来源与完整哈希；不编辑只读 `references/` 或历史归档源码。实现保留可重放补丁和部署／回退说明，不提交构建缓存。下表为相对工作副本对应上游路径：
 
 | 位置 | 拟定修改 |
 |---|---|
@@ -71,15 +71,15 @@
 部署前新鲜回读确认策略关闭、扭矩关闭且回读确认、关节完整及 IMU 就绪；无需为已卸力状态重复询问托稳。
 robotd 和4个待替换Studio原文件SHA与候选基线全部相符，新模块尚不存在，helper未占总线。
 运行二进制虽位于历史命名`duck-v03-20261031`目录，其字节哈希为原版混读control.47，不能从目录名判断通信方式。
-原始回读：[部署前快照](../../references/b-feetech-policy-deployment-20261024/webpad-recovery-deploy-before-20261101.json)。
-部署按现场备份、锁内二次核对、原子替换、启动和只读验收执行；23:49完成，robotd PID843、Studio PID851，均active/enabled，六模型加载且41个受保护文件哈希不变。页面新入口available/ok、恢复idle，策略及扭矩关闭。详见[部署结果](../../references/b-feetech-policy-deployment-20261024/webpad-recovery-deployment-20261101.md)。
+原始回读：[部署前快照](../../references/飞特策略模型上机核对/webpad-recovery-deploy-before-20261101.json)。
+部署按现场备份、锁内二次核对、原子替换、启动和只读验收执行；23:49完成，robotd PID843、Studio PID851，均active/enabled，六模型加载且41个受保护文件哈希不变。页面新入口available/ok、恢复idle，策略及扭矩关闭。详见[部署结果](../../references/飞特策略模型上机核对/webpad-recovery-deployment-20261101.md)。
 
 确认来自项目 [AGENTS.md](../../../AGENTS.md) 第四节第8条：**“修改方案经用户批准后方可编码”**。新入口涉及上力和越过普通启动的直立门槛，已将具体范围、退出和验收写清；不是再次询问已授权的只读调研。
 
 - 用户“继续”：授权继续核对与准备；随后明确批准“按方案实现，先不部署和动作”，授权上述软件实现、隔离构建和无动作验证。
 - 2026-11-01实施基线：SSH只读核对robotd SHA256为725b74cd93660a312970a44879abe5b75e8becf108499a1b8798961e48ca5f00；Studio三个拟改文件与既有快照哈希一致。robotd PID374、microduck-studio PID494，均active。最初查询studio.service得到inactive是查错服务名，已纠正；未对服务作任何写操作。
-- 已完成 `tools/robotd-recovery/` 的固件10文件、Studio5文件补丁及来源清单；`.work/`仅作隔离工作副本。除表内逻辑外，`raw_stream.rs`发布动态恢复状态、`feetech_commissioning.rs`增加构建后缀、`updater/src/ipc.rs`补协议枚举匹配、`studio/updates.py`将新增取消纳入既有急停放行，均属新入口必要配套。
-- [实测／离线] 恢复状态机4项、真实ONNX＋假IO4项、Python后端7项、浏览器心跳逻辑7项、协议55项及普通起步相关15项通过。旧r17启动测试一项在候选及原始源码均失败，单独保留；不宣称全工作区全绿。完整[验收和失败记录](../../../tools/robotd-recovery/verification/README.md)。
-- [实测／离线] ARM64构建成功，候选SHA256为`fe200aabe2700a492cfb4ea8523c505d4047c26e081c4b18266af1cb8511e82a`；原始包重放补丁后逐文件哈希一致。候选及基线回退包已生成，后者不是未来安装前的现场备份。见[交付入口](../../../tools/robotd-recovery/README.md)和[产物清单](../../../tools/robotd-recovery/candidate-manifest.json)。
+- 已完成 `software/robotd-recovery/` 的固件10文件、Studio5文件补丁及来源清单；`.work/`仅作隔离工作副本。除表内逻辑外，`raw_stream.rs`发布动态恢复状态、`feetech_commissioning.rs`增加构建后缀、`updater/src/ipc.rs`补协议枚举匹配、`studio/updates.py`将新增取消纳入既有急停放行，均属新入口必要配套。
+- [实测／离线] 恢复状态机4项、真实ONNX＋假IO4项、Python后端7项、浏览器心跳逻辑7项、协议55项及普通起步相关15项通过。旧r17启动测试一项在候选及原始源码均失败，单独保留；不宣称全工作区全绿。完整[验收和失败记录](../../../software/robotd-recovery/verification/README.md)。
+- [实测／离线] ARM64构建成功，候选SHA256为`fe200aabe2700a492cfb4ea8523c505d4047c26e081c4b18266af1cb8511e82a`；原始包重放补丁后逐文件哈希一致。候选及基线回退包已生成，后者不是未来安装前的现场备份。见[交付入口](../../../software/robotd-recovery/README.md)和[产物清单](../../../software/robotd-recovery/candidate-manifest.json)。
 - 后续部署已完成并通过只读验收；未触发动作，物理起身效果、承重及动作推理周期仍待单独验收。
-- 提交：实现阶段保留工作区；2026-11-02 用户要求全量提交并推送，见[同步检查](../../references/repository-sync-20261102/research.md)与 Git 历史。
+- 提交：实现阶段保留工作区；2026-11-02 用户要求全量提交并推送，见[同步检查](../../references/全量提交与托管同步/research.md)与 Git 历史。

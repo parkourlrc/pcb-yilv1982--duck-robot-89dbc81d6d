@@ -11,7 +11,7 @@ from add_i2c_pullups import obstacles, vector
 from fit_ldo_candidate import remove_objects
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/lrck-ground-reference-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/lrck-ground-reference-20261031"
 BASELINE = "fda50c8019c3ab68c7c54228fc09fb36dd028e35b43afe26a7dc0f6c090b0771"
 START, END = (149.4, 113.85), (151.5, 104.59)
 

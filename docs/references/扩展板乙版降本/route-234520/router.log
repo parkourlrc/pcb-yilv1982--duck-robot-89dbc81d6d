@@ -1,0 +1,68 @@
+2026-11-04 23:45:21.183 INFO   Freerouting v2.5.0 (build-date: 2026-10-05)
+2026-11-04 23:45:21.454 INFO   Hardware: 20 CPU cores, 590 CPU score, 16344 MB RAM
+2026-11-04 23:45:23.054 INFO   Opening 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-234520\custom_hat_rev_b.dsn'...
+2026-11-04 23:45:23.835 INFO   [E80405\6BBD53] Loading board file 'custom_hat_rev_b.dsn'...
+2026-11-04 23:45:23.952 INFO   Layer 'F.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-04 23:45:23.952 INFO   Layer 'B.Cu' contains a power plane / large copper pour covering >=30% of the board; associated net(s) configured for plane routing.
+2026-11-04 23:45:23.953 WARN   DSN file 'custom_hat_rev_b.dsn' was loaded with 6 warning(s).
+2026-11-04 23:45:24.304 WARN   Design Warning: Board has 20 pre-existing clearance violation(s) in the loaded design (before routing):
+  - 20 unfixable violation(s) (cannot be resolved by Freerouting):
+      * 20 fixed trace/via clearance violations (first 5 shown):
+          - FixedVia#1223 [net POWER_GND] <-> FixedTrace#874 [net +5V]
+          - FixedVia#1223 [net POWER_GND] <-> FixedTrace#871 [net +5V]
+          - FixedVia#1223 [net POWER_GND] <-> FixedTrace#864 [net +5V]
+          - FixedVia#1223 [net POWER_GND] <-> FixedTrace#837 [net +5V]
+          - FixedVia#1223 [net POWER_GND] <-> FixedTrace#823 [net +5V]
+          ... and 15 more
+  - 0 potentially fixable violations
+Notice: Freerouting does not modify component placement, board outlines, or fixed items.
+Resolving these 20 unfixable violation(s) is the responsibility of the board author in their EDA tool (e.g. KiCad).
+2026-11-04 23:45:34.795 INFO   [E80405\6BBD53] Starting routing of 'custom_hat_rev_b' on 19 threads...
+2026-11-04 23:45:34.832 INFO   [E80405\6BBD53] Pipeline thread limits: autorouter pass is single-threaded, optimizer.max_threads=19.
+2026-11-04 23:45:35.130 INFO   [E80405\6BBD53] Auto-routing stage started on board '639caae5f98dded94233f472bb7338e7' with baseline score 323.17 for 95 unrouted items.
+2026-11-04 23:45:40.776 WARN   BasicBoard.normalizeTraces: reached 2000 iterations for net 'I2S_BCLK' — stopping to prevent hang. The board geometry for this net may be oscillating (split/combine cycle); traces are kept as-is and further normalization for this net is suppressed on this board candidate.
+2026-11-04 23:45:42.369 INFO   Necked retry routed net 'AUDIO_MCLK' at 150.0 um trace width.
+2026-11-04 23:45:43.203 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 23:45:51.737 WARN   BasicBoard.normalizeTraces: reached 2000 iterations for net 'CODEC_RIGHT_LOP' — stopping to prevent hang. The board geometry for this net may be oscillating (split/combine cycle); traces are kept as-is and further normalization for this net is suppressed on this board candidate.
+2026-11-04 23:45:53.500 INFO   Necked retry routed net '+3V3' at 150.0 um trace width.
+2026-11-04 23:46:01.219 WARN   BasicBoard.normalizeTraces: reached 2000 iterations for net 'VBATT_2S_IN' — stopping to prevent hang. The board geometry for this net may be oscillating (split/combine cycle); traces are kept as-is and further normalization for this net is suppressed on this board candidate.
+2026-11-04 23:46:02.645 INFO   [E80405\6BBD53] Auto-routing pass #1 on board '639caae5f98dded94233f472bb7338e7' was completed in 27.38 seconds with score 804.25 (27 unrouted and 20 violations), using 26.97 CPU seconds and the job allocated 36.71 GB of memory so far.
+2026-11-04 23:46:04.012 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 23:46:04.264 INFO   Necked retry routed net 'AMP_LEFT_INPUT' at 150.0 um trace width.
+2026-11-04 23:46:05.091 INFO   Necked retry routed net 'I2S_BCLK' at 150.0 um trace width.
+2026-11-04 23:46:05.686 INFO   Necked retry routed net 'I2S_SDO' at 150.0 um trace width.
+2026-11-04 23:46:07.037 INFO   [E80405\6BBD53] Auto-routing pass #2 on board 'c296ae0b5880bd5369023db67e7b60dd' was completed in 4.23 seconds with score 797.04 (28 unrouted and 20 violations), using 31.86 CPU seconds and the job allocated 41.15 GB of memory so far.
+2026-11-04 23:46:08.315 INFO   Necked retry routed net '+3V3' at 150.0 um trace width.
+2026-11-04 23:46:10.189 INFO   Necked retry routed net 'VBATT_2S_IN' at 150.0 um trace width.
+2026-11-04 23:46:11.862 INFO   [E80405\6BBD53] Auto-routing pass #3 on board 'db4fc7f5016dbdd1b86000878ddf2442' was completed in 4.65 seconds with score 833.08 (23 unrouted and 20 violations), using 36.78 CPU seconds and the job allocated 45.10 GB of memory so far.
+2026-11-04 23:46:13.248 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 23:46:13.782 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 23:46:16.248 INFO   [E80405\6BBD53] Auto-routing pass #4 on board '777e548c732c18554ec39a644b6a0256' was completed in 4.21 seconds with score 833.08 (23 unrouted and 20 violations), using 40.78 CPU seconds and the job allocated 48.78 GB of memory so far.
+2026-11-04 23:46:20.072 INFO   [E80405\6BBD53] Auto-routing pass #5 on board 'aaf277604bd1a9584867f7c257295114' was completed in 3.66 seconds with score 847.49 (21 unrouted and 20 violations), using 44.72 CPU seconds and the job allocated 52.34 GB of memory so far.
+2026-11-04 23:46:23.316 INFO   Necked retry routed net 'I2C5_SCL' at 150.0 um trace width.
+2026-11-04 23:46:24.380 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 23:46:25.067 INFO   [E80405\6BBD53] Auto-routing pass #6 on board 'da2ee66ef8ef89421c438d855585821f' was completed in 4.82 seconds with score 861.91 (19 unrouted and 20 violations), using 49.77 CPU seconds and the job allocated 57.57 GB of memory so far.
+2026-11-04 23:46:29.557 INFO   [E80405\6BBD53] Auto-routing pass #7 on board '6840446424ea8fb7678fcc85ca6acf80' was completed in 4.31 seconds with score 869.12 (18 unrouted and 20 violations), using 53.77 CPU seconds and the job allocated 61.43 GB of memory so far.
+2026-11-04 23:46:32.478 INFO   Necked retry routed net 'AUDIO_MCLK' at 150.0 um trace width.
+2026-11-04 23:46:33.125 INFO   Necked retry routed net 'I2S_BCLK' at 150.0 um trace width.
+2026-11-04 23:46:35.119 INFO   [E80405\6BBD53] Auto-routing pass #8 on board '8a3756f689f0ff4a954d2d20740998ed' was completed in 5.37 seconds with score 869.12 (18 unrouted and 20 violations), using 59.75 CPU seconds and the job allocated 67.68 GB of memory so far.
+2026-11-04 23:46:36.046 INFO   Necked retry routed net '+1V8_CODEC' at 150.0 um trace width.
+2026-11-04 23:46:38.303 INFO   [E80405\6BBD53] Auto-routing pass #9 on board 'd85acb7b565cd8d250c60db23e575bbe' was completed in 3.01 seconds with score 883.53 (16 unrouted and 20 violations), using 62.77 CPU seconds and the job allocated 70.60 GB of memory so far.
+2026-11-04 23:46:42.478 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 23:46:43.107 INFO   [E80405\6BBD53] Auto-routing pass #10 on board 'd9e50abfc94d454b4fdb1e6713b6a312' was completed in 4.63 seconds with score 869.12 (18 unrouted and 20 violations), using 67.67 CPU seconds and the job allocated 75.83 GB of memory so far.
+2026-11-04 23:46:46.715 INFO   [E80405\6BBD53] Auto-routing pass #11 on board '770cf963966d9ed9f61c03df512a9ced' was completed in 3.43 seconds with score 869.12 (18 unrouted and 20 violations), using 70.56 CPU seconds and the job allocated 78.76 GB of memory so far.
+2026-11-04 23:46:49.154 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 23:46:50.077 INFO   Necked retry routed net 'CODEC_RST' at 150.0 um trace width.
+2026-11-04 23:46:51.109 INFO   [E80405\6BBD53] Auto-routing pass #12 on board '13ce83d8b63297d4899d3fb35633b709' was completed in 4.22 seconds with score 883.53 (16 unrouted and 20 violations), using 75.63 CPU seconds and the job allocated 84.09 GB of memory so far.
+2026-11-04 23:46:54.422 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 23:46:54.992 INFO   [E80405\6BBD53] Auto-routing pass #13 on board 'fe0240d0a5c658197b5684094a4c0d81' was completed in 3.70 seconds with score 869.12 (18 unrouted and 20 violations), using 79.75 CPU seconds and the job allocated 88.13 GB of memory so far.
+2026-11-04 23:46:57.411 INFO   Necked retry routed net 'I2S_SDO' at 150.0 um trace width.
+2026-11-04 23:46:58.645 INFO   [E80405\6BBD53] Auto-routing pass #14 on board 'bb77c4a1046af9ee3da9a98573f3fd66' was completed in 3.47 seconds with score 883.53 (16 unrouted and 20 violations), using 82.88 CPU seconds and the job allocated 91.24 GB of memory so far.
+2026-11-04 23:47:00.421 INFO   Necked retry routed net '+1V8_CODEC' at 150.0 um trace width.
+2026-11-04 23:47:02.817 INFO   [E80405\6BBD53] Auto-routing pass #15 on board 'a4b4b3caf494a058a1b05834626845c2' was completed in 3.98 seconds with score 876.32 (17 unrouted and 20 violations), using 86.95 CPU seconds and the job allocated 95.12 GB of memory so far.
+2026-11-04 23:47:07.920 INFO   Necked retry routed net 'CODEC_RIGHT_LOP' at 150.0 um trace width.
+2026-11-04 23:47:08.717 INFO   [E80405\6BBD53] Auto-routing pass #16 on board 'd9e50abfc94d454b4fdb1e6713b6a312' was completed in 0.00 seconds with score 883.53 (16 unrouted and 20 violations), using 92.94 CPU seconds and the job allocated 101.87 GB of memory so far.
+2026-11-04 23:47:09.157 INFO   [E80405\6BBD53] Auto-routing stage completed: started with 95 unrouted nets, completed in 94.36 seconds, final score: 883.53 (16 unrouted and 20 violations), using 93.91 total CPU seconds, 102.54 GB total allocated, and 955.2 MB peak heap usage.
+2026-11-04 23:47:09.165 WARN   [E80405\6BBD53] Invalid traces after autoroute: 56 traces not 45 degree
+2026-11-04 23:47:09.465 INFO   Saving 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-234520\custom_hat_rev_b.ses'...
+2026-11-04 23:47:09.479 INFO   Saved 131725 bytes to 'E:\Projects\duck-robot\docs\references\hat-revb-cost-20261104\route-234520\custom_hat_rev_b.ses'.

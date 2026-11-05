@@ -2,7 +2,7 @@
 
 针对本板头部IMU U501的两个I2C端点：加速度计`0x19`、陀螺仪`0x68`；不替代现有TTL身体IMU200。使用固定版本Bosch BMI08x SensorAPI，已构建ARM64静态程序，并检查错误身份/读失败时不会进入配置。**尚未在Radxa或实物BMI088上运行，不能据此标记IMU验收通过。**
 
-产物：`arm64/bmi088-i2c`、`arm64/manifest.json`。源码为`bmi088_i2c.c`，Bosch原始源码在[驱动证据目录](../../../../docs/references/hat-simulation-tools-20261029/driver-compatibility-20261031/sources/)，原许可保留于`LICENSE.Bosch`。提交固定为`c1ed227e7bb7da1fa600bbd4e5c82d0da1eb416a`；使用普通BMI088，未套用MM/anymotion变体或COINES板的供电/GPIO操作。
+产物：`arm64/bmi088-i2c`、`arm64/manifest.json`。源码为`bmi088_i2c.c`，Bosch原始源码在[驱动证据目录](../../../../docs/references/扩展板电路仿真工具/driver-compatibility-20261031/sources/)，原许可保留于`LICENSE.Bosch`。提交固定为`c1ed227e7bb7da1fa600bbd4e5c82d0da1eb416a`；使用普通BMI088，未套用MM/anymotion变体或COINES板的供电/GPIO操作。
 
 ## 工作方式
 
@@ -43,4 +43,4 @@ python -X utf8 hardware/custom_hat/scripts/verify_bmi088_transport_faults.py
 
 已完成native与ARM64警告视为错误的编译、无硬件说明/参数拒绝检查、ARM64静态ELF检查及7个host源代码故障注入场景。故障夹具只模拟身份读和失败路径，拦截所有设备系统调用；没有仿真成功初始化/采样，也没有访问真实I2C。测试源码`bmi088_fault_shim.c`未链接进交付程序。
 
-详细依据、失败与验证数据见[适配记录](../../../../docs/references/hat-simulation-tools-20261029/bmi088-adapter-20261031/research.md)。实际芯片配置、双端点数据、时间关系、安装方向与整机使用仍待实物核验。
+详细依据、失败与验证数据见[适配记录](../../../../docs/references/扩展板电路仿真工具/bmi088-adapter-20261031/research.md)。实际芯片配置、双端点数据、时间关系、安装方向与整机使用仍待实物核验。

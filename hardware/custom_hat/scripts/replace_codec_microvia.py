@@ -12,7 +12,7 @@ from fit_ldo_candidate import remove_objects
 from finish_ttl_local_bypass import route_layer
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/u701-through-via-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/u701-through-via-20261031"
 BASELINE = "b06b1051d84509c7434347d5889afb7908dffe1af99b67eea67eb4c3e33a9849"
 POWER_VIA = "c6ad78c2-361f-4c03-a650-a32f6c415d72"
 SDO_VIA = "f1d6fcd1-f8d6-4abc-870e-838590222a6e"

@@ -6,7 +6,7 @@ import pcbnew
 import pipeline
 
 
-EVIDENCE=pipeline.BASE.parents[1]/"docs/references/hat-simulation-tools-20261029/buck-control-20261031"
+EVIDENCE=pipeline.BASE.parents[1]/"docs/references/扩展板电路仿真工具/buck-control-20261031"
 BASELINE="6555f994e1ee6b99949df5ee4cfc35ce31169f6b0d01421cdd037f6736ec410d"
 CONTROL_NETS={"+5V_FB","BUCK_COMP","COMP_RC"}
 

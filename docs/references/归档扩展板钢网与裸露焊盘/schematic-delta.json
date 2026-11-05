@@ -1,0 +1,69 @@
+{
+  "diff_version": "1.0",
+  "analyzer_type": "schematic",
+  "base_file": "E:\\Projects\\duck-robot\\docs\\references\\归档扩展板机械适配复核\\schematic.json",
+  "head_file": "E:\\Projects\\duck-robot\\docs\\references\\归档扩展板钢网与裸露焊盘\\schematic.json",
+  "has_changes": true,
+  "summary": {
+    "total_changes": 2,
+    "added": 0,
+    "removed": 0,
+    "modified": 2,
+    "severity": "major"
+  },
+  "diff": {
+    "components": {
+      "added": [],
+      "removed": [],
+      "modified": [
+        {
+          "reference": "U702",
+          "changes": [
+            {
+              "field": "footprint",
+              "base": "Package_TO_SOT_SMD:TO-252-3_TabPin2",
+              "head": "duck:TI_NDP0003B_LP38691_PasteGrid"
+            }
+          ]
+        },
+        {
+          "reference": "U701",
+          "changes": [
+            {
+              "field": "footprint",
+              "base": "Package_DFN_QFN:VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm",
+              "head": "duck:TI_RHB0032E_AIC3104_EP345"
+            }
+          ]
+        }
+      ]
+    },
+    "bom": {
+      "added": [
+        {
+          "value": "TLV320AIC3104",
+          "footprint": "duck:TI_RHB0032E_AIC3104_EP345",
+          "quantity": 1
+        },
+        {
+          "value": "LP38691DT-1.8",
+          "footprint": "duck:TI_NDP0003B_LP38691_PasteGrid",
+          "quantity": 1
+        }
+      ],
+      "removed": [
+        {
+          "value": "TLV320AIC3104",
+          "footprint": "Package_DFN_QFN:VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm",
+          "quantity": 1
+        },
+        {
+          "value": "LP38691DT-1.8",
+          "footprint": "Package_TO_SOT_SMD:TO-252-3_TabPin2",
+          "quantity": 1
+        }
+      ],
+      "quantity_changes": []
+    }
+  }
+}

@@ -4,6 +4,6 @@
 
 **Gerber、ZIP、钻孔、BOM 和 CPL 全部保留作历史格式样例，不用于投板、贴片或当前元件定位。** 本轮没有重新导出或上传。
 
-修复电源封装、TTL、音频、BMI088 及布局后，须从同一源版本一次性导出全套文件，附源文件摘要、完整 BOM/DNP 和装配方向检查。门槛见 [下单条件](../../../../docs/specs/20261028-custom-hat/order-checklist.md)，证据见 [审计](../../../../docs/references/hat-simulation-tools-20261029/audit-20261029/review.md)。
+修复电源封装、TTL、音频、BMI088 及布局后，须从同一源版本一次性导出全套文件，附源文件摘要、完整 BOM/DNP 和装配方向检查。门槛见 [下单条件](../../../../docs/specs/20261028-custom-hat/order-checklist.md)，证据见 [审计](../../../../docs/references/扩展板电路仿真工具/audit-20261029/review.md)。
 
-旧“只补 5 个地过孔即可下单”说明已撤销；原说明见 [历史存档](../../../../docs/references/hat-simulation-tools-20261029/audit-20261029/superseded-guidance.md)。
+旧“只补 5 个地过孔即可下单”说明已撤销；原说明见 [历史存档](../../../../docs/references/扩展板电路仿真工具/audit-20261029/superseded-guidance.md)。

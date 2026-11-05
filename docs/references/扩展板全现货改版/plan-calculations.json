@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-04",
+  "source_pcb_sha256": "86654c03b6c1c8f51f7d5a4bef469aceed2ddfc73433b3e50426940c2a23164a",
+  "cad_modified": false,
+  "analysis_type": "equations_only_not_closed_loop_or_hardware_test",
+  "target_voltage_v": 4.984000000000001,
+  "feedback_and_compensation_unchanged_candidate": {
+    "upper_ohm": 52300,
+    "lower_ohm": 10000,
+    "comp_r_ohm": 14000,
+    "comp_c_f": 3.3e-09,
+    "zero_hz": 3444.912188136263
+  },
+  "soft_start": {
+    "proposed_ref": "C331",
+    "replaces": "R303",
+    "capacitance_f": 2.2e-08,
+    "datasheet_minimum_f": 1e-08,
+    "nominal_charge_current_a": 4e-06,
+    "nominal_reference_v": 0.8,
+    "nominal_time_ms": 4.4,
+    "independent_tolerance_temperature_capacitance_f": 1.683e-08,
+    "limits": "No current-source tolerance, aging, combined bias/temperature or actual startup-load model; capacitor lower scenario is not a guaranteed minimum"
+  },
+  "nominal_ripple": [
+    {
+      "vin_v": 6.0,
+      "frequency_hz": 500000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.30141333333333314
+    },
+    {
+      "vin_v": 6.0,
+      "frequency_hz": 570000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.2643976608187133
+    },
+    {
+      "vin_v": 6.6,
+      "frequency_hz": 500000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.4358303030303028
+    },
+    {
+      "vin_v": 6.6,
+      "frequency_hz": 570000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.3823072833599147
+    },
+    {
+      "vin_v": 8.4,
+      "frequency_hz": 500000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.7238666666666667
+    },
+    {
+      "vin_v": 8.4,
+      "frequency_hz": 570000,
+      "inductor_nominal_h": 5.6e-06,
+      "ripple_a": 0.6349707602339182
+    }
+  ],
+  "independent_stress_scenario": {
+    "vin_v": 8.4,
+    "minimum_inductance_h": 3.5840000000000003e-06,
+    "minimum_frequency_hz": 479400.0,
+    "ripple_a": 1.1796429564733693,
+    "peak_at_assumed_3p5a_load_a": 4.089821478236685,
+    "datasheet_min_peak_limit_a": 4.25,
+    "limits": "L tolerance -20%, additional assumed -20% DC bias, f-min and -6% spread combined conservatively; no transient or actual load guarantee"
+  },
+  "audio_thermal_scenario": {
+    "output_power_w": 2.5,
+    "assumed_efficiency": 0.85,
+    "calculated_loss_w": 0.4411764705882354,
+    "datasheet_theta_ja_soic_c_per_w": 115,
+    "datasheet_theta_ja_msop_c_per_w": 180,
+    "calculated_msop_delta_t_c": 79.41176470588238,
+    "limits": "Simplified illustration, datasheet board boundary not matched to this HAT; 2.5W is a 10%-THD table point, not a clean continuous audio specification"
+  },
+  "pin_contract_changes": [
+    {
+      "ref": "U301",
+      "pin": "4",
+      "old_function": "RT/CLK",
+      "new_function": "SS",
+      "old_net": "BUCK_RT",
+      "new_net": "BUCK_SS"
+    }
+  ],
+  "source_identity": "AP64351 DS41977 Rev4-2 Aug2019 vendor-authored PDF mirrored by LCSC; not asserted latest"
+}

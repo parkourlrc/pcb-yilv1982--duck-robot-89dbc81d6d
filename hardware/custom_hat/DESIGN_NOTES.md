@@ -1,6 +1,6 @@
 # HAT 原理图阶段说明
 
-> 2026-10-28 历史草案；包含已取消屏幕/CSI及旧占位方案，不作现行指导。当前入口见 [rev_a/README.md](rev_a/README.md)与[真实性复核](../../docs/references/hat-simulation-tools-20261029/audit-20261030/review.md)。
+> 2026-10-28 历史草案；包含已取消屏幕/CSI及旧占位方案，不作现行指导。当前入口见 [rev_a/README.md](rev_a/README.md)与[真实性复核](../../docs/references/扩展板电路仿真工具/audit-20261030/review.md)。
 
 日期：2026-10-28
 

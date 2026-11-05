@@ -1,6 +1,6 @@
 # imu_to_dxl v0.3（ScrapMeta）— 原理图存档
 
-> **2026-10-31 电压勘误**：已取得原厂 AP2210 DS37517 Rev.4-2，第 4/11/12 页核实 VIN/EN 推荐上限 13.2V、绝对最大 15V；旧“7.4V 超限”判断撤回。新 PCB+SMT 板已上线，旧 10-25 损伤板仍损伤。两路 5V 接法失败的原因尚未唯一定位，见[本次分析](../../references/imu-v03-input-voltage-20261031/research.md)。
+> **2026-10-31 电压勘误**：已取得原厂 AP2210 DS37517 Rev.4-2，第 4/11/12 页核实 VIN/EN 推荐上限 13.2V、绝对最大 15V；旧“7.4V 超限”判断撤回。新 PCB+SMT 板已上线，旧 10-25 损伤板仍损伤。两路 5V 接法失败的原因尚未唯一定位，见[本次分析](../../references/惯性单元输入电压复核/research.md)。
 
 - **板上丝印**：`imu-to-dxl v0.3`，板框 32×22 mm，四角 φ2.2 孔距 29×19
 - **器件**：STM32G031F8P6（TSSOP-20）+ LSM6DSV16X（SPI，SFLP）+ SN74LVC1G125 半双工缓冲 + AP2210K-3.3（**VIN/EN 推荐上限 13.2V、绝对最大 15V；3.3V 版的 5V/7.4V 输入均在手册工作范围内**，不是整板全工况验收）
@@ -16,7 +16,7 @@
 | `imu_to_dxl_ref_2026-08-30_18-59-47.eprj2` | **真源工程**，嘉立创EDA专业版可打开（免费）改图/导出；内含上述两页图页 |
 | `hardware-netlist.md` | 仓库 `docs/hardware.md` 副本：v0.3 vs v0.2 差异、连接器脚位、MCU 脚位网络表、电源/保护拓扑 |
 | `hardware-repo-README.md` | 仓库 `hardware/README.md` 副本 |
-| **`production/imu_to_dxl_v03_gerber.zip`** | **生产文件**：2026-10-25 用户经嘉立创EDA从 `imu_to_dxl_1` 导出的 Gerber 全套（双层+钻孔+飞针 JSON），本机解析验证 33×22mm、4×φ2.2@30×19、J1/J3 双 EH（6×φ1.0）；嘉立创订单 85849959 用其打样，[下单调研](../../references/imu-v03-jlc-order-20261025/research.md) |
+| **`production/imu_to_dxl_v03_gerber.zip`** | **生产文件**：2026-10-25 用户经嘉立创EDA从 `imu_to_dxl_1` 导出的 Gerber 全套（双层+钻孔+飞针 JSON），本机解析验证 33×22mm、4×φ2.2@30×19、J1/J3 双 EH（6×φ1.0）；嘉立创订单 85849959 用其打样，[下单调研](../../references/惯性单元嘉立创下单/research.md) |
 | **`production/imu_to_dxl_v03_bom_20261025.xlsx`** | **SMT 物料表**：EDA 导出原件，15 行全带立创 C 号（作者工程内已配好）；19 个贴片位号对应 |
 | **`production/imu_to_dxl_v03_cpl_raw_20261025.xlsx`** | **坐标文件原件**：EDA 导出，24 行（含 3 个 DNP：C7/C8/Y1；2 个插件：J1/J3） |
 | **`production/imu_to_dxl_v03_cpl_jlc_20261025.csv`** | **JLC 贴片用清理版 CPL**：19 贴片件（Designator/Mid X/Mid Y/Layer/Rotation），与 BOM 一致，供 PCB+SMT 一体单上传 |
@@ -27,4 +27,4 @@
 
 - 上游：https://github.com/ScrapMeta/microduck-diy/tree/main/imu_to_dxl（MIT）
 - 下载日期：2026-10-09，取自 `main`，`imu_to_dxl/hardware` 最后改动提交 `aa4c32dc09c1e2876f3aead49af740a98b2abc67`（2026-09-10）
-- 原厂协议契约（README/固件）：**Dynamixel 2.0 专用**（ID 200 @124）——本板要上飞特总线需刷 replica 0.2.0 飞特固件，刷机包见 `flash/`（引脚兼容性查证：`docs/references/imu-to-dxl-variants-20261009/research.md`）
+- 原厂协议契约（README/固件）：**Dynamixel 2.0 专用**（ID 200 @124）——本板要上飞特总线需刷 replica 0.2.0 飞特固件，刷机包见 `flash/`（引脚兼容性查证：`docs/references/惯性单元三版来源对比/research.md`）

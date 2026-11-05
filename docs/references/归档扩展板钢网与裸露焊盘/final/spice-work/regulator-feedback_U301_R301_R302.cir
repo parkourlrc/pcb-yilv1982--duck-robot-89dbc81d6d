@@ -1,0 +1,20 @@
+* Auto-generated testbench for regulator feedback: U301
+* Divider: R301/R302, ratio=0.1605
+* Expected Vout=5.0V, Vfb=0.8026V (Vref=0.6V)
+* Topology: standard
+* Model: ideal passives (exact for DC divider)
+
+VIN out_rail 0 DC 5.0
+R301 out_rail fb_net 52.3k
+R302 fb_net 0 10k
+
+.control
+op 
+let vfb_sim = v(fb_net)
+let expected = 0.80257
+let error_pct = abs(vfb_sim - expected) / expected * 100
+echo "vfb_sim=$&vfb_sim error_pct=$&error_pct expected=0.80257 vin=5.0 vref=0.6" > E:/Projects/duck-robot/docs/references/hat-stencil-20261102/final/spice-work/regulator-feedback_U301_R301_R302.out
+quit
+.endc
+
+.end

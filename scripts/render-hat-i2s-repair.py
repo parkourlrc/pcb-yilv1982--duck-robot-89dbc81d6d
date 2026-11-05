@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT=Path(__file__).resolve().parents[1]
-EVIDENCE=ROOT/'docs/references/hat-simulation-tools-20261029/i2s-sdo-repair-20261030'
+EVIDENCE=ROOT/'docs/references/扩展板电路仿真工具/i2s-sdo-repair-20261030'
 COLORS={'I2S_SDO':'#f7bc49','I2S_SDI':'#48c6e8','I2S_LRCK':'#c28cf2','I2S_BCLK':'#e87898'}
 
 

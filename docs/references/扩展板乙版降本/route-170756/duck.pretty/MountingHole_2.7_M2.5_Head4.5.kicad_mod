@@ -1,0 +1,120 @@
+(footprint "MountingHole_2.7_M2.5_Head4.5"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "2.7mm NPTH, top-side M2.5 socket head <=4.5mm plus 0.25mm radial assembly allowance")
+	(tags "mountinghole M2.5")
+	(property "Reference" "H2"
+		(at 0 -3.65 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "bcdbe9a9-3349-475f-95f7-ca0b89abdc42")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "MountingHole_2.7mm_M2.5"
+		(at 0 3.65 0)
+		(layer "F.Fab")
+		(uuid "600f19d2-d0e2-4bab-a2d5-7a4fc7a06009")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f41c74f3-ba04-4943-8b57-fcdf8f9af04e")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "986e80bf-5954-4eef-9dad-94e7e43c0642")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "mounting_hardware/mounting_hole"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e647b2f8-0b6b-4eca-8a72-bdd0b19e56d4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Assembly Constraint" "Header-facing side: M2.5 socket head diameter <=4.5mm; no washer or hex spacer on this side; screw length set from final stack"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c9072eef-a90c-4102-972b-be79097811af")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr board_only exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_circle
+		(center 0 0)
+		(end 2.25 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "Cmts.User")
+		(uuid "15979afe-e2ff-48df-b40e-7eaa1fb85aed")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.5 0)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "bc73254d-837e-41dc-aa71-868fa54708ef")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "84d863bf-cd7f-4e83-8de5-8ee59838a28e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 2.7 2.7)
+		(drill 2.7)
+		(layers "*.Cu")
+		(uuid "62b6c3fb-0f1a-40fe-951b-2ae5b1fc8d70")
+	)
+	(embedded_fonts no)
+)

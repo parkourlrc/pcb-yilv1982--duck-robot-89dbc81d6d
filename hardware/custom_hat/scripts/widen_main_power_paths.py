@@ -8,7 +8,7 @@ import pipeline
 from add_i2c_pullups import vector
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/power-paths-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/power-paths-20261031"
 BASELINE = "70d00bf6b116b58cafe25cc86a31a63badb70d9f6436431ad7ae98fdb1d5d633"
 BATTERY_TRACKS = {"93a89441-6459-41d7-956e-b7dfaa02fade", "e1c190b7-cc1b-41a3-b0ce-d0889a72426a",
                   "e223a735-1756-4d40-87cd-cf00410a7e6e", "5c639288-cbd2-443d-a2d3-c5712368da77", "99f29545-b6d2-4e73-804b-8dfdb1bfa242"}

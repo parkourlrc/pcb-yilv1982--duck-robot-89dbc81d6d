@@ -8,7 +8,7 @@ from generate_rev_a import Sheet, children, dump, first, parse, uid
 from repair_release_metadata import properties, replace_children
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/codec-reset-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/codec-reset-20261031"
 
 
 def main():

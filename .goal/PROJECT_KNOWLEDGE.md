@@ -1,6 +1,6 @@
 # 项目知识（2026-09-30）
 
-> **历史记录 / 2026-10-15 复查**：三个上游参考库位于 `references/`，本项目调研仍在 `docs/references/`。以下旧主机/训练日志保留历史含义，不是本轮运行结果；当前工作区为 `E:\Projects\duck-robot`，WSL2 Ubuntu 已列为 Running，旧训练环境及 Linux CUDA/依赖功能尚未核验。见[本轮软件研究](../docs/references/c-motion-training-20261015/research.md)。
+> **历史记录 / 2026-10-15 复查**：三个上游参考库位于 `references/`，本项目调研仍在 `docs/references/`。以下旧主机/训练日志保留历史含义，不是本轮运行结果；当前工作区为 `E:\Projects\duck-robot`，WSL2 Ubuntu 已列为 Running，旧训练环境及 Linux CUDA/依赖功能尚未核验。见[本轮软件研究](../docs/references/动作训练软件研究/research.md)。
 
 ## 2026-10-09 增补
 - **硬件到位**（用户确认，实物复测未做）：微雪 Bus Servo Adapter (A)、黑色 XT60 降压模块（丝印 7.2-16V 待核；2026-10-10 实测更新见 PROGRESS 与 docs/photos：实为 7.2-18V，空载下限 ≈6.3V）、绿色 IMU2DXL 板（2026-10-09 用户确认 = ScrapMeta microduck-diy **v0.3**，STM32G031；本行早先记"v1.0 待核"已过时）、白色鸭图案 HAT（**实物丝印 V1.2**，2026-10-10 照片确认，PROGRESS 已同步；存档原理图为 V1.0，图物差异大：背面多 F303 类 MCU + 超级电容，V1.2 图纸待向板卡来源索取）；全部舵机与打印件到位，数量待清点。明细与待办见根 `PROGRESS.md`。
@@ -16,7 +16,7 @@
 
 ## 已安装环境与入口
 
-> ⚠️ **本节为旧机训练环境历史记录**：2026-10-09/10 的“无 WSL”是当时状态；2026-10-15 已查询到 WSL2 Ubuntu Running。旧 venv、日志、Linux CUDA/训练依赖是否可用仍待查，不把下面版本/PID/路径当现行事实。复用应在可写工作副本逐项核对，见[本轮复查](../docs/references/c-motion-training-20261015/research.md)。
+> ⚠️ **本节为旧机训练环境历史记录**：2026-10-09/10 的“无 WSL”是当时状态；2026-10-15 已查询到 WSL2 Ubuntu Running。旧 venv、日志、Linux CUDA/训练依赖是否可用仍待查，不把下面版本/PID/路径当现行事实。复用应在可写工作副本逐项核对，见[本轮复查](../docs/references/动作训练软件研究/research.md)。
 - WSL 发行版 `Ubuntu`，用户 `yilv`，Ubuntu 24.04；RTX 4080 16GB 可用。
 - Linux uv：`/home/yilv/.local/bin/uv`，版本 0.12.20。
 - 训练目录：`/mnt/e/Projects/duck-robot/references/microduck-replica/software/training`。

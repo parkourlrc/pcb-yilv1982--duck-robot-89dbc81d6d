@@ -6,7 +6,7 @@ from repair_release_metadata import properties, replace_children, set_property
 from generate_rev_a import parse
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/bom-passives-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/bom-passives-20261031"
 BASELINE = "d0e549e27994542f50850702add9ddbb8fb4d80f2a5dee9ebf907d9754c03959"
 X7R = "https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf"
 X5R = "https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf"

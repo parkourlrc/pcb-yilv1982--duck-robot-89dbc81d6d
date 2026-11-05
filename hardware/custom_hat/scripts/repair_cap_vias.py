@@ -11,7 +11,7 @@ import plan_i2s_sdo as planner
 from add_i2c_pullups import obstacles, position, vector
 
 
-EVIDENCE = pipeline.BASE.parents[1] / "docs/references/hat-simulation-tools-20261029/cap-vias-20261031"
+EVIDENCE = pipeline.BASE.parents[1] / "docs/references/扩展板电路仿真工具/cap-vias-20261031"
 BASELINE = "a96508311bfc66dbab1b94b54d0391a7552f8f979acbbe26603ca281171336dc"
 TARGETS = [
     ("C305", "1", "3df6d50d-2d16-47ac-8a09-662eccba3b17", ["F.Cu", "In1.Cu"], 0.6, "c3a3b7d1-7c38-49aa-9fda-d80991337d25"),

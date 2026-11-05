@@ -1,0 +1,205 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T17:22:13",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "custom_hat_rev_b.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 0.8935 mm",
+                    "pos": {
+                        "x": 137.75,
+                        "y": 112.5625
+                    },
+                    "uuid": "c3e2fa67-8ad6-4a0a-bc97-52fbb16d2d8d"
+                },
+                {
+                    "description": "走线 [CODEC_RST] (F.Cu), 长度: 1.0150 mm",
+                    "pos": {
+                        "x": 146.225,
+                        "y": 115.5
+                    },
+                    "uuid": "b11a0f67-70c1-4b42-8f09-4b13c9fdeaa1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CODEC_RIGHT_LOP] (F.Cu), 长度: 0.0005 mm",
+                    "pos": {
+                        "x": 138.75,
+                        "y": 112.562
+                    },
+                    "uuid": "60a23395-9b63-4608-9593-a45654282126"
+                },
+                {
+                    "description": "走线 [CODEC_RIGHT_LOP] (F.Cu), 长度: 5.9202 mm",
+                    "pos": {
+                        "x": 146.0,
+                        "y": 118.975
+                    },
+                    "uuid": "153643b0-8194-4e19-8582-e7bbd62935fc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.3000 mm; 实际 0.2806 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "62bcb7f7-2465-4221-b19e-8b764a0e5d20"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 5.4423 mm",
+                    "pos": {
+                        "x": 133.6696,
+                        "y": 100.4056
+                    },
+                    "uuid": "446d3f0f-db52-4eac-b7e0-16564e72884c"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "电路板边缘间距违规 (<电路板配置> 中的 \"板边\" 约束 间距 0.3000 mm; 实际 0.2806 mm)",
+            "items": [
+                {
+                    "description": "Edge.Cuts 上的 线段",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "62bcb7f7-2465-4221-b19e-8b764a0e5d20"
+                },
+                {
+                    "description": "走线 [I2S_SDO] (B.Cu), 长度: 1.6215 mm",
+                    "pos": {
+                        "x": 132.523,
+                        "y": 101.5522
+                    },
+                    "uuid": "4609f97d-b8e8-4553-a6cc-2b9757e6cc96"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.1500 mm; 实际 0.1250 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (F.Cu), 长度: 0.2000 mm",
+                    "pos": {
+                        "x": 136.808,
+                        "y": 109.616
+                    },
+                    "uuid": "79297db7-3a81-4ebb-b2fb-0b3b03ce79bf"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "走线宽度 (电路板配置约束 最小宽度 0.1500 mm; 实际 0.1250 mm)",
+            "items": [
+                {
+                    "description": "走线 [+1V8_CODEC] (F.Cu), 长度: 0.3002 mm",
+                    "pos": {
+                        "x": 136.9494,
+                        "y": 109.7574
+                    },
+                    "uuid": "e250a944-f400-4cfb-bb77-df1ced0e63e6"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RST] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 137.75,
+                        "y": 111.669
+                    },
+                    "uuid": "aa8d1548-ab1f-4597-9584-8091ebff7dc4"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RIGHT_LOP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.1771,
+                        "y": 128.8902
+                    },
+                    "uuid": "06602fbb-ff5a-4f31-85dd-b25aaac09ab4"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "过孔 [CODEC_RIGHT_LOP] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 138.75,
+                        "y": 111.65
+                    },
+                    "uuid": "cd6e2295-6468-4f06-9c14-809e800c608c"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

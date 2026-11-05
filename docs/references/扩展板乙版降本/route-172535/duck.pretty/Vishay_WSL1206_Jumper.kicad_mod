@@ -1,0 +1,185 @@
+(footprint "Vishay_WSL1206_Jumper"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Vishay WSL1206...9 copper jumper; pads1.57x1.78, gap0.76; document30192 p2; generic 1206 body envelope")
+	(tags "resistor")
+	(property "Reference" "R309"
+		(at 0 -1.83 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e9b3eef7-5a12-4027-a1b8-c6b6ff27817a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "0R"
+		(at 0 1.83 0)
+		(layer "F.Fab")
+		(uuid "20761deb-8976-4875-8a60-df8dd53b2798")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.vishay.com/docs/30192/wsl-9.pdf"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3d4eefbf-33ae-4e48-bc56-7172dca5b17a")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "81673fd8-45c0-48a1-bff9-4b00ba43b7f3")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "1168e3c5-310a-4d51-873c-cba832797af9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Assembly Height" "0.635mm nominal; 0.889mm maximum"
+		(at 0 0 270)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "82e61615-7151-4cd9-805e-a0ab417f02d1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "MPN" "WSL120600000ZEA9"
+		(at 0 0 270)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c2872d42-c48b-41d3-836d-4ed8ec73e12d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Manufacturer" "Vishay"
+		(at 0 0 270)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3d471e1a-871f-4b81-a708-22b182f3bbf7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "BOM Comments" "Design-selected, not production released; Solid copper jumper <=0.2mOhm; p1-2; nominal zero-ohm; component current rating is not board/connector rating"
+		(at 0 0 270)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5aad8dcf-b23c-4b48-9be7-63c9ebf8e930")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -0.15 -1.05)
+		(end 0.15 -1.05)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a5956a46-b002-4d0b-bdf8-a844ab165eb9")
+	)
+	(fp_line
+		(start -0.15 1.05)
+		(end 0.15 1.05)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "598b5023-a4b1-4419-8896-f5dbfaa6d945")
+	)
+	(fp_rect
+		(start -2.28 -1.13)
+		(end 2.28 1.13)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "01b69f30-e598-44ac-8093-50f4845f1fba")
+	)
+	(fp_rect
+		(start -1.6 -0.8)
+		(end 1.6 0.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "2a0490a1-372f-4be1-bcb1-5d3813199f24")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "f10ef846-3e41-439d-bb13-60f4b92eefdf")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.12)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.165 0)
+		(size 1.57 1.78)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b2ab3065-4e5d-46f0-bf21-8c5536a945ca")
+	)
+	(pad "2" smd rect
+		(at 1.165 0)
+		(size 1.57 1.78)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "43ea0223-2774-48b1-b5ed-57c3ce549e1f")
+	)
+	(embedded_fonts no)
+)

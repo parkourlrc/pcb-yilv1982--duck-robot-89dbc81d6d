@@ -1,0 +1,67 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T17:19:01",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02",
+            "violations": []
+        },
+        {
+            "path": "/radxa_40p/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/2b68f9bc-99b0-5a2e-bebc-dfe7d4726c2c",
+            "violations": []
+        },
+        {
+            "path": "/power/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/f377eb11-e3a4-5ffa-b5df-4d147686d11d",
+            "violations": []
+        },
+        {
+            "path": "/servo_ttl/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/bcd08810-b456-5716-b62e-01ebfb188302",
+            "violations": []
+        },
+        {
+            "path": "/imu_tof/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/dc57e302-9f94-5148-9cb7-11d5b7cbe160",
+            "violations": []
+        },
+        {
+            "path": "/audio/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/636cda5a-0115-5833-9dc6-1a91c3d4b703",
+            "violations": []
+        },
+        {
+            "path": "/testpoints/",
+            "uuid_path": "/b5fc9d5c-55dc-5b4f-a5eb-366604b9fc02/e5525fd2-ded6-5453-9282-594345dce0dc",
+            "violations": []
+        }
+    ],
+    "source": "custom_hat_rev_a.kicad_sch"
+}
