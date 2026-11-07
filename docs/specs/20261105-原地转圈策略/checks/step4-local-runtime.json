@@ -1,0 +1,93 @@
+{
+  "scope": "step4_integration_not_policy_acceptance",
+  "behavior_acceptance": "not_run",
+  "utc_time": "2026-11-06T01:36:09.681243+00:00",
+  "command": [
+    "training/scripts/check_locomotion_training.py",
+    "--runtime",
+    "--num-envs",
+    "64",
+    "--updates",
+    "2",
+    "--output",
+    "docs/specs/20261105-原地转圈策略/checks/step4-local-runtime.json"
+  ],
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "versions": {
+    "torch": "2.14.1",
+    "mjlab": "1.3.0",
+    "rsl-rl-lib": "5.0.1",
+    "mujoco": "3.10.0",
+    "mujoco-warp": "3.8.1",
+    "warp-lang": "1.12.0",
+    "tensordict": "0.15.1"
+  },
+  "sha256": {
+    "training/mjlab_duck/locomotion_env.py": "296acfc1e14cb5078ac1df82fc518ac443945a898b965128442ca81ee7190e39",
+    "training/mjlab_duck/locomotion_cfg.py": "f73aa82aaf16f9814d5f7249ed8da7b1ce06a6892fe04384132367e25fbedfa5",
+    "training/mjlab_duck/locomotion_evaluator.py": "867add3f608b61717073e07308c08c0e172cb35dcb0b2d4b7759bd53f4226b2c",
+    "training/mjlab_duck/locomotion_train_cfg.py": "df6edd75f7410143bc5032984ec52de390d60a74d4f9f6e10cb1941ab6f2ffa1",
+    "training/mjlab_duck/locomotion_checkpoint.py": "2310228aa3331e1a349a441fe38d88b8e8ac8357cc15a157cc33a9d63ba2cbb2",
+    "training/mjlab_duck/locomotion_logging.py": "ad0c3ff96dd4f4c8d75abfa9b4c6c405a694457e7e50e27e95aab62888bca7d5",
+    "training/mjlab_duck/train_locomotion.py": "a1aa8b1a5713a168d749d477fb0eaf26bef75602e26b79d0ba227cde7b373e2d",
+    "training/scripts/check_locomotion_training.py": "d60535e81b184ac7667eca8649fc0364d8b76e3d5fb0ae923ba69d2d576ce397",
+    "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+    "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f"
+  },
+  "cpu": {
+    "configuration": true,
+    "curriculum_scenarios": true,
+    "evaluation_counts": {
+      "dev1": 9,
+      "dev2": 22,
+      "full": 96
+    },
+    "gate_distinct_checkpoints": true,
+    "regression_pause": true,
+    "coverage_pause": true,
+    "rollback_and_pending_budget": true,
+    "torn_ledger_rejected": true,
+    "manifest_missing_rank_hash_mixed_iteration_rejected": true
+  },
+  "runtime": {
+    "rank_records": [
+      {
+        "rank": 0,
+        "world_size": 1,
+        "device": "NVIDIA GeForce RTX 4080",
+        "local_envs": 64,
+        "parameter_change": true,
+        "parameters_finite": true,
+        "new_runner_actor_critic_normalizer_optimizer_equal": true,
+        "adaptive_lr_equal": true,
+        "deterministic_action_equal": true,
+        "resume_updates": 1,
+        "first": {
+          "updates": 2,
+          "consumed_transitions": 8192,
+          "stage": 1,
+          "model_iteration": 2,
+          "max_transitions": 16384,
+          "checkpoint_manifest": "/mnt/e/Projects/duck-robot/docs/specs/20261105-原地转圈策略/checks/step4-local-runtime-artifacts/initial/checkpoints/final_000002_db449f4a14/manifest.json",
+          "status": "check_limit",
+          "check_mode": true,
+          "wall_seconds_including_evaluation_and_checkpoint": 145.87949119904079,
+          "node_hours_including_evaluation_and_checkpoint": 0.04052208121193366
+        },
+        "resumed": {
+          "updates": 1,
+          "consumed_transitions": 12288,
+          "stage": 1,
+          "model_iteration": 3,
+          "max_transitions": 16384,
+          "checkpoint_manifest": "/mnt/e/Projects/duck-robot/docs/specs/20261105-原地转圈策略/checks/step4-local-runtime-artifacts/resumed/checkpoints/final_000003_891502e783/manifest.json",
+          "status": "check_limit",
+          "check_mode": true,
+          "wall_seconds_including_evaluation_and_checkpoint": 114.93190414481796,
+          "node_hours_including_evaluation_and_checkpoint": 0.03192552915056391
+        }
+      }
+    ],
+    "scope": "short_runtime_and_restore_not_behavior_acceptance"
+  }
+}

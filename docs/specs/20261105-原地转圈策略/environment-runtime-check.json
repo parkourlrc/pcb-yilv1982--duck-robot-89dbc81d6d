@@ -1,0 +1,53 @@
+{
+  "stage": 3,
+  "scope": "environment_contract_not_policy_acceptance",
+  "utc_time": "2026-11-05T14:46:17.312899+00:00",
+  "command": [
+    "/mnt/e/Projects/duck-robot/training/scripts/check_locomotion_env.py",
+    "--output",
+    "/mnt/e/Projects/duck-robot/docs/specs/20261105-原地转圈策略/environment-runtime-check.json"
+  ],
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "versions": {
+    "torch": "2.14.1",
+    "mujoco": "3.10.0",
+    "mjlab": "1.3.0"
+  },
+  "sha256": {
+    "training/mjlab_duck/locomotion_env.py": "9560f90373bf39c56051e2f0735a67a6e875c2ea40a5b79d61432ca713a6c47f",
+    "training/mjlab_duck/locomotion_cfg.py": "84f7b42cc34500f6ad20b2d728135ccf8fa30457a1bc930da566a4e87e100a77",
+    "training/scripts/check_locomotion_env.py": "2206236d2b0681599a950fb3cf0cdec44e874ab57ec41a952c1ba27f0b49c1d8",
+    "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+    "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f"
+  },
+  "synthetic": {
+    "anchor_reversal": true,
+    "turning_translation_stop": true,
+    "full_stop_timeout": true,
+    "partial_reset": true,
+    "substep_maximum": true,
+    "path_not_endpoint": true,
+    "full_stop_hold_success": true,
+    "full_stop_hold_failure_latched": true,
+    "velocity_heading": true,
+    "heading_wrap": true,
+    "scenario_count": 96,
+    "max_scenario_s": 133
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "observation_dim": 61,
+    "action_dim": 14,
+    "control_steps": 5,
+    "physics_substeps": 50,
+    "finite": true,
+    "raw_action_history": true,
+    "limits": true,
+    "invalid_isolation": true,
+    "reward_dt_once": true,
+    "partial_reset_nonzero_state": true,
+    "auto_reset_terminal_snapshot": true,
+    "early_termination": false,
+    "behavior_acceptance": "not_run"
+  }
+}

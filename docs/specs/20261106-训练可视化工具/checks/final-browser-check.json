@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-06",
+  "evidence": "本机API只读复核与主会话CUA页面确认",
+  "service_pid_reported_by_main": 245500,
+  "active_replay_count": 0,
+  "resources": {
+    "local": "connected; host_total; received_utc存在",
+    "spark1": "connected; host_total; received_utc存在",
+    "spark2": "connected; host_total; received_utc存在",
+    "wsl": "connected; wsl_virtual_machine; 211个样本; processes空列表",
+    "wsl_last_received_utc": "2026-11-06T09:51:11.753241+00:00",
+    "wsl_jsonl": "training/.dashboard/resources.local-wsl.jsonl"
+  },
+  "restored_replay": {
+    "id": "c74e3b9a80534a77ad0e289fa9164572",
+    "state": "closed",
+    "generation": 0,
+    "frames": 983,
+    "first_seq": 1,
+    "last_seq": 983,
+    "sim_time_s": 22.99999999999813,
+    "browser_complete_curve": true,
+    "controls_disabled": true,
+    "new_worker_started": false
+  },
+  "browser_checks": [
+    "任务显示v2",
+    "双Spark全局17提示无法均分且后端拒绝",
+    "历史预算耗尽和最近dev9=0/9",
+    "四路刷新接回原会话",
+    "四路关闭释放",
+    "独立页恢复983帧曲线及Studio模型",
+    "Windows/WSL/Spark1/Spark2实际资源卡"
+  ],
+  "screenshots": [
+    "dashboard-four-replays.jpg",
+    "dashboard-overview.jpg",
+    "dashboard-restored-replay.jpg",
+    "dashboard-resources.jpg"
+  ],
+  "screenshot_provenance": "2026-11-06本次主会话CUA工具页面截图，非用户原图",
+  "limits": [
+    "576转换仅短预算工具验收，不是正式策略行为或长时性能验收",
+    "completed表示场景结束，不代表行为达标",
+    "本轮没有实物控制或部署"
+  ]
+}

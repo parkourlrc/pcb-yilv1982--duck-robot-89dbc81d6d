@@ -1,0 +1,560 @@
+{
+  "scope": "two deterministic diagnostic replays, not a new full acceptance suite",
+  "versions": {
+    "torch": "2.14.1",
+    "rsl-rl-lib": "5.0.1",
+    "mjlab": "1.3.0",
+    "mujoco": "3.10.0",
+    "mujoco-warp": "3.8.1"
+  },
+  "sources": {
+    "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+    "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f",
+    "training/mjlab_duck/locomotion_env.py": "e2da102f2814500baf227289930d343dcf55c20ae36df003a66207ae7f91d005",
+    "training/mjlab_duck/locomotion_cfg.py": "f73aa82aaf16f9814d5f7249ed8da7b1ce06a6892fe04384132367e25fbedfa5",
+    "training/mjlab_duck/locomotion_train_cfg.py": "df6edd75f7410143bc5032984ec52de390d60a74d4f9f6e10cb1941ab6f2ffa1",
+    "training/mjlab_duck/locomotion_evaluator.py": "867add3f608b61717073e07308c08c0e172cb35dcb0b2d4b7759bd53f4226b2c",
+    "training/mjlab_duck/train_locomotion.py": "3a0240003eb42f52af86f94c608ba0d3736a07ff2b478e659e72f1bf06009d36",
+    "training/mjlab_duck/locomotion_logging.py": "ad0c3ff96dd4f4c8d75abfa9b4c6c405a694457e7e50e27e95aab62888bca7d5",
+    "training/mjlab_duck/locomotion_checkpoint.py": "931d7b3c142636f14e1041592c89a10941c9a5d7773ed10af622c3e7c0c45c8a"
+  },
+  "training_log_sha256": "005493adf80d17e66f6b033b4d1f9e600176d318a1dc910fb2a97209e4590cf2",
+  "training_windows": [
+    {
+      "updates": [
+        1,
+        100
+      ],
+      "action_std_first": 0.3000900447368622,
+      "action_std_last": 0.5240057706832886,
+      "clip_fraction": 0.03221622467041016,
+      "learning_rate_last": 9.999999747378752e-06,
+      "reward_terms_per_transition": {
+        "forward": 0.005455355510348454,
+        "yaw": 0.0,
+        "stand": 8.113307789460841e-08,
+        "lateral": 1.8907613554119963e-06,
+        "straight_yaw": 1.5157605926106043e-05,
+        "anchor": 0.0,
+        "posture": 1.7442503267375287e-05,
+        "smooth": -0.0009999992325901985,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        101,
+        200
+      ],
+      "action_std_first": 0.5257746577262878,
+      "action_std_last": 0.947543740272522,
+      "clip_fraction": 0.2255345208304269,
+      "learning_rate_last": 7.593750342493877e-05,
+      "reward_terms_per_transition": {
+        "forward": 0.005125323333777488,
+        "yaw": 0.0,
+        "stand": 6.9186465978549425e-09,
+        "lateral": 1.0656397475372614e-06,
+        "straight_yaw": 1.0941233508674486e-05,
+        "anchor": 0.0,
+        "posture": 1.259849264897639e-05,
+        "smooth": -0.0009999992325901985,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        201,
+        300
+      ],
+      "action_std_first": 0.9513993263244629,
+      "action_std_last": 1.841737985610962,
+      "clip_fraction": 0.5183894947596959,
+      "learning_rate_last": 0.0005766503745689988,
+      "reward_terms_per_transition": {
+        "forward": 0.004356754317414015,
+        "yaw": 0.0,
+        "stand": 3.11501345061241e-09,
+        "lateral": 6.886259797056482e-07,
+        "straight_yaw": 8.185439382941694e-06,
+        "anchor": 0.0,
+        "posture": 9.30675371819234e-06,
+        "smooth": -0.0009999986895127223,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        301,
+        400
+      ],
+      "action_std_first": 1.8600246906280518,
+      "action_std_last": 4.908076763153076,
+      "clip_fraction": 0.7690344156537737,
+      "learning_rate_last": 0.0012974634300917387,
+      "reward_terms_per_transition": {
+        "forward": 0.0036192159878555685,
+        "yaw": 0.0,
+        "stand": 4.872956716629477e-09,
+        "lateral": 4.7388313276997e-07,
+        "straight_yaw": 6.421619411867141e-06,
+        "anchor": 0.0,
+        "posture": 6.9686887627540274e-06,
+        "smooth": -0.000999987602699548,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        401,
+        500
+      ],
+      "action_std_first": 4.985171794891357,
+      "action_std_last": 17.419544219970703,
+      "clip_fraction": 0.9191894667489188,
+      "learning_rate_last": 0.001946195145137608,
+      "reward_terms_per_transition": {
+        "forward": 0.003195833119098097,
+        "yaw": 0.0,
+        "stand": 3.087005940126315e-09,
+        "lateral": 4.081916447518097e-07,
+        "straight_yaw": 5.625729136227164e-06,
+        "anchor": 0.0,
+        "posture": 5.949110050096351e-06,
+        "smooth": -0.000999942334019579,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        501,
+        600
+      ],
+      "action_std_first": 17.653411865234375,
+      "action_std_last": 63.968040466308594,
+      "clip_fraction": 0.9751410920279366,
+      "learning_rate_last": 0.004378939047455788,
+      "reward_terms_per_transition": {
+        "forward": 0.0030881468928419054,
+        "yaw": 0.0,
+        "stand": 8.860240984342274e-10,
+        "lateral": 4.066381251277562e-07,
+        "straight_yaw": 5.55826355366662e-06,
+        "anchor": 0.0,
+        "posture": 5.831700248108973e-06,
+        "smooth": -0.000999897558358498,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        601,
+        700
+      ],
+      "action_std_first": 64.65762329101562,
+      "action_std_last": 263.6925964355469,
+      "clip_fraction": 0.9928984315054757,
+      "learning_rate_last": 0.004444444086402655,
+      "reward_terms_per_transition": {
+        "forward": 0.0031916678766719998,
+        "yaw": 0.0,
+        "stand": 3.4854806294581913e-10,
+        "lateral": 4.278414748171144e-07,
+        "straight_yaw": 6.008985635617136e-06,
+        "anchor": 0.0,
+        "posture": 6.1906053929305925e-06,
+        "smooth": -0.0009998221276327967,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        701,
+        800
+      ],
+      "action_std_first": 268.08551025390625,
+      "action_std_last": 1148.5828857421875,
+      "clip_fraction": 0.9983090209960938,
+      "learning_rate_last": 0.004444444086402655,
+      "reward_terms_per_transition": {
+        "forward": 0.0030991519475355744,
+        "yaw": 0.0,
+        "stand": 1.0972193922898264e-09,
+        "lateral": 4.268299511522855e-07,
+        "straight_yaw": 6.021789195074234e-06,
+        "anchor": 0.0,
+        "posture": 5.906379474254209e-06,
+        "smooth": -0.000999750195769593,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        801,
+        900
+      ],
+      "action_std_first": 1162.384033203125,
+      "action_std_last": 4780.876953125,
+      "clip_fraction": 0.999617565699986,
+      "learning_rate_last": 0.009999999776482582,
+      "reward_terms_per_transition": {
+        "forward": 0.0031282506056595594,
+        "yaw": 0.0,
+        "stand": 3.6138284813617456e-09,
+        "lateral": 4.863216472728027e-07,
+        "straight_yaw": 6.65633225480633e-06,
+        "anchor": 0.0,
+        "posture": 6.087457686589914e-06,
+        "smooth": -0.0009995039930799977,
+        "late": 0.0
+      }
+    },
+    {
+      "updates": [
+        901,
+        1000
+      ],
+      "action_std_first": 4857.10693359375,
+      "action_std_last": 20044.83984375,
+      "clip_fraction": 0.9999113028390066,
+      "learning_rate_last": 0.009999999776482582,
+      "reward_terms_per_transition": {
+        "forward": 0.0030342093342915176,
+        "yaw": 0.0,
+        "stand": 1.0981439599750205e-09,
+        "lateral": 5.002321545077848e-07,
+        "straight_yaw": 6.659625628344657e-06,
+        "anchor": 0.0,
+        "posture": 5.858093074948556e-06,
+        "smooth": -0.00099922836816404,
+        "late": 0.0
+      }
+    }
+  ],
+  "replays": [
+    {
+      "iteration": 100,
+      "checkpoint_sha256": "e7a001c69234366a3eb5a16a53ed19c7c7204fe1c172ca691082d053e7f1b31d",
+      "scenario": {
+        "name": "straight_0.06_101",
+        "seed": 101,
+        "segments": [
+          [
+            23.0,
+            0.06,
+            0.0
+          ]
+        ],
+        "kind": "straight"
+      },
+      "actor_and_normalization_frozen": true,
+      "deterministic_action_clip_fraction": 0.0,
+      "deterministic_action_max_abs": 0.6438823342323303,
+      "distribution_std_mean": 0.5240089297294617,
+      "report": {
+        "name": "straight_0.06_101",
+        "seed": 101,
+        "passed": false,
+        "completed": true,
+        "failed": false,
+        "reason": 0,
+        "observed": {
+          "controls": 1150,
+          "simulation_seconds": 22.99999999999813,
+          "max_raw_horizontal_speed": 0.12374752163029169,
+          "max_raw_yaw_rate": 1.2832202017307281,
+          "maximum_tilt_rad": 0.11926982551813126
+        },
+        "checks": {
+          "known_scenario": {
+            "passed": true,
+            "observed": "straight",
+            "threshold": null
+          },
+          "trace_fields": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "trace_shape": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "finite_inputs": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "continuous_clock": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "complete_trajectory": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "no_failure": {
+            "passed": true,
+            "observed": 0,
+            "threshold": 0
+          },
+          "upright": {
+            "passed": true,
+            "observed": 0.11926982551813126,
+            "threshold": 0.7853981633974483
+          },
+          "height": {
+            "passed": true,
+            "observed": 0.11700072884559631,
+            "threshold": 0.07092
+          },
+          "foot_contacts_only": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "segment_0/complete": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "motion_0/horizontal_acceleration": {
+            "passed": false,
+            "observed": 1.542396047008222,
+            "threshold": 0.3
+          },
+          "motion_0/yaw_acceleration": {
+            "passed": false,
+            "observed": 46.71083763241768,
+            "threshold": 2.0943951023931953
+          },
+          "motion_0/transition_forward_tracking": {
+            "passed": true,
+            "observed": 0.023814105822283358,
+            "threshold": 0.03
+          },
+          "motion_0/transition_yaw_tracking": {
+            "passed": false,
+            "observed": 0.22218136395203714,
+            "threshold": 0.13962634015954636
+          },
+          "motion_0/response_3s": {
+            "passed": false,
+            "observed": null,
+            "threshold": 3.0
+          },
+          "motion_0/steady_duration": {
+            "passed": true,
+            "observed": 20.0,
+            "threshold": 20.0
+          },
+          "motion_0/forward_rmse": {
+            "passed": false,
+            "observed": 0.02330252654255287,
+            "threshold": 0.012
+          },
+          "motion_0/forward_direction": {
+            "passed": true,
+            "observed": 1.0,
+            "threshold": 0.95
+          },
+          "motion_0/lateral_rmse": {
+            "passed": true,
+            "observed": 0.005567791012522956,
+            "threshold": 0.01
+          },
+          "motion_0/forward_progress": {
+            "passed": false,
+            "observed": 0.7362315505743027,
+            "threshold": 0.96
+          },
+          "motion_0/straight_lateral": {
+            "passed": false,
+            "observed": 0.25871941447257996,
+            "threshold": 0.05
+          },
+          "motion_0/straight_heading": {
+            "passed": false,
+            "observed": 0.5396971702575684,
+            "threshold": 0.17453292519943295
+          }
+        },
+        "unvisited": []
+      },
+      "video": {
+        "status": "rendered",
+        "path": "replay-100.mp4",
+        "fps": 10,
+        "seconds": 23.0,
+        "scope": "offline qpos rendering of the physical model; no additional integration"
+      }
+    },
+    {
+      "iteration": 1000,
+      "checkpoint_sha256": "255504166a575c26fb776f34f754b1d5d21cd61121fef5158508ae6bf3e42f3f",
+      "scenario": {
+        "name": "straight_0.06_101",
+        "seed": 101,
+        "segments": [
+          [
+            23.0,
+            0.06,
+            0.0
+          ]
+        ],
+        "kind": "straight"
+      },
+      "actor_and_normalization_frozen": true,
+      "deterministic_action_clip_fraction": 1.0,
+      "deterministic_action_max_abs": 50781.015625,
+      "distribution_std_mean": 20032.232421875,
+      "report": {
+        "name": "straight_0.06_101",
+        "seed": 101,
+        "passed": false,
+        "completed": true,
+        "failed": false,
+        "reason": 0,
+        "observed": {
+          "controls": 1150,
+          "simulation_seconds": 22.99999999999813,
+          "max_raw_horizontal_speed": 0.6240667127620594,
+          "max_raw_yaw_rate": 6.759953498840332,
+          "maximum_tilt_rad": 0.28075316548347473
+        },
+        "checks": {
+          "known_scenario": {
+            "passed": true,
+            "observed": "straight",
+            "threshold": null
+          },
+          "trace_fields": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "trace_shape": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "finite_inputs": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "continuous_clock": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "complete_trajectory": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "no_failure": {
+            "passed": true,
+            "observed": 0,
+            "threshold": 0
+          },
+          "upright": {
+            "passed": true,
+            "observed": 0.28075316548347473,
+            "threshold": 0.7853981633974483
+          },
+          "height": {
+            "passed": true,
+            "observed": 0.09121192246675491,
+            "threshold": 0.07092
+          },
+          "foot_contacts_only": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "segment_0/complete": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "motion_0/horizontal_acceleration": {
+            "passed": false,
+            "observed": 12.631838714585674,
+            "threshold": 0.3
+          },
+          "motion_0/yaw_acceleration": {
+            "passed": false,
+            "observed": 39.61733542382717,
+            "threshold": 2.0943951023931953
+          },
+          "motion_0/transition_forward_tracking": {
+            "passed": false,
+            "observed": 0.14572653735452398,
+            "threshold": 0.03
+          },
+          "motion_0/transition_yaw_tracking": {
+            "passed": false,
+            "observed": 2.3278043121016316,
+            "threshold": 0.13962634015954636
+          },
+          "motion_0/response_3s": {
+            "passed": false,
+            "observed": null,
+            "threshold": 3.0
+          },
+          "motion_0/steady_duration": {
+            "passed": true,
+            "observed": 20.0,
+            "threshold": 20.0
+          },
+          "motion_0/forward_rmse": {
+            "passed": false,
+            "observed": 0.16239393944940717,
+            "threshold": 0.012
+          },
+          "motion_0/forward_direction": {
+            "passed": true,
+            "observed": 0.993,
+            "threshold": 0.95
+          },
+          "motion_0/lateral_rmse": {
+            "passed": false,
+            "observed": 0.07547310894866231,
+            "threshold": 0.01
+          },
+          "motion_0/forward_progress": {
+            "passed": false,
+            "observed": -0.4296089205890894,
+            "threshold": 0.96
+          },
+          "motion_0/straight_lateral": {
+            "passed": false,
+            "observed": 0.47456806898117065,
+            "threshold": 0.05
+          },
+          "motion_0/straight_heading": {
+            "passed": false,
+            "observed": 30.510344703965863,
+            "threshold": 0.17453292519943295
+          }
+        },
+        "unvisited": []
+      },
+      "video": {
+        "status": "rendered",
+        "path": "replay-1000.mp4",
+        "fps": 10,
+        "seconds": 23.0,
+        "scope": "offline qpos rendering of the physical model; no additional integration"
+      }
+    }
+  ],
+  "postprocess_script_sha256": "2666e594d9d5f1d41f3da8d4c364c1c66c41b051a3ae01c153b1298ba5eb3815",
+  "postprocess_scope": "Chinese plots and contact sheet only; no new simulation",
+  "script_sha256_at_report_write": "baa97f440feceda7376b1f8cbb50579a6a085a8257a9d74edb5d2572346c36a9",
+  "script_hash_limitation": "Plot labels were edited while the already-loaded replay process was running; this hash is file content at report write, not an executed-source snapshot. Simulation functions were not edited."
+}

@@ -1,0 +1,233 @@
+{
+  "scope": "short_PPO_workload_benchmark_not_policy_acceptance",
+  "rank_records": [
+    {
+      "label": "spark-single-env-scale4096",
+      "utc_time": "2026-11-05T23:32:59.289606+00:00",
+      "rank": 0,
+      "world_size": 1,
+      "global_envs": 4096,
+      "local_envs": 4096,
+      "global_samples_per_iteration": 262144,
+      "device": "NVIDIA GB10",
+      "python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+      "versions": {
+        "torch": "2.9.0a0+145a3a7bda.nv25.10",
+        "mjlab": "1.3.0",
+        "mujoco": "3.10.0",
+        "mujoco-warp": "3.8.1",
+        "warp-lang": "1.12.0",
+        "rsl-rl-lib": "5.0.1",
+        "tensordict": "0.10.0"
+      },
+      "cuda": "13.0",
+      "nccl": [
+        2,
+        27,
+        7
+      ],
+      "tf32": false,
+      "mixed_precision": false,
+      "torch_cpu_threads": 1,
+      "configuration": {
+        "seed": 42,
+        "num_steps_per_env": 64,
+        "max_iterations": 2000,
+        "obs_groups": {
+          "actor": [
+            "actor"
+          ],
+          "critic": [
+            "critic"
+          ]
+        },
+        "save_interval": 50,
+        "experiment_name": "duck_locomotion_benchmark",
+        "run_name": "",
+        "logger": "tensorboard",
+        "wandb_project": "mjlab",
+        "wandb_tags": [],
+        "resume": false,
+        "load_run": ".*",
+        "load_checkpoint": "model_.*.pt",
+        "clip_actions": null,
+        "upload_model": false,
+        "class_name": "OnPolicyRunner",
+        "actor": {
+          "hidden_dims": [
+            128,
+            128
+          ],
+          "activation": "elu",
+          "obs_normalization": true,
+          "cnn_cfg": null,
+          "distribution_cfg": {
+            "class_name": "GaussianDistribution",
+            "init_std": 0.3,
+            "std_type": "log"
+          },
+          "rnn_type": null,
+          "rnn_hidden_dim": 256,
+          "rnn_num_layers": 1,
+          "class_name": "MLPModel"
+        },
+        "critic": {
+          "hidden_dims": [
+            128,
+            128
+          ],
+          "activation": "elu",
+          "obs_normalization": true,
+          "cnn_cfg": null,
+          "distribution_cfg": null,
+          "rnn_type": null,
+          "rnn_hidden_dim": 256,
+          "rnn_num_layers": 1,
+          "class_name": "MLPModel"
+        },
+        "algorithm": {
+          "num_learning_epochs": 5,
+          "num_mini_batches": 4,
+          "learning_rate": 0.0003,
+          "schedule": "adaptive",
+          "gamma": 0.995,
+          "lam": 0.95,
+          "entropy_coef": 0.005,
+          "desired_kl": 0.01,
+          "max_grad_norm": 1.0,
+          "value_loss_coef": 1.0,
+          "use_clipped_value_loss": true,
+          "clip_param": 0.2,
+          "normalize_advantage_per_mini_batch": false,
+          "optimizer": "adam",
+          "share_cnn_encoders": false,
+          "class_name": "PPO"
+        }
+      },
+      "finite_horizon": true,
+      "init_at_random_ep_len": false,
+      "sha256": {
+        "training/scripts/benchmark_locomotion.py": "a7129adab2a80469018588ab8d92391a110d336c9340bda7f4c355460b09ad19",
+        "training/mjlab_duck/locomotion_env.py": "9560f90373bf39c56051e2f0735a67a6e875c2ea40a5b79d61432ca713a6c47f",
+        "training/mjlab_duck/locomotion_cfg.py": "84f7b42cc34500f6ad20b2d728135ccf8fa30457a1bc930da566a4e87e100a77",
+        "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+        "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f"
+      },
+      "setup_s": 7.515753419138491,
+      "warmup": [
+        {
+          "collect_and_returns_s": 5.631280113942921,
+          "ppo_update_including_sync_s": 0.3372410936281085,
+          "total_s": 5.96852120757103,
+          "done_count": 2852,
+          "raw_clip_fraction": 0.0027215140206473215,
+          "losses": {
+            "value": 1000.8019195556641,
+            "surrogate": 0.012147981068119406,
+            "entropy": 3.0134970903396607
+          },
+          "parameters_finite": true
+        },
+        {
+          "collect_and_returns_s": 5.554058105684817,
+          "ppo_update_including_sync_s": 0.2328332420438528,
+          "total_s": 5.78689134772867,
+          "done_count": 3928,
+          "raw_clip_fraction": 0.002705437796456473,
+          "losses": {
+            "value": 1221.8915710449219,
+            "surrogate": -0.0010353193356422707,
+            "entropy": 3.028011739253998
+          },
+          "parameters_finite": true
+        }
+      ],
+      "timed": [
+        {
+          "collect_and_returns_s": 5.502777968533337,
+          "ppo_update_including_sync_s": 0.23526393994688988,
+          "total_s": 5.738041908480227,
+          "done_count": 3665,
+          "raw_clip_fraction": 0.0028103419712611605,
+          "losses": {
+            "value": 1111.277490234375,
+            "surrogate": 0.0011310451838653535,
+            "entropy": 3.10225590467453
+          },
+          "parameters_finite": true
+        },
+        {
+          "collect_and_returns_s": 5.464345332235098,
+          "ppo_update_including_sync_s": 0.23181951232254505,
+          "total_s": 5.696164844557643,
+          "done_count": 3418,
+          "raw_clip_fraction": 0.002849033900669643,
+          "losses": {
+            "value": 1008.3898345947266,
+            "surrogate": 0.003570437885355204,
+            "entropy": 3.139305925369263
+          },
+          "parameters_finite": true
+        },
+        {
+          "collect_and_returns_s": 5.440183338709176,
+          "ppo_update_including_sync_s": 0.23217772971838713,
+          "total_s": 5.672361068427563,
+          "done_count": 3288,
+          "raw_clip_fraction": 0.002921240670340402,
+          "losses": {
+            "value": 966.3920776367188,
+            "surrogate": 0.00522186862945091,
+            "entropy": 3.1587713956832886
+          },
+          "parameters_finite": true
+        },
+        {
+          "collect_and_returns_s": 5.378101391717792,
+          "ppo_update_including_sync_s": 0.2346304776147008,
+          "total_s": 5.612731869332492,
+          "done_count": 3047,
+          "raw_clip_fraction": 0.002936771937779018,
+          "losses": {
+            "value": 887.6327545166016,
+            "surrogate": 0.0037006794125773014,
+            "entropy": 3.1861908435821533
+          },
+          "parameters_finite": true
+        },
+        {
+          "collect_and_returns_s": 5.335556612350047,
+          "ppo_update_including_sync_s": 0.23428302630782127,
+          "total_s": 5.569839638657868,
+          "done_count": 2799,
+          "raw_clip_fraction": 0.003090722220284598,
+          "losses": {
+            "value": 784.0975677490235,
+            "surrogate": 0.003111103634000756,
+            "entropy": 3.2121007800102235
+          },
+          "parameters_finite": true
+        }
+      ],
+      "torch_peak_allocated_bytes": 616056832,
+      "torch_peak_reserved_bytes": 683671552,
+      "memory_note": "PyTorch counters exclude Warp and other CUDA allocators",
+      "policy_quality_evaluated": false,
+      "checkpoint_saved": false
+    }
+  ],
+  "aggregation": {
+    "method": "max_rank_wall_per_window; global_samples counted once",
+    "window_total_s": [
+      5.738041908480227,
+      5.696164844557643,
+      5.672361068427563,
+      5.612731869332492,
+      5.569839638657868
+    ],
+    "median_iteration_s": 5.672361068427563,
+    "global_transitions_per_s": 46332.97551881423,
+    "median_global_transitions_per_s": 46214.26542451555,
+    "update_sync_note": "NCCL synchronization included in update; not independently timed"
+  }
+}

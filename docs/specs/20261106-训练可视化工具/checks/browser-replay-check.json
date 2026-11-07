@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-06",
+  "scope": "browser_replay_acceptance_with_read_only_runtime_cross_check",
+  "evidence_level": "本机实测；读取实际API及frames.jsonl，未操作浏览器",
+  "endpoint": "http://127.0.0.1:8766/api/replays",
+  "training_transitions_consumed_by_this_review": 0,
+  "four_pane_observation": {
+    "browser_observer": "主会话/root通过CUA操作与截图",
+    "screenshot": "dashboard-four-replays.jpg",
+    "screenshot_width_px": 1600,
+    "screenshot_sha256": "07fa8453021244a50ba9966ea7389ad4688423dcb71110fe2158b0bb1caf7746",
+    "browser_refresh_reconnected_existing_four_without_duplicates": true,
+    "api_runtime_cross_check": [
+      {"replay_id": "4220e3394edf42f9807e17fbbe0083b5", "checkpoint_id": "legacy-100", "state": "completed", "generation": 0, "seq": 929, "sim_time_s": 22.99999999999813, "joint_count": 14},
+      {"replay_id": "d965f881b787457e878f56cc068c31d3", "checkpoint_id": "legacy-1000", "state": "completed", "generation": 0, "seq": 947, "sim_time_s": 22.99999999999813, "joint_count": 14},
+      {"replay_id": "e22568892f194334a0bfd56ffcd2c8cb", "checkpoint_id": "legacy-1000", "state": "paused", "generation": 1, "seq": 870, "sim_time_s": 0.12000000000000009, "joint_count": 14},
+      {"replay_id": "c74e3b9a80534a77ad0e289fa9164572", "checkpoint_id": "legacy-100", "state": "completed", "generation": 0, "seq": 983, "sim_time_s": 22.99999999999813, "joint_count": 14}
+    ],
+    "refresh_curve_history": "已修复；服务重启后独立页恢复closed会话983帧完整曲线及Studio模型，按钮禁用且未新增worker；见final-browser-check.json",
+    "close_and_release": {
+      "api_active_sessions_after_close": 0,
+      "wsl_replay_worker_process_matches_after_close": 0,
+      "wsl_process_check": "pgrep -af '[r]eplay_worker.py' returned no matches",
+      "windows_wsl_parent_process_absence": "本记录未另行核验Windows父PID",
+      "closed_sessions": [
+        {"replay_id": "c74e3b9a80534a77ad0e289fa9164572", "state": "closed", "utc": "2026-11-06T09:32:18.147055+00:00", "frame_bytes": 1954122, "frame_sha256": "989658360cf20b472c807e8aa7cad34e1d29a8e83d8f410058057c2f15703db7"},
+        {"replay_id": "e22568892f194334a0bfd56ffcd2c8cb", "state": "closed", "utc": "2026-11-06T09:32:41.833113+00:00", "frame_bytes": 1725991, "frame_sha256": "8c6ca7fc7e98c5f984c9a095d7481a1b286ae637af13635e5d5c335dfc99d0e6"},
+        {"replay_id": "4220e3394edf42f9807e17fbbe0083b5", "state": "closed", "utc": "2026-11-06T09:32:18.763935+00:00", "frame_bytes": 1847094, "frame_sha256": "a02774cd0b9e39daaaef13a02115cb087aa3409b894481ecdc7422e50b6f9621"},
+        {"replay_id": "d965f881b787457e878f56cc068c31d3", "state": "closed", "utc": "2026-11-06T09:32:18.477856+00:00", "frame_bytes": 1878715, "frame_sha256": "0493da215d8f9570ab5f7b2fbf17ad22ff20be387e6b27bf5493eebe8133414c"}
+      ]
+    }
+  },
+  "sessions": [
+    {
+      "replay_id": "c74e3b9a80534a77ad0e289fa9164572",
+      "checkpoint_id": "legacy-100",
+      "checkpoint_sha256": "e7a001c69234366a3eb5a16a53ed19c7c7204fe1c172ca691082d053e7f1b31d",
+      "state_at_read": "completed",
+      "frame_source": "training/.dashboard/replays/c74e3b9a80534a77ad0e289fa9164572/frames.jsonl",
+      "frame_count_at_read": 983,
+      "generations": [{"generation": 0, "frames": 983, "max_sim_time_s": 22.99999999999813, "completed_frames": 1}],
+      "last_frame_utc": "2026-11-06T09:08:52.515726+00:00",
+      "joint_count": 14,
+      "last_root_position_m": [0.8244413733482361, 0.25871941447257996, 0.11798306554555893],
+      "last_root_quaternion_wxyz": [0.972665011882782, -0.023277154192328453, 0.036862898617982864, 0.22808349132537842],
+      "last_frame_actual_realtime_factor": 0.4068659065509081
+    },
+    {
+      "replay_id": "e22568892f194334a0bfd56ffcd2c8cb",
+      "checkpoint_id": "legacy-1000",
+      "checkpoint_sha256": "255504166a575c26fb776f34f754b1d5d21cd61121fef5158508ae6bf3e42f3f",
+      "state_at_read": "paused",
+      "frame_source": "training/.dashboard/replays/e22568892f194334a0bfd56ffcd2c8cb/frames.jsonl",
+      "frame_count_at_read": 870,
+      "generations": [
+        {"generation": 0, "frames": 866, "max_sim_time_s": 22.99999999999813, "completed_frames": 1},
+        {"generation": 1, "frames": 4, "max_sim_time_s": 0.12000000000000009, "completed_frames": 0}
+      ],
+      "last_frame_utc": "2026-11-06T09:10:28.646737+00:00",
+      "joint_count": 14,
+      "status_speed_at_read": 2.0,
+      "status_control_seq_at_read": 3,
+      "last_root_position_m": [-0.017705904319882393, -0.0033509491477161646, 0.11841835826635361],
+      "last_root_quaternion_wxyz": [0.9997466802597046, -0.01801871322095394, -0.013310506008565426, -0.0021771201863884926]
+    }
+  ],
+  "limits": [
+    "completed仅表示23秒场景结束，不表示策略行为达到dev验收阈值。",
+    "早期运行中Get-FileHash因共享限制失败，关闭后四路原始帧哈希已成功补录。",
+    "本记录是运行文件/API的独立复核，浏览器按钮、布局、四窗与资源释放结果由主会话另行记录。",
+    "cp1000暂停状态speed=2只证明已接收控制；暂停后的2倍实际速率不能由该状态确认。"
+  ]
+}

@@ -41,7 +41,9 @@ VelStand 的写法是**"复用已验证底座 + 叠加恢复层"**（`tasks/micr
    - Phase 2（500+）：摔倒不再终止，变成恢复训练数据；
    - Phase 3（800+ crouch 切片 / 1500+ prone 爬坡至 45%）：恢复经济（tax+bounty）1200 iter 才开——留出"免费自然摔倒窗口"，否则学出 crouch-freeze 局部最优（run-3/6 教训）。
 
-**观测 61 维**（继承 velocity 任务）：14 关节位置 + 14 关节速度 + 3 重力投影 + 3 角速度 + 3 加速度计 + 14 上一步动作 + 4 头部姿态命令 + 6 躯干姿态命令 = 61。**动作 14 维**（4 头 + 10 腿），action scale 1.0，部署阶段为"归位+缩放后的关节位置目标"。
+**观测 61 维**（按部署合同顺序）：3 机体角速度 + 3 重力投影 + 14 相对 HOME 的关节位置 + 14 关节速度 + 14 上一步原始策略输出 + 3 速度命令 + 4 头颈姿态命令 + 6 躯干姿态命令 = 61。**动作 14 维**（4 头颈 + 10 腿），action scale 1.0，部署阶段为"归位+缩放后的关节位置目标"。
+
+2026-11-05 勘误 **[归档合同／源码核验]**：原文将3维速度命令误写成加速度计，现已替换。依据[板侧快照](../飞特策略模型上机核对/webpad-models-snapshot-20261101.json)的 `models[0].sidecars["deployment-contract.json"].text` 解码后的 `observations.terms` 和 `onnx_metadata.observation_names`，该 walk 使用 `projected_gravity`，没有额外 `raw_accelerometer` 输入；3维 `command` 指向 `twist`。逐项含义见[平台接口核对](../自主训练平台/research.md)。本次未重新连接主控或采集动作数据。
 
 ### 2.5 状态判定与奖惩实现（`tasks/mdp.py`，2026-11-03 补充）
 

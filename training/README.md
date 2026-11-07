@@ -1,5 +1,15 @@
 # C 线自建 real2sim2real 学习工程
 
+> **第⑤步网页回放外观来源（2026-11-06）**：用户指定Studio模型，不用MuJoCo简模。已按部署固定提交恢复[模型及加载源码](../software/studio/model-source-2026103101/README.md)，来源哈希已核验，可进行本地适配；当前板侧是否有额外修改未重新在线比对，不阻塞设计。见[需求](../docs/specs/20261106-训练可视化工具/spec.md)与[来源记录](../docs/specs/20261106-训练可视化工具/studio-model-source.md)。
+
+> **2026-11-06 第⑤步训练可视化工具验收完成**：[修改方案](../docs/specs/20261106-训练可视化工具/implementation-plan.md)已实现，使用[训练工作台入口](dashboard/README.md)，默认8766。[实测] 三模式新建/停止/恢复/预算退出合计576转换通过；旧模型23秒回放、四窗、刷新接回及关闭释放通过；重启后983帧历史曲线恢复、Windows/WSL/Spark资源卡及WSL持久JSONL通过。结果及四截图见[最终验收](../docs/specs/20261106-训练可视化工具/checks/final-browser-check.json)与[实施记录](../docs/specs/20261106-训练可视化工具/implementation-record.md)。这是工具验收，不宣称策略行为达标；未提交。
+
+> **2026-11-06 失败诊断完成**：动作分布与确定性输出越界证据、两段回放和下一版稳定化建议见[诊断记录](../docs/specs/20261105-原地转圈策略/step5-diagnosis.md)。训练实现未改，第二轮未开始；建议参数和预算尚待用户确认。
+
+> **2026-11-06 第⑤步首轮执行结束，行为未达标**：双Spark完成1000更新、262144000转换后预算耗尽正常退出；10次dev9均0/9，仍阶段一，未进入转向或full96。详见[第⑤步记录](../docs/specs/20261105-原地转圈策略/step5-training-run.md)。没有自动重训或增加预算；下方第④步“未开始”为历史状态。模型未部署。
+
+> **2026-11-06 第④步完成**：已按确认参数实现双Spark（spark1＋spark2）、全局4096环境、rollout64、两阶段合计1000更新的训练入口、课程、评估、预算和保存恢复，见[实施记录](../docs/specs/20261105-原地转圈策略/step4-implementation.md)。本地必要检查、最终双Spark64/4096环境2＋1更新与完整恢复通过，源码SHA一致、独立审查通过。第⑤步正式训练未开始，策略行为尚未达标。后文64环境/2000轮仅为历史预算对照。
+
 > **模型清单：** 外部候选与自训产物的来源、哈希和验证状态见 [MODELS.md](MODELS.md)。
 
 > **2026-10-31 模型库存补充**：用户确认硬件完成，工程已有策略及真机候选见[模型盘点](../docs/references/飞特策略模型上机核对/research.md)。本目录 `logs/` 另存 10-24 下载的外部 HD1910 包（6 个普通足部动作、4 个滑轮动作）；它们不是下文自建训练的产物。自建 `model_9999.pt` 仍在，历史 CPU/SB3 `checkpoints/` 当前工作区未找到；本轮未运行策略或连接真机。
@@ -16,8 +26,16 @@
 
 ## 目录
 
+**当前联合训练入口**：优先使用[网页工作台](dashboard/README.md)冻结任务与源码。从冻结源码的本目录也可运行`python -m mjlab_duck.train_locomotion --config CONFIG.json --output RUN_DIR --experiment-dir EXP_DIR`，支持单rank或双节点各一rank；每次使用新`--output`，续训显式指定`--resume-manifest`并复用原账本及合同。课程决定待执行的中间`evaluated`点只供推理，续训选择final/stage2兼容点。具体协议见[运行时协议](dashboard/runtime_protocol.md)，验收状态见上述实施记录。
+
+**历史短测速证据**：独立`scripts/benchmark_locomotion.py`完成RTX4080、单Spark及双Spark同全局4096样本的2预热＋3计时短跑，见[比较记录](../docs/references/自主训练平台/Spark与本地训练比较.md)。后续[256/1024/4096环境扫描](../docs/specs/20261105-原地转圈策略/benchmark-scale-runbook.md)采用2预热＋5计时，单Spark补跑加载双机相同env文件；4096下双/单吞吐约1.629×。测速不保存正式策略，不替代新入口恢复检查或行为验收。
+
+**2026-11-05 联合环境及后续扩展**：用户确认第③步方案后新增 `mjlab_duck/locomotion_env.py`、`locomotion_cfg.py`，保持61维actor/critic和14维关节目标，覆盖只前进、减速、弧线、原地转和停止。最短检查入口 `scripts/check_locomotion_env.py --output <结果.json>`（使用既有WSL `.venv-wsl/bin/python`）；见[方案](../docs/specs/20261105-原地转圈策略/environment-plan.md)和[第③步结构检查](../docs/specs/20261105-原地转圈策略/environment-runtime-check.json)。第④步新增版本化课程、逐子步验收统计和reset前终态快照；GPU回归通过不代表策略动作达标。正式入口直接构建runner；未导出或部署。每步`extras["locomotion"]`提供命令、实际速度、固定锚点、失败与奖励分项。
+
 | 路径 | 内容 |
 |---|---|
+| `dashboard/` / `start-dashboard.ps1` | 第⑤步网页工作台、独立控制服务与Windows启动器；实际验收见工作台README |
+| `tasks/locomotion.json` / `runtime_versions/locomotion-v1/` | 现行任务描述及来源SHA；旧运行兼容推理冻结来源 |
 | `params/` | 机器可读参数表（由 `scripts/extract_public_params.py` 只读提取生成） |
 | `scripts/extract_public_params.py` | 从参考库只读解析上游公开参数（含自写四元数级联，已与 MuJoCo 内核对拍一致，误差 <1e-6） |
 | `scripts/build_model_v0.py` | 从参数表生成 `models/duck_v0.xml`（几何为自建胶囊/盒，端点=关节中心） |

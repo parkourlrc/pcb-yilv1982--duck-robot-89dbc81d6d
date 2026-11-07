@@ -1,0 +1,9 @@
+{
+  "scope": "CPU Gloo collective transport check startup",
+  "status": "interrupted_after_workers_waited_without_rendezvous_file",
+  "behavior_acceptance": "not_run",
+  "observed": "Two spawned workers waited; no FileStore file or rank output was created. Only this check's parent and worker processes were terminated.",
+  "hypothesis": "Path.as_uri percent-encoded the Chinese directory name; the FileStore rendezvous may have used the encoded path literally.",
+  "change": "Use an ASCII temporary rendezvous directory, add a 60-second process-group timeout, and hide CUDA from CPU collective workers.",
+  "validation": "Replacement check result is recorded separately; this record does not claim the hypothesis is proven."
+}

@@ -1,0 +1,192 @@
+{
+  "mode": "single_spark",
+  "started_utc": "2026-11-06T09:19:06.265874+00:00",
+  "budget_transitions": 192,
+  "runs": [
+    {
+      "run_id": "5b794601fa554ea29b46b612a3befc1e",
+      "experiment_id": "161f00c73e4a46b08cd8cbf11b320f0f",
+      "name": "工具验收 single_spark",
+      "task_id": "locomotion",
+      "task_version": "v2",
+      "parent_run_id": null,
+      "parent_checkpoint_id": null,
+      "managed": true,
+      "read_only": false,
+      "state": "completed",
+      "connection": {
+        "state": "connected",
+        "nodes": [],
+        "last_seen_utc": "2026-11-06T09:19:52.273520+00:00"
+      },
+      "stage": 1,
+      "model_iteration": 2,
+      "budget": {
+        "transitions_per_update": 64,
+        "max_transitions": 192,
+        "consumed_transitions": 128,
+        "remaining_transitions": 64
+      },
+      "execution": {
+        "mode": "single_spark",
+        "node_ids": [
+          "spark1"
+        ],
+        "world_size": 1
+      },
+      "config": {
+        "num_envs": 16,
+        "num_steps_per_env": 4,
+        "max_updates": 3,
+        "save_interval": 1,
+        "eval_interval": 100,
+        "diagnostic_interval": 200,
+        "seed": 42,
+        "gamma": 0.995,
+        "lam": 0.95,
+        "learning_rate": 0.0003,
+        "desired_kl": 0.01,
+        "num_learning_epochs": 5,
+        "num_mini_batches": 4,
+        "entropy_coef": 0.005,
+        "value_loss_coef": 1.0,
+        "clip_param": 0.2,
+        "max_grad_norm": 1.0,
+        "init_std": 0.3,
+        "finite_horizon": true,
+        "init_at_random_ep_len": false,
+        "clip_actions": null,
+        "stage1": {
+          "stage": 1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "stage2": {
+          "stage": 2,
+          "probabilities": [
+            0.2,
+            0.3,
+            0.3,
+            0.15,
+            0.05
+          ]
+        }
+      },
+      "created_utc": "2026-11-06T09:19:06.265874+00:00",
+      "elapsed_s": 1.1950826121028513,
+      "eta_s": null,
+      "latest_checkpoint_id": "5b794601fa554ea29b46b612a3befc1e-final_000002_8b187f91cc",
+      "failure": null,
+      "capabilities": {
+        "stop": {
+          "allowed": false,
+          "reasons": []
+        },
+        "resume": {
+          "allowed": true,
+          "reasons": []
+        }
+      }
+    },
+    {
+      "run_id": "893b22c87c214ebdbfa81fd9215d6a7a",
+      "experiment_id": "161f00c73e4a46b08cd8cbf11b320f0f",
+      "name": "工具验收 single_spark · 续训",
+      "task_id": "locomotion",
+      "task_version": "v2",
+      "parent_run_id": "5b794601fa554ea29b46b612a3befc1e",
+      "parent_checkpoint_id": "5b794601fa554ea29b46b612a3befc1e-final_000002_8b187f91cc",
+      "managed": true,
+      "read_only": false,
+      "state": "completed",
+      "connection": {
+        "state": "connected",
+        "nodes": [],
+        "last_seen_utc": "2026-11-06T09:20:34.230246+00:00"
+      },
+      "stage": 1,
+      "model_iteration": 3,
+      "budget": {
+        "transitions_per_update": 64,
+        "max_transitions": 192,
+        "consumed_transitions": 192,
+        "remaining_transitions": 0
+      },
+      "execution": {
+        "mode": "single_spark",
+        "node_ids": [
+          "spark1"
+        ],
+        "world_size": 1
+      },
+      "config": {
+        "num_envs": 16,
+        "num_steps_per_env": 4,
+        "max_updates": 3,
+        "save_interval": 1,
+        "eval_interval": 100,
+        "diagnostic_interval": 200,
+        "seed": 42,
+        "gamma": 0.995,
+        "lam": 0.95,
+        "learning_rate": 0.0003,
+        "desired_kl": 0.01,
+        "num_learning_epochs": 5,
+        "num_mini_batches": 4,
+        "entropy_coef": 0.005,
+        "value_loss_coef": 1.0,
+        "clip_param": 0.2,
+        "max_grad_norm": 1.0,
+        "init_std": 0.3,
+        "finite_horizon": true,
+        "init_at_random_ep_len": false,
+        "clip_actions": null,
+        "stage1": {
+          "stage": 1,
+          "probabilities": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "stage2": {
+          "stage": 2,
+          "probabilities": [
+            0.2,
+            0.3,
+            0.3,
+            0.15,
+            0.05
+          ]
+        }
+      },
+      "created_utc": "2026-11-06T09:19:52.302521+00:00",
+      "elapsed_s": 0.9481229779776186,
+      "eta_s": null,
+      "latest_checkpoint_id": "893b22c87c214ebdbfa81fd9215d6a7a-final_000003_1957c84ba1",
+      "failure": null,
+      "capabilities": {
+        "stop": {
+          "allowed": false,
+          "reasons": []
+        },
+        "resume": {
+          "allowed": false,
+          "reasons": [
+            "需剩余预算、终态及完整rank缓存"
+          ]
+        }
+      }
+    }
+  ],
+  "completed_utc": "2026-11-06T09:20:36.813265+00:00",
+  "passed": true,
+  "consumed_transitions": 192
+}
