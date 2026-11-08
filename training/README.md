@@ -1,5 +1,13 @@
 # C 线自建 real2sim2real 学习工程
 
+> **2026-11-08 足部奖励四组百轮完成**：[完整结果、对照图与视频](../docs/references/自主训练平台/足部奖励百轮对照-20261107.md)。固定Kp25/Kd2及物理层，20mm组在2/3场景形成有效迈步，左右膝周期中位幅度约15.3°/10.8°；第三场静止，四组dev9均0/9，尚未解决稳定直走。训练/评估/视频全部结束，未追加种子复核；后续航向约束仅为待确认提案。
+
+> **2026-11-07 Kd试验已停止**：按用户最新指示固定物理参数；四组Kd变化运行已保存退出，组合排队取消，alpha0.1/Kd2尚未启动。昨天与今天基线均为自选IdealPD，并未使用飞特官方完整BAM；[参数来源核对](../docs/references/自主训练平台/训练物理参数来源核对-20261107.md)区分已采用设计值、公开近似参数和本机标定。步幅仍未达标，原训练源未改。
+
+> **2026-11-07 本机百轮基线完成**：现有 v2 冻结源码、RTX 5090 Laptop 单卡、4096 环境、64 步、seed 42 完成 100 更新，dev9 无跌倒但 0/9 行为通过，小摆幅仍在。新权重镜像 `training/logs/amplitude-baseline-20261107/`，WSL 完整运行 `/root/duck-training-runs/amplitude-20261107-baseline/`；[结果、50 fps 视频及数据](../docs/references/自主训练平台/本机百轮步幅基线-20261107.md)。训练实现未改，后续调参方案见[步幅优化 spec](../docs/specs/20261107-步幅参数优化/spec.md)。下方“第二轮未开始”仅描述 11-06 当时状态。
+
+> **2026-11-07 本机环境登记**：RTX 5090 Laptop 24 GB / Ubuntu-24.04 WSL2，Python 3.12.3、torch 2.13.0+cu129、mjlab 1.3.0；GPU 仿真与小规模 PPO 更新通过。Windows 工作台已安装，local 节点与任务可用；运行 `powershell -File training/start-dashboard.ps1`，访问 `http://127.0.0.1:8766`。解释器、依赖修复、换行修复、启动及原始证据见[本机训练环境](../docs/references/本机训练环境/research.md)。下面 RTX 4080 / CUDA 13.0 为另一机器的历史记录，不适用于本机。
+
 > **第⑤步网页回放外观来源（2026-11-06）**：用户指定Studio模型，不用MuJoCo简模。已按部署固定提交恢复[模型及加载源码](../software/studio/model-source-2026103101/README.md)，来源哈希已核验，可进行本地适配；当前板侧是否有额外修改未重新在线比对，不阻塞设计。见[需求](../docs/specs/20261106-训练可视化工具/spec.md)与[来源记录](../docs/specs/20261106-训练可视化工具/studio-model-source.md)。
 
 > **2026-11-06 第⑤步训练可视化工具验收完成**：[修改方案](../docs/specs/20261106-训练可视化工具/implementation-plan.md)已实现，使用[训练工作台入口](dashboard/README.md)，默认8766。[实测] 三模式新建/停止/恢复/预算退出合计576转换通过；旧模型23秒回放、四窗、刷新接回及关闭释放通过；重启后983帧历史曲线恢复、Windows/WSL/Spark资源卡及WSL持久JSONL通过。结果及四截图见[最终验收](../docs/specs/20261106-训练可视化工具/checks/final-browser-check.json)与[实施记录](../docs/specs/20261106-训练可视化工具/implementation-record.md)。这是工具验收，不宣称策略行为达标；未提交。
@@ -47,7 +55,7 @@
 | `duckstand/env.py` | 自编 gymnasium 环境：当前为 v0.8 速度命令与相位任务；历史站立策略接口不同 |
 | `train.py` / `play.py` / `interact.py` | 旧 CPU/SB3 训练与回放；回放必须显式指定兼容的 SB3 checkpoint |
 
-## 当前回放环境（2026-10-21 现场核查）
+## 历史回放环境（RTX 4080，2026-10-21 现场核查）
 
 WSL Python 3.12.3、mjlab 1.3.0、MuJoCo 3.10.0、torch 2.14.1+cu130、Viser 1.1.1、rsl-rl 5.0.1；RTX 4080 的 CUDA 可用。默认 checkpoint 固定为 `training/logs/rsl_rl/duck_walk/2026-10-19_15-02-25/model_9999.pt`，不自动挑选其他策略；它保留在本机日志目录，不随版本库分发。历史 SB3 `.zip` 不用于此入口。
 

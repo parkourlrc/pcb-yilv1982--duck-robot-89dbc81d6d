@@ -1,0 +1,28 @@
+{
+  "pid": 73577,
+  "command": [
+    "/mnt/c/Projects/duck-robot/training/.venv-wsl/bin/python",
+    "-u",
+    "/mnt/c/Projects/duck-robot/training/experiments/amplitude/run_parallel.py",
+    "--source",
+    "/root/duck-training-runs/amplitude-20261107-baseline/frozen",
+    "--work-root",
+    "/root/duck-training-runs",
+    "--evidence",
+    "/mnt/c/Projects/duck-robot/docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/amplitude-experiments-20261107",
+    "--workers",
+    "3",
+    "--presets",
+    "ema025_kd100",
+    "kd075",
+    "kd050",
+    "ema050_kd100",
+    "ema025_kd075",
+    "ema010"
+  ],
+  "utc": "2026-11-07T08:37:04.757521+00:00",
+  "log": "/root/duck-training-runs/amplitude-20261107-parallel.log",
+  "additional_budget_transitions": 157286400,
+  "additional_workers": 3,
+  "original_queue_reserved_slots": 1
+}

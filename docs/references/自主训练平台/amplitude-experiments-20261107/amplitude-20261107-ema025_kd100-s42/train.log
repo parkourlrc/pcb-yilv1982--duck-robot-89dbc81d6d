@@ -1,0 +1,198 @@
+Setting seed: 42
+Warp 1.12.0 initialized:
+   CUDA Toolkit 12.9, Driver 12.9
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 5090 Laptop GPU" (24 GiB, sm_120, mempool enabled)
+   Kernel cache:
+     /root/.cache/warp/1.12.0
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has 2 keyframes; only the first one will be used.
+  self._add_entities()
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has non-default <option> fields (integrator) that will not be propagated by MjSpec.attach(). Use MujocoCfg instead.
+  self._add_entities()
+WARNING: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:71: UserWarning: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+  return self._spec.compile()
+Warp DeprecationWarning: The symbol `warp.context.runtime` will soon be removed from the public API. It can still be accessed from `warp._src.context.runtime` but might be changed or removed without notice.
+Module mujoco_warp._src.smooth 95a0b8b load on device 'cuda:0' took 3.72 ms  (cached)
+Module mujoco_warp._src.collision_driver 88f7770 load on device 'cuda:0' took 1.56 ms  (cached)
+Module _nxn_broadphase__locals__kernel_e73b1315 e73b131 load on device 'cuda:0' took 1.29 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_c9a289e6 c9a289e load on device 'cuda:0' took 2.44 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_b65ff338 b65ff33 load on device 'cuda:0' took 2.05 ms  (cached)
+Module mujoco_warp._src.constraint 27c5750 load on device 'cuda:0' took 2.52 ms  (cached)
+Module _efc_contact_init__locals__kernel_fda71e14 fda71e1 load on device 'cuda:0' took 1.36 ms  (cached)
+Module _efc_contact_jac_dense__locals__kernel_7974b597 cc0fc30 load on device 'cuda:0' took 1.55 ms  (cached)
+Module _efc_contact_update__locals__kernel_90315d53 90315d5 load on device 'cuda:0' took 1.32 ms  (cached)
+Module mujoco_warp._src.forward f60f76d load on device 'cuda:0' took 2.16 ms  (cached)
+Module mujoco_warp._src.passive 1a5e55c load on device 'cuda:0' took 1.38 ms  (cached)
+Module mujoco_warp._src.forward 8ebfcb1 load on device 'cuda:0' took 3.09 ms  (cached)
+Module mujoco_warp._src.support dd3f924 load on device 'cuda:0' took 1.27 ms  (cached)
+Module _tile_cholesky_factorize_solve__locals__cholesky_factorize_solve_b16bf393 b7e5d5f load on device 'cuda:0' took 103.49 ms  (cached)
+Module mujoco_warp._src.solver b116efb load on device 'cuda:0' took 2.17 ms  (cached)
+Module solve_init_jaref__locals__kernel_5208712d 5208712 load on device 'cuda:0' took 1.38 ms  (cached)
+Module mul_m_dense__locals___mul_m_dense_b66df345 b66df34 load on device 'cuda:0' took 1.58 ms  (cached)
+Module update_constraint_efc__locals__kernel_32935e9d 32935e9 load on device 'cuda:0' took 1.21 ms  (cached)
+Module update_constraint_gauss_cost__locals__kernel_baf8e129 baf8e12 load on device 'cuda:0' took 1.49 ms  (cached)
+Module update_gradient_JTDAJ_dense_tiled__locals__kernel_d2c0cd13 3e85f46 load on device 'cuda:0' took 2.57 ms  (cached)
+Module update_gradient_cholesky__locals__kernel_5ee47d83 324a2ff load on device 'cuda:0' took 157.24 ms  (cached)
+Module linesearch_jv_fused__locals__kernel_7bf09094 7bf0909 load on device 'cuda:0' took 1.21 ms  (cached)
+Module linesearch_prepare_gauss__locals__kernel_97347d38 97347d3 load on device 'cuda:0' took 1.14 ms  (cached)
+Module update_constraint_efc__locals__kernel_3c1a9816 3c1a981 load on device 'cuda:0' took 1.28 ms  (cached)
+Module mujoco_warp._src.sensor 7fc0378 load on device 'cuda:0' took 2.69 ms  (cached)
+Module mujoco_warp._src.derivative d0e2fd7 load on device 'cuda:0' took 1.72 ms  (cached)
+Module reset_data__locals__reset_xfrc_applied_e7898c5c e7898c5 load on device 'cuda:0' took 1.34 ms  (cached)
+Module reset_data__locals__reset_qM_10d3c793 10d3c79 load on device 'cuda:0' took 1.16 ms  (cached)
+Module reset_data__locals__reset_mocap_ff71f630 ff71f63 load on device 'cuda:0' took 1.26 ms  (cached)
+Module reset_data__locals__reset_contact_df686d47 df686d4 load on device 'cuda:0' took 1.26 ms  (cached)
+Module reset_data__locals__reset_nworld_6e0d904e 6e0d904 load on device 'cuda:0' took 1.08 ms  (cached)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 4096   |
+| Environment device     | cuda:0 |
+| Environment seed       | 42     |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++-----------+-------------------------+
+|   Index   | Name                    |
++-----------+-------------------------+
+|     0     | reset_joints            |
++-----------+-------------------------+
+
+[INFO] <CommandManager> contains 1 active terms.
++--------------------------------------+
+|         Active Command Terms         |
++-------+----------+-------------------+
+| Index | Name     |        Type       |
++-------+----------+-------------------+
+|   0   | velocity | LocomotionCommand |
++-------+----------+-------------------+
+
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 14) |
++--------+---------+--------------+
+| Index  | Name    |    Dimension |
++--------+---------+--------------+
+|   0    | joints  |           14 |
++--------+---------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (61,)) |
++----------------+------------------------+-----------------+
+|     Index      | Name                   |      Shape      |
++----------------+------------------------+-----------------+
+|       0        | contract               |      (61,)      |
++----------------+------------------------+-----------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (61,)) |
++----------------+-------------------------+-----------------+
+|     Index      | Name                    |      Shape      |
++----------------+-------------------------+-----------------+
+|       0        | contract                |      (61,)      |
++----------------+-------------------------+-----------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------------+
+|      Active Termination Terms     |
++-------+----------------+----------+
+| Index | Name           | Time Out |
++-------+----------------+----------+
+|   0   | failure        |  False   |
+|   1   | trajectory_end |   True   |
+|   2   | time_limit     |   True   |
++-------+----------------+----------+
+
+[INFO] <RewardManager> contains 2 active terms.
++--------------------------+
+|   Active Reward Terms    |
++-------+---------+--------+
+| Index | Name    | Weight |
++-------+---------+--------+
+|   0   | task    |    1.0 |
+|   1   | failure |    1.0 |
++-------+---------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 13 active terms.
++---------------------------+
+|    Active Metrics Terms   |
++-------+-------------------+
+| Index | Name              |
++-------+-------------------+
+|   0   | substep_max_drift |
+|   1   | max_drift         |
+|   2   | brake_path        |
+|   3   | anchor_time       |
+|   4   | max_tilt          |
+|   5   | min_height        |
+|   6   | strict_drift      |
+|   7   | strict_stop       |
+|   8   | strict_path       |
+|   9   | strict_full_stop  |
+|   10  | strict_hold       |
+|   11  | hold_complete     |
+|   12  | reason            |
++-------+-------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  ('actor',)
+	 critic :  ('critic',)
+--------------------------------------------------------------------------------
+Actor Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (distribution): GaussianDistribution()
+  (mlp): MLP(
+    (0): Linear(in_features=61, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=14, bias=True)
+  )
+)
+Critic Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (mlp): MLP(
+    (0): Linear(in_features=61, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+{"model_iteration": 1, "stage": 1, "consumed_transitions": 262144, "transitions_per_s": 12078.215405548654}
+{"model_iteration": 2, "stage": 1, "consumed_transitions": 524288, "transitions_per_s": 9842.029201948073}
+{"model_iteration": 3, "stage": 1, "consumed_transitions": 786432, "transitions_per_s": 10216.216702986212}
+{"model_iteration": 4, "stage": 1, "consumed_transitions": 1048576, "transitions_per_s": 10644.933706919981}
+{"model_iteration": 5, "stage": 1, "consumed_transitions": 1310720, "transitions_per_s": 11122.116081548089}
+{"model_iteration": 6, "stage": 1, "consumed_transitions": 1572864, "transitions_per_s": 11576.817742433164}
+{"model_iteration": 7, "stage": 1, "consumed_transitions": 1835008, "transitions_per_s": 11956.040216286001}
+{"model_iteration": 8, "stage": 1, "consumed_transitions": 2097152, "transitions_per_s": 12308.887409744973}
+{"model_iteration": 9, "stage": 1, "consumed_transitions": 2359296, "transitions_per_s": 12933.495392256129}
+{"model_iteration": 10, "stage": 1, "consumed_transitions": 2621440, "transitions_per_s": 13492.421754372583}
+{"model_iteration": 11, "stage": 1, "consumed_transitions": 2883584, "transitions_per_s": 13843.136082603605}
+{"model_iteration": 12, "stage": 1, "consumed_transitions": 3145728, "transitions_per_s": 14100.758051388613}
+{"model_iteration": 13, "stage": 1, "consumed_transitions": 3407872, "transitions_per_s": 14767.965237978227}
+{"model_iteration": 14, "stage": 1, "consumed_transitions": 3670016, "transitions_per_s": 15083.132847742121}
+{"model_iteration": 15, "stage": 1, "consumed_transitions": 3932160, "transitions_per_s": 15561.901831645526}
+{"model_iteration": 16, "stage": 1, "consumed_transitions": 4194304, "transitions_per_s": 15855.476720979508}
+{"model_iteration": 17, "stage": 1, "consumed_transitions": 4456448, "transitions_per_s": 16261.35643409245}
+{"model_iteration": 18, "stage": 1, "consumed_transitions": 4718592, "transitions_per_s": 16548.49236159504}
+{"model_iteration": 19, "stage": 1, "consumed_transitions": 4980736, "transitions_per_s": 17135.933724276943}
+{"model_iteration": 20, "stage": 1, "consumed_transitions": 5242880, "transitions_per_s": 17687.844252992698}
+{"model_iteration": 21, "stage": 1, "consumed_transitions": 5505024, "transitions_per_s": 17502.200582717087}
+{"model_iteration": 22, "stage": 1, "consumed_transitions": 5767168, "transitions_per_s": 22315.09000952451}

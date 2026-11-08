@@ -1,0 +1,371 @@
+Setting seed: 101
+Warp 1.12.0 initialized:
+   CUDA Toolkit 12.9, Driver 12.9
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 5090 Laptop GPU" (24 GiB, sm_120, mempool enabled)
+   Kernel cache:
+     /root/.cache/warp/1.12.0
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has 2 keyframes; only the first one will be used.
+  self._add_entities()
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has non-default <option> fields (integrator) that will not be propagated by MjSpec.attach(). Use MujocoCfg instead.
+  self._add_entities()
+WARNING: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:71: UserWarning: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+  return self._spec.compile()
+Warp DeprecationWarning: The symbol `warp.context.runtime` will soon be removed from the public API. It can still be accessed from `warp._src.context.runtime` but might be changed or removed without notice.
+Module mujoco_warp._src.smooth 95a0b8b load on device 'cuda:0' took 6.03 ms  (cached)
+Module mujoco_warp._src.collision_driver 88f7770 load on device 'cuda:0' took 2.21 ms  (cached)
+Module _nxn_broadphase__locals__kernel_e73b1315 e73b131 load on device 'cuda:0' took 2.72 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_c9a289e6 c9a289e load on device 'cuda:0' took 4.18 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_b65ff338 b65ff33 load on device 'cuda:0' took 2.52 ms  (cached)
+Module mujoco_warp._src.constraint 27c5750 load on device 'cuda:0' took 4.72 ms  (cached)
+Module _efc_contact_init__locals__kernel_fda71e14 fda71e1 load on device 'cuda:0' took 2.25 ms  (cached)
+Module _efc_contact_jac_dense__locals__kernel_7974b597 cc0fc30 load on device 'cuda:0' took 2.75 ms  (cached)
+Module _efc_contact_update__locals__kernel_90315d53 90315d5 load on device 'cuda:0' took 2.62 ms  (cached)
+Module mujoco_warp._src.forward f60f76d load on device 'cuda:0' took 5.24 ms  (cached)
+Module mujoco_warp._src.passive 1a5e55c load on device 'cuda:0' took 5.89 ms  (cached)
+Module mujoco_warp._src.forward 8ebfcb1 load on device 'cuda:0' took 4.59 ms  (cached)
+Module mujoco_warp._src.support dd3f924 load on device 'cuda:0' took 3.43 ms  (cached)
+Module _tile_cholesky_factorize_solve__locals__cholesky_factorize_solve_b16bf393 b7e5d5f load on device 'cuda:0' took 143.48 ms  (cached)
+Module mujoco_warp._src.solver b116efb load on device 'cuda:0' took 5.56 ms  (cached)
+Module solve_init_jaref__locals__kernel_5208712d 5208712 load on device 'cuda:0' took 6.51 ms  (cached)
+Module mul_m_dense__locals___mul_m_dense_b66df345 b66df34 load on device 'cuda:0' took 2.16 ms  (cached)
+Module update_constraint_efc__locals__kernel_32935e9d 32935e9 load on device 'cuda:0' took 2.00 ms  (cached)
+Module update_constraint_gauss_cost__locals__kernel_baf8e129 baf8e12 load on device 'cuda:0' took 1.96 ms  (cached)
+Module update_gradient_JTDAJ_dense_tiled__locals__kernel_d2c0cd13 3e85f46 load on device 'cuda:0' took 7.68 ms  (cached)
+Module update_gradient_cholesky__locals__kernel_5ee47d83 324a2ff load on device 'cuda:0' took 157.33 ms  (cached)
+Module linesearch_jv_fused__locals__kernel_7bf09094 7bf0909 load on device 'cuda:0' took 1.76 ms  (cached)
+Module linesearch_prepare_gauss__locals__kernel_97347d38 97347d3 load on device 'cuda:0' took 2.15 ms  (cached)
+Module update_constraint_efc__locals__kernel_3c1a9816 3c1a981 load on device 'cuda:0' took 3.39 ms  (cached)
+Module mujoco_warp._src.sensor 7fc0378 load on device 'cuda:0' took 4.12 ms  (cached)
+Module mujoco_warp._src.derivative d0e2fd7 load on device 'cuda:0' took 7.09 ms  (cached)
+Module reset_data__locals__reset_xfrc_applied_e7898c5c e7898c5 load on device 'cuda:0' took 5.30 ms  (cached)
+Module reset_data__locals__reset_qM_10d3c793 10d3c79 load on device 'cuda:0' took 4.60 ms  (cached)
+Module reset_data__locals__reset_mocap_ff71f630 ff71f63 load on device 'cuda:0' took 2.60 ms  (cached)
+Module reset_data__locals__reset_contact_df686d47 df686d4 load on device 'cuda:0' took 4.26 ms  (cached)
+Module reset_data__locals__reset_nworld_6e0d904e 6e0d904 load on device 'cuda:0' took 3.26 ms  (cached)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 1      |
+| Environment device     | cuda:0 |
+| Environment seed       | 101    |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++-----------+-------------------------+
+|   Index   | Name                    |
++-----------+-------------------------+
+|     0     | reset_joints            |
++-----------+-------------------------+
+
+[INFO] <CommandManager> contains 1 active terms.
++--------------------------------------+
+|         Active Command Terms         |
++-------+----------+-------------------+
+| Index | Name     |        Type       |
++-------+----------+-------------------+
+|   0   | velocity | LocomotionCommand |
++-------+----------+-------------------+
+
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 14) |
++--------+---------+--------------+
+| Index  | Name    |    Dimension |
++--------+---------+--------------+
+|   0    | joints  |           14 |
++--------+---------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (61,)) |
++----------------+------------------------+-----------------+
+|     Index      | Name                   |      Shape      |
++----------------+------------------------+-----------------+
+|       0        | contract               |      (61,)      |
++----------------+------------------------+-----------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (61,)) |
++----------------+-------------------------+-----------------+
+|     Index      | Name                    |      Shape      |
++----------------+-------------------------+-----------------+
+|       0        | contract                |      (61,)      |
++----------------+-------------------------+-----------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------------+
+|      Active Termination Terms     |
++-------+----------------+----------+
+| Index | Name           | Time Out |
++-------+----------------+----------+
+|   0   | failure        |  False   |
+|   1   | trajectory_end |   True   |
+|   2   | time_limit     |   True   |
++-------+----------------+----------+
+
+[INFO] <RewardManager> contains 2 active terms.
++--------------------------+
+|   Active Reward Terms    |
++-------+---------+--------+
+| Index | Name    | Weight |
++-------+---------+--------+
+|   0   | task    |    1.0 |
+|   1   | failure |    1.0 |
++-------+---------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 13 active terms.
++---------------------------+
+|    Active Metrics Terms   |
++-------+-------------------+
+| Index | Name              |
++-------+-------------------+
+|   0   | substep_max_drift |
+|   1   | max_drift         |
+|   2   | brake_path        |
+|   3   | anchor_time       |
+|   4   | max_tilt          |
+|   5   | min_height        |
+|   6   | strict_drift      |
+|   7   | strict_stop       |
+|   8   | strict_path       |
+|   9   | strict_full_stop  |
+|   10  | strict_hold       |
+|   11  | hold_complete     |
+|   12  | reason            |
++-------+-------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+Setting seed: 101
+{"scenario": "straight_0.06_101", "passed": false, "feet": {"left": {"events": [{"start_s": 3.184, "end_s": 3.224, "max_clearance_mm": 4.4003167152404785, "start": 1591, "end": 1612}, {"start_s": 3.638, "end_s": 3.702, "max_clearance_mm": 4.262946605682373, "start": 1818, "end": 1851}, {"start_s": 4.62, "end_s": 4.666, "max_clearance_mm": 5.011979579925537, "start": 2309, "end": 2333}, {"start_s": 5.086, "end_s": 5.15, "max_clearance_mm": 4.221042633056641, "start": 2542, "end": 2575}, {"start_s": 5.7, "end_s": 5.738, "max_clearance_mm": 4.39932107925415, "start": 2849, "end": 2869}, {"start_s": 6.62, "end_s": 6.682, "max_clearance_mm": 4.6327385902404785, "start": 3309, "end": 3341}, {"start_s": 7.11, "end_s": 7.168, "max_clearance_mm": 4.102001190185547, "start": 3554, "end": 3584}, {"start_s": 7.57, "end_s": 7.6080000000000005, "max_clearance_mm": 3.6637885570526123, "start": 3784, "end": 3804}, {"start_s": 7.986, "end_s": 8.034, "max_clearance_mm": 4.35392951965332, "start": 3992, "end": 4017}, {"start_s": 8.462, "end_s": 8.52, "max_clearance_mm": 3.858243942260742, "start": 4230, "end": 4260}, {"start_s": 8.912, "end_s": 8.976, "max_clearance_mm": 4.273666858673096, "start": 4455, "end": 4488}, {"start_s": 9.844, "end_s": 9.884, "max_clearance_mm": 3.922790288925171, "start": 4921, "end": 4942}, {"start_s": 10.348, "end_s": 10.398, "max_clearance_mm": 4.141777992248535, "start": 5173, "end": 5199}, {"start_s": 10.8, "end_s": 10.870000000000001, "max_clearance_mm": 4.579448223114014, "start": 5399, "end": 5435}, {"start_s": 11.314, "end_s": 11.362, "max_clearance_mm": 4.089862823486328, "start": 5656, "end": 5681}, {"start_s": 11.762, "end_s": 11.836, "max_clearance_mm": 4.5967326164245605, "start": 5880, "end": 5918}, {"start_s": 12.26, "end_s": 12.324, "max_clearance_mm": 4.253848552703857, "start": 6129, "end": 6162}, {"start_s": 13.236, "end_s": 13.290000000000001, "max_clearance_mm": 4.130763053894043, "start": 6617, "end": 6645}, {"start_s": 13.71, "end_s": 13.77, "max_clearance_mm": 4.7503838539123535, "start": 6854, "end": 6885}, {"start_s": 14.594, "end_s": 14.648, "max_clearance_mm": 4.1907057762146, "start": 7296, "end": 7324}, {"start_s": 15.542, "end_s": 15.604000000000001, "max_clearance_mm": 4.536375522613525, "start": 7770, "end": 7802}, {"start_s": 16.026, "end_s": 16.088, "max_clearance_mm": 4.122697830200195, "start": 8012, "end": 8044}, {"start_s": 16.502, "end_s": 16.544, "max_clearance_mm": 3.7690465450286865, "start": 8250, "end": 8272}, {"start_s": 16.974, "end_s": 17.028, "max_clearance_mm": 4.6553874015808105, "start": 8486, "end": 8514}, {"start_s": 17.464, "end_s": 17.52, "max_clearance_mm": 3.752760648727417, "start": 8731, "end": 8760}, {"start_s": 17.93, "end_s": 17.982, "max_clearance_mm": 3.963810443878174, "start": 8964, "end": 8991}, {"start_s": 18.368000000000002, "end_s": 18.416, "max_clearance_mm": 4.199272155761719, "start": 9183, "end": 9208}, {"start_s": 19.76, "end_s": 19.834, "max_clearance_mm": 4.746423244476318, "start": 9879, "end": 9917}, {"start_s": 20.704, "end_s": 20.758, "max_clearance_mm": 4.023838996887207, "start": 10351, "end": 10379}, {"start_s": 21.16, "end_s": 21.2, "max_clearance_mm": 3.6904616355895996, "start": 10579, "end": 10600}, {"start_s": 21.614, "end_s": 21.676000000000002, "max_clearance_mm": 4.306458950042725, "start": 10806, "end": 10838}, {"start_s": 22.074, "end_s": 22.144000000000002, "max_clearance_mm": 4.4288177490234375, "start": 11036, "end": 11072}], "event_count": 32, "clearance_min_max_mm": [-1.5821335315704346, 5.011979579925537], "contact_fraction": 0.7485251474852515, "contact_point_horizontal_speed_mean_m_s": 0.024500181898474693}, "right": {"events": [{"start_s": 3.0, "end_s": 3.118, "max_clearance_mm": 8.854625701904297, "start": 1499, "end": 1559}, {"start_s": 3.3080000000000003, "end_s": 3.576, "max_clearance_mm": 13.019317626953125, "start": 1653, "end": 1788}, {"start_s": 3.7680000000000002, "end_s": 4.13, "max_clearance_mm": 18.01700210571289, "start": 1883, "end": 2065}, {"start_s": 4.324, "end_s": 4.558, "max_clearance_mm": 11.098895072937012, "start": 2161, "end": 2279}, {"start_s": 4.744, "end_s": 5.018, "max_clearance_mm": 13.574877738952637, "start": 2371, "end": 2509}, {"start_s": 5.214, "end_s": 5.622, "max_clearance_mm": 19.758012771606445, "start": 2606, "end": 2811}, {"start_s": 5.814, "end_s": 6.132000000000001, "max_clearance_mm": 15.576698303222656, "start": 2906, "end": 3066}, {"start_s": 6.328, "end_s": 6.558, "max_clearance_mm": 10.766422271728516, "start": 3163, "end": 3279}, {"start_s": 6.746, "end_s": 7.038, "max_clearance_mm": 14.682836532592773, "start": 3372, "end": 3519}, {"start_s": 7.23, "end_s": 7.496, "max_clearance_mm": 13.175878524780273, "start": 3614, "end": 3748}, {"start_s": 7.684, "end_s": 7.926, "max_clearance_mm": 11.346090316772461, "start": 3841, "end": 3963}, {"start_s": 8.112, "end_s": 8.392, "max_clearance_mm": 13.98146915435791, "start": 4055, "end": 4196}, {"start_s": 8.584, "end_s": 8.848, "max_clearance_mm": 13.076804161071777, "start": 4291, "end": 4424}, {"start_s": 9.042, "end_s": 9.352, "max_clearance_mm": 16.02145004272461, "start": 4520, "end": 4676}, {"start_s": 9.542, "end_s": 9.782, "max_clearance_mm": 10.871976852416992, "start": 4770, "end": 4891}, {"start_s": 9.954, "end_s": 10.274000000000001, "max_clearance_mm": 16.30124282836914, "start": 4976, "end": 5137}, {"start_s": 10.468, "end_s": 10.74, "max_clearance_mm": 13.64966869354248, "start": 5233, "end": 5370}, {"start_s": 10.93, "end_s": 11.236, "max_clearance_mm": 15.950454711914062, "start": 5464, "end": 5618}, {"start_s": 11.434000000000001, "end_s": 11.698, "max_clearance_mm": 13.398405075073242, "start": 5716, "end": 5849}, {"start_s": 11.892, "end_s": 12.192, "max_clearance_mm": 15.327637672424316, "start": 5945, "end": 6096}, {"start_s": 12.386000000000001, "end_s": 12.698, "max_clearance_mm": 15.772092819213867, "start": 6192, "end": 6349}, {"start_s": 12.888, "end_s": 13.168000000000001, "max_clearance_mm": 13.127442359924316, "start": 6443, "end": 6584}, {"start_s": 13.358, "end_s": 13.648, "max_clearance_mm": 13.784326553344727, "start": 6678, "end": 6824}, {"start_s": 13.838000000000001, "end_s": 14.120000000000001, "max_clearance_mm": 14.424117088317871, "start": 6918, "end": 7060}, {"start_s": 14.304, "end_s": 14.528, "max_clearance_mm": 10.227832794189453, "start": 7151, "end": 7264}, {"start_s": 14.716000000000001, "end_s": 15.064, "max_clearance_mm": 17.44912338256836, "start": 7357, "end": 7532}, {"start_s": 15.244, "end_s": 15.48, "max_clearance_mm": 10.886425018310547, "start": 7621, "end": 7740}, {"start_s": 15.672, "end_s": 15.956, "max_clearance_mm": 14.237687110900879, "start": 7835, "end": 7978}, {"start_s": 16.152, "end_s": 16.428, "max_clearance_mm": 14.156744003295898, "start": 8075, "end": 8214}, {"start_s": 16.612000000000002, "end_s": 16.906, "max_clearance_mm": 14.055214881896973, "start": 8305, "end": 8453}, {"start_s": 17.096, "end_s": 17.394000000000002, "max_clearance_mm": 14.323562622070312, "start": 8547, "end": 8697}, {"start_s": 17.584, "end_s": 17.862000000000002, "max_clearance_mm": 13.938333511352539, "start": 8791, "end": 8931}, {"start_s": 18.052, "end_s": 18.302, "max_clearance_mm": 11.757729530334473, "start": 9025, "end": 9151}, {"start_s": 18.484, "end_s": 18.76, "max_clearance_mm": 13.593576431274414, "start": 9241, "end": 9380}, {"start_s": 18.942, "end_s": 19.246, "max_clearance_mm": 15.344038963317871, "start": 9470, "end": 9623}, {"start_s": 19.432000000000002, "end_s": 19.696, "max_clearance_mm": 12.785419464111328, "start": 9715, "end": 9848}, {"start_s": 19.896, "end_s": 20.256, "max_clearance_mm": 18.15593910217285, "start": 9947, "end": 10128}, {"start_s": 20.444, "end_s": 20.634, "max_clearance_mm": 7.762668609619141, "start": 10221, "end": 10317}, {"start_s": 20.826, "end_s": 21.094, "max_clearance_mm": 13.241071701049805, "start": 10412, "end": 10547}, {"start_s": 21.274, "end_s": 21.546, "max_clearance_mm": 13.546120643615723, "start": 10636, "end": 10773}, {"start_s": 21.738, "end_s": 22.006, "max_clearance_mm": 13.283411026000977, "start": 10868, "end": 11003}, {"start_s": 22.2, "end_s": 22.506, "max_clearance_mm": 15.535534858703613, "start": 11099, "end": 11253}, {"start_s": 22.698, "end_s": 22.956, "max_clearance_mm": 13.322402000427246, "start": 11348, "end": 11478}], "event_count": 43, "clearance_min_max_mm": [-2.410543203353882, 19.758012771606445], "contact_fraction": 0.2963703629637036, "contact_point_horizontal_speed_mean_m_s": 0.04643361270427704}}}
+Setting seed: 102
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has 2 keyframes; only the first one will be used.
+  self._add_entities()
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:65: UserWarning: Entity 'robot' has non-default <option> fields (integrator) that will not be propagated by MjSpec.attach(). Use MujocoCfg instead.
+  self._add_entities()
+WARNING: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+
+/mnt/c/Projects/duck-robot/training/.venv-wsl/lib/python3.12/site-packages/mjlab/scene/scene.py:71: UserWarning: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+  return self._spec.compile()
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 1      |
+| Environment device     | cuda:0 |
+| Environment seed       | 102    |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++-----------+-------------------------+
+|   Index   | Name                    |
++-----------+-------------------------+
+|     0     | reset_joints            |
++-----------+-------------------------+
+
+[INFO] <CommandManager> contains 1 active terms.
++--------------------------------------+
+|         Active Command Terms         |
++-------+----------+-------------------+
+| Index | Name     |        Type       |
++-------+----------+-------------------+
+|   0   | velocity | LocomotionCommand |
++-------+----------+-------------------+
+
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 14) |
++--------+---------+--------------+
+| Index  | Name    |    Dimension |
++--------+---------+--------------+
+|   0    | joints  |           14 |
++--------+---------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (61,)) |
++----------------+------------------------+-----------------+
+|     Index      | Name                   |      Shape      |
++----------------+------------------------+-----------------+
+|       0        | contract               |      (61,)      |
++----------------+------------------------+-----------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (61,)) |
++----------------+-------------------------+-----------------+
+|     Index      | Name                    |      Shape      |
++----------------+-------------------------+-----------------+
+|       0        | contract                |      (61,)      |
++----------------+-------------------------+-----------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------------+
+|      Active Termination Terms     |
++-------+----------------+----------+
+| Index | Name           | Time Out |
++-------+----------------+----------+
+|   0   | failure        |  False   |
+|   1   | trajectory_end |   True   |
+|   2   | time_limit     |   True   |
++-------+----------------+----------+
+
+[INFO] <RewardManager> contains 2 active terms.
++--------------------------+
+|   Active Reward Terms    |
++-------+---------+--------+
+| Index | Name    | Weight |
++-------+---------+--------+
+|   0   | task    |    1.0 |
+|   1   | failure |    1.0 |
++-------+---------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 13 active terms.
++---------------------------+
+|    Active Metrics Terms   |
++-------+-------------------+
+| Index | Name              |
++-------+-------------------+
+|   0   | substep_max_drift |
+|   1   | max_drift         |
+|   2   | brake_path        |
+|   3   | anchor_time       |
+|   4   | max_tilt          |
+|   5   | min_height        |
+|   6   | strict_drift      |
+|   7   | strict_stop       |
+|   8   | strict_path       |
+|   9   | strict_full_stop  |
+|   10  | strict_hold       |
+|   11  | hold_complete     |
+|   12  | reason            |
++-------+-------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+Setting seed: 102
+{"scenario": "straight_0.06_102", "passed": false, "feet": {"left": {"events": [{"start_s": 3.3000000000000003, "end_s": 3.35, "max_clearance_mm": 3.9067585468292236, "start": 1649, "end": 1675}, {"start_s": 4.208, "end_s": 4.28, "max_clearance_mm": 4.487375736236572, "start": 2103, "end": 2140}, {"start_s": 5.198, "end_s": 5.264, "max_clearance_mm": 4.339786052703857, "start": 2598, "end": 2632}, {"start_s": 5.69, "end_s": 5.758, "max_clearance_mm": 4.751248359680176, "start": 2844, "end": 2879}, {"start_s": 7.078, "end_s": 7.13, "max_clearance_mm": 3.8283915519714355, "start": 3538, "end": 3565}, {"start_s": 7.542, "end_s": 7.602, "max_clearance_mm": 4.720065593719482, "start": 3770, "end": 3801}, {"start_s": 8.034, "end_s": 8.092, "max_clearance_mm": 4.423422813415527, "start": 4016, "end": 4046}, {"start_s": 8.44, "end_s": 8.504, "max_clearance_mm": 4.470766544342041, "start": 4219, "end": 4252}, {"start_s": 8.96, "end_s": 9.022, "max_clearance_mm": 4.548553466796875, "start": 4479, "end": 4511}, {"start_s": 9.852, "end_s": 9.914, "max_clearance_mm": 4.286622524261475, "start": 4925, "end": 4957}, {"start_s": 10.804, "end_s": 10.864, "max_clearance_mm": 4.265655040740967, "start": 5401, "end": 5432}, {"start_s": 11.28, "end_s": 11.336, "max_clearance_mm": 3.7641470432281494, "start": 5639, "end": 5668}, {"start_s": 11.74, "end_s": 11.808, "max_clearance_mm": 4.656344413757324, "start": 5869, "end": 5904}, {"start_s": 12.204, "end_s": 12.25, "max_clearance_mm": 3.821864604949951, "start": 6101, "end": 6125}, {"start_s": 13.162, "end_s": 13.212, "max_clearance_mm": 4.077178478240967, "start": 6580, "end": 6606}, {"start_s": 13.632, "end_s": 13.674, "max_clearance_mm": 3.7326059341430664, "start": 6815, "end": 6837}, {"start_s": 14.076, "end_s": 14.134, "max_clearance_mm": 4.46555757522583, "start": 7037, "end": 7067}, {"start_s": 14.51, "end_s": 14.566, "max_clearance_mm": 4.325824737548828, "start": 7254, "end": 7283}, {"start_s": 14.962, "end_s": 15.016, "max_clearance_mm": 3.8924765586853027, "start": 7480, "end": 7508}, {"start_s": 15.452, "end_s": 15.49, "max_clearance_mm": 3.7856316566467285, "start": 7725, "end": 7745}, {"start_s": 15.874, "end_s": 15.934000000000001, "max_clearance_mm": 4.281530380249023, "start": 7936, "end": 7967}, {"start_s": 16.354, "end_s": 16.408, "max_clearance_mm": 4.3447585105896, "start": 8176, "end": 8204}, {"start_s": 16.824, "end_s": 16.872, "max_clearance_mm": 3.8582942485809326, "start": 8411, "end": 8436}, {"start_s": 17.276, "end_s": 17.316, "max_clearance_mm": 3.6904263496398926, "start": 8637, "end": 8658}, {"start_s": 17.676000000000002, "end_s": 17.732, "max_clearance_mm": 4.302785873413086, "start": 8837, "end": 8866}, {"start_s": 18.162, "end_s": 18.218, "max_clearance_mm": 4.252150535583496, "start": 9080, "end": 9109}, {"start_s": 18.664, "end_s": 18.712, "max_clearance_mm": 4.039659023284912, "start": 9331, "end": 9356}, {"start_s": 19.126, "end_s": 19.182000000000002, "max_clearance_mm": 4.157871246337891, "start": 9562, "end": 9591}, {"start_s": 19.598, "end_s": 19.644000000000002, "max_clearance_mm": 3.7164316177368164, "start": 9798, "end": 9822}, {"start_s": 20.166, "end_s": 20.21, "max_clearance_mm": 3.8766210079193115, "start": 10082, "end": 10105}, {"start_s": 20.598, "end_s": 20.662, "max_clearance_mm": 4.368377685546875, "start": 10298, "end": 10331}, {"start_s": 21.132, "end_s": 21.18, "max_clearance_mm": 3.965059280395508, "start": 10565, "end": 10590}, {"start_s": 22.014, "end_s": 22.076, "max_clearance_mm": 4.4669108390808105, "start": 11006, "end": 11038}, {"start_s": 22.502, "end_s": 22.544, "max_clearance_mm": 3.6561694145202637, "start": 11250, "end": 11272}], "event_count": 34, "clearance_min_max_mm": [-1.5994747877120972, 4.751248359680176], "contact_fraction": 0.7447255274472553, "contact_point_horizontal_speed_mean_m_s": 0.02456650137901306}, "right": {"events": [{"start_s": 3.0, "end_s": 3.232, "max_clearance_mm": 11.617256164550781, "start": 1499, "end": 1616}, {"start_s": 3.416, "end_s": 3.724, "max_clearance_mm": 15.3915376663208, "start": 1707, "end": 1862}, {"start_s": 3.908, "end_s": 4.144, "max_clearance_mm": 11.359950065612793, "start": 1953, "end": 2072}, {"start_s": 4.344, "end_s": 4.682, "max_clearance_mm": 17.016708374023438, "start": 2171, "end": 2341}, {"start_s": 4.87, "end_s": 5.132, "max_clearance_mm": 12.77739143371582, "start": 2434, "end": 2566}, {"start_s": 5.328, "end_s": 5.622, "max_clearance_mm": 15.100592613220215, "start": 2663, "end": 2811}, {"start_s": 5.82, "end_s": 6.162, "max_clearance_mm": 16.847078323364258, "start": 2909, "end": 3081}, {"start_s": 6.3500000000000005, "end_s": 6.606, "max_clearance_mm": 12.818934440612793, "start": 3174, "end": 3303}, {"start_s": 6.79, "end_s": 7.018, "max_clearance_mm": 10.278989791870117, "start": 3394, "end": 3509}, {"start_s": 7.208, "end_s": 7.482, "max_clearance_mm": 13.346738815307617, "start": 3603, "end": 3741}, {"start_s": 7.67, "end_s": 7.966, "max_clearance_mm": 14.956472396850586, "start": 3834, "end": 3983}, {"start_s": 8.164, "end_s": 8.38, "max_clearance_mm": 9.432126998901367, "start": 4081, "end": 4190}, {"start_s": 8.568, "end_s": 8.892, "max_clearance_mm": 17.084714889526367, "start": 4283, "end": 4446}, {"start_s": 9.088000000000001, "end_s": 9.364, "max_clearance_mm": 14.462409973144531, "start": 4543, "end": 4682}, {"start_s": 9.55, "end_s": 9.790000000000001, "max_clearance_mm": 11.48318099975586, "start": 4774, "end": 4895}, {"start_s": 9.982000000000001, "end_s": 10.290000000000001, "max_clearance_mm": 16.709531784057617, "start": 4990, "end": 5145}, {"start_s": 10.482000000000001, "end_s": 10.738, "max_clearance_mm": 12.33902359008789, "start": 5240, "end": 5369}, {"start_s": 10.93, "end_s": 11.208, "max_clearance_mm": 14.070164680480957, "start": 5464, "end": 5604}, {"start_s": 11.404, "end_s": 11.676, "max_clearance_mm": 13.627028465270996, "start": 5701, "end": 5838}, {"start_s": 11.870000000000001, "end_s": 12.132, "max_clearance_mm": 12.999165534973145, "start": 5934, "end": 6066}, {"start_s": 12.318, "end_s": 12.65, "max_clearance_mm": 16.161151885986328, "start": 6158, "end": 6325}, {"start_s": 12.836, "end_s": 13.096, "max_clearance_mm": 12.93359661102295, "start": 6417, "end": 6548}, {"start_s": 13.280000000000001, "end_s": 13.56, "max_clearance_mm": 13.68879508972168, "start": 6639, "end": 6780}, {"start_s": 13.746, "end_s": 14.006, "max_clearance_mm": 13.284647941589355, "start": 6872, "end": 7003}, {"start_s": 14.202, "end_s": 14.452, "max_clearance_mm": 12.696508407592773, "start": 7100, "end": 7226}, {"start_s": 14.638, "end_s": 14.896, "max_clearance_mm": 12.046860694885254, "start": 7318, "end": 7448}, {"start_s": 15.082, "end_s": 15.38, "max_clearance_mm": 14.834431648254395, "start": 7540, "end": 7690}, {"start_s": 15.57, "end_s": 15.81, "max_clearance_mm": 11.856016159057617, "start": 7784, "end": 7905}, {"start_s": 16.002, "end_s": 16.286, "max_clearance_mm": 14.295597076416016, "start": 8000, "end": 8143}, {"start_s": 16.474, "end_s": 16.752, "max_clearance_mm": 13.649791717529297, "start": 8236, "end": 8376}, {"start_s": 16.942, "end_s": 17.204, "max_clearance_mm": 12.998858451843262, "start": 8470, "end": 8602}, {"start_s": 17.384, "end_s": 17.618000000000002, "max_clearance_mm": 10.329580307006836, "start": 8691, "end": 8809}, {"start_s": 17.804000000000002, "end_s": 18.092, "max_clearance_mm": 14.413176536560059, "start": 8901, "end": 9046}, {"start_s": 18.284, "end_s": 18.586000000000002, "max_clearance_mm": 15.111536026000977, "start": 9141, "end": 9293}, {"start_s": 18.78, "end_s": 19.056, "max_clearance_mm": 14.185080528259277, "start": 9389, "end": 9528}, {"start_s": 19.244, "end_s": 19.522000000000002, "max_clearance_mm": 14.495920181274414, "start": 9621, "end": 9761}, {"start_s": 19.722, "end_s": 20.084, "max_clearance_mm": 18.15735626220703, "start": 9860, "end": 10042}, {"start_s": 20.274, "end_s": 20.534, "max_clearance_mm": 12.968160629272461, "start": 10136, "end": 10267}, {"start_s": 20.724, "end_s": 21.052, "max_clearance_mm": 16.303306579589844, "start": 10361, "end": 10526}, {"start_s": 21.246000000000002, "end_s": 21.56, "max_clearance_mm": 15.402313232421875, "start": 10622, "end": 10780}, {"start_s": 21.746000000000002, "end_s": 21.952, "max_clearance_mm": 8.594951629638672, "start": 10872, "end": 10976}, {"start_s": 22.146, "end_s": 22.426000000000002, "max_clearance_mm": 14.514671325683594, "start": 11072, "end": 11213}, {"start_s": 22.614, "end_s": 22.896, "max_clearance_mm": 13.774002075195312, "start": 11306, "end": 11448}], "event_count": 43, "clearance_min_max_mm": [-2.1634278297424316, 18.15735626220703], "contact_fraction": 0.29987001299870014, "contact_point_horizontal_speed_mean_m_s": 0.04586027190089226}}}
+Setting seed: 103
+WARNING: Attach conflict when attaching 'duck_v0' to 'mjlab scene', policy is 'warning'
+integrator: parent has 0, child has 3, keeping parent value
+
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 1      |
+| Environment device     | cuda:0 |
+| Environment seed       | 103    |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++-----------+-------------------------+
+|   Index   | Name                    |
++-----------+-------------------------+
+|     0     | reset_joints            |
++-----------+-------------------------+
+
+[INFO] <CommandManager> contains 1 active terms.
++--------------------------------------+
+|         Active Command Terms         |
++-------+----------+-------------------+
+| Index | Name     |        Type       |
++-------+----------+-------------------+
+|   0   | velocity | LocomotionCommand |
++-------+----------+-------------------+
+
+[INFO] <ActionManager> contains 1 active terms.
++---------------------------------+
+| Active Action Terms (shape: 14) |
++--------+---------+--------------+
+| Index  | Name    |    Dimension |
++--------+---------+--------------+
+|   0    | joints  |           14 |
++--------+---------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (61,)) |
++----------------+------------------------+-----------------+
+|     Index      | Name                   |      Shape      |
++----------------+------------------------+-----------------+
+|       0        | contract               |      (61,)      |
++----------------+------------------------+-----------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (61,)) |
++----------------+-------------------------+-----------------+
+|     Index      | Name                    |      Shape      |
++----------------+-------------------------+-----------------+
+|       0        | contract                |      (61,)      |
++----------------+-------------------------+-----------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------------+
+|      Active Termination Terms     |
++-------+----------------+----------+
+| Index | Name           | Time Out |
++-------+----------------+----------+
+|   0   | failure        |  False   |
+|   1   | trajectory_end |   True   |
+|   2   | time_limit     |   True   |
++-------+----------------+----------+
+
+[INFO] <RewardManager> contains 2 active terms.
++--------------------------+
+|   Active Reward Terms    |
++-------+---------+--------+
+| Index | Name    | Weight |
++-------+---------+--------+
+|   0   | task    |    1.0 |
+|   1   | failure |    1.0 |
++-------+---------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <MetricsManager> contains 13 active terms.
++---------------------------+
+|    Active Metrics Terms   |
++-------+-------------------+
+| Index | Name              |
++-------+-------------------+
+|   0   | substep_max_drift |
+|   1   | max_drift         |
+|   2   | brake_path        |
+|   3   | anchor_time       |
+|   4   | max_tilt          |
+|   5   | min_height        |
+|   6   | strict_drift      |
+|   7   | strict_stop       |
+|   8   | strict_path       |
+|   9   | strict_full_stop  |
+|   10  | strict_hold       |
+|   11  | hold_complete     |
+|   12  | reason            |
++-------+-------------------+
+
+[INFO] <NullRecorderManager> (inactive)
+Setting seed: 103
+{"scenario": "straight_0.06_103", "passed": false, "feet": {"left": {"events": [], "event_count": 0, "clearance_min_max_mm": [-0.5238447189331055, -0.36607497930526733], "contact_fraction": 1.0, "contact_point_horizontal_speed_mean_m_s": 0.005394047126173973}, "right": {"events": [], "event_count": 0, "clearance_min_max_mm": [-0.4542004466056824, -0.23540574312210083], "contact_fraction": 1.0, "contact_point_horizontal_speed_mean_m_s": 0.004091785755008459}}}
