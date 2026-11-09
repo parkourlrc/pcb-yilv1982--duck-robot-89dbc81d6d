@@ -1,12 +1,176 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
+import shutil
 
 from .registry import file_hash
-from .store import read_json, read_jsonl
+from .store import atomic_json, read_json, read_jsonl, utcnow
 
 
 LEGACY_ID = 'legacy-run-001'
+
+
+def import_all_history(root, store, archive):
+    root = Path(root)
+    search_roots = [root / 'training/logs', root / 'training/checkpoints',
+                    root / 'docs/references/自主训练平台', root / 'docs/references/本机训练环境']
+    search_roots += [root / 'training/artifacts/implementation-checks']
+    search_roots += [path for path in (root / 'docs/specs').glob('*') if any(word in path.name for word in ('训练', '转圈', '步幅'))]
+    candidates = {}
+    evidence_files = []
+    for directory in search_roots:
+        if not directory.is_dir():
+            continue
+        for path in directory.rglob('run.json'):
+            data = read_json(path)
+            if isinstance(data, dict) and isinstance(data.get('config'), dict):
+                candidates[str(path.parent.resolve())] = path.parent
+            elif isinstance(data, dict) and ('source_sha256' in data or 'command' in data):
+                evidence_files.append(path)
+        for path in directory.rglob('benchmark*.json'):
+            data = read_json(path, {})
+            if isinstance(data, dict) and ('rank_records' in data or 'global_envs' in data or 'num_envs' in data):
+                evidence_files.append(path)
+        for path in directory.rglob('archive-registration.json'):
+            candidates.setdefault(str(path.parent.resolve()), path.parent)
+        for path in directory.rglob('result.json'):
+            data = read_json(path, {})
+            if isinstance(data, dict) and ('consumed_transitions' in data or 'model_iteration' in data):
+                candidates.setdefault(str(path.parent.resolve()), path.parent)
+        for path in directory.rglob('updates.jsonl'):
+            candidates.setdefault(str(path.parent.resolve()), path.parent)
+        for path in directory.rglob('model_*.pt'):
+            candidates.setdefault(str(path.parent.resolve()), path.parent)
+    items, warnings = [], []
+    legacy = root / 'docs/specs/20261105-原地转圈策略/checks/step5-run-001'
+    for source in sorted(candidates.values()):
+        if source == legacy:
+            continue
+        relative = source.relative_to(root).as_posix()
+        identifier = 'history-' + hashlib.sha256(relative.encode()).hexdigest()[:20]
+        original, result = read_json(source / 'run.json') or read_json(source / 'archive-registration.json', {}), read_json(source / 'result.json', {})
+        original = original if isinstance(original, dict) else {}
+        result = result if isinstance(result, dict) else {}
+        config = original.get('config') or read_json(source / 'config.json') or read_json(source.parent / 'config.json', {})
+        config = config if isinstance(config, dict) else {}
+        rows, row_errors = read_jsonl(source / 'updates.jsonl')
+        last = rows[-1] if rows else {}
+        maximum = result.get('max_transitions')
+        if maximum is None and all(type(config.get(key)) is int for key in ('num_envs', 'num_steps_per_env', 'max_updates')):
+            maximum = config['num_envs'] * config['num_steps_per_env'] * config['max_updates']
+        consumed = result.get('consumed_transitions', last.get('consumed_transitions'))
+        status = result.get('status')
+        state = 'stopped' if status == 'interrupted_at_update_boundary' else 'completed' if status in ('budget_exhausted', 'check_limit', 'accepted') else 'failed' if status in ('failed', 'error') else 'unknown'
+        error_record = read_json(source / 'failure.json', {})
+        if error_record:
+            state = 'failed'
+        runtime = next((path for path in (source.parent / 'frozen', source.parent / 'project', source / 'sources') if (path / 'training/mjlab_duck/train_locomotion.py').is_file() and (path / 'training/mjlab_duck/__init__.py').is_file()), None)
+        destination = archive.run_root(identifier) / 'history'
+        for entry in source.rglob('*'):
+            if not entry.is_file() or entry.is_symlink() or '__pycache__' in entry.parts:
+                continue
+            target = destination / entry.relative_to(source)
+            if not target.exists() or target.stat().st_size != entry.stat().st_size or target.stat().st_mtime_ns != entry.stat().st_mtime_ns:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(entry, target)
+        if runtime:
+            frozen = archive.run_root(identifier) / 'project'
+            if not frozen.exists():
+                shutil.copytree(runtime, frozen, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+            runtime = frozen
+        documents = archive.run_root(identifier) / 'record-documents'
+        for parent in (source, source.parent, source.parent.parent):
+            if not parent.is_relative_to(root / 'docs/specs'):
+                continue
+            for document in parent.glob('*.md'):
+                documents.mkdir(parents=True, exist_ok=True)
+                target = documents / (hashlib.sha256(str(document.relative_to(root)).encode()).hexdigest()[:8] + '-' + document.name)
+                if not target.exists():
+                    shutil.copy2(document, target)
+        run = {'run_id': identifier, 'experiment_id': original.get('experiment_id') or identifier,
+               'parent_run_id': None, 'parent_checkpoint_id': None, 'task_id': 'locomotion' if original.get('config') else 'historical',
+               'task_version': 'historical', 'name': relative, 'managed': False, 'read_only': True,
+               'state': state, 'completion_reason': status, 'connection': {'state': 'offline_archive', 'last_seen_utc': None},
+               'stage': result.get('stage', last.get('stage')), 'model_iteration': result.get('model_iteration', last.get('model_iteration')),
+               'budget': {'consumed_transitions': consumed, 'remaining_transitions': max(0, maximum-consumed) if maximum is not None and consumed is not None else None,
+                          'max_transitions': maximum, 'transitions_per_update': config.get('num_envs', 0)*config.get('num_steps_per_env', 0) or None},
+               'execution': {'mode': original.get('mode', 'historical'), 'node_ids': [], 'world_size': original.get('world_size')},
+               'config': config, 'created_utc': original.get('created_utc'), 'elapsed_s': result.get('wall_seconds_including_evaluation_and_checkpoint'),
+               'eta_s': None, 'latest_checkpoint_id': None, 'failure': error_record or None,
+               'capabilities': {'stop': {'allowed': False, 'reasons': ['历史归档']}, 'resume': {'allowed': False, 'reasons': ['未登记可恢复的原节点与预算账本']}},
+               'provenance': {'kind': 'local_history', 'source': relative, 'imported_utc': utcnow()}, '_directory': str(destination),
+               '_archive_errors': row_errors, '_warm_compatible': False}
+        registration = read_json(source.parent / (source.name + '-startup') / 'archive-registration.json', {})
+        if original.get('workflow') or registration.get('workflow'):
+            run['workflow'] = original.get('workflow') or registration['workflow']
+        if runtime:
+            run['_runtime_root'] = str(runtime)
+            task = read_json(runtime / 'task.json')
+            if not task and run.get('workflow', {}).get('task_version') == 'v3':
+                task = read_json(root / 'training/tasks/locomotion-v3.json')
+                if task and original.get('source_sha256'):
+                    atomic_json(runtime / 'source-manifest.json', original['source_sha256'])
+                    task = {**task, 'source_hashes': original['source_sha256']}
+                    atomic_json(runtime / 'task.json', task)
+            if task and config:
+                task = {**task, 'source_files': [], 'source_hashes': {}, 'source_policy': '派生时验证此运行冻结source-manifest，不读取当前源码'}
+                run.update(task_id=task['task_id'], task_version=task['task_version'], _task=task)
+                if not (root / 'training/tasks' / (task['task_id'] + '-' + task['task_version'] + '.json')).exists():
+                    atomic_json(archive.directory / 'tasks' / (task['task_id'] + '-' + task['task_version'] + '.json'), task)
+        for manifest in destination.rglob('manifest.json'):
+            checkpoint = checkpoint_info(manifest, identifier, identifier + '-' + manifest.parent.name)
+            if checkpoint:
+                checkpoint['resumable'] = False
+                store.put('checkpoint', checkpoint['checkpoint_id'], checkpoint)
+                if checkpoint.get('model_iteration') is not None:
+                    run['latest_checkpoint_id'] = checkpoint['checkpoint_id']
+        archive.save(run)
+        store.put('run', identifier, run)
+        items.append({'run_id': identifier, 'source': relative, 'state': state, 'has_config': bool(config), 'has_runtime': bool(runtime)})
+        warnings.extend(row_errors)
+    for source in sorted(set(evidence_files)):
+        if str(source.parent.resolve()) in candidates:
+            continue
+        relative = source.relative_to(root).as_posix()
+        identifier = 'evidence-' + hashlib.sha256(relative.encode()).hexdigest()[:20]
+        destination = archive.run_root(identifier) / 'history'
+        destination.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination / source.name)
+        data = read_json(source, {})
+        rows = data.get('rank_records', [data])
+        first = rows[0] if rows and isinstance(rows[0], dict) else {}
+        run = {'run_id': identifier, 'experiment_id': identifier, 'parent_run_id': None, 'parent_checkpoint_id': None,
+               'task_id': 'historical', 'task_version': 'evidence', 'name': relative, 'managed': False, 'read_only': True,
+               'state': 'unknown', 'connection': {'state': 'offline_archive', 'last_seen_utc': None},
+               'stage': None, 'model_iteration': None, 'config': {}, 'created_utc': first.get('utc_time'),
+               'budget': {'consumed_transitions': None, 'remaining_transitions': None, 'max_transitions': None, 'transitions_per_update': first.get('global_samples_per_iteration')},
+               'execution': {'mode': 'historical', 'node_ids': [], 'world_size': first.get('world_size')},
+               'elapsed_s': None, 'eta_s': None, 'latest_checkpoint_id': None, 'failure': None,
+               'capabilities': {'stop': {'allowed': False, 'reasons': ['历史证据']}, 'resume': {'allowed': False, 'reasons': ['仅短跑/测速证据，缺可恢复运行档案']}},
+               '_directory': str(destination), 'provenance': {'kind': 'benchmark_or_profile', 'source': relative, 'imported_utc': utcnow()}}
+        archive.save(run)
+        store.put('run', identifier, run)
+        items.append({'run_id': identifier, 'source': relative, 'state': 'unknown', 'has_config': False, 'has_runtime': False})
+    identities = {}
+    for item in items:
+        run = store.get('run', item['run_id'])
+        data = read_json(Path(run['_directory']) / 'run.json', {})
+        identity = data.get('run_id') or ((data.get('created_utc'), tuple(data.get('command', []))) if data.get('command') else None)
+        if identity:
+            token = repr(identity)
+            if token in identities:
+                run['mirror_of'] = identities[token]
+                run['experiment_id'] = store.get('run', identities[token])['experiment_id']
+                archive.save(run)
+                store.put('run', run['run_id'], run)
+                item['mirror_of'] = identities[token]
+            else:
+                identities[token] = run['run_id']
+    report = {'schema': 1, 'imported_utc': utcnow(), 'count': len(items), 'items': items, 'warnings': warnings,
+              'scope': 'local training roots; remote-only artifacts are not claimed present'}
+    atomic_json(archive.directory / 'history-inventory.json', report)
+    return report
 
 
 def import_history(root, store):
@@ -111,6 +275,12 @@ def metrics(run, max_points=1000, keys=None):
             if not keys or key in keys:
                 series.setdefault(key, {'key': key, 'label': term, 'unit': 'reward/transition', 'scope': 'global', 'availability': 'ok', 'points': []})
                 values[key] = value / statistics['transitions'] if statistics.get('transitions') else None
+        for term, detail in statistics.get('reward_details', {}).items():
+            for field in ('raw_mean', 'signed_weight_mean', 'contribution_mean', 'reward_per_transition'):
+                key = 'reward_detail/' + term + '/' + field
+                if not keys or key in keys:
+                    series.setdefault(key, {'key': key, 'label': term + ' · ' + field, 'unit': 'reward/transition' if field == 'reward_per_transition' else detail.get('unit', ''), 'scope': 'global', 'availability': 'missing', 'points': []})
+                    values[key] = detail.get(field)
         for key, entry in series.items():
             value = values.get(key)
             if value is not None:

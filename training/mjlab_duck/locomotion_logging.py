@@ -10,6 +10,8 @@ import threading
 
 import torch
 
+from .experiment_config import REWARD_TERMS
+
 REWARD_NAMES = ("forward", "yaw", "stand", "lateral", "straight_yaw", "anchor", "posture", "smooth", "late")
 FAMILY_NAMES = ("inplace", "straight", "moving_turn", "joint", "stand")
 FLAGS = ("strict_drift", "strict_stop", "strict_path", "strict_full_stop", "strict_hold")
@@ -121,6 +123,11 @@ class RolloutStatistics:
         self.terminals = []
         self.command_samples = []
         self.rollout_step = 0
+        self.reward_raw_sum = torch.zeros(len(REWARD_TERMS), device=device, dtype=torch.float64)
+        self.reward_weight_sum = torch.zeros_like(self.reward_raw_sum)
+        self.reward_contribution_sum = torch.zeros_like(self.reward_raw_sum)
+        self.reward_detail_samples = 0
+        self.failure_cost = torch.zeros((), device=device, dtype=torch.float64)
 
     def collect(self, snapshot, dones, actions, rewards, episodes=None):
         self.rollout_step += 1
@@ -135,6 +142,15 @@ class RolloutStatistics:
         self.completes += torch.bincount(family[natural], minlength=5)
         self.failures += torch.bincount(snapshot["reason"][terminal].long(), minlength=10)
         self.reward_terms += snapshot["reward_terms"].sum(0)*.02
+        if "reward_raw" in snapshot:
+            self.reward_raw_sum += snapshot["reward_raw"].double().sum(0)
+            self.reward_weight_sum += snapshot["reward_weights"].double().sum(0)
+            contribution = snapshot["reward_contributions"].double().sum(0)
+            self.reward_contribution_sum += contribution
+            self.failure_cost += contribution[-1]
+            self.reward_detail_samples += family.numel()
+        else:
+            self.failure_cost -= 100*snapshot["failed"].sum()
         self.reward_sum += rewards.sum()
         self.clipped += (actions.abs() > 1).sum()
         self.failure_count += snapshot["failed"].sum()
@@ -162,7 +178,13 @@ class RolloutStatistics:
                 "completes": self.completes.cpu().tolist(), "segment_steps": self.segment_steps.cpu().tolist(),
                 "reached_terminal_segments": self.reached.cpu().tolist(), "failure_reasons": self.failures.cpu().tolist(),
                 "reward_terms_sum": dict(zip(REWARD_NAMES, self.reward_terms.cpu().tolist())),
-                "reward_sum": float(self.reward_sum), "failure_cost_sum": -100*float(self.failure_count),
+                "reward_sum": float(self.reward_sum), "failure_cost_sum": float(self.failure_cost),
+                "reward_details": {name: {"raw_sum": float(self.reward_raw_sum[index]),
+                                          "signed_weight_sum": float(self.reward_weight_sum[index]),
+                                          "contribution_sum": float(self.reward_contribution_sum[index]),
+                                          "samples": self.reward_detail_samples,
+                                          "unit": "event_cost" if name == "failure" else "reward_rate"}
+                                   for index, name in enumerate(REWARD_TERMS)},
                 "clipped_actions": int(self.clipped), "transitions": self.count,
                 "command_samples": self.command_samples}
 
@@ -181,6 +203,17 @@ def merge_summaries(summaries):
     result["reward_per_transition"] = result["reward_sum"]/max(1, result["transitions"])
     result["reward_mean"] = result["reward_per_transition"]
     result["reward_terms_per_transition"] = {name: value/max(1, result["transitions"]) for name, value in result["reward_terms_sum"].items()}
+    result["reward_details"] = {}
+    for name in REWARD_TERMS:
+        details = [item.get("reward_details", {}).get(name) for item in summaries]
+        details = [item for item in details if item is not None]
+        count = sum(item["samples"] for item in details)
+        if count:
+            item = {key.removesuffix("_sum")+"_mean": sum(value[key] for value in details)/count
+                    for key in ("raw_sum", "signed_weight_sum", "contribution_sum")}
+            item.update(samples=count, unit="event_cost" if name == "failure" else "reward_rate")
+            item["reward_per_transition"] = item["contribution_mean"]*(1 if name == "failure" else .02)
+            result["reward_details"][name] = item
     return result
 
 

@@ -1,0 +1,79 @@
+{
+  "task_id": "locomotion",
+  "task_version": "v3",
+  "current_step": 5,
+  "steps": [
+    {
+      "number": 1,
+      "name": "策略需求",
+      "status": "reused",
+      "inputs": [],
+      "outputs": [],
+      "evidence": [
+        "docs/specs/20261105-原地转圈策略/spec.md"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "任务定义与验收标准",
+      "status": "reused",
+      "inputs": [],
+      "outputs": [],
+      "evidence": [
+        "docs/specs/20261105-原地转圈策略/task-definition.md"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "训练环境组装",
+      "status": "passed",
+      "inputs": [],
+      "outputs": [],
+      "evidence": [
+        "training/artifacts/implementation-checks/runtime-fixed-input.json"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "训练方案",
+      "status": "confirmed",
+      "inputs": [],
+      "outputs": [],
+      "evidence": [
+        "docs/specs/20261109-训练档案与复训/spec.md",
+        "docs/specs/20261109-训练档案与复训/checks/scratch-config.json"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "执行训练",
+      "status": "pending",
+      "inputs": [],
+      "outputs": [],
+      "evidence": []
+    },
+    {
+      "number": 6,
+      "name": "独立评估与回放",
+      "status": "pending",
+      "inputs": [],
+      "outputs": [],
+      "evidence": []
+    },
+    {
+      "number": 7,
+      "name": "策略交付",
+      "status": "pending",
+      "inputs": [],
+      "outputs": [],
+      "evidence": []
+    }
+  ],
+  "budget": {
+    "transitions_per_update": 32,
+    "max_transitions": 64
+  },
+  "config_hash": "51e138792cee46ea56268a96a722da28ac048c7b79a77ade7f729afd6fc71ba8",
+  "source_run_id": null,
+  "purpose": "归档与复训最小验收，非正式策略优化；scratch一轮后原状态续训一轮，warm一轮，总96转换"
+}

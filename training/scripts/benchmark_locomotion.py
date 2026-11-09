@@ -84,6 +84,7 @@ def measured_iteration(environment, algorithm, observations, rollout_steps, devi
 
 
 def main():
+    raise SystemExit("未登记的独立训练测速入口已停用；请使用带 workflow-record 和独立预算的 train_locomotion 检查运行。")
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--global-envs", type=int, default=64)

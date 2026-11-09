@@ -21,6 +21,7 @@ EXTRA_PRESETS={
 }
 
 def main(args):
+    raise SystemExit("历史并行启动器已停用。请通过平台登记各实验、奖励配方与预算后启动。")
     PRESETS.update(EXTRA_PRESETS)
     if args.worker:
         args.existing_first=None

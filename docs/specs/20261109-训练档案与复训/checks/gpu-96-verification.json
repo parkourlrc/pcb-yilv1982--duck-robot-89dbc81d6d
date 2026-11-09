@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "training_transitions": 96,
+  "runs": {
+    "scratch": {
+      "updates": 1,
+      "consumed_transitions": 32,
+      "stage": 1,
+      "model_iteration": 1,
+      "max_transitions": 64,
+      "checkpoint_manifest": "/mnt/e/Projects/duck-robot/training/artifacts/implementation-checks/gpu-96/scratch/checkpoints/final_000001_2b795064bc/manifest.json",
+      "status": "check_limit",
+      "check_mode": true,
+      "wall_seconds_including_evaluation_and_checkpoint": 18.12155453604646,
+      "node_hours_including_evaluation_and_checkpoint": 0.0050337654464076165
+    },
+    "resume": {
+      "updates": 1,
+      "consumed_transitions": 64,
+      "stage": 1,
+      "model_iteration": 2,
+      "max_transitions": 64,
+      "checkpoint_manifest": "/mnt/e/Projects/duck-robot/training/artifacts/implementation-checks/gpu-96/resume/checkpoints/final_000002_dd93b996a0/manifest.json",
+      "status": "budget_exhausted",
+      "check_mode": true,
+      "wall_seconds_including_evaluation_and_checkpoint": 18.296547629870474,
+      "node_hours_including_evaluation_and_checkpoint": 0.00508237457970002
+    },
+    "warm": {
+      "updates": 1,
+      "consumed_transitions": 32,
+      "stage": 1,
+      "model_iteration": 1,
+      "max_transitions": 32,
+      "checkpoint_manifest": "/mnt/e/Projects/duck-robot/training/artifacts/implementation-checks/gpu-96/warm/checkpoints/final_000001_d7bee905ea/manifest.json",
+      "status": "budget_exhausted",
+      "check_mode": true,
+      "wall_seconds_including_evaluation_and_checkpoint": 18.285925668897107,
+      "node_hours_including_evaluation_and_checkpoint": 0.005079424035308572
+    }
+  },
+  "warm_actor_normalizer_inherited": true,
+  "warm_critic_optimizer_exploration_reset": true,
+  "resume_budget_preserved": true,
+  "behavior_acceptance": "not_tested"
+}

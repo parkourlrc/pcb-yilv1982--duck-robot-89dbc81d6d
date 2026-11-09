@@ -32,7 +32,7 @@ def locomotion_env_cfg(num_envs=4, *, evaluation=False, seed=0, stage=0, probabi
     if stage not in (0, 1, 2):
         raise ValueError("Unknown locomotion curriculum stage")
     expected = STAGE_PROBABILITIES.get(stage, FAMILY_PROBABILITIES)
-    if probabilities is not None and tuple(probabilities) != expected:
+    if probabilities is not None and stage != 2 and tuple(probabilities) != expected:
         raise ValueError("Curriculum probabilities differ from the confirmed stage")
     robot = EntityCfg(
         spec_fn=robot_spec,

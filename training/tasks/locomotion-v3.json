@@ -1,0 +1,163 @@
+{
+  "schema": 2,
+  "task_id": "locomotion",
+  "task_version": "v3",
+  "title": "联合策略 · 完整训练档案与可调奖励",
+  "description": "固定61维观测/14维动作及物理模型，支持版本化奖励、档案、原状态续训和派生新实验。",
+  "adapter_id": "locomotion",
+  "runtime_version": "locomotion-v3",
+  "physics_model": "training/models/duck_v0.xml",
+  "observation_action_contract": {
+    "observation_size": 61,
+    "action_size": 14,
+    "normalization": "rank_local",
+    "restart": "HOME_new_episode"
+  },
+  "default_execution": {
+    "num_envs": 4096,
+    "num_steps_per_env": 64,
+    "max_updates": 1000,
+    "save_interval": 100,
+    "eval_interval": 100,
+    "seed": 42
+  },
+  "constraints": {
+    "world_sizes": [
+      1,
+      2
+    ],
+    "environment_partition": "equal",
+    "resume_requires_same_contract": true
+  },
+  "workflow_evidence": {
+    "1": [
+      "docs/specs/20261105-原地转圈策略/spec.md"
+    ],
+    "2": [
+      "docs/specs/20261105-原地转圈策略/task-definition.md"
+    ],
+    "3": [
+      "docs/specs/20261105-原地转圈策略/step4-implementation.md"
+    ],
+    "4": [
+      "docs/specs/20261109-训练档案与复训/spec.md"
+    ]
+  },
+  "evaluation_suites": [
+    {
+      "id": "dev9",
+      "stage": 1,
+      "episodes": 9
+    },
+    {
+      "id": "dev22",
+      "stage": 2,
+      "episodes": 22
+    },
+    {
+      "id": "full96",
+      "stage": 2,
+      "episodes": 96
+    }
+  ],
+  "replay_scenarios": [
+    "straight_0.03_101",
+    "straight_0.06_101",
+    "straight_0.1_101",
+    "arc_15",
+    "arc_-15",
+    "inplace_30",
+    "inplace_-30",
+    "stand"
+  ],
+  "display_model_version": "studio-2026103101",
+  "source_files": [
+    "training/dashboard/__init__.py",
+    "training/dashboard/archive.py",
+    "training/dashboard/check_archive_contract.py",
+    "training/dashboard/check_backend.py",
+    "training/dashboard/cli.py",
+    "training/dashboard/config.py",
+    "training/dashboard/executors/__init__.py",
+    "training/dashboard/executors/remote.py",
+    "training/dashboard/executors/supervisor.py",
+    "training/dashboard/history.py",
+    "training/dashboard/legacy_runner.py",
+    "training/dashboard/prepare_archive_validation.py",
+    "training/dashboard/probe_ssh.py",
+    "training/dashboard/registry.py",
+    "training/dashboard/replay_worker.py",
+    "training/dashboard/replays.py",
+    "training/dashboard/runs.py",
+    "training/dashboard/schemas.py",
+    "training/dashboard/server.py",
+    "training/dashboard/store.py",
+    "training/dashboard/telemetry.py",
+    "training/dashboard/validate_execution.py",
+    "training/experiment_archive.py",
+    "training/mjlab_duck/__init__.py",
+    "training/mjlab_duck/env_cfg.py",
+    "training/mjlab_duck/experiment_config.py",
+    "training/mjlab_duck/locomotion_cfg.py",
+    "training/mjlab_duck/locomotion_checkpoint.py",
+    "training/mjlab_duck/locomotion_env.py",
+    "training/mjlab_duck/locomotion_evaluator.py",
+    "training/mjlab_duck/locomotion_logging.py",
+    "training/mjlab_duck/locomotion_train_cfg.py",
+    "training/mjlab_duck/playback.py",
+    "training/mjlab_duck/reward_runtime.py",
+    "training/mjlab_duck/train_duck.py",
+    "training/mjlab_duck/train_locomotion.py",
+    "training/mjlab_duck/viewer.py",
+    "training/models/duck_v0.xml",
+    "training/models/duck_visual.xml",
+    "training/params/hd1910_bam_m6.json",
+    "training/params/home_pose.json",
+    "training/params/microduck_geometry.json"
+  ],
+  "source_policy": "每次启动冻结完整运行时并校验源码；修改配置建立新实验，不覆盖历史",
+  "source_hashes": {
+    "training/dashboard/__init__.py": "5f838bea601c7361782e99107b414bd50f815b31dcafde9287f75c5a42a299cd",
+    "training/dashboard/archive.py": "d001b6e478fc11803063855f78882edbb8ab6f8a841e19d019c8262a93d6ffd8",
+    "training/dashboard/check_archive_contract.py": "1bdfb7c5b5f9fc2da3e7c0bcc4ad021ff75e2f09cb899cbf46df5702bc8a5fae",
+    "training/dashboard/check_backend.py": "01a97aed6c4fe95a7f6d5cf85bd7f577d0fa140a0e327cb7a9107e0211f67628",
+    "training/dashboard/cli.py": "fb4a8f1b126086c7c17db2a7a620c3127ab9935929db73b50725a264c41c2cd8",
+    "training/dashboard/config.py": "00259a70c4f7339794c58c3d8ccd29c84fb4b9488ae216c931ee7eb24bb8c382",
+    "training/dashboard/executors/__init__.py": "ea5440e7aaffe218869aac9a0c73dcd50a63ec583cd0bb9b559490f96395e4c2",
+    "training/dashboard/executors/remote.py": "846ca0088d112c202648fa757a2943c9ee2001d4ee37bf0dc6fba2402216f8db",
+    "training/dashboard/executors/supervisor.py": "95b4bc2790e055081862a1be55528502c84a76c18b886ddd859082198502d1fc",
+    "training/dashboard/history.py": "a866df0bd03870d6691ae234fb8e86e0df1ed71a65850ea85feedb28bc2292bc",
+    "training/dashboard/legacy_runner.py": "7baf62d434244d45486ff6749c74f06f6bfc0a6e8a6af738bf38f46b00b9fd49",
+    "training/dashboard/prepare_archive_validation.py": "88a0a5af52eeb417750741b2440538d2d8df9228b23a89f403c6584867d9be17",
+    "training/dashboard/probe_ssh.py": "2ccfdb8da306af4a2a047971c7f7f3fc748d5ef45de23a993419613c050991d0",
+    "training/dashboard/registry.py": "37f9e0a9fc73e860713edc61f90ce679f815415ce5f81d323899b0e3fcad3f1d",
+    "training/dashboard/replay_worker.py": "f651464e77d4b09e351f82551b6ceab35ea8f14bd8a1fceda92459f2df2ac1ab",
+    "training/dashboard/replays.py": "4b55c137b378f7ab1496b7027d0060b1b10b29de2fae883fe52ac04d409c6f1b",
+    "training/dashboard/runs.py": "9e109d19e44543fdccf126d42511c0fd49ce9d9f948dfb7ca7b3c76cff48ff8c",
+    "training/dashboard/schemas.py": "99d99a906659e055efa9e62e592fb2805c38ef1f5af1b6b85186fd066f67d82d",
+    "training/dashboard/server.py": "05909928e0920c7927afd0293a604b3e47612e70e418c989fbe6c898b6479962",
+    "training/dashboard/store.py": "4c1702d7a43228e4a95e91a61371680cb39f009f939e9ef4e55a23be80ea1760",
+    "training/dashboard/telemetry.py": "7a96f0b13fe17f5304da2076c1b356bcb2f64d1cc8a021d221eaaa47b87b693d",
+    "training/dashboard/validate_execution.py": "1867e5c58d5692d51dea8c2e257d96ec5336bcf3280f5594839f3c15d8e476bc",
+    "training/experiment_archive.py": "fd35587602b5f44c81072c4b27bb51e98967f0fe8cc2636858d91199de045e59",
+    "training/mjlab_duck/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "training/mjlab_duck/env_cfg.py": "f03862dae6407cad1b55188af97f64f9ed464223bf4974f9249a48a032eb398f",
+    "training/mjlab_duck/experiment_config.py": "1552cc4ac9530de55c156f87468d6506dcb9e2260271abed3200e40d0b5c09be",
+    "training/mjlab_duck/locomotion_cfg.py": "409f2f0dff046cc937b539caf7c1b282f197d82b1ec00bb80ecc426aadc4ddfd",
+    "training/mjlab_duck/locomotion_checkpoint.py": "61179b20330666d869272e7613a2f8c78450ce33efd2e31db22047198aa4cc76",
+    "training/mjlab_duck/locomotion_env.py": "c6767c0a5960c9e04247cdfe6b8a5a56df5da58d50527c9aaf5771fffe8b711e",
+    "training/mjlab_duck/locomotion_evaluator.py": "b4ec48cec77ac386258ef7cd3e152902d713d4628bb3eaadd7e86d4175652298",
+    "training/mjlab_duck/locomotion_logging.py": "9ad393dac4dea24a508e861f605a55d1c8d4cc138eadc4cce090890b6710b278",
+    "training/mjlab_duck/locomotion_train_cfg.py": "762d2afa447472c7ba91f4f575a23fd398f75cac6c1f48d153eb90a4c355c85a",
+    "training/mjlab_duck/playback.py": "544cce36f0a7ebb820af3941f7a3e1c0d0a3284872a4b17cd6f5d3dccb16f7a3",
+    "training/mjlab_duck/reward_runtime.py": "60d0112db181d4fec8b9ca75f6a24c290ddea76c3677a15abb4ccd7d47103009",
+    "training/mjlab_duck/train_duck.py": "417e21e44eeaff33df080db80c856b6546b1471fd268fc0d282b1567629e9f32",
+    "training/mjlab_duck/train_locomotion.py": "ae21a2de0119bca1c203f7f9e08f4663c8083f3bb379c71c0dbddb7a5d3f96f0",
+    "training/mjlab_duck/viewer.py": "3f683da6ae1e15f53a58074713374f39b747912fb117e8b144333835b3025646",
+    "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+    "training/models/duck_visual.xml": "29b531adb450f25d3188b77d3a96d53df1ef92f39d1aa946fb8748d8a9cc6828",
+    "training/params/hd1910_bam_m6.json": "8d446d053313a254267be8ab77495f65ef9d3f118729399b8e7c9a5b4679b653",
+    "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f",
+    "training/params/microduck_geometry.json": "6c782962775c9c09fdc359960e6aa415e1e0f2a6bafd51821a0f0ffd70115f78"
+  }
+}

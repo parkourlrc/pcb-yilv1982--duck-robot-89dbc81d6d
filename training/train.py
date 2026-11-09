@@ -37,6 +37,7 @@ class LogStdCap(BaseCallback):
 
 
 def main():
+    raise SystemExit("此历史训练入口已停用。请在训练平台登记任务与预算后使用版本化训练入口；历史策略可继续查看和回放。")
     ap = argparse.ArgumentParser()
     ap.add_argument("--steps", type=int, default=200_000)
     ap.add_argument("--envs", type=int, default=8)

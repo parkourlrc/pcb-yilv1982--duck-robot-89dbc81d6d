@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import math
+from pathlib import Path
 from typing import Any, Callable, Iterable
 
 import torch
@@ -303,6 +304,12 @@ def evaluate_episode(policy: Callable[[Any], torch.Tensor], scenario: ScenarioSp
         for name, values in records.items():
             shape = (0, 10, 12) if name == "physics" else (0, 3) if name == "command" else (0,)
             trace[name] = torch.stack(values) if values else torch.empty(shape)
+        if getattr(env, "evaluation_trace_directory", None):
+            destination = Path(env.evaluation_trace_directory)
+            destination.mkdir(parents=True, exist_ok=True)
+            torch.save({"scenario": {"name": scenario.name, "seed": scenario.seed, "segments": scenario.segments},
+                        "trace": trace, "completed": completed, "failed": failed, "reason": reason},
+                       destination/f"{scenario.name}-seed{scenario.seed}.pt")
         return evaluate_trace(scenario, trace, completed=completed, failed=failed, reason=reason)
     finally:
         env.close()

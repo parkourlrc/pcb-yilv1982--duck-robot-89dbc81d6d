@@ -27,6 +27,7 @@ def archive(base, evidence):
 
 
 def main(args):
+    raise SystemExit("历史批处理启动器已停用。请从平台导入历史档案，以版本化配置创建新实验；旧源码与预算档案保留。")
     args.status.parent.mkdir(parents=True, exist_ok=True)
     if args.existing_first:
         base=args.existing_first

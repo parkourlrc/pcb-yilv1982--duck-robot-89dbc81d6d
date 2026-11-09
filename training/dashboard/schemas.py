@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 
@@ -18,7 +18,10 @@ class ValidationRequest(StrictModel):
     task_id: str
     task_version: str
     execution: Execution = Field(default_factory=Execution)
-    parameters: dict[str, StrictInt] = Field(default_factory=dict)
+    parameters: dict[str, Any] = Field(default_factory=dict)
+    source_run_id: str | None = None
+    initialization: Literal['scratch', 'warm'] = 'scratch'
+    checkpoint_id: str | None = None
 
 
 class StartRequest(StrictModel):
@@ -34,6 +37,11 @@ class StopRequest(StrictModel):
 
 class ResumeRequest(StopRequest):
     checkpoint_id: str
+
+
+class DeriveRequest(StopRequest):
+    mode: Literal['scratch', 'warm'] = 'scratch'
+    checkpoint_id: str | None = None
 
 
 class ReplayRequest(StrictModel):

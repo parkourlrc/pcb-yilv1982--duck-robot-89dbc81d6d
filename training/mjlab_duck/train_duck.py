@@ -59,6 +59,7 @@ register_mjlab_task(
 
 
 def main():
+    raise SystemExit("此历史训练入口已停用。请通过训练平台登记任务、配置及预算，并使用版本化训练入口。")
     import os
     os.environ.setdefault("PYTHONUTF8", "1")
     # rsl_rl 的代码快照功能对 /mnt 下含非 UTF-8 文件名的路径会崩（surrogate 编码错误）；

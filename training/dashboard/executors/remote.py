@@ -127,7 +127,7 @@ class Executor:
                     temporary.replace(target)
 
     def sync_run(self, remote_directory, local_directory):
-        script = 'import pathlib,tarfile,sys; root=pathlib.Path(' + repr(remote_directory) + '); out=tarfile.open(fileobj=sys.stdout.buffer,mode="w|"); [(out.add(p,arcname=str(p.relative_to(root)))) for p in root.rglob("*") if p.is_file() and p.suffix in (".json",".jsonl",".log") and "project" not in p.relative_to(root).parts and p.stat().st_size<50000000]; out.close()'
+        script = 'import pathlib,tarfile,sys; root=pathlib.Path(' + repr(remote_directory) + '); out=tarfile.open(fileobj=sys.stdout.buffer,mode="w|"); [(out.add(p,arcname=str(p.relative_to(root)))) for p in root.rglob("*") if p.is_file() and not p.is_symlink() and (p.suffix in (".json",".jsonl",".log",".txt",".npz",".npy",".gz",".csv",".mp4",".webm",".png") or p.name.startswith("events.out.tfevents") or (p.suffix==".pt" and "evaluation-traces" in p.parts)) and "project" not in p.relative_to(root).parts]; out.close()'
         if self.config['kind'] == 'wsl':
             argv = ['wsl.exe'] + (['-d', self.config['distribution']] if self.config.get('distribution') else []) + ['--exec', 'python3', '-c', script]
         else:

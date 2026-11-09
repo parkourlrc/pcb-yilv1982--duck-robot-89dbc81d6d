@@ -1,8 +1,11 @@
 """已确认的两阶段训练配置；旧测速入口保持独立。"""
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
+import math
 from typing import Any
+
+from .experiment_config import default_rewards, validate_rewards, validate_training
 
 
 @dataclass(frozen=True)
@@ -11,9 +14,9 @@ class CurriculumConfig:
     probabilities: tuple[float, ...] = (0., 1., 0., 0., 0.)
 
     def __post_init__(self):
-        if self.stage not in (1, 2):
+        if type(self.stage) is not int or self.stage not in (1, 2):
             raise ValueError("stage must be 1 or 2")
-        if len(self.probabilities) != 5 or min(self.probabilities) < 0 or abs(sum(self.probabilities)-1) > 1e-9:
+        if len(self.probabilities) != 5 or any(isinstance(value, bool) or not math.isfinite(value) or value < 0 for value in self.probabilities) or abs(sum(self.probabilities)-1) > 1e-9:
             raise ValueError("five nonnegative probabilities summing to one are required")
 
 
@@ -46,6 +49,7 @@ class LocomotionTrainConfig:
     clip_actions: Any = None
     stage1: CurriculumConfig = STAGE1
     stage2: CurriculumConfig = STAGE2
+    reward_config: dict = field(default_factory=default_rewards)
 
     def __post_init__(self):
         if self.eval_interval is None:
@@ -55,6 +59,8 @@ class LocomotionTrainConfig:
                 raise ValueError(f"{name} must be positive")
         if not self.finite_horizon or self.init_at_random_ep_len or self.clip_actions is not None:
             raise ValueError("finite horizon, HOME starts and raw action history are required")
+        validate_training(asdict(self))
+        object.__setattr__(self, "reward_config", validate_rewards(self.reward_config))
 
     @property
     def global_transitions_per_update(self):

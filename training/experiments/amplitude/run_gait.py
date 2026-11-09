@@ -12,6 +12,7 @@ from run_batch import archive
 
 
 def main(a):
+    raise SystemExit("历史足部对照启动器已停用。请在训练平台选择 gait010/gait020/rawramp/gait010_rawramp 配方并登记预算。")
     stop_launching = threading.Event()
     tag = ("-"+a.suffix) if a.suffix else ""
     bases = {name:a.work_root/f"amplitude-20261107-{name}-s{a.seed}{tag}" for name in a.presets}

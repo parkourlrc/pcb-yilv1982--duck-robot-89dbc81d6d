@@ -17,7 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from .config import ROOT, load_config
 from .replays import Replays
 from .runs import ACTIVE, DashboardError, Runs
-from .schemas import ReplayControl, ReplayRequest, ResumeRequest, StartRequest, StopRequest, ValidationRequest
+from .schemas import DeriveRequest, ReplayControl, ReplayRequest, ResumeRequest, StartRequest, StopRequest, ValidationRequest
 from .store import atomic_json, utcnow
 from .telemetry import collect, rates
 
@@ -43,6 +43,7 @@ def create_app(config=None):
                 previous = sample
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
+                runs.record_resource(identifier, sample)
                 resource.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, active_run_ids=[run['run_id'] for run in runs.store.all('run') if run['state'] in ACTIVE and identifier in run['execution']['node_ids']])
                 resource['samples'] = (resource['samples'] + [sample])[-900:]
                 with (runs.data / ('resources.' + identifier + '.jsonl')).open('a', encoding='utf-8') as handle:
@@ -60,6 +61,7 @@ def create_app(config=None):
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
                 resource = resources.setdefault('local', {'node_id': 'local', 'label': '本地 Windows / WSL', 'execution_kind': 'wsl', 'samples': []})
+                runs.record_resource('local', sample)
                 resource.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, active_run_ids=[run['run_id'] for run in runs.store.all('run') if run['state'] in ACTIVE and 'local' in run['execution']['node_ids']], active_replay_ids=[item['replay_id'] for item in runs.store.all('replay') if replays.get(item['replay_id'])['state'] not in ('closed', 'failed')])
                 resource['samples'] = (resource['samples'] + [sample])[-900:]
                 with (runs.data / 'resources.jsonl').open('a', encoding='utf-8') as handle:
@@ -94,7 +96,7 @@ def create_app(config=None):
     def refresh_runs():
         while not stop_background.is_set():
             for run in runs.store.all('run'):
-                if run['managed'] and run['state'] in ACTIVE:
+                if run['managed'] and (run['state'] in ACTIVE or run.get('_archive_pending')):
                     try:
                         runs.refresh(run['run_id'])
                     except Exception as error:
@@ -160,6 +162,27 @@ def create_app(config=None):
     @app.get('/api/tasks')
     def tasks():
         return {'items': runs.registry.tasks()}
+
+    @app.get('/api/catalog')
+    def catalog():
+        return runs.catalog()
+
+    @app.post('/api/history/import')
+    def import_history():
+        return runs.import_history()
+
+    @app.get('/api/runs/{identifier}/archive')
+    def archive(identifier: str):
+        return runs.archive_detail(identifier)
+
+    @app.get('/api/runs/{identifier}/artifacts/{artifact_id}')
+    def artifact(identifier: str, artifact_id: str):
+        path = runs.artifact_path(identifier, artifact_id)
+        return FileResponse(path, filename=path.name)
+
+    @app.post('/api/runs/{identifier}/derive')
+    def derive(identifier: str, request: DeriveRequest):
+        return runs.public(runs.derive(identifier, request))
 
     @app.get('/api/runs')
     def list_runs():

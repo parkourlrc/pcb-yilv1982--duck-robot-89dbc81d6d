@@ -12,6 +12,7 @@ def load_config(path=None):
     path = Path(path or os.environ.get('DUCK_DASHBOARD_CONFIG', ROOT / 'training/dashboard.local.json'))
     config = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else {}
     config.setdefault('data_dir', str(ROOT / 'training/.dashboard'))
+    config.setdefault('artifact_dir', str(ROOT / 'training/artifacts'))
     config.setdefault('port', 8765)
     if os.environ.get('DUCK_DASHBOARD_PORT'):
         config['port'] = int(os.environ['DUCK_DASHBOARD_PORT'])

@@ -14,6 +14,8 @@ import numpy as np
 import torch
 import torch.distributed as distributed
 
+from .experiment_config import transfer_contract
+
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT_FILES = (
     "training/models/duck_v0.xml", "training/params/home_pose.json",
@@ -21,6 +23,8 @@ CONTRACT_FILES = (
     "training/mjlab_duck/locomotion_train_cfg.py", "training/mjlab_duck/locomotion_evaluator.py",
     "training/mjlab_duck/train_locomotion.py", "training/mjlab_duck/locomotion_logging.py",
     "training/mjlab_duck/locomotion_checkpoint.py",
+    "training/mjlab_duck/experiment_config.py", "training/mjlab_duck/reward_runtime.py",
+    "training/experiment_archive.py",
 )
 
 
@@ -46,7 +50,7 @@ def contract(cfg, world_size):
             "sources": {name: sha_file(ROOT/name) for name in CONTRACT_FILES},
             "observation": "61:omega3,gravity3,q14,dq14,raw_previous_action14,command3,reserved10",
             "action": "14:HOME+0.5*clip(raw,-1,1),joint_limits", "normalization": "rank_local",
-            "finite_horizon": True, "restart": "HOME_new_episode"}
+            "finite_horizon": True, "restart": "HOME_new_episode", "transfer": transfer_contract(ROOT)}
 
 
 def atomic_json(path, data):
@@ -247,6 +251,9 @@ def make_payload(runner, cfg, state, metadata, rank=0, world_size=1, contract_da
                    "learning_rate": current_lr, "rng": cpu_copy(rng_state()),
                    "contract": signature, "config_hash": sha_dict(signature),
                    "config": cfg.as_dict(), **metadata})
+    if hasattr(runner, "reward_recipe"):
+        result["reward_recipe"] = cpu_copy(runner.reward_recipe)
+        result["reward_completed_updates"] = runner.reward_completed_updates
     return result
 
 
@@ -289,6 +296,8 @@ def write_manifest(directory, payloads, label="checkpoint"):
         rank_files[str(item["rank"])] = {"path": path.name, "sha256": sha_file(path)}
     manifest = {"schema": 1, "complete": True, "world_size": len(payloads), "rank_files": rank_files,
                 **{key: first[key] for key in ("iter", "stage", "config_hash", "consumed_transitions", "experiment_id")}}
+    if first["contract"].get("transfer"):
+        manifest["transfer_contract"] = first["contract"]["transfer"]
     pending = first.get("pending_decision") if label == "evaluated" else None
     manifest.update(resumable=not bool(pending), pending_decision=pending,
                     resume_reason="curriculum decision pending; select final or stage2 checkpoint" if pending else None)
@@ -311,6 +320,8 @@ def validate_manifest(path, *, rank=None, expected_world_size=None):
         raise ValueError("rank not in manifest")
     reference_state = None
     for rank_text, entry in data["rank_files"].items():
+        if rank is not None and int(rank_text) != rank:
+            continue
         file_path = (path.parent/entry["path"]).resolve()
         if file_path.parent != path.parent or not file_path.is_file() or sha_file(file_path) != entry["sha256"]:
             raise ValueError("checkpoint path or SHA256 invalid")
@@ -329,6 +340,27 @@ def validate_manifest(path, *, rank=None, expected_world_size=None):
         elif reference_state != payload["state"]:
             raise ValueError("mixed curriculum states")
     return data
+
+
+def initialize_actor(runner, path, expected_contract):
+    path = Path(path)
+    manifest = validate_manifest(path, rank=0)
+    payload = torch.load(path.parent/manifest["rank_files"]["0"]["path"], map_location="cpu", weights_only=False)
+    expected = expected_contract.get("transfer")
+    if not expected or payload["contract"].get("transfer") != expected or manifest.get("transfer_contract") != expected:
+        raise ValueError("warm start requires verified matching physics, observation, action, normalization and actor contracts")
+    current = runner.alg.actor.state_dict()
+    source = payload["actor_state_dict"]
+    if set(current) != set(source) or any(current[name].shape != source[name].shape for name in current):
+        raise ValueError("warm-start actor state structure differs")
+    copied = {name: current[name] if name.startswith("distribution.") else source[name] for name in current}
+    if any(not bool(torch.isfinite(value).all()) for value in copied.values()):
+        raise ValueError("warm-start actor contains non-finite values")
+    with torch.inference_mode():
+        runner.alg.actor.load_state_dict(copied, strict=True)
+    return {"manifest": str(path), "source_rank": 0, "source_iteration": manifest["iter"],
+            "source_experiment_id": manifest["experiment_id"], "actor_and_normalizer_loaded": True,
+            "critic_optimizer_exploration_rng_curriculum_budget": "new_experiment_initialization"}
 
 
 def save_collective(runner, cfg, state, metadata, directory, coordinator, contract_data, label="checkpoint"):

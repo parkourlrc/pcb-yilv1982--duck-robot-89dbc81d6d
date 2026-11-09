@@ -103,6 +103,8 @@ class Replays:
             checkpoint = self.runs.store.get('checkpoint', request.checkpoint_id)
             if not checkpoint or not checkpoint['replayable']:
                 raise DashboardError('checkpoint文件尚未完整缓存', 'checkpoint_unavailable', 409)
+            if not self.runs.archive_detail(checkpoint['run_id'])['capabilities']['replay']['allowed']:
+                raise DashboardError('来源冻结档案完整性校验失败', 'source_changed', 409)
             node = self.runs.config['nodes']['local']
             if not node.get('python'):
                 raise DashboardError('未配置本地WSL解释器', 'node_unconfigured', 503)
@@ -110,7 +112,7 @@ class Replays:
             directory = self.runs.data / 'replays' / identifier
             directory.mkdir(parents=True, exist_ok=False)
             run = self.runs.get(checkpoint['run_id'])
-            runtime = Path(run.get('_runtime_root') or self.runs.data / 'runs' / run['run_id'] / 'project')
+            runtime = Path(run.get('_runtime_root') or self.runs.artifacts / 'runs' / run['run_id'] / 'project')
             replay = {'replay_id': identifier, 'state': 'initializing', 'checkpoint_id': request.checkpoint_id,
                       'node_id': 'local', 'scenario_id': request.scenario_id, 'seed': request.seed, 'speed': 1,
                       'generation': 0, 'actual_realtime_factor': None, 'error': None, 'created_utc': utcnow(),

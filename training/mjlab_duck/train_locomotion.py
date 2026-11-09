@@ -25,12 +25,50 @@ import torch.distributed as distributed
 from .locomotion_checkpoint import (
     ROOT, CONTRACT_FILES, BudgetLedger, ExperimentLease, RankCoordinator, atomic_json,
     atomic_torch, contract, load_collective, make_payload, restore_payload, restore_rng,
-    rng_state, save_collective, sha_dict, sha_file, validate_manifest, write_manifest,
+    rng_state, save_collective, sha_dict, sha_file, validate_manifest, write_manifest, initialize_actor,
 )
 from .locomotion_logging import JsonlLogger, RolloutStatistics, merge_summaries, RunEvents, EpisodeAccumulator, EpisodeWindow
 from .locomotion_train_cfg import LocomotionTrainConfig, ppo_config
+from .reward_runtime import apply_reward_config
+from experiment_archive import register_runtime, validate_workflow
 
 STOP_REQUESTED = False
+
+
+def freeze_startup(directory, cfg, workflow, rank):
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    if rank != 0:
+        return
+    names = set(CONTRACT_FILES)
+    names.update(str(path.relative_to(ROOT)).replace("\\", "/") for path in (ROOT/"training/mjlab_duck").glob("*.py"))
+    hashes = {}
+    for name in sorted(names):
+        destination = directory/"sources"/name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT/name, destination)
+        hashes[name] = sha_file(destination)
+    dependencies = {distribution.metadata["Name"]: distribution.version for distribution in importlib.metadata.distributions()
+                    if distribution.metadata.get("Name")}
+    atomic_json(directory/"runtime-environment.json", {
+        "created_utc": datetime.now(timezone.utc).isoformat(), "command": sys.argv,
+        "python": sys.version, "executable": sys.executable, "dependencies": dependencies,
+        "config": cfg.as_dict(), "workflow": workflow, "source_sha256": hashes,
+        "contract": contract(cfg, int(os.getenv("WORLD_SIZE", "1"))), "status": "before_runtime_initialization"})
+
+
+class ConsoleCopy:
+    def __init__(self, original, output):
+        self.original, self.output = original, output
+
+    def write(self, value):
+        self.output.write(value)
+        self.output.flush()
+        return self.original.write(value)
+
+    def flush(self):
+        self.output.flush()
+        self.original.flush()
 
 
 def request_stop(signum, frame):
@@ -137,6 +175,9 @@ def build_runtime(cfg, stage=1, device=None, control_timeout_s=3600):
     env = RslRlVecEnvWrapper(ManagerBasedRlEnv(env_cfg, device=device), clip_actions=None)
     try:
         runner = TrainingRunner(env, ppo_config(cfg), log_dir=None, device=device)
+        runner.experiment_config = cfg
+        runner.reward_completed_updates = 0
+        runner.reward_recipe = apply_reward_config(env, cfg.reward_config, stage, 0)
         group = distributed.new_group(backend="gloo", timeout=timedelta(seconds=control_timeout_s)) if world_size > 1 else None
         coordinator = RankCoordinator(group)
         if world_size > 1:
@@ -220,7 +261,13 @@ def evaluate_policy(runner, stage, full=False):
         def env_factory(scenario):
             configuration = locomotion_env_cfg(1, evaluation=True, seed=scenario.seed)
             configuration.is_finite_horizon = True
-            return ManagerBasedRlEnv(configuration, device=runner.device)
+            environment = ManagerBasedRlEnv(configuration, device=runner.device)
+            if getattr(runner, "evaluation_trace_root", None):
+                suite_name = "full96" if full else f"stage{stage}"
+                environment.evaluation_trace_directory = runner.evaluation_trace_root/f"{runner.reward_completed_updates:06d}-{suite_name}"
+            if hasattr(runner, "experiment_config"):
+                apply_reward_config(environment, runner.experiment_config.reward_config, stage, runner.reward_completed_updates)
+            return environment
 
         scenarios = full_reference_scenarios() if full else development_scenarios(stage)
         with torch.inference_mode():
@@ -312,7 +359,10 @@ def reserve_run_directory(output_dir, experiment_dir, coordinator):
 def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, parent_checkpoint=None,
                eval_callback=None, diagnostic_callback=None, gate_callback=None, max_new_updates=None,
                resume_manifest=None, experiment_dir=None, check_mode=False, coordinator=None,
-               run_id=None, stop_file=None):
+               run_id=None, stop_file=None, warm_start_manifest=None, workflow=None):
+    validate_workflow(workflow, cfg.as_dict())
+    if resume_manifest and warm_start_manifest:
+        raise ValueError("resume and warm start are mutually exclusive")
     coordinator = coordinator or RankCoordinator()
     run_started = time.perf_counter()
     output_dir = Path(output_dir)
@@ -323,6 +373,8 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
     if max_new_updates is not None and max_new_updates < 1:
         raise ValueError("max_new_updates must be positive")
     reserve_run_directory(output_dir, experiment_dir, coordinator)
+    runner.evaluation_trace_root = output_dir/"evaluation-traces"
+    coordinator.root_call(lambda: atomic_json(output_dir/"workflow.json", workflow))
     events = RunEvents(output_dir, run_id or output_dir.name, coordinator.rank)
     events.emit("initializing")
     stop_file = Path(stop_file) if stop_file else output_dir/"STOP"
@@ -345,7 +397,13 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
             state.parent_checkpoint = str(resume_manifest)
         elif start_iteration != 0 or parent_checkpoint:
             raise ValueError("continuation requires explicit manifest and original experiment ledger")
+        initialization = None
+        if warm_start_manifest:
+            initialization = coordinator.all_call(lambda: initialize_actor(runner, warm_start_manifest, signature))
+            coordinator.root_call(lambda: atomic_json(output_dir/"initialization.json", initialization))
         observations = _environment_stage(env, cfg, state.stage)
+        runner.reward_completed_updates = consumed//cfg.global_transitions_per_update
+        runner.reward_recipe = apply_reward_config(env, cfg.reward_config, state.stage, runner.reward_completed_updates)
         episodes = EpisodeAccumulator(env.num_envs, runner.device)
         episode_window = EpisodeWindow()
         runner.alg.storage.clear()
@@ -357,10 +415,12 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
             from torch.utils.tensorboard import SummaryWriter
             writer = SummaryWriter(str(output_dir/"tensorboard"))
         metadata = {"experiment_id": experiment["id"], "consumed_transitions": consumed,
-                    "parent_checkpoint": state.parent_checkpoint, "check_mode": check_mode}
+                    "parent_checkpoint": state.parent_checkpoint, "check_mode": check_mode,
+                    "initialization": initialization}
         events.emit("saving", model_iteration=state.model_iteration)
         last_manifest = save_collective(runner, cfg, asdict(state), metadata, output_dir/"checkpoints", coordinator, signature, "start")
         new_updates = 0
+        previous_recipe = None
         status = "budget_exhausted"
         while consumed+cfg.global_transitions_per_update <= cfg.max_transitions:
             stop_flag = torch.tensor(int(STOP_REQUESTED or stop_file.exists()), device=runner.device, dtype=torch.int32)
@@ -373,6 +433,13 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
             if max_new_updates is not None and new_updates >= max_new_updates:
                 status = "check_limit" if check_mode else "requested_update_limit"
                 break
+            runner.reward_completed_updates = consumed//cfg.global_transitions_per_update
+            recipe = apply_reward_config(env, cfg.reward_config, state.stage, runner.reward_completed_updates)
+            runner.reward_recipe = recipe
+            if recipe != previous_recipe:
+                events.emit("reward_recipe", model_iteration=state.model_iteration+1, stage=state.stage,
+                            completed_budget_updates=runner.reward_completed_updates, recipe=recipe)
+                previous_recipe = recipe
             reservation = coordinator.root_call(lambda: ledger.begin(state.model_iteration+1))
             consumed = coordinator.root_call(ledger.consumed)
             statistics = RolloutStatistics(runner.device)
@@ -432,6 +499,8 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
                           "torch_peak_bytes": torch.cuda.max_memory_allocated(runner.device),
                           "memory_scope": "PyTorch only; excludes Warp", "kl": None, "kl_status": "not_exposed_by_library",
                           "statistics": global_stats, "episodes": rolling_episodes,
+                          "reward_recipe": {"stage": state.stage, "completed_budget_updates": runner.reward_completed_updates,
+                                            "hash": sha_dict(recipe), "smoothing": recipe["smoothing"]},
                           "sampling_transitions_per_s": cfg.global_transitions_per_update/max(timing["collect_s"], 1e-9),
                           "overall_transitions_per_s": new_updates*cfg.global_transitions_per_update/max(time.perf_counter()-run_started, 1e-9)}
                 logger.write(record)
@@ -491,6 +560,8 @@ def train_loop(runner, env, cfg, *, output_dir, stage=1, start_iteration=0, pare
                 state.enter_stage2(last_manifest)
                 runner.alg.storage.clear()
                 observations = _environment_stage(env, cfg, state.stage)
+                runner.reward_completed_updates = consumed//cfg.global_transitions_per_update
+                runner.reward_recipe = apply_reward_config(env, cfg.reward_config, state.stage, runner.reward_completed_updates)
                 episodes = EpisodeAccumulator(env.num_envs, runner.device)
                 metadata["parent_checkpoint"] = state.parent_checkpoint
                 last_manifest = save_collective(runner, cfg, asdict(state), metadata, output_dir/"checkpoints", coordinator, signature, "stage2")
@@ -535,6 +606,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--experiment-dir", type=Path)
     parser.add_argument("--resume-manifest", type=Path)
+    parser.add_argument("--warm-start-manifest", "--initialize-manifest", dest="warm_start_manifest", type=Path)
+    parser.add_argument("--workflow-record", type=Path)
     parser.add_argument("--config", type=Path)
     parser.add_argument("--run-id")
     parser.add_argument("--stop-file", type=Path)
@@ -552,25 +625,50 @@ def main():
         return
     if int(os.getenv("WORLD_SIZE", "1")) not in (1, 2):
         raise ValueError("training requires one or two ranks")
+    if args.workflow_record is None:
+        parser.error("training requires --workflow-record with validated steps, config hash and budget")
+    workflow = json.loads(args.workflow_record.read_text(encoding="utf-8-sig"))
+    if args.output.exists():
+        raise ValueError("run output directory already exists; use a new output directory")
+    if args.resume_manifest and args.warm_start_manifest:
+        parser.error("resume and warm start are mutually exclusive")
+    if int(os.getenv("RANK", "0")) == 0:
+        register_runtime(args.output, workflow, cfg.as_dict(), run_id=args.run_id, source_root=ROOT,
+                         initialization="resume" if args.resume_manifest else "warm" if args.warm_start_manifest else "scratch")
+    else:
+        validate_workflow(workflow, cfg.as_dict())
+    rank = int(os.getenv("RANK", "0"))
+    startup_directory = args.output.with_name(args.output.name+"-startup")
+    freeze_startup(startup_directory, cfg, workflow, rank)
+    console_log = (startup_directory/f"console.rank{rank}.log").open("a", encoding="utf-8")
+    original_stdout, original_stderr = sys.stdout, sys.stderr
+    sys.stdout, sys.stderr = ConsoleCopy(sys.stdout, console_log), ConsoleCopy(sys.stderr, console_log)
     signal.signal(signal.SIGINT, request_stop)
     signal.signal(signal.SIGTERM, request_stop)
-    startup = RunEvents(args.output.with_name(args.output.name+"-startup"), args.run_id or args.output.name, int(os.getenv("RANK", "0")))
+    startup = RunEvents(startup_directory, args.run_id or args.output.name, rank)
     startup.emit("initializing")
     try:
         runner, env, coordinator = build_runtime(cfg, control_timeout_s=args.control_timeout_s)
     except BaseException as error:
         startup.emit("failed", error=f"{type(error).__name__}: {error}")
+        import traceback
+        traceback.print_exc()
+        sys.stdout, sys.stderr = original_stdout, original_stderr
+        console_log.close()
         raise
     finally:
         startup.close()
     try:
         train_loop(runner, env, cfg, output_dir=args.output, experiment_dir=args.experiment_dir,
                    resume_manifest=args.resume_manifest, max_new_updates=args.max_new_updates,
-                   check_mode=args.check_mode, coordinator=coordinator, run_id=args.run_id, stop_file=args.stop_file)
+                   check_mode=args.check_mode, coordinator=coordinator, run_id=args.run_id, stop_file=args.stop_file,
+                   warm_start_manifest=args.warm_start_manifest, workflow=workflow)
     finally:
         env.close()
         if distributed.is_initialized():
             distributed.destroy_process_group()
+        sys.stdout, sys.stderr = original_stdout, original_stderr
+        console_log.close()
 
 
 if __name__ == "__main__":

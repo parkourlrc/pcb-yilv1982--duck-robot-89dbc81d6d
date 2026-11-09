@@ -148,6 +148,14 @@ def run(args):
         config = locomotion_env_cfg(1, evaluation=True, seed=scenario.seed)
         config.is_finite_horizon = True
         env = ManagerBasedRlEnv(config, device=args.device)
+        if payload.get('config', {}).get('reward_config'):
+            from mjlab_duck.reward_runtime import apply_reward_config
+            original_config = payload['config']
+            completed_updates = payload.get('consumed_transitions', 0) // (original_config['num_envs'] * original_config['num_steps_per_env'])
+            apply_reward_config(env, original_config['reward_config'], payload['stage'], completed_updates)
+            if payload.get('reward_recipe'):
+                from copy import deepcopy
+                env.locomotion.reward_config = deepcopy(payload['reward_recipe'])
         robot = env.scene["robot"]
         joint_ids, joint_names = robot.find_joints(JOINT_ORDER, preserve_order=True)
         if tuple(joint_names) != JOINT_ORDER:

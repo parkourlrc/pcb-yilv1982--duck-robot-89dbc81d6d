@@ -10,6 +10,8 @@ import torch
 from mjlab.managers.action_manager import ActionTerm, ActionTermCfg
 from mjlab.managers.command_manager import CommandTerm, CommandTermCfg
 
+from .reward_runtime import initialize_reward_state, reward_components, sample_feet
+
 ROOT = Path(__file__).resolve().parents[1]
 HOME = json.loads((ROOT / "params/home_pose.json").read_text(encoding="utf-8"))["joint_pos"]
 JOINT_ORDER = (
@@ -119,6 +121,7 @@ class MotionState:
         self.capture_substeps = strict
         self.physics_trace = zeros(10, 12)
         self.rp_square_sum = zeros(2)
+        initialize_reward_state(self)
 
     def reset(self, ids, xy, yaw, request):
 
@@ -227,25 +230,7 @@ class MotionState:
         self.rp_square_sum.zero_()
 
     def reward(self, actual, previous):
-        def track(error, sigma):
-            return torch.exp(-(error/sigma)**2)
-        vx, wz = self.cmd[:, 0], self.cmd[:, 2]
-        tx = track(self.vel[:, 0]-vx, torch.maximum(.25*vx.abs(), torch.full_like(vx, .005)))
-        tw = track(self.yaw_rate-wz, torch.maximum(.25*wz.abs(), torch.full_like(wz, RAD)))
-        turn = wz.abs() > 1e-6; stop = (vx.abs() < 1e-6) & ~turn
-        yaw_zero = track(self.yaw_rate, 3*RAD)
-        auxiliary_gate = tx * torch.where(turn, tw, yaw_zero)
-        posture_gate = track(self.tilt, 20*RAD)*track(self.height-Z_HOME, .03)
-        late = ((self.phase == 1) & (self.time-self.brake_start > 3)) | (self.full_active & ~self.full_confirmed & (self.time-self.full_start > 3))
-        self.reward_terms = torch.stack((
-            3*posture_gate*tx, 3*posture_gate*turn*tw, 3*posture_gate*stop*track(self.vel.norm(dim=-1), .01)*yaw_zero,
-            .5*auxiliary_gate*track(self.vel[:, 1], .01), .5*auxiliary_gate*(vx > 1e-6)*~turn*yaw_zero,
-            auxiliary_gate*(self.phase == 2)*track((self.xy-self.anchor).norm(dim=-1), .03),
-            .5*auxiliary_gate*track(self.tilt, 15*RAD)*track(self.height-Z_HOME, .02),
-            -.05*((actual-previous).square().mean(-1)/.01).clamp_max(1), -.5*late,
-        ), -1)
-        self.reward_rate = self.reward_terms.sum(-1)
-        return self.reward_rate
+        return reward_components(self, actual, previous, Z_HOME)
 
 
 class LocomotionCommand(CommandTerm):
@@ -263,7 +248,7 @@ class LocomotionCommand(CommandTerm):
         self.probabilities = tuple(getattr(cfg, "probabilities", FAMILY_PROBABILITIES))
         if self.stage not in (0, 1, 2) or len(self.probabilities) != 5 or any(value < 0 or not math.isfinite(value) for value in self.probabilities) or abs(sum(self.probabilities)-1) > 1e-6:
             raise ValueError("Invalid curriculum stage or family probabilities")
-        if self.stage and self.probabilities != STAGE_PROBABILITIES[self.stage]:
+        if self.stage == 1 and self.probabilities != STAGE_PROBABILITIES[1]:
             raise ValueError("Curriculum probabilities differ from the confirmed stage")
 
     @property
@@ -369,6 +354,7 @@ class OrderedAction(ActionTerm):
         self.ids = torch.tensor(ids, device=self.device)
         self.home = torch.tensor([HOME[value] for value in JOINT_ORDER], device=self.device)
         self.raw = torch.zeros(self.num_envs, 14, device=self.device)
+        self.previous_raw = torch.zeros_like(self.raw)
         self.actual = torch.zeros_like(self.raw); self.previous = torch.zeros_like(self.raw)
         self.target = self.home.repeat(self.num_envs, 1)
     @property
@@ -378,10 +364,12 @@ class OrderedAction(ActionTerm):
     def reset(self, env_ids=None):
         ids = slice(None) if env_ids is None else env_ids
         self.raw[ids] = 0; self.actual[ids] = 0; self.previous[ids] = 0
+        self.previous_raw[ids] = 0
         self.target[ids] = self.home
     def process_actions(self, actions):
         invalid = ~torch.isfinite(actions).all(-1)
         self._env.locomotion.fail(invalid, 4)
+        self.previous_raw.copy_(self.raw)
         self.raw.copy_(torch.nan_to_num(actions, nan=0., posinf=0., neginf=0.))
         self.previous.copy_(self.actual)
         limits = self._entity.data.joint_pos_limits[:, self.ids]
@@ -432,6 +420,7 @@ def measure_substep(env):
     bad_contact = torch.zeros(env.num_envs, device=env.device, dtype=torch.int32)
     bad_contact.scatter_add_(0, worlds.clamp(0, env.num_envs-1).long(), bad.int())
     state.substep(root_state[:, :2], heading(quaternion), velocity[:, :3], tilt, root_state[:, 2], velocity[:, 3:5], bad_contact > 0, env.physics_dt)
+    sample_feet(env, valid, ground0, ground1)
     if env._sim_step_counter % env.cfg.decimation == 0:
         state.finish_control()
     return state.max_drift
@@ -447,11 +436,13 @@ def trajectory_finished(env):
 
 def reward_rate(env):
     action = env.action_manager.get_term("joints")
+    env.locomotion.raw_reward_delta.copy_(action.raw-action.previous_raw)
     result = env.locomotion.reward(action.actual, action.previous)
     names = ("time", "request", "cmd", "vel", "yaw_rate", "filtered", "xy", "anchor", "anchor_time",
              "max_drift", "brake_path", "strict_drift", "strict_stop", "strict_path",
              "strict_full_stop", "strict_hold", "reward_terms", "reason", "phase", "failed",
-             "hold_complete", "full_confirmed", "tilt", "max_tilt", "min_height", "last_yaw")
+             "hold_complete", "full_confirmed", "tilt", "max_tilt", "min_height", "last_yaw",
+             "reward_raw", "reward_weights", "reward_contributions")
     env.extras["locomotion"] = {name: getattr(env.locomotion, name).clone() for name in names}
     command = env.command_manager.get_term("velocity")
     current_segment = ((env.locomotion.time[:, None]-1e-6) >= command.ends).sum(-1).clamp_max(6)
@@ -471,7 +462,7 @@ def reward_rate(env):
 
 def failure_cost_rate(env):
 
-    return -100 * env.locomotion.failed.float() / env.step_dt
+    return -env.locomotion.reward_config["terms"]["failure"]["weight"] * env.locomotion.failed.float() / env.step_dt
 
 
 def metric(env, name):
