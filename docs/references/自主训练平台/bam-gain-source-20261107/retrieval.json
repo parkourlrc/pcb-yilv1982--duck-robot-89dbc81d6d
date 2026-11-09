@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-07",
+  "commit": "62bd8ce12154340be97e06f7f41a0ca8f116d967",
+  "results": [
+    {
+      "path": "bam/mjlab.py",
+      "url": "https://raw.githubusercontent.com/Rhoban/bam/62bd8ce12154340be97e06f7f41a0ca8f116d967/bam/mjlab.py",
+      "file": "docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/bam-gain-source-20261107/bam_mjlab.py",
+      "sha256": "af3de252939ca868712423979c2ab52e198d382d7aca613b5b33c77d74baa440",
+      "matches": [
+        "66: class BamActuatorCfg(ActuatorCfg):",
+        "82:     :param kp_fw: Firmware P-gain override. ``None`` \u2192 uses the value in the JSON.",
+        "114:     kp_fw: float | None = None",
+        "188:         if cfg.kp_fw is not None:",
+        "189:             self._bam_model.actuator.kp = cfg.kp_fw",
+        "206:         self.kp_scale: torch.Tensor | None = None",
+        "207:         self.kd_scale: torch.Tensor | None = None",
+        "319:         self.kp_scale = torch.ones(num_envs, 1, dtype=torch.float32, device=device)",
+        "320:         self.kd_scale = torch.ones(num_envs, 1, dtype=torch.float32, device=device)",
+        "321:         self.default_kp_scale = self.kp_scale.clone()",
+        "322:         self.default_kd_scale = self.kd_scale.clone()",
+        "408:             assert self.kp_scale is not None",
+        "409:             self.kp_scale[env_ids] = kp_scale",
+        "411:             assert self.kd_scale is not None",
+        "412:             self.kd_scale[env_ids] = kd_scale",
+        "416:         assert self.kp_scale is not None and self.default_kp_scale is not None",
+        "417:         assert self.kd_scale is not None and self.default_kd_scale is not None",
+        "418:         self.kp_scale[env_ids] = self.default_kp_scale[env_ids]",
+        "419:         self.kd_scale[env_ids] = self.default_kd_scale[env_ids]",
+        "584:         to the underlying BAM actuator's :meth:`~bam.actuator.Actuator.compute_control`",
+        "597:         assert self.kp_scale is not None and self.kd_scale is not None",
+        "613:         # Inject the per-env firmware parameters: compute_control multiplies by",
+        "617:         act.kp = self._base_kp * self.kp_scale  # (N, 1)",
+        "619:         # compute_control (current-limiter back-EMF) and compute_torque",
+        "622:         # firmware current limit is modelled inside compute_control as a",
+        "624:         scaled_vel = vel * self.kd_scale",
+        "625:         control = act.compute_control(",
+        "875:             kp_fw=float(base_log[\"kp\"]),"
+      ]
+    },
+    {
+      "path": "bam/mjlab/__init__.py",
+      "url": "https://raw.githubusercontent.com/Rhoban/bam/62bd8ce12154340be97e06f7f41a0ca8f116d967/bam/mjlab/__init__.py",
+      "error": "The read operation timed out"
+    },
+    {
+      "path": "bam/actuators/sts3215.py",
+      "url": "https://raw.githubusercontent.com/Rhoban/bam/62bd8ce12154340be97e06f7f41a0ca8f116d967/bam/actuators/sts3215.py",
+      "error": "The read operation timed out"
+    },
+    {
+      "path": "bam/actuators/feetech.py",
+      "url": "https://raw.githubusercontent.com/Rhoban/bam/62bd8ce12154340be97e06f7f41a0ca8f116d967/bam/actuators/feetech.py",
+      "error": "The read operation timed out"
+    }
+  ]
+}

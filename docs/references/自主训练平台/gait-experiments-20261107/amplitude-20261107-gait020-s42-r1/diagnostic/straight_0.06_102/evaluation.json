@@ -1,0 +1,133 @@
+{
+  "name": "straight_0.06_102",
+  "seed": 102,
+  "passed": false,
+  "completed": true,
+  "failed": false,
+  "reason": 0,
+  "observed": {
+    "controls": 1150,
+    "simulation_seconds": 22.99999999999813,
+    "max_raw_horizontal_speed": 0.24548594687249692,
+    "max_raw_yaw_rate": 1.1412739753723145,
+    "maximum_tilt_rad": 0.26878470182418823
+  },
+  "checks": {
+    "known_scenario": {
+      "passed": true,
+      "observed": "straight",
+      "threshold": null
+    },
+    "trace_fields": {
+      "passed": true,
+      "observed": null,
+      "threshold": null
+    },
+    "trace_shape": {
+      "passed": true,
+      "observed": null,
+      "threshold": null
+    },
+    "finite_inputs": {
+      "passed": true,
+      "observed": null,
+      "threshold": null
+    },
+    "continuous_clock": {
+      "passed": true,
+      "observed": null,
+      "threshold": null
+    },
+    "complete_trajectory": {
+      "passed": true,
+      "observed": 1150,
+      "threshold": 1150
+    },
+    "no_failure": {
+      "passed": true,
+      "observed": 0,
+      "threshold": 0
+    },
+    "upright": {
+      "passed": true,
+      "observed": 0.26878470182418823,
+      "threshold": 0.7853981633974483
+    },
+    "height": {
+      "passed": true,
+      "observed": 0.11370633542537689,
+      "threshold": 0.07092
+    },
+    "foot_contacts_only": {
+      "passed": true,
+      "observed": null,
+      "threshold": null
+    },
+    "segment_0/complete": {
+      "passed": true,
+      "observed": 1150,
+      "threshold": 1150
+    },
+    "motion_0/horizontal_acceleration": {
+      "passed": false,
+      "observed": 4.249780705688028,
+      "threshold": 0.3
+    },
+    "motion_0/yaw_acceleration": {
+      "passed": false,
+      "observed": 41.864397935569286,
+      "threshold": 2.0943951023931953
+    },
+    "motion_0/transition_forward_tracking": {
+      "passed": false,
+      "observed": 0.03512599687207018,
+      "threshold": 0.03
+    },
+    "motion_0/transition_yaw_tracking": {
+      "passed": false,
+      "observed": 0.18811593549602112,
+      "threshold": 0.13962634015954636
+    },
+    "motion_0/response_3s": {
+      "passed": false,
+      "observed": null,
+      "threshold": 3.0
+    },
+    "motion_0/steady_duration": {
+      "passed": true,
+      "observed": 20.0,
+      "threshold": 20.0
+    },
+    "motion_0/forward_rmse": {
+      "passed": false,
+      "observed": 0.040398316128331786,
+      "threshold": 0.012
+    },
+    "motion_0/forward_direction": {
+      "passed": true,
+      "observed": 0.96,
+      "threshold": 0.95
+    },
+    "motion_0/lateral_rmse": {
+      "passed": false,
+      "observed": 0.06116530562117307,
+      "threshold": 0.01
+    },
+    "motion_0/forward_progress": {
+      "passed": false,
+      "observed": 0.7304495349526405,
+      "threshold": 0.96
+    },
+    "motion_0/straight_lateral": {
+      "passed": false,
+      "observed": 0.6770851612091064,
+      "threshold": 0.05
+    },
+    "motion_0/straight_heading": {
+      "passed": false,
+      "observed": 1.1214680671691895,
+      "threshold": 0.17453292519943295
+    }
+  },
+  "unvisited": []
+}

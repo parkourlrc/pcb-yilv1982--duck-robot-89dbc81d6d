@@ -104,7 +104,7 @@ HOME 位形下派生几何（用于自建胶囊设计，由 [extract_public_para
 
 **模型/参数来源链（2026-11-03 补）**：[BAM（Better Actuator Models）](https://github.com/Rhoban/bam)由 Rhoban 维护（Apache-2.0，ICRA 2025 论文），提供执行器模型、**从记录轨迹拟合摩擦参数的辨识流程**，以及已辨识模型库（Dynamixel XL330、Feetech STS3215 等，**不含 HD-1910**）。HD-1910 的 `1910_m6.json` 来自下游 [LuwuDynamics/xgoduck_rl](https://github.com/LuwuDynamics/xgoduck_rl)（Apache-2.0，commit `326d77a1`），其 README 写明执行器用 “HLS1910 BAM model”替代 XL330。作者 kissqy 只做 HD1910 适配：`hd1910_actuator.py` 继承 `FrictionDRBamActuator`、加载该 JSON、设置 vin/延迟/kp 与背隙变体，再在官方 `microduck_rl` 上训练。原始辨识的台架条件（电压/固件/温度）未随文件发布，待确认。
 
-**2026-11-03 补充：飞特官方 HD1910 BAM 已发布**（Gitee `ftservo/ftservo-bam`，Apache-2.0，2026-09-23～30，制造商台架）：`bam/params/feetech_hd1910_7_4V/` m1–m6，m6 的 `actuator` 为 `hd1910`。与本表 S2（Luwu）差异：kt 0.5645 vs 0.6238、R 2.966 vs 4.910、`command_delay` 0.00098 vs 0.0060 s、`friction_base` 0.0120 vs 0.0158、`load_friction_motor` 0.353 vs 0.069、`load_friction_external` 0.043 vs 0.158、`alpha` 4.25 vs 1.52。两者不是同一颗舵机的两种拟合，混用会改变观测-动作对齐和带载力矩预算；重训时优先官方版并保留来源。
+**2026-11-07 勘误：飞特公开 HD1910 BAM 的 C001 适用性待确认。** [源码核验] `ftservo/ftservo-bam@bab3967811f0bec8b79898cb03e7f5812fe581f9` 的 `bam/params/feetech_hd1910_7_4V/m6.json` 确为 HD1910 目录，`actuator=hd1910`；本表 S2（Luwu，亦被核对的 C 线作者模型采用）为 `actuator=sts3215`。两者均属于 BAM M6 摩擦模型族，但控制器实现及拟合参数不同：kt 0.5645 vs 0.6238、R 2.966 vs 4.910、command_delay 0.000978 vs 0.006005 s、friction_base 0.011951 vs 0.015803。官方快照122个文本/源码文件未检出 C001/C-001 标注；本机 HD-1910-C001 型号已由用户确认，不能据 HD1910 家族名直接确认适配。[待确认] 两套辨识对应的具体子型号、固件、原始数据及测试条件。撤回原“不是同一颗舵机的两种拟合”和“重训优先官方版”判断；参数不同不足以判定硬件型号不同，也不足以判断哪套更准确。完整对比、固定来源和限制见[来源核对](../自主训练平台/训练物理参数来源核对-20261107.md)。未经配套实现与适用条件核对，不拼接两套参数；本轮未替换物理模型。
 
 **参数含义（BAM 源码 `model.py`/`actuator.py` 核对，2026-11-03）**：
 

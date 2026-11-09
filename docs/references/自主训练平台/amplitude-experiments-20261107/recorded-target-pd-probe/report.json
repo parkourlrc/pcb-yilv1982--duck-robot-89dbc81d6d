@@ -1,0 +1,423 @@
+{
+  "scope": "CPU MuJoCo recorded EMA0.5 targets",
+  "limitations": "no actor feedback; same initial joints from recorded GPU pre-step; separate CPU simulation, not GPU training reproduction; root initial pose assumed nominal; no full GPU state replay",
+  "mujoco_version": "3.10.0",
+  "model_sha256": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+  "initial_sha256": "0f5d1b5736d8fa7adbc70d5280c7e79e48effc53b330662422a3768522850637",
+  "script_sha256": "b3e2d2344dc14d2179c41edfbdd59966ab0a81a73a9f3844909389b15986194a",
+  "linearization_limit": "mass eigenvalue diagnostic ignores contact, friction, position stiffness and saturation; scalar explicit damping stability criterion is illustrative, not a fitted robot model",
+  "sample_columns": "time,q14,qd14,raw_torque14,clipped_torque14,root_z",
+  "cases": [
+    {
+      "name": "kd2-dt0.002",
+      "kd": 2.0,
+      "dt": 0.002,
+      "seconds": 23.0,
+      "height_min": 0.11813401786040933,
+      "joint_effective_mass_eigen_min": 0.0017851037932476552,
+      "illustrative_dt_kd_over_min_mass": 2.2407660636487496,
+      "metrics": [
+        {
+          "joint": "left_hip_yaw",
+          "qd_rms": 0.4981814215048179,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9947476890510623,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.7658765876587659,
+          "q_range_deg": 0.3636362939276983
+        },
+        {
+          "joint": "left_hip_roll",
+          "qd_rms": 0.11454971104145709,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9416388280569741,
+          "torque_flip_fraction": 0.9499899979995999,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.6149728706722757
+        },
+        {
+          "joint": "left_hip_pitch",
+          "qd_rms": 0.4603322601956124,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.995138217591869,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.4381438143814381,
+          "q_range_deg": 0.3834076452137604
+        },
+        {
+          "joint": "left_knee",
+          "qd_rms": 0.5090322455883792,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9852740484798747,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.5251525152515252,
+          "q_range_deg": 0.3350341084704504
+        },
+        {
+          "joint": "left_ankle",
+          "qd_rms": 0.3987616318165168,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9651645467636483,
+          "torque_flip_fraction": 0.9991998399679936,
+          "saturation_fraction": 0.16151615161516153,
+          "q_range_deg": 0.5525287410331701
+        },
+        {
+          "joint": "neck_pitch",
+          "qd_rms": 0.5107463540571966,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9933312973136388,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.6674667466746674,
+          "q_range_deg": 0.40340036193761925
+        },
+        {
+          "joint": "head_pitch",
+          "qd_rms": 0.48155268823493436,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9955070143115048,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.5625562556255626,
+          "q_range_deg": 0.7605666667852958
+        },
+        {
+          "joint": "head_yaw",
+          "qd_rms": 0.48915610895584366,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9980639679569382,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.8885888588858886,
+          "q_range_deg": 0.3794447749820829
+        },
+        {
+          "joint": "head_roll",
+          "qd_rms": 0.4877489789258937,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9976713946195288,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.8096809680968097,
+          "q_range_deg": 0.5989981439465627
+        },
+        {
+          "joint": "right_hip_yaw",
+          "qd_rms": 0.5047759322304991,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9979818073146626,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.6794679467946795,
+          "q_range_deg": 0.26389188902721067
+        },
+        {
+          "joint": "right_hip_roll",
+          "qd_rms": 0.09576993165285244,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9473880774874189,
+          "torque_flip_fraction": 0.8957791558311662,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.22795901526443982
+        },
+        {
+          "joint": "right_hip_pitch",
+          "qd_rms": 0.4757757013564624,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.994246046539683,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.5670567056705671,
+          "q_range_deg": 0.48449511624690633
+        },
+        {
+          "joint": "right_knee",
+          "qd_rms": 0.5021575360347411,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9885761563222453,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.5803580358035804,
+          "q_range_deg": 0.5201366856174909
+        },
+        {
+          "joint": "right_ankle",
+          "qd_rms": 0.4036787031946855,
+          "velocity_peak_hz": 249.97499749974997,
+          "velocity_power_above_100hz": 0.9862617164758875,
+          "torque_flip_fraction": 1.0,
+          "saturation_fraction": 0.16761676167616762,
+          "q_range_deg": 0.610655958229351
+        }
+      ]
+    },
+    {
+      "name": "kd1-dt0.002",
+      "kd": 1.0,
+      "dt": 0.002,
+      "seconds": 23.0,
+      "height_min": 0.11791818288586961,
+      "joint_effective_mass_eigen_min": 0.0017851037932476552,
+      "illustrative_dt_kd_over_min_mass": 1.1203830318243748,
+      "metrics": [
+        {
+          "joint": "left_hip_yaw",
+          "qd_rms": 0.04126382041179969,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.05986321834486976,
+          "torque_flip_fraction": 0.08631726345269054,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.34856311076702523
+        },
+        {
+          "joint": "left_hip_roll",
+          "qd_rms": 0.02021148374472328,
+          "velocity_peak_hz": 3.8003800380038,
+          "velocity_power_above_100hz": 0.039056292062194325,
+          "torque_flip_fraction": 0.00020004000800160032,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.5434535267871834
+        },
+        {
+          "joint": "left_hip_pitch",
+          "qd_rms": 0.03570949717924889,
+          "velocity_peak_hz": 5.75057505750575,
+          "velocity_power_above_100hz": 0.025324377033671585,
+          "torque_flip_fraction": 0.08511702340468094,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.3908178392082104
+        },
+        {
+          "joint": "left_knee",
+          "qd_rms": 0.07452268372405106,
+          "velocity_peak_hz": 25.05250525052505,
+          "velocity_power_above_100hz": 0.037620431305268216,
+          "torque_flip_fraction": 0.06621324264852971,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.3252236072624641
+        },
+        {
+          "joint": "left_ankle",
+          "qd_rms": 0.11749914324714926,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.05824062853461909,
+          "torque_flip_fraction": 0.08901780356071214,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.7194419382860698
+        },
+        {
+          "joint": "neck_pitch",
+          "qd_rms": 0.04105564382612509,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.07656226607951451,
+          "torque_flip_fraction": 0.10772154430886177,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.37906862813566655
+        },
+        {
+          "joint": "head_pitch",
+          "qd_rms": 0.05243159972817811,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.0928911864846945,
+          "torque_flip_fraction": 0.10322064412882577,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.7494765619856569
+        },
+        {
+          "joint": "head_yaw",
+          "qd_rms": 0.019825887652988473,
+          "velocity_peak_hz": 8.150815081508151,
+          "velocity_power_above_100hz": 0.02684946078196561,
+          "torque_flip_fraction": 0.0625125025005001,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.34796157391580584
+        },
+        {
+          "joint": "head_roll",
+          "qd_rms": 0.026342451616029248,
+          "velocity_peak_hz": 5.75057505750575,
+          "velocity_power_above_100hz": 0.046723978317832156,
+          "torque_flip_fraction": 0.07581516303260652,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.5793056335145322
+        },
+        {
+          "joint": "right_hip_yaw",
+          "qd_rms": 0.014208172585726186,
+          "velocity_peak_hz": 5.6005600560056,
+          "velocity_power_above_100hz": 0.030889980291353272,
+          "torque_flip_fraction": 0.08951790358071614,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.19905883128200494
+        },
+        {
+          "joint": "right_hip_roll",
+          "qd_rms": 0.015206194148367363,
+          "velocity_peak_hz": 5.75057505750575,
+          "velocity_power_above_100hz": 0.04373870890186367,
+          "torque_flip_fraction": 0.0,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.22392834520332772
+        },
+        {
+          "joint": "right_hip_pitch",
+          "qd_rms": 0.03800037836342798,
+          "velocity_peak_hz": 25.05250525052505,
+          "velocity_power_above_100hz": 0.022477913511839927,
+          "torque_flip_fraction": 0.08011602320464092,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.45809322557581317
+        },
+        {
+          "joint": "right_knee",
+          "qd_rms": 0.0749341682962464,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.053441318980934904,
+          "torque_flip_fraction": 0.08121624324864973,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.5474738849106676
+        },
+        {
+          "joint": "right_ankle",
+          "qd_rms": 0.06579893629510833,
+          "velocity_peak_hz": 24.8024802480248,
+          "velocity_power_above_100hz": 0.043532491362466244,
+          "torque_flip_fraction": 0.09351870374074815,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.6886359403168113
+        }
+      ]
+    },
+    {
+      "name": "kd2-dt0.001",
+      "kd": 2.0,
+      "dt": 0.001,
+      "seconds": 23.0,
+      "height_min": 0.11793100616872025,
+      "joint_effective_mass_eigen_min": 0.0017851037932476552,
+      "illustrative_dt_kd_over_min_mass": 1.1203830318243748,
+      "metrics": [
+        {
+          "joint": "left_hip_yaw",
+          "qd_rms": 0.022801296459739134,
+          "velocity_peak_hz": 24.801240062003103,
+          "velocity_power_above_100hz": 0.058661664116786846,
+          "torque_flip_fraction": 0.04475447544754475,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.2572056762296311
+        },
+        {
+          "joint": "left_hip_roll",
+          "qd_rms": 0.012448124367452823,
+          "velocity_peak_hz": 3.8001900095004753,
+          "velocity_power_above_100hz": 0.03067257180854956,
+          "torque_flip_fraction": 0.00040004000400040005,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.504047827595215
+        },
+        {
+          "joint": "left_hip_pitch",
+          "qd_rms": 0.021075748826237684,
+          "velocity_peak_hz": 5.750287514375719,
+          "velocity_power_above_100hz": 0.023523952399096597,
+          "torque_flip_fraction": 0.043154315431543154,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.30568520248538805
+        },
+        {
+          "joint": "left_knee",
+          "qd_rms": 0.04239574948127329,
+          "velocity_peak_hz": 25.051252562628132,
+          "velocity_power_above_100hz": 0.042984863187315724,
+          "torque_flip_fraction": 0.0335033503350335,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.21187218943788855
+        },
+        {
+          "joint": "left_ankle",
+          "qd_rms": 0.06451019842732135,
+          "velocity_peak_hz": 24.801240062003103,
+          "velocity_power_above_100hz": 0.0578966304058369,
+          "torque_flip_fraction": 0.0442044204420442,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.49450970427434804
+        },
+        {
+          "joint": "neck_pitch",
+          "qd_rms": 0.01972614111070761,
+          "velocity_peak_hz": 5.750287514375719,
+          "velocity_power_above_100hz": 0.08818342819474126,
+          "torque_flip_fraction": 0.052355235523552354,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.2908763328710782
+        },
+        {
+          "joint": "head_pitch",
+          "qd_rms": 0.026114578977800576,
+          "velocity_peak_hz": 24.801240062003103,
+          "velocity_power_above_100hz": 0.09911115855030975,
+          "torque_flip_fraction": 0.05000500050005,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.6915392141291702
+        },
+        {
+          "joint": "head_yaw",
+          "qd_rms": 0.011006157368411457,
+          "velocity_peak_hz": 8.15040752037602,
+          "velocity_power_above_100hz": 0.025235439544909564,
+          "torque_flip_fraction": 0.0355035503550355,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.282356316493352
+        },
+        {
+          "joint": "head_roll",
+          "qd_rms": 0.014820739246241117,
+          "velocity_peak_hz": 5.750287514375719,
+          "velocity_power_above_100hz": 0.03791361967821827,
+          "torque_flip_fraction": 0.039903990399039906,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.5085628256457798
+        },
+        {
+          "joint": "right_hip_yaw",
+          "qd_rms": 0.008498265403281045,
+          "velocity_peak_hz": 5.600280014000701,
+          "velocity_power_above_100hz": 0.023971017907779443,
+          "torque_flip_fraction": 0.04635463546354635,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.1369163552621134
+        },
+        {
+          "joint": "right_hip_roll",
+          "qd_rms": 0.008371903988287287,
+          "velocity_peak_hz": 5.750287514375719,
+          "velocity_power_above_100hz": 0.04536356150575216,
+          "torque_flip_fraction": 0.0,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.16029412600164103
+        },
+        {
+          "joint": "right_hip_pitch",
+          "qd_rms": 0.021921589743729528,
+          "velocity_peak_hz": 25.051252562628132,
+          "velocity_power_above_100hz": 0.030009497569756197,
+          "torque_flip_fraction": 0.040004000400040006,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.3810944488618785
+        },
+        {
+          "joint": "right_knee",
+          "qd_rms": 0.04104217749948022,
+          "velocity_peak_hz": 24.801240062003103,
+          "velocity_power_above_100hz": 0.053009547197577216,
+          "torque_flip_fraction": 0.0409040904090409,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.43065063981932084
+        },
+        {
+          "joint": "right_ankle",
+          "qd_rms": 0.037322853819119414,
+          "velocity_peak_hz": 24.801240062003103,
+          "velocity_power_above_100hz": 0.04387928780115079,
+          "torque_flip_fraction": 0.04815481548154815,
+          "saturation_fraction": 0.0,
+          "q_range_deg": 0.5706768817025143
+        }
+      ]
+    }
+  ]
+}

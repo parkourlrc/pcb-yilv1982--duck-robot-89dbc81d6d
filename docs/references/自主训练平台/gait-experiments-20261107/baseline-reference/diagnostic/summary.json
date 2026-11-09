@@ -1,0 +1,969 @@
+{
+  "checkpoint": "/root/duck-training-runs/amplitude-20261107-baseline/run/checkpoints/final_000100_1f2dbcda9b/rank0.pt",
+  "checkpoint_sha256": "1c098d2837ef7e96cab3caf6ea4f68ee00919eb0251825e1e81cd6bcc0aaf5ab",
+  "diagnostic_sha256": "04e73125bfb4f0d33e48440624c869820ef6022399119fd15122069e8afde990",
+  "actor_unchanged": true,
+  "torch_threads": 1,
+  "tf32": false,
+  "joint_order": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle",
+    "neck_pitch",
+    "head_pitch",
+    "head_yaw",
+    "head_roll",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle"
+  ],
+  "reports": [
+    {
+      "scenario": "straight_0.06_101",
+      "evaluation": {
+        "name": "straight_0.06_101",
+        "seed": 101,
+        "passed": false,
+        "completed": true,
+        "failed": false,
+        "reason": 0,
+        "observed": {
+          "controls": 1150,
+          "simulation_seconds": 22.99999999999813,
+          "max_raw_horizontal_speed": 0.08194081504856385,
+          "max_raw_yaw_rate": 1.1672021821141243,
+          "maximum_tilt_rad": 0.1256972849369049
+        },
+        "checks": {
+          "known_scenario": {
+            "passed": true,
+            "observed": "straight",
+            "threshold": null
+          },
+          "trace_fields": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "trace_shape": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "finite_inputs": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "continuous_clock": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "complete_trajectory": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "no_failure": {
+            "passed": true,
+            "observed": 0,
+            "threshold": 0
+          },
+          "upright": {
+            "passed": true,
+            "observed": 0.1256972849369049,
+            "threshold": 0.7853981633974483
+          },
+          "height": {
+            "passed": true,
+            "observed": 0.11431674659252167,
+            "threshold": 0.07092
+          },
+          "foot_contacts_only": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "segment_0/complete": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "motion_0/horizontal_acceleration": {
+            "passed": false,
+            "observed": 3.4565264714638437,
+            "threshold": 0.3
+          },
+          "motion_0/yaw_acceleration": {
+            "passed": false,
+            "observed": 58.360109105706215,
+            "threshold": 2.0943951023931953
+          },
+          "motion_0/transition_forward_tracking": {
+            "passed": false,
+            "observed": 0.04770313375562099,
+            "threshold": 0.03
+          },
+          "motion_0/transition_yaw_tracking": {
+            "passed": false,
+            "observed": 0.1631665584149743,
+            "threshold": 0.13962634015954636
+          },
+          "motion_0/response_3s": {
+            "passed": false,
+            "observed": null,
+            "threshold": 3.0
+          },
+          "motion_0/steady_duration": {
+            "passed": true,
+            "observed": 20.0,
+            "threshold": 20.0
+          },
+          "motion_0/forward_rmse": {
+            "passed": false,
+            "observed": 0.05406350665841338,
+            "threshold": 0.012
+          },
+          "motion_0/forward_direction": {
+            "passed": false,
+            "observed": 0.89,
+            "threshold": 0.95
+          },
+          "motion_0/lateral_rmse": {
+            "passed": true,
+            "observed": 0.004690932931571238,
+            "threshold": 0.01
+          },
+          "motion_0/forward_progress": {
+            "passed": false,
+            "observed": 0.1083613969385624,
+            "threshold": 0.96
+          },
+          "motion_0/straight_lateral": {
+            "passed": false,
+            "observed": 0.05702913552522659,
+            "threshold": 0.05
+          },
+          "motion_0/straight_heading": {
+            "passed": false,
+            "observed": 0.5759736895561218,
+            "threshold": 0.17453292519943295
+          }
+        },
+        "unvisited": []
+      },
+      "metrics": {
+        "valid": true,
+        "joints": {
+          "left_hip_yaw": {
+            "actual_range_deg": 0.9966103434562683,
+            "target_range_deg": 2.4175896644592285,
+            "target_dominant_hz": 22.900000000000002,
+            "target_power_above_5hz": 0.8044945597648621,
+            "torque_saturation_fraction": 0.6396360363963604,
+            "target_error_rms_deg": 0.3521808683872223,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_roll": {
+            "actual_range_deg": 2.24826717376709,
+            "target_range_deg": 4.606596946716309,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.5595521330833435,
+            "torque_saturation_fraction": 0.028697130286971302,
+            "target_error_rms_deg": 0.727476954460144,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_pitch": {
+            "actual_range_deg": 2.667649745941162,
+            "target_range_deg": 4.991690635681152,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.5129270553588867,
+            "torque_saturation_fraction": 0.1394860513948605,
+            "target_error_rms_deg": 0.7364457845687866,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_knee": {
+            "actual_range_deg": 1.5440183877944946,
+            "target_range_deg": 7.913994789123535,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.95982426404953,
+            "torque_saturation_fraction": 0.1777822217778222,
+            "target_error_rms_deg": 1.4852921962738037,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_ankle": {
+            "actual_range_deg": 2.812767267227173,
+            "target_range_deg": 20.017131805419922,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.9952046871185303,
+            "torque_saturation_fraction": 0.21797820217978203,
+            "target_error_rms_deg": 3.9100821018218994,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "neck_pitch": {
+            "actual_range_deg": 1.5745207071304321,
+            "target_range_deg": 3.571425437927246,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.785790205001831,
+            "torque_saturation_fraction": 0.3284671532846715,
+            "target_error_rms_deg": 0.5741434693336487,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_pitch": {
+            "actual_range_deg": 1.8561345338821411,
+            "target_range_deg": 4.993697643280029,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.7980419993400574,
+            "torque_saturation_fraction": 0.3488651134886511,
+            "target_error_rms_deg": 0.7086396813392639,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_yaw": {
+            "actual_range_deg": 1.9693256616592407,
+            "target_range_deg": 4.231410980224609,
+            "target_dominant_hz": 0.25,
+            "target_power_above_5hz": 0.5286810994148254,
+            "torque_saturation_fraction": 0.6026397360263973,
+            "target_error_rms_deg": 0.5086019039154053,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_roll": {
+            "actual_range_deg": 2.3618323802948,
+            "target_range_deg": 6.167483329772949,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.8823831677436829,
+            "torque_saturation_fraction": 0.34426557344265574,
+            "target_error_rms_deg": 1.210594892501831,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_yaw": {
+            "actual_range_deg": 1.0027400255203247,
+            "target_range_deg": 2.6956980228424072,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.8797533512115479,
+            "torque_saturation_fraction": 0.6571342865713429,
+            "target_error_rms_deg": 0.504290759563446,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_roll": {
+            "actual_range_deg": 0.7919740676879883,
+            "target_range_deg": 2.772664785385132,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.9304303526878357,
+            "torque_saturation_fraction": 0.0670932906709329,
+            "target_error_rms_deg": 0.5148068070411682,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_pitch": {
+            "actual_range_deg": 3.0266273021698,
+            "target_range_deg": 8.002676010131836,
+            "target_dominant_hz": 0.25,
+            "target_power_above_5hz": 0.7297408580780029,
+            "torque_saturation_fraction": 0.3244675532446755,
+            "target_error_rms_deg": 1.0946656465530396,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_knee": {
+            "actual_range_deg": 3.5007073879241943,
+            "target_range_deg": 6.6045708656311035,
+            "target_dominant_hz": 0.25,
+            "target_power_above_5hz": 0.5475028157234192,
+            "torque_saturation_fraction": 0.3247675232476752,
+            "target_error_rms_deg": 0.9708080291748047,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_ankle": {
+            "actual_range_deg": 2.511335849761963,
+            "target_range_deg": 13.606197357177734,
+            "target_dominant_hz": 24.3,
+            "target_power_above_5hz": 0.9768308997154236,
+            "torque_saturation_fraction": 0.35896410358964104,
+            "target_error_rms_deg": 2.9532907009124756,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          }
+        },
+        "feet": {
+          "left": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -1.0154461860656738,
+              0.31531229615211487
+            ],
+            "contact_fraction": 0.9941005899410059,
+            "contact_point_horizontal_speed_mean_m_s": 0.014548113569617271
+          },
+          "right": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -0.8322671055793762,
+              1.1593279838562012
+            ],
+            "contact_fraction": 0.7354264573542646,
+            "contact_point_horizontal_speed_mean_m_s": 0.024559566751122475
+          }
+        },
+        "alternation_fraction": 0.0,
+        "foot_gate_passed": false,
+        "body_vx_mean_m_s": 0.006196971051394939,
+        "raw_clip_fraction": 0.0,
+        "pd_clip_identity_max_error": 0.0,
+        "contact_definition": "generated ground-foot pair, dist<=0, world0; no contact-force measurement",
+        "sample_alignment": "q_pre/qd_pre/target/torque before physics; q_post/clearance/contact after physics+existing forward",
+        "cycle_definition": "same-foot successive qualifying >3mm/no-contact swing intervals; undefined if insufficient cycles"
+      }
+    },
+    {
+      "scenario": "straight_0.06_102",
+      "evaluation": {
+        "name": "straight_0.06_102",
+        "seed": 102,
+        "passed": false,
+        "completed": true,
+        "failed": false,
+        "reason": 0,
+        "observed": {
+          "controls": 1150,
+          "simulation_seconds": 22.99999999999813,
+          "max_raw_horizontal_speed": 0.09589726579972999,
+          "max_raw_yaw_rate": 1.249593310058117,
+          "maximum_tilt_rad": 0.12458605319261551
+        },
+        "checks": {
+          "known_scenario": {
+            "passed": true,
+            "observed": "straight",
+            "threshold": null
+          },
+          "trace_fields": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "trace_shape": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "finite_inputs": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "continuous_clock": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "complete_trajectory": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "no_failure": {
+            "passed": true,
+            "observed": 0,
+            "threshold": 0
+          },
+          "upright": {
+            "passed": true,
+            "observed": 0.12458605319261551,
+            "threshold": 0.7853981633974483
+          },
+          "height": {
+            "passed": true,
+            "observed": 0.11427625268697739,
+            "threshold": 0.07092
+          },
+          "foot_contacts_only": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "segment_0/complete": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "motion_0/horizontal_acceleration": {
+            "passed": false,
+            "observed": 3.4848586383676174,
+            "threshold": 0.3
+          },
+          "motion_0/yaw_acceleration": {
+            "passed": false,
+            "observed": 62.479665502905846,
+            "threshold": 2.0943951023931953
+          },
+          "motion_0/transition_forward_tracking": {
+            "passed": false,
+            "observed": 0.04638125636300879,
+            "threshold": 0.03
+          },
+          "motion_0/transition_yaw_tracking": {
+            "passed": false,
+            "observed": 0.19327563766344813,
+            "threshold": 0.13962634015954636
+          },
+          "motion_0/response_3s": {
+            "passed": false,
+            "observed": null,
+            "threshold": 3.0
+          },
+          "motion_0/steady_duration": {
+            "passed": true,
+            "observed": 20.0,
+            "threshold": 20.0
+          },
+          "motion_0/forward_rmse": {
+            "passed": false,
+            "observed": 0.05479065412292705,
+            "threshold": 0.012
+          },
+          "motion_0/forward_direction": {
+            "passed": false,
+            "observed": 0.907,
+            "threshold": 0.95
+          },
+          "motion_0/lateral_rmse": {
+            "passed": true,
+            "observed": 0.004474576330254044,
+            "threshold": 0.01
+          },
+          "motion_0/forward_progress": {
+            "passed": false,
+            "observed": 0.09650061093270779,
+            "threshold": 0.96
+          },
+          "motion_0/straight_lateral": {
+            "passed": true,
+            "observed": 0.04453543573617935,
+            "threshold": 0.05
+          },
+          "motion_0/straight_heading": {
+            "passed": false,
+            "observed": 0.48121240735054016,
+            "threshold": 0.17453292519943295
+          }
+        },
+        "unvisited": []
+      },
+      "metrics": {
+        "valid": true,
+        "joints": {
+          "left_hip_yaw": {
+            "actual_range_deg": 1.086643934249878,
+            "target_range_deg": 2.041577100753784,
+            "target_dominant_hz": 22.0,
+            "target_power_above_5hz": 0.7371156811714172,
+            "torque_saturation_fraction": 0.6472352764723528,
+            "target_error_rms_deg": 0.3329005837440491,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_roll": {
+            "actual_range_deg": 2.2564799785614014,
+            "target_range_deg": 4.631135940551758,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.5321175456047058,
+            "torque_saturation_fraction": 0.029897010298970104,
+            "target_error_rms_deg": 0.7159608006477356,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_pitch": {
+            "actual_range_deg": 2.8265106678009033,
+            "target_range_deg": 5.424560546875,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.4751802384853363,
+            "torque_saturation_fraction": 0.1591840815918408,
+            "target_error_rms_deg": 0.7167317867279053,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_knee": {
+            "actual_range_deg": 1.6790059804916382,
+            "target_range_deg": 7.463820934295654,
+            "target_dominant_hz": 22.0,
+            "target_power_above_5hz": 0.956177294254303,
+            "torque_saturation_fraction": 0.1907809219078092,
+            "target_error_rms_deg": 1.4599120616912842,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_ankle": {
+            "actual_range_deg": 2.7309553623199463,
+            "target_range_deg": 17.93938446044922,
+            "target_dominant_hz": 22.950000000000003,
+            "target_power_above_5hz": 0.9942237138748169,
+            "torque_saturation_fraction": 0.20997900209979,
+            "target_error_rms_deg": 3.7867839336395264,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "neck_pitch": {
+            "actual_range_deg": 1.5932815074920654,
+            "target_range_deg": 3.677658796310425,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.7527090311050415,
+            "torque_saturation_fraction": 0.34596540345965404,
+            "target_error_rms_deg": 0.5628418922424316,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_pitch": {
+            "actual_range_deg": 1.9515215158462524,
+            "target_range_deg": 5.082749843597412,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.7460654973983765,
+            "torque_saturation_fraction": 0.37076292370762925,
+            "target_error_rms_deg": 0.6729702949523926,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_yaw": {
+            "actual_range_deg": 2.0276951789855957,
+            "target_range_deg": 4.21707820892334,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.4776395261287689,
+            "torque_saturation_fraction": 0.618938106189381,
+            "target_error_rms_deg": 0.49940255284309387,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_roll": {
+            "actual_range_deg": 2.027491569519043,
+            "target_range_deg": 5.784178733825684,
+            "target_dominant_hz": 22.0,
+            "target_power_above_5hz": 0.8920799493789673,
+            "torque_saturation_fraction": 0.37666233376662334,
+            "target_error_rms_deg": 1.1554075479507446,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_yaw": {
+            "actual_range_deg": 0.9177415370941162,
+            "target_range_deg": 2.4371185302734375,
+            "target_dominant_hz": 22.950000000000003,
+            "target_power_above_5hz": 0.8664392828941345,
+            "torque_saturation_fraction": 0.6765323467653235,
+            "target_error_rms_deg": 0.4819812476634979,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_roll": {
+            "actual_range_deg": 0.8462680578231812,
+            "target_range_deg": 2.5301802158355713,
+            "target_dominant_hz": 22.950000000000003,
+            "target_power_above_5hz": 0.9240087866783142,
+            "torque_saturation_fraction": 0.07629237076292371,
+            "target_error_rms_deg": 0.4897401034832001,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_pitch": {
+            "actual_range_deg": 3.1814217567443848,
+            "target_range_deg": 7.678112506866455,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.6275784969329834,
+            "torque_saturation_fraction": 0.3281671832816718,
+            "target_error_rms_deg": 1.0288872718811035,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_knee": {
+            "actual_range_deg": 3.5383365154266357,
+            "target_range_deg": 6.52091121673584,
+            "target_dominant_hz": 0.35000000000000003,
+            "target_power_above_5hz": 0.45018571615219116,
+            "torque_saturation_fraction": 0.3584641535846415,
+            "target_error_rms_deg": 0.9059800505638123,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_ankle": {
+            "actual_range_deg": 2.5555970668792725,
+            "target_range_deg": 13.086565017700195,
+            "target_dominant_hz": 22.0,
+            "target_power_above_5hz": 0.9725257754325867,
+            "torque_saturation_fraction": 0.34026597340265974,
+            "target_error_rms_deg": 2.8484675884246826,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          }
+        },
+        "feet": {
+          "left": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -1.044676661491394,
+              0.2148863822221756
+            ],
+            "contact_fraction": 0.9931006899310069,
+            "contact_point_horizontal_speed_mean_m_s": 0.013765962794423103
+          },
+          "right": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -0.966046929359436,
+              0.8062566518783569
+            ],
+            "contact_fraction": 0.7491250874912508,
+            "contact_point_horizontal_speed_mean_m_s": 0.023242289200425148
+          }
+        },
+        "alternation_fraction": 0.0,
+        "foot_gate_passed": false,
+        "body_vx_mean_m_s": 0.005341650452464819,
+        "raw_clip_fraction": 0.0,
+        "pd_clip_identity_max_error": 0.0,
+        "contact_definition": "generated ground-foot pair, dist<=0, world0; no contact-force measurement",
+        "sample_alignment": "q_pre/qd_pre/target/torque before physics; q_post/clearance/contact after physics+existing forward",
+        "cycle_definition": "same-foot successive qualifying >3mm/no-contact swing intervals; undefined if insufficient cycles"
+      }
+    },
+    {
+      "scenario": "straight_0.06_103",
+      "evaluation": {
+        "name": "straight_0.06_103",
+        "seed": 103,
+        "passed": false,
+        "completed": true,
+        "failed": false,
+        "reason": 0,
+        "observed": {
+          "controls": 1150,
+          "simulation_seconds": 22.99999999999813,
+          "max_raw_horizontal_speed": 0.08246383599796261,
+          "max_raw_yaw_rate": 1.6451871022582054,
+          "maximum_tilt_rad": 0.12314210087060928
+        },
+        "checks": {
+          "known_scenario": {
+            "passed": true,
+            "observed": "straight",
+            "threshold": null
+          },
+          "trace_fields": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "trace_shape": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "finite_inputs": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "continuous_clock": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "complete_trajectory": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "no_failure": {
+            "passed": true,
+            "observed": 0,
+            "threshold": 0
+          },
+          "upright": {
+            "passed": true,
+            "observed": 0.12314210087060928,
+            "threshold": 0.7853981633974483
+          },
+          "height": {
+            "passed": true,
+            "observed": 0.11513479799032211,
+            "threshold": 0.07092
+          },
+          "foot_contacts_only": {
+            "passed": true,
+            "observed": null,
+            "threshold": null
+          },
+          "segment_0/complete": {
+            "passed": true,
+            "observed": 1150,
+            "threshold": 1150
+          },
+          "motion_0/horizontal_acceleration": {
+            "passed": false,
+            "observed": 3.3850218063467397,
+            "threshold": 0.3
+          },
+          "motion_0/yaw_acceleration": {
+            "passed": false,
+            "observed": 82.25935511291027,
+            "threshold": 2.0943951023931953
+          },
+          "motion_0/transition_forward_tracking": {
+            "passed": false,
+            "observed": 0.05004672821972021,
+            "threshold": 0.03
+          },
+          "motion_0/transition_yaw_tracking": {
+            "passed": false,
+            "observed": 0.2743019080794406,
+            "threshold": 0.13962634015954636
+          },
+          "motion_0/response_3s": {
+            "passed": false,
+            "observed": null,
+            "threshold": 3.0
+          },
+          "motion_0/steady_duration": {
+            "passed": true,
+            "observed": 20.0,
+            "threshold": 20.0
+          },
+          "motion_0/forward_rmse": {
+            "passed": false,
+            "observed": 0.058182135344323975,
+            "threshold": 0.012
+          },
+          "motion_0/forward_direction": {
+            "passed": false,
+            "observed": 0.734,
+            "threshold": 0.95
+          },
+          "motion_0/lateral_rmse": {
+            "passed": true,
+            "observed": 0.003432253644258516,
+            "threshold": 0.01
+          },
+          "motion_0/forward_progress": {
+            "passed": false,
+            "observed": 0.027069213800132275,
+            "threshold": 0.96
+          },
+          "motion_0/straight_lateral": {
+            "passed": true,
+            "observed": 0.03297951817512512,
+            "threshold": 0.05
+          },
+          "motion_0/straight_heading": {
+            "passed": false,
+            "observed": 0.5246777534484863,
+            "threshold": 0.17453292519943295
+          }
+        },
+        "unvisited": []
+      },
+      "metrics": {
+        "valid": true,
+        "joints": {
+          "left_hip_yaw": {
+            "actual_range_deg": 1.1834379434585571,
+            "target_range_deg": 2.4467592239379883,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.6858351826667786,
+            "torque_saturation_fraction": 0.6176382361763824,
+            "target_error_rms_deg": 0.35303995013237,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_roll": {
+            "actual_range_deg": 2.022899627685547,
+            "target_range_deg": 4.475137710571289,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.5226850509643555,
+            "torque_saturation_fraction": 0.026997300269973004,
+            "target_error_rms_deg": 0.711073637008667,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_hip_pitch": {
+            "actual_range_deg": 3.1713898181915283,
+            "target_range_deg": 5.307961463928223,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.41367244720458984,
+            "torque_saturation_fraction": 0.20087991200879912,
+            "target_error_rms_deg": 0.6341360807418823,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_knee": {
+            "actual_range_deg": 1.574043869972229,
+            "target_range_deg": 6.894209861755371,
+            "target_dominant_hz": 22.5,
+            "target_power_above_5hz": 0.9666510224342346,
+            "torque_saturation_fraction": 0.21407859214078592,
+            "target_error_rms_deg": 1.2059999704360962,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "left_ankle": {
+            "actual_range_deg": 2.7708487510681152,
+            "target_range_deg": 16.530593872070312,
+            "target_dominant_hz": 23.650000000000002,
+            "target_power_above_5hz": 0.9940221905708313,
+            "torque_saturation_fraction": 0.22577742225777422,
+            "target_error_rms_deg": 3.4776835441589355,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "neck_pitch": {
+            "actual_range_deg": 1.0800970792770386,
+            "target_range_deg": 3.593519449234009,
+            "target_dominant_hz": 22.5,
+            "target_power_above_5hz": 0.8476375937461853,
+            "torque_saturation_fraction": 0.4737526247375263,
+            "target_error_rms_deg": 0.5053385496139526,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_pitch": {
+            "actual_range_deg": 1.1620182991027832,
+            "target_range_deg": 3.5752315521240234,
+            "target_dominant_hz": 22.5,
+            "target_power_above_5hz": 0.8574934601783752,
+            "torque_saturation_fraction": 0.4076592340765923,
+            "target_error_rms_deg": 0.5445902943611145,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_yaw": {
+            "actual_range_deg": 2.0431618690490723,
+            "target_range_deg": 3.910984992980957,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.3815072476863861,
+            "torque_saturation_fraction": 0.6399360063993601,
+            "target_error_rms_deg": 0.45075303316116333,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "head_roll": {
+            "actual_range_deg": 2.488696575164795,
+            "target_range_deg": 6.521763324737549,
+            "target_dominant_hz": 24.85,
+            "target_power_above_5hz": 0.882262647151947,
+            "torque_saturation_fraction": 0.31816818318168183,
+            "target_error_rms_deg": 1.245214819908142,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_yaw": {
+            "actual_range_deg": 1.048276662826538,
+            "target_range_deg": 2.444354772567749,
+            "target_dominant_hz": 24.85,
+            "target_power_above_5hz": 0.9055249691009521,
+            "torque_saturation_fraction": 0.6302369763023697,
+            "target_error_rms_deg": 0.4863651394844055,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_roll": {
+            "actual_range_deg": 0.8314900994300842,
+            "target_range_deg": 2.978278160095215,
+            "target_dominant_hz": 24.05,
+            "target_power_above_5hz": 0.9555985331535339,
+            "torque_saturation_fraction": 0.022397760223977603,
+            "target_error_rms_deg": 0.5968154668807983,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_hip_pitch": {
+            "actual_range_deg": 2.5873215198516846,
+            "target_range_deg": 6.5407819747924805,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.6283359527587891,
+            "torque_saturation_fraction": 0.30246975302469753,
+            "target_error_rms_deg": 0.8940954804420471,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_knee": {
+            "actual_range_deg": 3.0586435794830322,
+            "target_range_deg": 6.721466541290283,
+            "target_dominant_hz": 0.1,
+            "target_power_above_5hz": 0.5373086333274841,
+            "torque_saturation_fraction": 0.264973502649735,
+            "target_error_rms_deg": 1.0796159505844116,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          },
+          "right_ankle": {
+            "actual_range_deg": 2.520066499710083,
+            "target_range_deg": 13.522377014160156,
+            "target_dominant_hz": 23.650000000000002,
+            "target_power_above_5hz": 0.9714653491973877,
+            "torque_saturation_fraction": 0.28477152284771523,
+            "target_error_rms_deg": 2.8895981311798096,
+            "cycle_median_range_deg": null,
+            "cycle_count": 0
+          }
+        },
+        "feet": {
+          "left": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -0.8801650404930115,
+              0.21582795679569244
+            ],
+            "contact_fraction": 0.982001799820018,
+            "contact_point_horizontal_speed_mean_m_s": 0.01395723968744278
+          },
+          "right": {
+            "events": [],
+            "event_count": 0,
+            "clearance_min_max_mm": [
+              -0.8762348294258118,
+              0.5976040959358215
+            ],
+            "contact_fraction": 0.8924107589241076,
+            "contact_point_horizontal_speed_mean_m_s": 0.019136426970362663
+          }
+        },
+        "alternation_fraction": 0.0,
+        "foot_gate_passed": false,
+        "body_vx_mean_m_s": 0.0018801969708874822,
+        "raw_clip_fraction": 0.0,
+        "pd_clip_identity_max_error": 0.0,
+        "contact_definition": "generated ground-foot pair, dist<=0, world0; no contact-force measurement",
+        "sample_alignment": "q_pre/qd_pre/target/torque before physics; q_post/clearance/contact after physics+existing forward",
+        "cycle_definition": "same-foot successive qualifying >3mm/no-contact swing intervals; undefined if insufficient cycles"
+      }
+    }
+  ],
+  "merged_sources": [
+    {
+      "path": "/mnt/c/Projects/duck-robot/docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/amplitude-experiments-20261107/baseline-diagnostic-101/summary.json",
+      "sha256": "f3eea5de51b3e19062557c0a2c320d7d0fd038b50531afb5938b8b8b4338a343"
+    },
+    {
+      "path": "/root/duck-training-runs/amplitude-20261107-baseline/gait-comparison-diagnostic-102-103/summary.json",
+      "sha256": "636b82e7d67454de959f5b91acddfea758b892d5bd31e91b01f8ced4ae440724"
+    }
+  ]
+}

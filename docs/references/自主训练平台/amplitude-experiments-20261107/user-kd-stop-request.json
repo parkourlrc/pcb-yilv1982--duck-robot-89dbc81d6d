@@ -1,0 +1,45 @@
+{
+  "utc": "2026-11-07T08:45:19.280691+00:00",
+  "user_instruction": "Kd is a physical parameter; do not change. Stop damping variants and cancel queued damping changes.",
+  "actions": [
+    {
+      "pid": 73577,
+      "action": "pause_supervisor",
+      "command": "/mnt/c/Projects/duck-robot/training/.venv-wsl/bin/python -u /mnt/c/Projects/duck-robot/training/experiments/amplitude/run_parallel.py --source /root/duck-training-runs/amplitude-20261107-baseline/frozen --work-root /root/duck-training-runs --evidence /mnt/c/Projects/duck-robot/docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/amplitude-experiments-20261107 --workers 3 --presets ema025_kd100 kd075 kd050 ema050_kd100 ema025_kd075 ema010 "
+    },
+    {
+      "pid": 58794,
+      "action": "pause_supervisor",
+      "command": "/mnt/c/Projects/duck-robot/training/.venv-wsl/bin/python -u /mnt/c/Projects/duck-robot/training/experiments/amplitude/run_batch.py --source /root/duck-training-runs/amplitude-20261107-baseline/frozen --work-root /root/duck-training-runs --existing-first /root/duck-training-runs/amplitude-20261107-ema025-s42 --presets ema050 smooth020 kd100 --status /root/duck-training-runs/amplitude-20261107-batch-status.json --evidence /mnt/c/Projects/duck-robot/docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/amplitude-experiments-20261107 "
+    },
+    {
+      "pid": 74220,
+      "action": "pause_supervisor",
+      "command": "/mnt/c/Projects/duck-robot/training/.venv-wsl/bin/python -u /mnt/c/Projects/duck-robot/docs/references/\u81ea\u4e3b\u8bad\u7ec3\u5e73\u53f0/complete_baseline_diagnostics.py "
+    },
+    {
+      "run": "amplitude-20261107-kd050-s42",
+      "pid": 73584,
+      "action": "requested_stop_file",
+      "damping": 0.5
+    },
+    {
+      "run": "amplitude-20261107-ema025_kd100-s42",
+      "pid": 73586,
+      "action": "requested_stop_file",
+      "damping": 1.0
+    },
+    {
+      "run": "amplitude-20261107-kd075-s42",
+      "pid": 73585,
+      "action": "requested_stop_file",
+      "damping": 0.75
+    },
+    {
+      "run": "amplitude-20261107-kd100-s42",
+      "pid": 73312,
+      "action": "requested_stop_file",
+      "damping": 1.0
+    }
+  ]
+}
