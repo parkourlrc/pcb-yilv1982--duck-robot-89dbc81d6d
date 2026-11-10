@@ -1,5 +1,7 @@
 # C 线自建 real2sim2real 学习工程
 
+> **训练记录入口已统一（2026-11-09）**：平台只读取 [`training/records/`](records/README.md) 中由训练流程生成的文档；不再把 `docs/specs`、`docs/references` 或 `training/logs` 的零散文件自动当作训练记录。历史清理台账和迁移脚本见 [`cleanup_training_records.py`](scripts/cleanup_training_records.py)；本机双足 WSL 历史迁移见 [`migrate_wsl_gait_records.py`](scripts/migrate_wsl_gait_records.py)。
+
 > **2026-11-09 训练档案与复训实施**：工作台新增任务/实验/运行档案、历史分级导入、67个参数与奖励字段目录、阶段配方、从零重训和接权重训练；物理与接口锁定。最小GPU验收scratch/续训/warm合计96转换通过，策略行为未验收；见[任务及验证记录](../docs/specs/20261109-训练档案与复训/spec.md)和[工作台使用说明](dashboard/README.md)。
 
 > **训练流程强制要求（2026-11-09 用户指示）**：所有新训、续训、重训、调参、对照实验及包含训练更新的短跑/测速，均须走[已确认的训练流程](../docs/specs/20261105-自主训练平台/spec.md)，执行[项目规则第10条](../AGENTS.md#10-所有训练必须走训练流程2026-11-09-用户指示)。启动前明确任务、步骤、输入、配置、预算及验收标准；逐步验证并记录结果。已有有效确认和验证可复用，输入变化时返回受影响步骤。

@@ -4,6 +4,9 @@
 
 ## 已实现
 
+- 训练记录来源收敛到 `training/records/`：工作台不再自动扫描历史散落目录；`Archive.restore` 只恢复带 `record_kind=training-run` 的流程产物，SQLite 中不在该目录的旧条目启动时清除。
+- 历史清理脚本按检查点内的源码哈希合同复核，最终只保留 1 条可回放记录，删除 48 条不可回放/不可复原的平台副本；原始 `docs/` 与 `training/logs/` 材料按台账保留，不再被训练工具读取。
+
 - `experiment_config.py`统一67字段及奖励目录，前后端同源；锁定物理、接口、网络、终止与验收规则。阶段覆盖后应用分段常数进度配方，原状态续训沿用已消费更新。
 - `experiment_archive.py`和dashboard统一启动前登记；受管档案位于Git忽略的`training/artifacts/`，SQLite从耐久记录重建。`training/records/`另留脱敏任务、配置、完整流程及结果摘要。
 - 从零派生保留来源冻结运行时；旧v1用外置适配器。接权重严格比较transfer合同并继承rank0 actor/normalizer；恢复使用原实验账本。旧版本缺合同明确限制能力。
@@ -19,6 +22,8 @@
 [本机实测] `checks/gpu-96-verification.json`：预登记4环境×8步，scratch1更新32转换、原状态续训1更新32转换、warm新实验1更新32转换，总96转换。actor/normalizer继承、critic/optimizer/探索重置及预算核验通过；未执行dev9、未追加正式策略优化。短回放输出49帧，51控制步约1.02秒触发failed=true/reason1，进程退出0；这仅验证管线，不是行为达标。
 
 真实HTTP检查、历史盘点见`checks/http-contract.json`与`checks/history-inventory.json`。CLI catalog/validate和直接API锁定字段拒绝检查未启动训练。
+
+[本机实测] `checks/replay-validation.json`：使用保留的 `history-0c644bb9471038a9fd18` rank0 检查点和冻结源码启动 CUDA 回放，状态进入 `playing`，累计 1008 帧后按验证要求停止；这只证明回放链路可用，不代表策略行为达标。
 
 最终8766真实HTTP独立验收：67字段、3任务去重、8个档案、23份历史奖励来源归属及实际GET非空；legacy为partial（10缺项、0完整性错误），允许scratch/replay，不允许原预算续训。盘点56条加既有legacy为57条平台记录，其中4条启动登记、1条已识别镜像；不是57次独立训练。56条中32条有配置、7条具备可识别冻结运行时，状态19 completed、5 failed、4 stopped、28 unknown。
 

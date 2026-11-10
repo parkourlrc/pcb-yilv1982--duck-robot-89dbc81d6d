@@ -3,7 +3,16 @@ import { useEffect, useRef } from 'preact/hooks';
 import htm from 'htm';
 
 const html = htm.bind(h);
-const colors = ['#eeeeee', '#aaaaaa', '#cccccc', '#888888', '#bbbbbb', '#999999'];
+// 与界面共用色板；ECharts canvas 需要解析后的颜色值。
+function chartTheme(element) {
+  const style = getComputedStyle(element);
+  const color = name => style.getPropertyValue(name).trim();
+  return {
+    colors: [1, 2, 3, 4, 5, 6].map(index => color(`--chart-${index}`)),
+    text: color('--text'), muted: color('--muted'),
+    panel: color('--panel-raised'), line: color('--line'),
+  };
+}
 
 export function smoothPoints(points, windowSize) {
   if (windowSize <= 1) return points;
@@ -27,19 +36,20 @@ export function Chart({ title, subtitle, series = [], axis = 'iteration', smooth
   }, [hasData]);
   useEffect(() => {
     if (!chart.current) return;
+    const theme = chartTheme(element.current);
     chart.current.setOption({
-      animation: false, color: colors,
-      textStyle: { fontFamily: 'Inter, Segoe UI, Microsoft YaHei, sans-serif', color: '#a0a0a0' },
-      tooltip: { trigger: 'axis', renderMode: 'richText', backgroundColor: '#202020', borderColor: '#3e3e3e', textStyle: { color: '#ececec' }, formatter: parameters => (Array.isArray(parameters) ? parameters : [parameters]).map(parameter => {
+      animation: false, color: theme.colors,
+      textStyle: { fontFamily: 'Inter, Segoe UI, Microsoft YaHei, sans-serif', color: theme.muted },
+      tooltip: { trigger: 'axis', renderMode: 'richText', backgroundColor: theme.panel, borderColor: theme.line, textStyle: { color: theme.text }, formatter: parameters => (Array.isArray(parameters) ? parameters : [parameters]).map(parameter => {
         const values = parameter.value, value = values?.[1];
         const horizontal = axis === 'timestamp' ? new Date(values[0]).toLocaleTimeString() : values[0];
         const samples = values?.[2] == null ? '' : ` · 实际样本 ${Number(values[2]).toLocaleString()}`;
         return `${parameter.seriesName}\n${horizontal}：${value == null ? '缺测' : Number(value).toLocaleString(undefined, { maximumFractionDigits: 5 })}${samples}`;
       }).join('\n') },
-      legend: { top: 3, textStyle: { color: '#acacac', fontSize: 11 }, type: 'scroll', pageTextStyle: { color: '#acacac' } },
+      legend: { top: 3, textStyle: { color: theme.muted, fontSize: 11 }, type: 'scroll', pageTextStyle: { color: theme.muted } },
       grid: { left: 57, right: 24, top: 40, bottom: 53 },
-      xAxis: { type: 'value', name: xy ? 'X / m' : ({ iteration: '更新轮次', transitions: '全局转换数', elapsed_s: '耗时 / s', sim_time_s: '仿真 / s', timestamp: '时间' }[axis] || axis), nameLocation: 'middle', nameGap: 30, axisLine: { lineStyle: { color: '#3d3d3d' } }, splitLine: { show: false }, axisLabel: { hideOverlap: true, formatter: axis === 'timestamp' ? value => new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : undefined } },
-      yAxis: { type: 'value', scale: true, name: xy ? 'Y / m' : (series[0]?.unit || ''), splitLine: { lineStyle: { color: '#2d2d2d', type: 'dashed' } }, axisLabel: { formatter: value => Math.abs(value) >= 1000000 ? `${(value / 1000000).toFixed(1)}M` : Math.abs(value) >= 1000 ? `${(value / 1000).toFixed(1)}k` : Number(value.toPrecision(4)) } },
+      xAxis: { type: 'value', name: xy ? 'X / m' : ({ iteration: '更新轮次', transitions: '全局转换数', elapsed_s: '耗时 / s', sim_time_s: '仿真 / s', timestamp: '时间' }[axis] || axis), nameLocation: 'middle', nameGap: 30, axisLine: { lineStyle: { color: theme.line } }, splitLine: { show: false }, nameTextStyle: { color: theme.muted }, axisLabel: { color: theme.muted, hideOverlap: true, formatter: axis === 'timestamp' ? value => new Date(value).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : undefined } },
+      yAxis: { type: 'value', scale: true, name: xy ? 'Y / m' : (series[0]?.unit || ''), splitLine: { lineStyle: { color: theme.line, type: 'dashed' } }, nameTextStyle: { color: theme.muted }, axisLabel: { color: theme.muted, formatter: value => Math.abs(value) >= 1000000 ? `${(value / 1000000).toFixed(1)}M` : Math.abs(value) >= 1000 ? `${(value / 1000).toFixed(1)}k` : Number(value.toPrecision(4)) } },
       dataZoom: [{ type: 'inside', filterMode: 'none' }],
       series: series.map((item, index) => {
         const points = (item.points || []).filter(point => xy ? Number.isFinite(point.x) : point[axis] != null).map(point => [xy ? point.x : point[axis], Number.isFinite(point.value) ? point.value : null, point.sample_count ?? null]);

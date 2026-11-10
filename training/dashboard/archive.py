@@ -72,6 +72,16 @@ class Archive:
             raise ValueError('run directory escaped archive root')
         return target
 
+    def record_path(self, identifier):
+        """Return the canonical training document for a run.
+
+        The dashboard archive is an implementation cache.  A run is visible only
+        when its process-produced document exists under ``training/records``.
+        """
+        if not identifier or any(value in identifier for value in ('/', '\\', '..')):
+            raise ValueError('invalid run identifier')
+        return self.root / 'training/records' / (identifier + '.json')
+
     def source_directory(self, run):
         value = run.get('_directory')
         if not value:
@@ -97,8 +107,11 @@ class Archive:
             summary['workflow'] = run.get('workflow', {})
             summary['task'] = {key: value for key, value in run.get('_task', {}).items() if key in ('task_id', 'task_version', 'title', 'description', 'physics_model', 'observation_action_contract', 'evaluation_suites', 'workflow_evidence')}
             summary['result'] = {key: run.get(key) for key in ('completion_reason', 'failure', 'elapsed_s', 'model_iteration', 'stage')}
+            summary['schema'] = 1
+            summary['record_kind'] = 'training-run'
+            summary['producer'] = 'training-dashboard'
             summary['behavior_acceptance'] = 'not_inferred_from_training_completion'
-            atomic_json(self.root / 'training/records' / (run['run_id'] + '.json'), public_record(summary))
+            atomic_json(self.record_path(run['run_id']), public_record(summary))
 
     def seal(self, run):
         path = self.run_root(run['run_id']) / 'artifact-manifest.json'
@@ -112,7 +125,10 @@ class Archive:
         count = 0
         for path in (self.directory / 'runs').glob('*/dashboard-run.json'):
             record = read_json(path)
-            if isinstance(record, dict) and record.get('run_id'):
+            canonical = self.record_path(record.get('run_id')) if isinstance(record, dict) and record.get('run_id') else None
+            document = read_json(canonical, {}) if canonical else {}
+            if (isinstance(record, dict) and record.get('run_id') and
+                    isinstance(document, dict) and document.get('record_kind') == 'training-run'):
                 store.put('run', record['run_id'], record)
                 count += 1
         return count

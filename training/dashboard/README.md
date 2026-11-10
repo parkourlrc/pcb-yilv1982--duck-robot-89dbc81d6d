@@ -1,10 +1,18 @@
 # 本地训练工作台
 
+## 训练记录来源
+
+工作台的训练记录唯一来源是 [`training/records/`](../records/README.md)。启动时只恢复其中 `record_kind=training-run` 的文档及对应 `training/artifacts/runs/<run_id>/` 归档；不会递归扫描 `docs/specs/`、`docs/references/`、`training/logs/`，也不会把测速 JSON、rank 残片或外部策略包显示成训练运行。
+
+新运行由训练流程在登记和封存时写入记录文档。历史整理只允许显式执行 [`cleanup_training_records.py`](../scripts/cleanup_training_records.py)，脚本将同时满足冻结源码哈希合同和可验证 rank0 检查点的材料迁入统一文档，其余平台副本清除；原始研究材料保留在原目录。
+
+2026-11-09：工作台完成克制赛博朋克配色：深海军蓝底、蓝灰面板、冰青主交互、少量电紫图表辅助色；状态颜色保留语义，机器人材质与训练逻辑不变。桌面/窄屏、档案、资源、回放控件及新建实验表单检查通过，见[配色Spec与检查证据](../../docs/specs/20261109-训练工作台配色/spec.md)。
+
 2026-11-09：新增完整实验档案、67个参数/奖励字段目录、阶段/进度奖励配方、从零派生和接权重派生。物理、接口、网络与验收规则锁定。实施与限制见[训练档案任务](../../docs/specs/20261109-训练档案与复训/spec.md)。
 
 ## 档案和复训
 
-大产物保存于`training/artifacts/`（Git忽略）；`training/.dashboard/index.sqlite`可从耐久`dashboard-run.json`和检查点重建。旧`.dashboard/runs`首次迁移为副本，不删除原目录。任务/实验/运行可筛选，档案页包含流程、完整配置、来源差异、奖励设计、产物下载及分项缺失原因。历史本地盘点覆盖训练日志、训练专题及Spec中的运行、失败、checkpoint、短跑/测速证据；仅外部报告的记录不伪造完整配置或模型。
+大产物保存于`training/artifacts/`（Git忽略）；`training/.dashboard/index.sqlite`可从耐久`dashboard-run.json`和`training/records/`重建。任务/实验/运行可筛选，档案页包含流程、完整配置、来源差异、奖励设计、产物下载及分项缺失原因。历史材料只有在显式迁移后才进入记录目录；零散短跑/测速证据不会显示为训练运行。
 
 - 原状态续训：保持来源运行时和完整合同，沿用预算；环境从HOME新回合开始。
 - 从零重训：复制来源冻结运行时和配置，修改开放字段后建立新实验。旧v1使用外置适配器，旧奖励合同不变。
@@ -16,7 +24,7 @@ CLI与网页共用`Runs`登记、校验、冻结和启动逻辑，从`training`�
 
 ```text
 python -m dashboard.cli catalog
-python -m dashboard.cli import-history
+python -m dashboard.cli import-history  # 仅从 training/records 重建索引
 python -m dashboard.cli archive RUN_ID
 python -m dashboard.cli derive RUN_ID --mode scratch
 python -m dashboard.cli validate REQUEST.json
@@ -24,7 +32,7 @@ python -m dashboard.cli start REQUEST.json --name 实验名称
 python -m dashboard.cli resume RUN_ID --checkpoint-id CHECKPOINT_ID
 ```
 
-CLI启动与续训前台持续同步到终态，终态缺失产物每30秒重试；Ctrl+C仅退出监视，监督进程继续训练，重新打开平台接续同步。同步未完成不会封存为完整。每个受管运行另导出Git可见`training/records/<run_id>.json`，含任务、配置、完整流程、预算及结果摘要；节点路径与主机信息脱敏。平台SQLite删除后从耐久档案重建。直接底层CLI输出如位于当前导入范围外，应先纳入受管路径，不能假定任意外部路径自动被发现。
+CLI启动与续训前台持续同步到终态，终态缺失产物每30秒重试；Ctrl+C仅退出监视，监督进程继续训练，重新打开平台接续同步。同步未完成不会封存为完整。每个受管运行另导出Git可见`training/records/<run_id>.json`，含任务、配置、完整流程、预算及结果摘要；节点路径与主机信息脱敏。平台SQLite删除后从训练文档目录及耐久归档重建。直接底层CLI输出必须由训练流程封存到该目录，不能假定任意外部路径自动被发现。
 
 `REQUEST.json`字段与`POST /api/runs/validate`相同；新增`source_run_id`、`initialization`（scratch/warm）和可选`checkpoint_id`，`parameters`允许有类型的嵌套配置。奖励项符号与公式由版本固定，网页不能执行任意代码。新增`GET /api/catalog`、`GET /api/runs/{id}/archive`、`POST /api/runs/{id}/derive`、`POST /api/history/import`、`GET /api/runs/{id}/artifacts/{artifact_id}`；文件仅从登记归档按ID获取，拒绝任意路径。已有`resume`接口保留原语义。
 

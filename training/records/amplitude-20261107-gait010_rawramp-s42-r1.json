@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "record_kind": "training-run",
+  "producer": "training-process-history-migration",
+  "documented_utc": "2026-11-09T14:33:55.479824+00:00",
+  "run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+  "name": "足部奖励对照 · gait010_rawramp · seed42 · 100更新",
+  "task_id": "locomotion",
+  "task_version": "historical",
+  "state": "completed",
+  "created_utc": "2026-11-07T14:51:51.311870+00:00",
+  "config": {
+    "num_envs": 4096,
+    "num_steps_per_env": 64,
+    "max_updates": 100,
+    "save_interval": 100,
+    "eval_interval": 100,
+    "diagnostic_interval": 100,
+    "seed": 42
+  },
+  "budget": {
+    "consumed_transitions": 26214400,
+    "remaining_transitions": 0,
+    "max_transitions": 26214400,
+    "transitions_per_update": 262144
+  },
+  "result": {
+    "completion_reason": "budget_exhausted",
+    "failure": null,
+    "elapsed_s": 5691.036263363996,
+    "model_iteration": 100,
+    "stage": 1
+  },
+  "workflow": {
+    "task_id": "locomotion",
+    "task_version": "historical",
+    "current_step": 7,
+    "steps": [
+      {
+        "number": 1,
+        "name": "策略需求",
+        "status": "reused",
+        "inputs": [
+          {
+            "run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+            "source": "WSL历史训练输出"
+          }
+        ],
+        "outputs": [
+          {
+            "evidence": [
+              "docs/specs/20261107-步幅参数优化/spec.md",
+              "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+            ]
+          }
+        ],
+        "evidence": [
+          "docs/specs/20261107-步幅参数优化/spec.md",
+          "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "任务定义与验收标准",
+        "status": "reused",
+        "inputs": [
+          {
+            "run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+            "source": "WSL历史训练输出"
+          }
+        ],
+        "outputs": [
+          {
+            "evidence": [
+              "docs/specs/20261107-步幅参数优化/spec.md",
+              "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+            ]
+          }
+        ],
+        "evidence": [
+          "docs/specs/20261107-步幅参数优化/spec.md",
+          "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "训练环境组装",
+        "status": "completed",
+        "inputs": [
+          {
+            "run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+            "source": "WSL历史训练输出"
+          }
+        ],
+        "outputs": [],
+        "evidence": []
+      },
+      {
+        "number": 4,
+        "name": "训练方案",
+        "status": "completed",
+        "inputs": [
+          {
+            "run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+            "source": "WSL历史训练输出"
+          }
+        ],
+        "outputs": [],
+        "evidence": []
+      },
+      {
+        "number": 5,
+        "name": "执行训练",
+        "status": "completed",
+        "inputs": [],
+        "outputs": [],
+        "evidence": []
+      },
+      {
+        "number": 6,
+        "name": "独立评估与回放",
+        "status": "completed",
+        "inputs": [],
+        "outputs": [
+          {
+            "evidence": [
+              "docs/specs/20261107-步幅参数优化/spec.md",
+              "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+            ]
+          }
+        ],
+        "evidence": [
+          "docs/specs/20261107-步幅参数优化/spec.md",
+          "docs/references/自主训练平台/足部奖励百轮对照-20261107.md"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "策略交付",
+        "status": "pending",
+        "inputs": [],
+        "outputs": [],
+        "evidence": []
+      }
+    ],
+    "budget": {
+      "source": "run/result.json",
+      "validated_utc": "2026-11-09T14:33:55.479824+00:00",
+      "config": {
+        "num_envs": 4096,
+        "num_steps_per_env": 64,
+        "max_updates": 100,
+        "save_interval": 100,
+        "eval_interval": 100,
+        "diagnostic_interval": 100,
+        "seed": 42
+      }
+    },
+    "source_run_id": "amplitude-20261107-gait010_rawramp-s42-r1",
+    "migration": "explicit historical migration; no new training executed",
+    "source_hashes": {
+      "training/experiments/amplitude/check_gait.py": "05fcc880cd79287b45ec690a1298f611af8bf99c68aec2b3ce1fe0ec8b461848",
+      "training/experiments/amplitude/check_gait_airborne.py": "0670a6d29954ce1fc1526ab93698bc76b8ba8d585a53a9f77b4567fbbe2e0478",
+      "training/experiments/amplitude/compare.py": "f405c70475745e32db2c7ee83a52a9c0a718579af5e1c1fd0796350a68c13c01",
+      "training/experiments/amplitude/diagnose.py": "76f44680cf6be5f3778666989ab7a9ba4dce509e63b74e44d212b87f8a52475a",
+      "training/experiments/amplitude/gait.py": "c41f00d5f7050f9ea685f86bf375dd93028ef5a38c8938bd5ce64dbe54406760",
+      "training/experiments/amplitude/plot_comparison.py": "c3222984046dbe053541bedcde47d98bc9ac6e51bedb7c25fb263609d3a4a57e",
+      "training/experiments/amplitude/prepare.py": "a99d69daa7ec3a431b3109325e770254ce0645b9df06f5ba4b9618ffad62ff3f",
+      "training/experiments/amplitude/prepare_gait.py": "502a45553e5ead2b96a03d1a9ea4c57decaa95bdfdcab54dc63b9b8901661007",
+      "training/experiments/amplitude/run_batch.py": "1777d06028cd0f5ea742fbee3d1b6dd4f4045c3258f0ce8113e3caa0328e286d",
+      "training/experiments/amplitude/run_gait.py": "c81d59bcb643538f585769cf90101b5562ae4c5c3c26a2eb5ea5a77d03e69af3",
+      "training/experiments/amplitude/run_parallel.py": "3dd8cb57b05aa099096aec9a750e14c51466a615ebef1b7e56bb3f3a6f542397",
+      "training/experiments/amplitude/snapshot_gait.py": "4e10469977b73b34d18f2be82aaa6a806a3b27d39465474233840059e72f04d2",
+      "training/experiments/amplitude/variant.json": "a81942132be3d439911c5523d98867349004ee385045b787d8200aafefef3521",
+      "training/mjlab_duck/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "training/mjlab_duck/env_cfg.py": "243417c4ecb3e6fb7b417a33441b53079b707eb86a8043600c7c7a30b82bb009",
+      "training/mjlab_duck/locomotion_cfg.py": "bb74ded842cd3f9e3642eeb6ef98b14603d07923d20885257650e98921cd8cda",
+      "training/mjlab_duck/locomotion_checkpoint.py": "ae97590aad9cb6af2110b2dbee821f132c33d666bfc280257db87b1653ece3ee",
+      "training/mjlab_duck/locomotion_env.py": "ef6dc7d5decdfe48114dfa5feaf8c2c6b8c6cabab8e8abe2878631ecccb504a6",
+      "training/mjlab_duck/locomotion_evaluator.py": "867add3f608b61717073e07308c08c0e172cb35dcb0b2d4b7759bd53f4226b2c",
+      "training/mjlab_duck/locomotion_logging.py": "0d0272fcc9af10a4bc34552d4ebc94237e9b5a30124bcc34e75d48e496b42122",
+      "training/mjlab_duck/locomotion_train_cfg.py": "2130a6c35ddb7307559862f5a109571c24f8e898f8cebb8a90ebb12feba2288a",
+      "training/mjlab_duck/playback.py": "f35d76aeb2a79289286cdc9e64e717c4778e452b35a5893d07e8427c63cf97cd",
+      "training/mjlab_duck/train_duck.py": "21f32b0e68bd4b8a9f413daa6184f149b4f2aaaf70a27ece5d405d248c038630",
+      "training/mjlab_duck/train_locomotion.py": "ab649975cd3b46804b65d6a5a3574c61cdea4b3e0f6cec474dc97d6a516fabf2",
+      "training/mjlab_duck/viewer.py": "2866ce6c2f0197e367e83bc9f35654934c7e950ff56196d1a8f9aaf247b07c76",
+      "training/models/duck_v0.xml": "6ed58db523edf2ed3ce363854f8e9ac56c1866fa4d14925a478c81f1b8ff1417",
+      "training/params/home_pose.json": "22b34280b6262ce2b6b85fd25642d3c4a9787f9b6d18fb56ae939069f277785f"
+    }
+  },
+  "artifact_reference": "training/artifacts/runs/amplitude-20261107-gait010_rawramp-s42-r1",
+  "source": {
+    "kind": "wsl_historical_training",
+    "source": "/root/duck-training-runs/amplitude-20261107-gait010_rawramp-s42-r1",
+    "imported_utc": "2026-11-09T14:33:55.479824+00:00"
+  },
+  "capabilities": {
+    "stop": {
+      "allowed": false,
+      "reasons": [
+        "历史归档"
+      ]
+    },
+    "replay": {
+      "allowed": true,
+      "reasons": []
+    },
+    "scratch": {
+      "allowed": false,
+      "reasons": [
+        "历史迁移未登记可复用的任务合同"
+      ]
+    },
+    "warm": {
+      "allowed": false,
+      "reasons": [
+        "未核验物理/接口/迁移 transfer 合同"
+      ]
+    },
+    "resume": {
+      "allowed": false,
+      "reasons": [
+        "原100轮预算已耗尽；续训需新预算和新流程记录"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "checkpoint_id": "amplitude-20261107-gait010_rawramp-s42-r1-checkpoint_000100_64fe043dee",
+      "model_iteration": 100,
+      "stage": 1,
+      "integrity": "complete",
+      "replayable": true,
+      "resumable": true,
+      "consumed_transitions": 26214400
+    },
+    {
+      "checkpoint_id": "amplitude-20261107-gait010_rawramp-s42-r1-evaluated_000100_c4bdc34f76",
+      "model_iteration": 100,
+      "stage": 1,
+      "integrity": "complete",
+      "replayable": true,
+      "resumable": true,
+      "consumed_transitions": 26214400
+    },
+    {
+      "checkpoint_id": "amplitude-20261107-gait010_rawramp-s42-r1-final_000100_4900108a91",
+      "model_iteration": 100,
+      "stage": 1,
+      "integrity": "complete",
+      "replayable": true,
+      "resumable": true,
+      "consumed_transitions": 26214400
+    },
+    {
+      "checkpoint_id": "amplitude-20261107-gait010_rawramp-s42-r1-start_000000_ff74066ab2",
+      "model_iteration": 0,
+      "stage": 1,
+      "integrity": "complete",
+      "replayable": true,
+      "resumable": true,
+      "consumed_transitions": 0
+    }
+  ],
+  "behavior_acceptance": "not_inferred_from_training_completion; dev9四组均0/9"
+}

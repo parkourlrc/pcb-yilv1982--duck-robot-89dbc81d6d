@@ -12,7 +12,7 @@ from pathlib import Path
 
 from .archive import Archive, config_diff, workflow_for
 from .executors import Executor
-from .history import checkpoint_info, import_history, import_all_history, metrics
+from .history import checkpoint_info, metrics
 from .registry import Registry, digest, file_hash
 from .store import Store, atomic_json, read_json, read_jsonl, utcnow
 
@@ -47,9 +47,16 @@ class Runs:
             if run and not (self.archive.run_root(run['run_id']) / 'dashboard-run.json').exists():
                 self.archive.migrate(run, path.parent)
         self.archive.restore(self.store)
+        canonical_ids = {path.stem for path in (self.root / 'training/records').glob('*.json')
+                         if read_json(path, {}).get('record_kind') == 'training-run'}
+        for run in self.store.all('run'):
+            if run['run_id'] not in canonical_ids:
+                self.store.delete('run', run['run_id'])
         for path in (self.artifacts / 'runs').glob('*/dashboard-run.json'):
             run = read_json(path)
-            if run:
+            canonical = self.archive.record_path(run.get('run_id')) if run and run.get('run_id') else None
+            document = read_json(canonical, {}) if canonical else {}
+            if run and document.get('record_kind') == 'training-run':
                 self.store.put('run', run['run_id'], run)
                 safe_directory = self.archive.source_directory(run)
                 if safe_directory and not self.store.events(run['run_id']):
@@ -63,9 +70,8 @@ class Runs:
                 request_record = run.get('_request_record')
                 if request_record and not self.store.request(request_record['request_id']):
                     self.store.remember(request_record['request_id'], request_record['fingerprint'], 'run', run['run_id'])
-        import_history(root, self.store)
-        if config.get('auto_import_history', True):
-            self.import_history()
+        # Do not scan docs/specs, docs/references or training/logs here.  The
+        # canonical training/records documents are the only dashboard input.
         for run in self.store.all('run'):
             if run.get('managed') and run['state'] in ACTIVE:
                 self.recovered_runs.add(run['run_id'])
@@ -116,32 +122,8 @@ class Runs:
         return result
 
     def import_history(self):
-        report = import_all_history(self.root, self.store, self.archive)
-        legacy = self.store.get('run', 'legacy-run-001')
-        if legacy:
-            documents = self.archive.run_root(legacy['run_id']) / 'record-documents'
-            documents.mkdir(parents=True, exist_ok=True)
-            for document in (self.root / 'docs/specs/20261105-原地转圈策略').glob('*.md'):
-                if not (documents / document.name).exists():
-                    shutil.copy2(document, documents / document.name)
-            reward_source = Path(legacy['_runtime_root']) / 'training/mjlab_duck/locomotion_env.py'
-            if reward_source.is_file() and not (documents / 'locomotion_env.py').exists():
-                shutil.copy2(reward_source, documents / 'locomotion_env.py')
-            task = {'schema': 1, 'task_id': 'locomotion', 'task_version': 'v1', 'title': '首轮联合策略 · 冻结v1',
-                    'description': '保留原配置、奖励及双节点训练合同；通过外置适配器登记流程',
-                    'runtime_version': 'locomotion-v1', 'legacy_adapter': True,
-                    'editable_execution': LEGACY_EDITABLE,
-                    'default_execution': legacy['config'], 'workflow_evidence': {
-                        '1': ['docs/specs/20261105-原地转圈策略/spec.md'], '2': ['docs/specs/20261105-原地转圈策略/task-definition.md'],
-                        '3': ['docs/specs/20261105-原地转圈策略/step4-implementation.md'], '4': ['docs/specs/20261105-原地转圈策略/training-plan.md']},
-                    'source_files': [], 'source_hashes': {}}
-            legacy['_task'] = task
-            self.store.put('run', legacy['run_id'], legacy)
-            atomic_json(self.artifacts / 'tasks/locomotion-v1.json', task)
-        for run in self.store.all('run'):
-            self.archive.save(run)
-            if not run.get('managed'):
-                self.archive.seal(run)
+        """Rebuild the SQLite index from canonical process-produced documents."""
+        report = {'schema': 1, 'source': 'training/records', 'imported': self.archive.restore(self.store)}
         return report
 
     def archive_detail(self, identifier):

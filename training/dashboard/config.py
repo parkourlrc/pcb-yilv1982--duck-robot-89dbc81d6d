@@ -14,6 +14,9 @@ def load_config(path=None):
     config.setdefault('data_dir', str(ROOT / 'training/.dashboard'))
     config.setdefault('artifact_dir', str(ROOT / 'training/artifacts'))
     config.setdefault('port', 8765)
+    # History migration is an explicit maintenance operation.  The dashboard
+    # reads only process-produced documents under training/records.
+    config.setdefault('auto_import_history', False)
     if os.environ.get('DUCK_DASHBOARD_PORT'):
         config['port'] = int(os.environ['DUCK_DASHBOARD_PORT'])
     config.setdefault('nodes', {

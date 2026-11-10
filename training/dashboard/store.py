@@ -81,6 +81,14 @@ class Store:
             rows = self.db.execute('SELECT data FROM objects WHERE kind=? ORDER BY rowid DESC', (kind,)).fetchall()
         return [json.loads(row[0]) for row in rows]
 
+    def delete(self, kind, identifier):
+        with self.lock:
+            self.db.execute('DELETE FROM objects WHERE kind=? AND id=?', (kind, identifier))
+            if kind == 'run':
+                self.db.execute('DELETE FROM events WHERE run_id=?', (identifier,))
+                self.db.execute('DELETE FROM objects WHERE kind=? AND json_extract(data, "$.run_id")=?', ('checkpoint', identifier))
+            self.db.commit()
+
     def request(self, identifier):
         with self.lock:
             row = self.db.execute('SELECT fingerprint,kind,object_id FROM requests WHERE id=?', (identifier,)).fetchone()
