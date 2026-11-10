@@ -32,17 +32,33 @@ class Executor:
             raise RuntimeError(process.stderr.decode(errors='replace').strip() or f'executor exit {process.returncode}')
         return process.stdout.decode(errors='replace')
 
-    def probe(self):
-        required = ['work_root', 'python'] if self.config['kind'] == 'wsl' else ['work_root', 'benchmark_root', 'env_file']
-        missing = [key for key in required if not self.config.get(key)]
-        if missing:
-            raise ValueError('节点未配置: ' + ', '.join(missing))
-        quote = shlex.quote
+    def run_script(self, script, timeout=30):
+        payload = script.encode('utf-8')
         if self.config['kind'] == 'wsl':
-            script = f'test -x {quote(self.config["python"])} && {quote(self.config["python"])} -c ' + quote('import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))')
+            argv = ['wsl.exe']
+            if self.config.get('distribution'):
+                argv += ['-d', self.config['distribution']]
+            argv += ['--exec', 'bash', '-s']
         else:
-            script = f'test -f {quote(self.config["env_file"])} && test -f {quote(self.config["benchmark_root"] + "/venv/pyvenv.cfg")} && sudo -n docker info --format ' + quote('{{.ServerVersion}}')
-        return self.shell(script, timeout=30).strip()
+            argv = self.ssh_command('bash -s')
+        try:
+            process = subprocess.run(argv, input=payload, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, check=False)
+        except subprocess.TimeoutExpired as error:
+            raise RuntimeError('环境探测超时（%s 秒）' % timeout) from error
+        if process.returncode:
+            raise RuntimeError(process.stderr.decode(errors='replace').strip() or ('探测进程退出码 %d' % process.returncode))
+        return process.stdout.decode(errors='replace')
+
+    def probe_result(self):
+        from ..environment_probe import build_script, parse_output
+        timeout = int((self.config.get('probe') or {}).get('timeout_s') or 30)
+        return parse_output(self.run_script(build_script(self.node_id, self.config), timeout=timeout))
+
+    def probe(self):
+        result = self.probe_result()
+        if not result['ready']:
+            raise RuntimeError(result['detail'])
+        return result['detail']
 
     def prepare(self, snapshot, directory):
         snapshot = Path(snapshot)

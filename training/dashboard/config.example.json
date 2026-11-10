@@ -2,8 +2,71 @@
   "port": 8765,
   "replay_idle_timeout_s": 300,
   "nodes": {
-    "local": {"label": "本地 Windows / WSL", "kind": "wsl", "distribution": "Ubuntu", "python": "/absolute/path/to/training-venv/bin/python", "work_root": "/absolute/path/to/dashboard-runs"},
-    "spark1": {"label": "Spark 1", "kind": "ssh", "ssh_target": "spark1", "work_root": "/absolute/path/to/dashboard-runs", "benchmark_root": "/absolute/path/to/existing-runtime", "env_file": "/absolute/path/to/environment.env", "master_addr": "PRIVATE_RENDEZVOUS_ADDRESS", "image": "nvcr.io/nvidia/pytorch:25.10-py3"},
-    "spark2": {"label": "Spark 2", "kind": "ssh", "ssh_target": "spark2", "work_root": "/absolute/path/to/dashboard-runs", "benchmark_root": "/absolute/path/to/existing-runtime", "env_file": "/absolute/path/to/environment.env", "master_addr": "PRIVATE_RENDEZVOUS_ADDRESS", "image": "nvcr.io/nvidia/pytorch:25.10-py3"}
+    "local": {
+      "name": "ENVIRONMENT_NAME",
+      "label": "ENVIRONMENT_NAME",
+      "hardware": "GPU / host summary",
+      "kind": "wsl",
+      "distribution": "Ubuntu",
+      "python": "/absolute/path/to/training-venv/bin/python",
+      "work_root": "/absolute/path/to/dashboard-runs",
+      "identity": {
+        "hostname": "ENVIRONMENT_HOSTNAME",
+        "gpu_name": "GPU DEVICE NAME",
+        "wsl_distro": "Ubuntu"
+      },
+      "probe": {
+        "gpu": "torch",
+        "docker": false,
+        "env_keys": [],
+        "timeout_s": 30
+      }
+    },
+    "spark1": {
+      "name": "Spark 1",
+      "label": "Spark 1",
+      "hardware": "GPU / host summary",
+      "kind": "ssh",
+      "ssh_target": "spark1",
+      "work_root": "/absolute/path/to/dashboard-runs",
+      "benchmark_root": "/absolute/path/to/existing-runtime",
+      "env_file": "/absolute/path/to/environment.env",
+      "master_addr": "PRIVATE_RENDEZVOUS_ADDRESS",
+      "image": "nvcr.io/nvidia/pytorch:25.10-py3",
+      "probe": {
+        "gpu": "nvidia-smi",
+        "docker": true,
+        "image": "nvcr.io/nvidia/pytorch:25.10-py3",
+        "env_keys": [
+          "NCCL_NET",
+          "NCCL_SOCKET_IFNAME"
+        ],
+        "benchmark": true,
+        "timeout_s": 30
+      }
+    },
+    "spark2": {
+      "name": "Spark 2",
+      "label": "Spark 2",
+      "hardware": "GPU / host summary",
+      "kind": "ssh",
+      "ssh_target": "spark2",
+      "work_root": "/absolute/path/to/dashboard-runs",
+      "benchmark_root": "/absolute/path/to/existing-runtime",
+      "env_file": "/absolute/path/to/environment.env",
+      "master_addr": "PRIVATE_RENDEZVOUS_ADDRESS",
+      "image": "nvcr.io/nvidia/pytorch:25.10-py3",
+      "probe": {
+        "gpu": "nvidia-smi",
+        "docker": true,
+        "image": "nvcr.io/nvidia/pytorch:25.10-py3",
+        "env_keys": [
+          "NCCL_NET",
+          "NCCL_SOCKET_IFNAME"
+        ],
+        "benchmark": true,
+        "timeout_s": 30
+      }
+    }
   }
 }

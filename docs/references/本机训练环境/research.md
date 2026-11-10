@@ -1,16 +1,18 @@
 # 本机训练环境登记
 
-## 节点名称（2026-11-10，MSI-laptop）
+## 节点名称（2026-11-10，laptop-5090-24G）
 
-MSI-laptop 机器的训练节点登记名为 `MSI-laptop`。节点类型仍为 Windows + Ubuntu-24.04 WSL2，工作台配置入口为 `training/dashboard.local.json`；名称只用于节点识别，不改变硬件、训练参数或运行路径。公司工作机另登记为 `4080-16g`，见文末 2026-11-10 条目；两台机器不共用硬件与解释器结论。
+laptop-5090-24G 机器的训练节点登记名为 `laptop-5090-24G`。节点类型仍为 Windows + Ubuntu-24.04 WSL2，工作台配置入口为 `training/dashboard.local.json`；名称只用于节点识别，不改变硬件、训练参数或运行路径。公司工作机另登记为 `desktop-4080-16G`，见文末 2026-11-10 条目；两台机器不共用硬件与解释器结论。
+
+2026-11-10 用户统一环境命名：公司工作机为 `desktop-4080-16G`（原 4080-16g），MSI 机器为 `laptop-5090-24G`（原 MSI-laptop）。历史条目已按新名更新，硬件、身份字段与运行结果不变。
 
 ## 环境登记规则（2026-11-10，训练流程第③步）
 
-按[自主训练平台流程 Spec](../../specs/20261105-自主训练平台/spec.md)“环境组装与登记的强制规则”，本机环境登记至少包含以下字段；当前值同步记录在下方 2026-11-10 条目。
+按[自主训练平台流程 Spec](../../specs/20261105-自主训练平台/spec.md)“环境组装与登记的强制规则”，环境登记至少包含以下字段；当前值同步记录在下方对应环境的 2026-11-10 条目，不用“本机”代替具体环境名。
 
 | 字段 | 要求/当前登记 |
 |---|---|
-| 节点与发行版 | `MSI-laptop`；Ubuntu-24.04 WSL2，内核 6.18.54.1-microsoft-standard-WSL2 |
+| 节点与发行版 | `laptop-5090-24G`；Ubuntu-24.04 WSL2，内核 6.18.54.1-microsoft-standard-WSL2 |
 | 解释器绝对路径 | `/root/venvs/duck-wsl/bin/python`（Python 3.12.3） |
 | 文件系统位置 | WSL 原生 ext4 虚拟磁盘（`/dev/sdd`；宿主文件 `%LOCALAPPDATA%\wsl\{distro-id}\ext4.vhdx`，物理位于 C: 的 NVMe SSD） |
 | 仓库源码位置 | `/mnt/c/Projects/duck-robot`（DrvFs/9p，允许放源码与产物，不允许放解释器和依赖） |
@@ -24,7 +26,7 @@ MSI-laptop 机器的训练节点登记名为 `MSI-laptop`。节点类型仍为 W
 - “能跑”不足以通过：登记需给出路径、文件系统位置与启动实测；工作台节点探测只证明连接性，不代表策略行为验收。
 - 登记变化需同步到本文件对应日期条目，并在涉及流程或进度时更新 [PROGRESS.md](../../../PROGRESS.md)。
 
-## 2026-11-10：MSI-laptop 回放冷启动定位与 WSL venv 迁移
+## 2026-11-10：laptop-5090-24G 回放冷启动定位与 WSL venv 迁移
 
 [本机实测] 用户报告检查点回放加载慢。工作台回放从创建到首帧 61.2–81.2 秒（5 个会话：61.2/64.7/71.6/81.2 及 61.9 s）。窗口在首帧前不显示机器人（前端 `root.visible=false`），因此表现为长时间空画面。
 
@@ -108,14 +110,15 @@ powershell -File training/start-dashboard.ps1 -NoBrowser
 
 仅确认本地训练环境的运行能力；不宣称策略行为达标，不启动原正式训练的第二轮，不部署机器人。短跑日志中的模型 keyframe/integrator 拼接及 Warp 弃用警告保留；未为搭环境改模型或依赖源码。短跑对已跟踪 `MUJOCO_LOG.TXT` 的自动追加已还原，本轮完整日志另行归档。之前 Gitee 更新保存的 `pre-gitee-update-20261107` stash 仍保留，本轮不处理其硬件文档冲突。登记修改默认不提交、不推送。
 
-## 2026-11-10：公司工作机（4080-16g）与两台 Spark 的现场核对
+## 2026-11-10：公司工作机（desktop-4080-16G）与两台 Spark 的现场核对
 
-用户确认训练平台可能部署在多处；当前为公司工作机器，本机一个训练环境，两台 Spark 在同一局域网。仓库同时用于 `MSI-laptop`（RTX 5090 Laptop）与本公司工作机（`4080-16g`）两台物理机，WSL 解释器路径、依赖版本和运行目录不同，本节只描述 4080-16g，不覆盖另一台机器的记录；两台机器的结论不互相迁移。本轮只做只读核对并把结论落到 [训练环境登记 spec](../../specs/20261110-训练环境登记/spec.md)，未改本地配置、未重启服务、未启动训练。先更新文档、待批准后再编码。
+用户确认训练平台可能部署在多处；当前为公司工作机器，该机器一个训练环境，两台 Spark 在同一局域网。平台启动时应按主机名/GPU 识别当前属于哪个已登记环境，不把任何机器名写死为“本机”回退值（方案见 spec）。仓库同时用于 `laptop-5090-24G`（RTX 5090 Laptop）与本公司工作机（`desktop-4080-16G`）两台物理机，WSL 解释器路径、依赖版本和运行目录不同，本节只描述 desktop-4080-16G，不覆盖另一台机器的记录；两台机器的结论不互相迁移。当轮先做只读核对并把结论落到 [训练环境登记 spec](../../specs/20261110-训练环境登记/spec.md)，随后按用户确认进入编码；实施结果见本节末尾。
 
 ### 硬件与训练环境 [本机实测]
 
 | 项 | 结果 |
 |---|---|
+| Windows 主机名 | `DESKTOP-36NFOE5` |
 | Windows GPU | NVIDIA GeForce RTX 4080，16376 MiB，驱动 616.92 |
 | WSL | Ubuntu；WSL 内 PATH 没有 `nvidia-smi`；torch 2.14.1+cu130，`torch.cuda.is_available()` 为 True，设备名 RTX 4080 |
 | WSL docker | 存在 `/usr/bin/docker`；本机训练走 venv python，不依赖 docker |
@@ -125,7 +128,7 @@ powershell -File training/start-dashboard.ps1 -NoBrowser
 
 ### 平台现状 [实测/源码核验]
 
-- `/api/resources` 返回 local、spark1、spark2 三项，本轮均为 connected；local 显示名仍是“本地 Windows / WSL”。
+- `/api/resources` 返回 local、spark1、spark2 三项，核实时均为 connected；local 当时仍显示旧的通用文案。
 - 现有 `Executor.probe()` 只做轻量检查（WSL：python + torch；SSH：env_file、benchmark venv、`docker info`），不检查 GPU 名称/显存、训练镜像和 env 变量；资源卡徽章由 2 秒遥测的 connected/stale/unavailable 驱动。
 - 前端 `app.js`/`styles.css` 已具备 ready / available / unavailable / offline 徽章映射，可用性显示不需要改前端文件。
 
@@ -134,3 +137,13 @@ powershell -File training/start-dashboard.ps1 -NoBrowser
 - 本机是 RTX 4080 16GB 的公司工作机，与 2026-11-07 登记的 RTX 5090 Laptop 不是同一台；历史性能、回放与验收结果不迁移到本机。
 - 只按 SSH/进程可达判断“可以训练”不充分；GPU、docker、环境变量需要启动前探测，方案见 [spec](../../specs/20261110-训练环境登记/spec.md)。
 - spark2 历史 SSH 收尾超时本轮未复现；实施探测后需实测，单次超时不能判定设备长期不可用。
+
+### 实施结果（2026-11-10）[本机实测]
+
+- **启动自识别**：`python -m dashboard.cli self` 输出 hostname=`DESKTOP-36NFOE5`、GPU=`NVIDIA GeForce RTX 4080`、WSL 发行版 Ubuntu/docker-desktop，匹配 `local`，state=matched；平台 `/api/resources` 的 `self.environment_id` 为 `local`。本机登记名 `desktop-4080-16G`。
+- **探测脚本**：登记/启动时生成 `training/.dashboard/probes/local.sh`、`spark1.sh`、`spark2.sh`。local 检查 python、torch CUDA、work_root；spark 检查 nvidia-smi、`sudo -n docker info`、训练镜像、env.sh 变量、benchmark venv、work_root。
+- **三环境探测均就绪**：本地（RTX 4080）、spark1（GB10，docker 29.2.1，镜像存在）、spark2（GB10，docker 28.3.3，镜像存在）；平台资源卡显示“就绪”。
+- **负向验证**：不匹配的 hostname → `environment_id=null`、本机显示“未登记主机”、连接状态 offline；python 路径不存在 → 不可用并列出 python/gpu 缺项；不可达主机 → offline（探测超时）。
+- **任务来源哈希**：dashboard 代码变更会使 v3 任务 `source_hashes` 失配；本轮按当前源码刷新 v3 哈希并加入新模块（identity/environment_probe/check_environment_probe），v3 恢复 ready。v2 仍为历史缺项，未改。
+- **契约检查**：`check_archive_contract.py` 在刷新 v3 哈希后仍于“重建索引后读取运行”断言失败；在 HEAD 基线工作树按同样步骤复现，是既有问题，不由本功能引入，本轮未改该检查。
+- 前端文件未改；本轮未启动训练；平台以新代码重启于 8766，历史运行列表仍为 0（归档缺失，见 2026-11-10 早前记录）。

@@ -8,6 +8,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def node_name(node, fallback=''):
+    """Display name for one registered environment (never a hard-coded machine name)."""
+    return node.get('name') or node.get('label') or fallback
+
+
 def load_config(path=None):
     path = Path(path or os.environ.get('DUCK_DASHBOARD_CONFIG', ROOT / 'training/dashboard.local.json'))
     config = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else {}

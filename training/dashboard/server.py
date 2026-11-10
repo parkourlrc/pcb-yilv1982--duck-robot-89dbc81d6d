@@ -14,7 +14,7 @@ from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from .config import ROOT, load_config
+from .config import ROOT, load_config, node_name
 from .replays import Replays
 from .runs import ACTIVE, DashboardError, Runs
 from .schemas import DeriveRequest, ReplayControl, ReplayRequest, ResumeRequest, StartRequest, StopRequest, ValidationRequest
@@ -33,10 +33,56 @@ def create_app(config=None):
     resources = {}
     stop_background = threading.Event()
 
+    def public_resource(identifier):
+        node = config['nodes'][identifier]
+        resource = resources.setdefault(identifier, {'node_id': identifier, 'label': node_name(node, identifier), 'execution_kind': node['kind'], 'samples': [], 'active_run_ids': [], 'active_replay_ids': []})
+        item = {key: value for key, value in resource.items()}
+        unregistered_local = identifier == 'local' and runs.self_id != 'local'
+        item['label'] = '未登记主机' if unregistered_local else node_name(node, identifier)
+        readiness = resource.get('readiness')
+        if unregistered_local:
+            item['connection'] = {'state': 'offline', 'last_seen_utc': None, 'telemetry': (resource.get('connection') or {}).get('state')}
+            item['self'] = {'state': (runs.identity_report or {}).get('state'), 'detail': (runs.identity_report or {}).get('detail')}
+        elif readiness:
+            state = {'ready': 'ready', 'unavailable': 'unavailable', 'offline': 'offline'}.get(readiness.get('state'), 'unknown')
+            item['connection'] = {
+                'state': state,
+                'last_seen_utc': readiness.get('last_ready_utc') or readiness.get('checked_utc'),
+                'telemetry': (resource.get('connection') or {}).get('state'),
+            }
+        return item
+
+    def probe_node(identifier):
+        node = config['nodes'][identifier]
+        resource = resources.setdefault(identifier, {'node_id': identifier, 'label': node_name(node, identifier), 'execution_kind': node['kind'], 'samples': [], 'active_run_ids': [], 'active_replay_ids': []})
+        try:
+            result = runs.executors[identifier].probe_result()
+            readiness = {'state': 'ready' if result['ready'] else 'unavailable', 'ready': result['ready'],
+                         'checks': result['checks'], 'detail': result['detail'], 'checked_utc': utcnow()}
+            if result['ready']:
+                readiness['last_ready_utc'] = utcnow()
+        except Exception as error:
+            readiness = {'state': 'offline', 'ready': False, 'checks': [], 'detail': str(error), 'checked_utc': utcnow()}
+        previous = resource.get('readiness') or {}
+        if not readiness.get('last_ready_utc') and previous.get('last_ready_utc'):
+            readiness['last_ready_utc'] = previous['last_ready_utc']
+        resource['readiness'] = readiness
+        return public_resource(identifier)
+
+    def probe_environments():
+        while not stop_background.is_set():
+            for identifier in list(config['nodes']):
+                try:
+                    probe_node(identifier)
+                except Exception:
+                    pass
+            stop_background.wait(60)
+
+
     def sample_remote(identifier):
         previous = None
         node = config['nodes'][identifier]
-        resource = resources.setdefault(identifier, {'node_id': identifier, 'label': node['label'], 'execution_kind': node['kind'], 'samples': [], 'active_run_ids': [], 'active_replay_ids': []})
+        resource = resources.setdefault(identifier, {'node_id': identifier, 'label': node_name(node, identifier), 'execution_kind': node['kind'], 'samples': [], 'active_run_ids': [], 'active_replay_ids': []})
         while not stop_background.is_set():
             try:
                 sample = rates(runs.executors[identifier].sample(), previous)
@@ -60,7 +106,7 @@ def create_app(config=None):
                 previous = sample
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
-                resource = resources.setdefault('local', {'node_id': 'local', 'label': 'MSI-laptop', 'execution_kind': 'wsl', 'samples': []})
+                resource = resources.setdefault('local', {'node_id': 'local', 'label': node_name(config['nodes'].get('local', {}), 'local'), 'execution_kind': 'wsl', 'samples': []})
                 runs.record_resource('local', sample)
                 resource.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, active_run_ids=[run['run_id'] for run in runs.store.all('run') if run['state'] in ACTIVE and 'local' in run['execution']['node_ids']], active_replay_ids=[item['replay_id'] for item in runs.store.all('replay') if replays.get(item['replay_id'])['state'] not in ('closed', 'failed')])
                 resource['samples'] = (resource['samples'] + [sample])[-900:]
@@ -81,7 +127,7 @@ def create_app(config=None):
                 sample['scope'] = 'wsl_virtual_machine'
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
-                resource = resources.setdefault('local', {'node_id': 'local', 'label': 'MSI-laptop', 'execution_kind': 'wsl', 'samples': []})
+                resource = resources.setdefault('local', {'node_id': 'local', 'label': node_name(config['nodes'].get('local', {}), 'local'), 'execution_kind': 'wsl', 'samples': []})
                 wsl = resource.setdefault('wsl', {'samples': []})
                 wsl.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, sample=sample)
                 wsl['samples'] = (wsl.get('samples', []) + [sample])[-900:]
@@ -112,6 +158,7 @@ def create_app(config=None):
         for identifier, node in config['nodes'].items():
             if node['kind'] == 'ssh' and node.get('work_root'):
                 threading.Thread(target=sample_remote, args=(identifier,), daemon=True).start()
+        threading.Thread(target=probe_environments, daemon=True).start()
         yield
         stop_background.set()
         for item in runs.store.all('replay'):
@@ -223,20 +270,14 @@ def create_app(config=None):
 
     @app.get('/api/resources')
     def list_resources():
-        return {'items': [resources.get(name, {'node_id': name, 'label': node['label'], 'execution_kind': node['kind'], 'connection': {'state': 'unprobed', 'last_seen_utc': None}, 'active_run_ids': [], 'active_replay_ids': [], 'samples': []}) for name, node in config['nodes'].items()]}
+        return {'items': [public_resource(name) for name in config['nodes']],
+                'self': {'environment_id': runs.self_id, 'local': runs.self_id == 'local', **(runs.identity_report or {})}}
 
     @app.post('/api/resources/{identifier}/probe')
     def probe(identifier: str):
         if identifier not in runs.executors:
             raise DashboardError('节点不存在', 'not_found', 404)
-        try:
-            detail = runs.executors[identifier].probe()
-            state = 'connected'
-        except Exception as error:
-            detail, state = str(error), 'unavailable'
-        resource = resources.setdefault(identifier, {'node_id': identifier, 'label': config['nodes'][identifier]['label'], 'execution_kind': config['nodes'][identifier]['kind'], 'samples': [], 'active_run_ids': [], 'active_replay_ids': []})
-        resource.update(connection={'state': state, 'last_seen_utc': utcnow()}, detail=detail)
-        return resource
+        return probe_node(identifier)
 
     @app.get('/api/replays')
     def list_replays():

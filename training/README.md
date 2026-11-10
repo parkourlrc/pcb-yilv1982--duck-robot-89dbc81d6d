@@ -1,5 +1,7 @@
 # C 线自建 real2sim2real 学习工程
 
+> **2026-11-10 训练环境登记与启动自识别**：工作台启动时按 hostname+GPU+WSL 发行版识别当前环境（公司工作机登记为 `desktop-4080-16G`），不再写死“本机”名；每个环境生成独立探测脚本，检查 GPU/docker/训练镜像/env/venv/work_root，资源卡显示 就绪/不可用/离线；未登记主机拒绝本机训练。三环境探测均就绪，未启动训练。见[训练环境登记 Spec](../docs/specs/20261110-训练环境登记/spec.md)与[工作台说明](dashboard/README.md)。
+
 > **训练记录入口已统一（2026-11-09）**：平台只读取 [`training/records/`](records/README.md) 中由训练流程生成的文档；不再把 `docs/specs`、`docs/references` 或 `training/logs` 的零散文件自动当作训练记录。历史清理台账和迁移脚本见 [`cleanup_training_records.py`](scripts/cleanup_training_records.py)；本机双足 WSL 历史迁移见 [`migrate_wsl_gait_records.py`](scripts/migrate_wsl_gait_records.py)。
 
 > **2026-11-09 训练档案与复训实施**：工作台新增任务/实验/运行档案、历史分级导入、67个参数与奖励字段目录、阶段配方、从零重训和接权重训练；物理与接口锁定。最小GPU验收scratch/续训/warm合计96转换通过，策略行为未验收；见[任务及验证记录](../docs/specs/20261109-训练档案与复训/spec.md)和[工作台使用说明](dashboard/README.md)。

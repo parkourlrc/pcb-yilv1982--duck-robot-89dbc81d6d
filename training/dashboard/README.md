@@ -10,6 +10,15 @@
 
 2026-11-09：新增完整实验档案、67个参数/奖励字段目录、阶段/进度奖励配方、从零派生和接权重派生。物理、接口、网络与验收规则锁定。实施与限制见[训练档案任务](../../docs/specs/20261109-训练档案与复训/spec.md)。
 
+## 环境登记、启动自识别与可用性
+
+训练环境登记在 `training/dashboard.local.json`（Git 忽略）。每个节点包含 `name`、`hardware`、`identity`（`hostname` / `gpu_name` / `wsl_distro`）与 `probe`（`gpu`、`docker`、`image`、`env_keys`、`benchmark`、`timeout_s`）。
+
+- **启动自识别**：平台启动时读取本机 Windows 主机名、GPU 名称与 WSL 发行版，与已登记环境匹配；匹配结果决定本机显示名与硬件。代码中不写死任何机器名；同一份仓库在不同机器启动会识别为各自的环境。匹配不到时本机显示“未登记主机”，不允许启动本机训练；局域网环境连不上时显示离线。
+- **探测脚本**：每个环境在登记/启动时生成独立脚本到 `training/.dashboard/probes/<环境>.sh`（Git 忽略，可手工查看），经 stdin 在 WSL/SSH 执行，检查 GPU、docker 与训练镜像、`env.sh` 必需变量、benchmark venv 与工作目录。
+- **可用性**：平台启动、每 60 秒、资源卡刷新按钮及训练启动前都会探测；结果映射到既有资源卡徽章：就绪 / 不可用 / 离线 / 状态未知。前端文件不需要改动。遥测采样继续负责负载曲线，探测失败不清空历史采样。
+- **CLI**：`python -m dashboard.cli self`（本机识别结果）、`environments`（登记清单）、`probe-environment <id>`（立即探测）、`register-environment ...`（写本地登记并生成脚本）。
+
 ## 档案和复训
 
 大产物保存于`training/artifacts/`（Git忽略）；`training/.dashboard/index.sqlite`可从耐久`dashboard-run.json`和`training/records/`重建。任务/实验/运行可筛选，档案页包含流程、完整配置、来源差异、奖励设计、产物下载及分项缺失原因。历史材料只有在显式迁移后才进入记录目录；零散短跑/测速证据不会显示为训练运行。

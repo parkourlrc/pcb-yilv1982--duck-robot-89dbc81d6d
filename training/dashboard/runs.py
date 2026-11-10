@@ -42,6 +42,15 @@ class Runs:
         self.archive_retry_times = {}
         self.recovered_runs = set()
         self.executors = {name: Executor(name, node) for name, node in config['nodes'].items()}
+        from .environment_probe import ensure_scripts
+        self.probe_scripts = ensure_scripts(self.data, config['nodes'])
+        from .identity import detect_host, match_environment
+        self.host = detect_host()
+        self.self_id, self.identity_report = match_environment(config['nodes'], self.host)
+        if not any(isinstance(node, dict) and node.get('identity') for node in config['nodes'].values()):
+            self.self_id = 'local'
+            self.identity_report = {**self.identity_report, 'state': 'unconfigured', 'detail': '旧配置未登记环境身份，按 local 继续'}
+            self.identity_report['matches'] = ['local']
         for path in (self.data / 'runs').glob('*/dashboard-run.json'):
             run = read_json(path)
             if run and not (self.archive.run_root(run['run_id']) / 'dashboard-run.json').exists():
@@ -225,6 +234,8 @@ class Runs:
         elif len(nodes) != 1 or nodes[0] not in ('spark1', 'spark2'):
             errors.append({'field': 'node_ids', 'message': '单Spark必须选择spark1或spark2'})
         world_size = len(nodes)
+        if 'local' in nodes and self.self_id != 'local':
+            errors.append({'field': 'execution', 'message': '本机训练环境未登记：' + str((self.identity_report or {}).get('detail', '未匹配到本机环境')) + '；请先登记并搭建本机环境'})
         execution.update(node_ids=nodes, world_size=world_size)
         if task.get('legacy_adapter') and world_size != 2:
             errors.append({'field': 'execution', 'message': '旧v1正式入口要求双Spark，原运行时合同不变'})
@@ -345,6 +356,8 @@ class Runs:
 
     def _prepare_launch(self, identifier):
         run = self.get(identifier)
+        if 'local' in run['execution']['node_ids'] and self.self_id != 'local':
+            raise DashboardError('本机训练环境未登记：' + str((self.identity_report or {}).get('detail', '未匹配到本机环境')), 'local_environment_unregistered', 409)
         try:
             snapshot = self._snapshot(run)
             nodes = run['execution']['node_ids']
