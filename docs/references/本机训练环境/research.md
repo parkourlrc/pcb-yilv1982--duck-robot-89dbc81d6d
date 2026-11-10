@@ -1,8 +1,8 @@
 # 本机训练环境登记
 
-## 节点名称（2026-11-10）
+## 节点名称（2026-11-10，MSI-laptop）
 
-本机训练节点统一登记名为 `MSI-laptop`。节点类型仍为 Windows + Ubuntu-24.04 WSL2，工作台配置入口为 `training/dashboard.local.json`；名称只用于节点识别，不改变硬件、训练参数或运行路径。
+MSI-laptop 机器的训练节点登记名为 `MSI-laptop`。节点类型仍为 Windows + Ubuntu-24.04 WSL2，工作台配置入口为 `training/dashboard.local.json`；名称只用于节点识别，不改变硬件、训练参数或运行路径。公司工作机另登记为 `4080-16g`，见文末 2026-11-10 条目；两台机器不共用硬件与解释器结论。
 
 ## 环境登记规则（2026-11-10，训练流程第③步）
 
@@ -24,7 +24,7 @@
 - “能跑”不足以通过：登记需给出路径、文件系统位置与启动实测；工作台节点探测只证明连接性，不代表策略行为验收。
 - 登记变化需同步到本文件对应日期条目，并在涉及流程或进度时更新 [PROGRESS.md](../../../PROGRESS.md)。
 
-## 2026-11-10：回放冷启动定位与 WSL venv 迁移
+## 2026-11-10：MSI-laptop 回放冷启动定位与 WSL venv 迁移
 
 [本机实测] 用户报告检查点回放加载慢。工作台回放从创建到首帧 61.2–81.2 秒（5 个会话：61.2/64.7/71.6/81.2 及 61.9 s）。窗口在首帧前不显示机器人（前端 `root.visible=false`），因此表现为长时间空画面。
 
@@ -107,3 +107,30 @@ powershell -File training/start-dashboard.ps1 -NoBrowser
 ### 边界
 
 仅确认本地训练环境的运行能力；不宣称策略行为达标，不启动原正式训练的第二轮，不部署机器人。短跑日志中的模型 keyframe/integrator 拼接及 Warp 弃用警告保留；未为搭环境改模型或依赖源码。短跑对已跟踪 `MUJOCO_LOG.TXT` 的自动追加已还原，本轮完整日志另行归档。之前 Gitee 更新保存的 `pre-gitee-update-20261107` stash 仍保留，本轮不处理其硬件文档冲突。登记修改默认不提交、不推送。
+
+## 2026-11-10：公司工作机（4080-16g）与两台 Spark 的现场核对
+
+用户确认训练平台可能部署在多处；当前为公司工作机器，本机一个训练环境，两台 Spark 在同一局域网。仓库同时用于 `MSI-laptop`（RTX 5090 Laptop）与本公司工作机（`4080-16g`）两台物理机，WSL 解释器路径、依赖版本和运行目录不同，本节只描述 4080-16g，不覆盖另一台机器的记录；两台机器的结论不互相迁移。本轮只做只读核对并把结论落到 [训练环境登记 spec](../../specs/20261110-训练环境登记/spec.md)，未改本地配置、未重启服务、未启动训练。先更新文档、待批准后再编码。
+
+### 硬件与训练环境 [本机实测]
+
+| 项 | 结果 |
+|---|---|
+| Windows GPU | NVIDIA GeForce RTX 4080，16376 MiB，驱动 616.92 |
+| WSL | Ubuntu；WSL 内 PATH 没有 `nvidia-smi`；torch 2.14.1+cu130，`torch.cuda.is_available()` 为 True，设备名 RTX 4080 |
+| WSL docker | 存在 `/usr/bin/docker`；本机训练走 venv python，不依赖 docker |
+| spark1 | `spark-c416`；NVIDIA GB10；20 核；约 121 GiB；docker 29.2.1；benchmark venv 与 env.sh 存在；`nvcr.io/nvidia/pytorch:25.10-py3` 镜像存在 |
+| spark2 | `spark-752a`；NVIDIA GB10；20 核；docker 28.3.3；benchmark venv 与 env.sh 存在 |
+| Spark env.sh | NCCL_NET=IB、NCCL_SOCKET_IFNAME=enp1s0f0np0、NCCL_IB_HCA、GLOO_SOCKET_IFNAME、HF_HOME=/work/.hf-cache 等 |
+
+### 平台现状 [实测/源码核验]
+
+- `/api/resources` 返回 local、spark1、spark2 三项，本轮均为 connected；local 显示名仍是“本地 Windows / WSL”。
+- 现有 `Executor.probe()` 只做轻量检查（WSL：python + torch；SSH：env_file、benchmark venv、`docker info`），不检查 GPU 名称/显存、训练镜像和 env 变量；资源卡徽章由 2 秒遥测的 connected/stale/unavailable 驱动。
+- 前端 `app.js`/`styles.css` 已具备 ready / available / unavailable / offline 徽章映射，可用性显示不需要改前端文件。
+
+### 结论与边界
+
+- 本机是 RTX 4080 16GB 的公司工作机，与 2026-11-07 登记的 RTX 5090 Laptop 不是同一台；历史性能、回放与验收结果不迁移到本机。
+- 只按 SSH/进程可达判断“可以训练”不充分；GPU、docker、环境变量需要启动前探测，方案见 [spec](../../specs/20261110-训练环境登记/spec.md)。
+- spark2 历史 SSH 收尾超时本轮未复现；实施探测后需实测，单次超时不能判定设备长期不可用。

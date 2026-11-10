@@ -44,3 +44,14 @@
 ## 提交前一致性核对
 
 2026-11-09 用户要求提交并推送。暂存区核对发现5个模型/参数文件的工作区为CRLF、Git内容为LF，原v3清单采用工作区字节哈希。确认差异仅为换行后，统一为LF并更新v3清单；新增`.gitattributes`固定训练Python/JSON/XML的LF，避免拉取后哈希失配。物理数值和历史冻结产物不改；既有GPU验证仍对应此前冻结字节版本，不冒充新哈希下重训。首次清单补丁因末项逗号匹配错误未应用，修正后重试；提交推送结果以Git回执为准。
+
+## 2026-11-10 本机工作台重启核对
+
+[本机实测] 按 `training/start-dashboard.ps1 -NoBrowser` 重启（原进程 2026-11-09 13:49 启动，早于 69d5e5d8，已停止）；服务监听 127.0.0.1:8766，`/api/catalog` 67 字段、14 项奖励、3 个任务，首页 200。
+
+[本机实测] 运行列表为 0：`training/records/` 有 5 份 `record_kind=training-run` 文档（4 份 amplitude 与 history-0c644bb9471038a9fd18），但对应 `training/artifacts/runs/<run_id>/dashboard-run.json` 全部缺失；本机 `training/artifacts/runs/` 仅剩 57 个旧目录，均无 canonical 记录，其中 48 个列在清理台账的 removed 内。`Archive.restore` 要求记录与归档同时存在，故不显示。
+
+[推断] 记录与归档由另一份检出生成（索引中 48 条 removed 目录在本机仍存在；本机 WSL 用户无权访问 `/root/duck-training-runs`），归档位于 Git 忽略目录，未随仓库同步。未删除任何旧归档，未生成新记录，未启动训练。
+
+[待确认] 保存归档的机器/环境。同步 `training/artifacts/runs/` 后可用 `python -m dashboard.cli import-history` 重建索引；在缺少归档时不以旧目录补造记录。
+
