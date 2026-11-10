@@ -8,7 +8,7 @@
 | [robotd-recovery/](robotd-recovery/README.md) | 躺姿起身补丁、部署与验收 |
 | [robotd-v03/](robotd-v03/README.md) | v0.3 补丁历史；通信补丁已撤回，Studio 适配保留 |
 | [robotd/](robotd/README.md) | robotd 补丁与版本入口索引 |
-| [studio/](studio/README.md) | Studio 显示、标定交接适配索引 |
+| [studio/](https://gitee.com/yilv1982/duck-robot-training/tree/main/software/studio) | Studio 显示模型与适配索引（已随训练拆分迁入训练仓） |
 | [deploy/](deploy/README.md) | 板侧部署约定与服务入口 |
 | [policies/](policies/README.md) | 外部策略来源、契约与清单入口 |
 
