@@ -28,7 +28,7 @@
 | [`hardware/banana_pcb/`](hardware/banana_pcb/README.md) | 本项目取电板工作副本、KiCad 工程和生产文件；来源见 `SOURCE.md` 与 `source-manifest.json`。 |
 | [`hardware/custom_hat/`](hardware/custom_hat/README.md) | 自主HAT工作目录；现行主工程原生连通/一致性检查通过，仍有电气设计、制造条件与首板验收待完成；旧生产文件停用，最新源版本、问题矩阵和副本检查流程见目录入口。 |
 | [`flash/`](flash/README.md) | 本项目 IMU 固件、烧录脚本、HEX 校验及验收工具。 |
-| [`training/`](training/README.md) | 本项目 real2sim2real 学习工程：物理参数表、自建物理 MJCF/任务/PPO 入口与 MuJoCo 回放；显示层允许按来源许可复用精细网格，训练物理与任务不整包替换；产物仅仿真学习，不驱动实物。 |
+| [`duck-robot-training`](https://gitee.com/yilv1982/duck-robot-training) | **训练工程与资料已拆分（2026-11-10）**：训练代码、物理参数、任务、回放、训练流程/环境登记文档与产物归档在同级独立仓库；本仓不再保留 `training/`。训练仍只做仿真学习，不驱动实物。 |
 | [`scripts/`](scripts/README.md) | 本项目辅助脚本：图片标注、诊断、训练启动等；复用前核对路径和环境。 |
 | [`software/`](software/README.md) | 本机运行软件适配、补丁与部署索引；补丁目录不等于完整源码。 |
 | [`tools/`](tools/README.md) | 采购、烧录依赖与开发辅助；运行软件已迁 `software/`。 |
@@ -55,7 +55,7 @@
 | [PROGRESS.md](PROGRESS.md) | 本机进展、已到货/在途、未解决事项与后续步骤。 |
 | [BOM.md](BOM.md) | C 线物料、数量、状态及采购缺口。 |
 | [MILESTONES.md](MILESTONES.md) | 7 个里程碑、验收标准、当前状态与依赖顺序；完成需用户确认。 |
-| [real2sim2real 工具链计划](docs/real2sim2real-toolchain-plan.md) | 自建工具链总体规划：real2sim 参数管线、训练管线、sim2real 部署与回灌闭环、分阶段计划（2026-10-22 立项，计划非完成记录）。 |
+| [real2sim2real 工具链计划](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/real2sim2real-toolchain-plan.md) | 自建工具链总体规划：real2sim 参数管线、训练管线、sim2real 部署与回灌闭环、分阶段计划（2026-10-22 立项，计划非完成记录）；已随训练拆分迁入训练仓。 |
 | [简单 Spec 开发流程](docs/spec-process.md) | 功能开发五阶段（需求确认 → 文档确认 → 修改方案 → 编码 → 提交）与 spec 落盘模板（2026-10-23 立项）。 |
 | [供电架构 v2](docs/power-architecture-v2.md) | 当前供电架构讨论基线，**不代表 HAT V1.2 或整机带载已验证**；须结合下面的复核记录。 |
 | [供电与 HAT 实物复核](docs/references/供电与扩展板实物复核/research.md) | 电流预算、分支前提、两口/八焊盘识别、LDO 标注及尚未验证的风险。 |
@@ -87,7 +87,7 @@
 | [HD-1910 厂商资料](references/microduck-replica/tools/FeeTech_HD1910M_Servo/README.md) | C001 规格书、接口、电流及通信资料；核对手中型号/批次后使用。 |
 | [B 线电控采购](references/microduck-replica/docs/电控采购清单.md) / [不打 HAT 方案](references/microduck-replica/docs/不打HAT.md) | 选型和替代接法参考，不是本机物料状态。 |
 | [A 线阶段基线](docs/route-a-baseline-20260928.md) / [A 线 BOM](docs/bom-route-a-20260928.md) | 已存档的 XL330 路线，仅回退时使用。 |
-| [A 训练](docs/a-training.md) / [A 验收数据](docs/a-training-validation.json) / [B 训练](docs/b-training.md) | 历史训练环境、结果和复现条件，不等于当前机器已部署。 |
+| [A 训练](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/a-training.md) / [A 验收数据](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/a-training-validation.json) / [B 训练](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/b-training.md) | 历史训练环境、结果和复现条件；已迁入训练仓，不等于当前机器已部署。 |
 | [供电 v1](docs/power-architecture-v1.md) | 已被取代的历史方案，不得继续作为接线操作依据。 |
 
 ## 四、强制协作规则
@@ -170,7 +170,7 @@
 
 ### 10. 所有训练必须走训练流程（2026-11-09 用户指示）
 
-- **所有训练均须纳入[已确认的训练流程](docs/specs/20261105-自主训练平台/spec.md)**：①策略需求 → ②任务定义与验收标准 → ③训练环境组装 → ④训练方案 → ⑤执行训练 → ⑥独立评估与回放 → ⑦策略交付；涉及实物时扩展⑧部署验证 → ⑨数据回灌。新训、续训、重训、调参、对照实验及包含训练更新的短跑/测速均适用，不因规模小、使用临时脚本或更换计算节点而绕过流程。
+- **所有训练均须纳入[已确认的训练流程](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/specs/20261105-自主训练平台/spec.md)**：①策略需求 → ②任务定义与验收标准 → ③训练环境组装 → ④训练方案 → ⑤执行训练 → ⑥独立评估与回放 → ⑦策略交付；涉及实物时扩展⑧部署验证 → ⑨数据回灌。新训、续训、重训、调参、对照实验及包含训练更新的短跑/测速均适用，不因规模小、使用临时脚本或更换计算节点而绕过流程。
 - 启动前须明确所属任务、当前步骤、已验证输入、训练配置与预算、预期产物和验收标准，并落盘到对应任务记录。已有确认及仍有效的验证结果直接复用；续训或调参从受影响的步骤继续，输入变化时重新验证受影响的下游结果，不重复索要已获授权。
 - 每一步按“输入验证 → 执行 → 输出验证”推进，开始与完成时按流程说明步骤编号、名称、作用、产物及验证结果；必需项未通过或待确认时，不跳步启动依赖训练，也不宣称该步骤完成。训练结束不等于行为验收通过。
 - 训练流程与第8条的功能开发 Spec 流程分别适用，不相互替代；训练中的代码修改仍遵守开发规则。训练配置、日志、检查点、评估结果及失败原因须可追溯，并同步相关训练入口和进度记录。

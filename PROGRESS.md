@@ -1,5 +1,7 @@
 # 进度记录
 
+> **2026-11-10 训练拆分**：训练代码、训练流程/环境登记文档、训练记录与产物已迁至同级独立仓库 [duck-robot-training](https://gitee.com/yilv1982/duck-robot-training)；本仓 `training/` 与相关 `docs/specs`、`docs/references` 已移出。下方历史条目中的旧训练链接指向已移动的路径，仅作历史记录；现行训练见训练仓。
+
 **[2026-11-10 训练环境登记与启动自识别]** [用户确认] 环境登记只落本地配置，平台启动时按 hostname+GPU+WSL 发行版识别当前环境，不在代码里写死“本机”名。[本机实测] 公司工作机识别为 `desktop-4080-16G`；每个环境生成独立探测脚本（GPU/docker/镜像/env/venv/work_root），启动、60 秒复测、刷新按钮与训练启动前执行，desktop-4080-16G、spark1、spark2 均就绪；未登记主机显示“未登记主机”并拒绝本机训练，不可达显示离线。v3 任务按当前源码刷新哈希后恢复 ready；前端未改，未启动训练。按用户要求环境名统一为 `desktop-4080-16G` 与 `laptop-5090-24G`（原 4080-16g / MSI-laptop）。见[训练环境登记 Spec](docs/specs/20261110-训练环境登记/spec.md)。
 
 **[2026-11-10 回放加载优化，首帧61–81秒降至约5–9秒]** [本机实测] 回放冷启动约95%耗时在Python导入：同一依赖栈 `/mnt/c` 导入42.8–49.6 s，WSL ext4 仅6.0–9.3 s。训练venv已迁 `/root/venvs/duck-wsl`，工作台与`play-mujoco.ps1`改用新位置，旧仓库内`.venv-wsl`暂留回退；API创建回放首帧4.6/4.8 s（热缓存）、9.1 s（drop_caches 冷缓存），关闭后GPU 0 MiB。同轮修复回放完成后worker滞留GPU（曾达4 h53 min）与带BOM控制文件被静默忽略：新增`--idle-timeout`默认300 s、控制文件按UTF-8 BOM容错。播放步进性能仍约0.37×实时，本次未改。该规则已写入训练流程第③步“环境组装与登记”的强制规则及验收场景7，并在训练记录目录要求第③步引用环境登记。见[Spec](docs/specs/20261110-回放加载优化/spec.md)、[训练流程](docs/specs/20261105-自主训练平台/spec.md)与[环境记录](docs/references/本机训练环境/research.md)。本轮修改未提交。

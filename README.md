@@ -25,7 +25,7 @@ MicroDuck 小型双足机器人的个人复刻项目。当前主线为**方案 C
 | [software/README.md](software/README.md) | 本机软件适配、robotd/Studio 与部署索引 |
 | [tools/README.md](tools/README.md) | 嘉立创下单、烧录依赖与开发辅助 |
 | [scripts/README.md](scripts/README.md) | 跨域维护与诊断脚本 |
-| [training/README.md](training/README.md) | 自建 real2sim2real 工程 |
+| [duck-robot-training](https://gitee.com/yilv1982/duck-robot-training) | 自建 real2sim2real 训练工程与资料（2026-11-10 拆分） |
 | [flash/README.md](flash/README.md) | IMU 固件与烧录 |
 | [references/README.md](references/README.md) | 三个上游参考库（只读） |
 
@@ -58,7 +58,7 @@ servo-web 工作副本在 [software/servo-web](software/servo-web/SOURCE.md)；r
 
 ## 回退线与旁支
 
-- **A 线回退**：[阶段基线](docs/route-a-baseline-20260928.md)、[A 线 BOM](docs/bom-route-a-20260928.md)、[A 训练](docs/a-training.md)、[A 验收数据](docs/a-training-validation.json)、[B 训练](docs/b-training.md)。仅回退时使用。
+- **A 线回退**：[阶段基线](docs/route-a-baseline-20260928.md)、[A 线 BOM](docs/bom-route-a-20260928.md)、[A 训练](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/a-training.md)、[A 验收数据](docs/a-training-validation.json)、[B 训练](docs/b-training.md)。仅回退时使用。
 - **旁支研究**：[消费电子玩具市场研究](docs/references/消费电子玩具市场研究/research.md)；资料保留，不列入硬件主线。
 - **历史事件**：[2026-10-31～11-02 事件摘录](docs/archive/readme-events-2026-11.md)；完整记录见 PROGRESS 与各专题。
 

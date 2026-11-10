@@ -1,7 +1,0 @@
-{
-  "scope": "metadata annotation only; original checkpoint, actor, source snapshots and budget remain immutable",
-  "legacy_contract_action_label": "14:HOME+0.5*clip(raw,-1,1),joint_limits",
-  "actual_runtime_action": "14:HOME+0.5*EMA(clip(raw,-1,1),alpha=0.25),joint_limits",
-  "evidence": "frozen/training/experiments/amplitude/variant.json and locomotion_env.py are included in checkpoint source hashes; runtime target is recorded directly by diagnostic",
-  "correction": "subsequent prepared candidates include explicit amplitude parameters and correct EMA action label in contract; first trial preserves original provenance"
-}
