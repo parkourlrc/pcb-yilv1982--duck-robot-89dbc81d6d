@@ -30,7 +30,7 @@
   - Recovery 层 = tilt>40° 门控的恢复奖励（upright_progress / height_progress / com_upward_velocity）、fallen_tax、recovery_success 赏金（恢复完成 = tilt<25° 且 z>0.09 m）；
   - 课程三阶段：0–500 iter 先干净行走（fell_over 70° 终止）→ 500+ 摔倒不终止改为恢复训练（8 s 超时回收）→ 1500+ 俯卧初始化爬坡至 45%。
 - **RL 配置**（`MicroduckVelStandRlCfg`）：rsl_rl PPO，actor/critic 均 (512,256,128) ELU MLP，观测归一化（导出烘焙进 ONNX，与 `obs_normalizer=baked_in_onnx` 一致），adaptive LR（1e-3，desired_kl 0.01），num_steps_per_env=24，max_iterations 20000（实际 9599 导出）。
-- **执行器物理**（[c-motion-training 专题已核](../../动作训练软件研究/research.md)）：HD1910 = BAM M6 电压控制律 + 库仑/Stribeck/负载相关摩擦 + 摩擦/电压/压降/延迟域随机化，参数 `hd1910_m6.json` 来自 LuwuDynamics/xgoduck_rl；baseline "HD1910 / BAM M6 · 官方骨架 820g"。
+- **执行器物理**（[c-motion-training 专题已核](https://gitee.com/yilv1982/duck-robot-training/blob/main/docs/references/动作训练软件研究/research.md)）：HD1910 = BAM M6 电压控制律 + 库仑/Stribeck/负载相关摩擦 + 摩擦/电压/压降/延迟域随机化，参数 `hd1910_m6.json` 来自 LuwuDynamics/xgoduck_rl；baseline "HD1910 / BAM M6 · 官方骨架 820g"。
 - **勘误说明**：`model-inventory-20261031.json` 中 `policy_path`（`training/logs/b-feetech-walk-20261024/...`）是**板侧相对路径**，本机 `training/` 下无此目录，不改变上文"本机无副本"结论。
 
 ## 来源
