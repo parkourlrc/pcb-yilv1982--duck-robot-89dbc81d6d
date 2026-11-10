@@ -60,7 +60,7 @@ def create_app(config=None):
                 previous = sample
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
-                resource = resources.setdefault('local', {'node_id': 'local', 'label': '本地 Windows / WSL', 'execution_kind': 'wsl', 'samples': []})
+                resource = resources.setdefault('local', {'node_id': 'local', 'label': 'MSI-laptop', 'execution_kind': 'wsl', 'samples': []})
                 runs.record_resource('local', sample)
                 resource.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, active_run_ids=[run['run_id'] for run in runs.store.all('run') if run['state'] in ACTIVE and 'local' in run['execution']['node_ids']], active_replay_ids=[item['replay_id'] for item in runs.store.all('replay') if replays.get(item['replay_id'])['state'] not in ('closed', 'failed')])
                 resource['samples'] = (resource['samples'] + [sample])[-900:]
@@ -81,7 +81,7 @@ def create_app(config=None):
                 sample['scope'] = 'wsl_virtual_machine'
                 received_utc = utcnow()
                 sample['received_utc'] = received_utc
-                resource = resources.setdefault('local', {'node_id': 'local', 'label': '本地 Windows / WSL', 'execution_kind': 'wsl', 'samples': []})
+                resource = resources.setdefault('local', {'node_id': 'local', 'label': 'MSI-laptop', 'execution_kind': 'wsl', 'samples': []})
                 wsl = resource.setdefault('wsl', {'samples': []})
                 wsl.update(connection={'state': 'connected', 'last_seen_utc': received_utc}, sample=sample)
                 wsl['samples'] = (wsl.get('samples', []) + [sample])[-900:]
