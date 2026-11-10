@@ -4,6 +4,45 @@
 
 本机训练节点统一登记名为 `MSI-laptop`。节点类型仍为 Windows + Ubuntu-24.04 WSL2，工作台配置入口为 `training/dashboard.local.json`；名称只用于节点识别，不改变硬件、训练参数或运行路径。
 
+## 环境登记规则（2026-11-10，训练流程第③步）
+
+按[自主训练平台流程 Spec](../../specs/20261105-自主训练平台/spec.md)“环境组装与登记的强制规则”，本机环境登记至少包含以下字段；当前值同步记录在下方 2026-11-10 条目。
+
+| 字段 | 要求/当前登记 |
+|---|---|
+| 节点与发行版 | `MSI-laptop`；Ubuntu-24.04 WSL2，内核 6.18.54.1-microsoft-standard-WSL2 |
+| 解释器绝对路径 | `/root/venvs/duck-wsl/bin/python`（Python 3.12.3） |
+| 文件系统位置 | WSL 原生 ext4 虚拟磁盘（`/dev/sdd`；宿主文件 `%LOCALAPPDATA%\wsl\{distro-id}\ext4.vhdx`，物理位于 C: 的 NVMe SSD） |
+| 仓库源码位置 | `/mnt/c/Projects/duck-robot`（DrvFs/9p，允许放源码与产物，不允许放解释器和依赖） |
+| 依赖版本 | torch 2.13.0+cu129、mjlab 1.3.0、MuJoCo 3.10.0、mujoco-warp 3.8.1、warp-lang 1.12.0、rsl-rl-lib 5.0.1 |
+| 启动实测 | 完整依赖栈导入：冷 8.0–9.3 s、热 6.0–6.4 s；回放首帧：冷 9.1 s、热 4.6–4.8 s（2026-11-10） |
+| 运行校验 | `torch.cuda.is_available() == True`；工作台节点探测 `connected` 并返回 RTX 5090 Laptop GPU |
+| 测量方法 | WSL `drop_caches` 后计时导入；工作台 API 创建回放并记录创建→首帧 |
+
+- 解释器及其 venv/site-packages 必须位于 WSL 原生 ext4；放在 `/mnt/c` 时第③步判不合格（2026-11-10 实测跨盘导入 42.8–49.6 s，原生盘 8–9 s）。
+- 迁移、重建或升级依赖后必须重新登记并复测；旧记录保留，不因新结论删除。
+- “能跑”不足以通过：登记需给出路径、文件系统位置与启动实测；工作台节点探测只证明连接性，不代表策略行为验收。
+- 登记变化需同步到本文件对应日期条目，并在涉及流程或进度时更新 [PROGRESS.md](../../../PROGRESS.md)。
+
+## 2026-11-10：回放冷启动定位与 WSL venv 迁移
+
+[本机实测] 用户报告检查点回放加载慢。工作台回放从创建到首帧 61.2–81.2 秒（5 个会话：61.2/64.7/71.6/81.2 及 61.9 s）。窗口在首帧前不显示机器人（前端 `root.visible=false`），因此表现为长时间空画面。
+
+同一 WSL 解释器、同一依赖栈（`torch, tensordict, rsl_rl.models, mjlab, mujoco_warp, warp`）导入实测：
+
+| 位置 | 冷缓存 | 热缓存 |
+|---|---|---|
+| `/mnt/c/Projects/duck-robot/training/.venv-wsl`（DrvFs/9P） | 42.8 / 43.0 s | 46.8 / 49.6 s |
+| `/root/venvs/duck-wsl`（ext4） | 8.0 / 9.3 s | 6.0 / 6.4 s |
+
+9.9 GB venv 从 `/mnt/c` 复制到 ext4 用时 948.9 s（约 10 MB/s）。分段探针（`training/.dashboard/probe-env.py`，单进程顺序计时）：import torch 19.63 s；import tensordict/rsl_rl/mjlab 51.12 s；torch.load 0.06 s；import mjlab_duck 0.26 s；build actor 0.19 s；build env 1.92 s；reset 0.27 s；首步 0.52 s；后续 20 步 1.59 s（约 80 ms/步）。[实测] 冷启动约 95% 时间在导入，跨盘 I/O 是主因；建环境、权重、reset、首步合计约 3 秒。
+
+同轮发现两项：`a33fedd1…` 回放完成后 worker 仍存活 4 小时 53 分、常驻约 2 GB 并占用 GPU；用 Windows PowerShell 写出的 `controls.json` 带 UTF-8 BOM，worker 的 `json.loads` 失败后被静默 `continue`，关闭指令不生效。
+
+处置与验证：[实测] venv 迁移到 `/root/venvs/duck-wsl`；`training/dashboard.local.json` 的 `nodes.local.python` 指向新路径；`play-mujoco.ps1` 按 `DUCK_WSL_PYTHON` → 新路径 → 旧路径解析；`replay_worker.py` 新增 `--idle-timeout`（默认 300 s）并按 `utf-8-sig` 读取控制文件。改后经工作台 API 创建回放首帧 4.6 s（历史 checkpoint）与 4.8 s（复测），关闭后无 worker 残留、GPU 0 MiB；`--idle-timeout 5` 测试在 13:26:25 完成、13:26:30 转 `closed`，随后进程退出；带 BOM 的关闭指令 3 秒内生效。
+
+限制：新位置依赖当前 WSL 发行版，重置发行版会丢失，需按锁定版本重建；旧 `/mnt/c` venv 暂留回退（9.9 GB，未删除）；冷缓存复测首帧 9.1 s（`drop_caches` 后创建回放），热态 4.6–4.8 s。本次未改播放步进性能：23 s 仿真片段实际耗时约 62 s（约 0.37× 实时），另立任务。见[回放加载优化 Spec](../../specs/20261110-回放加载优化/spec.md)。
+
 ## 2026-11-09：启动工作台与当日更新核对
 
 用户要求启动训练环境并查看今天更新。以本机 `main@88e4a507` 和现有 `gitee/main` 记录为依据，本轮未拉取、未开始训练。11月9日四个提交为：`29f6e73f` 训练数据提交范围与计算环境登记，`79ce1321` 合并步幅实验归档，`96e31d4c` 训练档案分级导入及三类复训，`88e4a507` LF换行与冻结清单修正。功能细节及原验证边界见[实施记录](../../specs/20261109-训练档案与复训/implementation-record.md)：67字段、奖励配方、原状态续训/从零/接权重派生、历史材料分级及耐久档案。其96转换GPU验证是既有实施记录，不是本轮运行，也不代表策略行为通过。
@@ -25,7 +64,7 @@
 | 机器 | MSI Stealth A18 AI+ A3XWJG，物理内存约 63.1 GiB |
 | GPU | NVIDIA GeForce RTX 5090 Laptop GPU，24463 MiB，Windows 驱动 577.05 |
 | WSL | Ubuntu-24.04 / WSL2，内核 6.18.54.1-microsoft-standard-WSL2；可见内存约 30 GiB、swap 8 GiB |
-| 训练解释器 | 仓库 `training/.venv-wsl/bin/python`，Python 3.12.3；复用现场已有独立环境 |
+| 训练解释器 | 2026-11-10 起为 `/root/venvs/duck-wsl/bin/python`（WSL ext4，Python 3.12.3）；原仓库内 `training/.venv-wsl` 保留为回退 |
 | WSL 仓库定位 | 现场 `pwd` 为 `/mnt/c/Projects/duck-robot`；已按现场结果配置，不从历史路径推定 |
 | PyTorch | 2.13.0+cu129，CUDA runtime 12.9 |
 | torchvision | 修正为 0.28.0+cu129；原 0.29.1 要求 torch >=2.14.0，与现有环境冲突 |
@@ -37,7 +76,7 @@
 
 ### 安装操作与来源
 
-现场已有训练环境与 CUDA，无需重装驱动或 WSL。依赖修复命令（仓库根目录的 WSL）：
+现场已有训练环境与 CUDA，无需重装驱动或 WSL。以下为 2026-11-07 当时的安装命令，venv 路径为旧位置；2026-11-10 迁移后新环境应使用 `/root/venvs/duck-wsl`，重建时按同一锁定版本安装。依赖修复命令（仓库根目录的 WSL）：
 
 ```bash
 uv pip install --python training/.venv-wsl/bin/python torch==2.13.0+cu129 torchvision==0.28.0+cu129 --index-url https://download.pytorch.org/whl/cu129

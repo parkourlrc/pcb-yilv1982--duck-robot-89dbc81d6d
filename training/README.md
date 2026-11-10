@@ -38,13 +38,15 @@
 
 **工具选择**：本次采用 mjlab 现有 viser/native 回放能力。B 线 [servo-web 整机 3D 网页调试台](../references/microduck-replica/tools/servo-web/README.md)保留为舵机/IMU 工具参考；其 `--fake` 无重力，不是本次 MuJoCo 回放入口，也未在本次接入实物。
 
+**回放加载与 WSL 解释器位置（2026-11-10）**：[实测，本机] 检查点回放冷启动的约 95% 时间耗在 Python 导入，而同一依赖栈在 `/mnt/c`（DrvFs）需 42.8–49.6 s、在 WSL 原生盘只需 6.0–9.3 s。训练 venv 已从仓库内 `training/.venv-wsl` 迁到 `/root/venvs/duck-wsl`（ext4），工作台与 `play-mujoco.ps1` 默认使用新位置，旧目录暂留回退；首帧由 61–81 s 降到约 5 s（热缓存）。同轮修复回放完成后的 GPU 滞留与带 BOM 控制文件被忽略的问题。该位置与冷/热启动实测已列为训练流程第③步[环境组装与登记规则](../docs/specs/20261105-自主训练平台/spec.md)的输入验证与验收项。详见[优化 Spec](../docs/specs/20261110-回放加载优化/spec.md)与[本机训练环境记录](../docs/references/本机训练环境/research.md)。
+
 ## 目录
 
 **当前联合训练入口**：优先使用[网页工作台](dashboard/README.md)冻结任务与源码。从冻结源码的本目录也可运行`python -m mjlab_duck.train_locomotion --config CONFIG.json --output RUN_DIR --experiment-dir EXP_DIR`，支持单rank或双节点各一rank；每次使用新`--output`，续训显式指定`--resume-manifest`并复用原账本及合同。课程决定待执行的中间`evaluated`点只供推理，续训选择final/stage2兼容点。具体协议见[运行时协议](dashboard/runtime_protocol.md)，验收状态见上述实施记录。
 
 **历史短测速证据**：独立`scripts/benchmark_locomotion.py`完成RTX4080、单Spark及双Spark同全局4096样本的2预热＋3计时短跑，见[比较记录](../docs/references/自主训练平台/Spark与本地训练比较.md)。后续[256/1024/4096环境扫描](../docs/specs/20261105-原地转圈策略/benchmark-scale-runbook.md)采用2预热＋5计时，单Spark补跑加载双机相同env文件；4096下双/单吞吐约1.629×。测速不保存正式策略，不替代新入口恢复检查或行为验收。
 
-**2026-11-05 联合环境及后续扩展**：用户确认第③步方案后新增 `mjlab_duck/locomotion_env.py`、`locomotion_cfg.py`，保持61维actor/critic和14维关节目标，覆盖只前进、减速、弧线、原地转和停止。最短检查入口 `scripts/check_locomotion_env.py --output <结果.json>`（使用既有WSL `.venv-wsl/bin/python`）；见[方案](../docs/specs/20261105-原地转圈策略/environment-plan.md)和[第③步结构检查](../docs/specs/20261105-原地转圈策略/environment-runtime-check.json)。第④步新增版本化课程、逐子步验收统计和reset前终态快照；GPU回归通过不代表策略动作达标。正式入口直接构建runner；未导出或部署。每步`extras["locomotion"]`提供命令、实际速度、固定锚点、失败与奖励分项。
+**2026-11-05 联合环境及后续扩展**：用户确认第③步方案后新增 `mjlab_duck/locomotion_env.py`、`locomotion_cfg.py`，保持61维actor/critic和14维关节目标，覆盖只前进、减速、弧线、原地转和停止。最短检查入口 `scripts/check_locomotion_env.py --output <结果.json>`（使用 WSL 训练解释器 `/root/venvs/duck-wsl/bin/python`，旧 `training/.venv-wsl` 保留回退）；见[方案](../docs/specs/20261105-原地转圈策略/environment-plan.md)和[第③步结构检查](../docs/specs/20261105-原地转圈策略/environment-runtime-check.json)。第④步新增版本化课程、逐子步验收统计和reset前终态快照；GPU回归通过不代表策略动作达标。正式入口直接构建runner；未导出或部署。每步`extras["locomotion"]`提供命令、实际速度、固定锚点、失败与奖励分项。
 
 | 路径 | 内容 |
 |---|---|
@@ -73,7 +75,7 @@ WSL Python 3.12.3、mjlab 1.3.0、MuJoCo 3.10.0、torch 2.14.1+cu130、Viser 1.1
 powershell.exe -File .\training\play-mujoco.ps1
 ```
 
-打开终端打印的地址，默认 [http://127.0.0.1:8080](http://127.0.0.1:8080)。启动器使用已有 `training/.venv-wsl`，仅绑定本机地址；环境在其他 WSL 发行版时可加 `-Distro`。第一次启动会初始化模型与 GPU 内核，运行计时从初始化完成后开始。WSL 内也可在 `training/` 下运行 `.venv-wsl/bin/python play_mujoco.py`。
+打开终端打印的地址，默认 [http://127.0.0.1:8080](http://127.0.0.1:8080)。启动器按 `DUCK_WSL_PYTHON` → `/root/venvs/duck-wsl/bin/python` → `training/.venv-wsl/bin/python` 顺序查找解释器，仅绑定本机地址；环境在其他 WSL 发行版时可加 `-Distro`。第一次启动会初始化模型与 GPU 内核，运行计时从初始化完成后开始。WSL 内也可在 `training/` 下运行 `/root/venvs/duck-wsl/bin/python play_mujoco.py`。
 
 | PowerShell 参数 | Python 参数 | 用途 |
 |---|---|---|

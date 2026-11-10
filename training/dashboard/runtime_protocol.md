@@ -25,7 +25,7 @@ python -m mjlab_duck.train_locomotion --config CONFIG.json --output RUN_DIR --ex
 ## 回放
 
 ```text
-python training/dashboard/replay_worker.py --manifest MANIFEST --runtime-root ROOT --session-dir DIR --replay-id ID --scenario straight_0.06_101 --seed 101
+python training/dashboard/replay_worker.py --manifest MANIFEST --runtime-root ROOT --session-dir DIR --replay-id ID --scenario straight_0.06_101 --seed 101 --idle-timeout 300
 ```
 
 `--checkpoint` 等价 `--manifest`（允许目录），`--output-dir` 等价 `--session-dir`。可选 `--rank 0 --device cuda:0 --task-version v1`。运行根含 `training/mjlab_duck`；默认先找原 run 的 sources，v1 再找 `training/runtime_versions/locomotion-v1`。严格检查所选rank文件SHA、manifest身份、原合同SHA与全部冻结源；仅载 actor和归一化，不载训练器或预算。支持只有所选rank缓存的推理，但不能因此宣称完整恢复。
@@ -41,7 +41,7 @@ python training/dashboard/replay_worker.py --manifest MANIFEST --runtime-root RO
 - attitude包含从完整root quaternion求得的roll_rad/pitch_rad/yaw_rad。任务内部rp是角速度，不冒充姿态角。
 - episode_return/episode_length、failed/reason/completed、speed、actual_realtime_factor。实际倍率以本次reset后活跃步进耗时计算，包含显示限速，排除初始化和暂停。
 
-status.json状态为initializing/playing/paused/completed/closed/failed，每秒心跳；完成保留会话以允许reset，close才释放进程。stdout/stderr为日志，不能作为帧JSON通道。每个worker独占自己的会话目录、GPU环境与控制序号。
+status.json状态为initializing/playing/paused/completed/closed/failed，每秒心跳；完成保留会话以允许reset，close才释放进程。新增 `--idle-timeout`（默认300秒，0禁用）：episode完成后超过该时长无reset则写 `closed`、关闭环境并退出，避免忘记关闭的窗口长期占用GPU。控制文件按UTF-8读取并容忍BOM；解析失败的写入被忽略并在下一轮重试，不让瞬时坏文件终止会话。stdout/stderr为日志，不能作为帧JSON通道。每个worker独占自己的会话目录、GPU环境与控制序号。
 
 WSL写Windows盘时，Windows读取可能短时阻止`os.replace`。回放姿态/状态文件短重试后仍被占用则保留旧目标、丢弃本次替换并清理临时文件；下一帧/心跳重试，不因单帧文件竞争杀死仿真。连续竞争仍会表现为心跳过期，控制面不得伪装最新数据。
 

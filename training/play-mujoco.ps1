@@ -22,10 +22,16 @@ function Convert-ToWslPath([string]$Value) {
 }
 
 $trainingPath = Convert-ToWslPath $PSScriptRoot
-$pythonPath = "$trainingPath/.venv-wsl/bin/python"
-& wsl.exe @wslArgs --exec test -x $pythonPath
-if ($LASTEXITCODE -ne 0) {
-    throw "找不到现有 WSL Python：$pythonPath。若环境在另一发行版，请加 -Distro 指定已有环境。"
+$candidates = @()
+if ($env:DUCK_WSL_PYTHON) { $candidates += $env:DUCK_WSL_PYTHON }
+$candidates += @('/root/venvs/duck-wsl/bin/python', "$trainingPath/.venv-wsl/bin/python")
+$pythonPath = $null
+foreach ($candidate in $candidates) {
+    & wsl.exe @wslArgs --exec test -x $candidate
+    if ($LASTEXITCODE -eq 0) { $pythonPath = $candidate; break }
+}
+if (-not $pythonPath) {
+    throw "找不到可用的 WSL Python（候选：$($candidates -join '，')）。可用 DUCK_WSL_PYTHON 指定解释器绝对路径。"
 }
 
 $programArgs = @('--viewer', $Viewer, '--port', "$Port", '--velocity', $Velocity.ToString([Globalization.CultureInfo]::InvariantCulture))

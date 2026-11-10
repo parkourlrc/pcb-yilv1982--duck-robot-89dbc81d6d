@@ -86,6 +86,7 @@ def run(args):
     speed = 1.
     paused = False
     done = False
+    completed_since = None
     status = "initializing"
     identity = {"replay_id": args.replay_id, "rank": args.rank, "task_version": args.task_version}
     status_lock = threading.Lock()
@@ -169,10 +170,11 @@ def run(args):
         active_seconds = 0.
 
         def reset():
-            nonlocal done, episode_return, episode_steps, active_seconds
+            nonlocal done, episode_return, episode_steps, active_seconds, completed_since
             torch.manual_seed(scenario.seed)
             env.reset(seed=scenario.seed)
             done, episode_return, episode_steps = False, 0., 0
+            completed_since = None
             active_seconds = 0.
             return env.command_manager.get_term("velocity").set_fixed_schedule(scenario.segments)
 
@@ -188,10 +190,10 @@ def run(args):
                     control_file = session/control_name
                     if control_file.is_file():
                         try:
-                            control = json.loads(control_file.read_text(encoding="utf-8"))
-                        except (OSError, json.JSONDecodeError):
+                            control = json.loads(control_file.read_text(encoding="utf-8-sig"))
+                            requested_seq = int(control.get("seq", control.get("generation", -1)))
+                        except (OSError, TypeError, ValueError):
                             continue
-                        requested_seq = int(control.get("seq", control.get("generation", -1)))
                         if requested_seq > control_seq:
                             control_seq = requested_seq
                             action = control.get("action")
@@ -215,6 +217,9 @@ def run(args):
                     state("closed")
                     return
                 if paused or done:
+                    if done and not paused and args.idle_timeout > 0 and completed_since is not None and time.perf_counter()-completed_since >= args.idle_timeout:
+                        state("closed", control_seq=control_seq, reason="idle_timeout")
+                        return
                     if time.perf_counter()-heartbeat_clock >= 1:
                         state("completed" if done else "paused", control_seq=control_seq)
                         heartbeat_clock = time.perf_counter()
@@ -231,6 +236,8 @@ def run(args):
                 episode_steps += 1
                 episode_return += float(reward[0])
                 done = bool((terminated | truncated)[0])
+                if done and completed_since is None:
+                    completed_since = time.perf_counter()
                 now = time.perf_counter()
                 if now-frame_clock >= 1/25 or done or seq == 0:
                     seq += 1
@@ -290,6 +297,8 @@ def main():
     parser.add_argument("--replay-id", required=True)
     parser.add_argument("--rank", type=int, default=0)
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--idle-timeout", type=float, default=300.,
+                        help="seconds to keep a finished replay alive before releasing the GPU; 0 disables")
     run(parser.parse_args())
 
 

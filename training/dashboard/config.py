@@ -14,6 +14,9 @@ def load_config(path=None):
     config.setdefault('data_dir', str(ROOT / 'training/.dashboard'))
     config.setdefault('artifact_dir', str(ROOT / 'training/artifacts'))
     config.setdefault('port', 8765)
+    # Finished replay sessions keep their actor/env for reset; release them
+    # automatically so a forgotten window cannot hold GPU memory for hours.
+    config.setdefault('replay_idle_timeout_s', 300)
     # History migration is an explicit maintenance operation.  The dashboard
     # reads only process-produced documents under training/records.
     config.setdefault('auto_import_history', False)

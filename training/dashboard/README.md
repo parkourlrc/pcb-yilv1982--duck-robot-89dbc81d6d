@@ -44,4 +44,6 @@ CLI启动与续训前台持续同步到终态，终态缺失产物每30秒重试
 
 回放在本地WSL运行冻结actor及归一化；最大四路，可暂停/重置/倍率控制。关闭服务不结束训练；关闭回放通过会话控制文件释放。回放模型来自Studio部署来源原件，前端适配只改变显示。
 
+回放解释器建议放在 WSL 原生盘（ext4），不要放在 `/mnt/c`：本机 2026-11-10 实测同一依赖栈从 `/mnt/c` 导入需 42.8–49.6 s、从 ext4 只需 6.0–9.3 s，直接决定窗口首帧等待。当前配置为 `/root/venvs/duck-wsl/bin/python`。回放 episode 结束后 worker 默认保留 300 s 供重置；可用 `replay_idle_timeout_s`（秒，0 表示不自动释放）调整，超时后写 `closed` 并退出，释放 GPU。控制文件按 UTF-8（容忍 BOM）读取。详见 [回放加载优化 Spec](../../docs/specs/20261110-回放加载优化/spec.md)。
+
 接口合同见 `docs/specs/20261106-训练可视化工具/api-contract.md`。实现与验收边界见同目录 `implementation-record.md`，未验收的路径不等同已验证支持。

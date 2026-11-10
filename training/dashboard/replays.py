@@ -123,7 +123,8 @@ class Replays:
                 command = [node['python'], self._wsl_path(self.runs.root / 'training/dashboard/replay_worker.py'),
                            '--checkpoint', self._wsl_path(checkpoint['_manifest']), '--task-version', run['task_version'],
                            '--runtime-root', self._wsl_path(runtime), '--scenario', request.scenario_id, '--seed', str(request.seed),
-                           '--output-dir', self._wsl_path(directory), '--replay-id', identifier]
+                           '--output-dir', self._wsl_path(directory), '--replay-id', identifier,
+                           '--idle-timeout', str(self.runs.config.get('replay_idle_timeout_s', 300))]
                 wsl = ['wsl.exe'] + (['-d', node['distribution']] if node.get('distribution') else []) + ['--exec']
                 with (directory / 'process.log').open('ab') as log:
                     process = subprocess.Popen(wsl + command, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
